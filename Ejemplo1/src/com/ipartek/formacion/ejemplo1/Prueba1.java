@@ -3,6 +3,7 @@ package com.ipartek.formacion.ejemplo1;
 public class Prueba1 {
 
 	public static void main(String[] args) {
+		System.out.println("BIENVENIDOS A GIT");
 		//int[] arr = new int[2];
 		
 		//arr[2] = 5;
