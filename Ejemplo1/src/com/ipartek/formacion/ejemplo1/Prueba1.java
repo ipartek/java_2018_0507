@@ -29,6 +29,7 @@ public class Prueba1 {
 		int i = 5;
 		
 		Object o2 = i;//new Integer(i);
+		System.out.println(o2);
 	}
 
 }
