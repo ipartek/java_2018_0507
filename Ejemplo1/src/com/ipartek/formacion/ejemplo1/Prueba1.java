@@ -30,6 +30,7 @@ public class Prueba1 {
 		
 		Object o2 = i;//new Integer(i);
 		System.out.println(o2);
+		System.out.println("Fin");
 	}
 
 }
