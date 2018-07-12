@@ -5,6 +5,7 @@ public class PruebaConsola
 		//Sólo existe a partir de Java6
 		
 		System.out.print("Que saludo quieres: ");
+		//Soy Mik
 		String saludo = System.console().readLine();
 		System.out.println(saludo + " " + argumentos[0]);
 	}
