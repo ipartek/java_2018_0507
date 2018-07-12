@@ -1,7 +1,7 @@
 package com.ipartek.formacion.ejemplo1;
 
 public class Prueba1 {
-	//Piero asdasd
+
 	public final static int TAM_ARRAY = 10;
 	
 	public static void main(String[] args) {
