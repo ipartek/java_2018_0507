@@ -6,6 +6,7 @@ public class Prueba1 {
 	
 	public static void main(String[] args) {
 		System.out.println("Hola Mikel Gil");
+		System.out.println("Hola Carlos");
 	}
 	
 	public static void mainArrayBidimensional(String[] args) {
