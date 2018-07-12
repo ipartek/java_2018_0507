@@ -3,10 +3,20 @@ package com.ipartek.formacion.ejemplo1;
 public class Prueba1 {
 
 	public final static int TAM_ARRAY = 10;
+	//
 	
 	public static void main(String[] args) {
+<<<<<<< HEAD
 		System.out.println("Hola Carlos");
 		System.out.println("Prueba");
+=======
+
+    
+		System.out.println("Hola Javier");
+		System.out.println("Hola Caracola");
+
+    
+>>>>>>> branch 'master' of https://github.com/ipartek/java_2018_0507.git
 	}
 	
 	public static void mainArrayBidimensional(String[] args) {
