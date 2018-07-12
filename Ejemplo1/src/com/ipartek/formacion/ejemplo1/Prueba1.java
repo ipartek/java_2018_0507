@@ -6,17 +6,7 @@ public class Prueba1 {
 	//
 	
 	public static void main(String[] args) {
-<<<<<<< HEAD
-		System.out.println("Hola Carlos");
-		System.out.println("Prueba");
-=======
-
-    
-		System.out.println("Hola Javier");
-		System.out.println("Hola Caracola");
-
-    
->>>>>>> branch 'master' of https://github.com/ipartek/java_2018_0507.git
+		System.out.println("Hola a todos");
 	}
 	
 	public static void mainArrayBidimensional(String[] args) {
