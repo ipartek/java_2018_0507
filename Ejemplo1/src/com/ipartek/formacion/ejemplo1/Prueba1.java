@@ -2,11 +2,53 @@ package com.ipartek.formacion.ejemplo1;
 
 public class Prueba1 {
 
+	public final static int TAM_ARRAY = 10;
+	
 	public static void main(String[] args) {
-		System.out.println("BIENVENIDOS A GIT");
-		//int[] arr = new int[2];
+		System.out.println(Math.sqrt(4));
 		
-		//arr[2] = 5;
+		int[] arr = new int[2];
+		
+		arr[0] = 5;
+		arr[1] = 2;
+		
+		int[] arr2 = {5,2};
+		
+		System.out.println(arr2[0]);
+		
+		String[] diasSemana = new String[] { "Lunes", "Martes" };
+		
+		System.out.println(diasSemana[1].toLowerCase());
+				
+		Punto[] puntosPorDefecto = { new Punto(1), new Punto(2) };
+		
+		System.out.println(puntosPorDefecto[1].toString().toUpperCase());
+
+		Punto[] puntos = new Punto[TAM_ARRAY];
+		
+		puntos[0] = new Punto(123,2);
+
+		for(int i = 0; i < puntos.length; i++) {
+			puntos[i] = new Punto(i);
+		}
+		
+		for(Punto p: puntos) {
+			System.out.println(p);
+		}
+		
+		Punto p;
+		for(int i = 0; i < puntos.length; i++) {
+			p = puntos[i];
+			System.out.println(p);
+		}
+		
+		for(int i = 0; i < puntos.length; i++) {
+			System.out.println(puntos[i]);
+		}
+	}
+	
+	public static void mainPunto(String[] args) {
+		System.out.println("BIENVENIDOS A GIT");
 		
 		Punto p = new Punto(3,4);
 		
