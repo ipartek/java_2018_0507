@@ -5,7 +5,7 @@ public class Prueba1 {
 	public final static int TAM_ARRAY = 10;
 	
 	public static void main(String[] args) {
-		System.out.println("Hola Javier");
+		System.out.println("Hola Javier iñaki");
 	}
 	
 	public static void mainArrayBidimensional(String[] args) {
