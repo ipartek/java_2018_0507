@@ -1,9 +1,18 @@
 package com.ipartek.formacion.ejemplo1;
 
+/**
+ * Clase que representa un punto en el plano
+ * @author javierlete
+ *
+ */
+
 public class Punto {
 	public static final int DEFAULT_Y = 1;
 	public static final int DEFAULT_X = 1;
 	
+	/**
+	 * Valor máximo admitido para la x
+	 */
 	public static final int MAX_X = 10000;
 	
 	private int x, y;
@@ -17,6 +26,10 @@ public class Punto {
 		setX(x); setY(y);
 	}
 	
+	/**
+	 * Se contruye un punto basado en un solo valor
+	 * @param xy valor que se usará tanto para la x como para la y
+	 */
 	public Punto(int xy) {
 		this(xy, xy);
 	}
