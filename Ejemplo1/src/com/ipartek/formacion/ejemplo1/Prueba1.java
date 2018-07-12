@@ -5,6 +5,30 @@ public class Prueba1 {
 	public final static int TAM_ARRAY = 10;
 	
 	public static void main(String[] args) {
+		char[][] tablero= new char[8][8];
+		
+		tablero[0] = new char[] {'T', 'C', 'A', 'R', 'r', 'A', 'C', 'T'};
+		tablero[7] = tablero[0].clone();
+		
+		for(int fila = 1; fila <= 6; fila += 5) {
+			for(int columna = 0; columna < 8; columna++) {
+				tablero[fila][columna] = 'p';
+			}
+		}
+		
+		tablero[0][3] = ' ';
+		
+		for(int fila = 0; fila < 8; fila++) {
+			for(int columna = 0; columna < 8; columna++) {
+				System.out.print(tablero[fila][columna]);
+			}
+			System.out.println();
+		}
+		
+		
+	}
+	
+	public static void mainArrays(String[] args) {
 		System.out.println(Math.sqrt(4));
 		
 		int[] arr = new int[2];
