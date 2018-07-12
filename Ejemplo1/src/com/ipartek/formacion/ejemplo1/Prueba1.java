@@ -5,6 +5,10 @@ public class Prueba1 {
 	public final static int TAM_ARRAY = 10;
 	
 	public static void main(String[] args) {
+		System.out.println("Hola Mikel Gil");
+	}
+	
+	public static void mainArrayBidimensional(String[] args) {
 		char[][] tablero= new char[8][8];
 		
 		tablero[0] = new char[] {'T', 'C', 'A', 'R', 'r', 'A', 'C', 'T'};
