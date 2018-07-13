@@ -1,6 +1,7 @@
 package com.ipartek.formacion.ejemplo1;
 
 import java.util.ResourceBundle;
+import java.util.Vector;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -10,8 +11,17 @@ import javax.management.RuntimeErrorException;
 public class Prueba1 {
 
 	public final static int TAM_ARRAY = 10;
-	
 	public static void main(String[] args) {
+	Vector v =new Vector();
+	v.add(1);
+	v.add("hola");
+	v.add(new java.util.Date());
+	v.add(new Punto(11));
+	for(int i =0;i<v.size();i++)
+		System.out.println(v.elementAt(i));
+	System.out.println(((Punto)v.elementAt(3)).getX());
+	}
+	public static void mainLog(String[] args) {
 		System.out.println("Hola Javier iñaki");
 	Logger l = Logger.getLogger(Prueba1.class.getName());
 	
