@@ -11,7 +11,7 @@ public class Prueba1 {
 
 	public final static int TAM_ARRAY = 10;
 	
-	public static void main(String[] args) {
+	public static void mainArrayList(String[] args) {
 		List<Punto> puntos = new ArrayList<>();//<Punto>();
 		
 		Punto pt = new Punto(3); 
