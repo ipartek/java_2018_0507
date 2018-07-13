@@ -39,8 +39,10 @@ public class Prueba1 {
 			System.out.println(p);
 		
 		Punto pt2 = puntos.get(1);
+		System.out.println(pt2);
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void mainVector(String[] args) {
 		Vector v = new Vector();
 		
