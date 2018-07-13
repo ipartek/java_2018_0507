@@ -12,12 +12,12 @@ public class Prueba1 {
 	public final static int TAM_ARRAY = 10;
 	
 	public static void main(String[] args) {
-<<<<<<< HEAD
+
 
 		System.out.println("Hola Carlos");
 
 
-=======
+
 		List<Punto> puntos = new ArrayList<>();//<Punto>();
 		
 		Punto pt = new Punto(3);
@@ -78,7 +78,7 @@ public class Prueba1 {
 		i++;
 		
 		System.out.println(i);
->>>>>>> refs/heads/master
+
 	}
 	
 	public static void mainArrayBidimensional(String[] args) {
