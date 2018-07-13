@@ -1,12 +1,28 @@
 package com.ipartek.formacion.ejemplo1;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Prueba1 {
 
 	public final static int TAM_ARRAY = 10;
-	//
 	
 	public static void main(String[] args) {
 		System.out.println("Hola a todos");
+		
+		Logger l = Logger.getLogger(Prueba1.class.getName()); //getClass().getName());
+		l.info("Prueba de logger");
+		l.log(Level.SEVERE, "Prueba GRAVE", 
+				new RuntimeException("Prueba de excepción"));
+		
+		String sNum = "123";
+		int i = Integer.parseInt(sNum);
+		
+		i = Integer.MAX_VALUE;
+		
+		i++;
+		
+		System.out.println(i);
 	}
 	
 	public static void mainArrayBidimensional(String[] args) {
@@ -29,8 +45,6 @@ public class Prueba1 {
 			}
 			System.out.println();
 		}
-		
-		
 	}
 	
 	public static void mainArrays(String[] args) {
