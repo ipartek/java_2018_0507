@@ -6,10 +6,37 @@ public class Main extends Ave{
 	
 	public static void main(String[] args) {
 		
-
+       
+    
+        
 		Piolin p = new Piolin('H',10,5,2);
 		Loro l = new Loro('M',11,'E',"azul");
 		Loro l2 = new Loro('M',11,'E',"rojo");
+		
+		Canario c = new Canario('H', 5);
+		
+		
+		
+	Piolin[] piolines = new Piolin[3];
+	
+	piolines[0].setNombres(dp);
+	piolines[1].getNombres().setNombreAve("Swaggy P");
+	
+		
+	
+		
+		
+		
+		
+		
+		
+		l.cantar();
+		
+		
+		
+		
+		
+		
 		
 		p.quienSoy();
 		l.quienSoy();
@@ -24,7 +51,7 @@ public class Main extends Ave{
 		p.setTamano(4);
 		p.altura();
 		
-		
+	 
 		//probando instacia de clase (static)
 		//System.out.println(l.numAvesCreadas);
 		//l.numAvesCreadas++;
