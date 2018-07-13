@@ -1,5 +1,6 @@
 package com.ipartek.formacion.ejemplo1;
 
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -8,6 +9,23 @@ public class Prueba1 {
 	public final static int TAM_ARRAY = 10;
 	
 	public static void main(String[] args) {
+		Vector v = new Vector();
+		
+		v.add(new Integer(1));
+		v.add("Hola");
+		v.add(new java.util.Date());
+		v.add(new Punto(1,2));
+		Object o = (Object)new Punto(3,4);
+		v.add(o);
+		
+		for(int i = 0; i < v.size(); i++)
+			System.out.println(v.elementAt(i));
+		
+		Punto p = (Punto) v.elementAt(2);
+		System.out.println(p.getY());
+	}
+	
+	public static void mainLogger(String[] args) {
 		System.out.println("Hola a todos");
 		
 		Logger l = Logger.getLogger(Prueba1.class.getName()); //getClass().getName());
