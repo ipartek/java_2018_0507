@@ -3,6 +3,34 @@ package ejercicios.basicos.liniciales;
 public class Main {
 	
 	public static void main(String[] args) {
+		int A = 1;
+		int B = 2;
+		int C = 3;
+		int D = 4;
+		int temp;
+		
+		System.out.println("A = "+A);
+		System.out.println("B = "+B);
+		System.out.println("C = "+C);
+		System.out.println("D = "+D);
+		
+		temp = B;
+		B = C;
+		C = A;
+		A = D;
+		D = temp;
+		
+		System.out.println(B);
+		System.out.println(C);
+		System.out.println(A);
+		System.out.println(D);
+
+		
+
+	}
+
+	
+	public static void main03(String[] args) {
 		int N = 1;
 		
 		System.out.println("Valor inicial de N = "+N);
