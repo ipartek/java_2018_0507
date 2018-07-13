@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class Prueba1 {
 	
-	//prueba mi rama
+	//prueba mi rama2
 
 	public final static int TAM_ARRAY = 10;
 	
