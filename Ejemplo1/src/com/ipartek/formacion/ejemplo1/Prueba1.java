@@ -14,7 +14,7 @@ public class Prueba1 {
 	public static void main(String[] args) {
 		List<Punto> puntos = new ArrayList<>();//<Punto>();
 		
-		Punto pt = new Punto(3);
+		Punto pt = new Punto(3); 
 		
 		puntos.add(new Punto());//new java.util.Date());
 		puntos.add(pt);
