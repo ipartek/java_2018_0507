@@ -13,11 +13,13 @@ public class Main {
 			aux+=10;
 			arrayPiolin[i].cantar();
 		}
+		
 		lo.cantar();
 		arrayPiolin[0].nombres.setNombreDueño("carol");
 		arrayPiolin[0].nombres.setNombrePajaro("polluelo");
 		System.out.println(arrayPiolin[0].nombres.getNombreDueño());
 		System.out.println(arrayPiolin[0].nombres.getNombrePajaro());
+		
 		/*Piolin piol=new Piolin('h', 25, 30, 35);
 		Loro loro=new Loro('h', 20, 'n', "negro");
 		Loro loro2=new Loro('h', 20, 'n', "negro");

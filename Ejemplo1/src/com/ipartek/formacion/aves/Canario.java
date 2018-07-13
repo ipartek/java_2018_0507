@@ -6,6 +6,7 @@ public class Canario extends Ave{
  public Canario(Integer edad,char sexo)
  {
 	 super(edad,sexo);
+	 
  }
  public Canario(Integer edad,char sexo,Integer tamano)
  {
