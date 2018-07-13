@@ -1,6 +1,9 @@
 package com.ipartek.formacion.ejemplo1;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
+import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -9,6 +12,34 @@ public class Prueba1 {
 	public final static int TAM_ARRAY = 10;
 	
 	public static void main(String[] args) {
+		List<Punto> puntos = new ArrayList<>();//<Punto>();
+		
+		Punto pt = new Punto(3);
+		
+		puntos.add(new Punto());//new java.util.Date());
+		puntos.add(pt);
+		puntos.add(new Punto(4,6));
+		
+		Punto ptBorrar = new Punto(3);
+		
+		puntos.remove(ptBorrar);
+		
+		puntos.removeIf( p -> p.getX() < 2 ); //Java8
+		
+//		puntos.removeIf(new Predicate<Punto>() {
+//			@Override
+//			public boolean test(Punto p) {
+//				return p.getX() < 2;
+//			}
+//		});
+		
+		for(Punto p: puntos)
+			System.out.println(p);
+		
+		Punto pt2 = puntos.get(1);
+	}
+	
+	public static void mainVector(String[] args) {
 		Vector v = new Vector();
 		
 		v.add(new Integer(1));
