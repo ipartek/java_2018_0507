@@ -43,11 +43,8 @@ public class Loro extends Ave{
 	}
 	
 	public void setRegion(char region) {
-		if (Character.compare(region, 'N') != 0 || Character.compare(region, 'S') != 0 || Character.compare(region, 'E') != 0 || Character.compare(region, 'O') != 0) {
-			this.region = 'O';
-		}else {
-			this.region = region;
-		}
-		
+		if (region != 'N' && region != 'S' && region != 'E' && region != 'O')
+			throw new Error("Region desconocida, tiene que ser 'N', 'S', 'E', 'O'");
+		this.region = region;
 	}
 }

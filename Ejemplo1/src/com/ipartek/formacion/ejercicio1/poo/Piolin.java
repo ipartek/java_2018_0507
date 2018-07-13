@@ -9,10 +9,14 @@ parámetros. */
 public class Piolin extends Canario{
 	
 	private Integer numeroPeliculas;
+	private String nombrePiolin;
+	private String nombreDuenio;
+	private Integer tamanio;
 
-	public Piolin(char sexo, Integer edad, Integer tamaño, Integer numeroPeliculas) {
-		super(sexo, edad, tamaño);
+	public Piolin(char sexo, Integer edad, Integer tamanio, Integer numeroPeliculas, String nombrePiolin, String nombreDuenio) {
+		super(sexo, edad, tamanio);
 		this.numeroPeliculas = numeroPeliculas;
+		super.setNombres(new DatosPersonales(nombrePiolin, nombreDuenio));
 	}
 
 }

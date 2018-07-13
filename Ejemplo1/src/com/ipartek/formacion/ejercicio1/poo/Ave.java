@@ -15,11 +15,29 @@ public class Ave {
 	private char sexo;
 	private Integer edad;
 	private static int avesCreadas = 0;
+	DatosPersonales nombres;
 	
 	public Ave (char sexo, Integer edad) {
 		setSexo(sexo);
 		setEdad(edad);
 		avesCreadas += 1;
+	}
+	
+	public Ave(char sexo, Integer edad, String nombreAve, String nombreDuenio) {
+		setSexo(sexo);
+		setEdad(edad);
+		nombres = new DatosPersonales(nombreAve, nombreDuenio);
+		avesCreadas += 1;
+	}
+	
+	public static void cantar(Ave ave) {
+		if (ave.getClass().getSimpleName().equalsIgnoreCase("Piolin")) {
+			System.out.println("Pio-pio soy un Piolín");
+			return;
+		}
+		if (ave.getClass().getSimpleName().equalsIgnoreCase("Loro"))
+			System.out.println("Piiio-piiiio loro bonito");
+		
 	}
 
 	public static void getAvesCreadas() {
@@ -35,11 +53,9 @@ public class Ave {
 	}
 
 	public void setSexo(char sexo) {
-		if (Character.compare(sexo, 'M') != 0 || Character.compare(sexo, 'H') != 0) {
-			this.sexo = 'M';
-		}else {
-			this.sexo = sexo;
-		}
+		if (sexo != 'M' && sexo != 'H')
+			throw new Error("El sexo solo puede ser 'M' o 'H'");
+		this.sexo = sexo;
 	}
 
 	public Integer getEdad() {
@@ -49,7 +65,13 @@ public class Ave {
 	public void setEdad(Integer edad) {
 		this.edad = edad;
 	}
-	
-	
+
+	public DatosPersonales getNombres() {
+		return nombres;
+	}
+
+	public void setNombres(DatosPersonales nombres) {
+		this.nombres = nombres;
+	}
 	
 }
