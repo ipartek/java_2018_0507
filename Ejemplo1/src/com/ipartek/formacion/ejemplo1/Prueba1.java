@@ -3,7 +3,6 @@ package com.ipartek.formacion.ejemplo1;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
-import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -37,8 +36,10 @@ public class Prueba1 {
 			System.out.println(p);
 		
 		Punto pt2 = puntos.get(1);
+		System.out.println(pt2);
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void mainVector(String[] args) {
 		Vector v = new Vector();
 		
