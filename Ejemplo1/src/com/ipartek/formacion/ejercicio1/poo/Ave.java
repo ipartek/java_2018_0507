@@ -26,7 +26,7 @@ public class Ave {
 	public Ave(char sexo, Integer edad, String nombreAve, String nombreDuenio) {
 		setSexo(sexo);
 		setEdad(edad);
-		nombres = new DatosPersonales(nombreAve, nombreDuenio);
+		nombres = new DatosPersonales(nombreAve, nombreDuenio); 
 		avesCreadas += 1;
 	}
 	
