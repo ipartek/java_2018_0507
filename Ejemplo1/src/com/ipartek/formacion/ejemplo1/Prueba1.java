@@ -1,11 +1,24 @@
 package com.ipartek.formacion.ejemplo1;
 
+import java.util.ResourceBundle;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.management.RuntimeErrorException;
+
 public class Prueba1 {
 
 	public final static int TAM_ARRAY = 10;
 	
 	public static void main(String[] args) {
 		System.out.println("Hola Javier iñaki");
+	Logger l = Logger.getLogger(Prueba1.class.getName());
+	
+	l.info("prueba de logger");
+	l.info("hola");
+	l.log(Level.SEVERE, "casco por todos lados", new RuntimeException("prueba excepcion"));
+	
 	}
 	
 	public static void mainArrayBidimensional(String[] args) {
