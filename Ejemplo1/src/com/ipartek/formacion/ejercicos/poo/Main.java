@@ -24,7 +24,26 @@ public class Main {
 		
 		Piolin[] piolines = new Piolin[2];
 		
-		piolines[0] = new Piolin (Piolin.setSexo("Hembra"),Piolin.setEdad(5),Piolin.setTamano(40),Piolin.setNumPeliculas(8));
+		
+		piolines[0].setSexo("Hembra");
+		piolines[0].setEdad(23);
+		piolines[0].setTamano(24);
+		piolines[0].setNumPeliculas(3);
+		
+		for (int i = 0; i < piolines.length; i++) {
+			System.out.println(piolines[i].getSexo());
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+	
+		
+		
 	
 		
 		

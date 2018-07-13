@@ -1,11 +1,14 @@
 package com.ipartek.formacion.ejercicos.poo;
 
 
-public abstract class Canario extends Aves {
+public class Canario extends Aves {
 
 	
 	private Integer tamano;
 	
+	public void Cantar() {
+		
+	}
 	
 	public Canario (String sexo, Integer edad)
 	{
@@ -32,6 +35,10 @@ public abstract class Canario extends Aves {
 		{
 			System.out.println("Mediano");
 		}
+	}
+
+	public void setTamano(Integer tamano) {
+		this.tamano = tamano;
 	}
 
 	public Integer getTamano() {

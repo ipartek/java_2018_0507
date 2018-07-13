@@ -2,13 +2,20 @@ package com.ipartek.formacion.ejercicos.poo;
 
 
 
-	public abstract class Piolin extends Canario {
+	public class Piolin extends Canario {
 		
 		private Integer NumPeliculas;
 
-		private Piolin(String sexo, Integer edad, Integer tamano, Integer numPeliculas) {
+		
+		public void Cantar() {
+			System.out.println("Pio Pio sou un Piolin");
+		}
+		
+		
+		
+		public Piolin(String sexo, Integer edad, Integer tamano, Integer numPeliculas) {
 			super(sexo, edad, tamano);
-			setNumPeliculas(numPeliculas);
+			this.NumPeliculas= numPeliculas;
 		}
 
 		public Integer getNumPeliculas() {
@@ -19,18 +26,5 @@ package com.ipartek.formacion.ejercicos.poo;
 			NumPeliculas = numPeliculas;
 		}
 
-		public static String setSexo(String string) {
-			
-			return null;
-		}
 
-		public static Integer setEdad(int i) {
-			
-			return null;
-		}
-
-		public static Integer setTamano(int tamano) {
-			
-			return null;
-		}
 }

@@ -7,7 +7,7 @@ public abstract class Aves {
 	private DatosPersonales nombres;
 	
 	
-	private Aves (String sexo, Integer edad)
+	public Aves (String sexo, Integer edad)
 	{
 		this.sexo = sexo;
 		this.edad = edad;
@@ -30,6 +30,26 @@ public abstract class Aves {
 
 	public void setNombres(DatosPersonales nombres) {
 		this.nombres = nombres;
+	}
+
+
+	public String getSexo() {
+		return sexo;
+	}
+
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
+
+	public Integer getEdad() {
+		return edad;
+	}
+
+
+	public void setEdad(Integer edad) {
+		this.edad = edad;
 	}
 		
 

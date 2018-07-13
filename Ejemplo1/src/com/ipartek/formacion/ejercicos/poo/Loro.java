@@ -1,13 +1,17 @@
 package com.ipartek.formacion.ejercicos.poo;
 
 
-	public abstract class Loro extends Aves{
+	public class Loro extends Aves{
 		
 		private Character region;
 		private String color;
 		
+		public void Cantar() {
+			System.out.println("Pio Pio soy un Loro");
+		}
 		
-		private Loro (String sexo, Integer edad, Character region, String color) {
+		
+		public Loro (String sexo, Integer edad, Character region, String color) {
 			super (sexo,edad);
 			this.setRegion(region);
 			this.setColor(color);
