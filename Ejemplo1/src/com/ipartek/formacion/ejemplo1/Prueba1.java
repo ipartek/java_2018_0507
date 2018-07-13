@@ -1,5 +1,7 @@
 package com.ipartek.formacion.ejemplo1;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Vector;
 import java.util.logging.Handler;
@@ -12,6 +14,15 @@ public class Prueba1 {
 
 	public final static int TAM_ARRAY = 10;
 	public static void main(String[] args) {
+	List<Punto> l =new ArrayList<>();
+	l.add(new Punto());
+	l.add(new Punto(3));
+	l.add(new Punto(4,6));
+	l.removeIf(p -> p.getX() <2);
+	for(Punto p:l)
+		System.out.println(p);
+	}
+	public static void mainVector(String[] args) {
 	Vector v =new Vector();
 	v.add(1);
 	v.add("hola");
