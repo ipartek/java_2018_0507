@@ -18,13 +18,21 @@ package com.ipartek.formacion.ejercicos.poo;
 			this.NumPeliculas= numPeliculas;
 		}
 
+	
+
+
+
 		public Integer getNumPeliculas() {
 			return NumPeliculas;
 		}
 
 		public void setNumPeliculas(Integer numPeliculas) {
-			NumPeliculas = numPeliculas;
+			this.NumPeliculas = numPeliculas;
 		}
+
+
+
+
 
 
 }

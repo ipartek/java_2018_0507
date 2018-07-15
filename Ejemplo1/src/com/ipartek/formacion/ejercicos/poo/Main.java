@@ -22,19 +22,26 @@ public class Main {
 //		l.DondeEres(l.getRegion());
 		
 		
-		Piolin[] piolines = new Piolin[2];
 		
+		Piolin[] piolines = new Piolin[3];
 		
-		piolines[0].setSexo("Hembra");
-		piolines[0].setEdad(23);
-		piolines[0].setTamano(24);
-		piolines[0].setNumPeliculas(3);
+		Piolin p = new Piolin("Macho",12,23,12);
+		Piolin p1 = new Piolin("Hembra",12,15,67);
+		Piolin p2 = new Piolin("Macho",12,23,76);
+		
+		piolines[0]=p;
+		piolines[1]=p1;
+		piolines[2]=p2;
+		
 		
 		for (int i = 0; i < piolines.length; i++) {
-			System.out.println(piolines[i].getSexo());
+			
+			System.out.println("Sexo: " + piolines[i].getSexo()+ " Edad: " + piolines[i].getEdad() + " Tamano: " 
+					
+				+ piolines[i].getTamano() + " NumPelis: " + piolines[i].getNumPeliculas());
 		}
 		
-		
+
 		
 		
 		
