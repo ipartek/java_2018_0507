@@ -10,13 +10,16 @@ package com.ipartek.formacion.ejercicos.poo;
 			System.out.println("Pio Pio soy un Loro");
 		}
 		
-		
+
 		public Loro (String sexo, Integer edad, Character region, String color) {
 			super (sexo,edad);
 			this.setRegion(region);
 			this.setColor(color);
 		}
 		
+
+
+
 		public void DondeEres(Character region) {
 			
 			switch (region)

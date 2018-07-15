@@ -24,6 +24,7 @@ public class Main {
 		
 		
 		Piolin[] piolines = new Piolin[3];
+		DatosPersonales da = new DatosPersonales("Jon","Julen");
 		
 		Piolin p = new Piolin("Macho",12,23,12);
 		Piolin p1 = new Piolin("Hembra",12,15,67);
@@ -43,7 +44,14 @@ public class Main {
 		
 
 		
+		Loro l = new Loro();
 		
+		l.setSexo("Hembra");
+		l.setEdad(23);
+		l.setRegion('O');
+		l.setColor("Verde");
+		
+		System.out.println(l.getSexo());
 		
 		
 		
