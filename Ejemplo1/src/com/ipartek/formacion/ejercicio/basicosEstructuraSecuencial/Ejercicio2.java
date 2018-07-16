@@ -17,6 +17,7 @@ public class Ejercicio2 extends LeerTeclado{
 	public void leerNombre() {
 		System.out.println("Introduzca su nombre.");
 		leerString(name);
+		System.out.println("Su nombre es " + name);
 		
 	}
 }
