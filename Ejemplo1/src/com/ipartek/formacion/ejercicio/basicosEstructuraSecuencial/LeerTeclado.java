@@ -17,8 +17,8 @@ public class LeerTeclado {
 	public String leerString(String s) {
 		return s = sc.nextLine();
 	}	
-	public char leerChar(char l) {
-		return l = sc.next().charAt(0);
+	public String leerChar(String l) {
+		return l = sc.nextLine();
 	}
 
 }

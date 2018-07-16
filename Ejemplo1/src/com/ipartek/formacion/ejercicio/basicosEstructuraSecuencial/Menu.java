@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class Menu {
 	
-	public static char letter;
+	public static String letter;
+	public static char caracter;
 	public static boolean salir = true;
 	public static String def;
 	public static int menu;
@@ -12,9 +13,9 @@ public class Menu {
 	static Scanner sc2 = new Scanner(System.in);
 	static LeerTeclado lt = new LeerTeclado(sc);
 	static Ejercicio1 e1 = new Ejercicio1();
-	static Ejercicio2 e2 = new Ejercicio2(sc);
+	static Ejercicio2 e2 = new Ejercicio2(sc2);
 	static Ejercicio3 e3 = new Ejercicio3();
-	static Ejercicio10 e10 = new Ejercicio10(sc);
+	static Ejercicio10 e10 = new Ejercicio10(sc2);
 	
 	public static void menu() {
 		do {
@@ -36,21 +37,24 @@ public class Menu {
 				break;
 				default:
 					salir = false;
-					System.out.println("Valor no valido");
+					System.out.println("Eleccion no valida");
 					break;
 			}
 		}while (salir==false);
 	}
 	public static void volver() {
 		System.out.println("\nQuieres volver al menu? S/N");
-		lt.leerChar(letter);
-		System.out.println(letter);
-		if(letter == 's' || letter == 'S' || letter == 'n' || letter == 'N') {
-			System.out.println("gato");
-			//menu();
+		leerSN();
+		if(caracter == 's' || caracter == 'S') {
+			menu();
+		}else if (caracter == 'n' || caracter == 'N'){
+			System.out.println("Adios");
 		}else {
-			System.out.println("Introduzca S o N");
+			volver();
 		}
 	}
-	
+	public static void leerSN(){
+		letter = lt.leerChar(letter);
+		caracter = letter.charAt(0);
+	}
 }

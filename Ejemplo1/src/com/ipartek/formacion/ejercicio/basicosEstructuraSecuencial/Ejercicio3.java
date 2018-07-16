@@ -10,11 +10,11 @@ public class Ejercicio3 {
 	LeerTeclado lt  = new LeerTeclado(sc);
 
 	public void resultado() {
-		valor = lt.leerInt(valor);
 		System.out.println("Introduce un numero");
+		valor = lt.leerInt(valor);
 		doble =valor*2;
 		triple= valor*3;
-		System.out.println("El doble de " + valor + "es " + doble + ", y el triple es " + triple);
+		System.out.println("El doble de " + valor + " es " + doble + ", y el triple es " + triple);
 	}
 	
 }
