@@ -15,9 +15,13 @@ package com.ipartek.formacion.ejercicos.poo;
 			super (sexo,edad);
 			this.setRegion(region);
 			this.setColor(color);
+			
 		}
 		
 
+		public Loro() {
+			
+		}
 
 
 		public void DondeEres(Character region) {

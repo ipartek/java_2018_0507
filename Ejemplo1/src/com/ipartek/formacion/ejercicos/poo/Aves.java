@@ -13,6 +13,9 @@ public abstract class Aves {
 		this.edad = edad;
 	}
 	
+	public Aves() {
+		
+	}
 
 	
 	public void QuienSoy ()

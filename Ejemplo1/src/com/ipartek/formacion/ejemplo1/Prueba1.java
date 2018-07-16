@@ -18,7 +18,7 @@ public class Prueba1 {
 		
 		Punto pt = new Punto(3);
 		
-		puntos.add(new Punto());//new java.util.Date());
+		puntos.add(new Punto());//new java.util.Date());   3 MANERAS DIFERENTES DE AÑADIR UN PUNTO A LA LISTA
 		puntos.add(pt);
 		puntos.add(new Punto(4,6));
 		

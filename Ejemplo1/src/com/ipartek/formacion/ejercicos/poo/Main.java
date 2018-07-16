@@ -20,11 +20,13 @@ public class Main {
 //		
 //		l.setRegion('S');
 //		l.DondeEres(l.getRegion());
-		
-		
+			
 		
 		Piolin[] piolines = new Piolin[3];
+		
 		DatosPersonales da = new DatosPersonales("Jon","Julen");
+		da.setNombreAve("Aguila");
+		da.setNombreDueno("Julen");
 		
 		Piolin p = new Piolin("Macho",12,23,12);
 		Piolin p1 = new Piolin("Hembra",12,15,67);
@@ -40,9 +42,10 @@ public class Main {
 			System.out.println("Sexo: " + piolines[i].getSexo()+ " Edad: " + piolines[i].getEdad() + " Tamano: " 
 					
 				+ piolines[i].getTamano() + " NumPelis: " + piolines[i].getNumPeliculas());
+			
+			piolines[i].Cantar();
 		}
 		
-
 		
 		Loro l = new Loro();
 		
@@ -51,7 +54,7 @@ public class Main {
 		l.setRegion('O');
 		l.setColor("Verde");
 		
-		System.out.println(l.getSexo());
+		l.Cantar();
 		
 		
 		
