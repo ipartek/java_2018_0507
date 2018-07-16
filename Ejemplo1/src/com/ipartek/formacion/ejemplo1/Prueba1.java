@@ -35,6 +35,7 @@ public class Prueba1 {
 
 	public final static int TAM_ARRAY = 10;
 
+
 	public static void mainListas(String[] args) {
 		List<Punto> puntos = new ArrayList<>();// <Punto>();
 
@@ -61,6 +62,7 @@ public class Prueba1 {
 			System.out.println(p);
 
 		Punto pt2 = puntos.get(1);
+
 	}
 
 	public static void mainVector(String[] args) {
