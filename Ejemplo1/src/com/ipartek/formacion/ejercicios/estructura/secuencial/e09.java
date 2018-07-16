@@ -23,6 +23,7 @@ public class e09 {
 		
 		double p = ((ladoA+ladoB+ladoC)/2);
 		System.out.println("El área del triángulo es: " + Math.sqrt(p*(p-ladoA)*(p-ladoB)*(p-ladoC)));
+		sc.close();
 	}
 
 }

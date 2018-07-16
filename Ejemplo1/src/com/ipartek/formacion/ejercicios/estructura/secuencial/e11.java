@@ -22,7 +22,7 @@ public class e11 {
 		System.out.println((numero / 100));
 		System.out.println((numero / 10));
 		System.out.println((numero / 1));
-
+		sc.close();
 	}
 
 }

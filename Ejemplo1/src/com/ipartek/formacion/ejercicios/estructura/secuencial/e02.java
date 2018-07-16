@@ -17,7 +17,7 @@ public class e02 {
 		System.out.println("Introduce tu nombre: ");
 		S = sc.nextLine();
 		System.out.println("Tu nombre es: " + S);
-
+		sc.close();
 	}
 
 }

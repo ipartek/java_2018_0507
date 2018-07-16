@@ -17,7 +17,7 @@ public class e04 {
 		N = sc.nextInt();
 		N = 32 + (9 * N / 5);
 		System.out.println(N + " Grados Farenheit");
-
+		sc.close();
 	}
 
 }

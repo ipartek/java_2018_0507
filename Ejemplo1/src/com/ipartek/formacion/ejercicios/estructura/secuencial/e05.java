@@ -20,6 +20,7 @@ public class e05 {
 		System.out.println("Introduce el radio de la circunferencia: ");
 		r = sc.nextInt();
 		System.out.println("Long: " + (2 * Math.PI * r) + " Área: " + (Math.PI * (r * r)));
+		sc.close();
 	}
 
 }

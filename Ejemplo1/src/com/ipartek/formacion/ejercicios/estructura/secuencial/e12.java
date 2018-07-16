@@ -24,7 +24,7 @@ public class e12 {
 		System.out.println((numero % 1000));
 		System.out.println((numero % 10000));
 		System.out.println((numero % 100000));
-
+		sc.close();
 	}
 
 }

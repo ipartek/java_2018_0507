@@ -19,7 +19,7 @@ public class e07 {
 		double cateto2 = sc.nextDouble();
 
 		System.out.println("Hipotenusa:" + Math.sqrt(Math.pow(cateto1, 2) + Math.pow(cateto2, 2)));
-
+		sc.close();
 	}
 
 }

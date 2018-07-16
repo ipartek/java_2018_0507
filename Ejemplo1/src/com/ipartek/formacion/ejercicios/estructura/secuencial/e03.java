@@ -15,7 +15,7 @@ public class e03 {
 		System.out.println("Introduce un entero: ");
 		N = sc.nextInt();
 		System.out.println(N * 2 + " " + N * 3);
-
+		sc.close();
 	}
 
 }

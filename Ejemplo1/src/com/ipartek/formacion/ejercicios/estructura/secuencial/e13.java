@@ -37,6 +37,7 @@ public class e13 {
 		System.out.println(unidad);
 		
 		System.out.println("El número de la suerte es: " + (millar + centena + decena + unidad));
+		sc.close();
 	}
 
 }

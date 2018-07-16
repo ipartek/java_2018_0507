@@ -16,6 +16,8 @@ public class e10 {
 		System.out.println("Centena: "  + (numero / 100));
 		System.out.println("Decena: " + (numero / 10) % 10);
 		System.out.println("Unidad: " + (numero % 10));
+		
+		sc.close();
 	}
 
 }

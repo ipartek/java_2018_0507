@@ -14,7 +14,7 @@ public class e06 {
 
 		System.out.println("La velocidad en m/s es:");
 		System.out.println(velocidad * 1000 / 3600);
-
+		sc.close();
 	}
 
 }
