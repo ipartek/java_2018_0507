@@ -1,9 +1,12 @@
 package com.ipartek.formacion.ejemplo1;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.Vector;
-import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -12,6 +15,34 @@ public class Prueba1 {
 	public final static int TAM_ARRAY = 10;
 	
 	public static void main(String[] args) {
+		Map<Punto, String> ubicaciones = new HashMap<>();
+		
+		ubicaciones.put(new Punto(5,6), "Bilbao");
+		ubicaciones.put(new Punto(), "Santutxu");
+		ubicaciones.put(new Punto(6,6), "Bilbao");
+		ubicaciones.put(new Punto(6,6), "Barcelona");
+		
+		for(Punto ubicacion: ubicaciones.keySet()) {
+			System.out.printf("%s, %s\n", ubicacion, ubicaciones.get(ubicacion));
+		}
+		
+		System.out.println(ubicaciones.get(new Punto(6,6)));
+	}
+	public static void mainSet(String[] args) {
+		Set<Punto> puntos = new HashSet<>();
+		
+		Punto pt = new Punto(3);
+		
+		puntos.add(new Punto());
+		puntos.add(pt);
+		puntos.add(new Punto(3,3));
+		puntos.add(new Punto(4,6));
+		
+		for(Punto p: puntos)
+			System.out.println(p);
+	}
+	
+	public static void mainListas(String[] args) {
 		List<Punto> puntos = new ArrayList<>();//<Punto>();
 		
 		Punto pt = new Punto(3);
@@ -37,8 +68,10 @@ public class Prueba1 {
 			System.out.println(p);
 		
 		Punto pt2 = puntos.get(1);
+		System.out.println(pt2);
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void mainVector(String[] args) {
 		Vector v = new Vector();
 		
