@@ -17,6 +17,7 @@ public class Prueba1 {
 	public final static int TAM_ARRAY = 10;
 
 	public static void main(String[] args) {
+
 		Punto origen = new Punto(0,0);
 		Poligono poligono = new Poligono(origen);
 		
@@ -30,6 +31,7 @@ public class Prueba1 {
 		System.out.println(poligono);
 		System.out.println(poligono.get(1));
 		
+
 
 	}
 	
