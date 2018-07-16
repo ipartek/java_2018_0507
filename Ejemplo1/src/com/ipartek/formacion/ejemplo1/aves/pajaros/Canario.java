@@ -1,4 +1,7 @@
-package com.ipartek.formacion.ejemplo1;
+package com.ipartek.formacion.ejemplo1.aves.pajaros;
+
+import com.ipartek.formacion.ejemplo1.DatosPersonales;
+import com.ipartek.formacion.ejemplo1.aves.Ave;
 
 /**
  * @class clase abstracta hereda de Ave

@@ -1,5 +1,9 @@
 package com.ipartek.formacion.ejemplo1;
 
+import com.ipartek.formacion.ejemplo1.aves.Ave;
+import com.ipartek.formacion.ejemplo1.aves.tropicales.Loro;
+import com.ipartek.formacion.ejemplo1.estrellastv.Piolin;
+
 /**
  * 
  * @class Main

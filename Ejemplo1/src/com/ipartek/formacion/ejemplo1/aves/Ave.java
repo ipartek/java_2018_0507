@@ -1,4 +1,6 @@
-package com.ipartek.formacion.ejemplo1;
+package com.ipartek.formacion.ejemplo1.aves;
+
+import com.ipartek.formacion.ejemplo1.DatosPersonales;
 
 /**
  * @class abstracta padre

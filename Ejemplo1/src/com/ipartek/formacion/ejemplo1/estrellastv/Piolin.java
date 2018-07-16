@@ -1,4 +1,7 @@
-package com.ipartek.formacion.ejemplo1;
+package com.ipartek.formacion.ejemplo1.estrellastv;
+
+import com.ipartek.formacion.ejemplo1.DatosPersonales;
+import com.ipartek.formacion.ejemplo1.aves.pajaros.Canario;
 
 /**
  * @class abstracta hereda de Canario Tiene como atributos el sexo (M/H), la
