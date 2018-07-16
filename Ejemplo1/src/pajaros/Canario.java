@@ -10,8 +10,8 @@ public abstract class Canario extends Ave {
 	
 	public Canario(char sexo, Integer edad, Float tamano) {
 		super(sexo, edad);
-		this.sexo = sexo;
-		this.edad = edad;
+		this.setSexo(sexo);
+		this.setEdad(edad);
 		this.tamano = tamano;
 	}
 	
