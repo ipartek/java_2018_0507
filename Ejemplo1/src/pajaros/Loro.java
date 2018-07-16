@@ -2,13 +2,13 @@ package pajaros;
 
 public class Loro extends Ave {
 	
-	public char region;
-	public String color;
+	private char region;
+	private String color;
 
 	public Loro(char sexo, Integer edad, char region, String color) {
 		super(sexo, edad);
 		this.region = region;
-		this.color = color;
+		this.setColor(color);
 	}
 	
 	public void deDondeEres() {
@@ -36,6 +36,14 @@ public class Loro extends Ave {
 
 	void cantar() {
 		System.out.println("Piiio-piiiio loro bonito");
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
 	}
 	
 

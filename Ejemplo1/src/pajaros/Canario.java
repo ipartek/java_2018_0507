@@ -2,7 +2,7 @@ package pajaros;
 
 public abstract class Canario extends Ave {
 
-	public Float tamano;
+	private Float tamano;
 
 	public Canario(char sexo, Integer edad) {
 		super(sexo, edad);
@@ -12,16 +12,16 @@ public abstract class Canario extends Ave {
 		super(sexo, edad);
 		this.setSexo(sexo);
 		this.setEdad(edad);
-		this.tamano = tamano;
+		this.setTamano(tamano);
 	}
 	
 	public void altura() {
-		if(tamano!=null) {
+		if(getTamano()!=null) {
 				
-			if(tamano>30) {
+			if(getTamano()>30) {
 				System.out.println("Alto");
 			}
-			else if(tamano<15) {
+			else if(getTamano()<15) {
 				System.out.println("Mediano");
 			} 
 			else {
@@ -30,6 +30,14 @@ public abstract class Canario extends Ave {
 		}else {
 			System.out.println("El canario no tiene tamaño.");
 		}
+	}
+
+	public Float getTamano() {
+		return tamano;
+	}
+
+	public void setTamano(Float tamano) {
+		this.tamano = tamano;
 	}
 
 }

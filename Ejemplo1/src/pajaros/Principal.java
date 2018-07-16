@@ -28,9 +28,19 @@ public class Principal {
 		
 		/* Se asignará un nuevo nombre de animal y nuevo nombre de dueño al primero 
 		de los tres Piolines creados */
-		DatosPersonales datos = new DatosPersonales("Peter","Juan"); 
-		arrayP[0].setNombres(datos);
-
+		DatosPersonales datos1 = new DatosPersonales("Peter","Juan"); 
+		DatosPersonales datos2 = new DatosPersonales("Ana","Pablo"); 
+		DatosPersonales datos3 = new DatosPersonales("Jorge","Jose"); 
+		arrayP[0].setNombres(datos1);
+		arrayP[0].setNombres(datos2);
+		arrayP[0].setNombres(datos3);
+		
+		Loro l = new Loro('M', 11, 'N', "rojo");
+		l.cantar();
+		arrayP[0].cantar();
+		arrayP[1].cantar();
+		arrayP[2].cantar();
+		System.out.println(datos1.getNombreAve()+" "+datos1.getNombreDueno());
 	}
 
 }

@@ -2,19 +2,19 @@ package pajaros;
 
 public class Piolin extends Canario{
 	
-	public Integer numPeliculas;
+	private Integer numPeliculas;
 
 	public Piolin(char sexo, Integer edad, Float tamano, Integer numPeliculas) {
 		super(sexo, edad, tamano);
-		this.numPeliculas = numPeliculas;
+		this.setNumPeliculas(numPeliculas);
 		
 	}
 	
 	public void altura() {
-		if(tamano>30) {
+		if(getTamano()>30) {
 			System.out.println("Alto");
 		}
-		else if(tamano<15) {
+		else if(getTamano()<15) {
 			System.out.println("Mediano");
 		} 
 		else {
@@ -24,6 +24,14 @@ public class Piolin extends Canario{
 	
 	void cantar() {
 		System.out.println("Pio-pio soy un Piolín");
+	}
+
+	public Integer getNumPeliculas() {
+		return numPeliculas;
+	}
+
+	public void setNumPeliculas(Integer numPeliculas) {
+		this.numPeliculas = numPeliculas;
 	}
 
 }
