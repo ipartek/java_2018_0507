@@ -21,8 +21,17 @@ public class Prueba1 {
 	public static void main(String[] args) {
 		ejemploJodaTime();
 		javaTime8Ejemplo();
+		creaPoli();
 	}
-
+	public static void creaPoli()
+	{
+		Punto miOrigen=new Punto(2,3);
+		Punto miOrigen2=new Punto(2,30);
+		Poligono poligono=new Poligono(new Punto(0,0));
+		poligono.add(miOrigen);
+		poligono.add(miOrigen2);
+		System.out.println(poligono);
+	}
 	private static void javaTime8Ejemplo() {
 		java.time.LocalDate j8newYear = java.time.LocalDate.now().plusYears(1).withDayOfYear(1);
 		System.out.println(j8newYear);
