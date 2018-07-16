@@ -3,6 +3,42 @@ package ejercicios.basicos.liniciales;
 public class Main {
 	
 	public static void main(String[] args) {
+		
+		int C = 55;
+		
+		System.out.println(C + (C>=0 ? " es positivo" : " es negativo"));
+		System.out.println(C + (C%2 == 0 ? " es par" : " es impar"));
+		System.out.println(C + (C%5 == 0 ? " es multiplo de 5" : " no es multiplo de 5"));
+		System.out.println(C + (C%10 == 0 ? " es multiplo de 10" : " no es multiplo de 10"));
+		System.out.println(C + (C>100 ? " es mayor que 100" : " es menor que 100"));
+	}
+
+	
+	public static void main06(String[] args) {
+		
+		int B = -1;
+		
+		System.out.println(B + (B>=0 ? " es positivo" : " es negatvo"));
+			
+	}
+
+	
+	public static void main05(String[] args) {
+	
+	int A = 14;
+	
+	System.out.println(A + (A%2==0 ? " es par " : " es impar "));
+	
+/*	if(A%2 == 0) {
+		System.out.println(A+" Es par");
+	}
+	else {
+		System.out.println(A+" es inpar");
+	}	
+*/	
+	}
+	
+	public static void main04(String[] args) {
 		int A = 1;
 		int B = 2;
 		int C = 3;
@@ -20,10 +56,10 @@ public class Main {
 		A = D;
 		D = temp;
 		
-		System.out.println(B);
-		System.out.println(C);
-		System.out.println(A);
-		System.out.println(D);
+		System.out.println("B toma el valor de C -> B = "+B);
+		System.out.println("C toma el valor de A -> C = "+C);
+		System.out.println("A toma el valor de D -> A = "+A);
+		System.out.println("D toma el valor de B -> D = "+D);
 
 		
 
