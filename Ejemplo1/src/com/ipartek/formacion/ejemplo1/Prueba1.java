@@ -17,6 +17,27 @@ public class Prueba1 {
 	public final static int TAM_ARRAY = 10;
 
 	public static void main(String[] args) {
+		int i = 1;
+
+//		x = x @ y;
+//		x @= y;
+//		i = i + 1;
+//		i += 1;
+//		i++;
+//		++i;
+
+		System.out.println(i);		//1
+		System.out.println(i++);	//1
+		System.out.println(i);		//2
+		System.out.println(++i);	//3
+		System.out.println(i);		//3
+		System.out.println(i--);	//3
+		System.out.println(i);		//2
+		System.out.println(--i);	//1
+		System.out.println(i);		//1
+	}
+
+	public static void mainTime(String[] args) {
 		ejemploJodaTime();
 
 		ejemploJava8JavaTime();
