@@ -1,3 +1,4 @@
+//Programa que lee un número de 3 cifras y muestra sus cifras por separado.
 package com.ipartek.formacion.ejercicio.basicosEstructuraSecuencial;
 
 import java.util.Scanner;

@@ -1,3 +1,4 @@
+//Programa Java que lea dos números enteros por teclado y los muestre por pantalla.
 package com.ipartek.formacion.ejercicio.basicosEstructuraSecuencial;
 
 import java.util.Scanner;
@@ -17,13 +18,6 @@ public class Ejercicio1 {
 		System.out.println("Ahora introduce el otro");
 		number2 = lt.leerInt(number2);
 		System.out.println("Los numeros que has introducido son: " + number1 + " y " + number2);
-		
-		//Lo de abajo funciona sin problemas.
-//		System.out.println("Introduce un número: ");
-//		number1 = sc.nextInt();
-//		System.out.println("Ahora introduce el otro");
-//		number2 = sc.nextInt();
-//		System.out.println("Los numeros que has introducido son: " + number1 + " y " + number2);
 	}
 	
 	

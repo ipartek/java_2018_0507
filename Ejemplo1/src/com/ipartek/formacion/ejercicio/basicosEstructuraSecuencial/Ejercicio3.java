@@ -1,3 +1,4 @@
+//Programa Java que lee un número entero por teclado y obtiene y muestra por pantalla el doble y el triple de ese número.
 package com.ipartek.formacion.ejercicio.basicosEstructuraSecuencial;
 
 import java.util.Scanner;

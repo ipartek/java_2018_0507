@@ -1,3 +1,8 @@
+/*
+ * Clase Menu que recorre un switch para preguntar el ejercicio que se desea ejecutar,
+ * y que una vez ejecutado pregunta si quiere volver a ejecutarse. En caso de no introducir un
+ * valor valido para el switch vuelve a preguntarlo.
+ */
 package com.ipartek.formacion.ejercicio.basicosEstructuraSecuencial;
 
 import java.util.Scanner;
@@ -12,6 +17,7 @@ public class Menu {
 	static Scanner sc = new Scanner(System.in);
 	static Scanner sc2 = new Scanner(System.in);
 	static LeerTeclado lt = new LeerTeclado(sc);
+	static LeerTeclado lt2 = new LeerTeclado(sc2);
 	static Ejercicio1 e1 = new Ejercicio1();
 	static Ejercicio2 e2 = new Ejercicio2(sc2);
 	static Ejercicio3 e3 = new Ejercicio3();
@@ -24,7 +30,7 @@ public class Menu {
 			menu = lt.leerInt(menu);
 			switch(menu){
 				case 1: e1.leerNumero();
-						volver();
+				volver();
 				break;
 				case 2: e2.leerNombre();
 				volver();
@@ -53,8 +59,9 @@ public class Menu {
 			volver();
 		}
 	}
+	
 	public static void leerSN(){
-		letter = lt.leerChar(letter);
+		letter = lt2.leerChar(letter);
 		caracter = letter.charAt(0);
 	}
 }

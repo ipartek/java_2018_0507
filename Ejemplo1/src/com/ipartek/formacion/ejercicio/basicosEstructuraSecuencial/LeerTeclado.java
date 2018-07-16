@@ -1,3 +1,6 @@
+/*
+ * Clase desde la que se llama a los metodos de lectura del teclado.
+ */
 package com.ipartek.formacion.ejercicio.basicosEstructuraSecuencial;
 
 import java.util.Scanner;
