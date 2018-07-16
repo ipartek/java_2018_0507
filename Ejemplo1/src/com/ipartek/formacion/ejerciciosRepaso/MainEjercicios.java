@@ -132,10 +132,8 @@ public class MainEjercicios {
 		if (num < 2) {
 			System.out.print(num);
 			return;
-		} else {
-			decimalABinario(num / 2);
-			System.out.print(num % 2);
-			return;
 		}
+		decimalABinario(num / 2);
+		System.out.print(num % 2);
 	}
 }
