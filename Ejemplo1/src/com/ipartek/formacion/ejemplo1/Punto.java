@@ -23,7 +23,7 @@ public class Punto {
 	}
 
 	public Punto(int x, int y) {
-		setX(x); setY(y);
+	setX(x); setY(y);
 	}
 	
 	/**
