@@ -21,6 +21,11 @@ public class Canario extends Ave{
 		this.tamanyo = tamanyo;
 	}
 	
+	public Canario(char sexo, Integer edad, Integer tamanyo, String nombreDueno, String nombreAve) {
+		super(sexo, edad, nombreDueno, nombreAve);
+		this.tamanyo = tamanyo;
+	}
+	
 	public void altura() {
 		String respuesta;
 		

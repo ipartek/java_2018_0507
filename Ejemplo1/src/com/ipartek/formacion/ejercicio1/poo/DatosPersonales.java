@@ -9,7 +9,7 @@ public class DatosPersonales {
 	private String nombreAve;
 	private String nombreDuenyo;
 	
-	public DatosPersonales(String nombreAve, String nombreDuenio) {
+	public DatosPersonales(String nombreDuenio, String nombreAve) {
 		setNombreAve(nombreAve);
 		setNombreDuenyo(nombreDuenio);
 	}

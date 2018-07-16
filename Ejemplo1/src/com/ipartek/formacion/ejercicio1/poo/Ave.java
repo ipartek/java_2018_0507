@@ -23,10 +23,10 @@ public class Ave {
 		avesCreadas += 1;
 	}
 	
-	public Ave(char sexo, Integer edad, String nombreAve, String nombreDuenio) {
+	public Ave(char sexo, Integer edad, String nombreDueno, String nombreAve) {
 		setSexo(sexo);
 		setEdad(edad);
-		nombres = new DatosPersonales(nombreAve, nombreDuenio); 
+		nombres = new DatosPersonales(nombreDueno, nombreAve); 
 		avesCreadas += 1;
 	}
 	

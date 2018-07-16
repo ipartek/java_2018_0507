@@ -15,7 +15,12 @@ public class Loro extends Ave{
 	public Loro(char sexo, Integer edad, char region, String color) {
 		super(sexo, edad);
 		setRegion(region);
-		this.color = color;
+		this.setColor(color);
+	}
+	public Loro(char sexo, Integer edad, char region, String color, String nombreDueno, String nombreAve) {
+		super(sexo, edad, nombreDueno, nombreAve);
+		setRegion(region);
+		this.setColor(color);
 	}
 	
 	public void deDondeEres() {
@@ -46,5 +51,11 @@ public class Loro extends Ave{
 		if (region != 'N' && region != 'S' && region != 'E' && region != 'O')
 			throw new Error("Region desconocida, tiene que ser 'N', 'S', 'E', 'O'");
 		this.region = region;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
 	}
 }

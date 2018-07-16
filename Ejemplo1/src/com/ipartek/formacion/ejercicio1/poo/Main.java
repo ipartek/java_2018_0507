@@ -28,16 +28,21 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Piolin[] piolines= new Piolin[3];
-		piolines[0] = new Piolin('H', 24, 2, 100, "Piolin1", "Antxon");
-		piolines[1] = new Piolin('M', 20, 3, 20, "Piolin2", "Antxon2");
-		piolines[2] = new Piolin('H', 10, 4, 10, "Piolin3", "Antxon3");
+		piolines[0] = new Piolin('H', 24, 2, 100, "Antxon", "Piolin Especial");
+		piolines[1] = new Piolin('M', 20, 3, 20, "Antxon2", "Piolin2");
+		piolines[2] = new Piolin('H', 10, 4, 10, "Antxon3", "Piolin3");
 		
-		Loro loro = new Loro('M', 30, 'O', "Rojo");
+		Loro loro = new Loro('M', 30, 'O', "Rojo", "Joxepo", "Loro");
 		
+		System.out.print("Canto loro: ");
 		Ave.cantar(loro);
 		for (int x = 0; x < piolines.length; x++) {
+			System.out.print("Canto piolin " + (x+1)+": ");
 			Ave.cantar(piolines[x]);
 		}		
+		
+		System.out.println("\nNombre primer piolin: " + piolines[0].getNombres().getNombreAve() 
+				+ "\nDueno primer piolin: " + piolines[0].getNombres().getNombreDuenyo());
 		
 		
 	
