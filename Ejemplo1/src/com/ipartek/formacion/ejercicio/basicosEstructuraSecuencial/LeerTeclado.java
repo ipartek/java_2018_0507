@@ -11,12 +11,14 @@ public class LeerTeclado {
 		this.sc = sc;
 	}
 
-
 	public int leerInt(int i) {
 		return i = sc.nextInt();
 	}
 	public String leerString(String s) {
 		return s = sc.nextLine();
 	}	
-	
+	public char leerChar(char l) {
+		return l = sc.next().charAt(0);
+	}
+
 }

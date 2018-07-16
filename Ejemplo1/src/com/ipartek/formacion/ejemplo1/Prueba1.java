@@ -17,6 +17,15 @@ public class Prueba1 {
 	public final static int TAM_ARRAY = 10;
 	
 	public static void main (String[]  args) {
+		Poligono poligono = new Poligono(new Punto(0, 0));
+		poligono.add(new Punto(1, 2));
+		poligono.add(new Punto(3, 4));
+		
+		System.out.println(poligono);
+		System.out.println(poligono.get(1));
+	}
+	
+	public static void mainDates (String[]  args) {
 		ejemploJodaTime();
 		
 		ejemploJ8newYear();
