@@ -24,13 +24,21 @@ public class Main {
 		
 		Piolin[] piolines = new Piolin[3];
 		
-		DatosPersonales da = new DatosPersonales("Jon","Julen");
-		da.setNombreAve("Aguila");
-		da.setNombreDueno("Julen");
-		
 		Piolin p = new Piolin("Macho",12,23,12);
 		Piolin p1 = new Piolin("Hembra",12,15,67);
-		Piolin p2 = new Piolin("Macho",12,23,76);
+		Piolin p2 = new Piolin("Macho",12,23,76);//,(new DatosPersonales().setNombreAve("Aguila")); No tengo esto en el constructor
+//		p.getNombres().setNombreAve("Aquila");
+//		p.getNombres().setNombreDueno("Jon");
+//		p1.getNombres().setNombreAve("Halcon");
+//		p1.getNombres().setNombreDueno("Julen");
+//		p2.getNombres().setNombreAve("zeus");
+//		p2.getNombres().setNombreDueno("pedro");
+		DatosPersonales da = new DatosPersonales("Aguila","Julen");
+		p.setNombres(da);
+		DatosPersonales da1 = new DatosPersonales("Halcon","Jon");
+		p1.setNombres(da1);
+		DatosPersonales da2 = new DatosPersonales("Lechuza","Javi");
+		p2.setNombres(da2);
 		
 		piolines[0]=p;
 		piolines[1]=p1;
@@ -57,14 +65,7 @@ public class Main {
 		l.Cantar();
 		
 		
-		
-		
-	
-		
-		
-	
-		
-		
+		System.out.println(piolines[0].getNombres().getNombreAve()+" "+ piolines[0].getNombres().getNombreDueno());
 		
 		
 		

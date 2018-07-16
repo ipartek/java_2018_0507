@@ -14,13 +14,14 @@ public class DatosPersonales {
 		
 	}
 	
-	
+
+
 	public String getNombreAve() {
 		return NombreAve;
 	}
 	
 	public void setNombreAve(String nombreAve) {
-		NombreAve = nombreAve;
+		this.NombreAve = nombreAve;
 	}
 
 	
@@ -30,7 +31,7 @@ public class DatosPersonales {
 	}
 
 	public void setNombreDueno(String nombreDueno) {
-		NombreDueno = nombreDueno;
+		this.NombreDueno = nombreDueno;
 	}
 	
 	

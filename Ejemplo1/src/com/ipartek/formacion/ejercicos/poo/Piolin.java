@@ -16,10 +16,8 @@ package com.ipartek.formacion.ejercicos.poo;
 		public Piolin(String sexo, Integer edad, Integer tamano, Integer numPeliculas) {
 			super(sexo, edad, tamano);
 			this.NumPeliculas= numPeliculas;
+
 		}
-
-	
-
 
 
 		public Integer getNumPeliculas() {
@@ -30,9 +28,8 @@ package com.ipartek.formacion.ejercicos.poo;
 			this.NumPeliculas = numPeliculas;
 		}
 
-
-
-
-
+//		public DatosPersonales Get(String NombreAve,String NombreDueno) {
+//			
+//		}
 
 }
