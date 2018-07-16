@@ -17,7 +17,8 @@ public class Main {
 	//calculaRomano();
 	//muestraContenido("C:/Users/curso/Desktop/frases.txt");
 	//calcularMediaAlumnos();
-		calcuHastaMenos99();
+		//calcuHastaMenos99();
+		tresEnRaya();
 		
 	}
 	public static void calculaRomano() {
@@ -94,6 +95,42 @@ public class Main {
 
     	 
     	 
+     }
+     public static void tresEnRaya()
+     {
+    	 char [][] tablero=new char[3][3];
+    	 int col,fil,hLibres=9;
+    	 for(int i =0;i<3;i++)
+    		 for(int h =0;h<3;h++)
+    			 tablero[i][h]='.';	 
+    	 
+    	 mostrarTa(tablero);
+    	 while(hLibres>0)
+    	 {
+    		 do {
+	    	 Scanner teclado = new Scanner(System.in);
+	    	 System.out.println("inserte columna");
+	    	 col=Integer.parseInt(teclado.nextLine());
+	    	 System.out.println("inserte fila");
+	    	 fil=Integer.parseInt(teclado.nextLine());
+	    	 tablero[col-1][fil-1]='X';
+	    	 mostrarTa(tablero);
+	    	 	if(tablero[col-1][fil-1]!='X')
+	    		 hLibres--;
+    		 }while(tablero[col-1][fil-1]=='X');
+    	 }
+    			 
+     }
+     public static void mostrarTa(char tabler [][])
+     {
+    	 char [][] tablero=tabler;
+    	 for(int i =0;i<3;i++)
+    	 {
+    		 System.out.println("");
+    		 for(int h =0;h<3;h++)
+    			 System.out.print(tablero[i][h]);
+    	 }
+    	 System.out.println("");
      }
      public static void calcuHastaMenos99()
      {
