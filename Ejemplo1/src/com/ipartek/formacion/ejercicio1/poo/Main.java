@@ -35,10 +35,9 @@ public class Main {
 		Loro loro = new Loro('M', 30, 'O', "Rojo");
 		
 		Ave.cantar(loro);
-		Ave.cantar(piolines[1]);
-				
-		
-		
+		for (int x = 0; x < piolines.length; x++) {
+			Ave.cantar(piolines[x]);
+		}		
 		
 		
 	
