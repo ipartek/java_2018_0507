@@ -11,7 +11,8 @@ public class Main {
 	public static void main(String[] args) {
 		LeerTeclado lt = new LeerTeclado(sc);
 		Ejercicio1 e1 = new Ejercicio1();
-		Ejercicio2 e2 = new Ejercicio2(sc2);
+		Ejercicio2 e2 = new Ejercicio2(sc);
+		Ejercicio2 e3 = new Ejercicio3(sc);
 		
 		System.out.println("Elige que ejercicio quieres ejecutar");
 		menu = lt.leerInt(menu);
@@ -20,6 +21,7 @@ public class Main {
 			break;
 			case 2: e2.leerNombre();
 			break;
+			case 3: e3.resultado();
 		
 			
 		}

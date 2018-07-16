@@ -12,12 +12,11 @@ public class Ejercicio2 extends LeerTeclado{
 		// TODO Auto-generated constructor stub
 	}
 
-
-	
 	public void leerNombre() {
 		System.out.println("Introduzca su nombre.");
 		leerString(name);
-		System.out.println("Su nombre es " + name);
-		
+		System.out.println("Buenos dias " + name);
 	}
+	
+	
 }
