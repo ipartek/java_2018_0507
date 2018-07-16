@@ -5,6 +5,31 @@ import java.util.Scanner;
 public class EstructuraSecuencial {
 	
 	public static void main(String[] args) {
+		
+		double a, b, c;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduzca la longitud del primer lado del triángulo");
+		a = sc.nextInt();
+		System.out.println("Introduzca la longitud del segundo lado del triángulo");
+		b = sc.nextInt();
+		System.out.println("Introduzca la longitud del tercer lado del triángulo");
+		c = sc.nextInt();
+		
+	}
+
+	
+	public static void main08(String[] args) {
+		double radio, volumen;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduce la longitud del radio:");
+		radio = sc.nextInt();
+		volumen = (4.0/3)* Math.PI * Math.pow(radio, 3);
+		System.out.println("Volumen de la esfera de radio: "+volumen);
+		
+	}
+
+	
+	public static void main07(String[] args) {
 		double cateto1, cateto2;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Introduce la longitud del primer cateto:");
