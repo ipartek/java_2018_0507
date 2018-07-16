@@ -22,9 +22,15 @@ public class Prueba1 {
 		
 		poligono.add(new Punto(1,2));
 		poligono.add(new Punto(3,4));
+
+		poligono.get(0).setX(10);
+		
+		poligono.getOrigen().setY(200);
 		
 		System.out.println(poligono);
 		System.out.println(poligono.get(1));
+		
+
 	}
 	
 	public static void mainIncrementos(String[] args) {
