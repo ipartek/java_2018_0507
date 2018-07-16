@@ -17,13 +17,21 @@ public class Prueba1 {
 	public final static int TAM_ARRAY = 10;
 	
 	public static void main(String[] args) {
-		//joda-time (Java 5 -> Java 7) Referencia externa en jar
-		LocalDate newYear = LocalDate.now().plusYears(1).withDayOfYear(1);
-		System.out.println(newYear);
+		ejemploJodaTime();
 		
+		ejemploJava8JavaTime();
+	}
+
+	private static void ejemploJava8JavaTime() {
 		//Java 8
 		java.time.LocalDate j8newYear = java.time.LocalDate.now().plusYears(1).withDayOfYear(1);
 		System.out.println(j8newYear);
+	}
+
+	private static void ejemploJodaTime() {
+		//joda-time (Java 5 -> Java 7) Referencia externa en jar
+		LocalDate newYear = LocalDate.now().plusYears(1).withDayOfYear(1);
+		System.out.println(newYear);
 	}
 	
 	public static void mainMap(String[] args) {
