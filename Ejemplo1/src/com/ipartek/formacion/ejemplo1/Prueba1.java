@@ -9,11 +9,21 @@ import java.util.Set;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import org.joda.time.LocalDate;
+
 import java.util.function.Predicate;
 public class Prueba1 {
 
 	public final static int TAM_ARRAY = 10;
 	public static void main(String[] args) {
+		LocalDate now;
+		LocalDate newYear= LocalDate.now().plusYears(1).withDayOfYear(1);
+		System.out.println(newYear);
+		java.time.LocalDate j8newYear=java.time.LocalDate.now().plusYears(1).withDayOfYear(1);
+		System.out.println(j8newYear);
+	}
+	public static void mainMap(String[] args) {
 		Map<Punto,String> ubicaciones=new HashMap<>();
 		ubicaciones.put(new Punto(5,6), "bilbao");
 		ubicaciones.put(new Punto(), "santutxu");
