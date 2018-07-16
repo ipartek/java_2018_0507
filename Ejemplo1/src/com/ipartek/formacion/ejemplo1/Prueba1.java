@@ -3,7 +3,6 @@ package com.ipartek.formacion.ejemplo1;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
-import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -37,10 +36,11 @@ public class Prueba1 {
 			System.out.println(p);
 		
 		Punto pt2 = puntos.get(1);
+		System.out.println("X: " + pt2.getX() + " Y: " + pt2.getY());
 	}
 	
 	public static void mainVector(String[] args) {
-		Vector v = new Vector();
+		Vector<Object> v = new Vector<Object>();
 		
 		v.add(new Integer(1));
 		v.add("Hola");
