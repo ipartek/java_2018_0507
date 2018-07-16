@@ -9,6 +9,12 @@ public class Main {
 		Basicos.ejerBasico2(24, 78, 94.55, 74.25);
 		Basicos.ejerBasico3(55);
 		Basicos.ejerBasico4(1, 2, 3, 4);
+		Basicos.ejerBasico5(6);
+		Basicos.ejerBasico5(7);
+		Basicos.ejerBasico6(-8);
+		Basicos.ejerBasico7(8);
+		Basicos.ejerBasico7(255);
+		Basicos.ejerBasico7(-850);
 	}
 
 }

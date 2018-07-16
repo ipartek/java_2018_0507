@@ -44,28 +44,6 @@ public class Basicos {
 	}
 	
 	public static void ejerBasico4(int A, int B, int C, int D) {
-		/*
-		 *  Programa java que declare cuatro variables enteras A, B, C y D
-		 *   y asígnale un valor a cada una. A continuación realiza las instrucciones 
-		 *   necesarias para que:
-B tome el valor de C
-C tome el valor de A
-A tome el valor de D
-D tome el valor de B
-Si por ejemplo A = 1, B = 2, C = 3 y D = 4 el programa debe mostrar:
-Valores iniciales
-A = 1
-B = 2
-C = 3
-D = 4
-Valores finales
-B toma el valor de C -> B = 3
-C toma el valor de A -> C = 1
-A toma el valor de D -> A = 4
-D toma el valor de B -> D = 2
-
-		 * 
-		 */
 		System.out.println("EJERCIO BÁSICO 4");
 		System.out.println("····························");
 		System.out.println("Valores iniciales");
@@ -87,5 +65,66 @@ D toma el valor de B -> D = 2
 		System.out.println("A toma el valor de D -> A = " + A);
 		System.out.println("D toma el valor de B -> D = " + D);
 
+	}
+
+	public static void ejerBasico5(int A) {
+		System.out.println("");
+		System.out.println("EJERCIO BÁSICO 5");
+		System.out.println("····························");
+		// Otra forma de resolverlo System.out.println(A + (A%2==0 ? " es par " : " es impar "));
+		if(A%2==0) {
+			System.out.println("El número " + A + " es par");
+		}else {
+			System.out.println("El número " + A + " es impar");
+		}
+		System.out.println("····························");
+	}
+
+	public static void ejerBasico6(int B) {
+		System.out.println("");
+		System.out.println("EJERCIO BÁSICO 6");
+		System.out.println("····························");
+		if(B>=0) {
+			System.out.println("El número " + B + " es positivo");
+		}else {
+			System.out.println("El número " + B + " es negativo");
+		}
+		System.out.println("····························");
+	}
+	
+	public static void ejerBasico7(int C) {
+		System.out.println("");
+		System.out.println("EJERCIO BÁSICO 7");
+		System.out.println("····························");
+		if(C>=0) {
+			System.out.println(C + " es positivo");
+		}else {
+			System.out.println(C + " es negativo");
+		}
+		
+		if(C%2==0) {
+			System.out.println(C + " es par");
+		}else {
+			System.out.println(C + " es impar");
+		}
+		
+		if(C%5==0) {
+			System.out.println(C + " es múltiplo de 5");
+		}else {
+			System.out.println(C + " no es múltiplo de 5");
+		}
+		
+		if(C%10==0) {
+			System.out.println(C + " es múltiplo de 10");
+		}else {
+			System.out.println(C + " no es múltiplo de 10");
+		}
+		
+		if(C<100) {
+			System.out.println("El número es menor a 100");
+		}else {
+			System.out.println("El número es mayor a 100");
+		}
+		System.out.println("····························");
 	}
 }
