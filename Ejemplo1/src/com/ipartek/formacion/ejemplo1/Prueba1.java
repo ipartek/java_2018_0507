@@ -17,6 +17,18 @@ public class Prueba1 {
 	public final static int TAM_ARRAY = 10;
 
 	public static void main(String[] args) {
+		System.out.println(factorial(5));
+	}
+	
+	public static int factorial(int valor) {
+		if(valor > 1) {
+			return valor * factorial(valor - 1);
+		} else {
+			return 1;
+		}
+	}
+	
+	public static void mainPoligono(String[] args) {
 		Punto origen = new Punto(0,0);
 		Poligono poligono = new Poligono(origen);
 		
