@@ -1,8 +1,10 @@
 package com.ipartek.formacion.repaso;
 
+import java.util.Scanner;
+
 public class RepasoEjercicios {
 
-	public static void main1(String[] args) {
+	public static void main1p(String[] args) {
 
 		/**
 		 * 
@@ -26,7 +28,7 @@ public class RepasoEjercicios {
 
 	}
 
-	public static void main2(String[] args) {
+	public static void main2p(String[] args) {
 		/**
 		 * 2 Programa java que realice lo siguiente: declarar dos variables X e Y de
 		 * tipo int, dos variables N y M de tipo double y asigna a cada una un valor. A
@@ -44,7 +46,7 @@ public class RepasoEjercicios {
 		System.out.println(Y % 1 + X);
 	}
 
-	public static void main3(String[] args) {
+	public static void main3p(String[] args) {
 		/**
 		 * 3 Programa Java que declare una variable entera b y asígnale un valor. A
 		 * continuación escribe las instrucciones que realicen lo siguiente: Incrementar
@@ -61,7 +63,7 @@ public class RepasoEjercicios {
 		System.out.println(b);
 	}
 
-	public static void main4(String[] args) {
+	public static void main4p(String[] args) {
 		/**
 		 * 4. Programa java que declare cuatro variables enteras A, B, C y D y asígnale
 		 * un valor acada una. A continuación realiza las instrucciones necesarias para
@@ -92,7 +94,7 @@ public class RepasoEjercicios {
 
 	}
 
-	public static void main5(String[] args) {
+	public static void main5p(String[] args) {
 		/**
 		 * 5. Programa Java que declare una variable A de tipo entero y asígnale un
 		 * valor. A continuación muestra un mensaje indicando si A es par o impar.
@@ -105,7 +107,7 @@ public class RepasoEjercicios {
 
 	}
 
-	public static void main6(String[] args) {
+	public static void main6p(String[] args) {
 		/**
 		 * 
 		 * 6. Programa Java que declare una variable B de tipo entero y asígnale un
@@ -120,7 +122,7 @@ public class RepasoEjercicios {
 
 	}
 
-	public static void main(String[] args) {
+	public static void main7p(String[] args) {
 		/**
 		 * 
 		 * 7. Programa Java que declare una variable C de tipo entero y asígnale un
@@ -132,11 +134,29 @@ public class RepasoEjercicios {
 
 		int C = 1;
 
-		System.out.println(C >= 0  ? "es positivo" : "es negativo");
-		System.out.println(C %2==0  ? "es par" : "es impar");
-		System.out.println(C %5==0  ? "es multiplo de 5" : "no es multiplo de 5");
-		System.out.println(C %10==0  ? "es multiplo de 10" : "no es multiplo de 10");
-		System.out.println(C <100  ? "es menor de 100" : "es mayor de 100");
+		System.out.println(C >= 0 ? "es positivo" : "es negativo");
+		System.out.println(C % 2 == 0 ? "es par" : "es impar");
+		System.out.println(C % 5 == 0 ? "es multiplo de 5" : "no es multiplo de 5");
+		System.out.println(C % 10 == 0 ? "es multiplo de 10" : "no es multiplo de 10");
+		System.out.println(C < 100 ? "es menor de 100" : "es mayor de 100");
+
+	}
+
+	public static void main(String[] args) {
+		/**
+		 * 
+		 * 1. Programa Java que lea dos números enteros por teclado y los muestre por
+		 * pantalla.
+		 */
+
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("introduce un numero entero");
+		int numero1 = s.nextInt();
+		System.out.println("introduce otro numero entero");
+		int numero2 = s.nextInt();
+		System.out.println("Los numeros introducidos son :" + numero1 + ", " + numero2);
+		
 
 	}
 
