@@ -22,6 +22,8 @@ public class Menu {
 	static Ejercicio2 e2 = new Ejercicio2(sc2);
 	static Ejercicio3 e3 = new Ejercicio3();
 	static Ejercicio10 e10 = new Ejercicio10(sc2);
+	static EjercicioIterativo1 ei1 = new EjercicioIterativo1();
+	static EjercicioArrayList1 eal1 = new EjercicioArrayList1(sc);
 	
 	public static void menu() {
 		do {
@@ -40,6 +42,10 @@ public class Menu {
 				break;
 				case 4: e10.cortarNumero();
 				volver();
+				break;
+				case 5: ei1.mostrarNumeros1();
+				volver();
+				case 6: eal1.numeroAlumnos();
 				break;
 				default:
 					salir = false;

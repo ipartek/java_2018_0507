@@ -23,5 +23,7 @@ public class LeerTeclado {
 	public String leerChar(String l) {
 		return l = sc.nextLine();
 	}
-
+	public Double leerDoble(Double d) {
+		return d= sc.nextDouble();
+	}
 }
