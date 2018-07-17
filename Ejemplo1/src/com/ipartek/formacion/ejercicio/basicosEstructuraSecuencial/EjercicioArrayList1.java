@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class EjercicioArrayList1 extends LeerTeclado{
 
 	public int alumnos;
-	ArrayList <Double> altura = new ArrayList();
+	ArrayList <Double> altura = new ArrayList<Double>();
 	//Double es mas preciso que Float.
 	public double media;
 	public double alturaAlumno;

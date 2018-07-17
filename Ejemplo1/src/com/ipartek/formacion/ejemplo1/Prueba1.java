@@ -1,6 +1,7 @@
 package com.ipartek.formacion.ejemplo1;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -16,7 +17,65 @@ public class Prueba1 {
 
 	public final static int TAM_ARRAY = 10;
 	
-	public static void main (String[]  args) {
+	public static void main(String[] args) {
+		int div , a, b;
+		a = 5;
+		b = 0;
+		
+		try {
+			
+			//Se jecutaria a pesar del nullPointerException que no esta
+			//registrado como problema
+			String s = null;
+			System.out.println(s.toUpperCase());
+			int []arr = new int[2];
+			arr[1] = 5;
+			div = a/b;
+			Punto p;
+			try {
+				 p = new Punto(50000000,2);
+				 
+			} catch (Exception e) {
+				p = new Punto(Punto.MAX_X, Punto.MAX_Y);
+				e.printStackTrace();
+			}
+		} catch (ArithmeticException ae) {
+			System.out.println("Division por cero");
+			div = Integer.MAX_VALUE;
+		}catch (ArrayIndexOutOfBoundsException aioobe) {
+			System.out.println(aioobe.getMessage());
+			return;
+		}catch (Exception e){
+			System.out.println("Error no esperado");
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			return;
+		}finally {
+			System.out.println("Me ejecuto por mis narices");
+		}
+		System.out.println(div);
+	}
+	
+	public static void mainCalendar (String[]  args) {
+		Calendar c = Calendar.getInstance();
+		System.out.println(c.getTime());
+		System.out.println(c.get(Calendar.YEAR));
+		System.out.println(c.get(Calendar.MONTH)+1);
+ 		System.out.print(c.get(Calendar.HOUR) + ":");
+		System.out.print(c.get(Calendar.MINUTE) + ":");
+		System.out.print(c.get(Calendar.SECOND));
+		}
+	
+	public static void mainPuntoNombre (String[]  args) {
+		PuntoNombre ptn = new PuntoNombre(1, 2, "nombre");
+		System.out.println(ptn);
+	}
+	
+	/*public static void mainRecursividad (String[]  args) {
+		System.out.println(factorial(5));
+	}*/
+
+	public static void mainPoligono (String[]  args) {
 		Poligono poligono = new Poligono(new Punto(0, 0));
 		poligono.add(new Punto(1, 2));
 		poligono.add(new Punto(3, 4));
