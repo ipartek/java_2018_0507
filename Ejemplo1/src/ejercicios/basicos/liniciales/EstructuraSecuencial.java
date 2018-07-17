@@ -5,6 +5,42 @@ import java.util.Scanner;
 public class EstructuraSecuencial {
 	
 	public static void main(String[] args) {
+		int n;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduzca un numero de 5 cifras:");
+		n = sc.nextInt();
+		System.out.println(n/10000);
+		System.out.println((n/1000)%10);
+		System.out.println((n/100)%10);
+		System.out.println((n/10)%10);
+		System.out.println(n%10);
+	}
+	
+	public static void main11(String[] args) {
+		int n;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduzca un numero de 5 cifras:");
+		n = sc.nextInt();
+		System.out.println(n/10000);
+		System.out.println(n/1000);
+		System.out.println(n/100);
+		System.out.println(n/10);
+		System.out.println(n);
+	}
+	
+	
+	public static void main10(String[] args) {
+		int n;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduzca un numero de 3 cifras:");
+		n = sc.nextInt();
+        System.out.println("Primera cifra de " + n + " -> " + (n/100)); 
+        System.out.println("Cifra central de " + n + " -> " + (n/10)%10);
+        System.out.println("Última cifra  de " + n + " -> " + (n%10));
+	}
+
+	
+	public static void main09(String[] args) {
 		
 		double a, b, c;
 		Scanner sc = new Scanner(System.in);
@@ -14,7 +50,9 @@ public class EstructuraSecuencial {
 		b = sc.nextInt();
 		System.out.println("Introduzca la longitud del tercer lado del triángulo");
 		c = sc.nextInt();
-		
+		double p = (a+b+c)/2;
+		double area = Math.sqrt(p*(p-a)*(p-b)*(p-c));
+		System.out.println("Area = "+area);
 	}
 
 	
