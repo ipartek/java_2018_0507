@@ -1,6 +1,7 @@
 package com.ipartek.formacion.ejemplo1;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -10,18 +11,75 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
+
 import org.joda.time.LocalDate;
+import org.joda.time.field.ZeroIsMaxDateTimeField;
 
 import java.util.function.Predicate;
-
+//https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
 public class Prueba1 {
 
 	public final static int TAM_ARRAY = 10;
 
 	public static void main(String[] args) {
-		ejemploJodaTime();
-		javaTime8Ejemplo();
-		creaPoli();
+//		ejemploJodaTime();
+//		javaTime8Ejemplo();
+//		creaPoli();
+//		puntoNombre();
+//		calendario();
+		excepciones();
+	}
+	public static void excepciones()
+	{
+		int div = 0,a,b;
+		a=5;
+		b=0;
+		try {
+//			String s=null;
+//			System.out.println(s.toUpperCase());			
+//			int [] array=new int[2];
+//			array[2]=5;
+			Punto p;
+			try {
+				 p=new Punto(100000,100000);
+				
+			} catch (PuntoException e) {
+				// TODO Auto-generated catch block
+				System.out.println(e.getMessage());
+				p=new Punto(Punto.MAX_X,Punto.MAX_Y);
+			}
+			div=a/b;
+			System.out.println(div);
+		}catch (ArithmeticException e) {
+			System.out.println("entre 0");
+			div=Integer.MAX_VALUE;
+		}catch(ArrayIndexOutOfBoundsException ae) {
+			System.out.println(ae.getMessage());
+		}
+		catch (Exception e) {
+		System.out.println("nuse");
+		e.printStackTrace();}
+		finally {
+			System.out.println("me ejcuto por mis narizez");}
+		
+		System.out.println(div);
+	}
+	public static void calendario()
+	{
+		Calendar c=Calendar.getInstance();
+		System.out.println(c.getTime());
+		System.out.println(c.get(Calendar.YEAR));
+		System.out.println(c.get(Calendar.MONTH)+1);
+		System.out.println(c.get(Calendar.DAY_OF_MONTH));		
+		System.out.println(c.get(Calendar.HOUR));
+		System.out.println(c.get(Calendar.MINUTE));
+		System.out.println(c.get(Calendar.SECOND));
+	}
+	public static void puntoNombre()
+	{
+		PuntoNombre pn=new PuntoNombre(1, 1, "iñaki");
+		System.out.println(pn);
 	}
 	public static void creaPoli()
 	{
@@ -145,26 +203,16 @@ public class Prueba1 {
 
 	public static void mainArrays(String[] args) {
 		System.out.println(Math.sqrt(4));
-
 		int[] arr = new int[2];
-
 		arr[0] = 5;
 		arr[1] = 2;
-
 		int[] arr2 = { 5, 2 };
-
 		System.out.println(arr2[0]);
-
 		String[] diasSemana = new String[] { "Lunes", "Martes" };
-
 		System.out.println(diasSemana[1].toLowerCase());
-
 		Punto[] puntosPorDefecto = { new Punto(1), new Punto(2) };
-
 		System.out.println(puntosPorDefecto[1].toString().toUpperCase());
-
 		Punto[] puntos = new Punto[TAM_ARRAY];
-
 		puntos[0] = new Punto(123, 2);
 
 		for (int i = 0; i < puntos.length; i++) {
@@ -188,28 +236,17 @@ public class Prueba1 {
 
 	public static void mainPunto(String[] args) {
 		System.out.println("BIENVENIDOS A GIT");
-
 		Punto p = new Punto(3, 4);
-
 		Punto pt2 = (Punto) p.clone();
-
 		p.setX(100);
-
 		System.out.println(p.equals(pt2));
-
 		System.out.println(p); // .hashCode());
 		System.out.println(pt2); // .hashCode());
-
 		Object o = p;
-
 		// System.out.println(o.getX());
-
 		Punto pt1 = (Punto) o;
-
 		System.out.println(pt1);
-
 		int i = 5;
-
 		Object o2 = i;// new Integer(i);
 		System.out.println(o2);
 		System.out.println("Fin");

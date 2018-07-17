@@ -14,9 +14,9 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-	//calculaRomano();
-	//muestraContenido("C:/Users/curso/Desktop/frases.txt");
-	//calcularMediaAlumnos();
+		//calculaRomano();
+		//muestraContenido("C:/Users/curso/Desktop/frases.txt");
+		//calcularMediaAlumnos();
 		//calcuHastaMenos99();
 		tresEnRaya();
 		
@@ -121,6 +121,7 @@ public class Main {
     	 }
     			 
      }
+     
      public static void mostrarTa(char tabler [][])
      {
     	 char [][] tablero=tabler;
