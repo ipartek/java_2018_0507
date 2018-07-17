@@ -69,12 +69,17 @@ public class Prueba1 {
 
 		System.out.println(c.getTime());
 
-		System.out.println(c.get(Calendar.YEAR));
-		System.out.println(c.get(Calendar.MONTH) + 1);
-		System.out.println(c.get(Calendar.DAY_OF_MONTH));
-		System.out.println(c.get(Calendar.HOUR));
-		System.out.println(c.get(Calendar.MINUTE));
-		System.out.println(c.get(Calendar.SECOND));
+		try {
+			System.out.println(c.get(Calendar.YEAR));
+			System.out.println(c.get(Calendar.MONTH) + 1);
+			System.out.println(c.get(Calendar.DAY_OF_MONTH));
+			System.out.println(c.get(Calendar.HOUR));
+			System.out.println(c.get(Calendar.MINUTE));
+			System.out.println(c.get(Calendar.SECOND));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
