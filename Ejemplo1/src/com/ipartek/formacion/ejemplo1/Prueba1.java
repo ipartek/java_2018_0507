@@ -17,6 +17,10 @@ public class Prueba1 {
 	public final static int TAM_ARRAY = 10;
 
 	public static void main(String[] args) {
+		PuntoNombre ptn = new PuntoNombre(1,2,"Prueba");
+		System.out.println(ptn);
+	}
+	public static void mainRecursividad(String[] args) {
 		System.out.println(factorial(5));
 	}
 	
