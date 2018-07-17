@@ -14,6 +14,7 @@ public class Punto {
 	 * Valor máximo admitido para la x
 	 */
 	public static final int MAX_X = 10000;
+	public static final int MAX_Y = 10000;
 	
 	private int x, y;
 
@@ -44,7 +45,7 @@ public class Punto {
 
 	public void setX(int x) {
 		if(x > MAX_X)
-			throw new RuntimeException("No se admiten x mayores de " + MAX_X);
+			throw new PuntoException("No se admiten x mayores de " + MAX_X);
 		this.x = x;
 	}
 

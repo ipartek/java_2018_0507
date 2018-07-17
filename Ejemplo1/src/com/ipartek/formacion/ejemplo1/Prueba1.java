@@ -1,6 +1,7 @@
 package com.ipartek.formacion.ejemplo1;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -16,7 +17,11 @@ public class Prueba1 {
 
 	public final static int TAM_ARRAY = 10;
 
+
+	// A partir de JavaSE7 existe esto: https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
+
 	public static void main(String[] args) {
+
 
 		System.out.println("Hola Carlos");
 		System.out.println("Prueba");
@@ -40,6 +45,118 @@ public class Prueba1 {
 		System.out.println(--i);	//1
 		System.out.println(i);		//1
 
+		int div = 0, a, b;
+		a = 5;
+		b = 0;
+
+		try {
+			Punto p;
+			try {
+				p = new Punto(500000000,2);
+			} catch (PuntoException e) {
+				System.out.println(e.getMessage());
+				p = new Punto(Punto.MAX_X, Punto.MAX_Y);
+			}
+			
+			System.out.println(p);
+			
+			String s = null;
+			
+			System.out.println(s.toUpperCase());
+			
+			int[] arr = new int[2];
+			arr[2] = 5;
+
+			
+			//b = 1;
+			div = a / b;
+		} catch (ArithmeticException ae) {
+			System.out.println("División por cero");
+			div = Integer.MAX_VALUE;
+		} catch (ArrayIndexOutOfBoundsException aioobe) {
+			System.out.println(aioobe.getMessage());
+			return;
+		} catch(Exception e) {
+			System.out.println("Error no esperado");
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			return;
+		} finally {
+			System.out.println("ME EJECUTO POR MIS NARICES");
+		}
+
+		System.out.println(div);
+
+		System.out.println("FIN");
+	}
+
+
+	public static void mainCalendar(String[] args) {
+		Calendar c = Calendar.getInstance();
+
+		System.out.println(c.getTime());
+
+		System.out.println(c.get(Calendar.YEAR));
+		System.out.println(c.get(Calendar.MONTH) + 1);
+		System.out.println(c.get(Calendar.DAY_OF_MONTH));
+		System.out.println(c.get(Calendar.HOUR));
+		System.out.println(c.get(Calendar.MINUTE));
+		System.out.println(c.get(Calendar.SECOND));
+
+	}
+
+	public static void mainPuntoNombre(String[] args) {
+		PuntoNombre ptn = new PuntoNombre(1, 2, "Prueba");
+		System.out.println(ptn);
+	}
+
+	public static void mainRecursividad(String[] args) {
+		System.out.println(factorial(5));
+	}
+
+	public static int factorial(int valor) {
+		if (valor > 1) {
+			return valor * factorial(valor - 1);
+		} else {
+			return 1;
+		}
+	}
+
+	public static void mainPoligono(String[] args) {
+		Punto origen = new Punto(0, 0);
+		Poligono poligono = new Poligono(origen);
+
+		poligono.add(new Punto(1, 2));
+		poligono.add(new Punto(3, 4));
+
+		poligono.get(0).setX(10);
+
+		poligono.getOrigen().setY(200);
+
+		System.out.println(poligono);
+		System.out.println(poligono.get(1));
+
+	}
+
+	public static void mainIncrementos(String[] args) {
+		int i = 1;
+
+		// x = x @ y;
+		// x @= y;
+		// i = i + 1;
+		// i += 1;
+		// i++;
+		// ++i;
+
+		System.out.println(i); // 1
+		System.out.println(i++); // 1
+		System.out.println(i); // 2
+		System.out.println(++i); // 3
+		System.out.println(i); // 3
+		System.out.println(i--); // 3
+		System.out.println(i); // 2
+		System.out.println(--i); // 1
+		System.out.println(i); // 1
 	}
 
 	public static void mainTime(String[] args) {
