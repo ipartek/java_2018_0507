@@ -24,6 +24,8 @@ public class Menu {
 	static Ejercicio10 e10 = new Ejercicio10(sc2);
 	static EjercicioIterativo1 ei1 = new EjercicioIterativo1();
 	static EjercicioArrayList1 eal1 = new EjercicioArrayList1(sc);
+	static EjercicioFicherosDirectorios1 efd1 = new EjercicioFicherosDirectorios1();
+	static EjercicioFicherosDirectorios2 efd2 = new EjercicioFicherosDirectorios2(sc2);
 	
 	public static void menu() {
 		do {
@@ -47,6 +49,12 @@ public class Menu {
 				volver();
 				case 6: eal1.numeroAlumnos();
 				break;
+				case 7: efd1.mostrarUnidadesDisco();
+					volver();
+					break;
+				case 8: efd2.leerDirectorio();
+					volver();
+					break;
 				default:
 					salir = false;
 					System.out.println("Eleccion no valida");

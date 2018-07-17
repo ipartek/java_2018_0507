@@ -16,8 +16,10 @@ public class LeerTeclado {
 	}
 
 	public int leerInt(int i) {
+		return i = sc.nextInt();
+
 		//llamar a un booleano (externo) y recorrer un loop
-		while(reEjecutar){
+		/*while(reEjecutar){
 			try {
 				return i = sc.nextInt();
 			} catch (InputMismatchException ime) {
@@ -28,7 +30,7 @@ public class LeerTeclado {
 				return i = 0;
 			}
 		}
-		return i;
+		return i;*/
 		
 	}
 	public String leerString(String s) {

@@ -7,11 +7,9 @@ import java.util.Scanner;
 public class Ejercicio2 extends LeerTeclado{
 
 	public String name;
-	//LeerTeclado lt = new LeerTeclado(sc);
 	
 	public Ejercicio2(Scanner sc) {
 		super(sc);
-		// TODO Auto-generated constructor stub
 	}
 
 	public void leerNombre() {
