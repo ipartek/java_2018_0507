@@ -31,6 +31,7 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube>{
 	public VideoYoutube getById(long id) {
 		VideoYoutube resul = null;
 		
+		//foreach
 		for (VideoYoutube videoIteracion : videos) {
 			if (id == videoIteracion.getId()) {
 				resul = videoIteracion;
