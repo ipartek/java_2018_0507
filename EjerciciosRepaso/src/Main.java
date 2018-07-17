@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+//import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 
 public class Main {
-	
+	static Scanner teclado = new Scanner(System.in);
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		//calculaRomano();
@@ -23,9 +23,9 @@ public class Main {
 	}
 	public static void calculaRomano() {
 		int numero=0;
+		@SuppressWarnings("unused")
 		String consRoma="";
 		System.out.println("vamos a convertir un numnero en numeros romanos mete num:");
-		Scanner teclado = new Scanner(System.in);
 		//numero=Integer.parseInt(teclado.nextLine());
 		try {
 			numero=Integer.parseInt(teclado.nextLine());
@@ -42,7 +42,8 @@ public class Main {
 	
 	  public static void muestraContenido(String archivo) throws FileNotFoundException, IOException {
 	        String cadena,cadenaMaslarga="",cadenaMasPeke="";
-	        int numLinea=0,aux=0,auxPek=1000;
+	        @SuppressWarnings("unused")
+			int numLinea=0,aux=0,auxPek=1000;
 	       //List<Integer> puntos = new ArrayList<>();//<Punto>();
 	        FileReader f = new FileReader(archivo);
 	        BufferedReader b = new BufferedReader(f);
@@ -69,7 +70,8 @@ public class Main {
     	 ArrayList<Integer> notas = new ArrayList<>();
     	 Integer numAlumnos,nota,aux=1,sumaNotas=0;
     	 long media=0;
-    	 Scanner teclado = new Scanner(System.in);
+    	 @SuppressWarnings("resource")
+		Scanner teclado = new Scanner(System.in);
     	 try {
     		 System.out.println("indique el numero de notas de alumno que va a insertar");
  			numAlumnos=Integer.parseInt(teclado.nextLine());
@@ -108,7 +110,8 @@ public class Main {
     	 while(hLibres>0)
     	 {
     		 do {
-	    	 Scanner teclado = new Scanner(System.in);
+	    	
+			
 	    	 System.out.println("inserte columna");
 	    	 col=Integer.parseInt(teclado.nextLine());
 	    	 System.out.println("inserte fila");
@@ -135,7 +138,7 @@ public class Main {
      }
      public static void calcuHastaMenos99()
      {
-    	 Scanner teclado = new Scanner(System.in);
+    	 
     	 ArrayList<Integer> notas = new ArrayList<>();
     	 Integer aux=0,suma=0;
     	 long media=0;

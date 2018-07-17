@@ -14,9 +14,9 @@ import java.util.logging.Logger;
 
 
 import org.joda.time.LocalDate;
-import org.joda.time.field.ZeroIsMaxDateTimeField;
+//import org.joda.time.field.ZeroIsMaxDateTimeField;
 
-import java.util.function.Predicate;
+//import java.util.function.Predicate;
 //https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
 public class Prueba1 {
 
@@ -40,6 +40,7 @@ public class Prueba1 {
 //			System.out.println(s.toUpperCase());			
 //			int [] array=new int[2];
 //			array[2]=5;
+			@SuppressWarnings("unused")
 			Punto p;
 			try {
 				 p=new Punto(100000,100000);
@@ -90,11 +91,13 @@ public class Prueba1 {
 		poligono.add(miOrigen2);
 		System.out.println(poligono);
 	}
+	@SuppressWarnings("unused")
 	private static void javaTime8Ejemplo() {
 		java.time.LocalDate j8newYear = java.time.LocalDate.now().plusYears(1).withDayOfYear(1);
 		System.out.println(j8newYear);
 	}
 
+	@SuppressWarnings("unused")
 	private static void ejemploJodaTime() {
 		LocalDate now;
 		LocalDate newYear = LocalDate.now().plusYears(1).withDayOfYear(1);
