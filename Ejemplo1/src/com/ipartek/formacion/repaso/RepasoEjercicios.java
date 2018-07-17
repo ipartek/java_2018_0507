@@ -142,7 +142,7 @@ public class RepasoEjercicios {
 
 	}
 
-	public static void main(String[] args) {
+	public static void main1es(String[] args) {
 		/**
 		 * 
 		 * 1. Programa Java que lea dos números enteros por teclado y los muestre por
