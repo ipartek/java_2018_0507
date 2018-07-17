@@ -8,14 +8,25 @@ import java.util.List;
 // Delete
 public interface CrudAble<P>{
 	// Retrieve
+	/**
+	 * Recupera todos los pojos
+	 * @return si no existen resultados retorna Lista vacia, no null
+	 * */
 	List<P> getAll();
 	
+	/**
+	 * Buscamos un Pojo por su identificador
+	 * @param id long identificador
+	 * @return P pojo si no lo encuentra, null si no encuentra
+	 * */
+	P getById(long id);
+	
 	// Create
-	void insert(P pojo);
+	boolean insert(P pojo);
 	
 	// Update
-	void update(P pojo);
+	boolean update(P pojo);
 	
 	// Delete
-	void delete(P pojo);
+	boolean delete(long id);
 }
