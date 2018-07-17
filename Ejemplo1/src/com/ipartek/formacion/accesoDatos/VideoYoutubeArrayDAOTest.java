@@ -90,9 +90,9 @@ class VideoYoutubeArrayDAOTest {
 		// Comprueba que el video mock2 es igual a "MOCK2_ID"
 		assertEquals(mock2, video);
 		
-		// Comprueba que acceder a VideoYoutube.getById y pasarle 1234 
-		// devuelve algo que no sea null
-		video = dao.getById(1234);
+		// Comprueba que acceder a VideoYoutube.getById y pasarle 
+		// un id inexistente devuelve null
+		video = dao.getById(ID_INEXISTENTE);
 		assertNull(video);
 	}
 
