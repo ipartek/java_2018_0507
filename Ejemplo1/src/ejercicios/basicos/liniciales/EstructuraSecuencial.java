@@ -5,6 +5,24 @@ import java.util.Scanner;
 public class EstructuraSecuencial {
 	
 	public static void main(String[] args) {
+		int dia, mes, año, n;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduce fecha de nacimiento:");
+		System.out.println("Dia:");
+		dia = sc.nextInt();
+		System.out.println("Mes:");
+		mes = sc.nextInt();
+		System.out.println("Año:");
+		año = sc.nextInt();
+		n = dia+mes+año;
+		System.out.println(n);
+		int numeroSuerte = (n/1000) + (n/100)%10 + (n/10)%10 + (n%10);
+		System.out.println("Tu numero de la suerte es: "+numeroSuerte);
+
+	}
+
+	
+	public static void main12(String[] args) {
 		int n;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Introduzca un numero de 5 cifras:");
