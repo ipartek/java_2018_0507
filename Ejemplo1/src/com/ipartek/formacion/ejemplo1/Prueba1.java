@@ -1,6 +1,7 @@
 package com.ipartek.formacion.ejemplo1;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -17,57 +18,71 @@ public class Prueba1 {
 	public final static int TAM_ARRAY = 10;
 
 	public static void main(String[] args) {
-		PuntoNombre ptn = new PuntoNombre(1,2,"Prueba");
+		Calendar c = Calendar.getInstance();
+
+		System.out.println(c.getTime());
+
+		System.out.println(c.get(Calendar.YEAR));
+		System.out.println(c.get(Calendar.MONTH) + 1);
+		System.out.println(c.get(Calendar.DAY_OF_MONTH));
+		System.out.println(c.get(Calendar.HOUR));
+		System.out.println(c.get(Calendar.MINUTE));
+		System.out.println(c.get(Calendar.SECOND));
+
+	}
+
+	public static void mainPuntoNombre(String[] args) {
+		PuntoNombre ptn = new PuntoNombre(1, 2, "Prueba");
 		System.out.println(ptn);
 	}
+
 	public static void mainRecursividad(String[] args) {
 		System.out.println(factorial(5));
 	}
-	
+
 	public static int factorial(int valor) {
-		if(valor > 1) {
+		if (valor > 1) {
 			return valor * factorial(valor - 1);
 		} else {
 			return 1;
 		}
 	}
-	
+
 	public static void mainPoligono(String[] args) {
-		Punto origen = new Punto(0,0);
+		Punto origen = new Punto(0, 0);
 		Poligono poligono = new Poligono(origen);
-		
-		poligono.add(new Punto(1,2));
-		poligono.add(new Punto(3,4));
+
+		poligono.add(new Punto(1, 2));
+		poligono.add(new Punto(3, 4));
 
 		poligono.get(0).setX(10);
-		
+
 		poligono.getOrigen().setY(200);
-		
+
 		System.out.println(poligono);
 		System.out.println(poligono.get(1));
-		
 
 	}
-	
+
 	public static void mainIncrementos(String[] args) {
 		int i = 1;
 
-//		x = x @ y;
-//		x @= y;
-//		i = i + 1;
-//		i += 1;
-//		i++;
-//		++i;
+		// x = x @ y;
+		// x @= y;
+		// i = i + 1;
+		// i += 1;
+		// i++;
+		// ++i;
 
-		System.out.println(i);		//1
-		System.out.println(i++);	//1
-		System.out.println(i);		//2
-		System.out.println(++i);	//3
-		System.out.println(i);		//3
-		System.out.println(i--);	//3
-		System.out.println(i);		//2
-		System.out.println(--i);	//1
-		System.out.println(i);		//1
+		System.out.println(i); // 1
+		System.out.println(i++); // 1
+		System.out.println(i); // 2
+		System.out.println(++i); // 3
+		System.out.println(i); // 3
+		System.out.println(i--); // 3
+		System.out.println(i); // 2
+		System.out.println(--i); // 1
+		System.out.println(i); // 1
 	}
 
 	public static void mainTime(String[] args) {
