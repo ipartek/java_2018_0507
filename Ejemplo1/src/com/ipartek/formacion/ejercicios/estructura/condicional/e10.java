@@ -58,6 +58,14 @@ public class e10 {
 				break;
 			}
 		}
+		
+        if(mes == 1 || mes == 3 || mes == 5 || mes == 7|| mes == 8|| mes == 10|| mes == 12)       
+            System.out.println("Tiene 31 días");
+         else if(mes == 2)
+                  System.out.println("Tiene 28 días");
+                else
+                   System.out.println("Tiene 30 días");
+        
 		sc.close();
 
 	}
