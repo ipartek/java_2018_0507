@@ -1,6 +1,5 @@
 package com.ipartek.formacion.ejercicios.estructura.condicional;
 
-import java.util.Calendar;
 import java.util.Scanner;
 
 /* 10: Programa que lea una variable entera mes y compruebe si el valor corresponde a un mes de 30 días,
