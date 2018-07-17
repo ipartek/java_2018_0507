@@ -69,6 +69,7 @@ public class MainEjercicios {
 	 * empleado que más gana.
 	 */
 	public static void main(String[] args) {
+		// LinkedHashMap hace que los datos introducidos en el se queden ordenados mediante orden de introduccion
 		Map<String, Integer> empleados = new LinkedHashMap<>();
 		empleados.put("Antxon2", 2000);
 		empleados.put("Antxon", 1500);
@@ -90,22 +91,21 @@ public class MainEjercicios {
 	    }
 	    
 		/* Ordenar Map por valor */
-		List<Entry<String, Integer>> entryList = new ArrayList<Entry<String, Integer>>(empleados.entrySet());
+		List<Entry<String, Integer>> entryList = ordenarMapPorValor(empleados);
 
-		compararPorValor(entryList);
-
-		empleados.clear();
-
+		Map<String, Integer> empleadosPorValor = new LinkedHashMap<>();				// Mapa para introducir los valores nuevos ordenados
 		System.out.println("\nOrdenados por sueldo: ");
 		System.out.println("Nombres\t\tSueldos");
 		for (Entry<String, Integer> empleado : entryList) {
-			empleados.put(empleado.getKey(), empleado.getValue());
-			System.out.println(empleado.getKey() + "\t\t" + empleado.getValue());
+			empleadosPorValor.put(empleado.getKey(), empleado.getValue());			// Añadimos los datos en un nuevo map distinto
+			System.out.println(empleado.getKey() + "\t\t" + empleado.getValue());	// Mostramos los datos
 		}
-
 	}
 
-	private static void compararPorValor(List<Entry<String, Integer>> entryList) {
+	/* Metodo que se le pasa un map y te devuelve una lista ordenada por valor */
+	private static List<Entry<String, Integer>> ordenarMapPorValor(Map<String, Integer> empleados) {
+		List<Entry<String, Integer>> entryList = new ArrayList<Entry<String, Integer>>(empleados.entrySet());
+
 		Collections.sort(entryList, new Comparator<Entry<String, Integer>>() {
 
 			@Override
@@ -113,10 +113,9 @@ public class MainEjercicios {
 				return obj1.getValue().compareTo(obj2.getValue());
 			}
 		});
+		return entryList;
 	}
 
-	
-	
 	/*
 	 * 2. Pasar de decimal a binario de forma recursiva.
 	 */
