@@ -1,9 +1,11 @@
 package com.ipartek.formacion.ejercicios.estructura.condicional;
 /* 5: Programa java que lea dos caracteres por teclado y compruebe si los dos son letras minúsculas */
 
+import java.io.IOException;
+
 public class e05 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		System.out.println("Introduce un caracter: ");
 		char caracter1 = (char) System.in.read();
