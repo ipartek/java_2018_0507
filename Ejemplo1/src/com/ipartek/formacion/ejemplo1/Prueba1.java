@@ -17,7 +17,54 @@ public class Prueba1 {
 
 	public final static int TAM_ARRAY = 10;
 
+	// A partir de JavaSE7 existe esto: https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
 	public static void main(String[] args) {
+		int div = 0, a, b;
+		a = 5;
+		b = 0;
+
+		try {
+			Punto p;
+			try {
+				p = new Punto(500000000,2);
+			} catch (PuntoException e) {
+				System.out.println(e.getMessage());
+				p = new Punto(Punto.MAX_X, Punto.MAX_Y);
+			}
+			
+			System.out.println(p);
+			
+			String s = null;
+			
+			System.out.println(s.toUpperCase());
+			
+			int[] arr = new int[2];
+			arr[2] = 5;
+
+			
+			//b = 1;
+			div = a / b;
+		} catch (ArithmeticException ae) {
+			System.out.println("División por cero");
+			div = Integer.MAX_VALUE;
+		} catch (ArrayIndexOutOfBoundsException aioobe) {
+			System.out.println(aioobe.getMessage());
+			return;
+		} catch(Exception e) {
+			System.out.println("Error no esperado");
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			return;
+		} finally {
+			System.out.println("ME EJECUTO POR MIS NARICES");
+		}
+
+		System.out.println(div);
+
+		System.out.println("FIN");
+	}
+
+	public static void mainCalendar(String[] args) {
 		Calendar c = Calendar.getInstance();
 
 		System.out.println(c.getTime());
