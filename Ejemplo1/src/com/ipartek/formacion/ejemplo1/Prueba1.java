@@ -19,45 +19,70 @@ public class Prueba1 {
 
 	public final static int TAM_ARRAY = 10;
 
-	public enum Genero { MUJER, HOMBRE };
-	
+	public enum Genero {
+		MUJER, HOMBRE
+	};
+
 	public static void main(String[] args) {
+		int mes, dias;
+
+		mes = 6;
+
+		switch (mes) {
+		case 2:
+			dias = 28;
+			break;
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			dias = 30;
+			break;
+		default:
+			dias = 31;
+		}
+
+		System.out.printf("El mes %d tiene %d días", mes, dias);
+	}
+
+	public static void mainEnum(String[] args) {
 		Genero miGenero;
-		
+
 		miGenero = Genero.HOMBRE;
-		
+
 		System.out.println(miGenero);
 	}
-	
+
 	public static void mainRegEx(String[] args) {
 		System.out.println("C:\\nuevos\\trabajos");
-		
+
 		String regex = "\\w+@\\w+\\.\\w+";
-		
+
 		System.out.println(regex);
-		
+
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher("formacionipartek.com");
 		System.out.println(matcher.matches());
-		
+
 		System.out.println("formacion@ipartek.com".matches(regex));
 	}
-	
+
 	public static void mainInterfaces(String[] args) {
 		Number nEjemplo = new Float(3.4);
 		System.out.println(nEjemplo);
-		
+
 		Number[] numeros = new Number[2];
-		
+
 		numeros[0] = new Integer(5);
 		numeros[1] = new Double(6.7);
-		
-		for(Number n: numeros) {
+
+		for (Number n : numeros) {
 			System.out.println(n.doubleValue());
 		}
 	}
-	
-	// A partir de JavaSE7 existe esto: https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
+
+	// A partir de JavaSE7 existe esto:
+	// https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
 	@SuppressWarnings("null")
 	public static void mainExcepciones(String[] args) {
 		int div = 0, a, b;
@@ -67,23 +92,22 @@ public class Prueba1 {
 		try {
 			Punto p;
 			try {
-				p = new Punto(500000000,2);
+				p = new Punto(500000000, 2);
 			} catch (PuntoException e) {
 				System.out.println(e.getMessage());
 				p = new Punto(Punto.MAX_X, Punto.MAX_Y);
 			}
-			
+
 			System.out.println(p);
-			
+
 			String s = null;
-			
+
 			System.out.println(s.toUpperCase());
-			
+
 			int[] arr = new int[2];
 			arr[2] = 5;
 
-			
-			//b = 1;
+			// b = 1;
 			div = a / b;
 		} catch (ArithmeticException ae) {
 			System.out.println("División por cero");
@@ -91,7 +115,7 @@ public class Prueba1 {
 		} catch (ArrayIndexOutOfBoundsException aioobe) {
 			System.out.println(aioobe.getMessage());
 			return;
-		} catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println("Error no esperado");
 			System.out.println(e.getMessage());
 			e.printStackTrace();
