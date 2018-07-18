@@ -10,6 +10,8 @@ import java.util.Set;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.joda.time.LocalDate;
 
@@ -17,34 +19,49 @@ public class Prueba1 {
 
 	public final static int TAM_ARRAY = 10;
 
-
+	public enum Genero { MUJER, HOMBRE };
+	
+	public static void main(String[] args) {
+		Genero miGenero;
+		
+		miGenero = Genero.HOMBRE;
+		
+		System.out.println(miGenero);
+	}
+	
+	public static void mainRegEx(String[] args) {
+		System.out.println("C:\\nuevos\\trabajos");
+		
+		String regex = "\\w+@\\w+\\.\\w+";
+		
+		System.out.println(regex);
+		
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher("formacionipartek.com");
+		System.out.println(matcher.matches());
+		
+		System.out.println("formacion@ipartek.com".matches(regex));
+	}
+	
+	public static void mainInterfaces(String[] args) {
+		Number nEjemplo = new Float(3.4);
+		System.out.println(nEjemplo);
+		
+		Number[] numeros = new Number[2];
+		
+		numeros[0] = new Integer(5);
+		numeros[1] = new Double(6.7);
+		
+		for(Number n: numeros) {
+			System.out.println(n.doubleValue());
+		}
+	}
+	
 	// A partir de JavaSE7 existe esto: https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
 
 	@SuppressWarnings("null")
-	public static void main(String[] args) {
 
-
-		System.out.println("Hola Carlos");
-		System.out.println("Prueba");
-
-		int i = 1;
-
-//		x = x @ y;
-//		x @= y;
-//		i = i + 1;
-//		i += 1;
-//		i++;
-//		++i;
-
-		System.out.println(i);		//1
-		System.out.println(i++);	//1
-		System.out.println(i);		//2
-		System.out.println(++i);	//3
-		System.out.println(i);		//3
-		System.out.println(i--);	//3
-		System.out.println(i);		//2
-		System.out.println(--i);	//1
-		System.out.println(i);		//1
+	public static void mainExcepciones(String[] args) {
 
 		int div = 0, a, b;
 		a = 5;
