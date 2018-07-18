@@ -7,49 +7,47 @@ import com.ipartek.formacion.accesoDatos.VideoYoutubeArrayDAO;
 import com.ipartek.formacion.pojo.VideoYoutube;
 
 public class VideoYoutubeMain {
-
-	private static final int LISTADO = 1;
-	private static final int CARGAR_VIDEO = 2;
-	private static final int INSERTAR_VIDEO = 3;
-	private static final int MODIFICAR_VIDEO = 4;
-	private static final int BORRAR_VIDEO = 5;
-	private static final int SALIR = 0;
 	
-	
-	//TODO pruebas con enum
-	/*public enum OpcionesMenu{
+	public enum OpcionesMenu{
+		SALIR(0),
 		LISTADO(1),
 		CARGAR_VIDEO(2),
 		INSERTAR_VIDEO(3),
 		MODIFICAR_VIDEO(4),
-		BORRAR_VIDEO(5),
-		SALIR(0);
+		BORRAR_VIDEO(5);
 		
 		private int numeroOpcion;
+		private static int maxOpciones = OpcionesMenu.values().length;
+		
 		private OpcionesMenu(int numeroOpcion) {
 			this.numeroOpcion = numeroOpcion;
 		}
+		
 		public int getNumeroOpcion() {
 			return this.numeroOpcion;
 		}
-	}*/
+		
+		public static int getMaxOpciones() {
+			return maxOpciones;
+		}
+	}
 
+	
 	public static void main(String[] args) {
 		
 		cargarVideos();
 		
+		OpcionesMenu opcionesMenu = OpcionesMenu.values()[0];
+		
 		int opcion = 0;
 	
 		do {
-			//borrarPantalla();
 			mostrarMenu();
 			opcion = leerOpcion();
 			
-			//TODO pruebas con enum
-			//OpcionesMenu opcionesMenu = OpcionesMenu.obtenerOperacionDesdeInt(opcion);
-			//OpcionesMenu opcionesMenu = OpcionesMenu.values()[opcion];
+			opcionesMenu = OpcionesMenu.values()[opcion];
 			
-			switch (opcion) {
+			switch (opcionesMenu) {
 				case LISTADO: 
 					listadoVideos();
 					break;
@@ -68,7 +66,7 @@ public class VideoYoutubeMain {
 			default:
 				break;
 			}
-		} while (opcion != SALIR);
+		} while (opcion != 0);
 		
 		System.out.println("ADIOS!!!");
 	}
@@ -76,13 +74,13 @@ public class VideoYoutubeMain {
 	private static int leerOpcion() {
 		int opcionLeida = 0;
 		Scanner sc;
+		int opcionesMenu = OpcionesMenu.getMaxOpciones();
 		
 		do {
 			sc = new Scanner(System.in); 
 			opcionLeida = sc.nextInt();
-		}while (opcionLeida < LISTADO-1 && opcionLeida > LISTADO+4);
+		}while (opcionLeida < 0 && opcionLeida > opcionesMenu);
 		
-		sc.close();
 		return opcionLeida;
 	}
 
@@ -101,20 +99,18 @@ public class VideoYoutubeMain {
 		CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
 		
 		listadoVideos();
+
+		Scanner sc = new Scanner(System.in); 
+		p("Introduce un ID: ");
+		idVideo = sc.nextLong();
 		
-		//do {
-			p("Introduce un ID: ");
-			Scanner sc = new Scanner(System.in); 
-			idVideo = sc.nextInt();
-		//}while (idVideo instanceof Long);
-		
-		sc.close();
 		VideoYoutube newDao = dao.getById(idVideo);
+		
 		if (newDao != null) {
 			mostrarCabecera();
 			mostrarVideo(newDao);
 		}else {
-			p("No existe el video con ID" + idVideo);
+			p("No existe el video con ID: " + idVideo);
 		}
 	}
 
@@ -130,8 +126,6 @@ public class VideoYoutubeMain {
 		codigo = sc.nextLine();
 		p("Nuevo titulo youtube: ");
 		titulo = sc.nextLine();
-		
-		sc.close();
 		
 		boolean resultadoOperacion = dao.insert(new VideoYoutube(id, codigo, titulo));
 		
@@ -157,8 +151,6 @@ public class VideoYoutubeMain {
 		p("Nuevo titulo youtube: ");
 		titulo = sc.nextLine();
 		
-		sc.close();
-		
 		boolean resultadoOperacion = dao.update(new VideoYoutube(id, codigo, titulo));
 		
 		if (resultadoOperacion) {
@@ -176,8 +168,6 @@ public class VideoYoutubeMain {
 		p("ID del video a eliminar: ");
 		id = sc.nextLong();
 		
-		sc.close();
-		
 		boolean resultadoOperacion = dao.delete(id);
 		
 		if (resultadoOperacion) {
@@ -187,6 +177,7 @@ public class VideoYoutubeMain {
 		}
 	}
 
+	
 	
 	private static void mostrarCabecera() {
 		p("ID\tCODIGO\tTITULO");
