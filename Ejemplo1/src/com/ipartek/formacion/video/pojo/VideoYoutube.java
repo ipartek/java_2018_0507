@@ -4,6 +4,7 @@ public class VideoYoutube {
 	private long id;
 	private String codigo;
 	private String titulo;
+
 	
 	public VideoYoutube() {
 		this(-1, "", "");
@@ -69,5 +70,9 @@ public class VideoYoutube {
 		return true;
 	}
 	
+
+
+
+
 
 }

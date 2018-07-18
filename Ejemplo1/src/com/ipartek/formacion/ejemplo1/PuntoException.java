@@ -1,10 +1,9 @@
 package com.ipartek.formacion.ejemplo1;
 
-public class PuntoException extends Exception {
 
-	/**
-	 * 
-	 */
+public class PuntoException extends RuntimeException {
+
+
 	private static final long serialVersionUID = 1L;
 
 	public PuntoException() {

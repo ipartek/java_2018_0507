@@ -45,7 +45,7 @@ public class Punto {
 
 	public void setX(int x) {
 		if(x > MAX_X)
-			throw new RuntimeException("No se admiten x mayores de " + MAX_X);
+			throw new PuntoException("No se admiten x mayores de " + MAX_X);
 		this.x = x;
 	}
 

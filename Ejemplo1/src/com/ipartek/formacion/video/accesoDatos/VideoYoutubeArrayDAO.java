@@ -6,32 +6,35 @@ import java.util.List;
 
 import com.ipartek.formacion.video.pojo.VideoYoutube;
 
-public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube>{
+public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube> {
+
+	private List<VideoYoutube> videos = new ArrayList<>();
 
 	private static VideoYoutubeArrayDAO INSTANCE;
-	private List<VideoYoutube> videos = new ArrayList<>();
+
 	private VideoYoutubeArrayDAO() {
-		
 	}
-	
-	public static synchronized VideoYoutubeArrayDAO getInstance(){
+
+	public static synchronized VideoYoutubeArrayDAO getInstance() {
+
 		if (INSTANCE == null) {
 			INSTANCE = new VideoYoutubeArrayDAO();
 		}
+
 		return INSTANCE;
-	}
-	
-	@Override
-	public List<VideoYoutube> getAll() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
-	public VideoYoutube geById(long id) {
+	public List<VideoYoutube> getAll() {
+		return videos;
+	}
+
+	@Override
+	public VideoYoutube getById(long id) {
 		VideoYoutube resul = null;
-		for(VideoYoutube videoIteracion: videos) {
-			if (id==videoIteracion.getId()) {
+		//foreach
+		for (VideoYoutube videoIteracion : videos) {
+			if ( id == videoIteracion.getId() ) {
 				resul = videoIteracion;
 				break;
 			}
@@ -39,16 +42,14 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube>{
 		return resul;
 	}
 
-	
-	
 	@Override
 	public boolean insert(VideoYoutube video) {
 		boolean resul = false;
-		if(video!=null) {
+
+		if (video != null) {
 			resul = videos.add(video);
 		}
 		return resul;
-		
 	}
 
 	@Override
@@ -56,24 +57,24 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube>{
 		boolean resul = false;
 		VideoYoutube videoIteracion = null;
 		int i = 0;
-		
-		if (videoUpdate != null) {
+		if ( videoUpdate != null ) {
+			//Iterator		
 			Iterator<VideoYoutube> it = videos.iterator();
-			while (it.hasNext()){
+			while( it.hasNext() ) {
 				videoIteracion = it.next();
-				if(videoIteracion.getId() == videoUpdate.getId()) {
+				if ( videoIteracion.getId() == videoUpdate.getId() ) {
 					videos.set(i, videoUpdate);
 					resul = true;
-					break;
-				}
-				i++;	
-			}
-		}
-		return resul;		
+					break;					
+				}	
+				i++;
+			}		
+		}	
+		return resul;
 	}
 
 	@Override
-	public boolean delete(long id) {		
+	public boolean delete(long id) {
 		boolean resul = false;
 		
 		VideoYoutube vIteracion = null;
@@ -91,9 +92,5 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube>{
 		
 		return resul;
 	}
-	
-		
-		
+
 }
-
-
