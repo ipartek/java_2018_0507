@@ -2,6 +2,13 @@ package com.ipartek.formacion.video.accesodatos;
 
 import java.util.List;
 
+
+/**
+ * @interface Crudable
+ * @author AnaMAMM
+ *
+ * @param <P>
+ */
 //Create, Retrieve, Update, Delete
 public interface CrudAble<P> {
 	//Retrieve

@@ -1,20 +1,44 @@
 package com.ipartek.formacion.video.pojo;
-
+/**
+ * @class VideoYoutube 
+ * 
+ * es una clase . Representa un video 
+ * @author AnaMAMM
+ *
+ */
 public class VideoYoutube {
+	
+	/**
+	 * variables id codigo y titulo
+	 */
 	private long id;
 	private String codigo;
 	private String titulo;
 
+	/**
+	 * constructor con parametros
+	 * @param id
+	 * @param codigo
+	 * @param titulo
+	 */
 	public VideoYoutube(long id, String codigo, String titulo) {
 		this.id = id;
 		this.codigo = codigo;
 		this.titulo = titulo;
 	}
 
+	/**
+	 * constructor sin parametros
+	 */
 	public VideoYoutube() {
 		this(-1, "", "");
 	}
 
+	
+	/**
+	 * getters y setters
+	 * @return
+	 */
 	public long getId() {
 		return id;
 	}
@@ -39,11 +63,17 @@ public class VideoYoutube {
 		this.titulo = titulo;
 	}
 
+	/**
+	 * to string
+	 */
 	@Override
 	public String toString() {
 		return "VideoYoutube [id=" + id + ", codigo=" + codigo + ", titulo=" + titulo + "]";
 	}
 
+	/**
+	 * hashCode
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -54,6 +84,9 @@ public class VideoYoutube {
 		return result;
 	}
 
+	/**
+	 * equals
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
