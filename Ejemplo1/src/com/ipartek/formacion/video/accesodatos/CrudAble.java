@@ -2,17 +2,29 @@ package com.ipartek.formacion.video.accesodatos;
 
 import java.util.List;
 
-//CREATE, RETRIEVE, UPDATE, DELETE
-public interface CrudAble<P> {		//ACCESO A DATOS
+
+//Create, Retrieve, Update, Delete
+public interface CrudAble<P> {    //ACCESO A DATOS
 	//Retrieve
+	
+	/**
+	 * Recupera todos los pojos
+	 * @return si no existen resultados retorna Lista vacia, no null
+	 */
 	List<P> getAll();
 	
+	/**
+	 * Buscamos un Pojo por su identificador
+	 * @param id long identificador
+	 * @return P pojo si lo encuentra, null si no encuentra
+	 */
 	P getById(long id);
 	
 	//Create
-	void insert(P pojo);
-	//Upadte
-	void update(P pojo);
+	boolean insert(P pojo);
+	//Update
+	boolean update(P pojo);
 	//Delete
-	void delete(P pojo);
-}
+	boolean delete(long id);
+
+	}
