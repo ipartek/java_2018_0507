@@ -12,17 +12,28 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.joda.time.LocalDate;
 
-import org.joda.time.LocalDate;
 
 public class Prueba1 {
 
 	public final static int TAM_ARRAY = 10;
 
+public enum Genero {MUJER, HOMBRE};
+	
 	public static void main(String[] args) {
-
+		Genero miGenero;
+		miGenero = Genero.HOMBRE;
+	}
+	public static void mainY(String[] args) {
+		System.out.println("C:\nuevos\trabajos");//Nosaldria bien porque salta comocambio de linea
+		System.out.println("C:\\nuevos\\trabajos");
+		String regex ="\\w+@\\w+\\.\\w+";
+		System.out.println(regex);
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher("formacionipartek.com");
+		System.out.println(matcher.matches());
+		System.out.println("formacion@ipartek.com".matches(regex));
 	}
 
 	public static void mainHashSet(String[] args) {
