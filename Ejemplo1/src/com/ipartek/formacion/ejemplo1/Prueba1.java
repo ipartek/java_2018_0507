@@ -20,6 +20,7 @@ public class Prueba1 {
 
 	// A partir de JavaSE7 existe esto: https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
 
+	@SuppressWarnings("null")
 	public static void main(String[] args) {
 
 
