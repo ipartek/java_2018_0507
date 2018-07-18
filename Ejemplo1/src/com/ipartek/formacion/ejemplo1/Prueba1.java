@@ -10,8 +10,8 @@ import java.util.Set;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.joda.time.LocalDate;
 //import org.joda.time.field.ZeroIsMaxDateTimeField;
@@ -21,14 +21,29 @@ import org.joda.time.LocalDate;
 public class Prueba1 {
 
 	public final static int TAM_ARRAY = 10;
-
+	public enum Genero{HOMBRE,MUJER}
 	public static void main(String[] args) {
 //		ejemploJodaTime();
 //		javaTime8Ejemplo();
 //		creaPoli();
 //		puntoNombre();
 //		calendario();
-		excepciones();
+		//excepciones();
+		expresionesRegulares();
+	}
+	public static void generoYo() {
+		Genero miGenero;
+		miGenero=Genero.HOMBRE;
+	}
+	public static void expresionesRegulares()
+	{
+		System.out.println("c:\\nuevos\\trabajos");
+		String regex="\\w+@\\w+\\.\\w+";
+		System.out.println(regex);
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher("formacion@ipartek.com");
+		System.out.println(matcher.matches());
+		System.out.println("formacion@ipartek.com".matches(regex));
 	}
 	public static void excepciones()
 	{

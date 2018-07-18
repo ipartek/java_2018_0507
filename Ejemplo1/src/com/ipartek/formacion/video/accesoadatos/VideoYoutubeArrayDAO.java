@@ -60,8 +60,24 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube>{
 
 	@Override
 	public boolean delete(Long pojo) {
-		// TODO Auto-generated method stub
-		return false;
+	boolean resul = false;
+		
+		VideoYoutube vIteracion = null;
+		
+		//buscar video a eliminar
+		for (int i = 0; i < videos.size(); i++) {
+			
+			vIteracion = videos.get(i);   //video sobre el que iteramos
+			
+			if ( videos.get(i).getId() == vIteracion.getId() ) {    // video encontrado
+				resul = videos.remove(vIteracion);
+				
+						
+				break;
+			}
+		}
+		
+		return resul;
 	}
 
 }

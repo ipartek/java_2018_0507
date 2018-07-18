@@ -101,7 +101,7 @@ class VideoYoutubeArrayDAOTest {
 
 	@Test
 	void testDelete() {
-		fail("Not yet implemented");
+		//assertTrue(MOCK1_ID);
 	}
 
 }
