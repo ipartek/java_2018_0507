@@ -83,7 +83,7 @@ public class VideoYoutube {
 		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
 		return result;
 	}
-
+ 
 	/**
 	 * equals
 	 */
