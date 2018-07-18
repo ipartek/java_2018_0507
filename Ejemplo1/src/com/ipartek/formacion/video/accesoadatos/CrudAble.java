@@ -19,5 +19,5 @@ public interface CrudAble<P> {
 	//Update
 	boolean update(P pojo);
 	//Delete
-	boolean delete(Long id);
+	boolean delete(long id);
 }
