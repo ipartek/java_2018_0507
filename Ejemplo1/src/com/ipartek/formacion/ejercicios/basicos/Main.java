@@ -1,7 +1,6 @@
 package com.ipartek.formacion.ejercicios.basicos;
 
 import com.ipartek.formacion.ejercicios.basicos.Basicos;
-import com.ipartek.formacion.ejercicios.basicos.BasicosSecuencial;
 public class Main {
 
 	public static void main(String[] args) {
@@ -17,7 +16,6 @@ public class Main {
 		Basicos.ejerBasico7(255);
 		Basicos.ejerBasico7(-850);
 		BasicosSecuencial.BasicosSecuencial1();*/
-		BasicosSecuencial.BasicosSecuencial5();
 	}
 
 }
