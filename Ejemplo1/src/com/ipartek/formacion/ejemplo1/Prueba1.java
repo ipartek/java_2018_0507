@@ -25,7 +25,7 @@ public class Prueba1 {
 	public static void main(String[] args) {
 		System.out.println("C:\\nuevos\\trabajos");
 		
-		String regex = "\\w+@\\w+\\.\\w+";
+		String regex = "\\w+@\\w+\\.\\w+";  //Carcteres obligatorios para un correo correcto
 		
 		System.out.println(regex);
 		
@@ -83,6 +83,7 @@ public class Prueba1 {
 		System.out.println(pt2);
 
 	}
+	@SuppressWarnings("null")
 	public static void mainExcepciones(String[] args) {
 
 		int div = 0, a, b;
