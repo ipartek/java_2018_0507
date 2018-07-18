@@ -37,7 +37,7 @@ public class VideoYoutubeMain {
 		}
 	}
 	private static void mostrarVideo(VideoYoutube video) {
-		p(video)
+	//	p(video)
 		
 	}
 	private static void cargarVideos() {
