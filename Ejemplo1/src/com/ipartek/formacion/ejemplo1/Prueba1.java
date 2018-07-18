@@ -17,9 +17,23 @@ public class Prueba1 {
 
 	public final static int TAM_ARRAY = 10;
 
+	public static void main(String[] args) {
+		Number nEjemplo = new Float(3.4);
+		System.out.println(nEjemplo);
+		
+		Number[] numeros = new Number[2];
+		
+		numeros[0] = new Integer(5);
+		numeros[1] = new Double(6.7);
+		
+		for(Number n: numeros) {
+			System.out.println(n.doubleValue());
+		}
+	}
+	
 	// A partir de JavaSE7 existe esto: https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
 	@SuppressWarnings("null")
-	public static void main(String[] args) {
+	public static void mainExcepciones(String[] args) {
 		int div = 0, a, b;
 		a = 5;
 		b = 0;
