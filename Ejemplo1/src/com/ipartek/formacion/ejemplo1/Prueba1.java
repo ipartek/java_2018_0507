@@ -22,7 +22,17 @@ public class Prueba1 {
 
 	public final static int TAM_ARRAY = 10;
 
+	public enum Genero { MUJER, HOMBRE };
+	
 	public static void main(String[] args) {
+		Genero miGenero;
+		
+		miGenero = Genero.HOMBRE;
+		
+		System.out.println(miGenero);
+	}
+	
+	public static void mainRegEx(String[] args) {
 		System.out.println("C:\\nuevos\\trabajos");
 		
 		String regex = "\\w+@\\w+\\.\\w+";  //Carcteres obligatorios para un correo correcto
