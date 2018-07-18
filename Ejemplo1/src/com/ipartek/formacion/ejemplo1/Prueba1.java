@@ -21,6 +21,7 @@ public class Prueba1 {
 	public final static int TAM_ARRAY = 10;
 
 	// A partir de JavaSE7 existe esto: https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
+	@SuppressWarnings("null")
 	public static void main(String[] args) {
 
 
