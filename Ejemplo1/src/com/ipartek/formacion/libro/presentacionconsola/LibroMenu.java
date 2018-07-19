@@ -96,19 +96,19 @@ public class LibroMenu {
 
 		Scanner sc2 = new Scanner(System.in);
 		p("Introduce el isbn del libro: ");
-		String isbn = sc2.next();
+		String isbn = sc2.next().trim();
 
 		Scanner sc3 = new Scanner(System.in);
 		p("Introduce el titulo del libro: ");
-		String titulo = sc3.next();
+		String titulo = sc3.next().trim();
 
 		Scanner sc4 = new Scanner(System.in);
 		p("Introduce el autor del libro: ");
-		String autor = sc4.next();
+		String autor = sc4.next().trim();
 
 		Scanner sc5 = new Scanner(System.in);
 		p("Introduce la editorial del libro: ");
-		String editorial = sc5.next();
+		String editorial = sc5.next().trim();
 
 //		Scanner sc6 = new Scanner(System.in);
 //		p("Introduce el Cliente del libro: ");
@@ -160,19 +160,19 @@ public class LibroMenu {
 
 		Scanner sc2 = new Scanner(System.in);
 		p("Introduce el nuevo isbn del libro: ");
-		String isbn = sc2.next();
+		String isbn = sc2.next().trim();
 
 		Scanner sc3 = new Scanner(System.in);
 		p("Introduce el nuevo titulo del libro: ");
-		String titulo = sc3.next();
+		String titulo = sc3.next().trim();
 
 		Scanner sc4 = new Scanner(System.in);
 		p("Introduce el nuevo autor del libro: ");
-		String autor = sc4.next();
+		String autor = sc4.next().trim();
 
 		Scanner sc5 = new Scanner(System.in);
 		p("Introduce la nueva editorial del libro: ");
-		String editorial = sc5.next();
+		String editorial = sc5.next().trim();
 
 //		Scanner sc6 = new Scanner(System.in);
 //		p("Introduce el nuevo Cliente del libro: ");
@@ -196,10 +196,6 @@ public class LibroMenu {
 		p("Libro actualizado");
 	}
 
-	private static void librosSalir() {
-		p("Gracias por utilizar esta aplicación. Adiós");
-
-	}
 
 	private static void mostrarCabecera() {
 		p("ID\tISBM\tTITULO\tAUTOR\tEDITORIAL\tCLIENTE");

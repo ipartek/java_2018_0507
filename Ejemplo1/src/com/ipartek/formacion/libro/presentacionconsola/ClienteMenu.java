@@ -98,15 +98,15 @@ public class ClienteMenu {
 
 		Scanner sc2 = new Scanner(System.in);
 		p("Introduce el dni del cliente: ");
-		String dni = sc2.next();
+		String dni = sc2.next().trim();
 
 		Scanner sc3 = new Scanner(System.in);
 		p("Introduce el nombre del cliente: ");
-		String nombre = sc3.next();
+		String nombre = sc3.next().trim();
 
 		Scanner sc4 = new Scanner(System.in);
 		p("Introduce los apellidos del cliente: ");
-		String apellidos = sc4.next();
+		String apellidos = sc4.next().trim();
 
 		Cliente cliente = Cliente.class.newInstance();
 		cliente.setId(id);
@@ -148,15 +148,15 @@ public class ClienteMenu {
 
 		Scanner sc2 = new Scanner(System.in);
 		p("Introduce el nuevo dni del cliente: ");
-		String dni = sc2.next();
+		String dni = sc2.next().trim();
 
 		Scanner sc3 = new Scanner(System.in);
 		p("Introduce el nuevo nombre del cliente: ");
-		String nombre = sc3.next();
+		String nombre = sc3.next().trim();
 
 		Scanner sc4 = new Scanner(System.in);
 		p("Introduce los nuevos apellidos del cliente: ");
-		String apellidos = sc4.next();
+		String apellidos = sc4.next().trim();
 
 //		Scanner sc5 = new Scanner(System.in);
 //		p("Introduce el nuevo Cliente del libro: ");
@@ -177,11 +177,6 @@ public class ClienteMenu {
 //		sc5.close();
 
 		p("cliente actualizado");
-	}
-
-	private static void clientesSalir() {
-		p("Gracias por utilizar esta aplicación. Adiós");
-
 	}
 
 	
