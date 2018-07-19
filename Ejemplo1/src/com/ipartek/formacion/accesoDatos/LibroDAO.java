@@ -93,7 +93,6 @@ public class LibroDAO implements CrudAbleLibro<Libro>{
 	}
 
 	
-	
 	@Override
 	public Libro getByIsbn(String isbn) {
 		Libro resul = null;

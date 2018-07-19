@@ -14,12 +14,13 @@ import org.junit.jupiter.api.Test;
 import com.ipartek.formacion.prestamoLibrosPojo.Cliente;
 import com.ipartek.formacion.prestamoLibrosPojo.Libro;
 
-class LibroDAOTest {
-
-	private static LibroDAO dao = null;
+class ClienteDAOTest {
+	
+	private static ClienteDAO dao = null;
 	
 	private static final long ID_INEXISTENTE = -1;
 	private static final String ISBN_INEXISTENTE = "-1";
+	private static final String DNI_INEXISTENTE = "-1";
 	
 	private static final List<Libro> MOCK_LISTA_LIBROS= new ArrayList<>();
 	
@@ -52,7 +53,7 @@ class LibroDAOTest {
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		dao = LibroDAO.getInstance();
+		dao = ClienteDAO.getInstance();
 	}
 
 	@AfterAll
@@ -95,23 +96,23 @@ class LibroDAOTest {
 		//MOCK_LISTA_LIBROS.add(mockLibro1);
 		//MOCK_LISTA_LIBROS.add(mockLibro2);
 		
-		assertTrue(dao.insert(mockLibro1));
-		assertTrue(dao.insert(mockLibro2));
+		assertTrue(dao.insert(mockCliente1));
+		assertTrue(dao.insert(mockCliente2));
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
-		dao.delete(MOCKLIBRO1_ID);
-		dao.delete(MOCKLIBRO2_ID);
+		dao.delete(MOCKCLIENTE1_ID);
+		dao.delete(MOCKCLIENTE2_ID);
 		
-		mockLibro1 = null;
-		mockLibro2 = null;
+		mockCliente1 = null;
+		mockCliente2 = null;
 	}
 
 	@Test
 	void testGetInstance() {
-		LibroDAO dao1 = LibroDAO.getInstance();
-		LibroDAO dao2 = LibroDAO.getInstance();
+		ClienteDAO dao1 = ClienteDAO.getInstance();
+		ClienteDAO dao2 = ClienteDAO.getInstance();
 		
 		assertNotNull(dao1);
 		assertNotNull(dao2);
@@ -121,79 +122,77 @@ class LibroDAOTest {
 	
 	@Test
 	void testGetAll() {
-		List<Libro> libros = dao.getAll();
+		List<Cliente> clientes = dao.getAll();
 		
-		assertNotNull(libros);
+		assertNotNull(clientes);
 		
-		assertEquals(2, libros.size());
+		assertEquals(2, clientes.size());
 		
-		assertEquals(MOCKLIBRO1_ID, libros.get(0).getId());
+		assertEquals(MOCKCLIENTE1_ID, clientes.get(0).getId());
 	}
 	
 	@Test
 	void testGetById() {
-		Libro libro = dao.getById(MOCKLIBRO1_ID);
+		Cliente cliente = dao.getById(MOCKCLIENTE1_ID);
 		
-		assertNotNull(libro);
+		assertNotNull(cliente);
 		
-		assertEquals(mockLibro1, libro);
+		assertEquals(mockCliente1, cliente);
 		
-		libro = dao.getById(ID_INEXISTENTE);
-		assertNull(libro);
+		cliente = dao.getById(ID_INEXISTENTE);
+		assertNull(cliente);
 	}
 	
 	@Test
-	void testGetByIsbn() {
-		Libro libro = dao.getByIsbn(MOCKLIBRO1_ISBN);
+	void testGetByDni() {
+		Cliente cliente = dao.getByDni(MOCKCLIENTE1_DNI);
 		
-		assertNotNull(libro);
+		assertNotNull(cliente);
 		
-		assertEquals(mockLibro1, libro);
+		assertEquals(mockCliente1, cliente);
 		
-		libro = dao.getByIsbn(ISBN_INEXISTENTE);
-		assertNull(libro);
+		cliente = dao.getByDni(DNI_INEXISTENTE);
+		assertNull(cliente);
 	}
 	
 	void testInsert() {
-		int totalLibros = dao.getAll().size();
+		int totalClientes = dao.getAll().size();
 		
 		assertFalse(dao.insert(null));
 		
-		assertEquals(totalLibros, dao.getAll().size());
+		assertEquals(totalClientes, dao.getAll().size());
 		
-		assertTrue(dao.insert(mockLibro1));
+		assertTrue(dao.insert(mockCliente1));
 		
-		assertEquals(totalLibros + 1, dao.getAll().size());	
+		assertEquals(totalClientes + 1, dao.getAll().size());	
 	}
 
 	@Test
 	void testUpdate() {
 		assertFalse(dao.update(null));
 		
-		Libro libroModificarConID = new Libro(
-				MOCKLIBRO1_ID, 
-				"456987", 
-				"titulo ficticio", 
-				"autor ficticio", 
-				"editorial ficticia", 
-				mockCliente1);
+		Cliente clienteModificarConID = new Cliente(
+				MOCKCLIENTE1_ID, 
+				"111222333A", 
+				"nombre ficticio", 
+				"apellido ficticio", 
+				MOCK_LISTA_LIBROS);
 		
-		assertTrue(dao.update(libroModificarConID));
+		assertTrue(dao.update(clienteModificarConID));
 		
-		Libro libroModificado = dao.getById(MOCKLIBRO1_ID);
-		assertEquals(MOCKLIBRO1_ID, libroModificado.getId());
-		assertEquals("titulo ficticio", libroModificado.getTitulo());
-		assertEquals("autor ficticio", libroModificado.getAutor());
+		Cliente clienteModificado = dao.getById(MOCKCLIENTE1_ID);
+		assertEquals(MOCKCLIENTE1_ID, clienteModificado.getId());
+		assertEquals("nombre ficticio", clienteModificado.getNombre());
+		assertEquals("111222333A", clienteModificado.getDni());
 			
-		Libro libroModificarSinID = new Libro(
+		Cliente clienteModificarSinID = new Cliente(
 				ID_INEXISTENTE, 
-				"ISBN inexistente",
-				"Titulo inexistente", 
-				"Autor inexistente",
-				"editorial inexistente",
-				mockCliente1);
+				DNI_INEXISTENTE,
+				"Nombre inexistente", 
+				"Apellido inexistente",
+				MOCK_LISTA_LIBROS);
 		
-		assertFalse(dao.update(libroModificarSinID));
+		assertFalse(dao.update(clienteModificarSinID));
 	}
 
 	@Test
@@ -203,9 +202,10 @@ class LibroDAOTest {
 		
 		assertEquals(2, dao.getAll().size());		
 	
-		assertTrue(dao.delete(MOCKLIBRO2_ID));
+		assertTrue(dao.delete(MOCKCLIENTE2_ID));
 		
 		assertEquals(1, dao.getAll().size());
 	}
+
 
 }
