@@ -63,12 +63,24 @@ public class VideoYoutubeMain {
 	}
 			
 	private static void eliminarVideo() {
-		// TODO Auto-generated method stub
+		p("Dime el ID del video");
+		long id = Utils.leerLong();
 		
+		if(dao.delete(id)) {
+			p("Video borrado correctamente");
+		} else {
+			p("No se ha podido borrar el video");
+		}
 	}
 
 	private static void actualizarVideo() {
-		// TODO Auto-generated method stub
+		VideoYoutube video = crearVideoConDatosDeConsola();
+		
+		if(dao.update(video)) {
+			p("Video modificado correctamente");
+		} else {
+			p("No se ha podido modificar el video");
+		}
 		
 	}
 
