@@ -19,34 +19,40 @@ public class VideoYoutubeMain {
 	private static CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
 	private static CrudAble<VideoYoutube> daoHash = VideoYoutubeHashMap.getInstance();
 	public static void main(String[] args) {
-		cargarVideos();
-		
-		
+		cargarVideos();		
 		
 		//TODO: Hacer el menú que se repita cada vez e implementar la lectura de teclado
 		int opcion=0;
-		mostrarMenu(0);
+		mostrarMenu();
 			while(((opcion=leerTeclado())<5))
 			{		
 				switch(opcion) {
 				case LISTADO:
 					listadoVideos();
+					mostrarMenu();
 					break;
-				case LISTARPORID:
-					mostrarMenu(1);
-					obtenerVideoXid(leerTecladoElementos(dao.getAll().size()));
+				case LISTARPORID:					
+					p("que id quieres listar del 1 al"+ daoHash.getAll().size());
+					p("------------------");
+					
+					obtenerVideoXid(leerTeclado());
 					queMen=0;
+					mostrarMenu();
 					break;
 				case BORRARID:
-					mostrarMenu(1);
-					borrarVideoXid(leerTecladoElementos(dao.getAll().size()));
+					p("que id quieres borrar del 1 al"+ daoHash.getAll().size());
+					p("------------------");
+					borrarVideoXid(leerTeclado());
 					listadoVideos();
+					mostrarMenu();
 					queMen=0;
 					break;
 				case MODPORID:
-					mostrarMenu(1);
-					modVideoXid(leerTecladoElementos(dao.getAll().size()));
+					p("que id quieres modificar del 1 al"+ daoHash.getAll().size());
+					p("------------------");
+					modVideoXid(leerTeclado());
 					listadoVideos();
+					mostrarMenu();
 					break;
 				case EXIT:
 					break;		
@@ -57,8 +63,8 @@ public class VideoYoutubeMain {
 		}
 	}
 
-	private static void mostrarMenu(int queMenu) {
-		if(queMenu==0) {
+	private static void mostrarMenu() {
+		
 		p("------------");
 		p("VideoYoutube");
 		p("------------");
@@ -68,23 +74,23 @@ public class VideoYoutubeMain {
 		p("3. Eliminar registro ");
 		p("4. Modificar registro");
 		p("0. Salir");
-		p("Elige una opción");}
-		if(queMenu==1) {
-			p("que id quieres ver");
-			p("----------------");
+		p("Elige una opción");
 		}
-		queMen=queMenu;
+		
+		
 			 
-	}
+	
 	private static void modVideoXid(int id)	{
 		mostrarCabecera();
 		VideoYoutube video=new VideoYoutube(id, 12+"", "te cambie");
 		dao.update(video);
+		daoHash.update(video);
 	}
 	private static void borrarVideoXid(int id)	{
 		mostrarCabecera();
 		System.out.println(dao.getById(id));
 		dao.delete(id);
+		daoHash.delete(id);
 	}
 	private static void obtenerVideoXid(int id)	{
 		mostrarCabecera();

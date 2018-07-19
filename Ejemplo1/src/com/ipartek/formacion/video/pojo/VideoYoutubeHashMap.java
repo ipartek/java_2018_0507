@@ -54,13 +54,23 @@ public class VideoYoutubeHashMap implements CrudAble<VideoYoutube> {
 	@Override
 	public boolean update(VideoYoutube pojo) {
 		// TODO Auto-generated method stub
-		return false;
+		boolean resul=false;
+		if (videos != null) {
+			resul=true;
+		videos.replace(pojo.getId(), pojo);
+		}
+		return resul;
 	}
 
 	@Override
 	public boolean delete(long id) {
 		// TODO Auto-generated method stub
-		return false;
+		boolean resul=false;
+		if(videos!=null) {
+		resul=true;
+		videos.remove(id);
+		}
+		return resul;
 	}
 
 }
