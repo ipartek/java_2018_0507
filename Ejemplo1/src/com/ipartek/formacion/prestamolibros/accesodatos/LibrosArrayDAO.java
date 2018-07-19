@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ipartek.formacion.prestamolibros.pojo.Libro;
+import com.ipartek.formacion.video.pojo.VideoYoutube;
 
 public class LibrosArrayDAO implements CrudAble<Libro> {
 	
@@ -25,26 +26,31 @@ public class LibrosArrayDAO implements CrudAble<Libro> {
 	}
 
 	@Override
-	public List<Libro> getAll() {
-		// TODO Auto-generated method stub
-		return libros;
+	public List<Libro> getAll() { //todos los libros
+		return null;
 	}
 
 	@Override
-	public Libro getById(long id) {
+	public Libro getById(long id) { //buscar por id libro
 		Libro res = null;
-		for(Libro libroIteracion : libros) {
-			if(id == libroIteracion.getId())
-				res = libroIteracion;
+		//foreach
+		for (Libro LibInt : libros) {
+			if ( id == LibInt.getId() ) {
+				res = LibInt;
 				break;
+			}
 		}
 		return res;
 	}
-
+	
 	@Override
-	public boolean insert(Libro pojo) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean insert(Libro pojo) { //añadir un libro
+		boolean res = false;
+
+		if (pojo != null) {
+			res = libros.add(pojo);
+		}
+		return res;
 	}
 
 	@Override
@@ -59,4 +65,5 @@ public class LibrosArrayDAO implements CrudAble<Libro> {
 		return false;
 	}
 
+	
 }
