@@ -10,6 +10,6 @@ public interface CrudAble<P> {
 	
 	boolean insert(P pojo);
 	boolean update(P pojo);
-	boolean delete(P pojo);
+	boolean delete(long id);
 	
 }

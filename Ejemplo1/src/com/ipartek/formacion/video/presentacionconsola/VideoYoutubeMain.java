@@ -42,6 +42,7 @@ public class VideoYoutubeMain {
 		p("Elige una opción");
 		
 		
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		opcion =  sc.nextInt();
 		
@@ -107,6 +108,7 @@ public class VideoYoutubeMain {
 	private static void InsertarVideo() {
 		CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
 		
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Inserta el ID");
@@ -132,6 +134,7 @@ public class VideoYoutubeMain {
 		
 		CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
 		
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		p("Inserta el ID del video que quieres buscar");
 		String id = sc.nextLine();
@@ -148,6 +151,7 @@ public class VideoYoutubeMain {
 		
 		CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
 		
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		p("Que video quieres borrar?");
 		String id = sc.nextLine();
@@ -161,8 +165,7 @@ public class VideoYoutubeMain {
 
 	private static void ActualizarVideo() {
 		
-		CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
-		
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		p("Que video quieres actualizar? Inserta su ID");
 		String id = sc.nextLine();
@@ -171,7 +174,6 @@ public class VideoYoutubeMain {
 		VideoYoutube encontrado = new VideoYoutube();
 		encontrado = VideoYoutubeArrayDAO.getInstance().getById(id2);
 		
-		int idc2=Integer.parseInt(id);
 		System.out.println("Inserta el nuevo Codigo");
 		String cod = sc.nextLine();
 		System.out.println("Inserta el nuevo Titulo");

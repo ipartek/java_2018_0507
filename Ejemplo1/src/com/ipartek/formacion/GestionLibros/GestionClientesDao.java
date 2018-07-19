@@ -1,7 +1,9 @@
 package com.ipartek.formacion.GestionLibros;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
 
 public class GestionClientesDao implements CrudAble<Cliente> {
 
@@ -40,31 +42,46 @@ public class GestionClientesDao implements CrudAble<Cliente> {
 	}
 
 	@Override
-	public boolean update(Cliente pojo) {
+	public boolean update(Cliente cliente) {
 		
-		return false;
+		boolean resultado = false;
+		Cliente cliIte = null;
+		int i =0;
+		
+		if (cliente != null){
+		Iterator<Cliente> c = clientes.iterator();
+		
+		while(c.hasNext()) {
+			cliIte = c.next();
+			if ( cliIte.getId() == cliente.getId() ) {
+				clientes.set(i, cliente);
+				resultado = true;
+				break;					
+			}	
+			i++;
+			}
+		}		
+			return resultado;
+		
 	}
-
-//	@Override
-//	public boolean delete(long id) {
-//		
-//		boolean resultado = false;
-//		Cliente c = null;
-//		
-//		for (int i = 0; i < clientes.size(); i++) {
-//			if (id == c.getId()) {
-//				
-//			}
-//			
-//		}
-//	}
 
 	@Override
-	public boolean delete(Cliente pojo) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean delete(long id) {
+		
+		boolean resultado = false;
+		Cliente c = null;
+		
+		for (int i = 0; i < clientes.size(); i++) {
+			c= clientes.get(i);
+		}
+			if (id == c.getId()) {
+				resultado = clientes.remove(c);
+			}
+		return resultado;	
+		
 	}
-	
+
+
 	
 	
 }

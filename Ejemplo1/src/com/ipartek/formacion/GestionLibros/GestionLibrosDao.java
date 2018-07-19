@@ -73,11 +73,7 @@ public class GestionLibrosDao implements CrudAble<Libro> {
 	}
 
 
-	@Override
-	public boolean delete(Libro pojo) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
 
 
 	
