@@ -6,15 +6,37 @@ public class Libro {
 	private String titulo;
 	private String autor;
 	private String editorial;
+	private boolean alquilado = false;
 	private Cliente cliente;
 	
 	public boolean isLibre() {
 		//TODO: implementar isLibre
-		throw new RuntimeException("Noimplementado");
+		throw new RuntimeException("No implementado");
 	}
 
 	public Libro() {
-		this(-1, "", "", "", "");
+		this(-1, "", "", "", "", false);
+	}
+	
+	
+	public Libro(long id, String isbn, String titulo, String autor, String editorial, boolean alquilado) {
+		super();
+		this.id = id;
+		this.isbn = isbn;
+		this.titulo = titulo;
+		this.autor = autor;
+		this.editorial = editorial;
+		this.alquilado = alquilado;
+	}
+	public Libro(long id, String isbn, String titulo, String autor, String editorial, boolean alquilado, Cliente cliente) {
+		super();
+		this.id = id;
+		this.isbn = isbn;
+		this.titulo = titulo;
+		this.autor = autor;
+		this.editorial = editorial;
+		this.alquilado = alquilado;
+		this.cliente = cliente;
 	}
 	
 	public long getId() {
@@ -65,21 +87,24 @@ public class Libro {
 		this.cliente = cliente;
 	}
 
-	public Libro(long id, String isbn, String titulo, String autor, String editorial) {
-		super();
-		this.id = id;
-		this.isbn = isbn;
-		this.titulo = titulo;
-		this.autor = autor;
-		this.editorial = editorial;
+	public boolean isAlquilado() {
+		return alquilado;
 	}
+
+	public void setAlquilado(boolean alquilado) {
+		this.alquilado = alquilado;
+	}
+
+
+	
+
 	
 	@Override
 	public String toString() {
 		return "Libro [id=" + id + ", isbn=" + isbn + ", titulo=" + titulo + ", autor=" + autor + ", editorial="
-				+ editorial + ", cliente=" + cliente + "]";
+				+ editorial + ", alquilado=" + alquilado + ", cliente=" + cliente + "]";
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

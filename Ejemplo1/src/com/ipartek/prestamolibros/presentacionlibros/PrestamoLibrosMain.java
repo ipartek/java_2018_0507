@@ -20,6 +20,11 @@ public class PrestamoLibrosMain {
 	public static char caracter;
 	public static String letter;
 	public static int id;
+	public static String isbn;
+	public static String titulo;
+	public static String autor;
+	public static String editorial;
+	public static boolean alquilado;
 	static Scanner sc = new Scanner(System.in);
 	static Scanner sc2 = new Scanner(System.in);
 	static Scanner sc3 = new Scanner(System.in);
@@ -27,8 +32,8 @@ public class PrestamoLibrosMain {
 	static LeerTeclado lt2 = new LeerTeclado(sc2);
 	static LeerTeclado lt3 = new LeerTeclado(sc3);
 	 //Creando aqui el dao no requiero usarlo en cada metodo
-	//static CrudAble<Cliente> daoC = ClientesArrayDAO.getInstance();
-	static CrudAble<Libro> dao = LibrosArrayDAO.getInstance();
+	static CrudAble<Cliente> daoC = ClientesArrayDAO.getInstance();
+	static CrudAble<Libro> daoL = LibrosArrayDAO.getInstance();
 	
 	
 	public static void main(String[] args) {
@@ -141,10 +146,7 @@ public class PrestamoLibrosMain {
 		}while (salir==false);
 	}
 	
-	private static void devolverLibro() {
-		// TODO Auto-generated method stub
-		
-	}
+
 	private static void opcionMenuClientes(int opcionCliente) {
 		do {
 			opcionCliente = lt.leerInt(opcionCliente);
@@ -153,23 +155,23 @@ public class PrestamoLibrosMain {
 		case 1: 
 			
 			listadoClientes();
-			volver();
+			volverCliente();
 			break;
 		case 2:
 			listadoClientesById();
-			volver();
+			volverCliente();
 			break;
 		case 3:
 			AddCliente();
-			volver();
+			volverCliente();
 			break;
 		case 4:
 			updateCliente();
-			volver();
+			volverCliente();
 			break;
 		case 5:
 			deleteCliente();
-			volver();
+			volverCliente();
 			break;
 		case 9: mostrarMenu();
 		break;
@@ -192,23 +194,23 @@ public class PrestamoLibrosMain {
 		case 1: 
 			
 			listadoLibros();
-			volverCliente();
+			volverLibro();
 			break;
 		case 2:
 			listadoLibrosById();
-			volverCliente();
+			volverLibro();
 			break;
 		case 3:
 			AddLibro();
-			volverCliente();
+			volverLibro();
 			break;
 		case 4:
 			updateLibro();
-			volverCliente();
+			volverLibro();
 			break;
 		case 5:
 			deleteLibro();
-			volverCliente();
+			volverLibro();
 			break;
 		case 9: mostrarMenu();
 		break;
@@ -223,25 +225,63 @@ public class PrestamoLibrosMain {
 		}while (salir==false);
 	}
 	private static void mostrarAlquilados() {
-		// TODO Auto-generated method stub
+		mostrarCabeceraLibrosAlquilados();
 		
+		for(Libro libro: daoL.getAll()) {
+			mostrarLibrosAlquilados(libro);
+		}
 	}
 	private static void alquilarLibro() {
-		// TODO Auto-generated method stub
+		listadoLibros();
+		p("Indique el id" + "(" + daoC.getAll().size() + ")");
+		id = lt.leerInt(id);
+		long id2;
+		for (Libro libro : daoL.getAll()) {
+			if(libro.getId()==id && !alquilado) {
+				id2= libro.getId();
+				isbn=libro.getIsbn();
+				titulo = libro.getTitulo();
+				alquilado = true;
+				autor = libro.getAutor();
+				editorial = libro.getEditorial();
+				daoL.update(new Libro(id2, isbn,  titulo, autor,
+						editorial, alquilado));
+			}
+		}
 		
+		daoL.update(new Libro(id, isbn,  titulo, autor, editorial, alquilado));
 	}
+	private static void devolverLibro() {
+		listadoLibros();
+		p("Indique el id" + "(" + daoC.getAll().size() + ")");
+		id = lt.leerInt(id);
+		long id2;
+		for (Libro libro : daoL.getAll()) {
+			if(libro.getId()==id && alquilado) {
+				id2= libro.getId();
+				isbn=libro.getIsbn();
+				titulo = libro.getTitulo();
+				alquilado = false;
+				autor = libro.getAutor();
+				editorial = libro.getEditorial();
+				daoL.update(new Libro(id2, isbn,  titulo, autor,
+						editorial, alquilado));
+			}
+		}
+		
+		daoL.update(new Libro(id, isbn,  titulo, autor, editorial, alquilado));
+	}
+		
 	private static void deleteCliente() {
-		CrudAble<Cliente> dao = ClientesArrayDAO.getInstance();
 		long id = 0;
 		listadoClientes();
 		p("");
 		p("Introduzca el id del Cliente que desea eliminar");
 		id = lt.leerLong(id);
-		dao.delete(id);
+		daoC.delete(id);
 		
 	}
 	private static void updateCliente() {
-		CrudAble<Cliente> dao = ClientesArrayDAO.getInstance();
 		long id = 0;
 		String dni = null;
 		String nombre = null;
@@ -257,10 +297,10 @@ public class PrestamoLibrosMain {
 		p("Introduzca el apellido  del cliente que desea actualizar");
 		apellido = lt2.leerString(apellido);
 		
-		dao.update(new Cliente(id, dni,  nombre, apellido));
+		daoC.update(new Cliente(id, dni,  nombre, apellido));
 	}
 	private static void AddCliente() {
-		CrudAble<Cliente> dao = ClientesArrayDAO.getInstance();
+		
 		long id = 0;
 		String dni = null;
 		String nombre = null;
@@ -274,28 +314,26 @@ public class PrestamoLibrosMain {
 		nombre = lt2.leerString(nombre);
 		p("Introduzca el apellido");
 		apellido = lt2.leerString(apellido);
-		dao.insert(new Cliente(id, dni,  nombre, apellido));
+		daoC.insert(new Cliente(id, dni,  nombre, apellido));
 		
 	}
 	private static void listadoClientesById() {
-		CrudAble<Cliente> dao = ClientesArrayDAO.getInstance();
-		p("Indique el id" + "(" + dao.getAll().size() + ")");
+		p("Indique el id" + "(" + daoC.getAll().size() + ")");
 		id = lt.leerInt(id);
-		for (Cliente cliente : dao.getAll()) {
+		for (Cliente cliente : daoC.getAll()) {
 			if(cliente.getId()==id) {
 				mostrarCabeceraClientes();
 				System.out.println(cliente.getId() + "\t" + cliente.getDni() +
 						"\t"  + cliente.getNombre() + "\t" + cliente.getApellidos());
 			}
 		}
-		
 	}
 	private static void listadoClientes() {
-		CrudAble<Cliente> dao = ClientesArrayDAO.getInstance();
+		
 		
 		mostrarCabeceraClientes();
 		
-		for(Cliente cliente: dao.getAll()) {
+		for(Cliente cliente: daoC.getAll()) {
 			mostrarCliente(cliente);
 		}
 	}
@@ -313,15 +351,12 @@ public class PrestamoLibrosMain {
 		p("");
 		p("Introduzca el id del Libro que desea eliminar");
 		id = lt.leerLong(id);
-		dao.delete(id);
+		daoL.delete(id);
 		
 	}
 	private static void updateLibro() {
 		long id = 0;
-		String isbn = null;
-		String titulo = null;
-		String autor = null;
-		String editorial = null;	
+			
 		listadoLibros();
 		p("Introduzca un id que desee actualizar");
 		id = lt.leerLong(id);
@@ -333,16 +368,12 @@ public class PrestamoLibrosMain {
 		autor = lt2.leerString(autor);
 		p("Introduzca la editorial");
 		editorial = lt2.leerString(editorial);
-		dao.update(new Libro(id, isbn,  titulo, autor, editorial));
+		daoL.update(new Libro(id, isbn,  titulo, autor, editorial, alquilado));
 		
 	}
 	private static void AddLibro() {
 		 long id = 0;
-		String isbn = null;
-		String titulo = null;
-		String autor = null;
-		String editorial = null;
-
+		 alquilado = false;
 		//No comprueba que el id exista
 		//id = dao.getAll().size()+1;
 		listadoLibros();
@@ -356,13 +387,13 @@ public class PrestamoLibrosMain {
 		autor = lt2.leerString(autor);
 		p("Introduzca la editorial");
 		editorial = lt2.leerString(editorial);
-		dao.insert(new Libro(id, isbn,  titulo, autor, editorial));
+		daoL.insert(new Libro(id, isbn,  titulo, autor, editorial, alquilado));
 		
 	}
 	private static void listadoLibrosById() {
-		p("Indique el id" + "(" + dao.getAll().size() + ")");
+		p("Indique el id" + "(" + daoL.getAll().size() + ")");
 		id = lt.leerInt(id);
-		for (Libro libro : dao.getAll()) {
+		for (Libro libro : daoL.getAll()) {
 			if(libro.getId()==id) {
 				mostrarCabeceraClientes();
 				System.out.println(libro.getId() + "\t" + libro.getIsbn() +
@@ -372,11 +403,10 @@ public class PrestamoLibrosMain {
 		}
 	}
 	private static void listadoLibros() {
-		CrudAble<Libro> dao = LibrosArrayDAO.getInstance();
 		
 		mostrarCabeceraLibros();
 		
-		for(Libro libro: dao.getAll()) {
+		for(Libro libro: daoL.getAll()) {
 			mostrarLibro(libro);
 		}
 	}
@@ -384,8 +414,19 @@ public class PrestamoLibrosMain {
 		p(libro.getId() + "\t" + libro.getIsbn() + "\t" + libro.getTitulo() + "\t" + libro.getAutor() + 
 				"\t" + libro.getEditorial());
 	}
+	private static void mostrarLibrosAlquilados(Libro libro) {
+		if (libro.isAlquilado()) {
+		p(libro.getId() + "\t" + libro.getIsbn() + "\t" + libro.getTitulo() + "\t" + libro.getAutor() + 
+				"\t" + "V");
+		}else if(!libro.isAlquilado()) {
+			p(libro.getId() + "\t" + libro.getIsbn() + "\t" + libro.getTitulo() + "\t" + libro.getAutor() + 
+					"\t" + libro.getEditorial() +"\t" + "X");
+		}
+	}
 	private static void mostrarCabeceraLibros() {
 		p("ID\tISBN\tTITULO\t\tAUTOR\tEDITORIAL");
+	}private static void mostrarCabeceraLibrosAlquilados() {
+		p("ID\tISBN\tTITULO\t\tAUTOR\tEDITORIAL\tALQUILADO");
 	}
 	public static void volverCliente() {
 		System.out.println("\nQuieres volver al menu? S/N");
@@ -429,10 +470,9 @@ public class PrestamoLibrosMain {
 
 
 	private static void cargarLibros() {
-		CrudAble<Libro> dao = LibrosArrayDAO.getInstance();
 		
 		for(int i = 1; i <= 5; i++) {
-			dao.insert(new Libro(i, "isbn " + i, "titulo " + i, "autor " + i, "editorial " + i));
+			daoL.insert(new Libro(i, "isbn " + i, "titulo " + i, "autor " + i, "editorial " + i, false));
 		}
 	}
 	private static void cargarClientes() {
