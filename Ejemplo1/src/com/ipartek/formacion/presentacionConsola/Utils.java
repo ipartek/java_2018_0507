@@ -1,5 +1,6 @@
 package com.ipartek.formacion.presentacionConsola;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Utils {
@@ -18,10 +19,25 @@ public class Utils {
 	}
 	
 	public static int leerInt() {
-		int l =  s.nextInt();
+		int i = 0;
+		boolean hayQueRepetir;
+		
+		do {
+			try {
+				hayQueRepetir = false;
+				i = s.nextInt();
+			} catch (InputMismatchException e) {
+				System.out.println("Por favor introduce un numero entero sin comas ni puntos");
+				hayQueRepetir = true;
+			} catch (Exception e) {
+				System.out.println("Error no esperado");
+				throw e;
+			}
+		}while(hayQueRepetir);
+		
 		s.nextLine();
 		
-		return l;
+		return i;
 	}
 
 }

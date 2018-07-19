@@ -74,14 +74,6 @@ public class VideoYoutubeMain {
 		}
 	}
 	
-	private static void salir() {
-		p("ADIOS!!!");
-	}
-	
-	private static void noDisponible() {
-		p("Esa funcion no existe");
-	}
-
 	private static void listadoVideos() {
 		mostrarCabecera();
 		
@@ -90,18 +82,6 @@ public class VideoYoutubeMain {
 		}
 	}
 
-	private static VideoYoutube crearVideoConDatosConsola() {
-		p("ID: ");
-		long id = Utils.leerLong();
-		p("Nuevo codigo youtube: ");
-		String codigo = Utils.leerLinea();
-		p("Nuevo titulo youtube: ");
-		String titulo = Utils.leerLinea();
-		
-		VideoYoutube video = new VideoYoutube(id, codigo, titulo);
-		return video;
-	}
-	
 	private static void cargarVideoConcreto() {
 		listadoVideos();
 
@@ -188,4 +168,25 @@ public class VideoYoutubeMain {
 		p("0. Salir de la aplicacion");
 		p("Elige una opcion: ");
 	}
+
+	private static VideoYoutube crearVideoConDatosConsola() {
+		p("ID: ");
+		long id = Utils.leerLong();
+		p("Nuevo codigo youtube: ");
+		String codigo = Utils.leerLinea();
+		p("Nuevo titulo youtube: ");
+		String titulo = Utils.leerLinea();
+		
+		VideoYoutube video = new VideoYoutube(id, codigo, titulo);
+		return video;
+	}
+	
+	private static void salir() {
+		p("ADIOS!!!");
+	}
+	
+	private static void noDisponible() {
+		p("Esa funcion no existe");
+	}
+
 }
