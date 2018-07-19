@@ -29,6 +29,7 @@ class ClienteDAOTest {
 	private static final String MOCKLIBRO1_TITULO = "Juego de tronos";
 	private static final String MOCKLIBRO1_AUTOR = "JRR";
 	private static final String MOCKLIBRO1_EDITORIAL = "Anaya";
+	private static final Boolean MOCKLIBRO1_PRESTADO = true;
 	
 	private static Libro mockLibro2;
 	private static final long MOCKLIBRO2_ID = 456;
@@ -36,6 +37,7 @@ class ClienteDAOTest {
 	private static final String MOCKLIBRO2_TITULO = "Shogun";
 	private static final String MOCKLIBRO2_AUTOR = "James Clavell";
 	private static final String MOCKLIBRO2_EDITORIAL = "Plaza and Jones";
+	private static final Boolean MOCKLIBRO2_PRESTADO = true;
 	
 	private static Cliente mockCliente1;
 	private static final long MOCKCLIENTE1_ID = 2;
@@ -82,6 +84,7 @@ class ClienteDAOTest {
 				MOCKLIBRO1_TITULO, 
 				MOCKLIBRO1_AUTOR, 
 				MOCKLIBRO1_EDITORIAL, 
+				MOCKLIBRO1_PRESTADO,
 				mockCliente1);
 		
 		mockLibro2 = new Libro(
@@ -89,7 +92,8 @@ class ClienteDAOTest {
 				MOCKLIBRO2_ISBN, 
 				MOCKLIBRO2_TITULO, 
 				MOCKLIBRO2_AUTOR, 
-				MOCKLIBRO2_EDITORIAL, 
+				MOCKLIBRO2_EDITORIAL,
+				MOCKLIBRO2_PRESTADO,
 				mockCliente2);
 		
 		assertTrue(dao.insert(mockCliente1));

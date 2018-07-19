@@ -9,14 +9,28 @@ public class Libro {
 	private String autor;
 	private String editorial;
 	private Cliente cliente;
+	private boolean prestado;
 	
-	public Libro(long id, String isbn, String titulo, String autor, String editorial, Cliente cliente) {
+	public Libro() {
+		super();
+		this.id = -1;
+		this.isbn = "";
+		this.titulo = "";
+		this.autor = "";
+		this.editorial = "";
+		this.cliente = null;
+		this.prestado = false;
+	}
+	
+	
+	public Libro(long id, String isbn, String titulo, String autor, String editorial, boolean prestado, Cliente cliente) {
 		super();
 		setId(id);
 		setIsbn(isbn);
 		setTitulo(titulo);
 		setAutor(autor);
 		setEditorial(editorial);
+		setPrestado(prestado);
 		this.cliente = cliente;
 	}
 
@@ -64,6 +78,14 @@ public class Libro {
 
 	public void setEditorial(String editorial) {
 		this.editorial = editorial;
+	}
+	
+	public boolean isPrestado() {
+		return prestado;
+	}
+
+	public void setPrestado(boolean prestado) {
+		this.prestado = prestado;
 	}
 
 	@Override

@@ -105,5 +105,33 @@ public class LibroDAO implements CrudAbleLibro<Libro>{
 		}
 		return resul;
 	}
+
+	@Override
+	public List<Libro> getAllPrestados(boolean isPrestado) {
+		ArrayList<Libro> resul = new ArrayList<Libro>(); 
+		for(Libro libro : libros) {
+			if( libro.isPrestado() == isPrestado ) {
+				resul.add(libro);
+			}
+		}		
+		return resul; 
+	}
 	
+	/**
+	 * Buscamos Libros que coincida el titulo, es ignoreCase, nos sirve cualquier coincidencia no tiene porque ser el titulo exacto
+	 * @param busqueda String termino a buscar
+	 * @return listado de Libros que coincidan con la 'busqueda'
+	 */
+	@Override
+	public List<Libro> getByTitulo( String busqueda ){
+		ArrayList<Libro> resul = new ArrayList<Libro>();
+		if ( busqueda != null ) {
+			for(Libro libro : libros) {
+				if( libro.getTitulo().toLowerCase().contains(busqueda.toLowerCase()) ) {
+					resul.add(libro);
+				}
+			}		
+		}
+		return resul;
+	}
 }
