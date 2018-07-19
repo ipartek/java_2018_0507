@@ -1,10 +1,10 @@
-package com.formacion.prestamosLibro.presentacion;
+package com.ipartek.prestamosLibro.presentacion;
 
 import java.util.Scanner;
 
-import com.formacion.prestamoLibro.accesoAdatos.ClienteArrayDao;
-import com.formacion.prestamoLibro.accesoAdatos.CrudAble;
-import com.formacion.prestamoLibro.accesoAdatos.LibroArrayDao;
+import com.ipartek.prestamoLibro.accesoAdatos.ClienteArrayDao;
+import com.ipartek.prestamoLibro.accesoAdatos.CrudAble;
+import com.ipartek.prestamoLibro.accesoAdatos.LibroArrayDao;
 import com.ipartek.prestamoLibro.pojo.Cliente;
 import com.ipartek.prestamoLibro.pojo.Libro;
 
