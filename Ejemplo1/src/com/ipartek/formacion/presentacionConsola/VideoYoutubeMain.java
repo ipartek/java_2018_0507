@@ -1,13 +1,13 @@
 package com.ipartek.formacion.presentacionConsola;
 
-import java.util.Scanner;
-
 import com.ipartek.formacion.accesoDatos.CrudAble;
 import com.ipartek.formacion.accesoDatos.VideoYoutubeArrayDAO;
 import com.ipartek.formacion.pojo.VideoYoutube;
 
 public class VideoYoutubeMain {
 	
+	private static CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
+
 	public enum OpcionesMenu{
 		SALIR(0),
 		LISTADO(1),
@@ -32,61 +32,57 @@ public class VideoYoutubeMain {
 		}
 	}
 
-	
 	public static void main(String[] args) {
 		
 		cargarVideos();
+		int opcion;
 		
-		OpcionesMenu opcionesMenu = OpcionesMenu.values()[0];
-		
-		int opcion = 0;
-	
 		do {
 			mostrarMenu();
-			opcion = leerOpcion();
+			opcion = Utils.leerInt();
 			
-			opcionesMenu = OpcionesMenu.values()[opcion];
+			OpcionesMenu opcionesMenu = OpcionesMenu.values()[opcion];
 			
-			switch (opcionesMenu) {
-				case LISTADO: 
-					listadoVideos();
-					break;
-				case CARGAR_VIDEO:
-					cargarVideoConcreto();
-					break;
-				case INSERTAR_VIDEO:
-					insertarVideo();
-					break;
-				case MODIFICAR_VIDEO:
-					modificarVideo();
-					break;
-				case BORRAR_VIDEO:
-					eliminarVideo();
-					break;
-			default:
-				break;
-			}
-		} while (opcion != 0);
-		
-		System.out.println("ADIOS!!!");
+			procesarOpcion(opcionesMenu);
+			
+		} while (opcion != OpcionesMenu.SALIR.getNumeroOpcion());
 	}
 
-	private static int leerOpcion() {
-		int opcionLeida = 0;
-		Scanner sc;
-		int opcionesMenu = OpcionesMenu.getMaxOpciones();
-		
-		do {
-			sc = new Scanner(System.in); 
-			opcionLeida = sc.nextInt();
-		}while (opcionLeida < 0 && opcionLeida > opcionesMenu);
-		
-		return opcionLeida;
+	private static void procesarOpcion(OpcionesMenu opcionesMenu) {
+		switch (opcionesMenu) {
+			case LISTADO: 
+				listadoVideos();
+				break;
+			case CARGAR_VIDEO:
+				cargarVideoConcreto();
+				break;
+			case INSERTAR_VIDEO:
+				insertarVideo();
+				break;
+			case MODIFICAR_VIDEO:
+				modificarVideo();
+				break;
+			case BORRAR_VIDEO:
+				eliminarVideo();
+				break;
+			case SALIR:
+				salir();
+				break;
+			default:
+				noDisponible();
+				break;
+		}
+	}
+	
+	private static void salir() {
+		p("ADIOS!!!");
+	}
+	
+	private static void noDisponible() {
+		p("Esa funcion no existe");
 	}
 
 	private static void listadoVideos() {
-		CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
-		
 		mostrarCabecera();
 		
 		for (VideoYoutube video: dao.getAll()) {
@@ -94,15 +90,23 @@ public class VideoYoutubeMain {
 		}
 	}
 
-	private static void cargarVideoConcreto() {
-		long idVideo = 1;
-		CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
+	private static VideoYoutube crearVideoConDatosConsola() {
+		p("ID: ");
+		long id = Utils.leerLong();
+		p("Nuevo codigo youtube: ");
+		String codigo = Utils.leerLinea();
+		p("Nuevo titulo youtube: ");
+		String titulo = Utils.leerLinea();
 		
+		VideoYoutube video = new VideoYoutube(id, codigo, titulo);
+		return video;
+	}
+	
+	private static void cargarVideoConcreto() {
 		listadoVideos();
 
-		Scanner sc = new Scanner(System.in); 
 		p("Introduce un ID: ");
-		idVideo = sc.nextLong();
+		long idVideo = Utils.leerLong();
 		
 		VideoYoutube newDao = dao.getById(idVideo);
 		
@@ -115,19 +119,9 @@ public class VideoYoutubeMain {
 	}
 
 	private static void insertarVideo() {
-		CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
+		VideoYoutube video = crearVideoConDatosConsola();
 		
-		long id = dao.getAll().size()+1;
-		String codigo;
-		String titulo;
-		
-		Scanner sc = new Scanner(System.in);
-		p("Nuevo codigo youtube: ");
-		codigo = sc.nextLine();
-		p("Nuevo titulo youtube: ");
-		titulo = sc.nextLine();
-		
-		boolean resultadoOperacion = dao.insert(new VideoYoutube(id, codigo, titulo));
+		boolean resultadoOperacion = dao.insert(video);
 		
 		if (resultadoOperacion) {
 			p("Video insertado correctamente");
@@ -135,23 +129,12 @@ public class VideoYoutubeMain {
 			p("ERROR al insertar video");
 		}
 	}
-	
+
 	private static void modificarVideo() {
-		CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
+
+		VideoYoutube video = crearVideoConDatosConsola();
 		
-		long id;
-		String codigo;
-		String titulo;
-		
-		Scanner sc = new Scanner(System.in);
-		p("ID del video a modificar: ");
-		id = sc.nextLong();
-		p("Nuevo codigo youtube: ");
-		codigo = sc.nextLine();
-		p("Nuevo titulo youtube: ");
-		titulo = sc.nextLine();
-		
-		boolean resultadoOperacion = dao.update(new VideoYoutube(id, codigo, titulo));
+		boolean resultadoOperacion = dao.update(video);
 		
 		if (resultadoOperacion) {
 			p("Video modificado correctamente");
@@ -161,12 +144,8 @@ public class VideoYoutubeMain {
 	}
 	
 	private static void eliminarVideo() {
-		CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
-		
-		long id;
-		Scanner sc = new Scanner(System.in);
 		p("ID del video a eliminar: ");
-		id = sc.nextLong();
+		long id = Utils.leerLong();
 		
 		boolean resultadoOperacion = dao.delete(id);
 		
@@ -177,8 +156,6 @@ public class VideoYoutubeMain {
 		}
 	}
 
-	
-	
 	private static void mostrarCabecera() {
 		p("ID\tCODIGO\tTITULO");
 	}
@@ -188,12 +165,9 @@ public class VideoYoutubeMain {
 	}
 
 	private static void cargarVideos() {
-		CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
-		
 		for (int i = 1; i <= 10; i++) {
 			dao.insert(new VideoYoutube(i, "codigo" + i, "Titulo" + i));
 		}
-		
 	}
 
 	public static void p(String s) {

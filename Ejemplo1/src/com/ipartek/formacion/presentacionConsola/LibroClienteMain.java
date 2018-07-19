@@ -48,11 +48,13 @@ public class LibroClienteMain {
 	
 	public enum OpcionesMenuLibro{
 		LISTADO(1),
-		CARGAR_CLIENTE_POR_ID(2),
-		CARGAR_CLIENTE_POR_DNI(3),
-		INSERTAR_CLIENTE(4),
-		MODIFICAR_CLIENTE(5),
-		BORRAR_CLIENTE(6);
+		CARGAR_LIBRO_POR_ID(2),
+		CARGAR_LIBRO_POR_ISBN(3),
+		INSERTAR_LIBRO(4),
+		MODIFICAR_LIBRO(5),
+		BORRAR_LIBRO(6),
+		PRESTAR_LIBRO(7),
+		LISTAR_PRESTADOS_Y_A_QUIEN(8);
 		
 		private int numeroOpcionLibro;
 		private static int menuLibroMaxOpciones = OpcionesMenuLibro.values().length;
@@ -82,6 +84,10 @@ public class LibroClienteMain {
 	private static void cargarClientes() {
 		CrudAbleCliente<Cliente> dao = ClienteDAO.getInstance();
 		
+		for (int i = 1; i <= 10; i++) {
+			
+			//dao.insert(new Cliente(id, nombre, apellido, lista_libros));
+		}
 		/*for (int i = 1; i <= 10; i++) {
 			dao.insert(new VideoYoutube(i, "codigo" + i, "Titulo" + i));
 		}*/
