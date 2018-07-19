@@ -86,7 +86,7 @@ public class LibroArrayDAO implements CrudAble<Libro>{
 	@Override
 	public List<Libro> getAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return libros;
 	}
 
 	@Override
