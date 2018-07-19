@@ -7,4 +7,9 @@ public class Libro {
 	private String autor;
 	private String editorial;
 	private Cliente cliente; //un libro solo puede tener un cliente
+	
+	public boolean isLibre() { 	
+		//TODO: implementar esLibre
+		throw new RuntimeException("No implementado");
+	}
 }
