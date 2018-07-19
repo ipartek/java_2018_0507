@@ -119,7 +119,7 @@ public class VideoYoutubeMain {
 		
 		dao.insert(new VideoYoutube (id2,cod,tit));
 		
-		//Para realizar la comprobacion de si el video se ha añaidod bien tendria que hacer un new Video:
+		//Para realizar la comprobacion de si el video se ha añadido bien tendria que hacer un new Video:
 		//Video Youtube vy = new VideoYoutube (id2,cod,tit));
 		//if(dao.insert(vy)) {
 		//	p("Video añadido correctamente")
