@@ -13,13 +13,12 @@ public class Cliente {
 		super();
 	}
 
-	public Cliente(long id, String dni, String nombre, String apellidos, List<Libro> librosPrestados) {
+	public Cliente(long id, String dni, String nombre, String apellidos) {
 		super();
 		this.id = id;
 		this.dni = dni;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
-		this.librosPrestados = librosPrestados;
 	}
 
 	public long getId() {

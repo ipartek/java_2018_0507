@@ -1,5 +1,10 @@
 package com.ipartek.formacion.ejemplo1;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -16,12 +21,60 @@ import org.joda.time.LocalDate;
 
 
 public class Prueba1 {
-
+	
+	private static final String RUTA_FICHERO = "C:\\trabajos\\fichero.txt";
+	private static final boolean AUTO_FLUSH = true;
+	private static final boolean SOBREESCRIBIR = false;
 	public final static int TAM_ARRAY = 10;
 
 	public enum Genero {MUJER, HOMBRE};
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		FileWriter fw = new FileWriter(RUTA_FICHERO, SOBREESCRIBIR);
+		PrintWriter pw = new PrintWriter(fw,AUTO_FLUSH);
+		
+		pw.println("Hola desde Java");
+		pw.println("Segunda línea");
+		
+		pw.close();
+		fw.close();
+		
+		FileReader fr = new FileReader(RUTA_FICHERO);
+		BufferedReader br = new BufferedReader(fr);
+		
+		String linea;
+		
+		while( (linea = br.readLine()) != null ) {
+			System.out.println(linea);
+		}
+		
+		br.close();
+		fr.close();
+	}
+	
+	public static void mainSwitchPeculiar(String[] args) {
+		int mes, dias;
+
+		mes = 6;
+
+		switch (mes) {
+		case 2:
+			dias = 28;
+			break;
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			dias = 30;
+			break;
+		default:
+			dias = 31;
+		}
+
+		System.out.printf("El mes %d tiene %d días", mes, dias);
+}
+	
+	public static void mainEnum(String[] args) {
 		Genero miGenero;
 
 		miGenero = Genero.HOMBRE;

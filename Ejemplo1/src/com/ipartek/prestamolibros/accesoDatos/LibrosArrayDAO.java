@@ -3,35 +3,34 @@ package com.ipartek.prestamolibros.accesoDatos;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
+
+import com.ipartek.prestamolibros.Libro;
 
 
-import com.ipartek.prestamolibros.pojo.PrestamoLibros;
+public class LibrosArrayDAO implements CrudAble<Libro>{
 
-public class PrestamoLibrosDAO implements CrudAble<PrestamoLibros>{
-
-	private List<PrestamoLibros> libros = new ArrayList<>();
-	private static PrestamoLibrosDAO INSTANCE;
+	private List<Libro> libros = new ArrayList<>();
+	private static LibrosArrayDAO INSTANCE;
 	
-	private PrestamoLibrosDAO() {
+	private LibrosArrayDAO() {
 	}
-	public static synchronized PrestamoLibrosDAO getInstance() {
+	public static synchronized CrudAble<Libro> getInstance() {
 		if (INSTANCE == null) {
-			INSTANCE = new PrestamoLibrosDAO();
+			INSTANCE = new LibrosArrayDAO();
 		}
 		return INSTANCE;
 	}
 	
 	@Override
-	public List<PrestamoLibros> getAll() {
+	public List<Libro> getAll() {
 		return libros;
 	}
 
 	@Override
-	public PrestamoLibros getById(long id) {
-		PrestamoLibros resul = null;
+	public Libro getById(long id) {
+		Libro resul = null;
 		//foreach
-		for (PrestamoLibros libroIteracion : libros) {
+		for (Libro libroIteracion : libros) {
 			if ( id == libroIteracion.getId() ) {
 				resul = libroIteracion;
 				break;
@@ -41,7 +40,7 @@ public class PrestamoLibrosDAO implements CrudAble<PrestamoLibros>{
 	}
 
 	@Override
-	public boolean insert(PrestamoLibros libro) {
+	public boolean insert(Libro libro) {
 		boolean resul = false;
 
 		if (libro != null) {
@@ -51,13 +50,13 @@ public class PrestamoLibrosDAO implements CrudAble<PrestamoLibros>{
 	}
 
 	@Override
-	public boolean update(PrestamoLibros libroUpdate) {
+	public boolean update(Libro libroUpdate) {
 		boolean resul = false;
-		PrestamoLibros libroIteracion = null;
+		Libro libroIteracion = null;
 		int i = 0;
 		if ( libroUpdate != null ) {
 			//Iterator		
-			Iterator<PrestamoLibros> it = libros.iterator();
+			Iterator<Libro> it = libros.iterator();
 			while( it.hasNext() ) {
 				libroIteracion = it.next();
 				if ( libroIteracion.getId() == libroUpdate.getId() ) {
@@ -75,7 +74,7 @@ public class PrestamoLibrosDAO implements CrudAble<PrestamoLibros>{
 	public boolean delete(long id) {
 		boolean resul = false;
 		
-		PrestamoLibros vIteracion = null;
+		Libro vIteracion = null;
 		
 		//buscar libro a eliminar
 		for (int i = 0; i < libros.size(); i++) {

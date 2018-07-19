@@ -16,8 +16,13 @@ public class LeerTeclado {
 	}
 
 	public long leerLong(long l) {
+		
 		return 	l = sc.nextLong();
 	}
+	
+	/*
+	 * 
+	 */
 	
 	public int leerInt(int i) {
 		return i = sc.nextInt();

@@ -13,6 +13,10 @@ public class Libro {
 		throw new RuntimeException("Noimplementado");
 	}
 
+	public Libro() {
+		this(-1, "", "", "", "");
+	}
+	
 	public long getId() {
 		return id;
 	}
@@ -61,14 +65,13 @@ public class Libro {
 		this.cliente = cliente;
 	}
 
-	public Libro(long id, String isbn, String titulo, String autor, String editorial, Cliente cliente) {
+	public Libro(long id, String isbn, String titulo, String autor, String editorial) {
 		super();
 		this.id = id;
 		this.isbn = isbn;
 		this.titulo = titulo;
 		this.autor = autor;
 		this.editorial = editorial;
-		this.cliente = cliente;
 	}
 	
 	@Override
