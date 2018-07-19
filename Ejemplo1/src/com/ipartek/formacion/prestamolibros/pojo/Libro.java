@@ -1,12 +1,15 @@
 package com.ipartek.formacion.prestamolibros.pojo;
 
-public class Libro {
+import java.io.Serializable;
+
+public class Libro implements Serializable {
 	private long id;
 	private String isbn;
 	private String titulo;
 	private String autor;
 	private String editorial;
 	private Cliente cliente;
+	
 	
 	
 	

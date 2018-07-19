@@ -1,8 +1,9 @@
 package com.ipartek.formacion.prestamolibros.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Cliente {
+public class Cliente implements Serializable {
 	private long id;
 	private String dni; //TODO: private Dni dni;
 	private String nombre;

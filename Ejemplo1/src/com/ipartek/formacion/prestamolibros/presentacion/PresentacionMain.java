@@ -1,5 +1,11 @@
 package com.ipartek.formacion.prestamolibros.presentacion;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -27,6 +33,7 @@ public class PresentacionMain {
 	private static final int ACTUALIZAR_LIBRO = 11;
 	private static final int ACTUALIZAR_CLIENTE = 12;
 	private static final int ELIMINAR_LIBRO = 13;
+	
 	private static final int ELIMINAR_CLIENTE = 14;
 	private static final int SALIR = 0;
 
@@ -571,16 +578,65 @@ public class PresentacionMain {
 	 * carga libros
 	 */
 	private static void cargarLibros() {
+		//Se define el dao de libro
 		LibroArrayDAO dao = LibroArrayDAO.getInstance();
+		//Definimos el array con el que vamos atrabjar, puede ser un array o un objeto 
+		List<Libro> libros = new ArrayList<>();
+try {
+	//Esto se encarga de abrir el fichero (si no existe lo crea)
+	FileInputStream fis = new FileInputStream("c:\\trabajo\\libros.txt");
+	//mientras haya archivo por leer
+	while(fis.available()>0) {
+		//creamos el inputStream para leer el objeto
+		ObjectInputStream inputStream = new ObjectInputStream(fis);
+		//Leemos el objeto y hacemos el casting , puede ser un array o un objeto , lo que queramos .
+		libros=(List<Libro>) inputStream.readObject();
+	}
+} catch (FileNotFoundException e) {
+	e.printStackTrace();
+}   
+ catch (IOException e) {
+	e.printStackTrace();
+} catch (ClassNotFoundException e) {
+	e.printStackTrace();
+}
+//Ahora lo que queremos es poder trabajar con los libros que hemos cargado para eso, recorremos el array y por cada libro que haya lo insertamos en el dao
+for(Libro lib : libros) {
+	dao.insert(lib);
+}
 
-		// Libro libro1 = new Libro(1,"123","HTML","Pepito","everest", new Cliente());
-		// Libro libro2 = new Libro(1,"1234","JAVA","Pepita","debolsillo", new
-		// Cliente());
-		// Libro libro3 = new Libro(1,"1235","SQL","Pepi","guay", new Cliente());
 
-		dao.insert(new Libro(1, "123", "HTML", "Pepito", "everest", null));
-		dao.insert(new Libro(2, "1234", "JAVA", "Pepita", "debolsillo", null));
-		dao.insert(new Libro(3, "1235", "SQL", "Pepi", "guay", null));
+//si al coger los libros del fichero el tamaño de la lista de libros es igual a 0 es decir que no hay libros metemos los libros por defecto
+if(libros.size()==0) {
+	dao.insert(new Libro(1, "123", "HTML", "Pepito", "everest", null));
+	dao.insert(new Libro(2, "1234", "JAVA", "Pepita", "debolsillo", null));
+	dao.insert(new Libro(3, "1235", "SQL", "Pepi", "guay", null));
+}
+	
 
+	}
+	
+	private static void guardarLibros() {
+		//Creamos el dao para poder acceder a la lista de libros
+		LibroArrayDAO dao = LibroArrayDAO.getInstance();
+		//Recuperamos la lista de libros 
+		List<Libro> libros = dao.getAll();
+		
+		try {
+			//Creamos un fileOutput y le pasamos como parametro el fcihero en el que lo vamos a guardar
+			FileOutputStream outputStream = new FileOutputStream("c:\\trabajo\\libros.txt");
+			//Creamos un objectoOutput y le pasamos como parametro fielOutput
+			ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+			//Guardamos el objeto , o un array o lo que queramos
+			objectOutputStream.writeObject(libros);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
 }
