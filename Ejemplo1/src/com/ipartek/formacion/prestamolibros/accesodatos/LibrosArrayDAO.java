@@ -32,8 +32,13 @@ public class LibrosArrayDAO implements CrudAble<Libro> {
 
 	@Override
 	public Libro getById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Libro res = null;
+		for(Libro libroIteracion : libros) {
+			if(id == libroIteracion.getId())
+				res = libroIteracion;
+				break;
+		}
+		return res;
 	}
 
 	@Override
