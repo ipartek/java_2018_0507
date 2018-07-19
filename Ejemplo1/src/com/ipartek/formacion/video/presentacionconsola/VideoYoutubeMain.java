@@ -161,19 +161,19 @@ public class VideoYoutubeMain {
 		p("Que video quieres actualizar? Inserta su ID");
 		String id = sc.nextLine();
 		int id2=Integer.parseInt(id);
-
-		dao.getById(id2);
 		
-		System.out.println("Inserta el nuevo ID");
-		String idc = sc.nextLine();
+		VideoYoutube encontrado = new VideoYoutube();
+		encontrado = VideoYoutubeArrayDAO.getInstance().getById(id2);
+		
 		int idc2=Integer.parseInt(id);
 		System.out.println("Inserta el nuevo Codigo");
 		String cod = sc.nextLine();
 		System.out.println("Inserta el nuevo Titulo");
 		String tit = sc.nextLine();
+		encontrado.setCodigo(cod);
+		encontrado.setTitulo(tit);
+		VideoYoutubeArrayDAO.getInstance().update(encontrado);
 		
-		
-		dao.update(new VideoYoutube(idc2,cod,tit));
 		
 	}
 	
