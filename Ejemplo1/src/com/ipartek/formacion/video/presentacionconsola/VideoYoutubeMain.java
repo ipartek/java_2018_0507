@@ -65,18 +65,20 @@ public class VideoYoutubeMain {
 				p("Inserte el ID del nuevo video");
 				long id = 0;
 				id = teclado.nextLong();
+				
 				p("Inserte el CODIGO del nuevo video");
 				String codigo = null;
-				codigo = teclado.nextLine();
+				codigo = teclado.next();
+
 				p("Inserte el TITULO del nuevo video");
 				String titulo = null;
-				titulo = teclado.nextLine();
+				titulo = teclado.next();
 				
-				//public boolean insert(VideoYoutube video) 
 				VideoYoutube videoInsert = new VideoYoutube(id, codigo, titulo);
+				dao.insert(videoInsert);
 				mostrarCabecera(); 
+				p("Nuevo video insertado");
 				mostrarVideo(videoInsert); 
-				
 				
 				break;
 				
