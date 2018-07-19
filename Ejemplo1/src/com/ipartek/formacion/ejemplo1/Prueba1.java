@@ -37,9 +37,9 @@ public class Prueba1 {
 		BufferedReader br= new BufferedReader(fr);
 		
 	String linea;
-	while (linea=br.readLine()!=null) {
-		
-	}
+//	while (linea=br.readLine()!=null) {
+//		
+//	}
 		
 		
 	}
