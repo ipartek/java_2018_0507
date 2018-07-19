@@ -3,7 +3,6 @@ package com.ipartek.formacion.prestamolibro.presentacionconsola;
 import java.util.Scanner;
 
 import com.ipartek.formacion.prestamolibros.accesodatos.CrudAble;
-import com.ipartek.formacion.prestamolibros.accesodatos.CrudAbleLibro;
 import com.ipartek.formacion.prestamolibros.accesodatos.LibroArrayDAO;
 import com.ipartek.formacion.prestamolibros.pojo.Cliente;
 import com.ipartek.formacion.prestamolibros.pojo.Libro;
