@@ -9,7 +9,7 @@ import com.ipartek.formacion.prestamoLibro.pojo.Cliente;
 import com.ipartek.formacion.prestamoLibro.pojo.Libro;
 
 
-public class Biblioteca {
+public class BibliotecaMain {
 	private static CrudAble<Libro> libros = LibroArrayDao.getInstance();
 	private static CrudAble<Cliente> clientes = ClienteArrayDao.getInstance();
 	private static int opcionMenu=-1,estado=0;
