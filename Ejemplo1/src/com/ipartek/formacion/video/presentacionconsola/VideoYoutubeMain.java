@@ -8,91 +8,98 @@ import com.ipartek.formacion.video.pojo.VideoYoutube;
 
 public class VideoYoutubeMain {
 
+	private static final int LISTADO = 1;
 
 	public static void main(String[] args) {
+
 		cargarVideos();
-		
 		mostrarMenu();
 		
+		
 		//TODO: Hacer el menú que se repita cada vez e implementar la lectura de teclado
-		elegirOpcion();
+		int opcion = LISTADO;
 		
-		
+
 	}
 
-	public static Scanner sc = new Scanner(System.in);
-
-	private static void elegirOpcion() {
-
-		int opcion = sc.nextInt();
-		
-		switch(opcion) {
-		case 1:
-			listadoVideos();
-			break;
-		case 2:
-			busquedaVideos();
-			break;
-		case 3:
-			insertarVideo();
-			break;
-		case 4:
-			actualizarVideo();
-			break;
-		case 5:
-			borrarVideo();
-			break;
-		default:
-			System.out.println("Has salido del programa.");
-			break;
-		}
-	}
-	
 	private static void mostrarMenu() {
+		Scanner entradaEscaner = new Scanner (System.in);
+		int  numero=0;
+		do {
 		p("------------");
 		p("VideoYoutube");
 		p("------------");
 		p("");
 		p("1. Listado de videos");
-		p("2. Busqueda de videos");
-		p("3. Insertar video");
-		p("4. Actualizar video");
-		p("5. Borrar video");
+		p("2-buscar videos por id");
+		p("3-insertar video");
+		p("4-actualizar");
+		p("5-borrar video");
 		p("0. Salir");
 		p("Elige una opción");
-	}
-	
-	private static void borrarVideo() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private static void actualizarVideo() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private static void insertarVideo() {
-		// TODO Auto-generated method stub
-		CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
-		
-		p("Introduce el id:");
-		int id = sc.nextInt();
-		
-		p("Introduce el codigo:");
-		String codigo = sc.nextLine();
-		
-		p("Introduce el titulo:");
-		String titulo = sc.nextLine();
-		
-		dao.insert(new VideoYoutube (id,codigo,titulo));
-		mostrarMenu();
-		
-	}
-
-	private static void busquedaVideos() {
-		// TODO Auto-generated method stub
-		
+		try {
+		String num=entradaEscaner.nextLine();
+		numero=Integer.parseInt(num);
+		if(numero<0) {
+			 Integer.parseInt( "hola" );
+		}else if(numero>5) {
+			 Integer.parseInt( "hola" );
+		}
+		}catch(Exception e) {
+			System.out.println("opcion incorrecta");
+			mostrarMenu();
+		}
+		switch(numero) {
+			case 1:
+				listadoVideos();
+				break;
+			case 2:
+				System.out.println("introduce la id del video");
+				String id1=entradaEscaner.nextLine();
+				int id=Integer.parseInt(id1);
+				System.out.println(VideoYoutubeArrayDAO.getInstance().getById(id));
+				break;
+			case 3:
+				System.out.println("introduce la id del video");
+				String idvideo=entradaEscaner.nextLine();
+				int idv=Integer.parseInt(idvideo);
+				
+				System.out.println("introduce codigo del video");
+				String codigov=entradaEscaner.nextLine();
+				
+				
+				System.out.println("introduce el titulo del video");
+				String titulov=entradaEscaner.nextLine();
+				
+				VideoYoutube video= new VideoYoutube();
+				video.setCodigo(codigov);
+				video.setTitulo(titulov);
+				video.setId(idv);
+				VideoYoutubeArrayDAO.getInstance().insert(video);
+				break;
+			case 4:
+				System.out.println("introduce el id del video que quieres modificar)");
+				String idbusqueda=entradaEscaner.nextLine();
+				int idb=Integer.parseInt(idbusqueda);
+				VideoYoutube encontrado=new VideoYoutube();
+				encontrado=VideoYoutubeArrayDAO.getInstance().getById(idb);
+				System.out.println("introduce codigo del video");
+				String codigoM=entradaEscaner.nextLine();
+				System.out.println("introduce el titulo del video");
+				String tituloM=entradaEscaner.nextLine();
+				encontrado.setCodigo(codigoM);
+				encontrado.setTitulo(tituloM);
+				VideoYoutubeArrayDAO.getInstance().update(encontrado);
+				break;
+			case 5:
+				System.out.println("introduce el id del video que quieres modificar)");
+				String idborrar=entradaEscaner.nextLine();
+				int idbo=Integer.parseInt(idborrar);
+				VideoYoutubeArrayDAO.getInstance().delete(idbo);
+				break;
+			case 0:
+		}
+	}while(numero!=0);
 	}
 	
 	private static void listadoVideos() {
@@ -103,8 +110,6 @@ public class VideoYoutubeMain {
 		for(VideoYoutube video: dao.getAll()) {
 			mostrarVideo(video);
 		}
-		mostrarMenu();
-		elegirOpcion();
 	}
 
 	private static void mostrarCabecera() {
