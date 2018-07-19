@@ -22,9 +22,11 @@ public class VideoYoutubeMain {
 
 		// TODO: Hacer el menú que se repita cada vez e implementar la lectura de
 		// teclado
+		
 		Scanner sc = new Scanner(System.in);
-		int opcion = sc.nextInt();
 
+		int opcion= sc.nextInt();		
+		
 		switch (opcion) {
 		case LISTADO:
 			listadoVideos();
@@ -44,7 +46,9 @@ public class VideoYoutubeMain {
 		case SALIR:
 			videosSalir();
 			break;
+			
 		}
+		
 		sc.close();
 	}
 
