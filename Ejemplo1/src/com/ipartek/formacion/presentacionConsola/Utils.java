@@ -8,11 +8,40 @@ public class Utils {
 	private static Scanner s = new Scanner(System.in);;
 
 	public static String leerLinea() {
-		return s.nextLine();
+		String linea;
+		boolean hayQueMostrarMensaje = true;
+		
+		do {
+			if(hayQueMostrarMensaje) {
+				System.out.println("No cuela con texto en blanco");
+			}
+			
+			linea = s.nextLine().trim();
+			
+			hayQueMostrarMensaje = true;
+		} while( linea.length() == 0 );
+
+		return linea;
 	}
 	
 	public static long leerLong() {
-		long l =  s.nextLong();
+		long l = 0;
+		boolean hayQueRepetir;
+		
+		do {
+			try {
+				hayQueRepetir = false;
+				l = s.nextLong();
+			} catch (InputMismatchException e) {
+				System.out.println("Por favor introduce un numero entero sin comas ni puntos");
+				s.nextLine();
+				hayQueRepetir = true;
+			} catch (Exception e) {
+				System.out.println("Error no esperado");
+				throw e;
+			}
+		}while(hayQueRepetir);
+		
 		s.nextLine();
 		
 		return l;
@@ -28,6 +57,7 @@ public class Utils {
 				i = s.nextInt();
 			} catch (InputMismatchException e) {
 				System.out.println("Por favor introduce un numero entero sin comas ni puntos");
+				s.nextLine();
 				hayQueRepetir = true;
 			} catch (Exception e) {
 				System.out.println("Error no esperado");

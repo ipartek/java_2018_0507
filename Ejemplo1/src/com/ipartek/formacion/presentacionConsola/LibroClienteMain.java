@@ -9,93 +9,78 @@ import com.ipartek.formacion.prestamoLibrosPojo.Libro;
 
 public class LibroClienteMain {
 
-	public enum OpcionesMenuPrincipal{
-		CLIENTES(1),
-		LIBROS(2);
-		
-		private int numeroOpcion;
-		private OpcionesMenuPrincipal(int numeroOpcion) {
-			this.numeroOpcion = numeroOpcion;
-		}
-		public int getNumeroOpcion() {
-			return this.numeroOpcion;
-		}
-	}
+	private static CrudAbleCliente<Cliente> daoCliente = ClienteDAO.getInstance();
+	private static CrudAbleLibro<Libro> daoLibro = LibroDAO.getInstance();
 	
-	public enum OpcionesMenuCliente{
-		LISTADO(1),
-		CARGAR_CLIENTE_POR_ID(2),
-		CARGAR_CLIENTE_POR_DNI(3),
-		INSERTAR_CLIENTE(4),
-		MODIFICAR_CLIENTE(5),
-		BORRAR_CLIENTE(6);
-		
-		private int numeroOpcionCliente;
-		private static int menuClienteMaxOpciones = OpcionesMenuCliente.values().length;
-		
-		private OpcionesMenuCliente(int numeroOpcionCliente) {
-			this.numeroOpcionCliente = numeroOpcionCliente;
-		}
-		
-		public int getNumeroOpcionesCliente() {
-			return this.numeroOpcionCliente;
-		}
-		
-		public static int getMaxOpcionesCliente() {
-			return menuClienteMaxOpciones;
-		}
-	}
+	private static final int SALIR = 0;
+	private static final int IR_A_CLIENTES = 1;
+	private static final int IR_A_LIBROS = 2;
+	private static final int LISTAR_PRESTADOS_Y_A_QUIEN = 3;
 	
-	public enum OpcionesMenuLibro{
-		LISTADO(1),
-		CARGAR_LIBRO_POR_ID(2),
-		CARGAR_LIBRO_POR_ISBN(3),
-		INSERTAR_LIBRO(4),
-		MODIFICAR_LIBRO(5),
-		BORRAR_LIBRO(6),
-		PRESTAR_LIBRO(7),
-		LISTAR_PRESTADOS_Y_A_QUIEN(8);
-		
-		private int numeroOpcionLibro;
-		private static int menuLibroMaxOpciones = OpcionesMenuLibro.values().length;
-		
-		private OpcionesMenuLibro(int numeroOpcionLibro) {
-			this.numeroOpcionLibro = numeroOpcionLibro;
-		}
-		
-		public int getNumeroOpcionesLibro() {
-			return this.numeroOpcionLibro;
-		}
-		
-		public static int getMaxOpcionesLibro() {
-			return menuLibroMaxOpciones;
-		}
-	}
+	private static final int LISTADO_CLIENTE = 1;
+	private static final int CARGAR_CLIENTE_POR_ID = 2;
+	private static final int CARGAR_CLIENTE_POR_DNI = 3;
+	private static final int INSERTAR_CLIENTE = 4;
+	private static final int MODIFICAR_CLIENTE = 5;
+	private static final int BORRAR_CLIENTE = 6;
 	
+	private static final int LISTADO_LIBROS = 1;
+	private static final int VER_LIBRO_POR_ID = 1;
+	private static final int VER_LIBRO_POR_ISBN = 1;
+	private static final int INSERTAR_LIBRO = 1;
+	private static final int MODIFICAR_LIBRO = 1;
+	private static final int BORRAR_LIBRO = 1;
+	private static final int PRESTAR_LIBRO = 1;
+
 	
 	public static void main(String[] args) {
 		
 		cargarClientes();
 		cargarLibros();
 		
+		int opcion;
+		
+		do {
+			//mostrarMenu();
+			
+			opcion = Utils.leerInt();
+			
+			//procesarOpcion(opcion);
+			
+		} while (opcion != SALIR);
 
 	}
 	
 	private static void cargarClientes() {
-		CrudAbleCliente<Cliente> dao = ClienteDAO.getInstance();
-		
-		for (int i = 1; i <= 10; i++) {
 			
 			//dao.insert(new Cliente(id, nombre, apellido, lista_libros));
-		}
 		/*for (int i = 1; i <= 10; i++) {
 			dao.insert(new VideoYoutube(i, "codigo" + i, "Titulo" + i));
 		}*/
 		
 	}
 	private static void cargarLibros() {
-		CrudAbleLibro<Libro> dao = LibroDAO.getInstance();
 		
+	}
+	
+	private static void procesarOpcion(int opcionesMenu) {
+		switch (opcionesMenu) {
+			case IR_A_CLIENTES: 
+				//irAMenuClientes();
+				break;
+			case IR_A_LIBROS:
+				//irAMenuLibros();
+				break;
+			case LISTAR_PRESTADOS_Y_A_QUIEN:
+				//verLibrosPrestados();
+				break;
+			case SALIR:
+				//salir();
+				break;
+			default:
+				//noDisponible();
+				break;
+		}
 	}
 
 }

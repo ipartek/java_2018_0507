@@ -7,31 +7,14 @@ import com.ipartek.formacion.pojo.VideoYoutube;
 public class VideoYoutubeMain {
 	
 	private static CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
-
-	public enum OpcionesMenu{
-		SALIR(0),
-		LISTADO(1),
-		CARGAR_VIDEO(2),
-		INSERTAR_VIDEO(3),
-		MODIFICAR_VIDEO(4),
-		BORRAR_VIDEO(5);
-		
-		private int numeroOpcion;
-		private static int maxOpciones = OpcionesMenu.values().length;
-		
-		private OpcionesMenu(int numeroOpcion) {
-			this.numeroOpcion = numeroOpcion;
-		}
-		
-		public int getNumeroOpcion() {
-			return this.numeroOpcion;
-		}
-		
-		public static int getMaxOpciones() {
-			return maxOpciones;
-		}
-	}
-
+	
+	private static final int SALIR = 0;
+	private static final int LISTADO = 1;
+	private static final int CARGAR_VIDEO = 2;
+	private static final int INSERTAR_VIDEO = 3;
+	private static final int MODIFICAR_VIDEO = 4;
+	private static final int BORRAR_VIDEO = 5;
+	
 	public static void main(String[] args) {
 		
 		cargarVideos();
@@ -39,16 +22,15 @@ public class VideoYoutubeMain {
 		
 		do {
 			mostrarMenu();
+			
 			opcion = Utils.leerInt();
 			
-			OpcionesMenu opcionesMenu = OpcionesMenu.values()[opcion];
+			procesarOpcion(opcion);
 			
-			procesarOpcion(opcionesMenu);
-			
-		} while (opcion != OpcionesMenu.SALIR.getNumeroOpcion());
+		} while (opcion != SALIR);
 	}
 
-	private static void procesarOpcion(OpcionesMenu opcionesMenu) {
+	private static void procesarOpcion(int opcionesMenu) {
 		switch (opcionesMenu) {
 			case LISTADO: 
 				listadoVideos();
