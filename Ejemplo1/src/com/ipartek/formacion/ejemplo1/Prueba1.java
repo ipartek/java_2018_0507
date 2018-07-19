@@ -19,14 +19,20 @@ public class Prueba1 {
 
 	public final static int TAM_ARRAY = 10;
 
-public enum Genero {MUJER, HOMBRE};
+	public enum Genero {MUJER, HOMBRE};
 	
 	public static void main(String[] args) {
 		Genero miGenero;
+
 		miGenero = Genero.HOMBRE;
 	}
 	public static void mainY(String[] args) {
 		System.out.println("C:\nuevos\trabajos");//Nosaldria bien porque salta comocambio de linea
+
+	}
+	
+	public static void mainRegEx(String[] args) {
+
 		System.out.println("C:\\nuevos\\trabajos");
 		String regex ="\\w+@\\w+\\.\\w+";
 		System.out.println(regex);

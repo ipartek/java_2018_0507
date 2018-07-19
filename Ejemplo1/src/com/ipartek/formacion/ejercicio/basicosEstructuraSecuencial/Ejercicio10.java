@@ -7,7 +7,6 @@ public class Ejercicio10 extends LeerTeclado{
 
 	public Ejercicio10(Scanner sc) {
 		super(sc);
-		// TODO Auto-generated constructor stub
 	}
 
 	public int numero;

@@ -7,7 +7,7 @@ public class Piolin extends Canario{
 	
 	public Piolin(char sexo, Integer edad, Integer tamanio, Integer numPeliculas) {
 		super(sexo, edad, tamanio);
-		// TODO Auto-generated constructor stub
+
 		this.numPeliculas = numPeliculas;
 	}
 	

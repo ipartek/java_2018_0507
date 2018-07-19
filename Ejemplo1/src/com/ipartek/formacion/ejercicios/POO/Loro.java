@@ -10,7 +10,6 @@ public class Loro extends Ave{
 			char region,
 			String color) {
 		super(sexo, edad);
-		// TODO Auto-generated constructor stub
 		this.region = region;
 		this.color = color;
 	}

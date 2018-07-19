@@ -6,7 +6,6 @@ public class Canario extends Ave{
 	
 	public Canario(char sexo, Integer edad) {
 		super(sexo, edad);
-		// TODO Auto-generated constructor stub
 	}
 	public Canario(char sexo,
 					Integer edad,

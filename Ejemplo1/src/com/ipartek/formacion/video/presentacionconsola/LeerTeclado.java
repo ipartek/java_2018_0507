@@ -1,7 +1,7 @@
 /*
  * Clase desde la que se llama a los metodos de lectura del teclado.
  */
-package com.ipartek.formacion.ejercicio.basicosEstructuraSecuencial;
+package com.ipartek.formacion.video.presentacionconsola;
 
 //import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -14,9 +14,11 @@ public class LeerTeclado {
 		super();
 		this.sc = sc;
 	}
+
 	public long leerLong(long l) {
 		return 	l = sc.nextLong();
 	}
+	
 	public int leerInt(int i) {
 		return i = sc.nextInt();
 

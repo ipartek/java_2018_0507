@@ -119,7 +119,7 @@ class VideoYoutubeArrayDAOTest {
 		assertFalse(dao.update(null));
 
 		// Modificamos un Video que Existe
-		VideoYoutube videoModificarConID = new VideoYoutube(MOCK1_ID, "El Fary", "fff");
+		VideoYoutube videoModificarConID = new VideoYoutube(MOCK1_ID, "fff", "El Fary");
 		assertTrue(dao.update(videoModificarConID));
 		// recuperar video y comprobar atributos
 		VideoYoutube videoModificado = dao.getById(MOCK1_ID);
