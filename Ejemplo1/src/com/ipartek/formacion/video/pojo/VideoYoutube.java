@@ -1,7 +1,7 @@
 package com.ipartek.formacion.video.pojo;
 
 public class VideoYoutube {
-	private long id;
+	private static long id;
 	private String codigo;
 	private String titulo;
 
@@ -15,7 +15,7 @@ public class VideoYoutube {
 		this(-1, "", "");
 	}
 
-	public long getId() {
+	public static long getId() {
 		return id;
 	}
 

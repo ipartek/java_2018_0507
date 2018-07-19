@@ -29,7 +29,6 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube> {
 		return videos;
 	}
 
-	@Override
 	public VideoYoutube getById(long id) {
 		VideoYoutube resul = null;
 		//foreach
@@ -44,10 +43,13 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube> {
 
 	@Override
 	public boolean insert(VideoYoutube video) {
+		
+		System.out.println(video.getTitulo());
 		boolean resul = false;
 
 		if (video != null) {
 			resul = videos.add(video);
+			System.out.println("VideoAñadido");
 		}
 		return resul;
 	}
