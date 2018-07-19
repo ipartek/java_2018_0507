@@ -86,6 +86,7 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube> {
 			
 			if ( id == vIteracion.getId() ) {    // video encontrado
 				resul = videos.remove(vIteracion);
+				System.out.println();
 				break;
 			}
 		}
