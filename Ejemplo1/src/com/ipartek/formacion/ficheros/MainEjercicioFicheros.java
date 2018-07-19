@@ -11,6 +11,9 @@ import java.util.Scanner;
 
 public class MainEjercicioFicheros {
 
+	private static BufferedReader entrada;
+
+
 	/*
 	 * 1. Leer lineas de texto por teclado y escribirlas en un fichero de texto.
 	 * */
@@ -76,7 +79,7 @@ public class MainEjercicioFicheros {
 		
         try {
             fr = new FileReader(nombreFichero);
-            BufferedReader entrada = new BufferedReader(fr);
+            entrada = new BufferedReader(fr);
             String cadena = entrada.readLine(); 				//se lee la primera línea del fichero
             while (cadena != null) {  							//mientras no se llegue al final del fichero
             System.out.println(cadena); 						//se nuestra por pantalla
