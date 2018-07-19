@@ -16,7 +16,7 @@ public class GestionLibrosDao implements CrudAble<Libro> {
 	}
 	
 	
-	private List<Libro> getAll(){
+	public List<Libro> getAll(){
 		return libros;
 	}
 	
@@ -58,13 +58,27 @@ public class GestionLibrosDao implements CrudAble<Libro> {
 	}
 
 
-//
-//	@Override
-//	public boolean update(Libro pojo) {
-//		// TODO Auto-generated method stub
-//		return false;
-//	}
-//
+
+	@Override
+	public boolean update(Libro pojo) {
+		
+		return false;
+	}
+
+
+	@Override
+	public Libro getByID(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public boolean delete(Libro pojo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 
 	
 }
