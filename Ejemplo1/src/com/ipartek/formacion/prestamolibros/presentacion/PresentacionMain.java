@@ -1,5 +1,6 @@
 package com.ipartek.formacion.prestamolibros.presentacion;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,323 +14,468 @@ import com.ipartek.formacion.video.pojo.VideoYoutube;
 
 public class PresentacionMain {
 
-	
 	private static final int LISTADO_LIBROS = 1;
 	private static final int LISTADO_CLIENTES = 2;
 	private static final int MOSTRAR_LIBRO = 3;
 	private static final int MOSTRAR_CLIENTE = 4;
-	private static final int MOSTRAR_LIBROS_DISPONIBLES= 5;
-	private static final int MOSTRAR_LIBROS_PRESTADOS=6;
-	private static final int PEDIR_PRESTADO= 7;
-	private static final int CLIENTE_TIENE_LIBRO= 8;
-	private static final int INSERTAR_LIBRO =9;
-	private static final int INSERTAR_CLIENTE =10 ;
+	private static final int MOSTRAR_LIBROS_DISPONIBLES = 5;
+	private static final int MOSTRAR_LIBROS_PRESTADOS = 6;
+	private static final int PEDIR_PRESTADO = 7;
+	private static final int CLIENTE_TIENE_LIBRO = 8;
+	private static final int INSERTAR_LIBRO = 9;
+	private static final int INSERTAR_CLIENTE = 10;
 	private static final int ACTUALIZAR_LIBRO = 11;
 	private static final int ACTUALIZAR_CLIENTE = 12;
 	private static final int ELIMINAR_LIBRO = 13;
 	private static final int ELIMINAR_CLIENTE = 14;
 	private static final int SALIR = 0;
-	
-	
+
 	public static void main(String[] args) {
-		
 
 		/*
 		 * pedir prestado devolver listado disponibles listado prestado y a quien
 		 */
 		LibroArrayDAO dao = LibroArrayDAO.getInstance();
-		
+		ClienteArrayDAO daoC = ClienteArrayDAO.getInstance();
+
 		cargarLibros();
 
-		
 		int opcion = 0;
 
-		
 		Scanner teclado = new Scanner(System.in);
-		
+
 		do {
 			/**
 			 * se muestra el menu y se inicializa teclado para poder introducir el numero de
 			 * la opción por consola
 			 */
 			mostrarMenu();
-			
-			opcion = teclado.nextInt();
-			
+
+			try {
+				try {
+					opcion = teclado.nextInt();
+				} catch (Exception e) {
+
+					e.printStackTrace();
+				}
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			}
+
 			switch (opcion) {
-			
+
 			case LISTADO_LIBROS:
+
 				listadoLibros();
 				break;
-				
+
 			case LISTADO_CLIENTES:
 				listadoCientes();
 				break;
-			
+
 			case MOSTRAR_LIBRO:
-				mostrarLibro(null);//TODO implementar
-			break;
-			
+
+				p("Insertar ID del libro");
+				int idLibro = 0;
+				try {
+					idLibro = teclado.nextInt();
+				} catch (Exception e) {
+
+					e.printStackTrace();
+				}
+				Libro lib = dao.getById(idLibro);
+				if (lib != null) {
+					mostrarLibro(lib);
+				}
+
+				break;
+
 			case MOSTRAR_CLIENTE:
-				mostrarCliente(null);//TODO implementar
-			break;
-			
+				p("Insertar ID del Cliente");
+				int idCliente = 0;
+				try {
+					idCliente = teclado.nextInt();
+				} catch (Exception e) {
+
+					e.printStackTrace();
+				}
+				Cliente client = daoC.getById(idCliente);
+				if (client != null) {
+					mostrarCliente(client);
+				} else {
+					p("No existe el Cliente");
+				}
+				break;
+
 			case MOSTRAR_LIBROS_DISPONIBLES:
-				mostrarLibrosDisponibles();//TODO implementar
-			break;
-			
+
+				mostrarLibrosDisponibles();
+				break;
+
 			case MOSTRAR_LIBROS_PRESTADOS:
-				mostrarLibrosPrestados();//TODO implementar
-			break;
+				mostrarLibrosPrestados();
+				break;
 			case PEDIR_PRESTADO:
-				pedirPrestado();//TODO implementar
-			break;
-			
+				p("Insertar ID del Cliente");
+				int idClient = 0;
+				try {
+					idClient = teclado.nextInt();
+				} catch (Exception e) {
+
+					e.printStackTrace();
+				}
+
+				Cliente cliente = daoC.getById(idClient);
+				if (cliente != null) {
+
+					p("Insertar ID del Libro");
+					int idLibr = 0;
+					try {
+						idLibr = teclado.nextInt();
+					} catch (Exception e) {
+
+						e.printStackTrace();
+
+					}
+
+					Libro libr = dao.getById(idLibr);
+					if (libr != null) {
+
+						cliente.getLibrosPrestados().add(libr);
+						libr.setCliente(cliente);
+						p("Has cogido prestado el libro: ");
+						mostrarLibro(libr);
+
+					}
+				} else {
+					p("No existes como Cliente, no puedes pedir libro");
+				}
+
+				break;
+
 			case CLIENTE_TIENE_LIBRO:
-				clienteConLibro();//TODO implementar
-			break;
-			
+
+				// mostrar todos los clientes que tengan un libro prestado
+
+				clienteConLibro();// TODO implementar
+				break;
+
 			case INSERTAR_LIBRO:
-				insertarLibro();//TODO implementar
-			break;
-			
+
+				p("Escribir ID del libro para insertar un nuevo libro");
+				long id = 0;
+				try {
+					id = teclado.nextLong();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+				if (dao.getById(id) == null) {// si el id no existe, el video no existe podemos seguir
+					p("Escribir isbn del libro para insertar un nuevo libro");
+					String cod = null;
+					try {
+						cod = teclado.next();
+					} catch (Exception e) {
+
+						e.printStackTrace();
+					} // introduce el codigo
+					p("Escribir título del libro para insertar un nuevo libro");
+					String tit = null;
+					try {
+						tit = teclado.next();
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+
+					} // introduce el titulo
+					p("Escribir autor del libro para insertar un nuevo libro");
+					String autor = null;
+					try {
+						autor = teclado.next();
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					p("Escribir editorial del libro para insertar un nuevo libro");
+					String ed = null;
+					try {
+						ed = teclado.next();
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+					Libro libroNuevo = new Libro(id, cod, tit, autor, ed, null);
+					Boolean correcto = dao.insert(libroNuevo);
+					if (correcto) {
+						p(" Libro insertado correctamente: ");
+						mostrarLibro(libroNuevo);
+					} else {
+						p("No se ha insertado el libro: ");
+					}
+
+				} else {
+					p("El id introducido ya existe");
+				}
+
+				break;
+
 			case INSERTAR_CLIENTE:
-				insertarCliente();//TODO implementar
-			break;
-			
+				p("Escribir ID del cliente para insertar un nuevo cliente");
+				long idC = 0;
+				try {
+					idC = teclado.nextLong();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+				if (daoC.getById(idC) == null) {// si el id no existe, el video no existe podemos seguir
+					p("Escribir dni del libro para insertar un nuevo cliente");
+					String dni = null;
+					try {
+						dni = teclado.next();
+					} catch (Exception e) {
+
+						e.printStackTrace();
+					} // introduce el codigo
+					p("Escribir nombre del libro para insertar un nuevo cliente");
+					String nomb = null;
+					try {
+						nomb = teclado.next();
+					} catch (Exception e) {
+
+						e.printStackTrace();
+
+					} // introduce el titulo
+					p("Escribir apellidos del libro para insertar un nuevo cliente");
+					String apellidos = null;
+					try {
+						apellidos = teclado.next();
+					} catch (Exception e) {
+
+						e.printStackTrace();
+					}
+
+					Cliente clienteNuevo = new Cliente(idC, dni, nomb, apellidos, null);
+					Boolean correcto = daoC.insert(clienteNuevo);
+					if (correcto) {
+						p(" Cliente insertado correctamente: ");
+						mostrarCliente(clienteNuevo);
+					} else {
+						p("No se ha insertado el cliente: ");
+					}
+
+				} else {
+					p("El id introducido ya existe");
+				}
+
+				break;
+
 			case ACTUALIZAR_LIBRO:
-				actualizarLibro();//TODO implementar
-			break;
-			
+				p("Intruduzca el Id del libro a actualizar");
+				long idUpdate = 0;
+				try {
+					idUpdate = teclado.nextLong();
+				} catch (Exception e) {
+
+					e.printStackTrace();
+				}
+				if (dao.getById(idUpdate) != null) {
+					p("Escribir el nuevo isbn ");
+					String cod = null;
+					try {
+						cod = teclado.next();
+					} catch (Exception e) {
+
+						e.printStackTrace();
+					}
+					p("Escribir el nuevo título");
+					String tit = null;
+					try {
+						tit = teclado.next();
+					} catch (Exception e) {
+
+						e.printStackTrace();
+					}
+					p("Escribir el nuevo autor");
+					String autor = null;
+					try {
+						autor = teclado.next();
+					} catch (Exception e) {
+
+						e.printStackTrace();
+					}
+					p("Escribir la nuevo editorial");
+					String ed = null;
+					try {
+						ed = teclado.next();
+					} catch (Exception e) {
+
+						e.printStackTrace();
+					}
+
+					Libro lbM = new Libro(idUpdate, cod, tit, autor, ed, null);
+					boolean correcto = dao.update(lbM);
+
+					if (correcto) {
+						p("El libro se ha actualizado correctamente: ");
+						mostrarLibro(lbM);
+					}
+
+				} else {
+					p("El id no existe, por lo tanto no puede actualizarse ");
+				}
+				break;
+
 			case ACTUALIZAR_CLIENTE:
-				actualizarCliente();//TODO implementar
-			break;
-			
+				p("Intruduzca el Id del libro a actualizar");
+				long idUpdateC = 0;
+				try {
+					idUpdateC = teclado.nextLong();
+				} catch (Exception e) {
+
+					e.printStackTrace();
+				}
+				if (dao.getById(idUpdateC) != null) {
+					p("Escribir el nuevo dni ");
+					String dniC = null;
+					try {
+						dniC = teclado.next();
+					} catch (Exception e) {
+
+						e.printStackTrace();
+					}
+					p("Escribir el nuevo nombre");
+					String nombre = null;
+					try {
+						nombre = teclado.next();
+					} catch (Exception e) {
+
+						e.printStackTrace();
+					}
+					p("Escribir los nuevos apellidos");
+					String ap = null;
+					try {
+						ap = teclado.next();
+					} catch (Exception e) {
+
+						e.printStackTrace();
+					}
+
+					Cliente cl = new Cliente(idUpdateC, dniC, nombre, ap, null);
+					boolean correcto = daoC.update(cl);
+
+					if (correcto) {
+						p("El libro se ha actualizado correctamente: ");
+						mostrarCliente(cl);
+					}
+
+				} else {
+					p("El id no existe, por lo tanto no puede actualizarse ");
+				}
+				break;
+
 			case ELIMINAR_LIBRO:
-				eliminarLibro();//TODO implementar
-			break;
-			
+				p("Intruduzca el Id del libro a eliminar");
+				long idDelete = 0;
+				try {
+					idDelete = teclado.nextLong();
+				} catch (Exception e) {
+
+					e.printStackTrace();
+				}
+				if (dao.getById(idDelete) != null) {
+					dao.delete(idDelete);
+
+					p("Libro eliminado correctamente");
+
+				} else {
+					p("El Id del libro no existe. No puede eliminarse un libro inexistente");
+				}
+				break;
+
 			case ELIMINAR_CLIENTE:
-				eliminarCliente();//TODO implementar
-			break;
-			
+				p("Intruduzca el Id del libro a eliminar");
+				long idDeleteC = 0;
+				try {
+					idDeleteC = teclado.nextLong();
+				} catch (Exception e) {
+
+					e.printStackTrace();
+				}
+				if (dao.getById(idDeleteC) != null) {
+					dao.delete(idDeleteC);
+
+					p("Cliente eliminado correctamente");
+
+				} else {
+					p("El Id del cliente no existe. No puede eliminarse un cliente inexistente");
+				}
+				break;
+
 			case SALIR:
-				
-			break;
-			
+				p("Bye byeee");
+				break;
+
 			}
-			
-		/**
-		 * switch
-		 */
-				
+
+			/**
+			 * switch
+			 */
+
 		} while (opcion != SALIR);
 
 	}
-		
-		
-		
-	
-	
-	
-	
-	
-
-
-
-
-
-
-
-	private static void eliminarCliente() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	private static void eliminarLibro() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	private static void actualizarCliente() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	private static void actualizarLibro() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	private static void insertarCliente() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	private static void insertarLibro() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	private static void clienteConLibro() {
-		// TODO Auto-generated method stub
+
+		ClienteArrayDAO cl = ClienteArrayDAO.getInstance();
 		
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	private static void pedirPrestado() {
-		// TODO Auto-generated method stub
+		List<Cliente> clArray = new  ArrayList<Cliente>();
 		
-	}
+		
+		for(Cliente cli: clArray ) {
+			
+			if(cli.getLibrosPrestados()==null) 
+				mostrarCliente(cli);
 
+			}
+			
+			
+		}
 
+	
 
-
-
-
-
-
-
-
-
-
-
-
-
+	/**
+	 * muetra libros prestados y quien los tiene
+	 */
 	private static void mostrarLibrosPrestados() {
-		// TODO Auto-generated method stub
-		
+		LibroArrayDAO daolp = LibroArrayDAO.getInstance();
+		List<Libro> lbp = daolp.getAll();
+		for (Libro librs : lbp) {
+			if (librs.getCliente() != null) {
+				mostrarLibro(librs);
+				p(librs.getCliente().getNombre());
+
+			}
+		}
+
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	/**
+	 * muestra libros disponibles
+	 */
 	private static void mostrarLibrosDisponibles() {
-		// TODO Auto-generated method stub
-		
+		LibroArrayDAO daold = LibroArrayDAO.getInstance();
+		List<Libro> lbd = daold.getAll();
+		for (Libro librs : lbd) {
+			if (librs.getCliente() == null) {
+				mostrarLibro(librs);
+			}
+		}
+
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	/**
 	 * muestra el menu
@@ -345,7 +491,7 @@ public class PresentacionMain {
 		p("4. Mostrar cliente");
 		p("5. Mostrar libros disponibles");
 		p("6. Mostrar libros prestados");
-		p("7. Que cliente tiene el libro");
+		p("7. Clientes que tienen un libro prestado");
 		p("8. Mostrar libros prestados");
 		p("9. Insertar libro");
 		p("10. Insertar cliente");
@@ -356,6 +502,7 @@ public class PresentacionMain {
 		p("0. Salir");
 		p("Elige una opción");
 	}
+
 	/**
 	 * Para que al hacer un system.out.print ln solo tengas que poner una p
 	 * 
@@ -367,88 +514,73 @@ public class PresentacionMain {
 
 	/**
 	 * muestra un video con su id codigo y titulo
+	 * 
 	 * @param video
 	 */
 	private static void mostrarLibro(Libro libro) {
-		p(libro.getId() + "\t" + libro.getIsbn() + "\t" + libro.getTitulo()+ "\t" + libro.getAutor()+ "\t" + libro.getEditorial()+ "\t" + libro.getCliente().toString());
+		p(libro.getId() + "\t" + libro.getIsbn() + "\t" + libro.getTitulo() + "\t" + libro.getAutor() + "\t"
+				+ libro.getEditorial() + "\t" + (libro.getCliente() != null));
 
-	}	
-		
+	}
 
+	/**
+	 * muestra un cliente
+	 * 
+	 * @param cliente
+	 */
 	private static void mostrarCliente(Cliente cliente) {
-		//TODO implementar mostrar cliente
-		//long id, String dni, String nombre, String apellidos, List<Libro> librosPrestados
-		
-		System.out.printf(cliente.getId()+ "\t", cliente.getDni()+ "\t", cliente.getNombre()+ "\t", cliente.getApellidos()+ "\t",cliente.getLibrosPrestados()+ "\t");
-		
-	}	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		// TODO implementar mostrar cliente
+		// long id, String dni, String nombre, String apellidos, List<Libro>
+		// librosPrestados
+
+		System.out.println(cliente.getId() + "\t" + cliente.getDni() + "\t" + cliente.getNombre() + "\t" +
+				cliente.getApellidos() + "\t" + cliente.getLibrosPrestados() + "\t");
+
+	}
+
 	/**
 	 * muestra un listado de libros.
 	 */
 	private static void listadoLibros() {
 		LibroArrayDAO dao = LibroArrayDAO.getInstance();
 
-		
-		//recorre el array de libros y los muestra
+		// recorre el array de libros y los muestra
 		for (Libro libro : dao.getAll()) {
 			mostrarLibro(libro);
-			}
 		}
-	
-		
+	}
+
+	/**
+	 * listado de clientes
+	 */
+
 	private static void listadoCientes() {
 		ClienteArrayDAO dao = ClienteArrayDAO.getInstance();
 
-		
-		//recorre el array de libros y los muestra
+		// recorre el array de clientes y los muestra
 		for (Cliente cliente : dao.getAll()) {
 			mostrarCliente(cliente);
-			}
-		
+		}
+		if (dao.getAll().size() == 0) {
+			System.out.println("No existen clientes");
+		}
+
 	}
-	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	/**
+	 * carga libros
+	 */
 	private static void cargarLibros() {
 		LibroArrayDAO dao = LibroArrayDAO.getInstance();
-		
-		//Libro libro1 = new Libro(1,"123","HTML","Pepito","everest", new Cliente());
-		//Libro libro2 = new Libro(1,"1234","JAVA","Pepita","debolsillo", new Cliente());
-		//Libro libro3 = new Libro(1,"1235","SQL","Pepi","guay", new Cliente());
 
-		dao.insert(new Libro(1,"123","HTML","Pepito","everest", new Cliente()));
-		dao.insert(new Libro(1,"1234","JAVA","Pepita","debolsillo", new Cliente()));
-		dao.insert(new Libro(1,"1235","SQL","Pepi","guay", new Cliente()));
-		
-	
+		// Libro libro1 = new Libro(1,"123","HTML","Pepito","everest", new Cliente());
+		// Libro libro2 = new Libro(1,"1234","JAVA","Pepita","debolsillo", new
+		// Cliente());
+		// Libro libro3 = new Libro(1,"1235","SQL","Pepi","guay", new Cliente());
 
-}}
+		dao.insert(new Libro(1, "123", "HTML", "Pepito", "everest", null));
+		dao.insert(new Libro(2, "1234", "JAVA", "Pepita", "debolsillo", null));
+		dao.insert(new Libro(3, "1235", "SQL", "Pepi", "guay", null));
+
+	}
+}
