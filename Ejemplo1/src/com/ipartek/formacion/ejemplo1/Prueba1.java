@@ -1,7 +1,9 @@
 package com.ipartek.formacion.ejemplo1;
 
 import java.util.ArrayList;
+
 import java.util.Calendar;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -16,18 +18,22 @@ import java.util.regex.Pattern;
 import org.joda.time.LocalDate;
 
 public class Prueba1 {
+	public static void main(String[] args) {
+		// Es un par de clave de valor, como un diccionario
+		Map<Punto, String> ubicaciones = new HashMap<>();
+		ubicaciones.put(new Punto(2, 8), "Santutxu");
+		// Obtener en base a la clave.
+		for (Punto ubicacion : ubicaciones.keySet()) {
+			// Pido el conjunto de claves, y dentro saco los pares de valores
+			System.out.printf("%s, %s\n", ubicacion, ubicaciones.get(ubicacion));
+		}
+	}
+
 
 	public final static int TAM_ARRAY = 10;
 
-	public enum Genero { MUJER, HOMBRE };
-	
-	public static void main(String[] args) {
-		Genero miGenero;
-		
-		miGenero = Genero.HOMBRE;
-		
-		System.out.println(miGenero);
-	}
+
+
 	
 	public static void mainRegEx(String[] args) {
 		System.out.println("C:\\nuevos\\trabajos");
@@ -250,6 +256,7 @@ public class Prueba1 {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
+
 	public static void mainVector(String[] args) {
 		Vector v = new Vector();
 
