@@ -24,9 +24,7 @@ public class VideoYoutubeMain {
 	public static void main(String[] args) {
 		cargarVideos();
 		int opcion;
-		
-		int i = 0;
-		boolean hayQueRepetir = false;
+
 		
 		do {
 			mostrarMenu();

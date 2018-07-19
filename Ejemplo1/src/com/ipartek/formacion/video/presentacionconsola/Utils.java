@@ -8,8 +8,22 @@ import java.util.Scanner;
 public class Utils {
 	private static Scanner s = new Scanner (System.in);
 	
-	public static String leerLinea() {
-		return s.nextLine();
+	public static String leerLinea() { 
+		String linea;
+		boolean hayQueMostrarMensaje = false; //solo lo haga cuando haya pasado
+		
+		do {
+			//si paso esta linea, para que salga en cuanto pase
+			if(hayQueMostrarMensaje) {
+				System.out.println("No cuela con texto en blanco");
+			}
+			
+			linea = s.nextLine().trim(); //leo la linea y quito los espacio que tenga en los laterales
+			hayQueMostrarMensaje = true;
+			
+		}while ( linea.length() == 0 ); //para que rellene algo y no lo pueda dejar en blanco
+		
+		return linea;
 	}
 	
 	public static long leerLong() {
