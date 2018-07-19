@@ -1,6 +1,6 @@
 package com.ipartek.formacion.prestamoLibro.pojo;
 
-import com.ipartek.formacion.video.accesoadatos.VideoYoutubeArrayDAO;
+
 
 public class Libro {
 	private long id;
