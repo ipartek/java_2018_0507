@@ -1,9 +1,9 @@
-package com.ipartek.prestamoLibro.accesoAdatos;
+package com.ipartek.formacion.prestamoLibro.accesoAdatos;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ipartek.prestamoLibro.pojo.Cliente;
+import com.ipartek.formacion.prestamoLibro.pojo.Cliente;
 
 public class ClienteArrayDao implements CrudAble<Cliente> {
 	List <Cliente> clientes=new ArrayList<>();

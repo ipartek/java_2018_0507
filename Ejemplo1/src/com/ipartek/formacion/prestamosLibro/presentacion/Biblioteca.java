@@ -1,12 +1,12 @@
-package com.ipartek.prestamosLibro.presentacion;
+package com.ipartek.formacion.prestamosLibro.presentacion;
 
 import java.util.Scanner;
 
-import com.ipartek.prestamoLibro.accesoAdatos.ClienteArrayDao;
-import com.ipartek.prestamoLibro.accesoAdatos.CrudAble;
-import com.ipartek.prestamoLibro.accesoAdatos.LibroArrayDao;
-import com.ipartek.prestamoLibro.pojo.Cliente;
-import com.ipartek.prestamoLibro.pojo.Libro;
+import com.ipartek.formacion.prestamoLibro.accesoAdatos.ClienteArrayDao;
+import com.ipartek.formacion.prestamoLibro.accesoAdatos.CrudAble;
+import com.ipartek.formacion.prestamoLibro.accesoAdatos.LibroArrayDao;
+import com.ipartek.formacion.prestamoLibro.pojo.Cliente;
+import com.ipartek.formacion.prestamoLibro.pojo.Libro;
 
 
 public class Biblioteca {

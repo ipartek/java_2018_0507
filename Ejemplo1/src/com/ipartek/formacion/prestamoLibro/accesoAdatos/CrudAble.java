@@ -1,4 +1,4 @@
-package com.ipartek.prestamoLibro.accesoAdatos;
+package com.ipartek.formacion.prestamoLibro.accesoAdatos;
 
 import java.util.List;
 
