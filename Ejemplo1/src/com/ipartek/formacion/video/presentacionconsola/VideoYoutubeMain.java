@@ -1,5 +1,7 @@
 package com.ipartek.formacion.video.presentacionconsola;
 
+import java.util.Scanner;
+
 import com.ipartek.formacion.video.accesodatos.CrudAble;
 import com.ipartek.formacion.video.accesodatos.VideoYoutubeArrayDAO;
 import com.ipartek.formacion.video.pojo.VideoYoutube;
@@ -9,19 +11,31 @@ public class VideoYoutubeMain {
 	private static final int LISTADO = 1;
 
 	public static void main(String[] args) {
-		cargarVideos();
+		//cargarVideos();
 		
 		mostrarMenu();
+		
+		//Create
+		//boolean insert(P pojo);
+		//Update
+		//boolean update(P pojo);
+		//Delete
+		//boolean delete(long id);
 		
 		//TODO: Hacer el menú que se repita cada vez e implementar la lectura de teclado
 		int opcion = LISTADO;
 		
-		switch(opcion) {
-		case LISTADO:
-			listadoVideos();
-			break;
-		}
-	}
+		Scanner teclado = new Scanner(System.in);
+		int op = teclado.nextInt();
+		
+		//while(op != null) {			
+			switch(opcion) {
+				case LISTADO:
+					listadoVideos();
+					break;
+			}
+		}	
+	//}
 
 	private static void mostrarMenu() {
 		p("------------");
