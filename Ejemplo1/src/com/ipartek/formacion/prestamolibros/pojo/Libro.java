@@ -11,5 +11,12 @@ public class Libro {
 	public boolean isLibre() {
 		//TODO: implementar isLibre
 		throw new RuntimeException("No implementado");
+	}
+
+
+
+	public Object getId() {
+		// TODO Auto-generated method stub
+		return null;
 	} 
 }
