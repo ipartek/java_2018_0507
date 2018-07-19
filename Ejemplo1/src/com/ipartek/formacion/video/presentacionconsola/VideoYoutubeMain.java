@@ -85,8 +85,6 @@ public class VideoYoutubeMain {
 				encontrado=VideoYoutubeArrayDAO.getInstance().getById(idb);
 				System.out.println("introduce codigo del video");
 				String codigoM=entradaEscaner.nextLine();
-				
-				
 				System.out.println("introduce el titulo del video");
 				String tituloM=entradaEscaner.nextLine();
 				encontrado.setCodigo(codigoM);
