@@ -45,9 +45,9 @@ public class PrestamoLibrosMain {
 		p("");
 		p("1. Listado de libros");
 		p("...");
-		p("3. Indica que libro quieres ver. (Por Id)");
+		p("2. Indica que libro quieres ver. (Por Id)");
 		p("...");
-		p("5. Añadir libro.");
+		p("3. Añadir libro.");
 		p("...");
 		p("4. Modificar libro.");
 		p("...");
@@ -67,9 +67,9 @@ public class PrestamoLibrosMain {
 		p("");
 		p("1. Listado de clientes");
 		p("...");
-		p("4. Indica que cliente quieres ver. (Por Id)");
+		p("2. Indica que cliente quieres ver. (Por Id)");
 		p("...");
-		p("6. Añadir cliente.");
+		p("3. Añadir cliente.");
 		p("...");
 		p("4. Modificar clientes.");
 		p("...");
@@ -95,7 +95,7 @@ public class PrestamoLibrosMain {
 		p("...");
 		p("4. Alquilar libro");
 		p("...");
-		p("4. Devolver libro");
+		p("5. Devolver libro");
 		p("...");
 		p("0. Salir");
 		p("...");
@@ -126,6 +126,13 @@ public class PrestamoLibrosMain {
 			alquilarLibro();
 			volver();
 			break;
+		case 5:
+			devolverLibro();
+			volver();
+			break;
+		case 0:
+			p("Adios");
+			break;
 		default:
 			salir = false;
 			System.out.println("Eleccion no valida. \nVuelva a elegir una opcion");
@@ -134,6 +141,10 @@ public class PrestamoLibrosMain {
 		}while (salir==false);
 	}
 	
+	private static void devolverLibro() {
+		// TODO Auto-generated method stub
+		
+	}
 	private static void opcionMenuClientes(int opcionCliente) {
 		do {
 			opcionCliente = lt.leerInt(opcionCliente);
@@ -160,6 +171,11 @@ public class PrestamoLibrosMain {
 			deleteCliente();
 			volver();
 			break;
+		case 9: mostrarMenu();
+		break;
+		case 0:
+			p("Adios");
+			break;
 		default:
 			salir = false;
 			System.out.println("Eleccion no valida. \nVuelva a elegir una opcion");
@@ -176,23 +192,28 @@ public class PrestamoLibrosMain {
 		case 1: 
 			
 			listadoLibros();
-			volver();
+			volverCliente();
 			break;
 		case 2:
 			listadoLibrosById();
-			volver();
+			volverCliente();
 			break;
 		case 3:
 			AddLibro();
-			volver();
+			volverCliente();
 			break;
 		case 4:
 			updateLibro();
-			volver();
+			volverCliente();
 			break;
 		case 5:
 			deleteLibro();
-			volver();
+			volverCliente();
+			break;
+		case 9: mostrarMenu();
+		break;
+		case 0:
+			p("Adios");
 			break;
 		default:
 			salir = false;
@@ -232,9 +253,9 @@ public class PrestamoLibrosMain {
 		p("Introduzca el dni del cliente que desea actualizar");
 		dni = lt2.leerString(dni);
 		p("Introduzca el nombre  del cliente que desea actualizar");
-		nombre = lt3.leerString(nombre);
+		nombre = lt2.leerString(nombre);
 		p("Introduzca el apellido  del cliente que desea actualizar");
-		apellido = lt.leerString(apellido);
+		apellido = lt2.leerString(apellido);
 		
 		dao.update(new Cliente(id, dni,  nombre, apellido));
 	}
@@ -250,9 +271,9 @@ public class PrestamoLibrosMain {
 		p("Introduzca el dni");
 		dni = lt2.leerString(dni);
 		p("Introduzca el nombre");
-		nombre = lt3.leerString(nombre);
+		nombre = lt2.leerString(nombre);
 		p("Introduzca el apellido");
-		apellido = lt.leerString(apellido);
+		apellido = lt2.leerString(apellido);
 		dao.insert(new Cliente(id, dni,  nombre, apellido));
 		
 	}
@@ -264,7 +285,7 @@ public class PrestamoLibrosMain {
 			if(cliente.getId()==id) {
 				mostrarCabeceraClientes();
 				System.out.println(cliente.getId() + "\t" + cliente.getDni() +
-						"\t"  + cliente.getNombre() + "\t");
+						"\t"  + cliente.getNombre() + "\t" + cliente.getApellidos());
 			}
 		}
 		
@@ -283,7 +304,7 @@ public class PrestamoLibrosMain {
 		p(cliente.getId() + "\t" + cliente.getDni() + "\t" + cliente.getNombre() + "\t" + cliente.getApellidos());
 	}
 	private static void mostrarCabeceraClientes() {
-		p("ID\tDNI\tNOMBRE\tApELLIDOS");
+		p("ID\tDNI\tNOMBRE\t\tApELLIDOS");
 		
 	}
 	private static void deleteLibro() {
@@ -306,10 +327,10 @@ public class PrestamoLibrosMain {
 		id = lt.leerLong(id);
 		p("Introduzca el ISBN");
 		isbn = lt2.leerString(isbn);
-		p("Introduzca el nombre");
-		titulo = lt3.leerString(titulo);
-		p("Introduzca el apellido");
-		autor = lt.leerString(autor);
+		p("Introduzca el titulo");
+		titulo = lt2.leerString(titulo);
+		p("Introduzca el autor");
+		autor = lt2.leerString(autor);
 		p("Introduzca la editorial");
 		editorial = lt2.leerString(editorial);
 		dao.update(new Libro(id, isbn,  titulo, autor, editorial));
@@ -329,10 +350,10 @@ public class PrestamoLibrosMain {
 		id = lt.leerLong(id);
 		p("Introduzca el ISBN");
 		isbn = lt2.leerString(isbn);
-		p("Introduzca el nombre");
-		titulo = lt3.leerString(titulo);
-		p("Introduzca el apellido");
-		autor = lt.leerString(autor);
+		p("Introduzca el titulo");
+		titulo = lt2.leerString(titulo);
+		p("Introduzca el autor");
+		autor = lt2.leerString(autor);
 		p("Introduzca la editorial");
 		editorial = lt2.leerString(editorial);
 		dao.insert(new Libro(id, isbn,  titulo, autor, editorial));
@@ -364,7 +385,29 @@ public class PrestamoLibrosMain {
 				"\t" + libro.getEditorial());
 	}
 	private static void mostrarCabeceraLibros() {
-		p("ID\tISBN\tTITULO\tAUTOR\tEDITORIAL");
+		p("ID\tISBN\tTITULO\t\tAUTOR\tEDITORIAL");
+	}
+	public static void volverCliente() {
+		System.out.println("\nQuieres volver al menu? S/N");
+		leerSN();
+		if(caracter == 's' || caracter == 'S') {
+			mostrarMenuClientes();
+		}else if (caracter == 'n' || caracter == 'N'){
+			System.out.println("Adios");
+		}else {
+			volverCliente();
+		}
+	}
+	public static void volverLibro() {
+		System.out.println("\nQuieres volver al menu? S/N");
+		leerSN();
+		if(caracter == 's' || caracter == 'S') {
+			mostrarMenuLibros();
+		}else if (caracter == 'n' || caracter == 'N'){
+			System.out.println("Adios");
+		}else {
+			volverCliente();
+		}
 	}
 	private static void volver() {
 		
