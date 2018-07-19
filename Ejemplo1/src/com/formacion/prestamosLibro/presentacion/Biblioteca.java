@@ -5,8 +5,8 @@ import java.util.Scanner;
 import com.formacion.prestamoLibro.accesoAdatos.ClienteArrayDao;
 import com.formacion.prestamoLibro.accesoAdatos.CrudAble;
 import com.formacion.prestamoLibro.accesoAdatos.LibroArrayDao;
-import com.formacion.prestamoLibro.pojo.Cliente;
-import com.formacion.prestamoLibro.pojo.Libro;
+import com.ipartek.prestamoLibro.pojo.Cliente;
+import com.ipartek.prestamoLibro.pojo.Libro;
 
 
 public class Biblioteca {
@@ -29,7 +29,7 @@ public class Biblioteca {
 		
 			mostrarMenu();
 			opcionMenu=leerTeclado();
-			while(opcionMenu<11) {
+			while(opcionMenu!=0) {
 				if(estado>0) {
 				mostrarMenu();
 				opcionMenu=leerTeclado();}
@@ -212,14 +212,19 @@ public class Biblioteca {
 		}
 	private static int leerTeclado(){
 		int i=-1;
+		boolean repetir;
 		Scanner teclado = new Scanner(System.in);
-		try {
-			i=Integer.parseInt(teclado.nextLine());	
-		}
-		catch (NumberFormatException e) {
-			System.out.println("mete un numero melon");
-		}
-	
+		do {
+			try {
+				repetir=false;
+				i=Integer.parseInt(teclado.nextLine());	
+			}
+			catch (NumberFormatException e) {
+				System.out.println("mete un numero melon");
+				repetir=true;
+			}
+			
+		}while(repetir);
 		return i;
 	}
 }

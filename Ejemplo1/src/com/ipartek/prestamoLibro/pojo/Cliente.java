@@ -1,4 +1,4 @@
-package com.formacion.prestamoLibro.pojo;
+package com.ipartek.prestamoLibro.pojo;
 
 import java.util.ArrayList;
 import java.util.List;

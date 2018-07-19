@@ -1,4 +1,4 @@
-package com.formacion.prestamoLibro.pojo;
+package com.ipartek.prestamoLibro.pojo;
 
 import com.ipartek.formacion.video.accesoadatos.VideoYoutubeArrayDAO;
 

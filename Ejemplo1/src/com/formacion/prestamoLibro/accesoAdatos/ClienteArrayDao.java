@@ -3,7 +3,7 @@ package com.formacion.prestamoLibro.accesoAdatos;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.formacion.prestamoLibro.pojo.Cliente;
+import com.ipartek.prestamoLibro.pojo.Cliente;
 
 public class ClienteArrayDao implements CrudAble<Cliente> {
 	List <Cliente> clientes=new ArrayList<>();

@@ -3,9 +3,9 @@ package com.formacion.prestamoLibro.accesoAdatos;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.formacion.prestamoLibro.pojo.Cliente;
-import com.formacion.prestamoLibro.pojo.Libro;
 import com.ipartek.formacion.video.accesoadatos.VideoYoutubeArrayDAO;
+import com.ipartek.prestamoLibro.pojo.Cliente;
+import com.ipartek.prestamoLibro.pojo.Libro;
 
 public class LibroArrayDao implements CrudAble<Libro> {
 	List <Libro> libros=new ArrayList<>();
