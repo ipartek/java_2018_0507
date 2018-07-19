@@ -7,6 +7,7 @@ public class Ejer2 {
 	// Programa Java que lea dos números enteros por teclado y los muestre por pantalla.
 	public static void main1(String[] args) {
 		Integer n1, n2;
+		@SuppressWarnings("resource")
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("Introduce un numero: ");
 		n1 = teclado.nextInt();
@@ -17,6 +18,7 @@ public class Ejer2 {
 	// Programa Java que lea un nombre y muestre por pantalla: “Buenos dias nombre_introducido”.
 	public static void main2(String[] args) {
 		String nombre;
+		@SuppressWarnings("resource")
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("Introduce tu nombre: ");
 		nombre = teclado.nextLine();
@@ -27,6 +29,7 @@ public class Ejer2 {
 	//pantalla el doble y el triple de ese número.
 	public static void main3(String[] args) {
 		Integer n1;
+		@SuppressWarnings("resource")
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("Introduce un numero: ");
 		n1 = teclado.nextInt();
@@ -37,6 +40,7 @@ public class Ejer2 {
 	//La fórmula correspondiente es: F = 32 + ( 9 * C / 5)
 	public static void main(String[] args) {
 		Integer grados;
+		@SuppressWarnings("resource")
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("Intrduce los grados:");
 		grados = teclado.nextInt();

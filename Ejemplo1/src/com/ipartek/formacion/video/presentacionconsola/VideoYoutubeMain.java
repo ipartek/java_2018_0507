@@ -1,6 +1,5 @@
 package com.ipartek.formacion.video.presentacionconsola;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.ipartek.formacion.video.accesodatos.CrudAble;
@@ -17,84 +16,102 @@ public class VideoYoutubeMain {
 	private static final int ACTUALIZAR = 4;
 	private static final int ELIMINAR = 5;
 	private static final int SALIR = 0;
-
+	private static CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
+	//dao = VideoYoutubeArrayDAO.getInstance(); 
+	//CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance(); 
+	//convertir variable local a campo
 
 	public static void main(String[] args) {
-		
-		//instanciar la clase VideoYoutubeArrayDAO 
-		VideoYoutubeArrayDAO dao = VideoYoutubeArrayDAO.getInstance();
-		//cargar por defecto los videos que haya
 		cargarVideos();
+		int opcion;
 		
-		Scanner teclado = new Scanner(System.in);
-		int opcion = 0;
-		
-		
-		//TODO: Hacer el menú que se repita cada vez e implementar la lectura de teclado
-		//int opcion = LISTADO;
-		
-	    do {
+		do {
 			mostrarMenu();
-			
-			opcion = teclado.nextInt();
-			
-			//TODO: corregir 
+			opcion = Utils.leerInt(); //Lee una opcion
 	
-			switch (opcion) {
+			procesarOpcion(opcion);
+		
+		}while(opcion != SALIR);
+	}
 
+	private static void procesarOpcion(int opcion) {
+		switch(opcion) {
 			case LISTADO:
 				listadoVideos();
 				break;
 				
-			case MOSTRAR:
-				
-				p("Inserte el ID de video que desea ver");
-				int idVideo = 0;
-				
-				idVideo = teclado.nextInt();
-				
-				//public VideoYoutube getById(long id)
-
-				VideoYoutube videoSelect = dao.getById(idVideo);
-				mostrarCabecera(); 
-				mostrarVideo(videoSelect); 
-				
+			case 2:
+				buscarPorId();
 				break;
+				
+			case 3:
+				addVideo();
+				break;
+				
+			case 4:
+				actualizarVideo();
+				break;
+				
+			case 5:
+				eliminarVideo();
+				break;
+				
+			case SALIR:
+				salir();
+				break;
+				
+			default:
+				noDisponible();
+		}
+	}
 			
-			case INSERTAR:
-				p("Inserte el ID del nuevo video");
-				long id = 0;
-				id = teclado.nextLong();
-				
-				p("Inserte el CODIGO del nuevo video");
-				String codigo = null;
-				codigo = teclado.next();
-
-				p("Inserte el TITULO del nuevo video");
-				String titulo = null;
-				titulo = teclado.next();
-				
-				VideoYoutube videoInsert = new VideoYoutube(id, codigo, titulo);
-				dao.insert(videoInsert);
-				mostrarCabecera(); 
-				p("Nuevo video insertado");
-				mostrarVideo(videoInsert); 
-				
-				break;
-				
-			case ACTUALIZAR:
-				break;
-				
-			case ELIMINAR:
-				break;
-				
+	private static void eliminarVideo() {
+		// TODO Auto-generated method stub
 		
-			}
-		
-	}while(opcion != SALIR);
-	    
 	}
 
+	private static void actualizarVideo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void buscarPorId() {
+		p("Dime el ID del video");		//Pregunto por el id
+		long id = Utils.leerLong();		//Leo el id
+		
+		VideoYoutube video = dao.getById(id);	//Le paso el id
+		
+		mostrarCabecera();	//saco la cabecera con un solo video
+		mostrarVideo(video);
+	}
+	
+	private static void addVideo() {
+		/* refactor -> extract interface 
+		p("Dime el ID del nuevo video");	
+		long id = Utils.leerLong();		
+		p("Dime el CODIGO del nuevo video");	
+		String codigo = Utils.leerLinea();
+		p("Dime el TITULO del nuevo video");
+		String titulo = Utils.leerLinea();*/
+		
+		VideoYoutube video = new VideoYoutube(id, codigo, titulo);
+		
+		if(dao.insert(video)) {	//añado el video
+			p("Video añadido correctamente");
+		}else {
+			p("No se ha podido añadir el video");
+		}
+		
+	}
+	
+	
+	    private static void noDisponible() {
+	    	p("No disponible");	
+	    }
+	    
+	    private static void salir() {
+	    	p("Gracias por su visita");	
+	    }
 
 	private static void mostrarMenu() {
 		p("------------");
@@ -102,16 +119,17 @@ public class VideoYoutubeMain {
 		p("------------");
 		p("");
 		p("1. Listado de videos");
-		p("3. Mostrar video");
-		p("4. Insertar");
-		p("5. Actualizar");
-		p("6. Eliminar");
+		p("2. Buscar video por id");
+		p("3. Añadir video");
+		p("4. Modificar video");
+		p("5. Eliminar video");
+		p("");
 		p("0. Salir");
 		p("Elige una opción");
+		p("");
 	}
 	
 	private static void listadoVideos() {
-		CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
 		
 		mostrarCabecera();
 		
