@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.ipartek.formacion.prestamoLibrosPojo.Cliente;
 
-public class ClienteDAO implements CrudAble<Cliente>{
+public class ClienteDAO implements CrudAbleCliente<Cliente>{
 	
 	private List<Cliente> clientes = new ArrayList<>(); 
 
@@ -91,7 +91,9 @@ public class ClienteDAO implements CrudAble<Cliente>{
 			
 		return resul;
 	}
+
 	
+	@Override
 	public Cliente getByDni(String dni) {
 		Cliente resul = null;
 		
@@ -104,4 +106,5 @@ public class ClienteDAO implements CrudAble<Cliente>{
 		}
 		return resul;
 	}
+	
 }

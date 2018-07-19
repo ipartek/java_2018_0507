@@ -7,5 +7,5 @@ public interface CrudAbleCliente<P> extends CrudAble<P> {
 	 * @param id string identificador
 	 * @return P pojo si no lo encuentra, null si no encuentra
 	 * */
-	P getByDni(String id);
+	P getByDni(String dni);
 }

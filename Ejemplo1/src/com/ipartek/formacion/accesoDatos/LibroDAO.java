@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.ipartek.formacion.prestamoLibrosPojo.Cliente;
 import com.ipartek.formacion.prestamoLibrosPojo.Libro;
 
-public class LibroDAO implements CrudAble<Libro>{
+public class LibroDAO implements CrudAbleLibro<Libro>{
 
 	private List<Libro> libros = new ArrayList<>(); 
 
@@ -92,7 +91,10 @@ public class LibroDAO implements CrudAble<Libro>{
 			
 		return resul;
 	}
+
 	
+	
+	@Override
 	public Libro getByIsbn(String isbn) {
 		Libro resul = null;
 		
@@ -104,4 +106,5 @@ public class LibroDAO implements CrudAble<Libro>{
 		}
 		return resul;
 	}
+	
 }
