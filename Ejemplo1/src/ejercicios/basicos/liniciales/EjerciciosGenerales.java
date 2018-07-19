@@ -6,7 +6,32 @@ import java.util.Scanner;
 public class EjerciciosGenerales {
 	
 	public static void main(String[] args) {
+		int n1, n2;
+		int suma1 = 0; 
+		int suma2 = 0;
 		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduce el primer numero:");
+		n1 = sc.nextInt();
+		System.out.println("Introduce el segundo numero:");
+		n2 = sc.nextInt();
+		
+		for (int contador = 1; contador<n1; contador++) {
+			if(n1%contador==0) {
+				suma1 = suma1+contador;
+			}
+		}
+		for (int contador = 1; contador<n2; contador++) {
+			if(n2%contador==0) {
+				suma2 = suma2+contador;
+			}
+		}
+		if(suma1==n2 && suma2==n1) {
+			System.out.println("Los numeros "+n1+" y "+n2+" son amigos");
+		}
+		else {
+			System.out.println("Los numeros "+n1+" y "+n2+" no son amigos");
+		}
 	}
 
 	
@@ -25,8 +50,6 @@ public class EjerciciosGenerales {
 				}
 			}
 		}
-		
-		
 		
 
 	}
