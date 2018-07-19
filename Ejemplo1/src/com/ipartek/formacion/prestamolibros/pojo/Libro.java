@@ -6,7 +6,7 @@ public class Libro {
 	private String titulo;
 	private String autor;
 	private String editorial;
-	private Cliente cliente;
+	private Cliente cliente; //un libro solo puede tener un cliente
 	
 	public boolean isLibre() {
 		//TODO: implementar isLibre

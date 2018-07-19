@@ -1,7 +1,9 @@
 package com.ipartek.formacion.ejemplo1;
 
 import java.util.ArrayList;
+
 import java.util.Calendar;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -17,6 +19,7 @@ import org.joda.time.LocalDate;
 
 public class Prueba1 {
 
+
 	public final static int TAM_ARRAY = 10;
 
 	public enum Genero {
@@ -24,6 +27,7 @@ public class Prueba1 {
 	};
 
 	public static void main(String[] args) {
+
 		int mes, dias;
 
 		mes = 6;
@@ -274,6 +278,7 @@ public class Prueba1 {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
+
 	public static void mainVector(String[] args) {
 		Vector v = new Vector();
 
