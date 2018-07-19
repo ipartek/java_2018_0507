@@ -25,6 +25,9 @@ public class VideoYoutubeMain {
 		cargarVideos();
 		int opcion;
 		
+		int i = 0;
+		boolean hayQueRepetir = false;
+		
 		do {
 			mostrarMenu();
 			opcion = Utils.leerInt(); //Lee una opcion
@@ -39,27 +42,21 @@ public class VideoYoutubeMain {
 			case LISTADO:
 				listadoVideos();
 				break;
-				
 			case 2:
 				buscarPorId();
-				break;
-				
+				break;			
 			case 3:
 				addVideo();
-				break;
-				
+				break;				
 			case 4:
 				actualizarVideo();
-				break;
-				
+				break;			
 			case 5:
 				eliminarVideo();
-				break;
-				
+				break;				
 			case SALIR:
 				salir();
-				break;
-				
+				break;				
 			default:
 				noDisponible();
 		}
@@ -86,22 +83,25 @@ public class VideoYoutubeMain {
 	}
 	
 	private static void addVideo() {
-		/* refactor -> extract interface 
-		p("Dime el ID del nuevo video");	
-		long id = Utils.leerLong();		
-		p("Dime el CODIGO del nuevo video");	
-		String codigo = Utils.leerLinea();
-		p("Dime el TITULO del nuevo video");
-		String titulo = Utils.leerLinea();*/
-		
-		VideoYoutube video = new VideoYoutube(id, codigo, titulo);
+		VideoYoutube video = crearVideoConDatosDeConsola();
 		
 		if(dao.insert(video)) {	//añado el video
 			p("Video añadido correctamente");
 		}else {
 			p("No se ha podido añadir el video");
-		}
+		}	
+	}
+
+	private static VideoYoutube crearVideoConDatosDeConsola() { //refactor -> extract method
+		p("Dime el ID del nuevo video");	
+		long id = Utils.leerLong();		
+		p("Dime el CODIGO del nuevo video");	
+		String codigo = Utils.leerLinea();
+		p("Dime el TITULO del nuevo video");
+		String titulo = Utils.leerLinea();
 		
+		VideoYoutube video = new VideoYoutube(id, codigo, titulo);
+		return video;
 	}
 	
 	
