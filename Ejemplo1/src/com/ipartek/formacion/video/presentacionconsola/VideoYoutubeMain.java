@@ -8,7 +8,6 @@ import com.ipartek.formacion.video.pojo.VideoYoutube;
 
 public class VideoYoutubeMain {
 
-	private static final int LISTADO = 1;
 
 	public static void main(String[] args) {
 
@@ -17,9 +16,8 @@ public class VideoYoutubeMain {
 		
 		
 		//TODO: Hacer el menú que se repita cada vez e implementar la lectura de teclado
-		int opcion = LISTADO;
-		
 
+		
 	}
 
 	private static void mostrarMenu() {
