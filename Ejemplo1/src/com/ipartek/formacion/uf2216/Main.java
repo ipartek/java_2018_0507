@@ -1,6 +1,12 @@
 package com.ipartek.formacion.uf2216;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.regex.*;
 
@@ -47,7 +53,7 @@ public class Main {
 				ListarRevistas();
 				break;
 			case GUARDAR:	
-				
+				GuardarRevistas();
 				break;
 			case SALIR:
 				
@@ -115,6 +121,7 @@ public class Main {
 	  		e("Video añadido correctamente");
 	  		else
 	  		e("El video no se ha añadido");
+	    
 	    }
 	    
 	}
@@ -131,7 +138,32 @@ public class Main {
 	
 	private static void GuardarRevistas() {
 		
-		File fichero = new File("C\\");
+		CrudAble<Revistas> dao = RevistasArrayDAO.getInstance();
 		
+	
+		 	FileWriter fichero = null;
+	        PrintWriter pw = null;
+	        try
+	        {
+	            fichero = new FileWriter("C:\\Users\\curso\\git\\revistas.txt", false);
+	            pw = new PrintWriter(fichero);
+
+	            for (Revistas r: dao.getAll())
+	                pw.println("ID:" + r.getId() + "\t" + "Titulo: "  + r.getTitulo()+  "\t" + "ISBN: " + r.getISBN()+ "\t" + "Numero Paginas: " + r.getPaginas() + "\t"
+	                + "Formato: " + r.isFormato());
+
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        } finally {
+	           try {
+	           if (null != fichero)
+	              fichero.close();
+	           } catch (Exception e2) {
+	              e2.printStackTrace();
+	           }
+	        }
+
 	}
+		
 }
+
