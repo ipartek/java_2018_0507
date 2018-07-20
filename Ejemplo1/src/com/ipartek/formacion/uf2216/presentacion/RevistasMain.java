@@ -30,7 +30,6 @@ public class RevistasMain {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		p("Bienvenido a nuestro sistema de gestion de revistas");
-
 		empezar();
 
 	}
@@ -321,11 +320,19 @@ RevistasArrayDAO dao = RevistasArrayDAO.getInstance();
 
 	}
 
+	public static long comprobarid(String id) {
+		if(isNumeric(id)) {
+		long id2=Integer.parseInt(id);
+		return id2;
+		}
+		return 0;
+		
+	}
 
 private static void insertarRevista2() throws Exception {
 		
 		/**
-		 * funcion que hace el procedimiento de insercion despues de su correspondiente validacion
+intento de mejora de codigo con do while pero no me a dado tiempo
 		 */
 		// TODO Auto-generated method stub
 		System.out.println("mete id, codigo y nombre ");
@@ -334,175 +341,61 @@ private static void insertarRevista2() throws Exception {
 		Scanner o = new Scanner(System.in);
 		System.out.println("inserta el ID del libro");
 
-		String id = o.next();
+		String id ;
+		String titulo = null;
+		String ISBN;
+		String numpag;
+		String formato = null;
+		do {
+			System.out.println("inserta el ID del libro");
+			
+			 id = o.next();
+				
+
+			
+		} while (comprobarid(id)==0);
+		
 		
 		do {
-			long ids = Integer.parseInt(id);
+			System.out.println("mete un titulo");
+			try {
+				titulo=o.next();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
-				do {
-					
-					System.out.println("mete el titulo");
-				String titulo = o.next();
-					
-						do {
-							
-							System.out.println("Mete el ISBN(debe de ser numerico");
-							String ISBN = o.next();
-							
-								do {
-									int ISBNi = Integer.parseInt(ISBN);
-									do {
-										System.out.println("mete numero de paginas");
-										
-										String numPag = o.next();
-										int numPagi = Integer.parseInt(numPag);
-										
-										do {
-											do {
-												
-											} while (numPagi > 1);
-										} while (isNumeric(numPag)==false);
-									} while (ISBNi == 0);
-									
-								} while (isNumeric(ISBN)==false);
-							
-						} while (titulo == null);
-				
-				} while (dao.getById(ids) != null && ids < 1);
-			
-			
-			
-			
-			
-			
-			
-			
-			
-		} while (isNumeric(id)==false);
+		} while (titulo==null);
 		
-	
+		do {
+			System.out.println("mete el isbn");
+			ISBN=o.next();
+		} while (comprobarid(ISBN)==0);
 		
 		
+		do {
+			System.out.println("mete el numero de paginas");
+			numpag=o.next();
+			} while (comprobarid(numpag)==0||comprobarid(numpag)>0);
 		
-		System.err.println("maaaal");
-//		if (isNumeric(id)) {
-//			long ids = Integer.parseInt(id);
-//
-//			if (dao.getById(ids) == null && ids >= 1) {
-//
-//				System.out.println("mete el titulo");
-//
-//				String titulo = o.next();
-//				if (titulo != null) {
-//
-//					System.out.println("Mete el ISBN(debe de ser numerico");
-//
-//					String ISBN = o.next();
-//					if (isNumeric(ISBN)) {
-//						int ISBNi = Integer.parseInt(ISBN);
-//						if (ISBNi > 0) {
-//							System.out.println("mete numero de paginas");
-//
-//							String numPag = o.next();
-//							int numPagi = Integer.parseInt(numPag);
-//							if (isNumeric(numPag)) {
-//								if (numPagi > 1) {
-//
-//									System.out.println("Identifica el formato:\nD para Digital o P para papel");
-//									String format = o.next();
-//									boolean formato = false;
-//									
-//
-//									if (format.equalsIgnoreCase("d")) {
-//
-//										System.out.println("vas a insertar lo siguiente\n");
-//										System.out.println("id =" + ids + " titulo = " + titulo + " ISBN = " + ISBNi
-//												+ " numPags = " + numPagi + " formato = " + formato+"\n\n");
-//
-//										System.out.println("te parece correcto?\n");
-//										System.out.println("S aceptar\n  cualquier otra letra para volver al inicio");
-//										String decision = o.next();
-//										if (decision.equalsIgnoreCase("s")) {
-//											dao.insert(new Revista(ids, titulo, ISBNi, numPagi, formato));
-//											System.out.println("insertado");
-//											empezar();
-//										} else {
-//											mostrarmenu();
-//										}
-//									}
-//
-//									else if (format.equalsIgnoreCase("p")) {
-//										System.out.println("vas a insertar lo siguiente\n");
-//										System.out.println("id =" + ids + " titulo = " + titulo + " ISBN = " + ISBNi
-//												+ " numPags = " + numPagi + " formato = " + formato);
-//										System.out.println("te parece correcto?\n");
-//										System.out.println("S aceptar\n  cualquier otra letra para volver al inicio");
-//										String decision = o.next();
-//										if (decision.equalsIgnoreCase("s")) {
-//											dao.insert(new Revista(ids, titulo, ISBNi, numPagi, formato));
-//											System.out.println("insertado");
-//											empezar();
-//										} 
-//	/**
-//	* posibles errores al poner parametros incorrectos
-//	 */
-//										else {
-//											mostrarmenu();
-//										}
-//
-//									}
-//									else {
-//										System.err.println("debes de elegir una de las 2 opciones");
-//										insertarRevista();
-//									}
-//
-//								} else {
-//									System.err.println("debes meter un formato valido");
-//									insertarRevista();
-//								}
-//							} else {
-//								System.err.println("debe de ser numerico");
-//								insertarRevista();
-//
-//							}
-//						} else {
-//							System.out.println("debe de ser mayor a 0");
-//							insertarRevista();
-//
-//						}
-//					} else {
-//						System.err.println("debe de ser numerico");
-//						insertarRevista();
-//
-//					}
-//				} else {
-//					System.err.println("debes de meter un titulo");
-//					insertarRevista();
-//
-//				}
-//			} else {
-//				System.err.println("debe de ser mayor a 0 o ya existe");
-//				insertarRevista();
-//
-//			}
-//		} else {
-//			System.err.println("debes de meter un numerico");
-//			insertarRevista();
-//
-//		}
-//
-//		// if(dao.getById(id)==null) {
-//		// dao.insert(new Revista(id,titulo,ISBN,numPag,formato));
-//		// }
-//		// else {
-//		// System.out.println("ya existe");
-//		// }
-//		// empezar();
-//		//
-//		//
-//		//
-
+		do {
+			System.out.println("mete el formato de libro.\n D para digital y P para papel");
+			formato=o.next();
+			
+		} while (formato!="d"&&formato!="p");
+		System.out.println("vas a insertar lo siguiente\n");
+		System.out.println("id =" + id + " titulo = " + titulo + " ISBN = " + ISBN
+				+ " numPags = " + numpag+ " formato = " + formato);
+		System.out.println("te parece correcto?\n");
+		System.out.println("S aceptar\n  cualquier otra letra para volver al inicio");
+		String decision = o.next();
+		
+		
+//		do {
+//			
+//		} while (asserte||formato!="p");
 	}
+
 
 	
 	public static void p(String p) {
@@ -521,6 +414,18 @@ private static void insertarRevista2() throws Exception {
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			mostrarmenu();
 		}
+	}
+	
+	private void formatolibro(boolean f) {
+		String formato;
+		if(f=true) {
+			formato="digital";
+			
+		}
+		else {
+			formato="papel";
+		}
+		System.out.print(formato);
 	}
 	
 }
