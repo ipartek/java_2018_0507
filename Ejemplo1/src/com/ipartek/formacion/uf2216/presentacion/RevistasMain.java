@@ -5,7 +5,7 @@ import java.util.Scanner;
 import com.ipartek.formacion.uf2216.accesodatos.CrudAble;
 import com.ipartek.formacion.uf2216.accesodatos.RevistasArrayDAO;
 import com.ipartek.formacion.uf2216.pojo.Revista;
-import com.ipartek.prestamolibros.Libro;
+
 
 
 
@@ -22,6 +22,8 @@ public class RevistasMain {
 	public static boolean formato;
 	public static int opcionMenu;
 	public static boolean salir = true;
+	public static char caracter;
+	public static String letter;
 	static Scanner  sc = new Scanner(System.in);
 	static Scanner  sc2 = new Scanner(System.in);
 	static LeerTeclado lt = new LeerTeclado(sc);
@@ -34,7 +36,10 @@ public class RevistasMain {
 	}
 
 	private static void cargarRevistas() {
-		//cargar una lista
+		for(int i = 1; i <= 5; i++) {
+			dao.insert(new Revista(i, "titulo" + i, "isbn " + i, i+200, false));
+			dao.insert(new Revista(i+5, "titulo" + (i+5), "isbn " + (i+5), i+300, true));
+		}
 		
 	}
 
@@ -109,19 +114,41 @@ public class RevistasMain {
 		
 	}
 	private static void mostrarCabeceraRevistas() {
-		p("ID\tTITULO\tISBN\t\tNº PAGINAS\tFORMATO");
+		p("ID\tTITULO\t\tISBN\tNº PAGINAS\tFORMATO");
 		
 	}
 
 	private static void mostrarRevista(Revista revista) {
-		p(revista.getId() + "\t" + revista.getIsbn() + "\t" + revista.getTitulo() + "\t" + libro.getAutor() + 
-				"\t" + revista.getEditorial());
+		boolean format = revista.isFormato();
+		String digiOFisi;
+		if (format) {
+			digiOFisi = "Digital";
+		}else {
+			digiOFisi = "Papel";
+		}
+		p(revista.getId() + "\t" + revista.getTitulo()
+		+ "\t\t" + revista.getIsbn()
+		+ "\t" + revista.getNumPaginas()  
+		+ "\t\t" + digiOFisi);
 		
 	}
 
 	private static void volver() {
-		// TODO Auto-generated method stub
 		
+		System.out.println("\nQuieres volver al menu? S/N");
+		leerSN();
+		if(caracter == 's' || caracter == 'S') {
+			mostrarMenu();
+		}else if (caracter == 'n' || caracter == 'N'){
+			System.out.println("Adios");
+		}else {
+			volver();
+		}
+	}
+	
+	public static void leerSN(){
+		letter = lt2.leerChar(letter);
+		caracter = letter.charAt(0);
 	}
 
 	public static void p(String s) {
