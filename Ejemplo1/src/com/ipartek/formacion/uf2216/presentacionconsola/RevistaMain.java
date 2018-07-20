@@ -1,5 +1,10 @@
 package com.ipartek.formacion.uf2216.presentacionconsola;
 
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
 import com.ipartek.formacion.uf2216.accesoDatos.CrudAble;
 import com.ipartek.formacion.uf2216.accesoDatos.RevistaArrayDAO;
 import com.ipartek.formacion.uf2216.pojo.Revista;
@@ -11,6 +16,7 @@ public class RevistaMain {
 	private static final int SALIR = 0;
 	private static final int LISTADO = 1;
 	private static final int INSERTAR_REVISTA = 2;
+	private static final int GUARDAR_FICHERO = 3;
 	
 	public static void main(String[] args) {
 		// Hay que empezar cargando las revistas
@@ -32,6 +38,9 @@ public class RevistaMain {
 			break;
 		case INSERTAR_REVISTA:
 			insertarRevista();
+			break;
+		case GUARDAR_FICHERO:
+			guardarEnFichero();
 			break;
 		case SALIR:
 			salir();
@@ -76,12 +85,19 @@ public class RevistaMain {
 	private static void insertarRevista() {
 		Revista revista = crearRevistaConDatosConsola();
 		
-		boolean resultadoOperacion = dao.insert(revista);
+		p("Los datos a insertar son los siguientes: ");
+		p(revista.toString());
+		p("Quiere insertarlos? (s/n)");
+		String respuesta = Utils.leerLinea();
 		
-		if (resultadoOperacion) {
-			p("Revista insertada correctamente");
-		}else {
-			p("ERROR al insertar video");
+		if (respuesta.trim().equalsIgnoreCase("s")) {
+			boolean resultadoOperacion = dao.insert(revista);
+			
+			if (resultadoOperacion) {
+				p("Revista insertada correctamente");
+			}else {
+				p("ERROR al insertar video");
+			}
 		}
 	}
 	
@@ -122,14 +138,43 @@ public class RevistaMain {
 		return resul;
 	}
 	
+	/* Funcion para guardar las revistas en un fichero */
+	private static void guardarEnFichero() {
+        String nombreFichero = "C:/Users/curso/Documents/Revistas.txt";
+        
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+        try
+        {
+            fichero = new FileWriter(nombreFichero);
+            pw = new PrintWriter(fichero);
+
+            //for (int i = 0; i < 10; i++)
+            for (Revista revista: dao.getAll()) {
+            	pw.println(revista.toString());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+           try {
+           // Nuevamente aprovechamos el finally para asegurarnos que se cierra el fichero.
+           if (null != fichero)
+              fichero.close();
+           } catch (Exception e2) {
+              e2.printStackTrace();
+           }
+        }
+	}
+	
 	/* Menu escrito del programa*/
-	private static void mostrarMenu() {
+ 	private static void mostrarMenu() {
 		p("------------");
 		p("Revistas");
 		p("------------");
 		p("");
 		p("1. Listado de revistas");
 		p("2. Insertar revista");
+		p("2. Guardar revistas en fichero");
 		p("");
 		p("0. Salir de la aplicacion");
 		p("Elige una opcion: ");
