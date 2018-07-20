@@ -95,7 +95,7 @@ public class RevistasMain {
 				"\t" + revista.getNumPag() + "\t" + revista.isFormato());
 	}
 	
-	//MOSTRAT REVISTA por ID
+	//MOSTRAR REVISTA por ID
 	private static void buscarPorId() {
 		p("Dime el ID de la revista");		
 		long id = Utils.leerLong();		
@@ -109,7 +109,6 @@ public class RevistasMain {
 	
 	// AÑADIR REVISTA Insertar una revista 
 	private static void insertarRevista() {
-	
 		
 		//llamo a la funcion ¬ que contiene los datos introducidos por teclado
 		Revista revista = crearRevistaConDatosDeConsola();
