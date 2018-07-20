@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class RevistaMain {
 
 	public static void main(String[] args) {
-		//cargarRevistas();
 		mostrarMenu();
 
 	}
@@ -73,11 +72,16 @@ public class RevistaMain {
 			int nPag = Integer.parseInt(nPaginas);
 			if (nPag < 1) {
 				System.out.println("La revista tiene que tener 1 pagina como minimo");
+				break;
 			}
 			
-			System.out.println("Introduce el formato de la revista-> true=digital , false=papel");
+			System.out.println("Introduce el formato de la revista. true=digital , false=papel");
 			String format = sc.nextLine();
 			boolean formato = Boolean.parseBoolean(format);
+			if (formato != true || formato != false) {
+				System.out.println("Tienes que elegir entre true o false.");
+				break;
+			}
 			
 			Revista revista = new Revista();
 			revista.setId(idr);
@@ -110,18 +114,15 @@ public class RevistaMain {
 	}
 
 	private static void mostrarRevista(Revista revista) {
-		p(revista.getId() + "\t" + revista.getTitulo() + "\t" + revista.getIsbn()
-		 + " \t" + revista.getnPaginas() + "\t" + revista.isFormato());
+		p(revista.getId() + "\t" + revista.getTitulo() + "\t\t" + revista.getIsbn()
+		 + " \t\t" + revista.getnPaginas() + "\t\t" + revista.isFormato());
 	}
 
 	private static void mostrarCabecera() {
-		p("ID\tTITULO\tISBN\tNUMERO PAGINAS\tFORMATO");
+		p("ID\tTITULO\t" + "\t" + "ISBN\t " + "\t" + "NUMERO PAGINAS\t" + "\t" + "FORMATO");
 		
 	}
 
-	//private static void cargarRevistas() {
-		//CrudAble<Revista> dao = RevistaDao.getInstance();	
-//	}
 	
 	public static void p(String s) {
 		System.out.println(s);
