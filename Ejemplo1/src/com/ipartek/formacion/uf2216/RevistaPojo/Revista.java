@@ -21,6 +21,10 @@ private boolean digital=false;//false=digital
 	this.numPaginas = numPaginas;
 	this.digital = digital;
 }
+	public String getIsbn() {
+		return isbn;
+	}
+
 	public long getId() {
 		return id;
 	}
