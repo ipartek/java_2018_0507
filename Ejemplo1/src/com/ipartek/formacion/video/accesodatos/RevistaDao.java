@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
  
-import com.ipartek.formacion.video.pojo.VideoYoutube;
+import com.ipartek.formacion.video.pojo.Revista;
 
 /**
  * @class VideoYoutubArrayDAO que que implementa Crudable operaciones de la BBDD
@@ -16,22 +16,22 @@ import com.ipartek.formacion.video.pojo.VideoYoutube;
  * @author AnaMAMM
  *
  */
-public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube> {
+public class RevistaDao implements CrudAble<Revista> {
 
 	/**
 	 * array para guardar los videos
 	 */
-	private List<VideoYoutube> videos = new ArrayList<>();
+	private List<Revista> videos = new ArrayList<>();
 
 	/**
 	 * variable estatica para poder crear la instancia de esta clase en el metodo getInstance()
 	 */
-	private static VideoYoutubeArrayDAO INSTANCE;
+	private static RevistaDao INSTANCE;
 
 	/**
 	 * constructor privado
 	 */
-	private VideoYoutubeArrayDAO() {
+	private RevistaDao() {
 	}
 
 	/**
@@ -39,10 +39,10 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube> {
 	 * si no hay una instancia creada se crea una y la devuelve
 	 * @return INSTANCE
 	 */
-	public static synchronized VideoYoutubeArrayDAO getInstance() {
+	public static synchronized RevistaDao getInstance() {
 
 		if (INSTANCE == null) {
-			INSTANCE = new VideoYoutubeArrayDAO();
+			INSTANCE = new RevistaDao();
 		}
 
 		return INSTANCE;
@@ -52,7 +52,7 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube> {
 	 * devuelve todos los videos del arrayList
 	 */
 	@Override
-	public List<VideoYoutube> getAll() {
+	public List<Revista> getAll() {
 		return videos;
 	}
 
@@ -61,10 +61,10 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube> {
 	 * de la clase VideoYuotube
 	 */
 	@Override
-	public VideoYoutube getById(long id) {
-		VideoYoutube resul = null;
+	public Revista getById(long id) {
+		Revista resul = null;
 		// foreach
-		for (VideoYoutube videoIteracion : videos) {
+		for (Revista videoIteracion : videos) {
 			if (id == videoIteracion.getId()) {
 				resul = videoIteracion;
 				break;
@@ -77,7 +77,7 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube> {
 	 * Inserta un video en el arrayList
 	 */
 	@Override
-	public boolean insert(VideoYoutube video) {
+	public boolean insert(Revista video) {
 		boolean resul = false;
 
 		if (video != null) {
@@ -90,13 +90,13 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube> {
 	 * actualiza un video
 	 */
 	@Override
-	public boolean update(VideoYoutube videoUpdate) {
+	public boolean update(Revista videoUpdate) {
 		boolean resul = false;
-		VideoYoutube videoIteracion = null;
+		Revista videoIteracion = null;
 		int i = 0;
 		if (videoUpdate != null) {
 			// Iterator
-			Iterator<VideoYoutube> it = videos.iterator();
+			Iterator<Revista> it = videos.iterator();
 			while (it.hasNext()) {
 				videoIteracion = it.next();
 				if (videoIteracion.getId() == videoUpdate.getId()) {
@@ -117,7 +117,7 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube> {
 	public boolean delete(long id) {
 		boolean resul = false;
 
-		VideoYoutube vIteracion = null;
+		Revista vIteracion = null;
 
 		// buscar video a eliminar
 		for (int i = 0; i < videos.size(); i++) {
