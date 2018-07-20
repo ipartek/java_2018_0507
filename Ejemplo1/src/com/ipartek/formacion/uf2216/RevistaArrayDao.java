@@ -23,7 +23,6 @@ public class RevistaArrayDao implements CrudAble<Revista> {
 			if (INSTANCE == null) {
 				INSTANCE = new RevistaArrayDao();
 			}
-
 			return INSTANCE;
 		}
 
@@ -82,23 +81,17 @@ public class RevistaArrayDao implements CrudAble<Revista> {
 		@Override
 		public boolean delete(long id) { //TODO: no obligatorio eliminar
 			boolean resul = false;
-
 			Revista rIteracion = null;
 
-			// buscar revista a eliminar
 			for (int i = 0; i < revistas.size(); i++) {
+				rIteracion = revistas.get(i); 
 
-				rIteracion = revistas.get(i); // revista sobre la que iteramos
-
-				if (id == rIteracion.getId()) { // revista encontrada
+				if (id == rIteracion.getId()) { 
 					resul = revistas.remove(rIteracion);
 					break;
 				}
 			}
-
 			return resul;
 		}
-
-
 
 }

@@ -14,25 +14,25 @@ public class Revista {
 	public static final String NUMPAG_MENSAJE_EXCEPTION = "La revista debe tener como mínimo " + NUMPAG_TAMANO_MIN + " pagina";
 	
 	//TODO: controlar formatos correctos
-	private String titulo;
 	private long id;
+	private String titulo;
 	private String isbn;
 	private long numPag;
 	private boolean formato;
 
 	public Revista() {
 		super();
+		this.id = -1;
 		this.titulo = "";
-		this.id = 0;
 		this.isbn = "";
 		this.numPag = 0;
 		this.formato = false;
 	}
 	
-	public Revista(String titulo, long id, String isbn, long numPag, boolean formato) throws Exception {
-		super();
-		this.setTitulo(titulo);
+	public Revista(long id, String titulo, String isbn, long numPag, boolean formato) throws Exception {
+		super();	
 		this.setId(id);
+		this.setTitulo(titulo);
 		this.setIsbn(isbn);
 		this.setNumPag(numPag);
 		this.setFormato(formato);
@@ -44,8 +44,8 @@ public class Revista {
 	
 	//Controlamos la excepcion de titulo
 	public void setTitulo(String titulo) throws Exception {
-		if(titulo != null && titulo.trim().length() >= TITULO_TAMANO_MAX 
-				&& titulo.trim().length() <= TITULO_TAMANO_MIN) {
+		if(titulo != null && titulo.trim().length() >= TITULO_TAMANO_MIN 
+				&& titulo.trim().length() <= TITULO_TAMANO_MAX) {
 			
 			this.titulo = titulo;
 			
