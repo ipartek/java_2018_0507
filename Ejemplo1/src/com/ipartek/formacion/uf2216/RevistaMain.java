@@ -51,7 +51,7 @@ public class RevistaMain {
 			String idrevista=sc.nextLine();
 			int idr = Integer.parseInt(idrevista);
 			
-			System.out.println("Introduce el titulo de la revista");
+			System.out.println("¡Correcto! Introduce el titulo de la revista");
 			String titulor = sc.nextLine();
 			if (titulor != null) {
 				if (titulor.length()<MINIMO_CARACTER) {
@@ -67,7 +67,7 @@ public class RevistaMain {
 			}
 			
 			
-			System.out.println("Introduce el isbn de la revista");
+			System.out.println("¡Correcto! Introduce el isbn de la revista");
 			String isbnr = sc.nextLine();
 			if (isbnr != null) {
 				if (isbnr.length() != DIGITOS_NECESARIOS) {
@@ -79,7 +79,7 @@ public class RevistaMain {
 			}
 			
 			
-			System.out.println("Introduce el numero de paginas de la revista");
+			System.out.println("¡Correcto! Introduce el numero de paginas de la revista");
 			String nPaginas= sc.nextLine();
 			int nPag = Integer.parseInt(nPaginas);
 			if (nPag < 1) {
@@ -87,7 +87,7 @@ public class RevistaMain {
 				break;
 			}
 			
-			System.out.println("Introduce el formato de la revista. true=digital , false=papel");
+			System.out.println("¡Correcto! Introduce el formato de la revista. true=digital , false=papel");
 			String format = sc.nextLine();
 			boolean formato = Boolean.parseBoolean(format);
 			
@@ -114,6 +114,8 @@ public class RevistaMain {
 				for (Revista r : dao.getAll()) {
 					pw.println(r);
 				}
+				p("¡Guardado!");
+			break;
 			}catch (Exception e) {
 				e.printStackTrace();
 			}finally {
@@ -127,7 +129,7 @@ public class RevistaMain {
 			}
 			
 		case SALIR:
-			
+			System.out.println("Adios!");
 		}
 		}while(numero!=0);
 		
