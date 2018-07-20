@@ -16,25 +16,39 @@ public class VideoYoutubeMain {
 	private static final int SALIR = 0;
 	
 
+	private static CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
+
+
 	public static void main(String[] args) {
 		cargarVideos();
 		
-		mostrarMenu();
+		int opcion;
 		
-		elegirOpcion();
-			
-		
-	}
 
+		elegirOpcion();
+				
+	}
 
 	private static void elegirOpcion() {
 		Scanner sc = new Scanner(System.in);
 		int opcion =  sc.nextInt();
-		
+	}
+//		do {
+//			mostrarMenu();
+//			
+//			opcion = Utils.leerInt();
+//			
+//			procesarOpcion(opcion);
+//		}while(opcion != SALIR);
+//	}
+
+	private static void procesarOpcion(int opcion) {
+
 		switch(opcion) {
 		case LISTADO:
 			listadoVideos();
 			break;
+
 		case BUSQUEDA:
 			BusquedaVideo();
 			break;
@@ -52,6 +66,60 @@ public class VideoYoutubeMain {
 			break;
 		}
 	}
+//<<<<<<< HEAD
+//=======
+//	private static void deleteVideo() {
+//		p("Dime el ID del video");
+//		long id = Utils.leerLong();
+//		
+//		if(dao.delete(id)) {
+//			p("Video borrado correctamente");
+//		} else {
+//			p("No se ha podido borrar el video");
+//		}
+//	}
+//
+//	private static void updateVideo() {
+//		VideoYoutube video = crearVideoConDatosDeConsola();
+//		
+//		if(dao.update(video)) {
+//			p("Video modificado correctamente");
+//		} else {
+//			p("No se ha podido modificar el video");
+//		}
+//	}
+//
+//	private static void addVideo() {
+//		VideoYoutube video = crearVideoConDatosDeConsola();
+//		
+//		if(dao.insert(video)) {
+//			p("Video añadido correctamente");
+//		} else {
+//			p("No se ha podido añadir el video");
+//		}
+//	}
+//
+//	private static VideoYoutube crearVideoConDatosDeConsola() {
+//		p("ID:");
+//		long id = Utils.leerLong();
+//		p("Código:");
+//		String codigo = Utils.leerLinea();
+//		p("Título:");
+//		String titulo = Utils.leerLinea();
+//		
+//		VideoYoutube video = new VideoYoutube(id, codigo, titulo);
+//		return video;
+//	}
+//
+//	private static void buscarPorId() {
+//		p("Dime el ID del video");
+//		long id = Utils.leerLong();
+//		
+//		VideoYoutube video = dao.getById(id);
+//		
+//		mostrarCabecera();
+//		mostrarVideo(video);
+//	}
 
 
 	private static void mostrarMenu() {
@@ -65,14 +133,13 @@ public class VideoYoutubeMain {
 		p("4. Actualizar datos video");
 		p("5. Borrar Video");
 		p("0. Salir");
+		p("");
 		p("Elige una opción");
 		
 	
 	}
 	
 	private static void listadoVideos() {
-		CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
-		
 		mostrarCabecera();
 		
 		for(VideoYoutube video: dao.getAll()) {
