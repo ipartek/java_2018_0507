@@ -1,0 +1,11 @@
+ID	TITULO		ISBN	Nº PAGINAS	FORMATO
+1	titulo1	isbn 1	201	false
+6	titulo6		isbn 6	301	true
+2	titulo2	isbn 2	202	false
+7	titulo7		isbn 7	302	true
+3	titulo3	isbn 3	203	false
+8	titulo8		isbn 8	303	true
+4	titulo4	isbn 4	204	false
+9	titulo9		isbn 9	304	true
+5	titulo5	isbn 5	205	false
+10	titulo10		isbn 10	305	true

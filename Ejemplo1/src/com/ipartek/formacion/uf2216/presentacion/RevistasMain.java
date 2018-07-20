@@ -1,5 +1,8 @@
 package com.ipartek.formacion.uf2216.presentacion;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 import com.ipartek.formacion.uf2216.accesodatos.CrudAble;
@@ -29,21 +32,24 @@ public class RevistasMain {
 	static LeerTeclado lt = new LeerTeclado(sc);
 	static LeerTeclado lt2 = new LeerTeclado(sc2);
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		grabarCabeceraEnFichera();//Creo la cabecera en el fichero y me cargo los datos anteriores
 		cargarRevistas();//TODO Crear una lista de revistas
 		mostrarMenu();
 
 	}
 
-	private static void cargarRevistas() {
+	private static void cargarRevistas() throws IOException {
 		for(int i = 1; i <= 5; i++) {
-			dao.insert(new Revista(i, "titulo" + i, "isbn " + i, i+200, false));
+			dao.insert(new Revista(i, "titulo" + i,"\t" + "isbn " + i, i+200, false));
+			escribirEnFichero(i, "titulo" + i, "isbn " + i, i+200, false);
 			dao.insert(new Revista(i+5, "titulo" + (i+5), "isbn " + (i+5), i+300, true));
+			escribirEnFichero(i+5, "titulo" + (i+5), "\t" + "isbn " + (i+5), i+300, true);
 		}
 		
 	}
 
-	private static void mostrarMenu() {
+	private static void mostrarMenu() throws IOException {
 		//Mostrar el menu
 		p("------------");
 		p("--Revistas--");
@@ -60,7 +66,7 @@ public class RevistasMain {
 		
 	}
 
-	private static void opcionMenu(int opcionMenu2) {
+	private static void opcionMenu(int opcionMenu2) throws IOException {
 		// Elegir que opcion del menu desea
 		System.out.println();
 		do {
@@ -87,7 +93,7 @@ public class RevistasMain {
 	}
 
 	@SuppressWarnings("static-access")
-	private static void añadirRevistas() {
+	private static void añadirRevistas() throws IOException {
 		long id = 0;
 		String format = "";
 		listarRevistas();
@@ -112,7 +118,27 @@ public class RevistasMain {
 			volver();
 		}
 		dao.insert(new Revista(id, titulo,  isbn, numPaginas, formato));
+		escribirEnFichero(id, titulo,  isbn, numPaginas, formato);
 		p("Revista añadida exitosamente");
+		
+	}
+	
+	public static void escribirEnFichero(long id, String titulo, String isbn,
+			long numero, boolean formato) throws IOException {
+		FileWriter fw = new FileWriter("src\\\\com\\\\ipartek\\\\formacion\\\\uf2216\\\\Revistas.txt", true);
+		PrintWriter pw = new PrintWriter(fw,true);
+		
+		pw.println(id + "\t" + titulo + "\t" + isbn + "\t" + numero + "\t" + formato);
+		fw.close();
+		pw.close();
+	}
+	
+	private static void grabarCabeceraEnFichera() throws IOException {
+		FileWriter fw = new FileWriter("src\\\\com\\\\ipartek\\\\formacion\\\\uf2216\\\\Revistas.txt", false);
+		PrintWriter pw = new PrintWriter(fw,true);
+		pw.println("ID\tTITULO\t\tISBN\tNº PAGINAS\tFORMATO");
+		fw.close();
+		pw.close();
 		
 	}
 
@@ -144,7 +170,7 @@ public class RevistasMain {
 		
 	}
 
-	private static void volver() {
+	private static void volver() throws IOException {
 		
 		System.out.println("\nQuieres volver al menu? S/N");
 		leerSN();
@@ -162,7 +188,7 @@ public class RevistasMain {
 		letter = lt2.leerChar(letter);
 		caracter = letter.charAt(0);
 	}
-
+	
 	public static void p(String s) {
 		System.out.println(s);
 	}
