@@ -20,29 +20,47 @@ public class VideoYoutubeMain {
 
 
 	public static void main(String[] args) {
+		
+		int opcion = 0;
 		cargarVideos();
-		
-		int opcion;
-		
-
-		elegirOpcion();
-				
+//		mostraMenu();
+		procesarOpcion(opcion);
 	}
 
-	private static void elegirOpcion() {
-		Scanner sc = new Scanner(System.in);
-		int opcion =  sc.nextInt();
-	}
+
+//	private static void mostrarMenu() {   //MOSTRAR EL MENU Y ELEGIR LA OPCION DIRECTAMENTE
+//		
+//		
+//		
 //		do {
-//			mostrarMenu();
-//			
-//			opcion = Utils.leerInt();
-//			
-//			procesarOpcion(opcion);
-//		}while(opcion != SALIR);
+//		p("------------");
+//		p("VideoYoutube");
+//		p("------------");
+//		p("");
+//		p("1. Listado de videos");
+//		p("2. Búsqueda de video");
+//		p("3. Insertar video");
+//		p("4. Actualizar datos video");
+//		p("5. Borrar Video");
+//		p("0. Salir");
+//		p("Elige una opción");
+//		
+//		
+//		@SuppressWarnings("resource")
+//		Scanner sc = new Scanner(System.in);
+//
+//		opcion =  sc.nextInt();
+//	
+//
+//	}while(opcion != SALIR);
+//		
 //	}
 
 	private static void procesarOpcion(int opcion) {
+
+		Scanner sc = new Scanner(System.in);
+		opcion =  sc.nextInt();
+		
 
 		switch(opcion) {
 		case LISTADO:
@@ -64,10 +82,13 @@ public class VideoYoutubeMain {
 		case SALIR:
 			p("Venga, hasta luego");
 			break;
+		default:
+			p("Esa opcion no existe");
 		}
+		
 	}
-//<<<<<<< HEAD
-//=======
+
+
 //	private static void deleteVideo() {
 //		p("Dime el ID del video");
 //		long id = Utils.leerLong();
@@ -122,22 +143,7 @@ public class VideoYoutubeMain {
 //	}
 
 
-	private static void mostrarMenu() {
-		p("------------");
-		p("VideoYoutube");
-		p("------------");
-		p("");
-		p("1. Listado de videos");
-		p("2. Búsqueda de video");
-		p("3. Insertar video");
-		p("4. Actualizar datos video");
-		p("5. Borrar Video");
-		p("0. Salir");
-		p("");
-		p("Elige una opción");
-		
-	
-	}
+
 	
 	private static void listadoVideos() {
 		mostrarCabecera();
@@ -145,8 +151,7 @@ public class VideoYoutubeMain {
 		for(VideoYoutube video: dao.getAll()) {
 			mostrarVideo(video);
 		}
-		mostrarMenu();
-		elegirOpcion();
+	
 	}
 
 	private static void mostrarCabecera() {
@@ -173,8 +178,8 @@ public class VideoYoutubeMain {
 	private static void InsertarVideo() {
 		CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
 		
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
-
 		
 		System.out.println("Inserta el ID");
 		String id = sc.nextLine();
@@ -186,22 +191,29 @@ public class VideoYoutubeMain {
 		
 		dao.insert(new VideoYoutube (id2,cod,tit));
 		
-		mostrarMenu();
-		elegirOpcion();
-	}
+		//Para realizar la comprobacion de si el video se ha añadido bien tendria que hacer un new Video:
+		//Video Youtube vy = new VideoYoutube (id2,cod,tit));
+		//if(dao.insert(vy)) {
+		//	p("Video añadido correctamente")
+		//	else
+		//	p("El video no se ha añadido");
+		}	
+		
 	
 	private static void BusquedaVideo() {
 		
 		CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
 		
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		p("Inserta el ID del video que quieres buscar");
 		String id = sc.nextLine();
 		int id2=Integer.parseInt(id);
-		System.out.println(dao.getById(id2));
-		
-		mostrarMenu();
-		elegirOpcion();
+//		System.out.println(dao.getById(id2));
+		VideoYoutube video = dao.getById(id2);
+		mostrarCabecera();
+		mostrarVideo(video);
+	
 	}
 
 
@@ -209,6 +221,7 @@ public class VideoYoutubeMain {
 		
 		CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
 		
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		p("Que video quieres borrar?");
 		String id = sc.nextLine();
@@ -222,8 +235,7 @@ public class VideoYoutubeMain {
 
 	private static void ActualizarVideo() {
 		
-		CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
-		
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		p("Que video quieres actualizar? Inserta su ID");
 		String id = sc.nextLine();
@@ -232,7 +244,6 @@ public class VideoYoutubeMain {
 		VideoYoutube encontrado = new VideoYoutube();
 		encontrado = VideoYoutubeArrayDAO.getInstance().getById(id2);
 		
-		int idc2=Integer.parseInt(id);
 		System.out.println("Inserta el nuevo Codigo");
 		String cod = sc.nextLine();
 		System.out.println("Inserta el nuevo Titulo");
