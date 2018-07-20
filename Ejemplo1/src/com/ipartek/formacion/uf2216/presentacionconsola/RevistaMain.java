@@ -11,12 +11,19 @@ public class RevistaMain {
 
 	private static CrudAble<Revista> dao = RevistaArrayDAO.getInstance();
 	
+	/* Opciones del menu */
 	private static final int SALIR = 0;
 	private static final int LISTADO = 1;
 	private static final int INSERTAR_REVISTA = 2;
 	private static final int MODIFICAR_REVISTA = 3;
 	private static final int ELIMINAR_REVISTA = 4;
 	private static final int GUARDAR_FICHERO = 5;
+	
+	/* Restricciones de insertar y modificar */
+	private static final int MIN_PAGINAS = 1;
+	private static final int MIN_LETRAS_TITULO = 3;
+	private static final int MAX_LETRAS_TITULO = 150;
+	private static final int TAMANO_ISBN = 10;
 	
 	public static void main(String[] args) {
 		// Hay que empezar cargando las revistas
@@ -154,22 +161,26 @@ public class RevistaMain {
 		do {
 			p("ISBN (10 caracteres): ");
 			isbn = Utils.leerIsbn();
-		}while (isbn.length()!= 10);
+		}while (isbn.length()!= TAMANO_ISBN);
 		
-		p("Titulo revista: ");
-		String titulo = Utils.leerLinea();
+		String titulo;
+		
+		do {
+			p("Titulo revista (3-150 caracteres): ");
+			titulo = Utils.leerLinea();
+		}while (titulo.length() < MIN_LETRAS_TITULO || titulo.length() > MAX_LETRAS_TITULO);
 		
 		int paginas;
+		
 		do {
 			p("Paginas (1 minimo): ");
 			paginas = Utils.leerInt();
-		}while (paginas < 1);
+		}while (paginas < MIN_PAGINAS);
 		
 		int formatoCorrecto;
 		do {
 			p("Formato (digital o papel): ");
 			formatoCorrecto = Utils.leerFormato();
-			
 		}while (formatoCorrecto == 0);
 		
 		boolean formato = false;
@@ -204,16 +215,19 @@ public class RevistaMain {
 			do {
 				p("ISBN (10 caracteres): ");
 				isbn = Utils.leerIsbn();
-			}while (isbn.length()!= 10);
+			}while (isbn.length()!= TAMANO_ISBN);
 			
-			p("Titulo revista: ");
-			String titulo = Utils.leerLinea();
+			String titulo;
+			do {
+				p("Titulo revista (3-150 caracteres): ");
+				titulo = Utils.leerLinea();
+			}while (titulo.length() < MIN_LETRAS_TITULO || titulo.length() > MAX_LETRAS_TITULO);
 			
 			int paginas;
 			do {
 				p("Paginas (1 minimo): ");
 				paginas = Utils.leerInt();
-			}while (paginas < 1);
+			}while (paginas < MIN_PAGINAS);
 			
 			int formatoCorrecto = 0;
 			do {
