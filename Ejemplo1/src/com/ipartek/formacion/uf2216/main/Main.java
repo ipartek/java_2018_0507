@@ -282,7 +282,7 @@ public class Main {
 			p("El ISBN ingresado  es valido");
 			res = true;
 		} else {
-			p("El ISBN ingresado no es valido");
+			p("El ISBN ingresado no es valido debe contener 10 digitos");
 			res = false;
 		}
 		return res;
@@ -341,7 +341,7 @@ public class Main {
 				p("Las paginas son validas");
 				res = true;
 			} else {
-				p("Las paginas no son validas");
+				p("Las paginas no son validas debe tener al menos una");
 				res = false;
 			}
 			return res;
@@ -358,7 +358,7 @@ public class Main {
 				p("El titulo ingresado  es valido");
 				res = true;
 			} else {
-				p("El titulo ingresado no es valido");
+				p("El titulo ingresado no es valido debe contener de 3 a 150 caracteres ");
 				res = false;
 			}
 			return res;
