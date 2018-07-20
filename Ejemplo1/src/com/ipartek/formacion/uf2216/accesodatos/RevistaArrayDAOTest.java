@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import com.ipartek.formacion.uf2216.accesodatos.RevistasArrayDAO;
 import com.ipartek.formacion.uf2216.pojo.Revista;
-import com.ipartek.formacion.video.pojo.Revista;
-import com.ipartek.formacion.video.pojo.Revista;
+
 
 class RevistaArrayDAOTest {
 	
@@ -51,11 +50,11 @@ class RevistaArrayDAOTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		mock1 = new RevistaArrayDAOTest(MOCK1_ID, MOCK1_TITULO, MOCK1_ISBN, MOCK1_NUMPAGINAS, MOCK1_FORMATO);
-		mock2 = new RevistaArrayDAOTest(MOCK2_ID, MOCK2_TITULO, MOCK2_ISBN, MOCK2_NUMPAGINAS, MOCK2_FORMATO);
+		mock1 = new Revista(MOCK1_ID, MOCK1_TITULO, MOCK1_ISBN, MOCK1_NUMPAGINAS, MOCK1_FORMATO);
+		mock2 = new Revista(MOCK2_ID, MOCK2_TITULO, MOCK2_ISBN, MOCK2_NUMPAGINAS, MOCK2_FORMATO);
 
 		assertTrue(dao.insert(mock1));
-		assertTrue(dao.insert(mock2))
+		assertTrue(dao.insert(mock2));
 	}
 
 	@AfterEach

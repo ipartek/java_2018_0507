@@ -14,7 +14,7 @@ public class RevistasArrayDAO implements CrudAble<Revista>{
 	
 	private RevistasArrayDAO() {
 	}
-	public static synchronized CrudAble<Revista> getInstance() {
+	public static synchronized RevistasArrayDAO getInstance() {
 		if (INSTANCE == null) {
 			INSTANCE = new RevistasArrayDAO();
 		}
