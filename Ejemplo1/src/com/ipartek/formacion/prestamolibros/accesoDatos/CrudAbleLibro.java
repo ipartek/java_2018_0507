@@ -2,7 +2,7 @@ package com.ipartek.formacion.prestamolibros.accesoDatos;
 
 import java.util.List;
 
-import com.ipartek.formacion.video.accesodatos.CrudAble;
+import com.ipartek.formacion.uf2216.accesoDatos.CrudAble;
 
 public interface CrudAbleLibro<P> extends CrudAble<P> {
 

@@ -1,7 +1,7 @@
 package com.ipartek.formacion.video.presentacionconsola;
 
 
-import com.ipartek.formacion.video.accesodatos.CrudAble;
+import com.ipartek.formacion.uf2216.accesoDatos.CrudAble;
 import com.ipartek.formacion.video.accesodatos.VideoYoutubeArrayDAO;
 import com.ipartek.formacion.video.pojo.VideoYoutube;
 

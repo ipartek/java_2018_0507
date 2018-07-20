@@ -1,4 +1,4 @@
-package com.ipartek.formacion.video.accesodatos;
+package com.ipartek.formacion.uf2216.accesoDatos;
 
 import java.util.List;
 

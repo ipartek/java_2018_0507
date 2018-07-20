@@ -12,7 +12,7 @@ public class Prueba1 {
 	
 	public static void mainArrayList(String[] args) {
 		List<Punto> puntos = new ArrayList<>();//<Punto>();
-		
+
 		Punto pt = new Punto(3); 
 		
 		puntos.add(new Punto());//new java.util.Date());
@@ -24,6 +24,8 @@ public class Prueba1 {
 		puntos.remove(ptBorrar);
 		
 		puntos.removeIf( p -> p.getX() < 2 ); //Java8
+		
+		
 		
 //		puntos.removeIf(new Predicate<Punto>() {
 //			@Override
