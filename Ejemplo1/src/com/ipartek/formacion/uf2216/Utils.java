@@ -1,12 +1,14 @@
 package com.ipartek.formacion.uf2216;
 
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Utils {
 	
 	private static Scanner s = new Scanner(System.in);
-
+	
+	
 	public static String leerLinea() {
 		String linea;
 		boolean hayQueMostrarMensaje = false;

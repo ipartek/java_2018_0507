@@ -1,6 +1,16 @@
 package com.ipartek.formacion.uf2216;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Logger;
+
 import com.ipartek.formacion.uf2216.accesodatos.CrudAble;
 import com.ipartek.formacion.uf2216.accesodatos.RevistaArrayDAO;
 import com.ipartek.formacion.uf2216.pojo.Revista;
@@ -8,7 +18,7 @@ import com.ipartek.formacion.uf2216.Utils;
 
 public class Main {
 
-	public static void main(String[] args) throws InstantiationException, IllegalAccessException {
+	public static void main(String[] args) throws InstantiationException, IllegalAccessException, IOException {
 		// TODO Auto-generated method stub
 
 		cargarRevistas();
@@ -50,11 +60,42 @@ public class Main {
 		p(">>Elige una opción: ");
 	}
 
-	private static void guardarFichero() {
-		p("------------");
+	private static void guardarFichero() throws IOException {
+		File f2 = new File("Mikelp.txt");
+		if (f2.exists()) {
+			 BufferedWriter bw = new BufferedWriter(new FileWriter(f2));
+			 
+			 CrudAble<Revista> dao = RevistaArrayDAO.getInstance();
+				for (Revista revista : dao.getAll()) {
+					bw.write(revista.getId() + revista.getIsbn() + revista.getTitulo() + revista.getPaginas() + revista.getFormato());
+					}
+			 bw.close();
+		} else {
+		 // File doesn't exist. Crearlo...
+		 f2.createNewFile();
+		 BufferedWriter bw = new BufferedWriter(new FileWriter(f2));
+		 CrudAble<Revista> dao = RevistaArrayDAO.getInstance();
+			for (Revista revista : dao.getAll()) {
+				bw.write(revista.getId() + revista.getIsbn() + revista.getTitulo() + revista.getPaginas() + revista.getFormato());
+				}
+		 bw.close();
+		}
+		
+	
+	}
+	
+	
+	public static String procesarFichero() {
+		String S="";
+			CrudAble<Revista> dao = RevistaArrayDAO.getInstance();
+			for (Revista revista : dao.getAll()) {
+				S.concat(revista.getId() + "\t" + revista.getIsbn() + "\t" + revista.getTitulo() + "\t" + revista.getPaginas() + "\t"
+						+ revista.getFormato());
+		}
+	return S;
 	}
 
-	private static void revistasNuevo() throws InstantiationException, IllegalAccessException {
+	private static void revistasNuevo() throws InstantiationException, IllegalAccessException, IOException {
 		CrudAble<Revista> dao = RevistaArrayDAO.getInstance();
 
 		Scanner sc1 = new Scanner(System.in);
