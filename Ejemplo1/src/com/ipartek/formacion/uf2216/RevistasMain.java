@@ -1,11 +1,13 @@
 package com.ipartek.formacion.uf2216;
 
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 public class RevistasMain {
 
 	private static final int LISTADO = 1;
 	private static final int ADD_REVISTA = 2;
-	//private static final int ELIMINAR_REVISTA = 3;
+	private static final int GUARDAR_FICHERO = 3;
 	private static final int SALIR = 0;
 	
 	private static CrudAble<Revista> dao = RevistaArrayDao.getInstance();
@@ -31,6 +33,9 @@ public class RevistasMain {
 		case ADD_REVISTA:
 			insertarRevista();
 			break;
+		case GUARDAR_FICHERO:
+			guardarEnFichero();
+			break;
 		case SALIR:
 			salir();
 			break;
@@ -40,6 +45,7 @@ public class RevistasMain {
 		}
 	}
 	
+
 	//MENU del programa
 	private static void mostrarMenu() {
 		p("------------");
@@ -48,7 +54,7 @@ public class RevistasMain {
 		p("");
 		p("1. Listado de revistas");
 		p("2. Añadir revista");
-		//p("3. Eliminar revista");
+		p("3. Guardar en fichero");
 		p("");
 		p("0. Salir");
 		p("Elige una opcion: ");
@@ -85,6 +91,8 @@ public class RevistasMain {
 	
 	// AÑADIR REVISTA Insertar una revista 
 	private static void insertarRevista() {
+	
+		
 		//llamo a la funcion ¬ que contiene los datos introducidos por teclado
 		Revista revista = crearRevistaConDatosDeConsola();
 		
@@ -93,7 +101,7 @@ public class RevistasMain {
 		if (resultadoOperacion) {
 			p("Revista insertada correctamente");
 		}else {
-			p("ERROR al insertar video");
+			p("ERROR al insertar la revista");
 		}
 	}
 	
@@ -133,6 +141,34 @@ public class RevistasMain {
 		return res;
 	}
 	
+	//GUARDAR EN FICHERO el listado de revistas
+	private static void guardarEnFichero(){
+	
+		FileWriter fichero = null;
+        PrintWriter pw = null;
+        
+        try {
+            fichero = new FileWriter("C://pruebaFichero//revistas.txt");
+            pw = new PrintWriter(fichero);
+         
+            for (Revista revista: dao.getAll()) {
+            	pw.println(revista.toString());
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+           try {
+   
+           if (null != fichero) 
+              fichero.close();
+           } catch (Exception e2) {
+              e2.printStackTrace();
+           }
+        }
+	            		
+	}
+
 	private static void mostrarCabecera() {
 		p("ID\tISBN\tTITULO\tPAGINAS\tFORMATO");
 	}
