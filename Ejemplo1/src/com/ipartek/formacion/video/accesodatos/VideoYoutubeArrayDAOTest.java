@@ -10,17 +10,17 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.ipartek.formacion.video.pojo.VideoYoutube;
+import com.ipartek.formacion.video.pojo.Revistas;
 
 class VideoYoutubeArrayDAOTest {
 
 	private static final int ID_INEXISTENTE = 1234;
-	static VideoYoutube mock1;
+	static Revistas mock1;
 	static final long MOCK1_ID = 325;
 	static final String MOCK1_CODIGO = "AY4QbN5PCxg";
 	static final String MOCK1_TITULO = "Que Te Den";
 
-	static VideoYoutube mock2;
+	static Revistas mock2;
 	static final long MOCK2_ID = 421;
 	static final String MOCK2_CODIGO = "AY4hgwdcvuaesjdPCxg";
 	static final String MOCK2_TITULO = "En La Noche";
@@ -43,8 +43,8 @@ class VideoYoutubeArrayDAOTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		mock1 = new VideoYoutube(MOCK1_ID, MOCK1_TITULO, MOCK1_CODIGO);
-		mock2 = new VideoYoutube(MOCK2_ID, MOCK2_TITULO, MOCK2_CODIGO);
+		mock1 = new Revistas(MOCK1_ID, MOCK1_TITULO, MOCK1_CODIGO);
+		mock2 = new Revistas(MOCK2_ID, MOCK2_TITULO, MOCK2_CODIGO);
 
 		assertTrue(dao.insert(mock1));
 		assertTrue(dao.insert(mock2));
@@ -61,7 +61,7 @@ class VideoYoutubeArrayDAOTest {
 
 	@Test
 	void testGetInstance() {
-		CrudAble<VideoYoutube> dao1 = VideoYoutubeArrayDAO.getInstance();
+		CrudAble<Revistas> dao1 = VideoYoutubeArrayDAO.getInstance();
 		VideoYoutubeArrayDAO dao2 = VideoYoutubeArrayDAO.getInstance();
 
 		assertNotNull(dao1);
@@ -72,7 +72,7 @@ class VideoYoutubeArrayDAOTest {
 
 	@Test
 	void testGetAll() {
-		List<VideoYoutube> videos = dao.getAll();
+		List<Revistas> videos = dao.getAll();
 
 		assertNotNull(videos);
 		assertEquals(2, videos.size());
@@ -81,7 +81,7 @@ class VideoYoutubeArrayDAOTest {
 
 	@Test
 	void testGetById() {
-		VideoYoutube video = dao.getById(MOCK2_ID);
+		Revistas video = dao.getById(MOCK2_ID);
 
 		assertNotNull(video);
 		assertEquals(mock2, video);
@@ -95,7 +95,7 @@ class VideoYoutubeArrayDAOTest {
 	void testInsert() {
 		int cuantosAntes = dao.getAll().size();
 
-		VideoYoutube videoInsertado = new VideoYoutube(MOCK_NUEVO_ID, MOCK_NUEVO_CODIGO, MOCK_NUEVO_TITULO);
+		Revistas videoInsertado = new Revistas(MOCK_NUEVO_ID, MOCK_NUEVO_CODIGO, MOCK_NUEVO_TITULO);
 
 		assertTrue(dao.insert(videoInsertado));
 
@@ -103,7 +103,7 @@ class VideoYoutubeArrayDAOTest {
 
 		assertEquals(cuantosAntes + 1, cuantosDespues);
 
-		VideoYoutube recogido = dao.getById(MOCK_NUEVO_ID);
+		Revistas recogido = dao.getById(MOCK_NUEVO_ID);
 
 		assertEquals(recogido, videoInsertado);
 
@@ -119,16 +119,16 @@ class VideoYoutubeArrayDAOTest {
 		assertFalse(dao.update(null));
 
 		// Modificamos un Video que Existe
-		VideoYoutube videoModificarConID = new VideoYoutube(MOCK1_ID, "fff", "El Fary");
+		Revistas videoModificarConID = new Revistas(MOCK1_ID, "fff", "El Fary");
 		assertTrue(dao.update(videoModificarConID));
 		// recuperar video y comprobar atributos
-		VideoYoutube videoModificado = dao.getById(MOCK1_ID);
+		Revistas videoModificado = dao.getById(MOCK1_ID);
 		assertEquals(MOCK1_ID, videoModificado.getId());
 		assertEquals("El Fary", videoModificado.getTitulo());
 		assertEquals("fff", videoModificado.getCodigo());
 
 		// Modificamos un Video que NO Existe
-		VideoYoutube videoModificarSinID = new VideoYoutube(ID_INEXISTENTE, "Inexistente", "fff");
+		Revistas videoModificarSinID = new Revistas(ID_INEXISTENTE, "Inexistente", "fff");
 		assertFalse(dao.update(videoModificarSinID));
 	}
 

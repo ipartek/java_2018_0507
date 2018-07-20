@@ -2,7 +2,7 @@ package com.ipartek.formacion.video.presentacionconsola;
 
 import com.ipartek.formacion.video.accesodatos.CrudAble;
 import com.ipartek.formacion.video.accesodatos.VideoYoutubeArrayDAO;
-import com.ipartek.formacion.video.pojo.VideoYoutube;
+import com.ipartek.formacion.video.pojo.Revistas;
 
 public class VideoYoutubeMain {
 
@@ -13,7 +13,7 @@ public class VideoYoutubeMain {
 	private static final int SALIR = 0;
 	private static final int LISTADO = 1;
 	
-	private static CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
+	private static CrudAble<Revistas> dao = VideoYoutubeArrayDAO.getInstance();
 
 	public static void main(String[] args) {
 		cargarVideos();
@@ -66,7 +66,7 @@ public class VideoYoutubeMain {
 	}
 
 	private static void updateVideo() {
-		VideoYoutube video = crearVideoConDatosDeConsola();
+		Revistas video = crearVideoConDatosDeConsola();
 		
 		if(dao.update(video)) {
 			p("Video modificado correctamente");
@@ -76,7 +76,7 @@ public class VideoYoutubeMain {
 	}
 
 	private static void addVideo() {
-		VideoYoutube video = crearVideoConDatosDeConsola();
+		Revistas video = crearVideoConDatosDeConsola();
 		
 		if(dao.insert(video)) {
 			p("Video añadido correctamente");
@@ -85,7 +85,7 @@ public class VideoYoutubeMain {
 		}
 	}
 
-	private static VideoYoutube crearVideoConDatosDeConsola() {
+	private static Revistas crearVideoConDatosDeConsola() {
 		p("ID:");
 		long id = Utils.leerLong();
 		p("Código:");
@@ -93,7 +93,7 @@ public class VideoYoutubeMain {
 		p("Título:");
 		String titulo = Utils.leerLinea();
 		
-		VideoYoutube video = new VideoYoutube(id, codigo, titulo);
+		Revistas video = new Revistas(id, codigo, titulo);
 		return video;
 	}
 
@@ -101,7 +101,7 @@ public class VideoYoutubeMain {
 		p("Dime el ID del video");
 		long id = Utils.leerLong();
 		
-		VideoYoutube video = dao.getById(id);
+		Revistas video = dao.getById(id);
 		
 		mostrarCabecera();
 		mostrarVideo(video);
@@ -134,7 +134,7 @@ public class VideoYoutubeMain {
 	private static void listadoVideos() {
 		mostrarCabecera();
 		
-		for(VideoYoutube video: dao.getAll()) {
+		for(Revistas video: dao.getAll()) {
 			mostrarVideo(video);
 		}
 	}
@@ -143,15 +143,15 @@ public class VideoYoutubeMain {
 		p("ID\tCODIGO\tTITULO");
 	}
 	
-	private static void mostrarVideo(VideoYoutube video) {
+	private static void mostrarVideo(Revistas video) {
 		p(video.getId() + "\t" + video.getCodigo() + "\t" + video.getTitulo());
 	}
 
 	private static void cargarVideos() {
-		CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
+		CrudAble<Revistas> dao = VideoYoutubeArrayDAO.getInstance();
 		
 		for(int i = 1; i <= 5; i++) {
-			dao.insert(new VideoYoutube(i, "codigo" + i, "titulo" + i));
+			dao.insert(new Revistas(i, "codigo" + i, "titulo" + i));
 		}
 		
 	}
