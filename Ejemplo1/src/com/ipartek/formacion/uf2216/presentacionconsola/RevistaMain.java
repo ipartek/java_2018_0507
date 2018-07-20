@@ -1,9 +1,7 @@
 package com.ipartek.formacion.uf2216.presentacionconsola;
 
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
-import java.util.Scanner;
 
 import com.ipartek.formacion.uf2216.accesoDatos.CrudAble;
 import com.ipartek.formacion.uf2216.accesoDatos.RevistaArrayDAO;
@@ -42,10 +40,10 @@ public class RevistaMain {
 			insertarRevista();
 			break;
 		case MODIFICAR_REVISTA:
-			//modificarRevista();
+			modificarRevista();
 			break;
 		case ELIMINAR_REVISTA:
-			//eliminarRevista();
+			eliminarRevista();
 			break;
 		case GUARDAR_FICHERO:
 			guardarEnFichero();
@@ -92,7 +90,7 @@ public class RevistaMain {
 	private static void mostrarRevista(Revista revista) {
 		p(revista.getId() + "\t" + 
 				revista.getIsbn() + "\t" + 
-				revista.getTitulo() + "\t" +
+				revista.getTitulo() + "\t\t" +
 				revista.getPaginas() + "\t" +
 				revista.isFormato());
 	}
@@ -102,7 +100,8 @@ public class RevistaMain {
 		Revista revista = crearRevistaConDatosConsola();
 		
 		p("Los datos a insertar son los siguientes: ");
-		p(revista.toString());
+		mostrarCabecera();
+		mostrarRevista(revista);
 		p("Quiere insertarlos? (s/n)");
 		String respuesta = Utils.leerLinea();
 		
@@ -117,41 +116,130 @@ public class RevistaMain {
 		}
 	}
 	
+	/* Modificar una revista --> llama a la funcion modificarRevistaConDatosConsola()*/
+	private static void modificarRevista() {
+		
+		Revista revista = modificarRevistaConDatosConsola();
+		
+		boolean resultadoOperacion = dao.update(revista);
+		 
+		if (resultadoOperacion) {
+			p("Revista modificada con exito");
+		}else {
+			p("ERROR al modificar revista");
+		}
+	}
+	
+	/* Eliminar una revista */
+	private static void eliminarRevista() {
+		p("ID de la revista a eliminar: ");
+		long id = Utils.leerLong();
+		
+		boolean resultadoOperacion = dao.delete(id);
+		
+		if (resultadoOperacion) {
+			p("Revista borrada correctamente");
+		}else {
+			p("ERROR al borrar revista");
+		}
+	}
+	
 	/* Funcion para mostrar acciones en pantalla y aceptarlas para crear una revista*/
 	private static Revista crearRevistaConDatosConsola() {
+		Revista revista = new Revista();
+		
 		p("ID: ");
 		long id = Utils.leerLong();
-		p("ISBN: ");
-		String isbn = Utils.leerLinea();
+		String isbn;
+		do {
+			p("ISBN (10 caracteres): ");
+			isbn = Utils.leerIsbn();
+		}while (isbn.length()!= 10);
+		
 		p("Titulo revista: ");
 		String titulo = Utils.leerLinea();
-		p("Paginas: ");
-		int paginas = Utils.leerInt();
-		p("Formato (digital o papel): ");
-		String formato = Utils.leerLinea();
-
-		boolean formatoBueno = comprobarFormato(formato);
 		
-		Revista revista = new Revista();
+		int paginas;
+		do {
+			p("Paginas (1 minimo): ");
+			paginas = Utils.leerInt();
+		}while (paginas < 1);
+		
+		int formatoCorrecto;
+		do {
+			p("Formato (digital o papel): ");
+			formatoCorrecto = Utils.leerFormato();
+			
+		}while (formatoCorrecto == 0);
+		
+		boolean formato = false;
+		switch (formatoCorrecto) {
+		case 1:
+			formato = true;
+			break;
+		case 2:
+			formato = false;
+			break;
+		}
+		
 		try {
-			revista = new Revista(id, titulo, isbn, paginas, formatoBueno);
+			revista = new Revista(id, titulo, isbn, paginas, formato);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Error al crear una nueva revista.");
 		}
 		return revista;
 	}
 	
-	/* Funcion para transformar Formato (digital o papel) true == digital, false == papel*/
-	private static boolean comprobarFormato(String formato) {
-		boolean resul = false;
-		if (formato.trim().equalsIgnoreCase("digital")){
-			resul = true;
-		}else if (formato.trim().equalsIgnoreCase("papel")) {
-			resul = false;
+	/* Funcion para mostrar acciones en pantalla y aceptarlas para modificar una revista*/
+	private static Revista modificarRevistaConDatosConsola() {
+		Revista revista = new Revista();
+		p("ID: ");
+		long id_a_comprobar = Utils.leerLong();
+		
+		if (id_a_comprobar != dao.getById(id_a_comprobar).getId()) {
+			p("ERROR al modificar revista");
+			revista = null;
+		}else {
+			String isbn;
+			do {
+				p("ISBN (10 caracteres): ");
+				isbn = Utils.leerIsbn();
+			}while (isbn.length()!= 10);
+			
+			p("Titulo revista: ");
+			String titulo = Utils.leerLinea();
+			
+			int paginas;
+			do {
+				p("Paginas (1 minimo): ");
+				paginas = Utils.leerInt();
+			}while (paginas < 1);
+			
+			int formatoCorrecto = 0;
+			do {
+				p("Formato (digital o papel): ");
+				formatoCorrecto = Utils.leerFormato();
+			}while (formatoCorrecto == 0);
+			
+			boolean formato = false;
+			switch (formatoCorrecto) {
+			case 1:
+				formato = true;
+				break;
+			case 2:
+				formato = false;
+				break;
+			}
+		
+			try {
+				revista = new Revista(id_a_comprobar, titulo, isbn, paginas, formato);
+			} catch (Exception e) {
+				System.out.println("Error al crear una nueva revista.");
+			}
 		}
 		
-		return resul;
+		return revista;
+		
 	}
 	
 	/* Funcion para guardar las revistas en un fichero */
@@ -174,36 +262,40 @@ public class RevistaMain {
             			revista.isFormato()
             			);
             }
+            p("Fichero creado correctamente!!");
         } catch (Exception e) {
-            e.printStackTrace();
+            p("Error al intentar guardar los datos en un fichero");
         } finally {
            try {
            // Nuevamente aprovechamos el finally para asegurarnos que se cierra el fichero.
            if (null != fichero)
               fichero.close();
            } catch (Exception e2) {
-              e2.printStackTrace();
+              p("Error al intentar cerrar el fichero");
            }
         }
+	}
+	
+	
+	
+	/* Cabecera de los datos de Revistas */
+	private static void mostrarCabecera() {
+		p("ID\tISBN\t\tTITULO\t\tPAGINAS\tFORMATO");
 	}
 	
 	/* Menu escrito del programa*/
  	private static void mostrarMenu() {
 		p("------------");
-		p("Revistas");
+		p("  Revistas");
 		p("------------");
-		p("");
 		p("1. Listado de revistas");
 		p("2. Insertar revista");
-		p("2. Guardar revistas en fichero");
+		p("3. Modificar revista");
+		p("4. Eliminar revista");
+		p("5. Guardar revistas en fichero");
 		p("");
 		p("0. Salir de la aplicacion");
 		p("Elige una opcion: ");
-	}
-	
-	/* Cabecera de los datos de Revistas */
-	private static void mostrarCabecera() {
-		p("ID\tISBN\tTITULO\tPAGINAS\tFORMATO");
 	}
 	
 	/* Cosas a hacer cuando se va a salir */
