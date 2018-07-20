@@ -1,7 +1,11 @@
 package com.ipartek.formacion.uf2216.principal;
 
+import java.io.File;
+import java.io.PrintWriter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import com.ipartek.formacion.uf2216.pojo.Revista;
 
 public class Utils {
 	private static Scanner s = new Scanner(System.in);
@@ -12,7 +16,7 @@ public class Utils {
 		
 		do {
 			if(hayQueMostrarMensaje) {
-				System.out.println("Debe introducir al menos un caracter");
+				System.out.println("No cuela con texto en blanco");
 			}
 			
 			linea = s.nextLine().trim();
@@ -68,28 +72,4 @@ public class Utils {
 		
 		return i;
 	}
-	
-	public static boolean leerBoolean() {
-		int i = 0;
-		boolean hayQueRepetir;
-		
-		do {
-			try {
-				hayQueRepetir = false;
-				i = s.nextInt();
-			} catch (InputMismatchException e) {
-				System.out.println("Por favor, introduce un número entero sin comas ni puntos");
-				s.nextLine();
-				hayQueRepetir = true;
-			} catch (Exception e) {
-				System.out.println("Error no esperado");
-				throw e;
-			}
-		} while (hayQueRepetir);
-		
-		s.nextLine();
-		
-		return true;
-	}
 }
-
