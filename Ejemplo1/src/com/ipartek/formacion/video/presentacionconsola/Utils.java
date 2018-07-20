@@ -11,7 +11,7 @@ public class Utils {
 		boolean hayQueMostrarMensaje = false;
 		
 		do {
-			if(hayQueMostrarMensaje) {
+			if("") {
 				System.out.println("No cuela con texto en blanco");
 			}
 			

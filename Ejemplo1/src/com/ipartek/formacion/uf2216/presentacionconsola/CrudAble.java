@@ -1,8 +1,6 @@
-package com.ipartek.formacion.video.accesodatos;
+package com.ipartek.formacion.uf2216.presentacionconsola;
 
 import java.util.List;
-
-import com.ipartek.formacion.uf2216.presentacionconsola.Revista;
 
 //Create, Retrieve, Update, Delete
 public interface CrudAble<P> {

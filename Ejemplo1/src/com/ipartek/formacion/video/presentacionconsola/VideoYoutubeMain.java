@@ -152,6 +152,7 @@ public class VideoYoutubeMain {
 		
 		for(int i = 1; i <= 5; i++) {
 			dao.insert(new VideoYoutube(i, "codigo" + i, "titulo" + i));
+			
 		}
 		
 	}
