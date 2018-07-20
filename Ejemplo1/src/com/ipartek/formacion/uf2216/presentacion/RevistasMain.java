@@ -111,8 +111,8 @@ public class RevistasMain {
 		
 	}
 	public static void guardar(String format) throws IOException {
-		p("¿Quiere guardar el archivo?");
-		p(id + " " + titulo + " " + isbn + " " + numPaginas + " " + format);
+		p("¿Quiere guardar el archivo?\n");
+		p(id + " " + titulo + " " + isbn + " " + numPaginas + " " + format+ "\n");
 		p("S/N");
 		leerSN();
 		if(caracter == 's' || caracter == 'S') {
@@ -120,7 +120,7 @@ public class RevistasMain {
 			escribirEnFichero(id, titulo,  isbn, numPaginas, format);
 			p("Revista añadida exitosamente");
 		}else if (caracter == 'n' || caracter == 'N'){
-			System.out.println("Adios");
+			System.out.println("Operacion cancelada");
 		}else {
 			p("Caracter incorrecto introducido.");
 		}
