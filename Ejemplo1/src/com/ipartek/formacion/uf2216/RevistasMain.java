@@ -3,11 +3,15 @@ package com.ipartek.formacion.uf2216;
 
 import java.io.FileWriter;
 import java.io.PrintWriter;
+
+import com.ipartek.formacion.video.pojo.VideoYoutube;
+import com.ipartek.formacion.video.presentacionconsola.Utils;
 public class RevistasMain {
 
 	private static final int LISTADO = 1;
-	private static final int ADD_REVISTA = 2;
-	private static final int GUARDAR_FICHERO = 3;
+	private static final int MOSTRAR_REVISTA = 2;
+	private static final int ADD_REVISTA = 3;
+	private static final int GUARDAR_FICHERO = 4;
 	private static final int SALIR = 0;
 	
 	private static CrudAble<Revista> dao = RevistaArrayDao.getInstance();
@@ -30,10 +34,13 @@ public class RevistasMain {
 		case LISTADO:
 			listadoRevistas();
 			break;
-		case ADD_REVISTA:
+		case 2:
+			buscarPorId();
+			break;
+		case 3:
 			insertarRevista();
 			break;
-		case GUARDAR_FICHERO:
+		case 4:
 			guardarEnFichero();
 			break;
 		case SALIR:
@@ -53,8 +60,9 @@ public class RevistasMain {
 		p("------------");
 		p("");
 		p("1. Listado de revistas");
-		p("2. Añadir revista");
-		p("3. Guardar en fichero");
+		p("2. Buscar revista por ID");
+		p("3. Añadir revista");
+		p("4. Guardar en fichero");
 		p("");
 		p("0. Salir");
 		p("Elige una opcion: ");
@@ -83,10 +91,21 @@ public class RevistasMain {
 		}
 	}
 	
-	// MOSTRAR REVISTA por ID
+	// MOSTRAR REVISTA
 	private static void mostrarRevista(Revista revista) {
 		p(revista.getId() + "\t" + revista.getIsbn() + "\t" +  revista.getTitulo() + 
 				"\t" + revista.getNumPag() + "\t" + revista.isFormato());
+	}
+	
+	//MOSTRAT REVISTA por ID
+	private static void buscarPorId() {
+		p("Dime el ID de la revista");		
+		long id = Utils.leerLong();		
+		
+		Revista revista = dao.getById(id);	
+		
+		mostrarCabecera();	
+		mostrarRevista(revista);
 	}
 	
 	// AÑADIR REVISTA Insertar una revista 
