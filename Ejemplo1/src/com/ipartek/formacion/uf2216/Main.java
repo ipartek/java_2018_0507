@@ -23,7 +23,6 @@ public class Main {
 
 		cargarRevistas();
 		mostrarMenu();
-
 		Scanner sc = new Scanner(System.in);
 		String opcion = sc.next().trim();
 
@@ -34,7 +33,7 @@ public class Main {
 			break;
 		case "2":
 			revistasNuevo();
-			main(args);
+			listadoRevistas();
 			break;
 		case "3":
 			guardarFichero();

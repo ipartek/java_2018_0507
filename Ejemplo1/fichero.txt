@@ -2,3 +2,7 @@
 2	0000000002	titulo2	0	Digital
 1	0000000001	titulo1	0	Digital
 2	0000000002	titulo2	0	Digital
+1	0000000001	titulo1	0	Digital
+2	0000000002	titulo2	0	Digital
+1	0000000001	titulo1	0	Digital
+2	0000000002	titulo2	0	Digital
