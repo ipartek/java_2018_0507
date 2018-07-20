@@ -370,7 +370,7 @@ public class Main {
 	
 	//METODOS generales
 		
-		
+	//	
 	// imprime en pantalla las cabezeras de revista
 	private static void mostrarCabezeraRebista() {
 		p("ID" + "\t" + "TITULO" + "\t" + "PAGINAS" + "\t" + "ISBN" + "\t" + "DIGITAL");
