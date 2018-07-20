@@ -56,6 +56,7 @@ public class Revista {
 	public String getTitulo() {
 		return titulo;
 	}
+	
 	/**
 	 * Guardamos el valor del titulo
 	 * @param titulo String titulo del Libro
@@ -99,8 +100,14 @@ public class Revista {
 			throw new Exception(PAGINAS_MIN_EXCEPTION);
 		}	
 	}
-	public boolean isFormato() {
-		return formato;
+	public String isFormato() {
+		String formatoResult;
+		if (formato == true) {
+			formatoResult = "Digital";
+		}else {
+			formatoResult = "Papel";
+		}
+		return formatoResult;
 	}
 	/**
 	 * Guardamos el valor de formato

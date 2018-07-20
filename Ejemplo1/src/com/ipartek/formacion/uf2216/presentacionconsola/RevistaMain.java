@@ -16,7 +16,9 @@ public class RevistaMain {
 	private static final int SALIR = 0;
 	private static final int LISTADO = 1;
 	private static final int INSERTAR_REVISTA = 2;
-	private static final int GUARDAR_FICHERO = 3;
+	private static final int MODIFICAR_REVISTA = 3;
+	private static final int ELIMINAR_REVISTA = 4;
+	private static final int GUARDAR_FICHERO = 5;
 	
 	public static void main(String[] args) {
 		// Hay que empezar cargando las revistas
@@ -39,6 +41,12 @@ public class RevistaMain {
 		case INSERTAR_REVISTA:
 			insertarRevista();
 			break;
+		case MODIFICAR_REVISTA:
+			//modificarRevista();
+			break;
+		case ELIMINAR_REVISTA:
+			//eliminarRevista();
+			break;
 		case GUARDAR_FICHERO:
 			guardarEnFichero();
 			break;
@@ -53,9 +61,17 @@ public class RevistaMain {
 	
 	/* Cargar todas las revistas */
 	private static void cargarRevistas() {
-		for (int i = 1; i <= 10; i++) {
+		for (int i = 1; i <= 5; i++) {
 			try {
-				dao.insert(new Revista(i, "titulo"+i,"1234567890",i,false));
+				dao.insert(new Revista(i, "titulo"+i,"123456789"+i,i,false));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		}
+		for (int i = 1; i <= 5; i++) {
+			try {
+				dao.insert(new Revista(i, "titulo"+i,"123456789"+i,i,true));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -140,7 +156,7 @@ public class RevistaMain {
 	
 	/* Funcion para guardar las revistas en un fichero */
 	private static void guardarEnFichero() {
-        String nombreFichero = "C:/Users/curso/Documents/Revistas.txt";
+        String nombreFichero = "C:/Users/curso/Documents/Revistas.csv";
         
         FileWriter fichero = null;
         PrintWriter pw = null;
@@ -148,10 +164,15 @@ public class RevistaMain {
         {
             fichero = new FileWriter(nombreFichero);
             pw = new PrintWriter(fichero);
-
-            //for (int i = 0; i < 10; i++)
+            pw.println("ID,ISBN,Titulo,Paginas,Formato");
+            
             for (Revista revista: dao.getAll()) {
-            	pw.println(revista.toString());
+            	pw.println(revista.getId() + "," +
+            			revista.getIsbn() + "," +
+            			revista.getTitulo() + "," +
+            			revista.getPaginas() + "," +
+            			revista.isFormato()
+            			);
             }
         } catch (Exception e) {
             e.printStackTrace();

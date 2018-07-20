@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.ipartek.formacion.uf2216.pojo.Revista;
 
-public class RevistaArrayDAO implements CrudAble<Revista>{
+public class RevistaArrayDAO implements CrudAbleRevista<Revista>{
 	
 	private List<Revista> revistas = new ArrayList<>(); 
 	
@@ -54,7 +54,7 @@ public class RevistaArrayDAO implements CrudAble<Revista>{
 		if (revista != null) {
 			resul = revistas.add(revista);
 		}
-		return false;
+		return resul;
 	}
 
 	/**
@@ -86,7 +86,47 @@ public class RevistaArrayDAO implements CrudAble<Revista>{
 	 * */
 	@Override
 	public boolean delete(long id) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean resul = false;		
+		Revista lIteracion = null;
+		
+		// Buscar una revista para eliminar
+		for (int i = 0; i < revistas.size(); i++) {
+			lIteracion = revistas.get(i);   			
+			
+			if (id == lIteracion.getId()) {    			
+				resul = revistas.remove(lIteracion);
+				break;
+			}
+		}
+			
+		return resul;
+	}
+	@Override
+	public Revista getByIsbn(String isbn) {
+		Revista resul = null;
+		
+		for (Revista rIteracion : revistas) {
+			if (isbn.equals(rIteracion.getIsbn())) {
+				resul = rIteracion;
+				break;
+			}
+		}
+		return resul;
+	}
+	@Override
+	public List<Revista> getAllByFormatos(boolean isFormato) {
+		ArrayList<Revista> resul = new ArrayList<>();
+		String formatoCorrecto;
+		if (isFormato == true) {
+			formatoCorrecto = "Digital";
+		}else {
+			formatoCorrecto = "Papel";
+		}
+		for (Revista revista: revistas) {
+			if (revista.isFormato().equals(formatoCorrecto)) {
+				resul.add(revista);
+			}
+		}
+		return resul;
 	}
 }
