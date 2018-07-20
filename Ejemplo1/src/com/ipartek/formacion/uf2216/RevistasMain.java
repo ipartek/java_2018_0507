@@ -4,8 +4,6 @@ package com.ipartek.formacion.uf2216;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 
-import com.ipartek.formacion.video.pojo.VideoYoutube;
-import com.ipartek.formacion.video.presentacionconsola.Utils;
 public class RevistasMain {
 
 	private static final int LISTADO = 1;
@@ -34,13 +32,13 @@ public class RevistasMain {
 		case LISTADO:
 			listadoRevistas();
 			break;
-		case 2:
+		case MOSTRAR_REVISTA:
 			buscarPorId();
 			break;
-		case 3:
+		case ADD_REVISTA:
 			insertarRevista();
 			break;
-		case 4:
+		case GUARDAR_FICHERO:
 			guardarEnFichero();
 			break;
 		case SALIR:
@@ -107,6 +105,7 @@ public class RevistasMain {
 		mostrarCabecera();	
 		mostrarRevista(revista);
 	}
+	
 	
 	// AÑADIR REVISTA Insertar una revista 
 	private static void insertarRevista() {
