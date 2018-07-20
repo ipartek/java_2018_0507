@@ -30,12 +30,15 @@ public class Main {
 		switch (opcion) {
 		case "1":
 			listadoRevistas();
+			main(null);
 			break;
 		case "2":
 			revistasNuevo();
+			main(null);
 			break;
 		case "3":
 			guardarFichero();
+			main(null);
 			break;
 		case "0":
 			menuSalir();
@@ -61,38 +64,28 @@ public class Main {
 	}
 
 	private static void guardarFichero() throws IOException {
-		File f2 = new File("Mikelp.txt");
+		File f2 = new File("fichero.txt");
 		if (f2.exists()) {
-			 BufferedWriter bw = new BufferedWriter(new FileWriter(f2));
-			 
-			 CrudAble<Revista> dao = RevistaArrayDAO.getInstance();
-				for (Revista revista : dao.getAll()) {
-					bw.write(revista.getId() + revista.getIsbn() + revista.getTitulo() + revista.getPaginas() + revista.getFormato());
-					}
-			 bw.close();
-		} else {
-		 // File doesn't exist. Crearlo...
-		 f2.createNewFile();
-		 BufferedWriter bw = new BufferedWriter(new FileWriter(f2));
-		 CrudAble<Revista> dao = RevistaArrayDAO.getInstance();
-			for (Revista revista : dao.getAll()) {
-				bw.write(revista.getId() + revista.getIsbn() + revista.getTitulo() + revista.getPaginas() + revista.getFormato());
-				}
-		 bw.close();
-		}
-		
-	
-	}
-	
-	
-	public static String procesarFichero() {
-		String S="";
+			BufferedWriter bw = new BufferedWriter(new FileWriter(f2));
+
 			CrudAble<Revista> dao = RevistaArrayDAO.getInstance();
 			for (Revista revista : dao.getAll()) {
-				S.concat(revista.getId() + "\t" + revista.getIsbn() + "\t" + revista.getTitulo() + "\t" + revista.getPaginas() + "\t"
+				bw.write(revista.getId() + "\t" + revista.getIsbn() + "\t" + revista.getTitulo() + "\t"
+						+ revista.getPaginas() + "\t" + revista.getFormato() + "\n");
+			}
+			bw.close();
+		} else {
+			// File doesn't exist. Crearlo...
+			f2.createNewFile();
+			BufferedWriter bw = new BufferedWriter(new FileWriter(f2));
+			CrudAble<Revista> dao = RevistaArrayDAO.getInstance();
+			for (Revista revista : dao.getAll()) {
+				bw.write(revista.getId() + revista.getIsbn() + revista.getTitulo() + revista.getPaginas()
 						+ revista.getFormato());
+			}
+			bw.close();
 		}
-	return S;
+
 	}
 
 	private static void revistasNuevo() throws InstantiationException, IllegalAccessException, IOException {
@@ -112,14 +105,15 @@ public class Main {
 		// Habría que utilizar expresiones regulares para validar que cumplen el formato
 		// pero tampco he practicado lo suficiente
 		// He probado a resolverlo con un while pero se volvía loco repitiendo el
-		// mensaje de ayuda.
+		// mensaje de ayuda. 
 
 		Scanner sc3 = new Scanner(System.in);
 		p(">>Introduce el titulo de la revista: ");
 		String titulo = sc3.nextLine().trim();
-		if ((titulo.length() < 3) || (titulo.length() > 150))
+		if ((titulo.length() < 3) || (titulo.length() > 150)) {
 			p("Introduce un título de entre 3 y 150 caracteres: ");
-		titulo = sc3.nextLine().trim();
+			titulo = sc3.nextLine().trim();
+		}
 		// Habría que utilizar excepciones pero no estoy muy suelto con ellas.
 		// He probado a resolverlo con un while pero se volvía loco repitiendo el
 		// mensaje de ayuda.
@@ -151,6 +145,7 @@ public class Main {
 		revista.setPaginas(paginas);
 		revista.setFormato(formato);
 
+		mostrarCabecera();
 		mostrarRevista(revista);
 		p(">>Pulse (S) para guardar, cualquier otra tecla para cancelar:");
 
@@ -195,7 +190,7 @@ public class Main {
 	private static void cargarRevistas() throws InstantiationException, IllegalAccessException {
 		CrudAble<Revista> dao = RevistaArrayDAO.getInstance();
 
-		for (int i = 1; i <= 5; i++) {
+		for (int i = 1; i <= 2; i++) {
 			dao.insert(new Revista(i, "000000000" + i, "titulo" + i, 0, true));
 		}
 	}

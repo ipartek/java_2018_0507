@@ -6,7 +6,6 @@ import java.util.List;
 
 import com.ipartek.formacion.uf2216.pojo.Revista;
 
-
 public class RevistaArrayDAO implements CrudAble<Revista> {
 
 	private List<Revista> revistas = new ArrayList<>();
@@ -31,9 +30,9 @@ public class RevistaArrayDAO implements CrudAble<Revista> {
 	@Override
 	public Revista getById(long id) {
 		Revista resul = null;
-		//foreach
+		// foreach
 		for (Revista revistaIteracion : revistas) {
-			if ( id == revistaIteracion.getId() ) {
+			if (id == revistaIteracion.getId()) {
 				resul = revistaIteracion;
 				break;
 			}
@@ -56,39 +55,39 @@ public class RevistaArrayDAO implements CrudAble<Revista> {
 		boolean resul = false;
 		Revista revistaIteracion = null;
 		int i = 0;
-		if ( revistaUpdate != null ) {
-			//Iterator		
+		if (revistaUpdate != null) {
+			// Iterator
 			Iterator<Revista> it = revistas.iterator();
-			while( it.hasNext() ) {
+			while (it.hasNext()) {
 				revistaIteracion = it.next();
-				if ( revistaIteracion.getId() == revistaUpdate.getId() ) {
+				if (revistaIteracion.getId() == revistaUpdate.getId()) {
 					revistas.set(i, revistaUpdate);
 					resul = true;
-					break;					
-				}	
+					break;
+				}
 				i++;
-			}		
-		}	
+			}
+		}
 		return resul;
 	}
 
 	@Override
 	public boolean delete(long id) {
 		boolean resul = false;
-		
+
 		Revista vIteracion = null;
-		
-		//buscar revista a eliminar
+
+		// buscar revista a eliminar
 		for (int i = 0; i < revistas.size(); i++) {
-			
-			vIteracion = revistas.get(i);   //revista sobre el que iteramos
-			
-			if ( id == vIteracion.getId() ) {    // revista encontrado
+
+			vIteracion = revistas.get(i); // revista sobre el que iteramos
+
+			if (id == vIteracion.getId()) { // revista encontrado
 				resul = revistas.remove(vIteracion);
 				break;
 			}
 		}
-		
+
 		return resul;
 	}
 

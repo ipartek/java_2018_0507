@@ -7,7 +7,6 @@ public class Revista {
 	private Integer paginas;
 	private Boolean formato;
 
-	
 	public Revista(long id, String isbn, String titulo, int paginas, boolean formato) {
 		this.id = id;
 		this.isbn = isbn;
@@ -17,7 +16,7 @@ public class Revista {
 	}
 
 	public Revista() throws InstantiationException, IllegalAccessException {
-		this(-1,"","",-1,false);
+		this(-1, "", "", -1, false);
 	}
 
 	public long getId() {
@@ -53,15 +52,16 @@ public class Revista {
 	}
 
 	public String getFormato() {
-		if (formato) return "Digital"; else return "Papel";
+		if (formato)
+			return "Digital";
+		else
+			return "Papel";
 	}
 
 	public void setFormato(boolean formato) {
 		this.formato = formato;
 	}
-	
-	
-	
+
 //	@Override
 //	public String toString() {
 //		return "VideoYoutube [id=" + id + ", codigo=" + codigo + ", titulo=" + titulo + "]";
@@ -103,10 +103,9 @@ public class Revista {
 //	
 //	
 //	
-	
 
 	public boolean isLibre() {
-		//TODO: implementar isLibre
+		// TODO: implementar isLibre
 		throw new RuntimeException("No implementado");
-	} 
+	}
 }
