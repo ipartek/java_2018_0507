@@ -6,16 +6,23 @@ public class Revista {
 		return "Revista [id=" + id + ", Titulo=" + Titulo + ", isbn=" + isbn + ", numPaginas=" + numPaginas
 				+ ", format=" + format + "]";
 	}
-	private int id;
+	private long id;
 	private String Titulo;         	// tamaño mínimo 3 letras, máximo 150
 	private String isbn; 			//longitud 10
 	private int numPaginas;             
 	private boolean format;			// true == digital     false == papel
 	public Revista() {};
+	public Revista(long id,String Titulo,String isbn,int numPaginas,boolean format) {
+		this.id=id;
+		this.Titulo=Titulo;
+		this.isbn=isbn;
+		this.numPaginas=numPaginas;
+		this.format=format;
+	}
 	public String getTitulo() {
 		return Titulo;
 	}
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 	public void setId(int id) {
