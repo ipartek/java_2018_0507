@@ -3,16 +3,13 @@ package com.ipartek.formacion.uf2216.presentacion;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.ipartek.formacion.uf2216.accesodatos.CrudAble;
 import com.ipartek.formacion.uf2216.accesodatos.RevistasArrayDAO;
 import com.ipartek.formacion.uf2216.pojo.Revista;
-
-
-
-
-
 
 public class RevistasMain {
 	
@@ -41,10 +38,10 @@ public class RevistasMain {
 
 	private static void cargarRevistas() throws IOException {
 		for(int i = 1; i <= 5; i++) {
-			dao.insert(new Revista(i, "titulo" + i,"\t" + "isbn " + i, i+200, false));
-			escribirEnFichero(i, "titulo" + i, "isbn " + i, i+200, false);
-			dao.insert(new Revista(i+5, "titulo" + (i+5), "isbn " + (i+5), i+300, true));
-			escribirEnFichero(i+5, "titulo" + (i+5), "\t" + "isbn " + (i+5), i+300, true);
+			dao.insert(new Revista(i, "titulo" + i, "012345678" + i, i+200, false));
+			escribirEnFichero(i, "titulo" + i, "\t" + "012345678" + i, i+200, "papel");
+			dao.insert(new Revista(i+5, "titulo" + (i+5), "987654321" + (i+5), i+300, true));
+			escribirEnFichero(i+5, "titulo" + (i+5), "\t" + "987654321" + (i+5), i+300, "Digital");
 		}
 		
 	}
@@ -66,6 +63,7 @@ public class RevistasMain {
 		
 	}
 
+	@SuppressWarnings("static-access")
 	private static void opcionMenu(int opcionMenu2) throws IOException {
 		// Elegir que opcion del menu desea
 		System.out.println();
@@ -100,14 +98,80 @@ public class RevistasMain {
 		p("Introduzca un id que no este en la lista");
 		id = lt.leerLong(id);
 		p("Introduzca el ISBN");
-		isbn = lt2.leerString(isbn);
+		comprobarIsbn();
 		p("Introduzca el titulo");
-		titulo = lt2.leerString(titulo);
+		comprobarTitulo();
 		p("Introduzca el número de paginas");
-		numPaginas = lt2.leerLong(numPaginas);
+		comprobarPaginas();
 		p("Introduzca el formato. (Digital o papel");
 		format = lt2.leerString(format.toLowerCase());
 		p(format);
+		formato(format);
+		guardar(format);
+		
+	}
+	public static void guardar(String format) throws IOException {
+		p("¿Quiere guardar el archivo?");
+		p(id + " " + titulo + " " + isbn + " " + numPaginas + " " + format);
+		p("S/N");
+		leerSN();
+		if(caracter == 's' || caracter == 'S') {
+			dao.insert(new Revista(id, titulo,  isbn, numPaginas, formato));
+			escribirEnFichero(id, titulo,  isbn, numPaginas, format);
+			p("Revista añadida exitosamente");
+		}else if (caracter == 'n' || caracter == 'N'){
+			System.out.println("Adios");
+		}else {
+			p("Caracter incorrecto introducido.");
+		}
+	}
+	public static void comprobarTitulo() {
+		boolean repetir = true;
+		do {
+			titulo= lt2.leerString(titulo);
+			System.out.println(titulo.length());
+			if (titulo.length() < 3) {
+				p("El titulo debe tener más de 3 caracteres."
+						+ "\nVuelva a intentarlo");
+			}else if (titulo.length()>=150){
+				p("El titulo debe tener menos de 150 caracteres."
+						+ "\nVuelva a intentarlo");
+			}else {
+				repetir=false;
+			}
+		}while(repetir);
+	}
+	public static void comprobarIsbn() {
+		boolean repetir = true;
+		
+		do {
+			isbn = lt2.leerString(isbn);
+			if (isbn.length()==10) {
+				
+				repetir=false;
+			}else {
+				p("El valor introducido no contiene 10 caracteres."
+						+ "\nVuelva a intentarlo");
+			}
+		}while(repetir);
+	}
+	@SuppressWarnings("static-access")
+	public static void comprobarPaginas() {
+		boolean repetir = true;
+		do {
+			numPaginas = lt2.leerLong(numPaginas);
+			if (numPaginas>0) {
+				
+				repetir=false;
+			}else {
+				p("El libro debe tener más de una pagina."
+						+ "\nVuelva a intentarlo");
+			}
+		}while(repetir);
+	}
+
+	public static void formato(String format) throws IOException {
+		RevistasMain rm = new RevistasMain();
 		if (format.toLowerCase().equals("digital")) {
 			formato = true;
 		}else if(format.toLowerCase().equals("papel")){
@@ -117,18 +181,13 @@ public class RevistasMain {
 					+ " \nELija papel o digital");
 			volver();
 		}
-		dao.insert(new Revista(id, titulo,  isbn, numPaginas, formato));
-		escribirEnFichero(id, titulo,  isbn, numPaginas, formato);
-		p("Revista añadida exitosamente");
-		
 	}
-	
 	public static void escribirEnFichero(long id, String titulo, String isbn,
-			long numero, boolean formato) throws IOException {
+			long numero, String formato) throws IOException {
 		FileWriter fw = new FileWriter("src\\\\com\\\\ipartek\\\\formacion\\\\uf2216\\\\Revistas.txt", true);
 		PrintWriter pw = new PrintWriter(fw,true);
-		
-		pw.println(id + "\t" + titulo + "\t" + isbn + "\t" + numero + "\t" + formato);
+
+		pw.println(id + "\t" + titulo + "\t" + isbn + "\t" + numero + "\t" +  "\t" + formato);
 		fw.close();
 		pw.close();
 	}
@@ -169,9 +228,7 @@ public class RevistasMain {
 		+ "\t\t" + digiOFisi);
 		
 	}
-
-	private static void volver() throws IOException {
-		
+	static void volver() throws IOException {
 		System.out.println("\nQuieres volver al menu? S/N");
 		leerSN();
 		if(caracter == 's' || caracter == 'S') {

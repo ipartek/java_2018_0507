@@ -1,11 +1,11 @@
 ID	TITULO		ISBN	Nº PAGINAS	FORMATO
-1	titulo1	isbn 1	201	false
-6	titulo6		isbn 6	301	true
-2	titulo2	isbn 2	202	false
-7	titulo7		isbn 7	302	true
-3	titulo3	isbn 3	203	false
-8	titulo8		isbn 8	303	true
-4	titulo4	isbn 4	204	false
-9	titulo9		isbn 9	304	true
-5	titulo5	isbn 5	205	false
-10	titulo10		isbn 10	305	true
+1	titulo1		0123456781	201		papel
+6	titulo6		9876543216	301		Digital
+2	titulo2		0123456782	202		papel
+7	titulo7		9876543217	302		Digital
+3	titulo3		0123456783	203		papel
+8	titulo8		9876543218	303		Digital
+4	titulo4		0123456784	204		papel
+9	titulo9		9876543219	304		Digital
+5	titulo5		0123456785	205		papel
+10	titulo10		98765432110	305		Digital
