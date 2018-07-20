@@ -192,7 +192,7 @@ public class PresentacionMain {
 					try {
 						tit = teclado.next();
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 
 					} // introduce el titulo
@@ -201,7 +201,7 @@ public class PresentacionMain {
 					try {
 						autor = teclado.next();
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					p("Escribir editorial del libro para insertar un nuevo libro");
@@ -209,7 +209,7 @@ public class PresentacionMain {
 					try {
 						ed = teclado.next();
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 

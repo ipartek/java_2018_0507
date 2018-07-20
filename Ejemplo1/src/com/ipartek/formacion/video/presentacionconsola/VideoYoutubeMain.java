@@ -179,7 +179,7 @@ public class VideoYoutubeMain {
 				try {
 					idUpdate = teclado.nextLong();
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
+					
 					e.printStackTrace();
 				}
 				if (dao.getById(idUpdate) != null) {

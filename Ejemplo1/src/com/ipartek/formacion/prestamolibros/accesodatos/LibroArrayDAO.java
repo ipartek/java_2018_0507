@@ -63,14 +63,14 @@ public class LibroArrayDAO implements CrudAble<Libro> {
 	@Override
 	public boolean update(Libro libroUpdate) {
 		boolean resul = false;
-		Libro videoIteracion = null;
+		Libro libroIteracion = null;
 		int i = 0;
 		if (libroUpdate != null) {
 			// Iterator
 			Iterator<Libro> it = libros.iterator();
 			while (it.hasNext()) {
-				videoIteracion = it.next();
-				if (videoIteracion.getId() == libroUpdate.getId()) {
+				libroIteracion = it.next();
+				if (libroIteracion.getId() == libroUpdate.getId()) {
 					libros.set(i, libroUpdate);
 					resul = true;
 					break;
