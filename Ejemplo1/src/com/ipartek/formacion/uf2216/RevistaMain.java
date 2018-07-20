@@ -21,6 +21,7 @@ public class RevistaMain {
 	}
 
 	private static void mostrarMenu() {
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner (System.in);
 		int numero = 0;
 		do {
