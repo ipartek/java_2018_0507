@@ -5,6 +5,8 @@ import java.util.Scanner;
 import com.ipartek.formacion.uf2216.accesodatos.CrudAble;
 import com.ipartek.formacion.uf2216.accesodatos.RevistaArrayDAO;
 import com.ipartek.formacion.uf2216.pojo.Revista;
+import com.ipartek.formacion.video.pojo.VideoYoutube;
+import com.ipartek.formacion.uf2216.principal.Utils;
 
 public class RevistaMain {
 	private static final int LISTADO = 1;
@@ -17,6 +19,7 @@ public class RevistaMain {
 		
 		cargarRevistas();
 	
+		
 	
 	int opcion=0;
 	
@@ -30,7 +33,7 @@ public class RevistaMain {
 			break;
 			
 		case LISTADOID:
-			p("que id quieres listar del 1 al"+dao.getAll().size());
+			p("Que id quieres listar del 1 al"+dao.getAll().size());
 			p("-----------");
 			
 			obternerRevistaXid(leerTeclado());
@@ -38,7 +41,7 @@ public class RevistaMain {
 			break;
 			
 		case BORRARID:
-			p("que id quieres borrar del 1 al"+ dao.getAll().size());
+			p("Que id quieres borrar del 1 al"+ dao.getAll().size());
 			p("-----------");
 			borrarRevistaXid(leerTeclado());
 			listadoRevistas();
@@ -46,13 +49,14 @@ public class RevistaMain {
 			break;
 			
 		case UPDATEID:
-			p("que id quieres modificar del 1 al"+ dao.getAll().size());
+			p("Que id quieres modificar del 1 al"+ dao.getAll().size());
 			p("------------------");
 			modRevistaXid(leerTeclado());
 			listadoRevistas();
 			mostrarMenu();
 			break;
 		case EXIT:
+			p("Gracias por su consulta, vuelva pronto");
 			break;
 			
 		}
@@ -80,22 +84,52 @@ public class RevistaMain {
 		Revista revista = new Revista("Pesca",1234567891,10,true,1);
 		dao.update(revista);
 	
+	}/*
+	private static Revista crearRevistadatosconsola() {
+		p("TITULO:");
+		String titulo= Utils.leerLinea();
+		p("ISBN:");
+		int isbn = Utils.leerInt();
+		p("NUMEROPAGINAS:");
+		int numeroPaginas = Utils.leerInt();
+		p("formato:");
+		boolean formato = Utils.leerBoolean();
+		p("ID:");
+		int id = Utils.leerInt();
+		
+		Revista revista = new Revista(titulo, isbn, numeroPaginas, formato, id);
+		return revista;
 	}
+	
+	private static void updateRevista() {
+		Revista revista = crearRevistadatosconsola();
+		
+		if(dao.update(revista)) {
+			p("Revista modificada correctamente");
+		} else {
+			p("No se ha podido modificar la revista");
+		}
+	}
+*/
 	
 	private static void borrarRevistaXid(int id) {
 		mostrarCabecera();
 		System.out.println(dao.getById(id));
 		dao.delete(id);
+		System.out.println("¡LA REVISTA SELECCIONADA HA SIDO ELIMINADA CON EXITO!");
 	}
 	
 	private static void obternerRevistaXid(int id) {
+		System.out.println("ESTA ES LA REVISTA CON EL ID ESPECIFICADO");
 		mostrarCabecera();
 		System.out.println(dao.getById(id));
 	}
 	
 	private static void listadoRevistas() {
+		System.out.println("ESTAS SON LAS REVISTAS DISPONIBLES");
 		mostrarCabecera();
 		for(Revista revista:dao.getAll()) {
+			
 			mostrarRevista(revista);
 		}
 	}
@@ -116,23 +150,6 @@ public class RevistaMain {
 			return i;
 		}
 		
-		/*private static int leerTeclado() {
-			int i = -1;
-			Scanner teclado = new Scanner(System.in);
-			try {
-				do {
-					i = Integer.parseInt(teclado.nextLine());
-					if(i>4)
-						System.out.println("mete opciones del 0 al 4");
-				}
-				while(i>4;)
-			}
-			catch(NumberFormatException e){
-				System.out.println("Introduzca un numero por favor");
-			}
-		}
-		return i;
-	}*/
 	private static int leerTeclado(){
 		int i=-1;
 		Scanner teclado = new Scanner(System.in);
@@ -153,21 +170,30 @@ public class RevistaMain {
 	}
 	
 	private static void mostrarCabecera() {
-		p("ID\tTITULO\tISBN\tNUMEROPAGINAS");
+		p("ID\t TITULO\t          ISBN\t                NUMEROPAGINAS");
 	}
 	
 	private static void mostrarRevista(Revista revista) {
-		p(revista.getId()+"t"+revista.getTitulo()+"t"+revista.getIsbn()+"t"+revista.getNumeroPaginas());
+		p(revista.getId()+"        "+revista.getTitulo()+"           "+revista.getIsbn()+"              "+revista.getNumeroPaginas());
 	}
 	
 	private static void cargarRevistas() {
-		CrudAble<Revista> dao = RevistaArrayDAO.getInstance();
+		Revista revista;
 		
-		for(int i = 1; i<5; i++) {
-			//dao.insert(new Revista("titulo"+i,1234567891+i,4+i,1+i,2+i));
-			dao.insert(new Revista(i,"Pesca"+i,1234567891+i,10+i,1+i));
-			
-		}
+		revista = new Revista("MOTOS",1321321321,12,true,1);
+		dao.insert(revista);
+		
+		revista = new Revista("ROPA",1213021032,25,false,2);
+		dao.insert(revista);
+		
+		revista = new Revista("MODA",2100120120,30,true,3);
+		dao.insert(revista);
+		
+		revista = new Revista("DEPORTES",1122111110,20,false,4);
+		dao.insert(revista);
+		
+		revista = new Revista("CIENCIA",1111111110,35,true,5);
+		dao.insert(revista);
 	}
 	
 	public static void p(String s) {
