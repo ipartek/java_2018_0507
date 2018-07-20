@@ -21,8 +21,7 @@ public class RevistasArrayDAO implements CrudAble<Revistas> {
 	}
 	
 
-
-	public List getAll() {
+	public List<Revistas> getAll() {
 		
 		return revistas;
 	}
@@ -53,17 +52,6 @@ public class RevistasArrayDAO implements CrudAble<Revistas> {
 	}
 
 
-	@Override
-	public boolean delete(long id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean update(Revistas pojo) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	
 }

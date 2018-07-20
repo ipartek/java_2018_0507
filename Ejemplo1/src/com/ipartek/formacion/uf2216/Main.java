@@ -1,11 +1,7 @@
 package com.ipartek.formacion.uf2216;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
+
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.regex.*;
@@ -39,8 +35,9 @@ public class Main {
 			e("1. Insertar nueva revista");
 			e("2. Listar revistas insertadas");
 			e("3. Guardar todas las Revistas en un Fichero");
-			e("4. Salir");
+			e("0. Salir");
 			
+			@SuppressWarnings("resource")
 			Scanner sc = new Scanner(System.in);
 			opcion = sc.nextInt();
 			
@@ -56,7 +53,7 @@ public class Main {
 				GuardarRevistas();
 				break;
 			case SALIR:
-				
+				e("Hasta luego");				
 				break;
 			default:
 				e("No ha seleccionado ninguna de las opciones posibles");
@@ -72,25 +69,31 @@ public class Main {
 	private static void InsertarRevista()  {
 		
 		CrudAble<Revistas> dao = RevistasArrayDAO.getInstance();
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner (System.in);
 		
 		System.out.println("Inserta el ID");
 		String id = sc.nextLine();
 		long id2=Integer.parseInt(id);
+		Pattern p3 = Pattern.compile("^[0-9]$");
+	    Matcher m3 = p3.matcher(id);
+	    if (m3.find()==false)
+	    	e("Has metido un caracter, tienes que meter un numero");
 		
 		e("Inserta el titulo");
 		String titulo = sc.nextLine();
-		Pattern p = Pattern.compile("^a-Z 0-9{3,150}$");
+		Pattern p = Pattern.compile("^[a-zA-Z0-9]{3,150}$");
 	    Matcher m = p.matcher(titulo);
-	    if (m.find()) 
-	         e("Tienes que insertar entre 3 y 150 caracteres");
+	    if (m.find()==false)
+	    	e("Has metido mal los datos, te faltan caracteres");
+	         
 	    	
 	   
 	    e("Inserta el ISBN");
 	    String isbn = sc.nextLine();
-	    Pattern p1 = Pattern.compile("^[A-Z][0-9]{10}$");
+	    Pattern p1 = Pattern.compile("^[A-Z0-9]{10}$");
 	    Matcher m1 = p1.matcher(isbn);
-	    if (m1.find())
+	    if (m1.find()==false)
 	         e("Tienes que insertar 10 caracteres exactos");
 	    
 	    e("Inserta el numero de paginas de la Revista");
@@ -98,31 +101,32 @@ public class Main {
 	    int numero = Integer.parseInt(numP);
 	    Pattern p2 = Pattern.compile("^[0-9]{1,}$");
 	    Matcher m2 = p2.matcher(numP);
-	    if (m2.find())
+	    if (m2.find()== false)
 	         e("No puedes insertar Letras y minimo un 1");
 	    
 	  
 	    e("Inserta el formato que desea (True=digital y False=papel");
-//	    String format = sc.nextLine();
 	    boolean formato = sc.nextBoolean();
 	    
 	    if (formato == true) {
 	    Revistas re = new Revistas(id2,titulo,isbn,numero,true);
 	    if (dao.insert(re)) 
-	  		e("Video añadido correctamente");
+	  		e("La revista se ha añadido correctamente");
 	  		else
-	  		e("El video no se ha añadido");
+	  		e("La revista no se ha añadido");
 	    
 	    	
 	    }
 	    else if(formato == false) {
 	    Revistas re = new Revistas(id2,titulo,isbn,numero,false);
 	    if(dao.insert(re)) 
-	  		e("Video añadido correctamente");
+	  		e("La revista se ha añadido");
 	  		else
-	  		e("El video no se ha añadido");
+	  		e("La revista no se ha añadido");
 	    
 	    }
+	    
+	    ListarRevistas();
 	    
 	}
 	

@@ -9,8 +9,7 @@ public interface CrudAble <L> {
 		L getByID(long id);
 		
 		boolean insert(L pojo);
-		boolean update(L pojo);
-		boolean delete(long id);
+
 
 		
 }
