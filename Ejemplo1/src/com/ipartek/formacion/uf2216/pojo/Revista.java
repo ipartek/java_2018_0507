@@ -18,7 +18,7 @@ public class Revista {
 	private static final int PAGINAS_MIN = 1;
 	private static final String PAGINAS_MIN_EXCEPTION = "El numero minimo de paginas debe ser: " + PAGINAS_MIN;
 	
-	private int id;
+	private long id;
 	private String titulo;
 	private String isbn;
 	private int paginas;
@@ -33,7 +33,7 @@ public class Revista {
 		this.formato = false;
 	}
 	
-	public Revista(int id, String titulo, String isbn, int paginas, boolean formato) throws Exception {
+	public Revista(long id, String titulo, String isbn, int paginas, boolean formato) throws Exception {
 		setId(id);
 		setTitulo(titulo);
 		setIsbn(isbn);
@@ -47,10 +47,10 @@ public class Revista {
 				+ formato + "]";
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getTitulo() {
@@ -111,12 +111,13 @@ public class Revista {
 		this.formato = formato;
 	}
 
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + (formato ? 1231 : 1237);
-		result = prime * result + id;
+		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((isbn == null) ? 0 : isbn.hashCode());
 		result = prime * result + paginas;
 		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());

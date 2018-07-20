@@ -8,7 +8,7 @@ import com.ipartek.formacion.prestamolibros.accesoDatos.CrudAbleLibro;
 import com.ipartek.formacion.prestamolibros.accesoDatos.LibroDAO;
 import com.ipartek.formacion.prestamolibros.pojo.Cliente;
 import com.ipartek.formacion.prestamolibros.pojo.Libro;
-import com.ipartek.formacion.video.presentacionconsola.Utils;
+import com.ipartek.formacion.uf2216.presentacionconsola.Utils;
 
 public class LibroClienteMain {
 

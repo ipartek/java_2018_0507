@@ -1,4 +1,4 @@
-package com.ipartek.formacion.video.presentacionconsola;
+package com.ipartek.formacion.uf2216.presentacionconsola;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -7,6 +7,7 @@ public class Utils {
 
 	private static Scanner s = new Scanner(System.in);;
 
+	/* Leer linea con clase Scanner y comprobaciones */
 	public static String leerLinea() {
 		String linea;
 		boolean hayQueMostrarMensaje = true;
@@ -19,11 +20,12 @@ public class Utils {
 			linea = s.nextLine().trim();
 			
 			hayQueMostrarMensaje = true;
-		} while( linea.length() == 0 );
+		} while(linea.length() == 0);
 
 		return linea;
 	}
 	
+	/* Leer Long con clase Scanner y comprobaciones */
 	public static long leerLong() {
 		long l = 0;
 		boolean hayQueRepetir;
@@ -47,6 +49,7 @@ public class Utils {
 		return l;
 	}
 	
+	/* Leer Int con clase Scanner y comprobaciones */
 	public static int leerInt() {
 		int i = 0;
 		boolean hayQueRepetir;
@@ -70,4 +73,5 @@ public class Utils {
 		return i;
 	}
 
+	
 }
