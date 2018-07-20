@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.ipartek.formacion.video.pojo.VideoYoutube;
+import com.ipartek.formacion.video.pojo.Revistas;
 
-public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube> {
+public class VideoYoutubeArrayDAO implements CrudAble<Revistas> {
 
-	private List<VideoYoutube> videos = new ArrayList<>();
+	private List<Revistas> videos = new ArrayList<>();
 
 	private static VideoYoutubeArrayDAO INSTANCE;
 
@@ -25,15 +25,15 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube> {
 	}
 
 	@Override
-	public List<VideoYoutube> getAll() {
+	public List<Revistas> getAll() {
 		return videos;
 	}
 
 	@Override
-	public VideoYoutube getById(long id) {
-		VideoYoutube resul = null;
+	public Revistas getById(long id) {
+		Revistas resul = null;
 		//foreach
-		for (VideoYoutube videoIteracion : videos) {
+		for (Revistas videoIteracion : videos) {
 			if ( id == videoIteracion.getId() ) {
 				resul = videoIteracion;
 				break;
@@ -43,7 +43,7 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube> {
 	}
 
 	@Override
-	public boolean insert(VideoYoutube video) {
+	public boolean insert(Revistas video) {
 		boolean resul = false;
 
 		if (video != null) {
@@ -53,13 +53,13 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube> {
 	}
 
 	@Override
-	public boolean update(VideoYoutube videoUpdate) {
+	public boolean update(Revistas videoUpdate) {
 		boolean resul = false;
-		VideoYoutube videoIteracion = null;
+		Revistas videoIteracion = null;
 		int i = 0;
 		if ( videoUpdate != null ) {
 			//Iterator		
-			Iterator<VideoYoutube> it = videos.iterator();
+			Iterator<Revistas> it = videos.iterator();
 			while( it.hasNext() ) {
 				videoIteracion = it.next();
 				if ( videoIteracion.getId() == videoUpdate.getId() ) {
@@ -77,7 +77,7 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube> {
 	public boolean delete(long id) {
 		boolean resul = false;
 		
-		VideoYoutube vIteracion = null;
+		Revistas vIteracion = null;
 		
 		//buscar video a eliminar
 		for (int i = 0; i < videos.size(); i++) {

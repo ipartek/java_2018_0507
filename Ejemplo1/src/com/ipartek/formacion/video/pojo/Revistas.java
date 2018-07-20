@@ -1,17 +1,17 @@
 package com.ipartek.formacion.video.pojo;
 
-public class VideoYoutube {
+public class Revistas {
 	private long id;
 	private String codigo;
 	private String titulo;
 
-	public VideoYoutube(long id, String codigo, String titulo) {
+	public Revistas(long id, String codigo, String titulo) {
 		this.id = id;
 		this.codigo = codigo;
 		this.titulo = titulo;
 	}
 
-	public VideoYoutube() {
+	public Revistas() {
 		this(-1, "", "");
 	}
 
@@ -62,7 +62,7 @@ public class VideoYoutube {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		VideoYoutube other = (VideoYoutube) obj;
+		Revistas other = (Revistas) obj;
 		if (codigo == null) {
 			if (other.codigo != null)
 				return false;
