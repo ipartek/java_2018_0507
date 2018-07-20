@@ -9,6 +9,7 @@ import com.ipartek.formacion.prestamoLibro.pojo.Cliente;
 public class ClienteArrayDao implements CrudAble<Cliente> {
 	List <Cliente> clientes=new ArrayList<>();
 	private static ClienteArrayDao INSTANCE;
+	private String[] hola=new String[2];
 	private ClienteArrayDao() {
 		
 	}
@@ -23,6 +24,7 @@ public class ClienteArrayDao implements CrudAble<Cliente> {
 	@Override
 	public List<Cliente> getAll() {
 		// TODO Auto-generated method stub
+		
 		return clientes;
 	}
 
