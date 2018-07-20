@@ -6,6 +6,7 @@ import java.util.List;
 
 
 import com.ipartek.formacion.uf2216.RevistaPojo.Revista;
+import com.ipartek.formacion.video.pojo.VideoYoutube;
 
 
 public class RevistaArrayDao implements CrudAble<Revista> {
@@ -36,7 +37,8 @@ public class RevistaArrayDao implements CrudAble<Revista> {
 		for(Revista r:revistas)
 			if(r.getId()==id)
 			{
-				return r;
+				rev=r;
+				return rev;
 			}
 		return rev;
 	}
@@ -76,9 +78,24 @@ public class RevistaArrayDao implements CrudAble<Revista> {
 
 	@Override
 	public boolean delete(long id) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean resul = false;
+		
+		Revista revIteracion = null;
+		
+		//buscar video a eliminar
+		for (int i = 0; i < revistas.size(); i++) {
+			
+			revIteracion = revistas.get(i);   //video sobre el que iteramos
+			
+			if ( id == revIteracion.getId() ) {    // video encontrado
+				resul = revistas.remove(revIteracion);
+				break;
+			}
+		}
+		
+		return resul;
 	}
+
 	
 
 
