@@ -4,17 +4,18 @@ import java.util.Scanner;
 import com.ipartek.formacion.uf2216.accesodatos.CrudAble;
 import com.ipartek.formacion.uf2216.accesodatos.RevistaArrayDAO;
 import com.ipartek.formacion.uf2216.pojo.Revista;
+import com.ipartek.formacion.uf2216.Utils;
 
 public class Main {
 
 	public static void main(String[] args) throws InstantiationException, IllegalAccessException {
 		// TODO Auto-generated method stub
-		
+
 		cargarRevistas();
 		mostrarMenu();
 
 		Scanner sc = new Scanner(System.in);
-		String opcion =  sc.next();
+		String opcion = sc.next().trim();
 
 		switch (opcion) {
 		case "1":
@@ -29,15 +30,16 @@ public class Main {
 		case "0":
 			menuSalir();
 			break;
-			default: System.out.println(">>Opción no válida");
-			main(args);
+		default:
+			System.out.println(">>Opción no válida");
+			main(null);
 		}
 		sc.close();
 	}
 
 	private static void mostrarMenu() {
 		p("------------");
-		p("SISTEMA DE BIBLIOTECA");
+		p("GESTIÓN DE REVISTAS");
 		p("------------");
 		p("1. Listado de revistas");
 		p("2. Introducir revista");
@@ -48,37 +50,58 @@ public class Main {
 		p(">>Elige una opción: ");
 	}
 
-	
-	
-	
-	
 	private static void guardarFichero() {
 		p("------------");
 	}
-	
 
 	private static void revistasNuevo() throws InstantiationException, IllegalAccessException {
 		CrudAble<Revista> dao = RevistaArrayDAO.getInstance();
 
 		Scanner sc1 = new Scanner(System.in);
 		p("Introduce el ID de la revista: ");
-		long id = sc1.nextLong();
+		long id = Utils.leerLong();
 
 		Scanner sc2 = new Scanner(System.in);
-		p("Introduce el isbn de la revista: ");
-		Integer isbn = Integer.parseInt(sc2.next().trim());
+		p(">>Introduce el isbn de la revista: ");
+		String isbn = sc2.nextLine().trim();
+		if ((isbn.length() != 10))
+			p(">>Introduce un isbn numérico de 10 caracteres: ");
+		isbn = sc2.nextLine().trim();
+		// Habría que utilizar excepciones pero no estoy muy suelto con ellas.
+		// Habría que utilizar expresiones regulares para validar que cumplen el formato
+		// pero tampco he practicado lo suficiente
+		// He probado a resolverlo con un while pero se volvía loco repitiendo el
+		// mensaje de ayuda.
 
 		Scanner sc3 = new Scanner(System.in);
-		p("Introduce el titulo de la revista: ");
-		String titulo = sc3.next().trim();
+		p(">>Introduce el titulo de la revista: ");
+		String titulo = sc3.nextLine().trim();
+		if ((titulo.length() < 3) || (titulo.length() > 150))
+			p("Introduce un título de entre 3 y 150 caracteres: ");
+		titulo = sc3.nextLine().trim();
+		// Habría que utilizar excepciones pero no estoy muy suelto con ellas.
+		// He probado a resolverlo con un while pero se volvía loco repitiendo el
+		// mensaje de ayuda.
 
 		Scanner sc4 = new Scanner(System.in);
-		p("Introduce el número de páginas de la revista: ");
-		Integer paginas = Integer.parseInt(sc4.next().trim());
+		p(">>Introduce el número de páginas de la revista: ");
+		Integer paginas = Utils.leerInteger();
 
 		Scanner sc5 = new Scanner(System.in);
-		p("Introduce el formato del libro: ");
-		Boolean formato = sc5.nextBoolean();
+		p(">>Introduce el formato del libro (D)igital / (P)apel: ");
+		Boolean formato = true;
+		String opcionFormato = sc5.next().trim();
+		switch (opcionFormato) {
+		case "D":
+			formato = true;
+			break;
+		case "P":
+			formato = false;
+			break;
+		default:
+			System.out.println(">>Opción no válida");
+			main(null);
+		}
 
 		Revista revista = Revista.class.newInstance();
 		revista.setId(id);
@@ -87,18 +110,26 @@ public class Main {
 		revista.setPaginas(paginas);
 		revista.setFormato(formato);
 
-		dao.insert(revista);
+		mostrarRevista(revista);
+		p(">>Pulse (S) para guardar, cualquier otra tecla para cancelar:");
 
-		p("La revista se ha insertado");
+		String confirmacion = sc5.next().trim();
+
+		if ("S".equals(confirmacion)) {
+			dao.insert(revista);
+			p("La revista se ha insertado");
+		} else {
+			p("Revista NO guardada");
+			main(null);
+		}
+
 		sc1.close();
 		sc2.close();
 		sc3.close();
 		sc4.close();
 		sc5.close();
 	}
-	
-	
-	
+
 	public static void listadoRevistas() {
 		CrudAble<Revista> dao = RevistaArrayDAO.getInstance();
 		mostrarCabecera();
@@ -106,34 +137,30 @@ public class Main {
 			mostrarRevista(revista);
 		}
 	}
-	
-	
+
 	private static void mostrarCabecera() {
-		p("ID\tISBM\tTITULO\tPAGS\tFORMATO");
+		p("ID\tISBM\t\tTITULO\tPAGS\tFORMATO");
 	}
-	
-	
+
 	private static void mostrarRevista(Revista revista) {
-		p(revista.getId() + "\t" + revista.getIsbn() + "\t" + revista.getTitulo() + "\t" + revista.getPaginas() + "\t" +revista.getFormato());
+		p(revista.getId() + "\t" + revista.getIsbn() + "\t" + revista.getTitulo() + "\t" + revista.getPaginas() + "\t"
+				+ revista.getFormato());
 	}
-	
-	
+
 	private static void menuSalir() {
 		p("Gracias por utilizar esta aplicación. Adiós");
 	}
-	
 
 	private static void cargarRevistas() throws InstantiationException, IllegalAccessException {
 		CrudAble<Revista> dao = RevistaArrayDAO.getInstance();
 
 		for (int i = 1; i <= 5; i++) {
-			dao.insert(new Revista(i, i, "titulo"+i, 0, true));
+			dao.insert(new Revista(i, "000000000" + i, "titulo" + i, 0, true));
 		}
 	}
-	
-	
-public static void p(String s) {
-	System.out.println(s);
+
+	public static void p(String s) {
+		System.out.println(s);
 
 	}
 

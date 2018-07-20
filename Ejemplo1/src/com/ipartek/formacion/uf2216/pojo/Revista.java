@@ -3,12 +3,12 @@ package com.ipartek.formacion.uf2216.pojo;
 public class Revista {
 	private long id;
 	private String titulo;
-	private Integer isbn;
+	private String isbn;
 	private Integer paginas;
 	private Boolean formato;
 
 	
-	public Revista(long id, int isbn, String titulo, int paginas, boolean formato) {
+	public Revista(long id, String isbn, String titulo, int paginas, boolean formato) {
 		this.id = id;
 		this.isbn = isbn;
 		this.titulo = titulo;
@@ -17,7 +17,7 @@ public class Revista {
 	}
 
 	public Revista() throws InstantiationException, IllegalAccessException {
-		this(-1,-1,"",-1,false);
+		this(-1,"","",-1,false);
 	}
 
 	public long getId() {
@@ -28,11 +28,11 @@ public class Revista {
 		this.id = id;
 	}
 
-	public int getIsbn() {
+	public String getIsbn() {
 		return isbn;
 	}
 
-	public void setIsbn(int isbn) {
+	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
 
