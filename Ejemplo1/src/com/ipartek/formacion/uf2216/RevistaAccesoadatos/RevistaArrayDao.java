@@ -6,7 +6,6 @@ import java.util.List;
 
 
 import com.ipartek.formacion.uf2216.RevistaPojo.Revista;
-import com.ipartek.formacion.video.pojo.VideoYoutube;
 
 
 public class RevistaArrayDao implements CrudAble<Revista> {

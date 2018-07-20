@@ -91,7 +91,7 @@ private static  void mostrarMenu() {
 		p("3. BUSCAR REVISTA POR NOMBRE");
 		p("4. BUSCAR REVISTA POR ID");
 		p("5. MODIFICAR REVISTA POR ID");
-		p("6. GUARDAR ruta por defecto(c:\\prueba\\prueba.txt)");
+		p("6. GUARDAR ruta por defecto(c:\\prueba\\prueba.csv)");
 		p("7. BORRAR POR ID");
 		p("0. Salir");
 		p("Elige una opción");
@@ -230,10 +230,11 @@ private static  void mostrarMenu() {
 	private static void mostrarCabecera() {
 		p("ID\tTITULO\tNº-PAG\tFORMATO");
 		}
-	private static String getCabecera()
-	{
-		return "ID\tTITULO\tNº-PAG\tFORMATO";
-	}
+//	@SuppressWarnings("unused")
+//	private static String getCabecera()
+//	{
+//		return "ID\tTITULO\tNº-PAG\tFORMATO";
+//	}
 	private static void insertarRev() {
 		for(int i=1;i<6;i++)
 		{
