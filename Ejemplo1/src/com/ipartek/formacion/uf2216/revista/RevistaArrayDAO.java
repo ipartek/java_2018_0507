@@ -31,7 +31,7 @@ public class RevistaArrayDAO implements  CrudAble<Revista> {
 	@Override
 	public boolean insert(Revista revista) {
 		
-		System.out.println("lTitulo de Revista"+revista.getTitulo());
+		System.out.println("Titulo de Revista"+revista.getTitulo());
 		boolean resul = false;
 
 		if (revista != null) {

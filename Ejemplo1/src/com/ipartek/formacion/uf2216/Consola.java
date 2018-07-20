@@ -2,9 +2,9 @@ package com.ipartek.formacion.uf2216;
 
 import java.util.Scanner;
 
-import com.ipartek.formacion.uf2216.revista.CrudAble;
+
 import com.ipartek.formacion.uf2216.revista.Revista;
-import com.ipartek.formacion.uf2216.revista.RevistaArrayDAO;
+
 
 public class Consola {
 
@@ -12,12 +12,11 @@ public class Consola {
 	private static  int n_paginas;
 	private static boolean formato;
 	private static String titulo="";
-
+	
 	public static void main(String[] args) {
+		Revista rev=new Revista();
 		
-		//cargarRevista();
-		
-		String idRevista="";
+		int idRevista=0;
 		menuRevista();
 		Scanner sc = new Scanner(System.in);
 		
@@ -30,15 +29,26 @@ public class Consola {
 					
 					case "1":
 						System.out.println("Añadir Revista");
-						aniadirRevista();
+						Revista rv=aniadirRevista();
 						menuRevista();
+						rv.insert(rv);
+						
 						break;
 					case "2":
-						
-						System.out.println("Introduce Revista");
+						System.out.println("Buscar");
+						Revista revi=new Revista();
 						Scanner sc1 = new Scanner(System.in);
-						idRevista=sc1.nextLine();
-						System.out.println("Revista elegida ID:"+idRevista);
+						aniadirRevista();
+						Long revID= sc1.nextLong();
+						System.out.println("Revista elegida ID:"+revID);
+						revi.getRevistas(revID);
+						
+						
+						
+						revi.getRevistas(revID);
+						
+						menuRevista();
+				//		revi.getRevistas((long)idRevista);
 						break;
 
 					case "0":
@@ -70,25 +80,11 @@ public class Consola {
 		System.out.println("Elige un menu de arriba");
 	}
 
-	
-		
-		
-		private static void listadoRevista() {
-		
-			CrudAble<Revista> dao = RevistaArrayDAO.getInstance();
-			
-			mostrarCabecera();
-			
-			for(Revista revista: dao.getAll()) {
-				mostrarRevista(revista);
-			}
-		}
-
 		private static void mostrarCabecera() {
 			System.out.println("ID\tCODIGO\tTITULO");
 		}
 		
-		private static void aniadirRevista() {
+		private static Revista aniadirRevista() {
 			
 			Scanner sc = new Scanner(System.in);
 			
@@ -98,43 +94,33 @@ public class Consola {
 			System.out.println("Introduce ISBN");
 			ISBN=sc.nextInt();
 			System.out.println("Introduce Titulo");
-			titulo = sc.nextLine();
+			titulo = sc.next();
 			System.out.println("Introduce Formato: d para digital o p para papel");
-			String formatoReci = sc.nextLine();
+			String formatoReci = sc.next();
 			
 			
 			revista.setISBN(ISBN);
 			revista.setTitulo(titulo);
 			
+		
 			if (formatoReci=="d") {
 				revista.setFormato(true);;
-			}else if(formatoReci=="p") {
-				revista.setFormato(false);
 			}else {
-				System.out.println("Formato no reconocio");
+				revista.setFormato(false);
 			}
 			
 			
-			
-			
+			revista.insertar(revista);
+				
 			System.out.println("ISBN Introducido"+ISBN);
 		
 			System.out.println("ISBN::: "+revista.getISBN()+" añadido");
 		
-			
+			return revista;
 		}
 		
 		private static void mostrarRevista(Revista rev) {
 		//CAmpiar
 			System.out.println(rev.getISBN() + "\t" + rev.getTitulo() + "\t" + rev.getFormato());
 		}
-
-		private static void cargarRevista() {
-			CrudAble<Revista> dao = RevistaArrayDAO.getInstance();
-			
-			for(int i = 1; i <= 5; i++) {
-				dao.insert(new Revista(1, 1, true));
-			}
-		}
-		
 }
