@@ -3,8 +3,6 @@ package com.ipartek.formacion.uf2216.presentacion;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import com.ipartek.formacion.uf2216.accesodatos.CrudAble;
@@ -171,7 +169,6 @@ public class RevistasMain {
 	}
 
 	public static void formato(String format) throws IOException {
-		RevistasMain rm = new RevistasMain();
 		if (format.toLowerCase().equals("digital")) {
 			formato = true;
 		}else if(format.toLowerCase().equals("papel")){
@@ -183,19 +180,21 @@ public class RevistasMain {
 		}
 	}
 	public static void escribirEnFichero(long id, String titulo, String isbn,
-			long numero, String formato) throws IOException {
-		FileWriter fw = new FileWriter("src\\\\com\\\\ipartek\\\\formacion\\\\uf2216\\\\Revistas.txt", true);
+		long numero, String formato) throws IOException {
+		FileWriter fw = new FileWriter("src\\\\com\\\\ipartek\\\\formacion\\\\uf2216\\\\Revistas.csv", true);
 		PrintWriter pw = new PrintWriter(fw,true);
-
-		pw.println(id + "\t" + titulo + "\t" + isbn + "\t" + numero + "\t" +  "\t" + formato);
+		//pw.println(id + "\t" + titulo + "\t" + isbn + "\t" + numero + "\t" +  "\t" + formato);
+		pw.println(id + ";" + titulo + ";" + isbn + ";" + numero + ";" + formato);
 		fw.close();
 		pw.close();
 	}
 	
 	private static void grabarCabeceraEnFichera() throws IOException {
-		FileWriter fw = new FileWriter("src\\\\com\\\\ipartek\\\\formacion\\\\uf2216\\\\Revistas.txt", false);
+		FileWriter fw = new FileWriter("src\\\\com\\\\ipartek\\\\formacion\\\\uf2216\\\\Revistas.csv", false);
 		PrintWriter pw = new PrintWriter(fw,true);
-		pw.println("ID\tTITULO\t\tISBN\tNº PAGINAS\tFORMATO");
+		//pw.println("ID\tTITULO\t\tISBN\tNº PAGINAS\tFORMATO");
+		pw.println("ID"+ ";" + "TITULO"+ ";" + "ISBN"+ ";" + "Nº PAGINAS"+ ";" + "FORMATO");
+
 		fw.close();
 		pw.close();
 		
