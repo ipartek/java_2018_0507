@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class RevistaMain {
 
 	public static void main(String[] args) {
-		cargarRevistas();
+		//cargarRevistas();
 		mostrarMenu();
 
 	}
@@ -18,8 +18,9 @@ public class RevistaMain {
 			p("Revistas");
 			p("------------");
 			p("");
-			p("1. Listado de videos");
-			p("2. insertar video");
+			p("1. Insertar revista");
+			p("2. Listado de revistas");
+			p("3. Guardar las revistas en un fichero");
 			p("0. Salir");
 			p("Elige una opción");
 		
@@ -35,22 +36,44 @@ public class RevistaMain {
 		}
 		switch(numero) {
 		case 1:
-			listadoRevistas();
-			break;
-		case 2:
 			System.out.println("Introduce la id de la revista");
 			String idrevista=sc.nextLine();
 			int idr = Integer.parseInt(idrevista);
 			
 			System.out.println("Introduce el titulo de la revista");
 			String titulor = sc.nextLine();
+			if (titulor != null) {
+				if (titulor.length()<3) {
+					System.out.println("Tienes que poner un minimo de 3 caracteres.");
+					break;
+				}else if(titulor.length() > 150) {
+					System.out.println("El titulo no puede contener mas de 150 caracteres");
+					break;
+				}	
+			}else {
+				System.out.println("No puedes dejar en blanco el campo Titulo.");
+				break;
+			}
+			
 			
 			System.out.println("Introduce el isbn de la revista");
 			String isbnr = sc.nextLine();
+			if (isbnr != null) {
+				if (isbnr.length() != 10) {
+					System.out.println("El isbn tiene que tener 10 digitos");
+					break;
+				}
+			}else {
+				System.out.println("No puedes dejar en blanco el campo ISBN");
+			}
+			
 			
 			System.out.println("Introduce el numero de paginas de la revista");
 			String nPaginas= sc.nextLine();
 			int nPag = Integer.parseInt(nPaginas);
+			if (nPag < 1) {
+				System.out.println("La revista tiene que tener 1 pagina como minimo");
+			}
 			
 			System.out.println("Introduce el formato de la revista-> true=digital , false=papel");
 			String format = sc.nextLine();
@@ -64,6 +87,12 @@ public class RevistaMain {
 			revista.setFormato(formato);
 			RevistaDao.getInstance().insert(revista);
 			break;
+			
+		case 2:
+			listadoRevistas();
+			break;
+		case 3:
+			
 		case 0:
 			
 		}
@@ -90,11 +119,9 @@ public class RevistaMain {
 		
 	}
 
-	private static void cargarRevistas() {
-		CrudAble<Revista> dao = RevistaDao.getInstance();
-		
-		
-	}
+	//private static void cargarRevistas() {
+		//CrudAble<Revista> dao = RevistaDao.getInstance();	
+//	}
 	
 	public static void p(String s) {
 		System.out.println(s);
