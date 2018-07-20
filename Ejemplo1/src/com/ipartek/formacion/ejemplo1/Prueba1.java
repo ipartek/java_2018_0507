@@ -27,13 +27,7 @@ public class Prueba1 {
 	private static final boolean SOBREESCRIBIR = false;
 	public final static int TAM_ARRAY = 10;
 
-<<<<<<< HEAD
-	public enum Genero { MUJER, HOMBRE };
-	
-	public static void main(String[] args) {
 
-		Genero miGenero;
-=======
 	public enum Genero {
 		MUJER, HOMBRE
 	};
@@ -41,8 +35,7 @@ public class Prueba1 {
 	public static void main(String[] args) throws IOException {
 		FileWriter fw = new FileWriter(RUTA_FICHERO, SOBREESCRIBIR);
 		PrintWriter pw = new PrintWriter(fw,AUTO_FLUSH);
->>>>>>> refs/heads/koldoiglesiaspardo
-		
+
 		pw.println("Hola desde Java");
 		pw.println("Segunda línea");
 		
@@ -62,10 +55,7 @@ public class Prueba1 {
 		fr.close();
 	}
 	
-<<<<<<< HEAD
-	@SuppressWarnings("rawtypes")
 
-=======
 	public static void mainSwitchPeculiar(String[] args) {
 		int mes, dias;
 
@@ -88,15 +78,7 @@ public class Prueba1 {
 		System.out.printf("El mes %d tiene %d días", mes, dias);
 	}
 
-	public static void mainEnum(String[] args) {
-		Genero miGenero;
 
-		miGenero = Genero.HOMBRE;
-
-		System.out.println(miGenero);
-	}
-
->>>>>>> refs/heads/koldoiglesiaspardo
 	public static void mainRegEx(String[] args) {
 		System.out.println("C:\\nuevos\\trabajos");
 
