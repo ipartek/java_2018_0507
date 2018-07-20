@@ -72,7 +72,7 @@ public class RevistasMain {
 			volver();
 			break;
 		case 2:
-			AñadirRevistas();
+			añadirRevistas();
 			volver();
 			break;
 		case 0:
@@ -86,9 +86,10 @@ public class RevistasMain {
 		}while (salir==false);
 	}
 
-	private static void AñadirRevistas() {
+	@SuppressWarnings("static-access")
+	private static void añadirRevistas() {
 		long id = 0;
-		String format = null;
+		String format = "";
 		listarRevistas();
 		p("Introduzca un id que no este en la lista");
 		id = lt.leerLong(id);
@@ -98,10 +99,20 @@ public class RevistasMain {
 		titulo = lt2.leerString(titulo);
 		p("Introduzca el número de paginas");
 		numPaginas = lt2.leerLong(numPaginas);
-		p("Introduzca el formato");
-		format = lt2.leerString(format);
-	
+		p("Introduzca el formato. (Digital o papel");
+		format = lt2.leerString(format.toLowerCase());
+		p(format);
+		if (format.toLowerCase().equals("digital")) {
+			formato = true;
+		}else if(format.toLowerCase().equals("papel")){
+			formato = false;
+		}else {
+			p("Operacion cancelada, formato incorrecto."
+					+ " \nELija papel o digital");
+			volver();
+		}
 		dao.insert(new Revista(id, titulo,  isbn, numPaginas, formato));
+		p("Revista añadida exitosamente");
 		
 	}
 
@@ -142,6 +153,7 @@ public class RevistasMain {
 		}else if (caracter == 'n' || caracter == 'N'){
 			System.out.println("Adios");
 		}else {
+			p("Caracter incorrecto introducido.");
 			volver();
 		}
 	}
