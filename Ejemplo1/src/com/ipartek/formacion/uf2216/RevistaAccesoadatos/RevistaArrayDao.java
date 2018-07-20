@@ -84,9 +84,9 @@ public class RevistaArrayDao implements CrudAble<Revista> {
 		//buscar video a eliminar
 		for (int i = 0; i < revistas.size(); i++) {
 			
-			revIteracion = revistas.get(i);   //video sobre el que iteramos
+			revIteracion = revistas.get(i);
 			
-			if ( id == revIteracion.getId() ) {    // video encontrado
+			if ( id == revIteracion.getId() ) {   
 				resul = revistas.remove(revIteracion);
 				break;
 			}

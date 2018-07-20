@@ -5,7 +5,7 @@ private String titulo;
 private String isbn;
 private int numPaginas=0;
 private long id;
-private boolean digital=false;//false=digital
+private boolean digital=false;//true=digital
 
 	
 	@SuppressWarnings("unused")

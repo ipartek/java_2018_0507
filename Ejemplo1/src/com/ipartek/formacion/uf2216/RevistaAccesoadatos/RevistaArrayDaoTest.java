@@ -74,7 +74,6 @@ class RevistaArrayDaoTest {
 		List<Revista> revista = dao.getAll();
 		assertNotNull(revista);
 		assertEquals(4, revista.size());
-		// assertEquals(MOCK1_ID, videos.get(0).getId());
 	}
 	@Test
 	void testInsert() {

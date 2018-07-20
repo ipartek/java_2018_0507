@@ -246,7 +246,7 @@ private static  void mostrarMenu() {
 	}
 	private static void borrarRevistaXid(int id)	{
 		mostrarCabecera();
-		p(revistas.getById(id)+"");
+		p("borrando----------"+revistas.getById(id)+"");
 		revistas.delete(id);
 	}
 	private static void guardar() {//funcion para poder guardar un archivo
@@ -259,10 +259,13 @@ private static  void mostrarMenu() {
 		else {
 			try {
 				PrintWriter salida=new PrintWriter(fichero);
-				salida.println("id"+";"+"titulo"+";"+ "numPaginas");
+				salida.println("id"+";"+"titulo"+";"+ "numPaginas"+";"+"formato");
 				for(Revista r :revistas.getAll())
 				{
-					salida.println(r.getId() + ";" + r.getTitulo() + ";" + r.getNumPaginas()+ ";"+ "papel");
+					if(r.isDigital()==true)
+					salida.println(r.getId() + ";" + r.getTitulo() + ";" + r.getNumPaginas()+ ";"+"DIGITAL");
+					else
+					salida.println(r.getId() + ";" + r.getTitulo() + ";" + r.getNumPaginas()+ ";"+"PAPEL");
 					salida.flush();
 					
 				}
