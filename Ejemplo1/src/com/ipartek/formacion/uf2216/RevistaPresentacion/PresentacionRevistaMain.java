@@ -250,7 +250,7 @@ private static  void mostrarMenu() {
 	}
 	private static void guardar() {//funcion para poder guardar un archivo
 		// Validamos si existe el fichero, le ponemos el directorio que queremos 
-		String sFichero = "c:\\prueba\\prueba.txt"; 
+		String sFichero = "c:\\prueba\\prueba.csv"; 
 
 		File fichero = new File(sFichero);
 		if (fichero.exists()) 
@@ -258,11 +258,10 @@ private static  void mostrarMenu() {
 		else {
 			try {
 				PrintWriter salida=new PrintWriter(fichero);
-				salida.println(getCabecera());
+				salida.println("id"+";"+"titulo"+";"+ "numPaginas");
 				for(Revista r :revistas.getAll())
 				{
-					p("exo");
-					salida.println(r.getId() + "\t" + r.getTitulo() + "\t" + r.getNumPaginas()+ "\t"+ "papel");
+					salida.println(r.getId() + ";" + r.getTitulo() + ";" + r.getNumPaginas()+ ";"+ "papel");
 					salida.flush();
 					
 				}
