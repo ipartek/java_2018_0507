@@ -1,8 +1,19 @@
 package com.ipartek.formacion.uf2216;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class RevistaMain {
+
+	private static final int DIGITOS_NECESARIOS = 10;
+	private static final int MAXIMO_CARACTER = 150;
+	private static final int MINIMO_CARACTER = 3;
+	private static final int SALIR = 0;
+	private static final int GUARDAR_EN_FICHERO = 3;
+	private static final int LISTAR_REVISTAS = 2;
+	private static final int INSERTAR_REVISTA = 1;
+
 
 	public static void main(String[] args) {
 		mostrarMenu();
@@ -34,7 +45,7 @@ public class RevistaMain {
 			mostrarMenu();
 		}
 		switch(numero) {
-		case 1:
+		case INSERTAR_REVISTA:
 			System.out.println("Introduce la id de la revista");
 			String idrevista=sc.nextLine();
 			int idr = Integer.parseInt(idrevista);
@@ -42,10 +53,10 @@ public class RevistaMain {
 			System.out.println("Introduce el titulo de la revista");
 			String titulor = sc.nextLine();
 			if (titulor != null) {
-				if (titulor.length()<3) {
+				if (titulor.length()<MINIMO_CARACTER) {
 					System.out.println("Tienes que poner un minimo de 3 caracteres.");
 					break;
-				}else if(titulor.length() > 150) {
+				}else if(titulor.length() > MAXIMO_CARACTER) {
 					System.out.println("El titulo no puede contener mas de 150 caracteres");
 					break;
 				}	
@@ -58,7 +69,7 @@ public class RevistaMain {
 			System.out.println("Introduce el isbn de la revista");
 			String isbnr = sc.nextLine();
 			if (isbnr != null) {
-				if (isbnr.length() != 10) {
+				if (isbnr.length() != DIGITOS_NECESARIOS) {
 					System.out.println("El isbn tiene que tener 10 digitos");
 					break;
 				}
@@ -78,10 +89,6 @@ public class RevistaMain {
 			System.out.println("Introduce el formato de la revista. true=digital , false=papel");
 			String format = sc.nextLine();
 			boolean formato = Boolean.parseBoolean(format);
-			if (formato != true || formato != false) {
-				System.out.println("Tienes que elegir entre true o false.");
-				break;
-			}
 			
 			Revista revista = new Revista();
 			revista.setId(idr);
@@ -92,12 +99,33 @@ public class RevistaMain {
 			RevistaDao.getInstance().insert(revista);
 			break;
 			
-		case 2:
+		case LISTAR_REVISTAS:
 			listadoRevistas();
 			break;
-		case 3:
+		case GUARDAR_EN_FICHERO:
+			FileWriter fichero = null;
+			PrintWriter pw = null;
+			try {
+				fichero = new FileWriter("C:\\Users\\curso\\git\\java_2018_0507\\Ejemplo1\\src\\com\\ipartek\\formacion\\uf2216\\prueba.txt");
+				pw = new PrintWriter(fichero);
+				CrudAble<Revista> dao = RevistaDao.getInstance();
+				
+				for (Revista r : dao.getAll()) {
+					pw.println(r);
+				}
+			}catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					if (null != fichero) {
+						fichero.close();
+					}
+				}catch(Exception e2) {
+					e2.printStackTrace();
+				}
+			}
 			
-		case 0:
+		case SALIR:
 			
 		}
 		}while(numero!=0);

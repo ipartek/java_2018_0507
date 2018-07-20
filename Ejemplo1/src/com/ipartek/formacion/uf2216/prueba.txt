@@ -1,0 +1,3 @@
+Revista [id=2, titulo=titulo1, isbn=1234567890, nPaginas=1, formato=true]
+Revista [id=2, titulo=titulo2, isbn=1234567891, nPaginas=2, formato=false]
+Revista [id=1, titulo=titulo3, isbn=1234567892, nPaginas=3, formato=true]
