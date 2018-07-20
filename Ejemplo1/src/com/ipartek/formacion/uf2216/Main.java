@@ -30,22 +30,22 @@ public class Main {
 		switch (opcion) {
 		case "1":
 			listadoRevistas();
-			main(null);
+			main(args);
 			break;
 		case "2":
 			revistasNuevo();
-			main(null);
+			main(args);
 			break;
 		case "3":
 			guardarFichero();
-			main(null);
+			main(args);
 			break;
 		case "0":
 			menuSalir();
 			break;
 		default:
 			System.out.println(">>Opción no válida");
-			main(null);
+			main(args);
 		}
 		sc.close();
 	}
@@ -98,25 +98,20 @@ public class Main {
 		Scanner sc2 = new Scanner(System.in);
 		p(">>Introduce el isbn de la revista: ");
 		String isbn = sc2.nextLine().trim();
-		if ((isbn.length() != 10))
+		while ((isbn.length() != 10)) {
 			p(">>Introduce un isbn numérico de 10 caracteres: ");
-		isbn = sc2.nextLine().trim();
-		// Habría que utilizar excepciones pero no estoy muy suelto con ellas.
-		// Habría que utilizar expresiones regulares para validar que cumplen el formato
-		// pero tampco he practicado lo suficiente
-		// He probado a resolverlo con un while pero se volvía loco repitiendo el
-		// mensaje de ayuda. 
+			sc2 = new Scanner(System.in);
+			isbn = sc2.nextLine();
+		}
 
 		Scanner sc3 = new Scanner(System.in);
 		p(">>Introduce el titulo de la revista: ");
-		String titulo = sc3.nextLine().trim();
-		if ((titulo.length() < 3) || (titulo.length() > 150)) {
+		String titulo = sc3.nextLine();
+		while ((titulo.length() < 3) || (titulo.length() > 150)) {
 			p("Introduce un título de entre 3 y 150 caracteres: ");
+			sc3 = new Scanner(System.in);
 			titulo = sc3.nextLine().trim();
 		}
-		// Habría que utilizar excepciones pero no estoy muy suelto con ellas.
-		// He probado a resolverlo con un while pero se volvía loco repitiendo el
-		// mensaje de ayuda.
 
 		Scanner sc4 = new Scanner(System.in);
 		p(">>Introduce el número de páginas de la revista: ");
@@ -135,7 +130,6 @@ public class Main {
 			break;
 		default:
 			System.out.println(">>Opción no válida");
-			main(null);
 		}
 
 		Revista revista = Revista.class.newInstance();
