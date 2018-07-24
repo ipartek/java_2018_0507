@@ -1,0 +1,37 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+label{
+    width: 6em;
+    display: inline-block;
+}
+
+input{
+    border: 1px solid black;
+}
+
+button{
+    margin-left: 8em;
+    padding: 5px 10px;
+}
+
+.errorCuadro{
+    border:2px solid red;
+}
+.errorTexto, .errorCuadro{
+    color: red;
+}
+
+#mensaje{
+    font-variant: small-caps;
+}
+
+.destacado{
+    font-weight: bold;
+    color: fuchsia;
+}
+
+input[name=nombre]{
+    font-style: italic;
+}
