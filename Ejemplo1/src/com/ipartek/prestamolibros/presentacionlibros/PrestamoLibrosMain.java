@@ -109,6 +109,7 @@ public class PrestamoLibrosMain {
 		opcionMenu(opcion);
 		
 	}
+	@SuppressWarnings("static-access")
 	private static void opcionMenu(int opcion) {
 		System.out.println();
 		do {

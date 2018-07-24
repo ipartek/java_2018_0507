@@ -1,8 +1,8 @@
 //Leer lineas de texto por teclado y escribirlas en un fichero de texto.
 package com.ipartek.formacion.ejercicio.basicosEstructuraSecuencial;
 
-import java.io.File;
-import java.nio.file.FileAlreadyExistsException;
+//import java.io.File;
+//import java.nio.file.FileAlreadyExistsException;
 
 public class EjercicioFicheros {
 

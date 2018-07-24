@@ -11,6 +11,7 @@ public class LeerTeclado {
 	public boolean reEjecutar= true;
 	public static Scanner sc = new Scanner(System.in);
 	
+	@SuppressWarnings("static-access")
 	public LeerTeclado(Scanner sc) {
 		super();
 		this.sc = sc;

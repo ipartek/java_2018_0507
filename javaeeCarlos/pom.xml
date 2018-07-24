@@ -10,6 +10,10 @@
 	<!-- -->
 	<name>javaeeCarlos Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
 	<!-- Referencias a bibliotecas necesarias para el proyecto -->
 	<dependencies>
 		<dependency>
@@ -21,13 +25,12 @@
 		<!-- Para añadir dependencias buscamos en maven repository y copiamos la 
 			las lineas de dependencias -->
 		<dependency>
-		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+			<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
-
 	</dependencies>
 	<build>
 		<finalName>javaeeCarlos</finalName>
