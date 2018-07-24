@@ -5,13 +5,13 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-  	<servlet-name>LoginServlet</servlet-name>
-  	<display-name>LoginServlet</display-name>
-  	<description></description>
+  	<servlet-name>login</servlet-name> <!--  nombre de la clase  -->
+  	<!-- <display-name>LoginServlet</display-name> -->
+  	<!-- <description></description>  -->
   	<servlet-class>com.ipartek.formacion.javaee.servlets.LoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>LoginServlet</servlet-name>
-  	<url-pattern>/LoginServlet</url-pattern>
+  	<servlet-name>login</servlet-name> <!--  nombre de la clase  -->
+  	<url-pattern>/login</url-pattern> <!--  nombre de la clase  -->
   </servlet-mapping>
 </web-app>
