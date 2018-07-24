@@ -1,18 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<!-- COORDENADAS -->
 	<groupId>com.ipartek.formacion</groupId>
-	<artifactId>javaee</artifactId>
+	<artifactId>inakiJavaEE</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>javaee Maven Webapp</name>
-	<url>http://maven.apache.org</url>
 
-	<properties>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-	</properties>
-	
+	<name>inakiJavaEE Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<!-- REFERENCIAS A BIBLIOTECAS NECESARIAS PARA EL PROYECTO -->
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -29,8 +26,7 @@
 		</dependency>
 
 	</dependencies>
-
 	<build>
-		<finalName>javaee</finalName>
+		<finalName>inakiJavaEE</finalName>
 	</build>
 </project>
