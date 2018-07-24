@@ -278,7 +278,6 @@ public class EjerciciosGenerales {
 		
 
 	}
-
 	
 	public static void main061(String[] args) {
 		int n, contador;
