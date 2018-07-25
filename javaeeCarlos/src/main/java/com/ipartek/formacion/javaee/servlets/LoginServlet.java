@@ -59,8 +59,8 @@ public class LoginServlet extends HttpServlet {
 		LoginForm login = new LoginForm(nombre, password);
 
 		if (validar(login)) {
-			response.sendRedirect("principal.jsp");
-
+			request.getSession().setAttribute("usuario", login);;
+			response.sendRedirect("Principal.jsp");
 		} else {
 			// response.sendRedirect("error.html");
 			login.setMensajeError("El usuario o contraseña no son correctos");
@@ -74,6 +74,6 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	private boolean validar(LoginForm login) {
-		return "javierniño".equals(login.getNombre()) && "contra".equals(login.getContraseña());
+		return "batman".equals(login.getNombre()) && "batman".equals(login.getContraseña());
 	}
 }
