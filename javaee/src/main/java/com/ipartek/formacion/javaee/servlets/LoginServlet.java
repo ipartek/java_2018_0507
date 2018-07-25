@@ -26,17 +26,21 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//Recoge los parametros introducidos en los inputs
 		String nombre = request.getParameter("nombre");
 		String password = request.getParameter("password");
 		
 		if(nombre == null || password == null) {
+			//
 			throw new RuntimeException("No se han recibido los datos de nombre y/o password");
 		}
 			
-		if("javierlete".equals(nombre) && "contra".equals(password)) {
+		if("piero".equals(nombre) && "contra".equals(password)) {
 			response.sendRedirect("principal.html");
 		} else {
-			response.sendRedirect("error.html");
+			//response.sendRedirect("error.html");
+			request.setAttribute("errores", "");
+			request.getRequestDispatcher("index.jsp");
 		}
 			
 		
