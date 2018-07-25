@@ -1,3 +1,8 @@
+
+<!-- MODELO -->
+
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,7 +13,7 @@
 </head>
 <body>
     <h1>Login</h1>
-    <p id="mensaje">Introduce tus <span class ="destacado">credenciales</span> para <span class="destacado">iniciar sesión</span></p>
+    <p id="mensaje">Introduce tus <span class ="destacado">credenciales</span> para <span class="destacado">iniciar sesion</span></p>
     
     <form action="login" method="post">
         <fieldset>
