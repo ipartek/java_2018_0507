@@ -7,6 +7,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>javaee.cristina Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  <properties></properties>
   <dependencies>
 	  <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 	<dependency>
