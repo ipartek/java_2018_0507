@@ -3,7 +3,6 @@ package com.ipartek.formacion.javaee.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.management.RuntimeErrorException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -48,15 +47,14 @@ public class LoginServlet extends HttpServlet {
 		LoginForm login = new LoginForm(nombre,password);
 		
 		if (validar(login)) {
-			response.sendRedirect("principal.html");
+			request.getSession().setAttribute("usuario", login);;
+			response.sendRedirect("principal.jsp");
 		}else {
 			//response.sendRedirect("error.html");
 			login.setMensajeError("El usuario o contraseña no son correctos");
 			request.setAttribute("login", login);
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
-		
-		
 		
 		
 //		PrintWriter pw = response.getWriter();
