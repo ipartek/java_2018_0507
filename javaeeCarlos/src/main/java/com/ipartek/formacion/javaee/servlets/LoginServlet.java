@@ -46,34 +46,50 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-
+		
 		String nombre = request.getParameter("nombre");
 		String password = request.getParameter("password");
-
-		System.out.println(nombre);
-
+		
+		LoginForm login = new LoginForm(nombre, password);
 		if (nombre == null || password == null) {
 			throw new RuntimeException("No se han recibido los datos de nombre y/o password");
 		}
-
-		LoginForm login = new LoginForm(nombre, password);
-
+		//Comprobar si se ha introducido si el campo esta vacio o si
+		//el nombre es el correcto
+		if (nombre.equals("")) {
+			login.setMensajeErrorUsuario("No se ha introducido el nombre, burribestia");
+		}else if(!validarNombre(login)) {
+			login.setMensajeErrorUsuario("El nombre no es el correcto, burribestia");
+		}else if(validarNombre(login)) {
+			request.getSession().setAttribute("usuario", login);
+		}
+		//Comprueba si el campo esta vacio o si la clave es incorrecta
+		if (password.equals("")) {
+			login.setMensajeErrorClave("No se ha introducido la clave");
+		}else if(!validarClave(login)) {
+			login.setMensajeErrorClave("La clave no es la correcta");
+		}else if(validarClave(login)){
+			request.getSession().setAttribute("contraseña", login);
+		}
+		//Si el usuario y contraseña son incorrectos manda mensaje
 		if (validar(login)) {
-			request.getSession().setAttribute("usuario", login);;
-			response.sendRedirect("Principal.jsp");
+			//request.getSession().setAttribute("usuario", login);
+			//response.sendRedirect("Principal.jsp");
 		} else {
-			// response.sendRedirect("error.html");
 			login.setMensajeError("El usuario o contraseña no son correctos");
 			request.setAttribute("login", login);
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 
-		// PrintWriter pw = response.getWriter();
-		// pw.append("Hola").append(nombre);
-
 	}
-
 	private boolean validar(LoginForm login) {
-		return "batman".equals(login.getNombre()) && "batman".equals(login.getContraseña());
+		
+			return "batman".equals(login.getNombre()) && "batman".equals(login.getContraseña());
+	}
+	private boolean validarNombre(LoginForm logName) {
+		return "batman".equals(logName.getNombre());
+	}
+	private boolean validarClave(LoginForm logPassword) {
+		return "batman".equals(logPassword.getContraseña());
 	}
 }
