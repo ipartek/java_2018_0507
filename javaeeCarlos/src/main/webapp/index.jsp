@@ -1,6 +1,6 @@
 <html>
 <body>
-	<!--<form action="action_page.php">
+	<form action="action_page.php">
 		<div class="imgcontainer">
 			<img src="../javaeeCarlos/src/main/resources/gato.jpg" class="saludo" alt="gato" />
 		</div>
@@ -14,8 +14,8 @@
 
 			<button type="submit">Enviar</button>
 		</div>
-	</form>-->
-	<h4>Adios Mundo Cruel!</h4>
+	</form>
+	<!-- <h4>Adios Mundo Cruel!</h4> -->
 
 </body>
 </html>
