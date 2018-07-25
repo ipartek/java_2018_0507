@@ -1,6 +1,5 @@
 package com.ipartek.formacion.libro.presentacionconsola;
 
-import java.util.List;
 import java.util.Scanner;
 
 import com.ipartek.formacion.libro.accesodatos.ClienteArrayDAO;

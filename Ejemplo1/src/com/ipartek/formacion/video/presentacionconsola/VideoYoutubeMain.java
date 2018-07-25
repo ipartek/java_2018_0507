@@ -1,5 +1,7 @@
 package com.ipartek.formacion.video.presentacionconsola;
 
+import java.util.Scanner;
+
 import com.ipartek.formacion.video.accesodatos.CrudAble;
 import com.ipartek.formacion.video.accesodatos.VideoYoutubeArrayDAO;
 import com.ipartek.formacion.video.pojo.VideoYoutube;

@@ -5,8 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.ipartek.formacion.libro.pojo.Cliente;
-import com.ipartek.formacion.libro.pojo.Libro;
-import com.ipartek.formacion.video.pojo.VideoYoutube;
 
 public class ClienteArrayDAO implements CrudAble<Cliente> {
 

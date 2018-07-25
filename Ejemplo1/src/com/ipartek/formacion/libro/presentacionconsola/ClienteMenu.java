@@ -4,9 +4,7 @@ import java.util.Scanner;
 
 import com.ipartek.formacion.libro.accesodatos.ClienteArrayDAO;
 import com.ipartek.formacion.libro.accesodatos.CrudAble;
-import com.ipartek.formacion.libro.accesodatos.LibroArrayDAO;
 import com.ipartek.formacion.libro.pojo.Cliente;
-import com.ipartek.formacion.libro.pojo.Libro;
 
 public class ClienteMenu {
 

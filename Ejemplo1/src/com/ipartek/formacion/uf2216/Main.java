@@ -2,15 +2,9 @@ package com.ipartek.formacion.uf2216;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.util.Scanner;
-import java.util.logging.Logger;
-
 import com.ipartek.formacion.uf2216.accesodatos.CrudAble;
 import com.ipartek.formacion.uf2216.accesodatos.RevistaArrayDAO;
 import com.ipartek.formacion.uf2216.pojo.Revista;
