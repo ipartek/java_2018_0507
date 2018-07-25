@@ -47,10 +47,16 @@ public class LoginServlet extends HttpServlet {
 		LoginForm login = new LoginForm(nombre,password);
 		
 		if (validar(login)) {
-			request.getSession().setAttribute("usuario", login);;
+			request.getSession().setAttribute("usuario", login);
 			response.sendRedirect("principal.jsp");
 		}else {
 			//response.sendRedirect("error.html");
+			if (login.getNombre().toString() == "") {
+				login.setErrorNombre("Es obligatorio rellenar el nombre");
+			}
+			if (login.getPassword().toString() == "") {
+				login.setErrorPassword("Es obligatorio rellenar el password");
+			}
 			login.setMensajeError("El usuario o contraseña no son correctos");
 			request.setAttribute("login", login);
 			request.getRequestDispatcher("index.jsp").forward(request, response);

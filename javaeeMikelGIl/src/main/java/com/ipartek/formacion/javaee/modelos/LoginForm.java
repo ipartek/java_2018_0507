@@ -5,20 +5,25 @@ public class LoginForm {
 	private String password;
 	
 	private String mensajeError;
+	
+	private String errorNombre;
+	private String errorPassword;
 
 	public LoginForm() {
-		this("","","");
+		this("","","","","");
 	}
 	
 	public LoginForm(String nombre, String password) {
-		this(nombre,password,"");
+		this(nombre,password,"","","");
 	}
 
-	public LoginForm(String nombre, String password, String mensajeError) {
+	public LoginForm(String nombre, String password, String mensajeError, String errorNombre, String errorPassword) {
 		super();
 		this.nombre = nombre;
 		this.password = password;
 		this.mensajeError = mensajeError;
+		this.errorNombre = errorNombre;
+		this.errorPassword = errorPassword;
 	}
 
 	@Override
@@ -48,6 +53,22 @@ public class LoginForm {
 
 	public void setMensajeError(String mensajeError) {
 		this.mensajeError = mensajeError;
+	}
+	
+	public String getErrorNombre() {
+		return errorNombre;
+	}
+
+	public void setErrorNombre(String errorNombre) {
+		this.errorNombre = errorNombre;
+	}
+
+	public String getErrorPassword() {
+		return errorPassword;
+	}
+
+	public void setErrorPassword(String errorPassword) {
+		this.errorPassword = errorPassword;
 	}
 	
 }	
