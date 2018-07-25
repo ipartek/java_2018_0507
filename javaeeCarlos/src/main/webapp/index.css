@@ -1,0 +1,51 @@
+body {
+	font-family: sans-serif;
+    background-color:blueviolet;
+    color: azure
+}
+label {
+	width: 15em;   
+}
+input, button {
+    border: 1px solid black;
+border-bottom-left-radius: 15px;    
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+img{
+	border-radius: 100px;
+	max-height: 75px;
+	max-width: 75px;
+	
+}
+button{
+    padding: 5px 10px;
+    border-color: fuchsia;
+    border-width: thick;
+    border-bottom-style: groove;
+    background-color: firebrick;
+}
+/* # ----> ID (atributo de HTML) */
+#mensaje{
+    font-variant: small-caps;
+}
+/*se debera usar llamar por id o class*/
+/* .----> class (atributo de HTML)*/
+/*Es mejor cambiarla cursiva, negrita, subrayado... en el css y 
+debe llamarselo por lo que deseas no por el tipo*/
+.destacado{
+    font-weight: bold;
+    color:fuchsia;
+}
+
+input[name=nombre]{
+    font-style: italic;
+}
+.errorCuadro {
+    border. 2px solid red;
+}
+.errorTexto, .errorCuadro {
+    color:red;
+}
+/*La linea superior significa 5 pixeles arriba y abajo y 10 a iquierda y derecha*/

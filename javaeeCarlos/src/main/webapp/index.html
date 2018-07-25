@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Bienvenidos</title>
+<link REL=StyleSheet HREF="index.css" TYPE="text/css">
+<!--  <script src="index.js"></script> -->
+</head>
+<body>
+
+	<br>
+	<div class="Saludo">
+		<p><h2>Login</h2><img src="img/gato.jpg" class="saludo" alt="gato"
+		 align="right"/></p>
+	</div>
+	<br>
+	<p id="mensaje">
+		Introduce <i>tus</i> <span class="destacado"> credenciales </span>para
+		iniciar sesion
+	</p>
+	<form action="login" method="post">
+		<fieldset>
+			<legend>login</legend>
+			<p>
+				<label for="password">Nombre</label> </br> <input type="text"
+					name="nombre" id="nombre" required>
+			</p>
+			<p>
+				<label for="password">Contraseña</label> </br> <input type="text"
+					name="password" id="password" required>
+			</p>
+			<p>
+				<button tag="boton" name="boton">Login</button>
+			</p>
+		</fieldset>
+	</form>
+</body>
+</html>
