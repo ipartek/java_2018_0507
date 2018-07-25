@@ -19,9 +19,6 @@ public class Cliente {
 		this.librosPrestados = librosPrestados;
 	}
 	
-	public Cliente() {
-		this(-1,"","","", List<Libro>);
-	}
 	
 	public long getId() {
 		return id;

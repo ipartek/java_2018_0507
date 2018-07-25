@@ -29,13 +29,13 @@ public class ClienteArrayDao implements CrudAble<Cliente>{
 	@Override
 	public Cliente getById(long id) {
 		Cliente resul = null;
-		//foreach
 		for(Cliente clienteIteracion : cliente) {
 			if (id == clienteIteracion.getId()) {
 				resul = clienteIteracion;
 				break;
 			}
 		}
+		return resul;
 	}
 
 	@Override
