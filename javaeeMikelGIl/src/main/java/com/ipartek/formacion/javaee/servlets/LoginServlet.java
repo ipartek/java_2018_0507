@@ -26,7 +26,7 @@ public class LoginServlet extends HttpServlet {
 		pw.println(ruta);
 
 		String nombre = request.getParameter("nombre");
-		if (nombre == null) {
+		if (nombre == null) { 
 			nombre ="DESCONOCIDO";
 		}
 		
