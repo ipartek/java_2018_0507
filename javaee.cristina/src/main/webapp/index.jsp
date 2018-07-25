@@ -14,7 +14,7 @@
     
     <form action="login" method="post">
         <fieldset>
-            <legend>Login</legend>
+            <legend>Login </legend> 
             <p>
                 <label for="nombre">Nombre</label>
                 <input type="text" name="nombre" id="nombre" 
