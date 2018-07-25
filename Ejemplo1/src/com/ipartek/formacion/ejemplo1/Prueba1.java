@@ -13,6 +13,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
+
+//import java.util.function.Predicate;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -86,9 +89,9 @@ public class Prueba1 {
 
 	public static void mainRegEx(String[] args) {
 		System.out.println("C:\\nuevos\\trabajos");
-
-		String regex = "\\w+@\\w+\\.\\w+";
-
+		
+		String regex = "\\w+@\\w+\\.\\w+";  //Carcteres obligatorios para un correo correcto
+		
 		System.out.println(regex);
 
 		Pattern pattern = Pattern.compile(regex);
@@ -115,7 +118,40 @@ public class Prueba1 {
 	// A partir de JavaSE7 existe esto:
 	// https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
 	@SuppressWarnings("null")
+
+	public static void mainArrayList(String[] args) {
+
+		List<Punto> puntos = new ArrayList<>();//<Punto>();
+		
+		Punto pt = new Punto(3);
+		
+		puntos.add(new Punto());//new java.util.Date());   3 MANERAS DIFERENTES DE AÑADIR UN PUNTO A LA LISTA
+		puntos.add(pt);
+		puntos.add(new Punto(4,6));
+		
+		Punto ptBorrar = new Punto(3);
+		
+		puntos.remove(ptBorrar);
+		
+		puntos.removeIf( p -> p.getX() < 2 ); //Java8
+		
+//		puntos.removeIf(new Predicate<Punto>() {
+//			@Override
+//			public boolean test(Punto p) {
+//				return p.getX() < 2;
+//			}
+//		});
+		
+		for(Punto p: puntos) 
+			System.out.println(p);
+		
+		Punto pt2 = puntos.get(1);
+		System.out.println(pt2);
+
+	}
+	@SuppressWarnings("null")
 	public static void mainExcepciones(String[] args) {
+
 		int div = 0, a, b;
 		a = 5;
 		b = 0;
@@ -208,6 +244,7 @@ public class Prueba1 {
 	}
 
 	public static void mainIncrementos(String[] args) {
+
 		int i = 1;
 
 		// x = x @ y;
@@ -216,6 +253,18 @@ public class Prueba1 {
 		// i += 1;
 		// i++;
 		// ++i;
+
+
+		System.out.println(i);		//1
+		System.out.println(i++);	//1
+		System.out.println(i);		//2
+		System.out.println(++i);	//3
+		System.out.println(i);		//3
+		System.out.println(i--);	//3
+		System.out.println(i);		//2
+		System.out.println(--i);	//1
+		System.out.println(i);		//1
+
 
 		System.out.println(i); // 1
 		System.out.println(i++); // 1
@@ -226,7 +275,9 @@ public class Prueba1 {
 		System.out.println(i); // 2
 		System.out.println(--i); // 1
 		System.out.println(i); // 1
+
 	}
+
 
 	public static void mainTime(String[] args) {
 		ejemploJodaTime();
@@ -304,6 +355,7 @@ public class Prueba1 {
 		System.out.println(pt2);
 	}
 
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void mainVector(String[] args) {
 		Vector v = new Vector();
@@ -337,6 +389,8 @@ public class Prueba1 {
 		i++;
 
 		System.out.println(i);
+
+
 	}
 
 	public static void mainArrayBidimensional(String[] args) {

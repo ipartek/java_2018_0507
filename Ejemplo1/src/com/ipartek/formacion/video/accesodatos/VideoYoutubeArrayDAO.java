@@ -3,8 +3,8 @@ package com.ipartek.formacion.video.accesodatos;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
 import com.ipartek.formacion.video.pojo.VideoYoutube;
+
 
 public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube> {
 
@@ -32,7 +32,7 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube> {
 	@Override
 	public VideoYoutube getById(long id) {
 		VideoYoutube resul = null;
-		//foreach
+		
 		for (VideoYoutube videoIteracion : videos) {
 			if ( id == videoIteracion.getId() ) {
 				resul = videoIteracion;
@@ -75,6 +75,7 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube> {
 
 	@Override
 	public boolean delete(long id) {
+		
 		boolean resul = false;
 		
 		VideoYoutube vIteracion = null;
@@ -92,5 +93,6 @@ public class VideoYoutubeArrayDAO implements CrudAble<VideoYoutube> {
 		
 		return resul;
 	}
+
 
 }
