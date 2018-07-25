@@ -3,10 +3,13 @@ package com.ipartek.formacion.javaee.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.management.RuntimeErrorException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ipartek.formacion.javaee.modelos.LoginForm;
 
 /**
  * Servlet implementation class LoginServlet
@@ -25,14 +28,8 @@ public class LoginServlet extends HttpServlet {
 		String ruta = request.getContextPath();
 		pw.println(ruta);
 
-		String nombre = request.getParameter("nombre");
-		if (nombre == null) { 
-			nombre ="DESCONOCIDO";
-		}
 		
-		pw.append("Hola ").append(nombre);
-
-		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		pw.println("\nSi quieres introducir usuario y contraseña hagalo por POST");
 	}
 
 	/**
@@ -40,8 +37,36 @@ public class LoginServlet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		
+		String nombre = request.getParameter("nombre");
+		String password = request.getParameter("password");		
+		if (nombre == null || password == null) { 
+			throw new RuntimeException("No se han recibido los datos de nombre y/o password");
+		}
+		
+		LoginForm login = new LoginForm(nombre,password);
+		
+		if (validar(login)) {
+			response.sendRedirect("principal.html");
+		}else {
+			//response.sendRedirect("error.html");
+			login.setMensajeError("El usuario o contraseña no son correctos");
+			request.setAttribute("login", login);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
+		
+		
+		
+		
+//		PrintWriter pw = response.getWriter();
+//		pw.append("Hola ").append(nombre);
+		
+		//doGet(request, response);
+	}
+
+	private boolean validar(LoginForm login) {
+		return "antxon".equals(login.getNombre()) && "asdf".equals(login.getPassword());
 	}
 
 }
