@@ -12,7 +12,7 @@
 	<name>javaeeanamamm Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
-<!-- para que no se queje de los warnings y coja las imports??? -->
+	<!-- para que no se queje de los warnings y coja las imports??? -->
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
