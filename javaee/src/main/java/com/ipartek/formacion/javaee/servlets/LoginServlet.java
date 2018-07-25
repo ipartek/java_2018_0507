@@ -42,8 +42,8 @@ public class LoginServlet extends HttpServlet {
 		LoginForm login = new LoginForm(nombre, password);
 			
 		if(validar(login)) {
+			request.getSession().setAttribute("usuario", login);
 			response.sendRedirect("principal.jsp");
-			
 		} else {
 			//response.sendRedirect("error.html");
 			login.setMensajeError("El usuario o contraseña no son correctos");
