@@ -21,6 +21,10 @@ public class LoginServlet extends HttpServlet {
 		
 		String nombre = request.getParameter("nombre");
 		
+		if(nombre == null) {
+			nombre = "DESCONOCIDO";
+		}
+			
 		pw.append("Hola ").append(nombre);
 		
 		//pw.println("Hola " + nombre);
