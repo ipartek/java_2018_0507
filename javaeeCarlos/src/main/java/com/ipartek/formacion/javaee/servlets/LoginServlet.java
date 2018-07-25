@@ -43,19 +43,25 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//doGet(request, response);
 		request.setCharacterEncoding("UTF-8");
 		String nombre = request.getParameter("nombre");
 		String password = request.getParameter("password");
 
+		System.out.println(nombre);
+		
 		if (nombre == null || password == null) {
 			throw new RuntimeException("No se han recibido los datos de nombre y/o password");
 		}
 		
-		if ("batman".equals(nombre)&& "Iambatman".equals(password)){
-			response.sendRedirect("Principal.html");
+		LoginForm login = new LoginForm(nombre, password);
+		
+		if ("batman".equals(login.getNombre())&& "Iambatman".equals(login.getContraseña())){
+			response.sendRedirect("Principal.jsp");
 		}else {
-			response.sendRedirect("Error.html");
+			//response.sendRedirect("Error.html");
+			login.setMensajeError("");
+			request.setAttribute("login", login);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 		PrintWriter pw = response.getWriter();
 

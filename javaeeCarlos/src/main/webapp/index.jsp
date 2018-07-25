@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,7 +8,7 @@
 <script src="index.js"></script>
 </head>
 <body>
-
+	<jsp:useBean id = "login" scope="request" />
 	<br>
 	<div class="Saludo">
 		<h2>Login</h2>
@@ -30,7 +31,10 @@
 					type="text" name="password" id="password">
 			</p>
 			<p>
-				<button tag="boton" name="boton">Login</button>
+				<button>Login</button>
+				<span class="errorTexto">
+					
+				</span>
 			</p>
 		</fieldset>
 	</form>
