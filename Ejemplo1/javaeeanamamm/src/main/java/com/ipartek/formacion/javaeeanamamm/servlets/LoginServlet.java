@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.javaeeanamamm.modelos.LoginForm;
+
 /**
  * Servlet implementation class LoginServlet
  */
@@ -25,7 +27,7 @@ public class LoginServlet extends HttpServlet {
 		String ruta= request.getContextPath();
 		pw.println(ruta);
 		
-		//para coger parametros de la ruta cuando añades por ejemplo ?nombre=ana
+		//para coger parametros de la ruta cuando aï¿½ades por ejemplo ?nombre=ana
 		String nombre = request.getParameter("nombre");
 		
 		if(nombre == null) {
@@ -44,7 +46,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//para que admita ñ y simbolos en los campos etc.
+		//para que admita ï¿½ y simbolos en los campos etc.
 		request.setCharacterEncoding("UTF-8");
 		
 		String nombre = request.getParameter("nombre");
@@ -54,11 +56,22 @@ public class LoginServlet extends HttpServlet {
 			throw new RuntimeException("No se han recibido los datos de nombre y/o password");
 		}
 		
-		if("ana".equals(nombre)&&"contra".equals(password)) {
+		//objeto del modelo (pojo)
+		LoginForm login = new LoginForm( nombre, password);
+		
+		
+		
+		if(validar(nombre, password)) {
 			response.sendRedirect("principal.html");
 		}else {
-			response.sendRedirect("error.html");
+			//response.sendRedirect("error.html");
+			request.setAttribute(arg0, arg1);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
+	}
+
+	private boolean validar(String nombre, String password) {
+		return "ana".equals(nombre)&&"contra".equals(password);
 	}
 
 }
