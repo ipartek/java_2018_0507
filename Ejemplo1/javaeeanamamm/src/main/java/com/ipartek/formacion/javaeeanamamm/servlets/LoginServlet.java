@@ -44,6 +44,9 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		//para que admita ñ y simbolos en los campos etc.
+		request.setCharacterEncoding("UTF-8");
+		
 		String nombre = request.getParameter("nombre");
 		String password = request.getParameter("password");
 		
