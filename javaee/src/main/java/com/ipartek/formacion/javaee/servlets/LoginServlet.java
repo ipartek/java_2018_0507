@@ -13,28 +13,44 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter pw = response.getWriter();
+		
+		pw.println("Si querías hacer un login, tienes que venir por post");
+		
 		pw.println("Hola a todos: " + new java.util.Date());
 		
 		String ruta = request.getContextPath();
 		
 		pw.println(ruta);
-		
-		String nombre = request.getParameter("nombre");
-		
-		if(nombre == null) {
-			nombre = "DESCONOCIDO";
-		}
 			
-		pw.append("Hola ").append(nombre);
-		
-		//pw.println("Hola " + nombre);
-		//pw.println(new StringBuilder("Hola ").append(nombre).toString());
-		
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		
+		String nombre = request.getParameter("nombre");
+		String password = request.getParameter("password");
+		
+		System.out.println(nombre);
+		
+		if(nombre == null || password == null) {
+			throw new RuntimeException("No se han recibido los datos de nombre y/o password");
+		}
+			
+		if("javierniño".equals(nombre) && "contra".equals(password)) {
+			response.sendRedirect("principal.html");
+		} else {
+			response.sendRedirect("error.html");
+		}
+			
+		
+		//		PrintWriter pw = response.getWriter();
+//		
+//		pw.append("Hola ").append(nombre);
+		
+		//pw.println("Hola " + nombre);
+		//pw.println(new StringBuilder("Hola ").append(nombre).toString());
+	
 	}
 
 }
