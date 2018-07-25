@@ -37,11 +37,11 @@ public class LoginServlet extends HttpServlet {
 		}
 		LoginForm login=new LoginForm(nombre,password,null);
 		if("ñaki".equals(login.getNombre())	&& "ñ".equals(login.getPassword())) {
-			response.sendRedirect("principal.html");				
+			response.sendRedirect("principal.jsp");				
 			}
 		else {
 		//response.sendRedirect("error.html");
-			login.setMensajeError("usuario incorrecto");
+		login.setMensajeError("usuario incorrecto");
 		request.setAttribute("login", login);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 		//if(nombre=="DESCONOCIDO" || password==)

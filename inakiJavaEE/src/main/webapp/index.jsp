@@ -16,11 +16,11 @@
 			<legend>Login</legend>
 			<p>
 				<label for="nombre">nombre</label>
-				<input type="text" name="nombre" id="nombre"/>
+				<input type="text" name="nombre" id="nombre" value='<jsp:getProperty property="nombre" name="login"/>'/>
 			</p>
 			<p>
 				<label for="password">contraseña</label>
-				<input type="text" name="password" id="password"/>
+				<input type="password" name="password" id="password"/>
 			</p>
 			<p>
 				<button>Login</button>
