@@ -21,6 +21,8 @@ public class LoginServlet extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 		pw.println("<br>Hola a todos: " + new java.util.Date());
 		
+		pw.println("");
+		
 		String ruta = request.getContextPath();
 		pw.println(ruta);
 		
@@ -35,6 +37,14 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
+		String nombre = request.getParameter("nombre");
+		
+		if(nombre == null) {
+			nombre = "DESCONOCIDO";
+		}
+			PrintWriter pw= response.getWriter();
+		
+		
 	}
 
 }
