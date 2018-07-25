@@ -35,13 +35,15 @@ public class LoginServlet extends HttpServlet {
 			nombre="DESCONOCIDO";
 			throw new RuntimeException("no se han recibido los datos de nombre y/o password");
 		}
-		LoginForm login=new LoginForm(nombre,password,null);
+		LoginForm login=new LoginForm(nombre,password);
 		if("ñaki".equals(login.getNombre())	&& "ñ".equals(login.getPassword())) {
+			request.getSession().setAttribute("usuario", login);
 			response.sendRedirect("principal.jsp");				
 			}
 		else {
 		//response.sendRedirect("error.html");
-		login.setMensajeError("usuario incorrecto");
+		//login.setMensajeError("usuario incorrecto");
+		System.out.println(login.getNombre());
 		request.setAttribute("login", login);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 		//if(nombre=="DESCONOCIDO" || password==)
