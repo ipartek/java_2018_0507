@@ -20,6 +20,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PrintWriter pw = response.getWriter();
+
 		pw.println("Hola a todos: "+ new java.util.Date());
 		
 		String ruta = request.getContextPath();
@@ -38,8 +39,24 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		String nombre = request.getParameter("nombre");
+		String password = request.getParameter("password");
+		
+		System.out.print(nombre);
+		
+		if(nombre == null || password == null) {
+			throw new RuntimeException("No se han recibido los datos de nombre y/o password");
+		}
+		
+		if("cris".equals(nombre) && "cris".equals(password)) {
+			response.sendRedirect("principal.html");
+		}else {
+			response.sendRedirect("error.html");
+		}
+		
+		//PrintWriter pw = response.getWriter();
+		//pw.append("Hola ").append(nombre);
 	}
 
 }
