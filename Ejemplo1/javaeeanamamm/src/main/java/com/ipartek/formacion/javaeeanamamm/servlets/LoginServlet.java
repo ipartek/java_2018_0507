@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//para que admita � y simbolos en los campos etc.
+		//para que admita simbolos en los campos etc.
 		request.setCharacterEncoding("UTF-8");
 		
 		String nombre = request.getParameter("nombre");
@@ -57,21 +57,25 @@ public class LoginServlet extends HttpServlet {
 		}
 		
 		//objeto del modelo (pojo)
-		LoginForm login = new LoginForm( nombre, password);
+		LoginForm login = new LoginForm(nombre, password);
 		
 		
 		
-		if(validar(nombre, password)) {
-			response.sendRedirect("principal.html");
+		if(validar(login)) {
+			//para guardar para todas las pag web que se ha logeado
+			//a usuario voy a añadirle el login
+			request.getSession().setAttribute("usuario", login);;
+			response.sendRedirect("principal.jsp");
 		}else {
 			//response.sendRedirect("error.html");
-			request.setAttribute(arg0, arg1);
+			login.setMensajeError("El mensaje o contraseña son incorrectos");
+			request.setAttribute("login", login);
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 	}
 
-	private boolean validar(String nombre, String password) {
-		return "ana".equals(nombre)&&"contra".equals(password);
+	private boolean validar(LoginForm login) {
+		return "ana".equals(login.getNombre()) && "contra".equals(login.getPassword());
 	}
 
 }

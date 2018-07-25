@@ -9,7 +9,8 @@ public class LoginForm {
 	private String mensajeError;
 
 	public LoginForm() {
-		super();
+		this("","","");
+		
 	
 	}
 	public LoginForm(String nombre, String password, String mensajeError) {

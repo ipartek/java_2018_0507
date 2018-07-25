@@ -8,7 +8,7 @@
     <script src="index.js"></script>
 </head>
 <body>
-<jsp 
+<jsp:useBean id="login" scope="request" class="com.ipartek.formacion.javaeeanamamm.modelos.LoginForm"/> 
     <h1>Login</h1>
     <p id="mensaje">Introduce tus <span class ="destacado">credenciales</span> para <span class="destacado">iniciar sesión</span></p>
     
@@ -17,7 +17,8 @@
             <legend>Login</legend>
             <p>
                 <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" id="nombre" />
+                <input type="text" name="nombre" id="nombre" 
+                value='<jsp:getProperty property="nombre" name="login"/>'/>
             </p>
             <p>
                 <label for="password">Contraseña</label>
@@ -26,6 +27,11 @@
             <p>
                 <button>Login</button>
                 <span class="errorTexto">
+                
+               
+                <jsp:getProperty property="mensajeError" name="login"/>
+                <span/>
+                
             </p>
         </fieldset>
     </form>
