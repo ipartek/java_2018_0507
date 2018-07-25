@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -8,7 +8,7 @@
         <script src="index.js"></script>
     </head>
     <body>
-    	<jsp:useBean id="login" scope"request" class="com.ipartek.formacion.javaee.modelos.LoginForm">
+    	<jsp:useBean id="login" scope="request" class="com.ipartek.formacion.javaee.modelos.LoginForm" />
         <h1>Login</h1>
         <p id="mensaje">
             Introduce tus <span class="destacado">credenciales</span>
@@ -26,8 +26,9 @@
                 </p>
                 <p>
                     <button>Login</button>
-                    <span class="errorTexto"></span>
-                    <jsp:getProperty property="mensajeError" name="Login"/>
+                    <span class="errorTexto">
+                    <jsp:getProperty property="mensajeError" name="login"/>
+                    </span>
                 </p>
             </fieldset>
         </form>
