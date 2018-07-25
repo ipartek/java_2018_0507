@@ -1,14 +1,12 @@
 package ejercicios.basicos.liniciales;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class EjerciciosBásicosArrays {
 	
-	public static void main(String[] args) {
-		
-		
-		
-	}
+	//NO ENTIENDO EL EJERCICIO 9
+	
 	//EJERCICIO 8
 	public static void main08(String[] args) {
 		double sMayor = 0;
