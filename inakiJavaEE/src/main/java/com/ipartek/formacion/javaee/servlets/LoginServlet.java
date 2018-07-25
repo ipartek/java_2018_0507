@@ -8,24 +8,44 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.javaee.modelos.LoginForm;
+
 /**
  * Servlet implementation class LoginServlet
  */
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-											//peticion					//respuesta
+	PrintWriter pw;	
+	String nombre,ruta,password;//peticion					//respuesta
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter pw=response.getWriter();
+		pw=response.getWriter();
 		pw.println("hola a todos "+ new java.util.Date());
-		String ruta=request.getContextPath();
-		String nombre=request.getParameter("nombre");		
+		pw.println("habe venido por post");
+		ruta=request.getContextPath();		
 		pw.println(ruta);
-		pw.append("hola ").append(nombre);
 		
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		nombre=request.getParameter("nombre");	
+		password=request.getParameter("password");	
+		
+		if(nombre==null || password==null ) {
+			nombre="DESCONOCIDO";
+			throw new RuntimeException("no se han recibido los datos de nombre y/o password");
+		}
+		LoginForm login=new LoginForm(nombre,password,null);
+		if("ñaki".equals(login.getNombre())	&& "ñ".equals(login.getPassword())) {
+			response.sendRedirect("principal.html");				
+			}
+		else {
+		//response.sendRedirect("error.html");
+			login.setMensajeError("usuario incorrecto");
+		request.setAttribute("login", login);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
+		//if(nombre=="DESCONOCIDO" || password==)
+		}
 	}
 
 

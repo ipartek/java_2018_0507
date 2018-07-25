@@ -1,0 +1,30 @@
+body{
+	font-family:sans-serif;
+}
+label{
+	width:6em;
+     display: inline-block;
+}
+input,button{
+    border: 1px solid black;
+}
+button{    
+    padding:5px 10px;        
+}
+.errorCuadro{
+	border: 2px solid darkred;
+}
+.errorTexto,.errorCuadro{
+	color:darkred;
+}
+*/#=id atributo del elemento html,
+#miP{
+    font-variant: small-caps;
+}
+.destacado{
+    font-weight: bold;
+    color:fuchsia;
+}
+input[name=nombre]{
+    font-style: italic;
+}
