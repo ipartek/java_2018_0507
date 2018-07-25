@@ -8,7 +8,7 @@
     <script src="index.j"></script>
 </head>
 <body>
-	<jsp:useBean id="login" scope="request" class="com.ipartek.formacion.javaee.modelos.LoginForm"></jsp:useBean>
+	<jsp:useBean id="login" scope="request" class="com.ipartek.formacion.javaee.modelos.Persona"></jsp:useBean>
 	<h1>Login</h1>
 	<p id="miP">introduce tus <span class="destacado">credenciales </span>para <span class="destacado">iniciar </span> sesión</p>
 	<form action="login" method="post">
