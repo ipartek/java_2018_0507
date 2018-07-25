@@ -27,6 +27,9 @@ public class LoginServlet extends HttpServlet {
 		
 		String nombre = request.getParameter("nombre"); //mandame por el nombre que he puesto
 		
+		if(nombre == null) {
+			nombre = "DESCONOCIDO";
+		}
 		pw.append("Hola ").append(nombre);
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
