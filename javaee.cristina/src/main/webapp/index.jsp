@@ -27,7 +27,7 @@
 				<button>Login</button>
 				<span class="errorTexto">
 					<jsp:getProperty property="mensajeError" name="login"/>	
-				</span>
+				</span>	
 			</p>
 		</fieldset>
 	</form>
