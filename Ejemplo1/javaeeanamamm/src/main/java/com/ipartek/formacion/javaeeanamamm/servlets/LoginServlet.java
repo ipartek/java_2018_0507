@@ -44,7 +44,13 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		doGet(request, response);
+		String nombre = request.getParameter("nombre");
+		
+		if(nombre == null) {
+			nombre = "DESCONOCIDO";
+		}
+		PrintWriter pw = response.getWriter();
+		pw.append("Hola " ).append(nombre);
 	}
 
 }
