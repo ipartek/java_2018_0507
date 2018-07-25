@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.javaee.modelos.LoginForm;
 
+
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	private boolean validar(LoginForm login) {
-		return "cris".equals(login.getNombre()) && "cris".equals(login.getPassword());
+		return "javierniño".equals(login.getNombre()) && "contra".equals(login.getPassword());
 	}
 
 }
