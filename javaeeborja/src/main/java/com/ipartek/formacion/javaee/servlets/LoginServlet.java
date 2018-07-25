@@ -26,6 +26,11 @@ public class LoginServlet extends HttpServlet {
 		String ruta=request.getContextPath();
 		pw.println(ruta);
 		String nombre=request.getParameter("nombre");
+		
+		if(nombre==null) {
+			nombre="DESCONOCIDO";
+		}
+		
 		pw.append("Hola ").append(nombre);
 	
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
