@@ -28,24 +28,26 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		
+
 		String nombre = request.getParameter("nombre");
 		String password = request.getParameter("password");
 		
 		System.out.println(nombre);
 		
 		if(nombre == null || password == null) {
+			//
 			throw new RuntimeException("No se han recibido los datos de nombre y/o password");
 		}
 		
 		LoginForm login = new LoginForm(nombre, password);
 			
+
 		if(validar(login)) {
 			request.getSession().setAttribute("usuario", login);
 			response.sendRedirect("principal.jsp");
 		} else {
 			//response.sendRedirect("error.html");
+
 			login.setMensajeError("El usuario o contraseña no son correctos");
 			request.setAttribute("login", login);
 			request.getRequestDispatcher("index.jsp").forward(request, response);

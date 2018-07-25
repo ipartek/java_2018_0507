@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ClienteArrayDao implements CrudAble<Cliente>{
 
-	private List<Cliente> cliente = new ArrayList<>();
+	private List<Cliente> clientes = new ArrayList<>();
 
 	private static ClienteArrayDao INSTANCE;
 	
@@ -23,13 +23,18 @@ public class ClienteArrayDao implements CrudAble<Cliente>{
 	
 	@Override
 	public List<Cliente> getAll() {
-		return cliente;
+		return clientes;
 	}
 
 	@Override
 	public Cliente getById(long id) {
 		Cliente resul = null;
+<<<<<<< HEAD
 		for(Cliente clienteIteracion : cliente) {
+=======
+		//foreach
+		for(Cliente clienteIteracion : clientes) {
+>>>>>>> branch 'Piero' of https://github.com/ipartek/java_2018_0507.git
 			if (id == clienteIteracion.getId()) {
 				resul = clienteIteracion;
 				break;
@@ -39,9 +44,13 @@ public class ClienteArrayDao implements CrudAble<Cliente>{
 	}
 
 	@Override
-	public boolean insert(Cliente pojo) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean insert(Cliente cliente) {
+		boolean resul = false;
+		
+		if (cliente != null) {
+			resul = clientes.add(cliente);
+		}
+		return resul;
 	}
 
 	@Override
