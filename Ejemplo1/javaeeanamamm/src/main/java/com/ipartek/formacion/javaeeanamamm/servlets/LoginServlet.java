@@ -45,12 +45,17 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String nombre = request.getParameter("nombre");
+		String password = request.getParameter("password");
 		
-		if(nombre == null) {
-			nombre = "DESCONOCIDO";
+		if(nombre == null | password == null) {
+			throw new RuntimeException("No se han recibido los datos de nombre y/o password");
 		}
-		PrintWriter pw = response.getWriter();
-		pw.append("Hola " ).append(nombre);
+		
+		if("ana".equals(nombre)&&"contra".equals(password)) {
+			response.sendRedirect("principal.html");
+		}else {
+			response.sendRedirect("error.html");
+		}
 	}
 
 }
