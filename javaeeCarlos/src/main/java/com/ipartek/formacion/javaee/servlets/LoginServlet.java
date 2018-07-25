@@ -44,6 +44,7 @@ public class LoginServlet extends HttpServlet {
 		}
 			PrintWriter pw= response.getWriter();
 		
+			pw.append("Hola").append(nombre);
 		
 	}
 
