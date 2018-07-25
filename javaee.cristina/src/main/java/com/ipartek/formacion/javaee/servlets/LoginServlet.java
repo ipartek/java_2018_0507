@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.javaee.modelos.LoginForm;
+
 /**
  * Servlet implementation class LoginServlet
  */
@@ -39,6 +41,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		
 		String nombre = request.getParameter("nombre");
 		String password = request.getParameter("password");
@@ -49,10 +52,14 @@ public class LoginServlet extends HttpServlet {
 			throw new RuntimeException("No se han recibido los datos de nombre y/o password");
 		}
 		
-		if("cris".equals(nombre) && "cris".equals(password)) {
-			response.sendRedirect("principal.html");
+		LoginForm login = new LoginForm(nombre, password);
+		
+		if("cris".equals(login.getNombre()) && "cris".equals(login.getPassword())) {
+			response.sendRedirect("principal.jsp");
 		}else {
-			response.sendRedirect("error.html");
+			request.setAttribute("login",login);
+			request.getRequestDispatcher("index.jsp").forward(request,  response);
+			
 		}
 		
 		//PrintWriter pw = response.getWriter();
