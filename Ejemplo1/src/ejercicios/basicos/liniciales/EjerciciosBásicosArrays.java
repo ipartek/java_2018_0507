@@ -5,6 +5,76 @@ import java.util.Scanner;
 public class EjerciciosBásicosArrays {
 	
 	public static void main(String[] args) {
+		
+		
+		
+	}
+	//EJERCICIO 8
+	public static void main08(String[] args) {
+		double sMayor = 0;
+		String nMayor = "";
+		String[] empleados = new String[20];
+		double[] sueldos = new double[20];
+		Scanner sc = new Scanner(System.in);
+		
+		for(int i = 0; i<20; i++) {
+			System.out.println("Introduce el nombre del empleado Nº"+(i+1));
+			empleados[i] = sc.nextLine();
+		}	
+		for(int i = 0; i<20; i++) {
+			System.out.println("Introduce el sueldo del empleado Nº"+(i+1));
+			sueldos[i] = sc.nextDouble();
+			if(sMayor == 0) {
+				sMayor = sueldos[i];
+				nMayor = empleados[i];
+			}
+			else if(sMayor<sueldos[i]) {
+				sMayor = sueldos[i];
+				nMayor = empleados[i];
+			}
+		}
+		System.out.println("El sueldo de "+nMayor+" es el mas elevado, es de: "+sMayor);
+		
+	}
+
+	
+	//EJERCICIO 7
+	public static void main07(String[] args) {
+		int n;
+		double sumaSup = 0, sumaInf = 0;
+		double suma = 0;
+		Scanner sc = new Scanner(System.in);
+
+		
+		do {
+			System.out.println("Introduce un numero de personas");
+			n = sc.nextInt();
+		}
+		while(n<0);
+
+		double[] altura = new double[n];
+		for(int i = 0; i<altura.length; i++) {
+			System.out.println("Introduce la altura de la persona "+(i+1));
+			altura[i] = sc.nextDouble();
+			suma += altura[i];
+		}
+		for(int i = 0; i<altura.length; i++) {
+			if(altura[i]>suma/n) {
+				sumaSup += 1;
+			}
+			else if(altura[i]<suma/n) {
+				sumaInf +=1;
+			}
+		}
+		System.out.println("La altura media es "+(suma/n));
+		System.out.println(sumaSup+" personas tienen una altura superior a la media");
+		System.out.println(sumaInf+" personas tienen una altura inferior a la media");
+		
+		
+	}
+
+	
+	public static void main06(String[] args) {
 		//EJERCICIO 6
 		double[] numeros = new double[10];
 		int pos = 0, neg = 0;
