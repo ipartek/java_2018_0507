@@ -305,6 +305,7 @@ public class Prueba1 {
 		System.out.println(pt2);
 	}
 
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 
 	public static void mainVector(String[] args) {

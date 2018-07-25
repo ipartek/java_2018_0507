@@ -7,10 +7,20 @@ import com.ipartek.formacion.video.accesodatos.VideoYoutubeArrayDAO;
 import com.ipartek.formacion.video.pojo.VideoYoutube;
 
 public class VideoYoutubeMain {
+<<<<<<< HEAD
 	
 	//variables estaticas para definir la accion que selecciona el usuario en el switch
 	
+=======
+
+	private static final int DELETE_VIDEO = 5;
+	private static final int UPDATE_VIDEO = 4;
+	private static final int ADD_VIDEO = 3;
+	private static final int BUSCAR_ID = 2;
+	private static final int SALIR = 0;
+>>>>>>> refs/remotes/origin/Javier_Lete
 	private static final int LISTADO = 1;
+<<<<<<< HEAD
 	private static final int MOSTRAR = 2;
 	private static final int INSERTAR = 3;
 	private static final int ACTUALIZAR = 4;
@@ -20,23 +30,41 @@ public class VideoYoutubeMain {
 	//dao = VideoYoutubeArrayDAO.getInstance(); 
 	//CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance(); 
 	//convertir variable local a campo
+=======
+	
+	private static CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
+>>>>>>> refs/remotes/origin/Javier_Lete
 
 	public static void main(String[] args) {
 		cargarVideos();
 		int opcion;
 
 		
+<<<<<<< HEAD
 		do {
 			mostrarMenu();
 			opcion = Utils.leerInt(); //Lee una opcion
 	
 			procesarOpcion(opcion);
+=======
+		int opcion;
+>>>>>>> refs/remotes/origin/Javier_Lete
 		
+<<<<<<< HEAD
+=======
+		do {
+			mostrarMenu();
+			
+			opcion = Utils.leerInt();
+			
+			procesarOpcion(opcion);
+>>>>>>> refs/remotes/origin/Javier_Lete
 		}while(opcion != SALIR);
 	}
 
 	private static void procesarOpcion(int opcion) {
 		switch(opcion) {
+<<<<<<< HEAD
 			case LISTADO:
 				listadoVideos();
 				break;
@@ -57,6 +85,28 @@ public class VideoYoutubeMain {
 				break;				
 			default:
 				noDisponible();
+=======
+		case LISTADO:
+			listadoVideos();
+			break;
+		case BUSCAR_ID:
+			buscarPorId();
+			break;
+		case ADD_VIDEO: 
+			addVideo();
+			break;
+		case UPDATE_VIDEO:
+			updateVideo();
+			break;
+		case DELETE_VIDEO:
+			deleteVideo();
+			break;
+		case SALIR:
+			salir();
+			break;
+		default:
+			noDisponible();
+>>>>>>> refs/remotes/origin/Javier_Lete
 		}
 	}
 			
@@ -123,6 +173,67 @@ public class VideoYoutubeMain {
 	    	p("Gracias por su visita");	
 	    }
 
+	private static void deleteVideo() {
+		p("Dime el ID del video");
+		long id = Utils.leerLong();
+		
+		if(dao.delete(id)) {
+			p("Video borrado correctamente");
+		} else {
+			p("No se ha podido borrar el video");
+		}
+	}
+
+	private static void updateVideo() {
+		VideoYoutube video = crearVideoConDatosDeConsola();
+		
+		if(dao.update(video)) {
+			p("Video modificado correctamente");
+		} else {
+			p("No se ha podido modificar el video");
+		}
+	}
+
+	private static void addVideo() {
+		VideoYoutube video = crearVideoConDatosDeConsola();
+		
+		if(dao.insert(video)) {
+			p("Video añadido correctamente");
+		} else {
+			p("No se ha podido añadir el video");
+		}
+	}
+
+	private static VideoYoutube crearVideoConDatosDeConsola() {
+		p("ID:");
+		long id = Utils.leerLong();
+		p("Código:");
+		String codigo = Utils.leerLinea();
+		p("Título:");
+		String titulo = Utils.leerLinea();
+		
+		VideoYoutube video = new VideoYoutube(id, codigo, titulo);
+		return video;
+	}
+
+	private static void buscarPorId() {
+		p("Dime el ID del video");
+		long id = Utils.leerLong();
+		
+		VideoYoutube video = dao.getById(id);
+		
+		mostrarCabecera();
+		mostrarVideo(video);
+	}
+
+	private static void salir() {
+		p("Gracias por tu visita");
+	}
+
+	private static void noDisponible() {
+		p("Esa función no existe");		
+	}
+
 	private static void mostrarMenu() {
 		p("------------");
 		p("VideoYoutube");
@@ -135,12 +246,16 @@ public class VideoYoutubeMain {
 		p("5. Eliminar video");
 		p("");
 		p("0. Salir");
+		p("");
 		p("Elige una opción");
 		p("");
 	}
 	
 	private static void listadoVideos() {
+<<<<<<< HEAD
 		
+=======
+>>>>>>> refs/remotes/origin/Javier_Lete
 		mostrarCabecera();
 		
 		for(VideoYoutube video: dao.getAll()) {
