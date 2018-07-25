@@ -26,14 +26,18 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		
 		String nombre = request.getParameter("nombre");
 		String password = request.getParameter("password");
+		
+		System.out.println(nombre);
 		
 		if(nombre == null || password == null) {
 			throw new RuntimeException("No se han recibido los datos de nombre y/o password");
 		}
 			
-		if("javierlete".equals(nombre) && "contra".equals(password)) {
+		if("javierniño".equals(nombre) && "contra".equals(password)) {
 			response.sendRedirect("principal.html");
 		} else {
 			response.sendRedirect("error.html");
