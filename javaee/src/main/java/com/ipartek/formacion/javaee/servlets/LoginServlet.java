@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.javaee.modelos.LoginForm;
+
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -36,11 +38,17 @@ public class LoginServlet extends HttpServlet {
 		if(nombre == null || password == null) {
 			throw new RuntimeException("No se han recibido los datos de nombre y/o password");
 		}
+		
+		LoginForm login = new LoginForm(nombre, password);
 			
-		if("javierniño".equals(nombre) && "contra".equals(password)) {
-			response.sendRedirect("principal.html");
+		if(validar(login)) {
+			response.sendRedirect("principal.jsp");
+			
 		} else {
-			response.sendRedirect("error.html");
+			//response.sendRedirect("error.html");
+			login.setMensajeError("El usuario o contraseña no son correctos");
+			request.setAttribute("login", login);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 			
 		
@@ -51,6 +59,10 @@ public class LoginServlet extends HttpServlet {
 		//pw.println("Hola " + nombre);
 		//pw.println(new StringBuilder("Hola ").append(nombre).toString());
 	
+	}
+
+	private boolean validar(LoginForm login) {
+		return "javierniño".equals(login.getNombre()) && "contra".equals(login.getPassword());
 	}
 
 }
