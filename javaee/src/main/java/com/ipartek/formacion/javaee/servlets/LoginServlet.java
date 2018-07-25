@@ -27,14 +27,22 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nombre = request.getParameter("nombre");
+		String password = request.getParameter("password");
 		
-		if(nombre == null) {
-			nombre = "DESCONOCIDO";
+		if(nombre == null || password == null) {
+			throw new RuntimeException("No se han recibido los datos de nombre y/o password");
 		}
 			
-		PrintWriter pw = response.getWriter();
+		if("javierlete".equals(nombre) && "contra".equals(password)) {
+			response.sendRedirect("principal.html");
+		} else {
+			response.sendRedirect("error.html");
+		}
+			
 		
-		pw.append("Hola ").append(nombre);
+		//		PrintWriter pw = response.getWriter();
+//		
+//		pw.append("Hola ").append(nombre);
 		
 		//pw.println("Hola " + nombre);
 		//pw.println(new StringBuilder("Hola ").append(nombre).toString());
