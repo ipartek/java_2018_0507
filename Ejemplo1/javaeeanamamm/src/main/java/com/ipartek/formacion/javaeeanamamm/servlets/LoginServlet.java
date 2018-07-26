@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.javaeeanamamm.modelos.LoginForm;
+import com.ipartek.formacion.javaeeanamamm.modelos.LoginFormException;
+import com.ipartek.formacion.javaeeanamamm.modelos.RegistroForm;
 
 /**
  * Servlet implementation class LoginServlet
@@ -52,21 +54,26 @@ public class LoginServlet extends HttpServlet {
 		String nombre = request.getParameter("nombre");
 		String password = request.getParameter("password");
 		
+		String nombres = request.getParameter("password");
+		String email = request.getParameter("e");
+		String passwords = request.getParameter("password");
+		
 		if(nombre == null || password == null) {
 			
 			throw new RuntimeException("No se han recibido los datos de nombre y/o password");
 			
 		}
 		
+		
 		//objeto del modelo (pojo)
-		LoginForm login = new LoginForm(nombre, password);
+		LoginForm login = new LoginForm();
 		
 		
 		
 		if(validar(login)) {
 			//para guardar para todas las pag web que se ha logeado
 			//a usuario voy a añadirle el login
-			request.getSession().setAttribute("usuario", login);;
+			request.getSession().setAttribute("usuario", login);
 			response.sendRedirect("principal.jsp");
 		}else {
 			response.sendRedirect("error.html");
@@ -79,5 +86,7 @@ public class LoginServlet extends HttpServlet {
 	private boolean validar(LoginForm login) {
 		return "ana".equals(login.getNombre()) && "contra".equals(login.getPassword());
 	}
+	
+	
 
 }

@@ -8,6 +8,15 @@ public class LoginForm {
 	
 	private String mensajeError;
 
+	
+	public LoginForm(String nombre) throws LoginFormException {
+		if(nombre.trim().length()==0) {
+			throw new LoginFormException("No se admiten nombres vacios");
+		}
+		this.nombre = nombre;
+	}
+	
+	
 	public LoginForm() {
 		this("","","");
 		
