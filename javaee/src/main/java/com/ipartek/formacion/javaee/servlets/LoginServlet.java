@@ -3,6 +3,7 @@ package com.ipartek.formacion.javaee.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -41,6 +42,7 @@ public class LoginServlet extends HttpServlet {
 		}
 		
 		LoginForm login = new LoginForm(nombre, password);
+		
 			
 		if(validar(login)) {
 			request.getSession().setAttribute("usuario", login);

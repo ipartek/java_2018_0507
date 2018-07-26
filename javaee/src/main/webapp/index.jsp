@@ -30,8 +30,12 @@
                 	<jsp:getProperty property="mensajeError" name="login"/>
                 </span>
             </p>
+            
+            
         </fieldset>
     </form>
-    
+    	<p>
+    			<a href="registro.jsp" >¿Desea registrarse? </a>
+        </p>
 </body>
 </html>

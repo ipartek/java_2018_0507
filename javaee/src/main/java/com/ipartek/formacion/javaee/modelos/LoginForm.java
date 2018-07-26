@@ -36,7 +36,6 @@ public class LoginForm {
 		else
 			this.nombre= nombre;
 		
-		this.nombre = nombre;
 	}
 
 	public String getPassword() {
