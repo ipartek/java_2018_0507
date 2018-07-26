@@ -32,6 +32,22 @@
                     </span>
                 </p>
                 <p>
+                    <label for="dni">DNI</label>
+                    <input type="text" name="dni" id="dni" 
+                    	value='<jsp:getProperty property="dni" name="registro"/>'/>
+                    <span class="errorTexto">
+                    	<jsp:getProperty property="errorDni" name="registro"/>
+                    </span>
+                </p>
+                <p>
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" 
+                    	value='<jsp:getProperty property="email" name="registro"/>'/>
+                    <span class="errorTexto">
+                    	<jsp:getProperty property="errorEmail" name="registro"/>
+                    </span>
+                </p>
+                <p>
                     <label for="password">Contraseña</label>
                     <input type="password" name="password" id="password"/>
                     <span class="errorTexto">

@@ -4,14 +4,21 @@ public class LoginForm {
 	private String nombre = "";
 	private String password = "";
 	private String apellido = "";
+	private String dni = "";
+	private String email = "";
 	
 	private String mensajeError = "";
 	
 	private String errorNombre = "";
 	private String errorApellido = "";
 	private String errorPassword = "";
+	private String errorDni = "";
+	private String errorEmail = "";
 	
 	private boolean erroneo = false;
+	
+	private static final String DNI_REGEX = "^((([A-Z]|[a-z])\\d{8})|(\\d{8}([A-Z]|[a-z])))$";
+	private static final String EMAIL_REGEX = "^([\\w-\\.]+){1,64}@([\\w&&[^_]]+){2,255}.[a-z]{2,}$";
 
 	// OBLIGATORIO PARA PODER USAR <jsp:useBean
 	public LoginForm() {
@@ -19,7 +26,8 @@ public class LoginForm {
 
 	@Override
 	public String toString() {
-		return "LoginForm [nombre=" + nombre + ", password=" + password + ", mensajeError=" + mensajeError + "]";
+		return "LoginForm [nombre=" + nombre + ", password=" + password + ", apellido=" + apellido + ", dni=" + dni
+				+ ", email=" + email + "]";
 	}
 
 	public String getNombre() {
@@ -40,6 +48,11 @@ public class LoginForm {
 	}
 
 	public void setApellido(String apellido) {
+		if (apellido == null || apellido.trim().length() == 0) {
+			setErrorApellido("Es obligatorio rellenar el apellido");
+			setErroneo(true);
+			throw new LoginFormException("Es obligatorio rellenar el apellido");
+		}
 		this.apellido = apellido;
 	}
 
@@ -54,6 +67,40 @@ public class LoginForm {
 			throw new LoginFormException("Es obligatorio rellenar el password");
 		}
 		this.password = password;
+	}
+	
+	public boolean compararPassword(String password, String passwordRepeat) {
+		if (password != passwordRepeat) {
+			setErroneo(true);
+			return false;
+		}
+		return true;
+	}
+	
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		if (!dni.matches(DNI_REGEX)) {
+			setErrorDni("Introduce un dni valido");
+			setErroneo(true);
+			throw new LoginFormException("Introduce un dni valido");
+		}
+		this.dni = dni;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		if (!email.matches(EMAIL_REGEX)) {
+			setErrorEmail("Introduce un email valido");
+			setErroneo(true);
+			throw new LoginFormException("Introduce un email valido");
+		}
+		this.email = email;
 	}
 
 	public String getMensajeError() {
@@ -84,6 +131,22 @@ public class LoginForm {
 
 	public void setErrorPassword(String errorPassword) {
 		this.errorPassword = errorPassword;
+	}
+
+	public String getErrorDni() {
+		return errorDni;
+	}
+
+	public void setErrorDni(String errorDni) {
+		this.errorDni = errorDni;
+	}
+
+	public String getErrorEmail() {
+		return errorEmail;
+	}
+
+	public void setErrorEmail(String errorEmail) {
+		this.errorEmail = errorEmail;
 	}
 
 	public boolean isErroneo() {

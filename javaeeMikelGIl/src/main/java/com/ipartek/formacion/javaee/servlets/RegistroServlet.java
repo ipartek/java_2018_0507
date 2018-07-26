@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.javaee.modelos.LoginForm;
+import com.ipartek.formacion.javaee.modelos.LoginFormException;
 
 /**
  * Servlet implementation class RegistroServlet
@@ -15,66 +16,67 @@ public class RegistroServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		
+		// Recogida de datos
+		String nombre = request.getParameter("nombre");
+		String apellido = request.getParameter("apellido");
+		String password = request.getParameter("password");
+		String passwordRepeat = request.getParameter("password2");
+		String email = request.getParameter("email");
+		String dni = request.getParameter("dni");
+		
+		// Empaquetado en modelo
+		LoginForm registro = new LoginForm();
+		
+		try {
+			registro.setNombre(nombre);
+		}catch (LoginFormException e) {
+		}
+		
+		try {
+			registro.setApellido(apellido);
+		}catch (LoginFormException e) {
+		}
+		
+		try {
+			if (registro.compararPassword(password, passwordRepeat)) {
+				registro.setPassword(password);
+			}
+		}catch (LoginFormException e) {
+		}
+		
+		try {
+			registro.setEmail(email);
+		}catch (LoginFormException e) {
+		}
+		
+		try {
+			registro.setDni(dni);
+		}catch (LoginFormException e) {
+		}
+		
+		
+		// Llamada a la logica de negocio
+		if (!registro.isErroneo()) {
+			// Redireccion a vista
+			request.getSession().setAttribute("usuario", registro);
+			response.sendRedirect("principal.jsp");
+		}else {
+			// Redireccion a vista
+			registro.setMensajeError("Error al registrarse");
+			request.setAttribute("registro", registro);
+			request.getRequestDispatcher("registro.jsp").forward(request, response);
+		}
+	}
+	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		
-		String nombre = request.getParameter("nombre");
-		String apellido = request.getParameter("apellido");
-		String password = request.getParameter("password");
-		String passwordRepeat = request.getParameter("password2");
-		
-		/*if (nombre.isEmpty() || apellido.isEmpty() || password.isEmpty() || passwordRepeat.isEmpty()) {
-			throw new RuntimeException("No se han recibido los datos correctos");
-		}*/
-		
-		LoginForm registro = new LoginForm();
-		
-		if (validar(registro, nombre, apellido, password, passwordRepeat)) {
-			response.sendRedirect("registro.jsp");
-		}else {
-			registro.setNombre(nombre);
-			registro.setApellido(apellido);
-			registro.setPassword(password);
-			System.out.println("Nombre: " + registro.getNombre() + " apellido: " + registro.getApellido() + " password " + registro.getPassword() + " Repeatpassword: " + passwordRepeat);
-			
-			request.setAttribute("registro", registro);
-			request.getRequestDispatcher("principal.jsp").forward(request, response);
-		}
-	}
-	
-	private boolean validar(LoginForm registro, String nombre, String apellido, String password, String passwordRepeat) {
-		boolean resultado = true;
-		
-		if (nombre.isEmpty()) {
-			registro.setErrorNombre("Es obligatorio rellenar el nombre");
-			resultado = false;
-		}
-		if (apellido.isEmpty()) {
-			registro.setErrorApellido("Es obligatorio rellenar el apellido");
-			resultado = false;
-		}
-		if (password.isEmpty()) {
-			registro.setErrorPassword("Es obligatorio rellenar el password");
-			resultado = false;
-		}
-		if (password != passwordRepeat) {
-			registro.setErrorPassword("Las contraseñas deben ser identicas");
-			resultado = false;
-		}
-		
-		System.out.println("Nombre: " + nombre + " apellido: " + apellido + " password " + password + " Repeatpassword: "+passwordRepeat);
-		
-		return resultado;
-	}
-
 }
