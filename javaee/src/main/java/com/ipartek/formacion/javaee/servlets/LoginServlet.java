@@ -13,17 +13,22 @@ import com.ipartek.formacion.javaee.modelos.LoginForm;
 import com.ipartek.formacion.javaee.modelos.LoginFormException;
 
 public class LoginServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
+	private static final String USUARIO_POR_DEFECTO = "javierniño";
+	private static final String PASSWORD_POR_DEFECTO = "contra";
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
+		//Recogida de datos
 		String nombre = request.getParameter("nombre");
 		String password = request.getParameter("password");
 		
 		System.out.println(nombre);
 		
-		
+
+		//Empaquetado en Modelo
+
 		LoginForm login = new LoginForm();
 		
 		try {
@@ -31,7 +36,6 @@ public class LoginServlet extends HttpServlet {
 		} catch (LoginFormException e) {
 			login.setErrorNombre("*");
 		}
-
 			
 		try {
 			login.setPassword(password);
@@ -39,30 +43,24 @@ public class LoginServlet extends HttpServlet {
 			login.setErrorPassword("*");
 		}
 
-		if(validar(login)) {
+		//Llamada a lógica de negocio
+		if(!login.isErroneo() && validar(login)) {
+			//Redirección a vista
 			request.getSession().setAttribute("usuario", login);
 			response.sendRedirect("principal.jsp");
 		} else {
-			//response.sendRedirect("error.html");
+			//Redirección a vista
 			login.setMensajeError(login.getMensajeError() + " El usuario o contraseña no son correctos");
 			request.setAttribute("login", login);
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
-			
-		
-		//		PrintWriter pw = response.getWriter();
-//		
-//		pw.append("Hola ").append(nombre);
-		
-		//pw.println("Hola " + nombre);
-		//pw.println(new StringBuilder("Hola ").append(nombre).toString());
-	
 	}
 
 	private boolean validar(LoginForm login) {
-		return "javierniño".equals(login.getNombre()) && "contra".equals(login.getPassword());
 
+		return USUARIO_POR_DEFECTO.equals(login.getNombre()) && PASSWORD_POR_DEFECTO.equals(login.getPassword());
 
 	}
 
+	private static final long serialVersionUID = 1L;
 }

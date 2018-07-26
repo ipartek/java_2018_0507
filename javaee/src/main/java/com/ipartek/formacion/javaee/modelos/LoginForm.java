@@ -7,8 +7,8 @@ public class LoginForm {
 	private String errorNombre = "";
 	private String errorPassword = "";
 	private String mensajeError = "";
-
-
+	
+	private boolean erroneo = false;
 
 
 	// OBLIGATORIO PARA PODER USAR <jsp:useBean
@@ -27,9 +27,11 @@ public class LoginForm {
 
 
 	public void setNombre(String nombre) { //throws LoginFormException { // "              Hola Javier            ".trim() ---> "Hola Javier"
-		if(nombre.trim().length() == 0) {  //ESTO TE BORRA CUALQUIER ESPACIO EXTRA QUE METAS AL PRINCIPIO O AL FINAL
-			setErrorNombre("No se admiten nombres vacíos");
 
+		if(nombre == null || nombre.trim().length() == 0) {  //ESTO TE BORRA CUALQUIER ESPACIO EXTRA QUE METAS AL PRINCIPIO O AL FINAL
+
+			setErrorNombre("No se admiten nombres vacíos");
+			setErroneo(true);
 			throw new LoginFormException("No se admiten nombres vacíos");
 		}
 		this.nombre = nombre;
@@ -42,8 +44,10 @@ public class LoginForm {
 
 	public void setPassword(String password) {
 
-		if(password.trim().length() == 0) {
+		if(password == null || password.trim().length() == 0) {
+
 			setErrorPassword("No se admiten nombres vacíos");
+			setErroneo(true);
 			throw new LoginFormException("No se admiten passwords vacíos");
 
 		}
@@ -72,5 +76,13 @@ public class LoginForm {
 
 	public void setErrorPassword(String errorPassword) {
 		this.errorPassword = errorPassword;
+	}
+
+	public boolean isErroneo() {
+		return erroneo;
+	}
+
+	public void setErroneo(boolean erroneo) {
+		this.erroneo = erroneo;
 	}
 }
