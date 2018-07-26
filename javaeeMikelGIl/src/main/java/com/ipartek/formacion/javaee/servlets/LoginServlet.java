@@ -14,9 +14,11 @@ import com.ipartek.formacion.javaee.modelos.LoginFormException;
  * Servlet implementation class LoginServlet
  */
 public class LoginServlet extends HttpServlet {
+	private static final String USUARIO_POR_DEFECTO = "antxon";
+	private static final String PASSWORD_POR_DEFECTO = "asdf";
+	
 	private static final long serialVersionUID = 1L;
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
@@ -49,7 +51,7 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	private boolean validar(LoginForm login) {
-		return "antxon".equals(login.getNombre()) && "asdf".equals(login.getPassword());
+		return USUARIO_POR_DEFECTO.equals(login.getNombre()) && PASSWORD_POR_DEFECTO.equals(login.getPassword());
 	}
 	
 	/**
