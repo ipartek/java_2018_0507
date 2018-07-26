@@ -18,7 +18,12 @@ public class Cliente {
 		this.apellidos = apellidos;
 		this.librosPrestados = librosPrestados;
 	}
+<<<<<<< HEAD
+	
+	
+=======
 
+>>>>>>> branch 'Piero' of https://github.com/ipartek/java_2018_0507.git
 	public long getId() {
 		return id;
 	}

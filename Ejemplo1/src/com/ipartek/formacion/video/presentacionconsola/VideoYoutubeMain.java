@@ -16,10 +16,19 @@ public class VideoYoutubeMain {
 	private static CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
 
 	public static void main(String[] args) {
+<<<<<<< HEAD
+
 		cargarVideos();
+=======
+		cargarVideos();
+>>>>>>> branch 'Piero' of https://github.com/ipartek/java_2018_0507.git
 		
+<<<<<<< HEAD
+		int opcion;
+=======
 		int opcion;
 		
+>>>>>>> branch 'Piero' of https://github.com/ipartek/java_2018_0507.git
 		do {
 			mostrarMenu();
 			
@@ -51,7 +60,11 @@ public class VideoYoutubeMain {
 			break;
 		default:
 			noDisponible();
+<<<<<<< HEAD
 		}
+=======
+		}
+>>>>>>> branch 'Piero' of https://github.com/ipartek/java_2018_0507.git
 	}
 
 	private static void deleteVideo() {
@@ -120,12 +133,20 @@ public class VideoYoutubeMain {
 		p("VideoYoutube");
 		p("------------");
 		p("");
+<<<<<<< HEAD
 		p("1. Listado de videos");
+=======
+		p("1. Listado de videos");
+>>>>>>> branch 'Piero' of https://github.com/ipartek/java_2018_0507.git
 		p("2. Buscar video por id");
 		p("3. Añadir video");
 		p("4. Modificar video");
 		p("5. Eliminar video");
+<<<<<<< HEAD
 		p("");
+=======
+		p("");
+>>>>>>> branch 'Piero' of https://github.com/ipartek/java_2018_0507.git
 		p("0. Salir");
 		p("");
 		p("Elige una opción");

@@ -29,8 +29,12 @@ public class ClienteArrayDao implements CrudAble<Cliente>{
 	@Override
 	public Cliente getById(long id) {
 		Cliente resul = null;
+<<<<<<< HEAD
+		for(Cliente clienteIteracion : cliente) {
+=======
 		//foreach
 		for(Cliente clienteIteracion : clientes) {
+>>>>>>> branch 'Piero' of https://github.com/ipartek/java_2018_0507.git
 			if (id == clienteIteracion.getId()) {
 				resul = clienteIteracion;
 				break;
