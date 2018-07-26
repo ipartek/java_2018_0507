@@ -29,7 +29,10 @@ public class LoginForm {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
+	public void setNombre(String nombre) throws LoginFormException { // "              Hola Javier            ".trim() ---> "Hola Javier"
+		if(nombre.trim().length() == 0) {
+			throw new LoginFormException("No se admiten nombres vacíos");
+		}
 		this.nombre = nombre;
 	}
 
