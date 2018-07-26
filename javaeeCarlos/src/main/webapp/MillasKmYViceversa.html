@@ -6,7 +6,10 @@
 </head>
 <body>
 	<p><label>Millas</label> <input type="number" id="millas" 
-	value='<jsp:getProperty property="millas" name="millas"/'><label>   Kilometros</label>    Valor<label></p><br>
+	value='<jsp:getProperty property="millas" name="millas"/'><label>   Kilometros</label>
+	<span class="errorTexto"> <jsp:getProperty
+						property="mensajeError" name="login" />
+				</span></p><br>
 	
 	<p><label>Millas</label> <input type="number" id="kilometros" 
 	value='<jsp:getProperty property="millas" name="km"/'><label>   Millas</label>    Valor<label></p><br>

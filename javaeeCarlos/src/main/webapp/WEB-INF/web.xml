@@ -22,7 +22,7 @@
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>RegistroServlet</servlet-name>
-  	<url-pattern>/RegistroServlet</url-pattern>
+  	<url-pattern>/registro</url-pattern>
   </servlet-mapping>
  
   

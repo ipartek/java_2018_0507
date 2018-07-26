@@ -46,13 +46,13 @@ public class RegistroServlet extends HttpServlet {
 		if (nombre.equals("")) {
 			registro.setMensajeErrorNombre("No se ha introducido el nombre");
 		}else {
-			registro.setNombre(nombre);
+			//registro.setNombre(nombre);
 			//request.getSession().setAttribute("usuario", login);
 		}
 		if (apellido.equals("")) {
 			registro.setMensajeErrorApellido("No se ha introducido el apellido");
 		}else {
-			registro.setApellido(apellido);
+			//registro.setApellido(apellido);
 		}
 		if (dni.equals("")) {
 			registro.setMensajeErrorDni("No se ha introducido el DNI");
@@ -63,7 +63,7 @@ public class RegistroServlet extends HttpServlet {
 		}else if (!(dni.length()<9) && !(dni.length()>9)){
 			checkDni(dni.substring(0, 8), dni.substring(9, 9));
 				if(checkDni(dni.substring(0, 8), dni.substring(9, 9))){
-					registro.setDni(dni);
+					//registro.setDni(dni);
 				}
 		}
 		if (clave.equals("")) {
@@ -71,7 +71,7 @@ public class RegistroServlet extends HttpServlet {
 		}else if (!clave.equals("") && !repiteClave.equals(clave)){
 			registro.setMensajeErrorRepiteClave("La clave no es la misma");
 		}else if (!clave.equals("") && repiteClave.equals(clave)) {
-			registro.setClave(clave);
+			//registro.setClave(clave);
 		}
 	}
 

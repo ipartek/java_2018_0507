@@ -40,11 +40,11 @@
 			</p>
 			<div>
 			<p>
-				<button align="left">Login</button>
+				<button>Login</button>
 				<span class="errorTexto"> <jsp:getProperty
 						property="mensajeError" name="login" />
 				</span>
-				<a href="registro.jsp" id="registroEnlace">Registro</button></a>
+				<a href="registro.jsp" id="registroEnlace">Registro</a>
 			</p>
 			</div>
 		</fieldset>
