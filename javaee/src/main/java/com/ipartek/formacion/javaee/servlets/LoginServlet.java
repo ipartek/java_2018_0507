@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-<<<<<<< HEAD
+
 import com.ipartek.formacion.javaee.modelos.LoginForm;
 
 public class LoginServlet extends HttpServlet {
@@ -64,28 +64,8 @@ public class LoginServlet extends HttpServlet {
 
 	private boolean validar(LoginForm login) {
 		return "javierniño".equals(login.getNombre()) && "contra".equals(login.getPassword());
-=======
-
-public class LoginServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter pw = response.getWriter();
-		pw.println("Hola a todos: " + new java.util.Date());
-		
-		String ruta = request.getContextPath();
-		pw.println(ruta);
-		
-		String nombre = request.getParameter("nombre");
-		pw.append("Hola ").append(nombre);
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
->>>>>>> branch 'Julen' of https://github.com/ipartek/java_2018_0507.git
 	}
 
 }
