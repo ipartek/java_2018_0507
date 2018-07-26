@@ -8,7 +8,7 @@ label {
 }
 input, button {
     border: 1px solid black;
-border-bottom-left-radius: 15px;    
+	border-bottom-left-radius: 15px;    
     border-bottom-right-radius: 15px;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
@@ -51,5 +51,18 @@ input[name=nombre]{
 }
 .errorTexto, .errorCuadro {
     color:red;
+}
+#banderaRegistro{
+	font-family:fantasy; 
+	font-size:xx-large;
+} 
+#registroEnlace{
+	padding: 5px 10px;
+	border: 1px solid black;
+	border-radius: 50px;
+	background-color: firebrick;
+	border-color: fuchsia;
+	border-width: thick;
+	color: black;
 }
 /*La linea superior significa 5 pixeles arriba y abajo y 10 a iquierda y derecha*/

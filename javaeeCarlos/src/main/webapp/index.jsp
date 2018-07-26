@@ -25,7 +25,7 @@
 		<fieldset>
 			<legend>login</legend>
 			<p>
-				<label for="password">Nombre</label> <br> <input type="text"
+				<label for="nombre">Nombre</label> <br> <input type="text"
 					name="nombre" id="nombre"
 					value='<jsp:getProperty property="nombre" name="login"/>'>
 				<span class="errorNombre"> <jsp:getProperty
@@ -38,12 +38,15 @@
 						<span class="errorClave"> <jsp:getProperty
 					 property="mensajeErrorClave" name="login"/></span>  
 			</p>
+			<div>
 			<p>
-				<button>Login</button>
+				<button align="left">Login</button>
 				<span class="errorTexto"> <jsp:getProperty
 						property="mensajeError" name="login" />
 				</span>
+				<a href="registro.jsp" id="registroEnlace">Registro</button></a>
 			</p>
+			</div>
 		</fieldset>
 	</form>
 

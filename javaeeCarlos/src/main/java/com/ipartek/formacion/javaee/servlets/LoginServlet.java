@@ -61,7 +61,8 @@ public class LoginServlet extends HttpServlet {
 		}else if(!validarNombre(login)) {
 			login.setMensajeErrorUsuario("El nombre no es el correcto, burribestia");
 		}else if(validarNombre(login)) {
-			request.getSession().setAttribute("usuario", login);
+			login.setMensajeErrorUsuario("");
+			//request.getSession().setAttribute("usuario", login);
 		}
 		//Comprueba si el campo esta vacio o si la clave es incorrecta
 		if (password.equals("")) {
@@ -69,21 +70,22 @@ public class LoginServlet extends HttpServlet {
 		}else if(!validarClave(login)) {
 			login.setMensajeErrorClave("La clave no es la correcta");
 		}else if(validarClave(login)){
-			request.getSession().setAttribute("contraseña", login);
+			login.setMensajeErrorClave("");
+			//request.getSession().setAttribute("contraseña", login);
 		}
 		//Si el usuario y contraseña son incorrectos manda mensaje
 		if (validar(login)) {
-			//request.getSession().setAttribute("usuario", login);
-			//response.sendRedirect("Principal.jsp");
+			request.getSession().setAttribute("usuario", login);
+			response.sendRedirect("Principal.jsp");
 		} else {
-			login.setMensajeError("El usuario o contraseña no son correctos");
+			//login.setMensajeError("El usuario o contraseña no son correctos");
+			login.setMensajeError("");
 			request.setAttribute("login", login);
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 
 	}
 	private boolean validar(LoginForm login) {
-		
 			return "batman".equals(login.getNombre()) && "batman".equals(login.getContraseña());
 	}
 	private boolean validarNombre(LoginForm logName) {
