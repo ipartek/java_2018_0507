@@ -1,28 +1,43 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Registrate</title>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="index.css" />
+    <!-- script src="index.js"></script -->
 </head>
 <body>
- 	<fieldset>
-            <legend>Registro</legend>
+
+	<form action="registro" method="post">
+        <fieldset>
+            <legend>Datos Personales</legend>
+             <p>
+                <label for="dni">DNI</label>
+                <input type="text" name="dni" id="dni"/>
+            </p>
             <p>
                 <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" id="nombre" value="" name="login"/>' />
+                <input type="text" name="nombre" id="nombre"/>
             </p>
             <p>
                 <label for="password">Contraseña</label>
                 <input type="text" name="password" id="password" />
             </p>
             <p>
-                <button>Crear Cuenta</button>
-                <span class="errorTexto">
-                	<jsp:getProperty property="mensajeError" name="login"/>
-                </span>
+                <label for="apellido">Apellido</label>
+                <input type="text" name="apellido" id="apellido" />
+            </p>
+            <p>
+                <label for="poblacion">Población</label>
+                <input type="text" name="poblacion" id="poblacion" />
+            </p>
+            <p>
+            	<input type="hidden" name="ACCION" id="ACCION" value="REGISTRO"/>
+              	<button value="2">Registrar</button>
             </p>
         </fieldset>
+    </form>
+    
 </body>
 </html>

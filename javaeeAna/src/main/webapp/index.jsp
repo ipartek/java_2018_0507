@@ -24,16 +24,17 @@
             <p>
                 <label for="password">Contraseña</label>
                 <input type="text" name="password" id="password" />
+                <input type="hidden" name="ACCION" id="ACCION" value="LOGIN"/>
             </p>
             <p>
-                <button>Login</button>
+                <button value="1">Login</button> <button value="2">Registrar</button>
                 <span class="errorTexto">
                 	<jsp:getProperty property="mensajeError" name="login"/>
                 </span>
             </p>
         </fieldset>
     </form>
-    <a href="registro.jsp">Registrate</a>
+  
      
     
 </body>
