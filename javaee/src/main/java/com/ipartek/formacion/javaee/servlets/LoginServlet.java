@@ -68,7 +68,7 @@ public class LoginServlet extends HttpServlet {
 				login.setPassword("");
 				login.setNombre("");
 			}
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			
 		}
 		}
 		if(bot==2) {
