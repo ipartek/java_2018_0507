@@ -1,42 +1,20 @@
 package com.ipartek.formacion.javaee.modelos;
 
 public class LoginForm {
-	private String nombre;
-	private String password;
-	private String apellido;
+	private String nombre = "";
+	private String password = "";
+	private String apellido = "";
 	
-	private String mensajeError;
+	private String mensajeError = "";
 	
-	private String errorNombre;
-	private String errorApellido;
-	private String errorPassword;
+	private String errorNombre = "";
+	private String errorApellido = "";
+	private String errorPassword = "";
+	
+	private boolean erroneo = false;
 
+	// OBLIGATORIO PARA PODER USAR <jsp:useBean
 	public LoginForm() {
-		this("","","","","");
-	}
-	
-	public LoginForm(String nombre, String password) {
-		this(nombre,password,"","","");
-	}
-	public LoginForm(String nombre, String apellido, String password) {
-		this(nombre,apellido,password,"","","","");
-	}
-
-	public LoginForm(String nombre, String password, String mensajeError, String errorNombre, String errorPassword) {
-		super();
-		this.nombre = nombre;
-		this.password = password;
-		this.mensajeError = mensajeError;
-		this.errorNombre = errorNombre;
-		this.errorPassword = errorPassword;
-	}
-	public LoginForm(String nombre, String apellido, String password, String mensajeError, String errorNombre, String errorApellido, String errorPassword) {
-		this.nombre = nombre;
-		this.password = password;
-		this.mensajeError = mensajeError;
-		this.errorNombre = errorNombre;
-		this.errorApellido = errorApellido;
-		this.errorPassword = errorPassword;
 	}
 
 	@Override
@@ -48,7 +26,12 @@ public class LoginForm {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
+	public void setNombre(String nombre){
+		if (nombre == null || nombre.trim().length() == 0) {
+			setErrorNombre("Es obligatorio rellenar el nombre");
+			setErroneo(true);
+			throw new LoginFormException("Es obligatorio rellenar el nombre");
+		}
 		this.nombre = nombre;
 	}
 	
@@ -65,6 +48,11 @@ public class LoginForm {
 	}
 
 	public void setPassword(String password) {
+		if (password == null || password.trim().length() == 0) {
+			setErrorPassword("Es obligatorio rellenar el password");
+			setErroneo(true);
+			throw new LoginFormException("Es obligatorio rellenar el password");
+		}
 		this.password = password;
 	}
 
@@ -96,6 +84,14 @@ public class LoginForm {
 
 	public void setErrorPassword(String errorPassword) {
 		this.errorPassword = errorPassword;
+	}
+
+	public boolean isErroneo() {
+		return erroneo;
+	}
+
+	public void setErroneo(boolean erroneo) {
+		this.erroneo = erroneo;
 	}
 	
 }	

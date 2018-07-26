@@ -1,7 +1,6 @@
 package com.ipartek.formacion.javaee.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.javaee.modelos.LoginForm;
+import com.ipartek.formacion.javaee.modelos.LoginFormException;
 
 /**
  * Servlet implementation class LoginServlet
@@ -16,11 +16,47 @@ import com.ipartek.formacion.javaee.modelos.LoginForm;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		
+		// Recogida de datos
+		String nombre = request.getParameter("nombre");
+		String password = request.getParameter("password");	
+		
+		// Empaquetado en modelo
+		LoginForm login = new LoginForm();
+		
+		login.setNombre(nombre);			//SetNombre comprueba que no esta vacio
+		
+		try {
+			login.setPassword(password);	//SetPassword comprueba que no esta vacio
+		}catch (LoginFormException e){		//Excepcion opcional para sustituir el error por un *
+			login.setErrorPassword("*");
+		}
+		
+		// Llamada a logica de negocio
+		if (!login.isErroneo() && validar(login)) {
+			// Redireccion a vista
+			request.getSession().setAttribute("usuario", login);
+			response.sendRedirect("principal.jsp");
+		}else {
+			// Redireccion a vista
+			login.setMensajeError("El usuario o contraseña no son correctos");
+			request.setAttribute("login", login);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
+	}
+
+	private boolean validar(LoginForm login) {
+		return "antxon".equals(login.getNombre()) && "asdf".equals(login.getPassword());
+	}
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/*protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter pw = response.getWriter();
 		pw.println("hola a todos\n" + new java.util.Date());
 
@@ -29,48 +65,12 @@ public class LoginServlet extends HttpServlet {
 
 		
 		pw.println("\nSi quieres introducir usuario y contraseña hagalo por POST");
-	}
+	}*/
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		
-		String nombre = request.getParameter("nombre");
-		String password = request.getParameter("password");		
-		if (nombre == null || password == null) { 
-			throw new RuntimeException("No se han recibido los datos de nombre y/o password");
-		}
-		
-		LoginForm login = new LoginForm(nombre,password);
-		
-		if (validar(login)) {
-			request.getSession().setAttribute("usuario", login);
-			response.sendRedirect("principal.jsp");
-		}else {
-			//response.sendRedirect("error.html");
-			if (login.getNombre().toString() == "") {
-				login.setErrorNombre("Es obligatorio rellenar el nombre");
-			}
-			if (login.getPassword().toString() == "") {
-				login.setErrorPassword("Es obligatorio rellenar el password");
-			}
-			login.setMensajeError("El usuario o contraseña no son correctos");
-			request.setAttribute("login", login);
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-		}
-		
-		
-//		PrintWriter pw = response.getWriter();
-//		pw.append("Hola ").append(nombre);
-		
-		//doGet(request, response);
-	}
-
-	private boolean validar(LoginForm login) {
-		return "antxon".equals(login.getNombre()) && "asdf".equals(login.getPassword());
-	}
+	
 
 }
