@@ -32,12 +32,11 @@ public class RegistroForm {
 		this.mensajeErrorDni = mensajeErrorDni;
 	}
 
-	public RegistroForm(String nombre, String apellido, String clave, String repiteClave, String dni) {
+	public RegistroForm(String nombre, String apellido, String clave, String dni) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.clave = clave;
-		this.repiteClave = repiteClave;
 		this.dni = dni;
 	}
 

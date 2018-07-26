@@ -65,4 +65,27 @@ input[name=nombre]{
 	border-width: thick;
 	color: black;
 }
+#colDerecha{
+	position:relative;
+	bottom:162px;
+	left:200px;
+}
+#registroField{
+
+	width: 370px;
+	height: 300px;	
+    border: 2px groove (internal value);
+}
+#labelClave{
+	text-align: left;
+}
+#btnRegistrar{
+	
+	padding: 5px 10px;
+    border-color: fuchsia;
+    border-width: thick;
+    border-bottom-style: groove;
+    background-color: firebrick;
+    text-decoration: blink;
+}
 /*La linea superior significa 5 pixeles arriba y abajo y 10 a iquierda y derecha*/

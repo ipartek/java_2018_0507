@@ -1,6 +1,7 @@
 package com.ipartek.formacion.javaee.servlets;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,11 +14,15 @@ public class RegistroServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	/*protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-	}*/
+	/*
+	 * protected void doGet(HttpServletRequest request, HttpServletResponse
+	 * response) throws ServletException, IOException {
+	 * //response.getWriter().append("Served at: ").append(request.getContextPath())
+	 * ; }
+	 */
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -32,7 +37,7 @@ public class RegistroServlet extends HttpServlet {
 		String repiteClave = request.getParameter("repiteClave");
 		String dni = request.getParameter("dni");
 		
-		RegistroForm registro = new RegistroForm(nombre, apellido, clave, repiteClave, dni);
+		RegistroForm registro = new RegistroForm(nombre, apellido, clave, dni);
 		
 		if (nombre == null || clave == null || apellido == null || repiteClave == null || dni == null) {
 			throw new RuntimeException("No se han recibido los datos de nombre y/o password");
@@ -48,12 +53,18 @@ public class RegistroServlet extends HttpServlet {
 			registro.setMensajeErrorApellido("No se ha introducido el apellido");
 		}else {
 			registro.setApellido(apellido);
-			
 		}
 		if (dni.equals("")) {
 			registro.setMensajeErrorDni("No se ha introducido el DNI");
-		}else {
-			registro.setDni(dni);
+		}else if (dni.length()>9){
+			registro.setMensajeErrorDni("Ha introducido más de 9 digitos DNI");
+		}else if (dni.length()<9){
+			registro.setMensajeErrorDni("Ha introducido menos de 9 digitos DNI");
+		}else if (!(dni.length()<9) && !(dni.length()>9)){
+			checkDni(dni.substring(0, 8), dni.substring(9, 9));
+				if(checkDni(dni.substring(0, 8), dni.substring(9, 9))){
+					registro.setDni(dni);
+				}
 		}
 		if (clave.equals("")) {
 			registro.setMensajeErrorClave("No se ha introducido la clave");
@@ -64,4 +75,17 @@ public class RegistroServlet extends HttpServlet {
 		}
 	}
 
+	public boolean checkDni(String dni, String letter) {
+		int check;
+		String[] letters = { "T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V",
+				"H", "L", "C", "K", "E" };
+
+		check = Integer.parseInt(dni) % 23;
+		
+			if (letters[check].equals(letter)) {
+				return true;
+			} else {
+				return false;
+			}
+	}
 }

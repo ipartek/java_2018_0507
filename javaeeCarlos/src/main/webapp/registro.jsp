@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Registro</title>
 <link rel="Stylesheet" href="index.css" />
 </head>
 <body>
@@ -18,48 +18,57 @@
 	</div>
 	<br>
 	<p id="mensaje">
-		Introduce <i>tus</i> <span class="destacado"> datos </span>para
-		crear una cuenta nueva.
+		Introduce <i>tus</i> <span class="destacado"> datos </span>para crear
+		una cuenta nueva.
 	</p>
-	<fieldset>
-		<legend id="banderaRegistro">Registro</legend>
-		<div>
-			<p>
-				<label for="nombre">Nombre</label> <br> <input type="text"
-					name="nombre" id="nombre"
-					value='<jsp:getProperty property="nombre" name="registro"/>'>
-				<span class="errorNombre"> <jsp:getProperty
-					 property="mensajeErrorUsuario" name="registro"/></span>
-			</p>
-			<p>
-				<label for="apellido">Apellido</label> <br> <input type="text"
-					name="apellido" id="apellido"
-					value='<jsp:getProperty property="apellido" name="registro"/>'>
-				<span class="errorApellido"> <jsp:getProperty
-					 property="mensajeErrorApellido" name="registro"/></span>
-			</p>
-			<p>
-				<label for="dni">DNI</label> <br> <input type="text"
-					name="dni" id="dni"
-					value='<jsp:getProperty property="dni" name="registro"/>'>
-				<span class="errorDNI"> <jsp:getProperty
-					 property="mensajeErrorDNI" name="registro"/></span>
-			</p>
-			<p>
-				<label for="clave">Contraseña</label> <br> <input type="text"
-					name="clave" id="clave"
-					value='<jsp:getProperty property="clave" name="registro"/>'>
-				<span class="errorClave"> <jsp:getProperty
-					 property="mensajeErrorClave" name="registro"/></span>
-			</p>
-			<p>
-				<label for="repiteclave">Repite la contraseña</label> <br> <input type="text"
-					name="repiteclave" id="repiteclave"
-					value='<jsp:getProperty property="repiteclave" name="registro"/>'>
-				<span class="errorRepiteClave"> <jsp:getProperty
-					 property="mensajeErrorRepiteClave" name="registro"/></span>
-			</p>
-		</div>
-	</fieldset>
+	<form action="registro" method="post">
+		<fieldset id="registroField">
+			<legend id="banderaRegistro">Registro</legend>
+			<div id="colIzquierda">
+				<p>
+					<label for="nombre">Nombre</label> <br> <input type="text"
+						name="nombre" id="nombre"
+						value='<jsp:getProperty property="nombre" name="registro"/>'>
+					<span class="errorNombre"> <jsp:getProperty
+							property="mensajeErrorUsuario" name="registro" /></span>
+				</p>
+				<p>
+					<label for="apellido">Apellido</label> <br> <input type="text"
+						name="apellido" id="apellido"
+						value='<jsp:getProperty property="apellido" name="registro"/>'>
+					<span class="errorApellido"> <jsp:getProperty
+							property="mensajeErrorApellido" name="registro" /></span>
+				</p>
+				<p>
+					<label for="dni">DNI</label> <br> <input type="text"
+						name="dni" id="dni"
+						value='<jsp:getProperty property="dni" name="registro"/>'>
+					<span class="errorDNI"> <jsp:getProperty
+							property="mensajeErrorDni" name="registro" /></span>
+				</p>
+				<div id="registrar">
+					<button id="btnRegistrar">Registrar</button>
+					
+				</div>
+			</div>
+			<div id="colDerecha">
+				<p>
+					<label for="clave" id="labelClave">Contraseña</label> <br> <input
+						type="text" name="clave" id="clave"
+						value='<jsp:getProperty property="clave" name="registro"/>'>
+					<span class="errorClave"> <jsp:getProperty
+							property="mensajeErrorClave" name="registro" /></span>
+				</p>
+				<p>
+					<label for="repiteClave" id="labelRepite">Repite la
+						contraseña</label> <br> <input type="text" name="repiteClave"
+						id="repiteclave"
+						value='<jsp:getProperty property="repiteClave" name="registro"/>'>
+					<span class="errorRepiteClave"> <jsp:getProperty
+							property="mensajeErrorRepiteClave" name="registro" /></span>
+				</p>
+			</div>
+		</fieldset>
+	</form>
 </body>
 </html>
