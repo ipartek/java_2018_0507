@@ -33,9 +33,9 @@ public class RegistroServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String passwordRepeat = request.getParameter("password2");
 		
-		if (nombre == null || apellido == null || password == null || passwordRepeat == null) {
+		/*if (nombre.isEmpty() || apellido.isEmpty() || password.isEmpty() || passwordRepeat.isEmpty()) {
 			throw new RuntimeException("No se han recibido los datos correctos");
-		}
+		}*/
 		
 		LoginForm login = new LoginForm(nombre,apellido,password);
 		
@@ -49,15 +49,15 @@ public class RegistroServlet extends HttpServlet {
 	
 	private boolean validar(LoginForm login, String passwordRepeat) {
 		boolean resultado = true;
-		if (login.getNombre().toString() == "") {
+		if (login.getNombre().toString().isEmpty()) {
 			login.setErrorNombre("Es obligatorio rellenar el nombre");
 			resultado = false;
 		}
-		if (login.getApellido().toString() == "") {
+		if (login.getApellido().toString().isEmpty()) {
 			login.setErrorApellido("Es obligatorio rellenar el apellido");
 			resultado = false;
 		}
-		if (login.getPassword().toString() == "") {
+		if (login.getPassword().toString().isEmpty()) {
 			login.setErrorPassword("Es obligatorio rellenar el password");
 			resultado = false;
 		}
