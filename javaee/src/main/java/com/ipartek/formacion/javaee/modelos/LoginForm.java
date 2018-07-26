@@ -29,13 +29,13 @@ public class LoginForm {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) throws LoginFormException {
-		if (nombre.trim().length() ==0) {  //ESTO TE BORRA CUALQUIER ESPACIO EXTRA QUE METAS AL PRINCIPIO O AL FINAL
-			throw new LoginFormException("No se admiten espacios");
-		}
-		else
-			this.nombre= nombre;
+	public void setNombre(String nombre) throws LoginFormException { // "       Hola Javier            ".trim() ---> "Hola Javier"
 		
+	if(nombre.trim().length() == 0) {  //ESTO TE BORRA CUALQUIER ESPACIO EXTRA QUE METAS AL PRINCIPIO O AL FINAL
+			throw new LoginFormException("No se admiten nombres vacíos");
+		}
+		this.nombre = nombre;
+
 	}
 
 	public String getPassword() {

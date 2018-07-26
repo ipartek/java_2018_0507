@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="index.css" />
-    <script src="index.jsenpruebas"></script>
+    <%-- <script src="index.jsenpruebas"></script> --%>
 </head>
 <body>
 	<jsp:useBean id="login" scope="request" class="com.ipartek.formacion.javaee.modelos.LoginForm" />
@@ -23,6 +23,7 @@
             <p>
                 <label for="password">Contraseña</label>
                 <input type="password" name="password" id="password" />
+                <%-- <jsp:getProperty property="password" name="login"/> --%>
             </p>
             <p>
                 <button>Login</button>
