@@ -52,8 +52,10 @@ public class LoginServlet extends HttpServlet {
 		String nombre = request.getParameter("nombre");
 		String password = request.getParameter("password");
 		
-		if(nombre == null | password == null) {
+		if(nombre == null || password == null) {
+			
 			throw new RuntimeException("No se han recibido los datos de nombre y/o password");
+			
 		}
 		
 		//objeto del modelo (pojo)
@@ -67,10 +69,10 @@ public class LoginServlet extends HttpServlet {
 			request.getSession().setAttribute("usuario", login);;
 			response.sendRedirect("principal.jsp");
 		}else {
-			//response.sendRedirect("error.html");
-			login.setMensajeError("El mensaje o contraseña son incorrectos");
-			request.setAttribute("login", login);
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			response.sendRedirect("error.html");
+			//login.setMensajeError("El mensaje o contraseña son incorrectos");
+			//request.setAttribute("login", login);
+			//request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 	}
 

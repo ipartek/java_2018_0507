@@ -17,7 +17,7 @@
             <legend>Login</legend>
             <p>
                 <label for="nombre">Nombre</label>
-                <input type="password" name="nombre" id="nombre" 
+                <input type="text" name="nombre" id="nombre" 
                 value='<jsp:getProperty property="nombre" name="login"/>'/>
             </p>
             <p>
