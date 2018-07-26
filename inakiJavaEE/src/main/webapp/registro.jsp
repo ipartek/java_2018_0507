@@ -13,7 +13,7 @@
 			<legend>Registro</legend>
 			<p>
 				<label for="nombre">nombre</label>
-				<input type="text" name="nombre"  value='<jsp:getProperty property="nombre" name="registro"/>'/><jsp:getProperty property="mensajeErrorNombre" name="registroServlet"/>
+				<input type="text" name="nombre"  value='<jsp:getProperty property="nombre" name="registroServlet"/>'/><jsp:getProperty property="mensajeErrorNombre" name="registroServlet"/>
 			</p>
 				<label for="apellidos">apellidos</label>
 				<input type="text" name="apellido" value=""/><jsp:getProperty property="apellidoE" name="registroServlet"/>

@@ -37,9 +37,9 @@ public class RegistroServlet extends HttpServlet {
 		pass=request.getParameter("password");
 		repPass=request.getParameter("repPass");
 		p=new Persona(nombre,apellido,dni,pass,repPass);
-		response.sendRedirect("registro.jsp");
-		request.setAttribute("persona", p);
-		//request.getRequestDispatcher("registro.jsp").forward(request, response);
+		//response.sendRedirect("registro.jsp");
+		request.setAttribute("registroServlet", p);
+		request.getRequestDispatcher("registro.jsp").forward(request, response);
 
 	}
 

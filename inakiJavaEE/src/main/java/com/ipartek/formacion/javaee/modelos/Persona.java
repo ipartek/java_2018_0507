@@ -28,7 +28,7 @@ public Persona(String nombre,String apellidos,String dni,String password,String 
 	setApellido(apellidos);
 	setDni(dni);
 	setPassword(password);
-	if(repPass.length()>0)
+	if(repPass!="" && repPass!=null && password!="" && password!=null)
 	setPasswordIwales(repPass);
 	//System.out.println(nombre+apellidos+dni);
 	
@@ -51,7 +51,7 @@ public String getErrorCompPass()
 	if(errorPassIwales==1)
 		error="no coindiden";
 	else 
-		error="si";
+		error="";
 	return error;
 }
 public String getDni() {
@@ -61,8 +61,9 @@ public void setDni(String dni) {
 	System.out.println(dni);
 	try {
 		if(dni.length()==9) {
-			int numero=Integer.parseInt(dni.substring(0, 7))%23;
-			if (!(dni.charAt(8)==arrayDni[numero]))
+			int numero=Integer.parseInt(dni.substring(0, 8))%23;
+			System.out.println(numero + "miNum");
+			if (!(dni.charAt(9)==arrayDni[numero]))
 			{
 				errorDni=4;
 			}
@@ -92,7 +93,6 @@ public String getDniError() {
 		error="8 numero y una letra";
 	if(errorDni==4)
 		error="no coincide ese numero kon la letra";		
-	System.out.println(error);
 	return error;
 }
 public String getApellido() {
@@ -100,7 +100,7 @@ public String getApellido() {
 		apellido="no puede estar vacio payo";
 	}
 	else
-		apellido="correcto";
+		apellido="";
 	System.out.println(apellido);
 	return apellido;
 }
@@ -109,7 +109,7 @@ public String getApellidoE(){
 	if(errorApellido==1)
 		error="vacios no";
 	else
-		error="correcto";
+		error="";
 		
 	
 	return error;
@@ -129,11 +129,9 @@ public void setNombre(String nombre) {
 	
 	if("".equals(nombre)) {
 		hayErrorNombre=1;
-		x=1;
 	}
 	else
 	this.nombre = nombre;
-	System.out.println(hayErrorNombre);
 }
 public String getPassword() {
 	return password;
@@ -149,11 +147,9 @@ public String getMensajeErrorNombre() {
 	System.out.println(hayErrorNombre+"mis errores"+x);
 	if (hayErrorNombre==1) {
 		mensajeEnombre="el nombre no puede estar en blanco";
-		System.out.println(mensajeEnombre+"estoy entrando");
 	}
 	else
 		mensajeEnombre="";
-	System.out.println(mensajeEnombre+"en blanco");
 	return mensajeEnombre;
 }
 public String getMensajeErrorPass() {
@@ -161,7 +157,6 @@ public String getMensajeErrorPass() {
 		mensajeEPassword="el password no puede estar en blanco";
 	else
 		mensajeEPassword="";
-	System.out.println(mensajeEPassword);
 	return mensajeEPassword;
 }
 public String getMensajeError() {
