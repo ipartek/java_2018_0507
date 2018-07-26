@@ -1,10 +1,19 @@
 package com.ipartek.formacion.javaee.modelos;
 
+import java.util.ArrayList;
+
 public class LoginForm {
 	private String nombre;
 	private String password;
-	
 	private String mensajeError;
+	static ArrayList<LoginForm> lista=new ArrayList<LoginForm>();
+	public static ArrayList<LoginForm> getLista() {
+		return lista;
+	}
+
+	public static void setLista(ArrayList<LoginForm> lista) {
+		LoginForm.lista = lista;
+	}
 
 	public LoginForm(String nombre, String password, String mensajeError) {
 		super();

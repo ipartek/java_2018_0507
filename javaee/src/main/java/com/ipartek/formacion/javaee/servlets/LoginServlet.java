@@ -2,6 +2,7 @@ package com.ipartek.formacion.javaee.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -29,40 +30,78 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		
 		String nombre = request.getParameter("nombre");
 		String password = request.getParameter("password");
-		
-		System.out.println(nombre);
-		
+		String boton=request.getParameter("boton");
+		int bot=0;
+		try {
+			bot=Integer.parseInt(boton);
+		}catch(Exception e) {
+			System.out.println("error al combertir el boton en numero");
+		} 
 		if(nombre == null || password == null) {
 			throw new RuntimeException("No se han recibido los datos de nombre y/o password");
 		}
-		
 		LoginForm login = new LoginForm(nombre, password);
-			
+		System.out.println(bot);
+		if(bot==1) {
 		if(validar(login)) {
 			request.getSession().setAttribute("usuario", login);
 			response.sendRedirect("principal.jsp");
 		} else {
 			//response.sendRedirect("error.html");
-			login.setMensajeError("El usuario o contraseña no son correctos");
+			//login.setMensajeError("El usuario o contraseña no son correctos");
 			request.setAttribute("login", login);
+			if(!validarnombre(login)) {
+				login.setNombre("error nombre");
+			}else {
+				login.setNombre("");
+			}
+			if(!validarcontraseina(login)) {
+				login.setPassword("error pasword");
+			}else {
+				login.setPassword("");
+			}
+			if(!validarcontraseina(login)&&!validarnombre(login)) {
+			login.setMensajeError("contraseña y usuario incorrectos");
+			}else {
+				login.setPassword("");
+				login.setNombre("");
+			}
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
+		}
+		if(bot==2) {
+			if(validar(login)==false) {
+				LoginForm.getLista().add(login);
+				login.setMensajeError("usuario añadido");
+				response.sendRedirect("index.jsp");
+			}else {
+				login.setMensajeError("usuario no añadido");
+				response.sendRedirect("index.jsp");
+			}
+		}
+		
 			
-		
-		//		PrintWriter pw = response.getWriter();
-//		
-//		pw.append("Hola ").append(nombre);
-		
-		//pw.println("Hola " + nombre);
-		//pw.println(new StringBuilder("Hola ").append(nombre).toString());
-	
 	}
 
 	private boolean validar(LoginForm login) {
-		return "javierniño".equals(login.getNombre()) && "contra".equals(login.getPassword());
+		ArrayList<LoginForm> listi=LoginForm.getLista();
+		for(int i=0; i<listi.size();i++) {
+			
+			if((login.getNombre().equals(listi.get(i).getNombre()))&&(login.getPassword().equals(listi.get(i).getPassword()))){
+				return listi.get(i).getNombre().equals(login.getNombre()) && listi.get(i).getPassword().equals(login.getPassword());
+				
+			}
+		}
+		return false;
+		
+	}
+	private boolean validarcontraseina(LoginForm login) {
+		return "contra".equals(login.getPassword());
+	}
+	private boolean validarnombre(LoginForm login) {
+		return "javierniño".equals(login.getNombre());
 	}
 
 }
