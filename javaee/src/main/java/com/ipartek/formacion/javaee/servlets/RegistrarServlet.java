@@ -44,6 +44,8 @@ public class RegistrarServlet extends HttpServlet {
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 			
 		}
+		
+		
 	}
 
 }

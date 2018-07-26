@@ -17,7 +17,7 @@ public class LoginForm {
 		this(nombre, password, "");
 	}
 
-	public LoginForm() {
+	public LoginForm() { //CUANDO USAMOS EL USEBEAN EN EL JSP ES OBLIGATORIO CREAR ESTE CONTRUCTOR VACIO SI O SI
 		this("", "", "");
 	}
 	@Override
@@ -29,9 +29,9 @@ public class LoginForm {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
-		if ("".equals(nombre) || nombre.length()>5) {
-			
+	public void setNombre(String nombre) throws LoginFormException {
+		if (nombre.trim().length() ==0) {  //ESTO TE BORRA CUALQUIER ESPACIO EXTRA QUE METAS AL PRINCIPIO O AL FINAL
+			throw new LoginFormException("No se admiten espacios");
 		}
 		else
 			this.nombre= nombre;
