@@ -23,6 +23,7 @@
             <p>
                 <label for="password">Contraseña</label>
                 <input type="password" name="password" id="password" />
+                <%-- <jsp:getProperty property="password" name="login"/> --%>
             </p>
             <p>
                 <button>Login</button>
