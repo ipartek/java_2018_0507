@@ -11,7 +11,7 @@ input{
     border: 1px solid black;
 }
 
-button{
+button, input[type=button]{
     margin-left: 8em;
     padding: 5px 10px;
 }

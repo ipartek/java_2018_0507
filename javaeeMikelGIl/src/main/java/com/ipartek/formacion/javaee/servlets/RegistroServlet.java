@@ -37,34 +37,37 @@ public class RegistroServlet extends HttpServlet {
 			throw new RuntimeException("No se han recibido los datos correctos");
 		}*/
 		
-		LoginForm login = new LoginForm(nombre,apellido,password);
+		LoginForm registro = new LoginForm();
 		
-		if (validar(login, passwordRepeat)) {
+		if (validar(registro, nombre, apellido, password, passwordRepeat)) {
 			response.sendRedirect("login.jsp");
 		}else {
-			request.setAttribute("login", login);
+			request.setAttribute("registro", registro);
 			request.getRequestDispatcher("registro.jsp").forward(request, response);
 		}
 	}
 	
-	private boolean validar(LoginForm login, String passwordRepeat) {
+	private boolean validar(LoginForm registro, String nombre, String apellido, String password, String passwordRepeat) {
 		boolean resultado = true;
-		if (login.getNombre().toString().isEmpty()) {
-			login.setErrorNombre("Es obligatorio rellenar el nombre");
+		
+		if (nombre.isEmpty()) {
+			registro.setErrorNombre("Es obligatorio rellenar el nombre");
 			resultado = false;
 		}
-		if (login.getApellido().toString().isEmpty()) {
-			login.setErrorApellido("Es obligatorio rellenar el apellido");
+		if (apellido.isEmpty()) {
+			registro.setErrorApellido("Es obligatorio rellenar el apellido");
 			resultado = false;
 		}
-		if (login.getPassword().toString().isEmpty()) {
-			login.setErrorPassword("Es obligatorio rellenar el password");
+		if (password.isEmpty()) {
+			registro.setErrorPassword("Es obligatorio rellenar el password");
 			resultado = false;
 		}
-		if (login.getPassword().toString() != passwordRepeat) {
-			login.setErrorPassword("Las contraseñas deben ser identicas");
+		if (password != passwordRepeat) {
+			registro.setErrorPassword("Las contraseñas deben ser identicas");
 			resultado = false;
 		}
+		
+		System.out.println("Nombre: " + nombre + " apellido: " + apellido + " password " + password + " Repeatpassword: "+passwordRepeat);
 		
 		return resultado;
 	}
