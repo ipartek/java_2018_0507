@@ -35,7 +35,7 @@
             <p>
                 <button>Registrar</button>
                 <span class="errorTexto">
-                	                	<jsp:getProperty property="mensajeError" name="login"/>
+                        	<jsp:getProperty property="mensajeError" name="login"/> 
                 	
                 </span>
             </p>

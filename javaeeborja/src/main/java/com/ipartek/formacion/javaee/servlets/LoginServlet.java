@@ -40,45 +40,57 @@ public class LoginServlet extends HttpServlet {
 		String nombrer = request.getParameter("nombrer");
 		String passwordr = request.getParameter("passwordr");
 		String emailr = request.getParameter("emailr");
-		String mensaje="xD";
-		System.out.println(nombre);
-		System.out.println(password);
 		
+		String mensaje="xD";
+//		System.out.println(nombre);
+//		System.out.println(password);
+//		
 		System.out.println(nombrer);
+		System.out.println(passwordr);
 		System.out.println(emailr);
-		if (nombre == null || password == null) {
-			// response.sendRedirect("error.html");
-			((ServletRequest) response).getRequestDispatcher("error.html");
+		if(nombre == null || password == null) {
+			//throw new RuntimeException("No se han recibido los datos de nombre y/o password");
+			response.sendRedirect("error.html");
 		}
-
-		else {
-
-			LoginForm login = new LoginForm(nombre, password);
-			if (validar(login)) {
-				request.getSession().setAttribute("usuario", login);
-				response.sendRedirect("principal.jsp");
-
-			} else {
-				response.sendRedirect("error.html");
-
-			}
-		}
-
-		if (nombrer == null || passwordr == null || emailr == null) {
-			((ServletRequest) response).getRequestDispatcher("error.html");
+		
+		LoginForm login = new LoginForm(nombre, password);
+			
+		if(validar(login)) {
+			request.getSession().setAttribute("usuario", login);
+			response.sendRedirect("principal.jsp");
 		} else {
+			//response.sendRedirect("error.html");
+			login.setMensajeError("El usuario o contraseña no son correctos");
+			request.setAttribute("login", login);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
+
+//		
+		
+		
+		
+		if (nombrer == null || passwordr == null || emailr == null) {
+response.sendRedirect("error.html");		} 
 
 			RegisterForm loginr = new RegisterForm(nombrer, passwordr, emailr,mensaje);
 			if (validarr(loginr)) {
-				request.getSession().setAttribute("usuario", loginr);
+				//request.getSession().setAttribute("usuario", loginr);
+				request.getSession().setAttribute("usuario", login);
 				response.sendRedirect("principal.jsp");
+				loginr.setNombre(nombrer);
+				loginr.setEmail(emailr);
+				login.setPassword(passwordr);
+				
+				System.out.println(login.getNombre());
+				response.sendRedirect("principal.jsp");
+				
 
 			} else {
 				response.sendRedirect("error.html");
 
 			}
 
-		}
+		
 
 	}
 
@@ -96,8 +108,7 @@ public class LoginServlet extends HttpServlet {
 
 	private boolean validarr(RegisterForm login) {
 
-		return "borjañ".equals(login.getNombrer()) && "contra".equals(login.getPasswordr())
-				&& "email@email.com".equals(login.getEmailr());
+		return true;
 	}
 
 }
