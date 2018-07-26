@@ -1,6 +1,6 @@
 package com.ipartek.formacion.javaee.modelos;
 
-public class LoginFormException extends Exception {
+public class LoginFormException extends RuntimeException {
 	
 	private static final long serialVersionUID = -4243816990632407047L;
 
