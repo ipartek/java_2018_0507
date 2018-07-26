@@ -30,6 +30,12 @@ public class LoginForm {
 	}
 
 	public void setNombre(String nombre) {
+		if ("".equals(nombre) || nombre.length()>5) {
+			
+		}
+		else
+			this.nombre= nombre;
+		
 		this.nombre = nombre;
 	}
 
@@ -38,6 +44,9 @@ public class LoginForm {
 	}
 
 	public void setPassword(String password) {
+		if ("".equals(password) || password.length()>6) {
+			
+		}
 		this.password = password;
 	}
 
