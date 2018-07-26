@@ -4,6 +4,7 @@ public class LoginForm {
 	private String nombre;
 	private String password;
 	
+	private String errorNombre;
 	private String mensajeError;
 
 	public LoginForm(String nombre, String password, String mensajeError) {
@@ -17,7 +18,7 @@ public class LoginForm {
 		this(nombre, password, "");
 	}
 
-	public LoginForm() {
+	public LoginForm() { //Obligatorio poner el constructor vacio usando useBean
 		this("", "", "");
 	}
 	@Override
@@ -29,7 +30,10 @@ public class LoginForm {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
+	public void setNombre(String nombre) throws LoginFormException {
+		if(nombre.trim().length() == 0) {
+			throw new LoginFormException("No se admite nombres vacíos");
+		}
 		this.nombre = nombre;
 	}
 
@@ -47,5 +51,13 @@ public class LoginForm {
 
 	public void setMensajeError(String mensajeError) {
 		this.mensajeError = mensajeError;
+	}
+
+	public String getErrorNombre() {
+		return errorNombre;
+	}
+
+	public void setErrorNombre(String errorNombre) {
+		this.errorNombre = errorNombre;
 	}
 }

@@ -9,12 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.javaee.modelos.LoginForm;
+import com.ipartek.formacion.javaee.modelos.LoginFormException;
 
 
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/* protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter pw = response.getWriter();
 		
 		pw.println("Si querías hacer un login, tienes que venir por post");
@@ -26,7 +27,7 @@ public class LoginServlet extends HttpServlet {
 		pw.println(ruta);
 			
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+	} */
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -45,13 +46,21 @@ public class LoginServlet extends HttpServlet {
 		}
 		
 		LoginForm login = new LoginForm(nombre, password);
+		
+		//dos mesanjes de error que deben aparecer en diferentes sitios
+		try {
+			login.setNombre(nombre);
+		} catch (LoginFormException e) {
+			login.setMensajeError(login.getMensajeError() + e.getMessage());
+		} 
 			
 		if(validar(login)) {
 			response.sendRedirect("principal.jsp");
 			
 		} else {
-			//response.sendRedirect("error.html");
-			login.setMensajeError("El usuario o contraseña no son correctos");
+			//response.sendRedirect("error.html"); 
+			//coge todo el texto que tuvieras hasta ahora, y le concatenas
+			login.setMensajeError(login.getMensajeError() + e.getMessage()); 
 			request.setAttribute("login", login);
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}

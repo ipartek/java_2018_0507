@@ -3,22 +3,27 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Registro</title>
     <link rel="stylesheet" href="index.css" />
-    <%-- <script src="index.js"></script> --%>
+    <script src="registro.js"></script>
 </head>
 <body>
-	<jsp:useBean id="login" scope="request" class="com.ipartek.formacion.javaee.modelos.LoginForm" />
-    <h1>Login</h1>
-    <p id="mensaje">Introduce tus <span class ="destacado">credenciales</span> para <span class="destacado">iniciar sesión</span></p>
+	<jsp:useBean id="registro" scope="request" class="com.ipartek.formacion.javaee.modelos.LoginForm" />
+    <h1>index.jsp</h1>
+    <p id="mensaje">Introduce tus <span class ="destacado">datos</span> para <span class="destacado">registrarte</span></p>
     
-    <form action="login" method="post">
+    <form action="registro" method="post">
         <fieldset>
-            <legend>Login </legend> 
+            <legend>Registro </legend> 
             <p>
                 <label for="nombre">Nombre</label>
                 <input type="text" name="nombre" id="nombre" 
-                	value='<jsp:getProperty property="nombre" name="login"/>' />
+                	value='<jsp:getProperty property="nombre" name="registro"/>' />
+            </p>
+            <p>
+                <label for="apellido">apellido</label>
+                <input type="text" name="apellido" id="apellido" 
+                	value='<jsp:getProperty property="apellido" name="registro"/>' />
             </p>
             <p>
                 <label for="password">Contraseña</label>
