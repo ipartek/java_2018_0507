@@ -68,9 +68,10 @@ public class RegistroServlet extends HttpServlet {
 			registro.setMensajeErrorDni("Ha introducido más de 9 digitos DNI");
 		}else if (dni.length()<9){
 			registro.setMensajeErrorDni("Ha introducido menos de 9 digitos DNI");
-		}else /*if (!(dni.length()<9) && !(dni.length()>9))*/{
-//			checkDni(dni.substring(0, 8), dni.substring(9, 9).toUpperCase());
-			//System.out.println(checkDni(dni.substring(0, 8), dni.substring(9, 9).toUpperCase()));
+		}else if (!(dni.length()<9) && !(dni.length()>9)){
+			checkDni(dni.substring(0, 8), dni.substring(9, 9).toUpperCase());
+			
+			System.out.println(checkDni(dni.substring(0, 8), dni.substring(9, 9).toUpperCase()));
 			System.out.println(dni.substring(9, 9));
 				if(checkDni(dni.substring(0, 8), dni.substring(8, 9).toUpperCase())){
 					registro.setDni(dni);
