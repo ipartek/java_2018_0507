@@ -61,36 +61,40 @@ public class RegistroServlet extends HttpServlet {
 			checkedSurname=true;
 			registro.setMensajeErrorApellido("");
 		}
+		
 		if (dni.equals("")) {
 			registro.setMensajeErrorDni("No se ha introducido el DNI");
 		}else if (dni.length()>9){
 			registro.setMensajeErrorDni("Ha introducido más de 9 digitos DNI");
 		}else if (dni.length()<9){
 			registro.setMensajeErrorDni("Ha introducido menos de 9 digitos DNI");
-		}else if (!(dni.length()<9) && !(dni.length()>9)){
-			checkDni(dni.substring(0, 8), dni.substring(9, 9));
-				if(checkDni(dni.substring(0, 8), dni.substring(9, 9))){
+		}else /*if (!(dni.length()<9) && !(dni.length()>9))*/{
+//			checkDni(dni.substring(0, 8), dni.substring(9, 9).toUpperCase());
+			//System.out.println(checkDni(dni.substring(0, 8), dni.substring(9, 9).toUpperCase()));
+			System.out.println(dni.substring(9, 9));
+				if(checkDni(dni.substring(0, 8), dni.substring(8, 9).toUpperCase())){
 					registro.setDni(dni);
 					checkedDni=true;
 					registro.setMensajeErrorDni("");
 				}
 		}
+		
 		if (clave.equals("")) {
 			registro.setMensajeErrorClave("No se ha introducido la clave");
 		}else if (!clave.equals("") && !repiteClave.equals(clave)){
 			registro.setMensajeErrorRepiteClave("La clave no es la misma");
 		}else if (!clave.equals("") && repiteClave.equals(clave)) {
+			
 			registro.setClave(clave);
 			checkedPass=true;
 			registro.setMensajeErrorClave("");
 			registro.setMensajeErrorRepiteClave("");
 		}
 		if(checkedName && checkedSurname && checkedDni && checkedPass) {
-//		if(checkedName && checkedSurname) {
-			System.out.println("¿HE LLEGADO?");
+			//System.out.println("¿HE LLEGADO?");
 			response.sendRedirect("Principal.jsp");
 		}else {
-			System.out.println("¿Y AQUI?");
+			//System.out.println("¿Y AQUI?");
 			request.setAttribute("registro", registro);
 			request.getRequestDispatcher("registro.jsp").forward(request, response);
 		}
@@ -98,14 +102,17 @@ public class RegistroServlet extends HttpServlet {
 
 	public boolean checkDni(String dni, String letter) {
 		int check;
+		//System.out.println(letter);
 		String[] letters = { "T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V",
 				"H", "L", "C", "K", "E" };
 
 		check = Integer.parseInt(dni)%23;
-		System.out.println("¿HOLA?");
+		//System.out.println(check + "__________" + letter);
 			if (letters[check].equals(letter)) {
+				//System.out.println("¿HOLA?");
 				return true;
 			} else {
+				
 				return false;
 			}
 	}
