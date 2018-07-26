@@ -59,7 +59,7 @@ public class LoginServlet extends HttpServlet {
 	private boolean validar(LoginForm login) {
 
 		return USUARIO_POR_DEFECTO.equals(login.getNombre()) && PASSWORD_POR_DEFECTO.equals(login.getPassword());
-
+		
 	}
 
 	private static final long serialVersionUID = 1L;

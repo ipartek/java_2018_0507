@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.javaee.modelos.LoginForm;
+import com.ipartek.formacion.javaee.modelos.LoginFormException;
 
 public class RegistrarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	private static List<LoginForm> listalogins = new ArrayList<LoginForm>();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -27,24 +28,41 @@ public class RegistrarServlet extends HttpServlet {
 		String password = request.getParameter("password");
 
 		
-		String error = "";
-		
-		//LoginForm lf = new LoginForm(nombre, password); //USO LA CLASE LOGIN PORQUE VOY A COGER LOS MISMOS CAMPOS QUE HE USADO
+		LoginForm lf = new LoginForm(); //USO LA CLASE LOGIN PORQUE VOY A COGER LOS MISMOS CAMPOS QUE HE USADO
 														   //EN EL LOGIN NORMAL
-		
-		List<LoginForm> listalogins = new ArrayList<LoginForm>();
-		
-		if (nombre.equals("") || nombre == null || password.equals("") || password == null) {
-			error = "campo vacio";
-			System.out.println(error);
+		try {
+			lf.setNombre(nombre);
 		}
-		else {
-			//listalogins.add(lf);
-			//request.getSession().setAttribute("DatosUsu", lf);
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-			
+		catch (LoginFormException e){
+			lf.setErrorNombre(nombre);
+		}
+		try {
+			lf.setPassword(password);
+		} catch (LoginFormException e) {
+			lf.setErrorPassword("*");
 		}
 		
+		if(!lf.isErroneo()) {
+			lf.setNombre(nombre);
+			lf.setPassword(password);
+			listalogins.add(lf);
+			request.setAttribute("DatosUsu", lf);
+			request.getRequestDispatcher("index.jsp").forward(request, response);		
+		}
+		else{
+			lf.setMensajeError(lf.getMensajeError() + "No han llegado los datos a la lista");
+//			request.setAttribute("login", lf);
+//			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
+//	
+//		private boolean validar(LoginForm login) {
+//
+//			for (int i = 0; i < listalogins.size(); i++) {
+//				
+//			}
+//			
+//		}
+
 		
 	}
 

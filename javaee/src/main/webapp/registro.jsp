@@ -8,7 +8,7 @@
 </head>
 <body>
 	 <jsp:useBean id="DatosUsu" scope="request" class="com.ipartek.formacion.javaee.modelos.LoginForm" />
-	 <form action=registro method="post">
+	 <form action="login" method="post">
         <fieldset>
             <legend>Registro</legend>
             <p>
@@ -26,7 +26,7 @@
             			</p>--%> 
             <p>
                 <button>Registrarse</button>
-               
+          
             </p>
         </fieldset>
     </form>

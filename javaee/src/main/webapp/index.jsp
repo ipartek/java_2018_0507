@@ -31,7 +31,7 @@
                 <span class="errorTexto">
                 	<jsp:getProperty property="errorPassword" name="login"/>
                 </span>
-                <%-- <jsp:getProperty property="password" name="login"/> --%>
+               
             </p>
             <p>
                 <button>Login</button>
