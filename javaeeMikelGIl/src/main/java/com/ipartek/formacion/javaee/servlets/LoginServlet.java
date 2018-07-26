@@ -29,11 +29,15 @@ public class LoginServlet extends HttpServlet {
 		// Empaquetado en modelo
 		LoginForm login = new LoginForm();
 		
-		login.setNombre(nombre);			//SetNombre comprueba que no esta vacio
+		try {
+			login.setNombre(nombre);			//SetNombre comprueba que no esta vacio
+		}catch (LoginFormException e) {
+		}
+		
 		
 		try {
 			login.setPassword(password);	//SetPassword comprueba que no esta vacio
-		}catch (LoginFormException e){		//Excepcion opcional para sustituir el error por un *
+		}catch (LoginFormException e){		//Excepcion para sustituir el error por un *
 			login.setErrorPassword("*");
 		}
 		
