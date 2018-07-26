@@ -12,9 +12,17 @@ public class LoginForm {
 		this.password = password;
 		this.mensajeError = mensajeError;
 	}
-	
+
 	public LoginForm(String nombre, String password) {
-		this (nombre, password, "");
+		this(nombre, password, "");
+	}
+
+	public LoginForm() {
+		this("", "", "");
+	}
+	@Override
+	public String toString() {
+		return "LoginForm [nombre=" + nombre + ", password=" + password + ", mensajeError=" + mensajeError + "]";
 	}
 
 	public String getNombre() {
@@ -40,5 +48,4 @@ public class LoginForm {
 	public void setMensajeError(String mensajeError) {
 		this.mensajeError = mensajeError;
 	}
-
 }

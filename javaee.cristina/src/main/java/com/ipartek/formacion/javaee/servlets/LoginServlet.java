@@ -36,8 +36,12 @@ public class LoginServlet extends HttpServlet {
 		
 		System.out.println(nombre);
 		
-		if(nombre == null || password == null) {
-			throw new RuntimeException("No se han recibido los datos de nombre y/o password");
+		if(nombre == null) {
+			throw new RuntimeException("No se han recibido los datos de nombre ");
+		}
+		
+		if(password == null) {
+			throw new RuntimeException("No se han recibido los datos de password");
 		}
 		
 		LoginForm login = new LoginForm(nombre, password);
