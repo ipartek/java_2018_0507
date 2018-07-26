@@ -30,7 +30,7 @@
 						name="nombre" id="nombre"
 						value='<jsp:getProperty property="nombre" name="registro"/>'>
 					<span class="errorNombre"> <jsp:getProperty
-							property="mensajeErrorUsuario" name="registro" /></span>
+							property="mensajeErrorNombre" name="registro" /></span>
 				</p>
 				<p>
 					<label for="apellido">Apellido</label> <br> <input type="text"
