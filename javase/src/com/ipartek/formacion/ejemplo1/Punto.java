@@ -14,6 +14,7 @@ public class Punto {
 	 * Valor máximo admitido para la x
 	 */
 	public static final int MAX_X = 10000;
+	public static final int MAX_Y = 10000;
 	
 	private int x, y;
 
@@ -44,7 +45,7 @@ public class Punto {
 
 	public void setX(int x) {
 		if(x > MAX_X)
-			throw new RuntimeException("No se admiten x mayores de " + MAX_X);
+			throw new PuntoException("No se admiten x mayores de " + MAX_X);
 		this.x = x;
 	}
 
@@ -84,5 +85,15 @@ public class Punto {
 		if (y != other.y)
 			return false;
 		return true;
+	}
+	
+	// Punto total = p.sumar(p2);
+	public Punto sumar(Punto otroPunto) {
+		return new Punto(this.getX() + otroPunto.getX(), this.getY() + otroPunto.getY());
+	}
+	
+	// Punto total = Punto.sumar(p1, p2);
+	public static Punto sumar(Punto unPunto, Punto otroPunto) {
+		return unPunto.sumar(otroPunto);
 	}
 }
