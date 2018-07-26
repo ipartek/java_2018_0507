@@ -1,6 +1,7 @@
 package com.ipartek.formacion.video.pojo;
 
 public class VideoYoutube {
+
 	private long id;
 	private String codigo;
 	private String titulo;
@@ -11,7 +12,7 @@ public class VideoYoutube {
 		this.titulo = titulo;
 	}
 
-	public VideoYoutube() {
+	public VideoYoutube() { //Utilizando el constructor de arriba vale con esto
 		this(-1, "", "");
 	}
 
@@ -77,4 +78,5 @@ public class VideoYoutube {
 			return false;
 		return true;
 	}
+
 }

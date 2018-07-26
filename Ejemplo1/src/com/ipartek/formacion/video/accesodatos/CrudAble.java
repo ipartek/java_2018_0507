@@ -2,8 +2,9 @@ package com.ipartek.formacion.video.accesodatos;
 
 import java.util.List;
 
+
 //Create, Retrieve, Update, Delete
-public interface CrudAble<P> {
+public interface CrudAble<P> {    //ACCESO A DATOS
 	//Retrieve
 	
 	/**
@@ -25,4 +26,5 @@ public interface CrudAble<P> {
 	boolean update(P pojo);
 	//Delete
 	boolean delete(long id);
-}
+
+	}
