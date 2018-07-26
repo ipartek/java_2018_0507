@@ -63,7 +63,7 @@ public class LoginServlet extends HttpServlet {
 				login.setPassword("");
 			}
 			if(!validarcontraseina(login)&&!validarnombre(login)) {
-			login.setMensajeError("contraseña y usuario incorrectos");
+			login.setMensajeError("contraseña  y usuario incorrectos");
 			}else {
 				login.setPassword("");
 				login.setNombre("");
