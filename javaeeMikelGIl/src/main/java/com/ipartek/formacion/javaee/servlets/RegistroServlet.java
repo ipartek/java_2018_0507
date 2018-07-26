@@ -40,10 +40,15 @@ public class RegistroServlet extends HttpServlet {
 		LoginForm registro = new LoginForm();
 		
 		if (validar(registro, nombre, apellido, password, passwordRepeat)) {
-			response.sendRedirect("login.jsp");
+			response.sendRedirect("registro.jsp");
 		}else {
+			registro.setNombre(nombre);
+			registro.setApellido(apellido);
+			registro.setPassword(password);
+			System.out.println("Nombre: " + registro.getNombre() + " apellido: " + registro.getApellido() + " password " + registro.getPassword() + " Repeatpassword: " + passwordRepeat);
+			
 			request.setAttribute("registro", registro);
-			request.getRequestDispatcher("registro.jsp").forward(request, response);
+			request.getRequestDispatcher("principal.jsp").forward(request, response);
 		}
 	}
 	
