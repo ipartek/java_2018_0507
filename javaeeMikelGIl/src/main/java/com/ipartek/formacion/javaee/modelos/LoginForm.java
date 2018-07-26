@@ -3,10 +3,12 @@ package com.ipartek.formacion.javaee.modelos;
 public class LoginForm {
 	private String nombre;
 	private String password;
+	private String apellido;
 	
 	private String mensajeError;
 	
 	private String errorNombre;
+	private String errorApellido;
 	private String errorPassword;
 
 	public LoginForm() {
@@ -16,6 +18,9 @@ public class LoginForm {
 	public LoginForm(String nombre, String password) {
 		this(nombre,password,"","","");
 	}
+	public LoginForm(String nombre, String apellido, String password) {
+		this(nombre,apellido,password,"","","","");
+	}
 
 	public LoginForm(String nombre, String password, String mensajeError, String errorNombre, String errorPassword) {
 		super();
@@ -23,6 +28,14 @@ public class LoginForm {
 		this.password = password;
 		this.mensajeError = mensajeError;
 		this.errorNombre = errorNombre;
+		this.errorPassword = errorPassword;
+	}
+	public LoginForm(String nombre, String apellido, String password, String mensajeError, String errorNombre, String errorApellido, String errorPassword) {
+		this.nombre = nombre;
+		this.password = password;
+		this.mensajeError = mensajeError;
+		this.errorNombre = errorNombre;
+		this.errorApellido = errorApellido;
 		this.errorPassword = errorPassword;
 	}
 
@@ -37,6 +50,14 @@ public class LoginForm {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+	
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
 
 	public String getPassword() {
@@ -61,6 +82,12 @@ public class LoginForm {
 
 	public void setErrorNombre(String errorNombre) {
 		this.errorNombre = errorNombre;
+	}
+	public String getErrorApellido() {
+		return errorApellido;
+	}
+	public void setErrorApellido(String errorApellido) {
+		this.errorApellido = errorApellido;
 	}
 
 	public String getErrorPassword() {
