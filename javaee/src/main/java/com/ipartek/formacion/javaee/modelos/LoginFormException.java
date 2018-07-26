@@ -1,6 +1,8 @@
 package com.ipartek.formacion.javaee.modelos;
 
+
 public class LoginFormException extends RuntimeException {  //SI PONGO RUNTIME NO OBLIGO A LA GENTE A COMERSE LA EXCEPCION, ES OPCIONAL
+
 
 	private static final long serialVersionUID = -4243816990632407047L;
 

@@ -29,7 +29,7 @@ public class RegistrarServlet extends HttpServlet {
 		
 		String error = "";
 		
-		LoginForm lf = new LoginForm(nombre, password); //USO LA CLASE LOGIN PORQUE VOY A COGER LOS MISMOS CAMPOS QUE HE USADO
+		//LoginForm lf = new LoginForm(nombre, password); //USO LA CLASE LOGIN PORQUE VOY A COGER LOS MISMOS CAMPOS QUE HE USADO
 														   //EN EL LOGIN NORMAL
 		
 		List<LoginForm> listalogins = new ArrayList<LoginForm>();
@@ -39,8 +39,8 @@ public class RegistrarServlet extends HttpServlet {
 			System.out.println(error);
 		}
 		else {
-			listalogins.add(lf);
-			request.getSession().setAttribute("DatosUsu", lf);
+			//listalogins.add(lf);
+			//request.getSession().setAttribute("DatosUsu", lf);
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 			
 		}

@@ -32,10 +32,16 @@ public class LoginServlet extends HttpServlet {
 		try {
 			login.setNombre(nombre);
 		} catch (LoginFormException e) {
-			login.setMensajeError(login.getMensajeError() + e.getMessage());
+			login.setErrorNombre("*");
 		}
 
 			
+		try {
+			login.setPassword(password);
+		} catch (LoginFormException e) {
+			login.setErrorPassword("*");
+		}
+
 		if(validar(login)) {
 			request.getSession().setAttribute("usuario", login);
 			response.sendRedirect("principal.jsp");
