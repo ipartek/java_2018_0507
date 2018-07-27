@@ -25,7 +25,7 @@
   
             <p>
                 <button>Registrarse</button>
-
+				<a href="index.jsp">Voler al Login</a>
             </p>
         </fieldset>
     </form>

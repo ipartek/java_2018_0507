@@ -54,7 +54,7 @@ public class RegistrarServlet extends HttpServlet {
 			}
 			listalogins.add(lf);
 			request.setAttribute("DatosUsu", lf);
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			request.getRequestDispatcher("registro.jsp").forward(request, response);
 	}
 //		if(!lf.isErroneo()) {
 //			lf.setNombre(nombre);
