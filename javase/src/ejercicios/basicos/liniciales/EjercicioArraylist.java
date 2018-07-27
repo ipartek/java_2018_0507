@@ -4,11 +4,117 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class EjercicioArraylist {
-	
+
 	public static void main(String[] args) {
 		
 	}
 
+	
+/*	EJERCICIO 4
+	public static void main(String[] args) {
+		ArrayList<String> cadenas = new ArrayList<String>();
+		leerArray(cadenas);
+		System.out.println("La cadena de caracteres mas larga es: "+cadenaLarga(cadenas));
+	}
+	
+	public static void leerArray(ArrayList<String> cadenas) {
+        Scanner sc = new Scanner(System.in);
+        String s;
+        boolean masCadenas;
+        do {
+        	masCadenas = true;
+        	System.out.println("Introduce una cadena de caracteres | FIN para termimar");
+        	s = sc.nextLine();
+        	if(s.equalsIgnoreCase("FIN")) {
+        		masCadenas = false;
+        	}else {
+        		cadenas.add(s);
+        	}
+        	
+        }while(masCadenas);
+        System.out.println(cadenas);
+	}
+
+	public static String cadenaLarga(ArrayList<String> cadena) {
+		String mayor = cadena.get(0);
+		for(int i = 1; i<cadena.size(); i++) {
+			if(cadena.get(i).length()>mayor.length()) {
+				mayor = cadena.get(i);
+			}
+		}
+		System.out.println(mayor);
+		return mayor;
+	}
+*/
+/*	EJERCICIO 3 segunda parte
+	public static void main(String[] args) {
+		
+		ArrayList<Integer> valores = pedirValores();
+		mostrar(valores);
+		desplazar(valores);
+		mostrar(valores);		
+	}
+	
+	public static ArrayList<Integer> pedirValores(){
+	    ArrayList<Integer> valores = new ArrayList<Integer>();
+	    int N;
+		Scanner sc = new Scanner(System.in);
+		do {
+			System.out.println("Introduce el numero de elementos que va a contener el Array <0");
+	    	N = sc.nextInt();
+		}while (N<=0);
+		for(int i = 0; i<N; i++) {
+			System.out.println("Introduce el valor "+(i+1)+" del Array");
+			int V = sc.nextInt();
+			valores.add(V);
+		}
+		return valores;
+	}
+
+	public static void desplazar(ArrayList<Integer> a) {
+		int aux = a.get(a.size()-1);     
+        a.add(0,aux);
+        a.remove(a.size()-1);
+	}
+	
+	public static void mostrar(ArrayList<Integer> a) {
+		System.out.println(a);
+	}
+*/	
+	
+	
+/*	EJERCICIO 3
+	public static void main(String[] args) {
+		
+		ArrayList<Integer> N = darValores();
+		desplazarDerecha(N);
+		
+	}
+	
+	public static ArrayList<Integer> darValores(){
+		ArrayList<Integer> desplazar = new ArrayList<Integer>();
+		desplazar.add(15);
+		desplazar.add(22);
+		desplazar.add(4);
+		desplazar.add(56);
+		desplazar.add(71);
+		desplazar.add(10);
+		desplazar.add(2);
+		
+		return desplazar;
+	}
+	
+	public static void desplazarDerecha(ArrayList<Integer> a) {
+		int aux = a.get(a.size()-1);
+		for (int i = a.size() - 1; i > 0; i--) { 
+            a.set(i, a.get(i - 1));
+        }
+        a.set(0, aux);
+        for(int i = 0; i<a.size(); i++) {
+        	System.out.println(a.get(i));
+        }
+	}
+*/
 	
 /*	EJERCICIO 2	
 	public static void main(String[] args) {
