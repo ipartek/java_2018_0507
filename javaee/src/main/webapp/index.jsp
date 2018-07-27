@@ -10,6 +10,7 @@
 
 </head>
 <body>
+	<!-- Prueba de que funciona -->
 	<jsp:useBean id="login" scope="request" class="com.ipartek.formacion.javaee.modelos.LoginForm" />
 	
     <h1>Login</h1>
