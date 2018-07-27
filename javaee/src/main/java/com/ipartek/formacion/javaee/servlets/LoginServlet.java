@@ -1,6 +1,7 @@
 package com.ipartek.formacion.javaee.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 import javax.servlet.ServletException;
@@ -14,8 +15,8 @@ import com.ipartek.formacion.javaee.modelos.LoginFormException;
 
 public class LoginServlet extends HttpServlet {
 
-	private static final String USUARIO_POR_DEFECTO = "javierniño";
-	private static final String PASSWORD_POR_DEFECTO = "contra";
+//	private static final String USUARIO_POR_DEFECTO = "javierniño";
+//	private static final String PASSWORD_POR_DEFECTO = "contra";
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -44,7 +45,7 @@ public class LoginServlet extends HttpServlet {
 		}
 
 		//Llamada a lógica de negocio
-		if(!login.isErroneo() && validar(login)) {
+		if(validar(login)) {//!login.isErroneo() && 
 			//Redirección a vista
 			request.getSession().setAttribute("usuario", login);
 			response.sendRedirect("principal.jsp");
@@ -58,7 +59,19 @@ public class LoginServlet extends HttpServlet {
 
 	private boolean validar(LoginForm login) {
 
-		return USUARIO_POR_DEFECTO.equals(login.getNombre()) && PASSWORD_POR_DEFECTO.equals(login.getPassword());
+			@SuppressWarnings("unchecked")
+			ArrayList<LoginForm> listalogins= (ArrayList<LoginForm>) RegistrarServlet.GetList();
+
+
+			for (int i = 0; i < listalogins.size(); i++) {
+				
+				if((login.getNombre().equals(listalogins.get(i).getNombre()))&&(login.getPassword().equals(listalogins.get(i).getPassword()))){
+					return listalogins.get(i).getNombre().equals(login.getNombre()) && listalogins.get(i).getPassword().equals(login.getPassword());
+				}
+			
+			}
+			
+			return false;
 		
 	}
 

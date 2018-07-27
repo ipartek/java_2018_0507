@@ -42,28 +42,56 @@ public class RegistrarServlet extends HttpServlet {
 			lf.setErrorPassword("*");
 		}
 		
-		if(!lf.isErroneo()) {
+		if(validarnombre(lf)) {
+			lf.setNombre("nombre incorrecto");
+			}else {
 			lf.setNombre(nombre);
+			}
+			if(validarcontraseina(lf)) {
+			lf.setPassword("pasword incorrecto");
+			}else {
 			lf.setPassword(password);
+			}
 			listalogins.add(lf);
 			request.setAttribute("DatosUsu", lf);
-			request.getRequestDispatcher("index.jsp").forward(request, response);		
-		}
-		else{
-			lf.setMensajeError(lf.getMensajeError() + "No han llegado los datos a la lista");
-//			request.setAttribute("login", lf);
-//			request.getRequestDispatcher("index.jsp").forward(request, response);
-		}
-//	
-//		private boolean validar(LoginForm login) {
-//
-//			for (int i = 0; i < listalogins.size(); i++) {
-//				
-//			}
-//			
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+	}
+//		if(!lf.isErroneo()) {
+//			lf.setNombre(nombre);
+//			lf.setPassword(password);
+//			listalogins.add(lf);
+//			request.setAttribute("DatosUsu", lf);
+//			request.getRequestDispatcher("index.jsp").forward(request, response);		
 //		}
+//		else{
+//			lf.setMensajeError(lf.getMensajeError() + "No han llegado los datos a la lista");
+//	request.getRequestDispatcher("index.jsp").forward(request, response);
+//		    }
+//	 }
+	
 
+		private boolean validarcontraseina(LoginForm login) {
+			
+			for(int i=0; i<listalogins.size();i++){
+			if(login.getPassword().equals(listalogins.get(i).getPassword())){
+			return true;
+			}
+			}return false;
+			}
+		private boolean validarnombre(LoginForm login) {
+			
+			for(int i=0; i<listalogins.size();i++){
+			if(login.getNombre().equals(listalogins.get(i).getNombre())){
+			return true;
+			}
+			}return false;
+			}
+		
+		public static List GetList() {
+			return listalogins;
+		}
+		
 		
 	}
 
-}
+

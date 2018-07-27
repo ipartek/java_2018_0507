@@ -4,29 +4,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="index.css" />
 <title>Registro</title>
 </head>
 <body>
 	 <jsp:useBean id="DatosUsu" scope="request" class="com.ipartek.formacion.javaee.modelos.LoginForm" />
-	 <form action="login" method="post">
+	 <form action="registrar" method="post">
         <fieldset>
             <legend>Registro</legend>
             <p>
                 <label for="nombre">Nombre</label>
                 <input type="text" name="nombre" id="nombre"/>
-                	
+
             </p>
             <p>
                 <label for="Password">Password</label>
                 <input type="password" name="password" id="password" />
+
             </p>
-         				 <%-- LO COMENTO PORQUE NO LO VOY A USAR AHORA <p>
-               				 <label for="Password2">Inserte el password otra vewz</label>
-               				 <input type="password" name="password2" id="password2" />
-            			</p>--%> 
+  
             <p>
                 <button>Registrarse</button>
-          
+
             </p>
         </fieldset>
     </form>
