@@ -24,8 +24,8 @@ public class ConversorServlet extends HttpServlet {
 		// Recogida de datos
 		String millas = request.getParameter("millas");
 		String kms = request.getParameter("kms");
-		String kmsaMillas = request.getParameter("kmsaMillas");
-		String millasaKms = request.getParameter("millasaKms");
+		//String kmsaMillas = request.getParameter("kmsaMillas");
+		//String millasaKms = request.getParameter("millasaKms");
 		String button = request.getParameter("button");
 
 		// Empaquetado en modelo
@@ -41,12 +41,12 @@ public class ConversorServlet extends HttpServlet {
 		}catch (LoginFormException e) {
 		}
 		
-		
+		Double resultado = 0.00;
         if ("btnConvertirKmsAMillas".equals(button)) {
-            Double resultado = ConversorForm.kmsaMillas(kms);
+        	resultado = ConversorForm.kmsaMillas(kms);
             conversor.setKmsAMillas(resultado.toString());
         }else if("btnConvertirMillasAKms".equals(button)) {
-        	Double resultado = ConversorForm.millasAKms(millas);
+        	resultado = ConversorForm.millasAKms(millas);
         	conversor.setMillasAKms(resultado.toString());
         }
         
@@ -54,8 +54,6 @@ public class ConversorServlet extends HttpServlet {
         request.getRequestDispatcher("conversormillas.jsp").forward(request, response);
 	}
 	
-	
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -63,5 +61,4 @@ public class ConversorServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-
 }

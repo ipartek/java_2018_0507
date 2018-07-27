@@ -22,7 +22,7 @@
 				<span class="errorTexto">
 					<label for="millas">Millas:</label>
 					<input type="text" name="kmsaMillas" id="kmsaMillas"
-						value='<jsp:getProperty property="kmsaMillas" name="conversor"/>' />
+						<%-- value='<jsp:getProperty property="kmsaMillas" name="conversor"/>'--%> />
 				</span>
 			</p>
 			<p>
@@ -39,7 +39,7 @@
 				<span class="errorTexto">
 					<label for="kms">KMs:</label>
 					<input type="text" name="millasaKms" id="millasaKms"
-						value='<jsp:getProperty property="millasaKms" name="conversor"/>' />
+						<%-- value='<jsp:getProperty property="millasaKms" name="conversor"/>' --%> />
 				</span>
 			</p>
 			<p>
