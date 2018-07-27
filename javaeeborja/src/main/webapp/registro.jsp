@@ -11,31 +11,31 @@
     <!--   <script src="index.js"></script>-->
 </head>
 <body>
-	<jsp:useBean id="login" scope="request" class="com.ipartek.formacion.javaee.modelos.RegisterForm" />
+	<jsp:useBean id="registro" scope="request" class="com.ipartek.formacion.javaee.modelos.RegisterForm" />
 
 <!--  -->	
     <h1>Registro</h1>
     <p id="mensaje">Introduce tus <span class ="destacado">credenciales</span> para <span class="destacado">Registrarte</span></p>
     
-    <form action="login" method="post">
+    <form action="registro" method="post">
         <fieldset>
             <legend>Registro</legend>
             <p>
                 <label for="nombre">Nombre</label>
-                <input type="text" name="nombrer" id="nombrer"  value='<jsp:getProperty property="nombrer" name="login"/>'/>
+                <input type="text" name="nombre" id="nombre"  value='<jsp:getProperty property="nombre" name="registro"/>'/>
             </p>
             <p>
                 <label for="password">Contraseña</label>
-                <input type="password" name="passwordr" id="passwordr" />
+                <input type="password" name="password" id="password" />
             </p>
                 <p>
                 <label for="email">email</label>
-                <input type="email" name="emailr" id="emailr" />
+                <input type="email" name="email" id="email" />
             </p>
             <p>
-                <button>Registrar</button>
+                <button id="registroo">Registrar</button>
                 <span class="errorTexto">
-                        	<jsp:getProperty property="mensajeError" name="login"/> 
+                        	<jsp:getProperty property="mensajeError" name="registro"/> 
                 	
                 </span>
             </p>

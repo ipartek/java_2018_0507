@@ -25,7 +25,7 @@
                 <input type="password" name="password" id="password" />
             </p>
             <p>
-                <button>Login</button>
+                <button id="login">Login</button>
                 <span class="errorTexto">
                 	<jsp:getProperty property="mensajeError" name="login"/>
                 </span>
