@@ -16,7 +16,6 @@ public class LoginForm {
 			
 	}
 
-
 	@Override
 	public String toString() {
 		return "LoginForm [nombre=" + nombre + ", password=" + password + ", mensajeError=" + mensajeError + "]";
@@ -31,8 +30,8 @@ public class LoginForm {
 
 		if(nombre == null || nombre.trim().length() == 0) {  //ESTO TE BORRA CUALQUIER ESPACIO EXTRA QUE METAS AL PRINCIPIO O AL FINAL
 
-			setErrorNombre("No se admiten nombres vacíos");
-			setErroneo(true);
+//			setErrorNombre("No se admiten nombres vacíos");  NO ME HACE FALTA YA LANZANDO LA EXCEPCION
+//			setErroneo(true);
 			throw new LoginFormException("No se admiten nombres vacíos");
 		}
 		this.nombre = nombre;
@@ -47,8 +46,8 @@ public class LoginForm {
 
 		if(password == null || password.trim().length() == 0) {
 
-			setErrorPassword("No se admiten nombres vacíos");
-			setErroneo(true);
+//			setErrorPassword("No se admiten nombres vacíos");
+//			setErroneo(true);
 			throw new LoginFormException("No se admiten passwords vacíos");
 
 		}
