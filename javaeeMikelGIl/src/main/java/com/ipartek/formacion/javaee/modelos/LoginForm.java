@@ -70,7 +70,7 @@ public class LoginForm {
 	}
 	
 	public boolean compararPassword(String password, String passwordRepeat) {
-		if (password != passwordRepeat) {
+		if (!password.equals(passwordRepeat)) {
 			setErroneo(true);
 			return false;
 		}
