@@ -25,7 +25,9 @@
   
             <p>
                 <button>Registrarse</button>
-				<a href="index.jsp">Voler al Login</a>
+            
+                <input type="button" value="Volver al Login" onclick="window.location.href('index.jsp');"/>
+				<!-- <a href="index.jsp">Voler al Login</a> ESTA ES LA MANERA DE HACERLO CON UN ENLACE Y LA DE ARRIBA CON UN BOTON-->
             </p>
         </fieldset>
     </form>
