@@ -69,10 +69,7 @@ public class RegistroServlet extends HttpServlet {
 		}else if (dni.length()<9){
 			registro.setMensajeErrorDni("Ha introducido menos de 9 digitos DNI");
 		}else if (!(dni.length()<9) && !(dni.length()>9)){
-			checkDni(dni.substring(0, 8), dni.substring(9, 9).toUpperCase());
-			
-			System.out.println(checkDni(dni.substring(0, 8), dni.substring(9, 9).toUpperCase()));
-			System.out.println(dni.substring(9, 9));
+			checkDni(dni.substring(0, 8), dni.substring(8, 9).toUpperCase());
 				if(checkDni(dni.substring(0, 8), dni.substring(8, 9).toUpperCase())){
 					registro.setDni(dni);
 					checkedDni=true;
@@ -83,9 +80,11 @@ public class RegistroServlet extends HttpServlet {
 		if (clave.equals("")) {
 			registro.setMensajeErrorClave("No se ha introducido la clave");
 		}else if (!clave.equals("") && !repiteClave.equals(clave)){
+			registro.setMensajeErrorClave("");
 			registro.setMensajeErrorRepiteClave("La clave no es la misma");
+		}else if(clave.equals("") && !repiteClave.equals("")){
+			registro.setMensajeErrorClave("Por favor introduce una clave");
 		}else if (!clave.equals("") && repiteClave.equals(clave)) {
-			
 			registro.setClave(clave);
 			checkedPass=true;
 			registro.setMensajeErrorClave("");
