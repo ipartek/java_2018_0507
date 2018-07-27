@@ -6,10 +6,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.javaee.modelos.ConversorForm;
+import com.ipartek.formacion.javaee.modelos.LoginFormException;
+
 /**
  * Servlet implementation class Conversor
  */
-public class Conversor extends HttpServlet {
+public class ConversorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -25,27 +28,33 @@ public class Conversor extends HttpServlet {
 		String millasaKms = request.getParameter("millasaKms");
 		String button = request.getParameter("button");
 
+		// Empaquetado en modelo
+		ConversorForm conversor = new ConversorForm();
+		
+		try {
+			conversor.setKms(kms);
+		}catch (LoginFormException e) {
+		}
+		
+		try {
+			conversor.setMillas(millas);
+		}catch (LoginFormException e) {
+		}
+		
+		
         if ("btnConvertirKmsAMillas".equals(button)) {
-            Double resultado = Conversor.kmsaMillas(kms);
-            request.setAttribute(kmsaMillas, resultado);
+            Double resultado = ConversorForm.kmsaMillas(kms);
+            conversor.setKmsAMillas(resultado.toString());
         }else if("btnConvertirMillasAKms".equals(button)) {
-        	Double resultado = Conversor.millasAKms(millas);
-        	request.setAttribute(millasaKms, resultado);
+        	Double resultado = ConversorForm.millasAKms(millas);
+        	conversor.setMillasAKms(resultado.toString());
         }
         
+        request.setAttribute("conversor", conversor);
         request.getRequestDispatcher("conversormillas.jsp").forward(request, response);
-		
 	}
 	
-	private static double kmsaMillas(String kms) {
-		// 1KM = 0.62 Millas
-		return Double.parseDouble(kms) * 0.62;
-	}
 	
-	private static double millasAKms(String millas) {
-		// 1 Milla = 1.61 KM
-		return Double.parseDouble(millas) * 1.61;
-	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)

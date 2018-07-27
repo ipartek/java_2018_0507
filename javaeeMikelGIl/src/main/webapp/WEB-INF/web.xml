@@ -17,10 +17,10 @@
   	<servlet-class>com.ipartek.formacion.javaee.servlets.RegistroServlet</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>Conversor</servlet-name>
-  	<display-name>Conversor</display-name>
+  	<servlet-name>ConversorServlet</servlet-name>
+  	<display-name>ConversorServlet</display-name>
   	<description></description>
-  	<servlet-class>com.ipartek.formacion.javaee.servlets.Conversor</servlet-class>
+  	<servlet-class>com.ipartek.formacion.javaee.servlets.ConversorServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
@@ -31,7 +31,7 @@
   	<url-pattern>/registro</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>Conversor</servlet-name>
+  	<servlet-name>ConversorServlet</servlet-name>
   	<url-pattern>/conversor</url-pattern>
   </servlet-mapping>
 </web-app>

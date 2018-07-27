@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="index.css">
 </head>
 <body>
-	<%-- <jsp:useBean id="conversor" scope="request" class="com.ipartek.formacion.javaee.modelos.ConversorForm" /> --%>
+	<jsp:useBean id="conversor" scope="request" class="com.ipartek.formacion.javaee.modelos.ConversorForm" /> 
 	<h1>Conversor kilometros y millas</h1>
 	<p id="mensaje">
 		Introduce los kilometros o millas para convertir
@@ -17,10 +17,12 @@
 			<legend>Conversor KMs a millas</legend>
 			<p>
 				<label for="kms">KMs</label>
-				<input type="text" name="kms" id="kms"/>
+				<input type="number" name="kms" id="kms" min="0" step=".01"
+					value='<jsp:getProperty property="kms" name="conversor"/>' />
 				<span class="errorTexto">
 					<label for="millas">Millas:</label>
-					<input type="text" name="kmsaMillas" id="kmsaMillas" />	
+					<input type="text" name="kmsaMillas" id="kmsaMillas"
+						value='<jsp:getProperty property="kmsaMillas" name="conversor"/>' />
 				</span>
 			</p>
 			<p>
@@ -33,10 +35,11 @@
 			<legend>Conversor Millas a KMs</legend>
 			<p>
 				<label for="millas">Millas</label>
-				<input type="text" name="millas" id="millas"/>
+				<input type="number" name="millas" id="millas" min="0" step=".01"/>
 				<span class="errorTexto">
 					<label for="kms">KMs:</label>
-					<input type="text" name="millasaKms" id="millasaKms" />	
+					<input type="text" name="millasaKms" id="millasaKms"
+						value='<jsp:getProperty property="millasaKms" name="conversor"/>' />
 				</span>
 			</p>
 			<p>
