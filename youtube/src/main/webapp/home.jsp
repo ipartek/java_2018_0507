@@ -1,8 +1,14 @@
+<%@page import="com.ipartek.formacion.youtube.Video"%>
+<%@page import="java.util.ArrayList"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
   <head>
 
+	<base href="<%=request.getContextPath()%>/">
+	
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -10,11 +16,13 @@
 
     <title>Youtube Video Play List</title>
 
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://blackrockdigital.github.io/startbootstrap-shop-item/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/shop-item.css" rel="stylesheet">
+    <link href="https://blackrockdigital.github.io/startbootstrap-shop-item/css/shop-item.css" rel="stylesheet">
 
   </head>
 
@@ -30,9 +38,9 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <form class="form-inline mt-2 mt-md-0">
-	            <input class="form-control mr-sm-2" type="text" placeholder="ID">
-	            <input class="form-control mr-sm-2" type="text" placeholder="Nombre">
+              <form action="" method="post" class="form-inline mt-2 mt-md-0">
+	            <input name="id" class="form-control mr-sm-2" type="text" placeholder="ID 11 caracerteres" title="11 caracteres" required pattern=".{11,11}">
+	            <input name="nombre" class="form-control mr-sm-2" type="text" placeholder="Nombre minimo 2 letras" required pattern=".{2,125}">
 	            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Añadir</button>
 	          </form>
             </li>            
@@ -49,12 +57,28 @@
 
       <div class="row">
 
-        <div class="col-lg-3">
+        <div class="col-lg-3">        	
           <h1 class="my-4">Lista Reproduccion</h1>
           <div class="list-group">
-            <a href="#" class="list-group-item active">Video 1</a>
-            <a href="#" class="list-group-item">Video 2</a>
-            <a href="#" class="list-group-item">Video 3</a>
+          	<%
+          		ArrayList<Video> videos = (ArrayList<Video>) request.getAttribute("videos");
+          	
+          		Video videoInicio = new Video();
+          		if ( !videos.isEmpty() ){
+          			videoInicio = videos.get(0);
+          		}	
+    			
+          		for( Video v : videos ){
+          	%>
+                   
+          	  <a href="#" onclick="reproducir('<%=v.getId()%>')" class="list-group-item"><%=v.getNombre()%></a>
+          	  <a href="?id=<%=v.getId()%>"><i style="color:red;" class="float-right fas fa-trash-alt"></i></a>
+            
+            <%
+          		} //end for
+            %>
+            
+            
           </div>
         </div>
         <!-- /.col-lg-3 -->
@@ -63,10 +87,10 @@
 
           <div class="card mt-4">
           
-            <iframe width="823" height="415" src="https://www.youtube.com/embed/2Eph-_vK7FM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe id="iframe" width="823" height="415" src="https://www.youtube.com/embed/<%=videoInicio.getId()%>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             
             <div class="card-body">
-              <h3 class="card-title">Nombre Video</h3>              
+              <h3 class="card-title"><%=videoInicio.getNombre()%></h3>              
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dicta fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam sequi pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>
               <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
               4.0 stars
@@ -109,8 +133,20 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://blackrockdigital.github.io/startbootstrap-shop-item/vendor/jquery/jquery.min.js"></script>
+    <script src="https://blackrockdigital.github.io/startbootstrap-shop-item/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+	<script>
+		function reproducir(id) {
+			
+			console.info('reproducir video ' + id);
+			var iframe = document.getElementById('iframe');
+			iframe.src = "https://www.youtube.com/embed/" + id;
+			
+		}	
+	
+	</script>
 
   </body>
 
