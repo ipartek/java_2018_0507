@@ -51,6 +51,9 @@ public class AhorcadoServlet extends HttpServlet {
 			ahorcado.setPalabra(palabra);
 		request.setAttribute("ahorcado", ahorcado);
 		request.getRequestDispatcher("ahorcado.jsp").forward(request, response);
+		if(ahorcado.getVictoria()==1)
+		palabraEle=null;
+			
 	}
 
 }

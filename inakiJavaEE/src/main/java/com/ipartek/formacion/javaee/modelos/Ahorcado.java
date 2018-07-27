@@ -88,10 +88,11 @@ public void setVictoria(int victoria) {
 	public void setReiniciar() {
 	 numVidas=1;aux=0;
 	 rutaImagen="ahorcad//ahorcado1.png";
-	 palabraElegida=palabras[(int) (Math.random()*6)];
+	 //palabraElegida=palabras[(int) (Math.random()*6)];
 	palabraCodificada="";
 	palabraCodi=new StringBuilder("");
-	definitiva="";
+	definitiva=null;
+	palabraElegida=null;
 	victoria=0;
 		
 	}
