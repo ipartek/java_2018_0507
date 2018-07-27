@@ -31,7 +31,26 @@ public class Prueba1 {
 		MUJER, HOMBRE
 	};
 
-	public static void main(String[] args) throws IOException {
+	@SuppressWarnings("unused")
+	public static void main(String[] args) {
+		String saludo, nombre = "Javier";
+		
+		nombre = "Pepe Pérez";
+		
+		saludo = "Hola " + nombre;
+		saludo = new StringBuilder().append("Hola ").append(nombre).toString();
+		
+		StringBuilder log = new StringBuilder();
+		log.append("laksdjlfas");
+		
+		char c = 'c';
+		
+		String s = String.valueOf(c);
+		
+		char c2 = s.charAt(0);
+	}
+	
+	public static void mainFicheros(String[] args) throws IOException {
 		FileWriter fw = new FileWriter(RUTA_FICHERO, SOBREESCRIBIR);
 		PrintWriter pw = new PrintWriter(fw,AUTO_FLUSH);
 		
