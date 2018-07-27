@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class EjercicioArraylist {
 
 	public static void main(String[] args) {
-		
+		Coche.leerCoches();
 	}
 
 	
