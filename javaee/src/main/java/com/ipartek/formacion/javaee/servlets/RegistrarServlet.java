@@ -56,18 +56,6 @@ public class RegistrarServlet extends HttpServlet {
 			request.setAttribute("DatosUsu", lf);
 			request.getRequestDispatcher("registro.jsp").forward(request, response);
 	}
-//		if(!lf.isErroneo()) {
-//			lf.setNombre(nombre);
-//			lf.setPassword(password);
-//			listalogins.add(lf);
-//			request.setAttribute("DatosUsu", lf);
-//			request.getRequestDispatcher("index.jsp").forward(request, response);		
-//		}
-//		else{
-//			lf.setMensajeError(lf.getMensajeError() + "No han llegado los datos a la lista");
-//	request.getRequestDispatcher("index.jsp").forward(request, response);
-//		    }
-//	 }
 	
 
 		private boolean validarcontraseina(LoginForm login) {
@@ -87,6 +75,7 @@ public class RegistrarServlet extends HttpServlet {
 			}return false;
 			}
 		
+		@SuppressWarnings("rawtypes")
 		public static List GetList() {
 			return listalogins;
 		}
