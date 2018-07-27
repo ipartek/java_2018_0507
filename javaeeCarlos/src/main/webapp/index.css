@@ -1,62 +1,70 @@
 body {
 	font-family: sans-serif;
-    background-color:blueviolet;
-    color: azure
+	background-color: blueviolet;
+	color: azure
 }
+
 label {
-	width: 15em;   
+	width: 15em;
 }
+
 input, button {
-    border: 1px solid black;
-	border-bottom-left-radius: 15px;    
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
+	border: 1px solid black;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	border-top-right-radius: 20px;
+	border-top-left-radius: 20px;
 }
-.saludo h2{
-	position:relative;
+
+.saludo h2 {
+	position: relative;
 }
- .miau{
+
+.miau {
 	float: left;
 	border-radius: 100px;
 	max-height: 100px;
 	max-width: 100px;
-	
 }
-button{
-    padding: 5px 10px;
-    border-color: fuchsia;
-    border-width: thick;
-    border-bottom-style: groove;
-    background-color: firebrick;
+
+button {
+	padding: 5px 10px;
+	border-color: fuchsia;
+	border-width: thick;
+	border-bottom-style: groove;
+	background-color: firebrick;
 }
 /* # ----> ID (atributo de HTML) */
-#mensaje{
-    font-variant: small-caps;
+#mensaje {
+	font-variant: small-caps;
 }
 /*se debera usar llamar por id o class*/
 /* .----> class (atributo de HTML)*/
 /*Es mejor cambiarla cursiva, negrita, subrayado... en el css y 
 debe llamarselo por lo que deseas no por el tipo*/
-.destacado{
-    font-weight: bold;
-    color:fuchsia;
+.destacado {
+	font-weight: bold;
+	color: fuchsia;
 }
 
-input[name=nombre]{
-    font-style: italic;
+input[name=nombre] {
+	font-style: italic;
 }
-.errorCuadro {
-    border. 2px solid red;
+
+.errorCuadro {border . 2px solid red;
+	
 }
+
 .errorTexto, .errorCuadro {
-    color:red;
+	color: red;
 }
-#banderaRegistro{
-	font-family:fantasy; 
-	font-size:xx-large;
-} 
-#registroEnlace{
+
+#banderaRegistro {
+	font-family: fantasy;
+	font-size: xx-large;
+}
+
+#registroEnlace {
 	padding: 5px 10px;
 	border: 1px solid black;
 	border-radius: 50px;
@@ -65,27 +73,65 @@ input[name=nombre]{
 	border-width: thick;
 	color: black;
 }
-#colDerecha{
-	position:relative;
-	bottom:162px;
-	left:200px;
-}
-#registroField{
 
-	width: 370px;
-	height: 300px;	
-    border: 2px groove (internal value);
+#colDerecha {
+	position: relative;
+	bottom: 162px;
+	left: 200px;
 }
-#labelClave{
+
+#cuerpoAhorcado {
+	background-color: white;
+}
+
+#registroField {
+	width: 370px;
+	height: 300px;
+	border: 2px groove(internal value);
+}
+
+#labelClave {
 	text-align: left;
 }
-#btnRegistrar{
-	
+
+#imgAhorcado {
+	width: 150px;
+	height: 150px;
+	border-radius: 0px;
+}
+
+#btnRegistrar {
 	padding: 5px 10px;
-    border-color: fuchsia;
-    border-width: thick;
-    border-bottom-style: groove;
-    background-color: firebrick;
-    text-decoration: blink;
+	border-color: fuchsia;
+	border-width: thick;
+	border-bottom-style: groove;
+	background-color: firebrick;
+	text-decoration: blink;
+}
+
+.colorAhorcado {
+	color: #af111c;
+}
+
+#divImgAhorcado {
+	position: relative;
+	width: 300px;
+	height: 200px;
+}
+
+#txtAhorcad {
+	position: relative;
+}
+
+#intrLetras {
+	position:relative;
+	font-size: 40;
+	border-radius: opx;
+	outline: 0;
+	border-width: 0 0 2px;
+	border-color: #af111c;
+	width:1em;
+	left:50px;
+	text-align: center;
 }
 /*La linea superior significa 5 pixeles arriba y abajo y 10 a iquierda y derecha*/
