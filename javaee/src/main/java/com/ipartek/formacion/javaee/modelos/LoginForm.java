@@ -1,9 +1,10 @@
 package com.ipartek.formacion.javaee.modelos;
 
 public class LoginForm {
-	private String nombre;
-	private String password;
+	private String nombre = "";
+	private String password = "";
 	
+	private String errorNombre;
 	private String mensajeError;
 
 	public LoginForm(String nombre, String password, String mensajeError) {
@@ -14,7 +15,7 @@ public class LoginForm {
 	}
 
 	public LoginForm(String nombre, String password) {
-		this(nombre, password, "");
+		//OBLIGATORIO PARA PODER USAR <jsp:useBean
 	}
 
 	public LoginForm() {
@@ -29,7 +30,10 @@ public class LoginForm {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
+	public void setNombre(String nombre) throws LoginFormException{
+		if(nombre.trim().length()==0) {
+			throw new LoginFormException("No se admten nombres vacios");
+		}
 		this.nombre = nombre;
 	}
 

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.javaee.modelos.LoginForm;
+import com.ipartek.formacion.javaee.modelos.LoginFormException;
 
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -39,7 +40,13 @@ public class LoginServlet extends HttpServlet {
 			throw new RuntimeException("No se han recibido los datos de nombre y/o password");
 		}
 		
-		LoginForm login = new LoginForm(nombre, password);
+		LoginForm login = new LoginForm();
+		login.setNombre(nombre);
+		try {
+			login.setNombre(nombre);
+		}catch(LoginFormException e) {
+			login.setMensajeError(login.getMensajeError()+e.getMessage());
+		}
 			
 		if(validar(login)) {
 			response.sendRedirect("principal.jsp");
