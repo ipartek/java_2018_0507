@@ -42,7 +42,8 @@ public class MillasKmServlet extends HttpServlet {
 			mkm.setError("Debe introducir o millas o kilometros o ambos");
 		}else {
 			mkm.setError("");
-		}
+		}ç
+		//No se puede hacer == a double
 		if(millas == 0.0)
 			mkm.setErrorMillas("");
 		if(km == 0.0)
