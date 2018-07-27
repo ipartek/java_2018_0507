@@ -30,6 +30,6 @@
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>AhorcadoServlet</servlet-name>
-  	<url-pattern>/AhorcadoServlet</url-pattern>
+  	<url-pattern>/ahorcado</url-pattern>
   </servlet-mapping>
 </web-app>

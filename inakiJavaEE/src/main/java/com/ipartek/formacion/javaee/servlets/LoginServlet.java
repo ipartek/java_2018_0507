@@ -36,9 +36,9 @@ public class LoginServlet extends HttpServlet {
 			throw new RuntimeException("no se han recibido los datos de nombre y/o password");
 		}
 		Persona login=new Persona(nombre,password);
-		if("ñaki".equals(login.getNombre())	&& "ñ".equals(login.getPassword())) {
+		if("ñ".equals(login.getNombre())&& "ñ".equals(login.getPassword())) {
 			request.getSession().setAttribute("usuario", login);
-			response.sendRedirect("principal.jsp");				
+			response.sendRedirect("ahorcado.jsp");				
 			}
 		else {
 		//response.sendRedirect("error.html");

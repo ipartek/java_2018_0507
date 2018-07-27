@@ -15,13 +15,16 @@ import com.ipartek.formacion.javaee.modelos.Persona;
 public class AhorcadoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String palabra="";
-	private Ahorcado ahorcado=new Ahorcado();
+	private  Ahorcado ahorcado=new Ahorcado();
+	String palabraEle=null;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
     public AhorcadoServlet() {
         super();
+        if(palabraEle==null)
+        	palabraEle=ahorcado.getPalabraElegida();
         // TODO Auto-generated constructor stub
     }
 
@@ -40,6 +43,12 @@ public class AhorcadoServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		palabra=request.getParameter("letOpal");
+		ahorcado.setPalFin(palabraEle);
+		if(palabra.length()==1) {
+			ahorcado.setLetra(palabra.charAt(0));
+		}	
+		else
+			ahorcado.setPalabra(palabra);
 		request.setAttribute("ahorcado", ahorcado);
 		request.getRequestDispatcher("ahorcado.jsp").forward(request, response);
 	}
