@@ -15,8 +15,8 @@ import com.ipartek.formacion.prestamolibros.accesodatos.LibroArrayDAO;
 import com.ipartek.formacion.prestamolibros.pojo.Cliente;
 import com.ipartek.formacion.prestamolibros.pojo.Libro;
 import com.ipartek.formacion.video.accesodatos.CrudAble;
-import com.ipartek.formacion.video.accesodatos.RevistaDao;
-import com.ipartek.formacion.video.pojo.Revista;
+import com.ipartek.formacion.video.accesodatos.VideoYoutubeDao;
+import com.ipartek.formacion.video.pojo.VideoYoutube;
 
 public class PresentacionMain {
 

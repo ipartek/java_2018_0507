@@ -6,7 +6,7 @@ package com.ipartek.formacion.video.pojo;
  * @author AnaMAMM
  *
  */
-public class Revista {
+public class VideoYoutube {
 	
 	/**
 	 * variables id codigo y titulo
@@ -21,7 +21,7 @@ public class Revista {
 	 * @param codigo
 	 * @param titulo
 	 */
-	public Revista(long id, String codigo, String titulo) {
+	public VideoYoutube(long id, String codigo, String titulo) {
 		this.id = id;
 		this.codigo = codigo;
 		this.titulo = titulo;
@@ -30,7 +30,7 @@ public class Revista {
 	/**
 	 * constructor sin parametros
 	 */
-	public Revista() {
+	public VideoYoutube() {
 		this(-1, "", "");
 	}
 
@@ -95,7 +95,7 @@ public class Revista {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Revista other = (Revista) obj;
+		VideoYoutube other = (VideoYoutube) obj;
 		if (codigo == null) {
 			if (other.codigo != null)
 				return false;

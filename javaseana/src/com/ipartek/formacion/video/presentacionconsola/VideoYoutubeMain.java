@@ -3,8 +3,8 @@ package com.ipartek.formacion.video.presentacionconsola;
 import java.util.Scanner;
 
 import com.ipartek.formacion.video.accesodatos.CrudAble;
-import com.ipartek.formacion.video.accesodatos.RevistaDao;
-import com.ipartek.formacion.video.pojo.Revista;
+import com.ipartek.formacion.video.accesodatos.VideoYoutubeDao;
+import com.ipartek.formacion.video.pojo.VideoYoutube;
 
 
 /**
@@ -17,7 +17,7 @@ import com.ipartek.formacion.video.pojo.Revista;
  *        Eliminar 0. Salir
  * 
  *        y contiene metodos, ademas de llamar a la clase
- *        {@link RevistaDao} para llevar a cabo esas operaciones
+ *        {@link VideoYoutubeDao} para llevar a cabo esas operaciones
  * 
  * @author AnaMAMM
  *
@@ -43,7 +43,7 @@ public class VideoYoutubeMain {
 		 * especifico para ello en la propia clase que permite crear solo una instancia
 		 * de la misma. Se trabajará por tanto con una sola instancia de esta clase.
 		 */
-		RevistaDao dao = RevistaDao.getInstance();
+		VideoYoutubeDao dao = VideoYoutubeDao.getInstance();
 
 		/**
 		 * Se llama al metodo cargar videos para que cargue una lista de estos por
@@ -106,7 +106,7 @@ public class VideoYoutubeMain {
 					e.printStackTrace();
 				}
 
-				Revista videoElegido = dao.getById(idVideo);// crear obj VideoYoutube que es lo que devuelve
+				VideoYoutube videoElegido = dao.getById(idVideo);// crear obj VideoYoutube que es lo que devuelve
 																	// getByid
 				mostrarCabecera(); // muestra la cabecera
 				mostrarVideo(videoElegido); // muestra el video
@@ -147,7 +147,7 @@ public class VideoYoutubeMain {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}// introduce el titulo
-					Revista videoI = new Revista(id, cod, tit); // crea una instancia de video
+					VideoYoutube videoI = new VideoYoutube(id, cod, tit); // crea una instancia de video
 					boolean correcto = dao.insert(videoI); // se la pasa como argumento al metodo insert
 					if (correcto) { // si devuelve true se ha insertado
 						p("Nuevo video insertado correctamente. ");
@@ -199,7 +199,7 @@ public class VideoYoutubeMain {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					Revista videoUp = new Revista(idUpdate, cod, tit);
+					VideoYoutube videoUp = new VideoYoutube(idUpdate, cod, tit);
 					dao.update(videoUp);
 					p("El video actualizado es: ");
 					mostrarCabecera();
@@ -267,11 +267,11 @@ public class VideoYoutubeMain {
 	 * muestra un listado de videos.
 	 */
 	private static void listadoVideos() {
-		RevistaDao dao = RevistaDao.getInstance();
+		VideoYoutubeDao dao = VideoYoutubeDao.getInstance();
 //
 		mostrarCabecera();
 		//recorre el array de videos y los muestra
-		for (Revista video : dao.getAll()) {
+		for (VideoYoutube video : dao.getAll()) {
 			mostrarVideo(video);
 		}
 
@@ -288,7 +288,7 @@ public class VideoYoutubeMain {
 	 * muestra un video con su id codigo y titulo
 	 * @param video
 	 */
-	private static void mostrarVideo(Revista video) {
+	private static void mostrarVideo(VideoYoutube video) {
 		p(video.getId() + "\t" + video.getCodigo() + "\t" + video.getTitulo());
 
 	}
@@ -297,10 +297,10 @@ public class VideoYoutubeMain {
 	 * carga unos videos por defecto
 	 */
 	private static void cargarVideos() {
-		CrudAble<Revista> dao = RevistaDao.getInstance();
+		CrudAble<VideoYoutube> dao = VideoYoutubeDao.getInstance();
 
 		for (int i = 1; i <= 5; i++) {
-			dao.insert(new Revista(i, "codigo" + i, "titulo" + i));
+			dao.insert(new VideoYoutube(i, "codigo" + i, "titulo" + i));
 		}
 
 	}
