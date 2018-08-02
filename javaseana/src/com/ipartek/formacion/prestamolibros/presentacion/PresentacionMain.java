@@ -630,10 +630,10 @@ if(libros.size()==0) {
 			//Guardamos el objeto , o un array o lo que queramos
 			objectOutputStream.writeObject(libros);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		

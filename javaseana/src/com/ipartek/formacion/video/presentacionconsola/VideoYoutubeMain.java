@@ -144,7 +144,7 @@ public class VideoYoutubeMain {
 					try {
 						tit = teclado.next();
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
+					
 						e.printStackTrace();
 					}// introduce el titulo
 					VideoYoutube videoI = new VideoYoutube(id, cod, tit); // crea una instancia de video
@@ -188,7 +188,7 @@ public class VideoYoutubeMain {
 					try {
 						cod = teclado.next();
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
+					
 						e.printStackTrace();
 					}
 					p("Escribir el nuevo título");
@@ -196,7 +196,7 @@ public class VideoYoutubeMain {
 					try {
 						tit = teclado.next();
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 					VideoYoutube videoUp = new VideoYoutube(idUpdate, cod, tit);
@@ -222,7 +222,7 @@ public class VideoYoutubeMain {
 				try {
 					idDelete = teclado.nextLong();
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
+				
 					e.printStackTrace();
 				}
 				if (dao.getById(idDelete) != null) {
