@@ -1,1 +1,0 @@
-Fichero para que Git propague esta carpeta

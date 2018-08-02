@@ -196,7 +196,7 @@ public class VideoYoutubeMain {
 					try {
 						tit = teclado.next();
 					} catch (Exception e) {
-						
+				
 						e.printStackTrace();
 					}
 					VideoYoutube videoUp = new VideoYoutube(idUpdate, cod, tit);
@@ -222,7 +222,7 @@ public class VideoYoutubeMain {
 				try {
 					idDelete = teclado.nextLong();
 				} catch (Exception e) {
-				
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				if (dao.getById(idDelete) != null) {
