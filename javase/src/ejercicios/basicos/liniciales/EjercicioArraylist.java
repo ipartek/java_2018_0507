@@ -7,6 +7,15 @@ public class EjercicioArraylist {
 
 	public static void main(String[] args) {
 		Coche.leerCoches();
+<<<<<<< HEAD
+=======
+        System.out.println("\nCoches introducidos:");
+		Coche.mostrarCoches();
+		Coche.mostrarPorMarca();
+		Coche.mostrarPorKm();
+		Coche.mostrarMayorKm();
+		Coche.mostrarOrdenadosPorKm();
+>>>>>>> branch 'Aitor84' of https://github.com/ipartek/java_2018_0507.git
 	}
 
 	
@@ -34,6 +43,7 @@ public class EjercicioArraylist {
         }while(masCadenas);
         System.out.println(cadenas);
 	}
+<<<<<<< HEAD
 
 	public static String cadenaLarga(ArrayList<String> cadena) {
 		String mayor = cadena.get(0);
@@ -71,6 +81,43 @@ public class EjercicioArraylist {
 		return valores;
 	}
 
+=======
+	public static String cadenaLarga(ArrayList<String> cadena) {
+		String mayor = cadena.get(0);
+		for(int i = 1; i<cadena.size(); i++) {
+			if(cadena.get(i).length()>mayor.length()) {
+				mayor = cadena.get(i);
+			}
+		}
+		System.out.println(mayor);
+		return mayor;
+	}
+*/
+/*	EJERCICIO 3 segunda parte
+	public static void main(String[] args) {
+		
+		ArrayList<Integer> valores = pedirValores();
+		mostrar(valores);
+		desplazar(valores);
+		mostrar(valores);		
+	}
+	
+	public static ArrayList<Integer> pedirValores(){
+	    ArrayList<Integer> valores = new ArrayList<Integer>();
+	    int N;
+		Scanner sc = new Scanner(System.in);
+		do {
+			System.out.println("Introduce el numero de elementos que va a contener el Array <0");
+	    	N = sc.nextInt();
+		}while (N<=0);
+		for(int i = 0; i<N; i++) {
+			System.out.println("Introduce el valor "+(i+1)+" del Array");
+			int V = sc.nextInt();
+			valores.add(V);
+		}
+		return valores;
+	}
+>>>>>>> branch 'Aitor84' of https://github.com/ipartek/java_2018_0507.git
 	public static void desplazar(ArrayList<Integer> a) {
 		int aux = a.get(a.size()-1);     
         a.add(0,aux);
@@ -118,7 +165,6 @@ public class EjercicioArraylist {
 	
 /*	EJERCICIO 2	
 	public static void main(String[] args) {
-
 		ArrayList<Integer> valores = leerValores();
 		int suma = calcularSuma(valores);
 		mostrarResultados(valores, suma);
@@ -149,7 +195,6 @@ public class EjercicioArraylist {
 		}
 		return suma;
 	}
-
 	public static void mostrarResultados(ArrayList<Integer> valores, int suma) {
 		int contador = 0;
 		for(int i = 0; i<valores.size(); i++) {
@@ -188,7 +233,6 @@ public class EjercicioArraylist {
 	      while (N<=0);
 	      return N;
 	}
-
 	public static void leerAlturas(ArrayList<Double> alturas, int N) {
 	      Scanner sc = new Scanner(System.in);
 	      double alto;
@@ -201,7 +245,6 @@ public class EjercicioArraylist {
     	   alturas.add(alto);
 	      }
 	}
-
 	public static double calcularMedia(ArrayList<Double> altura) {
 		double media = 0;
 		for(int i = 0; i<altura.size(); i++) {
@@ -210,7 +253,6 @@ public class EjercicioArraylist {
 		System.out.println(media/altura.size());
 		return media/altura.size();
 	}
-
 	public static void calcularMedias(ArrayList<Double> altura, double A) {
 		for(int i = 0; i<altura.size(); i++) {
 			System.out.println("Altura del alumno "+(i+1)+" es "+altura.get(i));
@@ -225,6 +267,5 @@ public class EjercicioArraylist {
 		
 		
 	}
-
 */
 }
