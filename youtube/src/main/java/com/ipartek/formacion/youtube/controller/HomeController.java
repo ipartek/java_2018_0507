@@ -15,7 +15,7 @@ import com.ipartek.formacion.youtube.model.VideoArrayListDAO;
 /**
  * Servlet implementation class HomeController
  */
-@WebServlet("/")
+@WebServlet("/inicio")
 public class HomeController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
