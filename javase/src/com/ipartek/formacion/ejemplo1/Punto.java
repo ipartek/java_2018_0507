@@ -86,4 +86,14 @@ public class Punto {
 			return false;
 		return true;
 	}
+	
+	// Punto total = p.sumar(p2);
+	public Punto sumar(Punto otroPunto) {
+		return new Punto(this.getX() + otroPunto.getX(), this.getY() + otroPunto.getY());
+	}
+	
+	// Punto total = Punto.sumar(p1, p2);
+	public static Punto sumar(Punto unPunto, Punto otroPunto) {
+		return unPunto.sumar(otroPunto);
+	}
 }
