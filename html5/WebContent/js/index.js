@@ -1,3 +1,3 @@
 window.onload = function() {
-	alert('Ok desde JavaScript');
+	alert('Bienvenidos a JavaScript');
 };
