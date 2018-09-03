@@ -1,0 +1,19 @@
+body {
+    font-family: sans-serif;
+}
+
+body > header {
+    color: white;
+    background: black;
+    
+    font-size: 200%;
+}
+
+article h1 {
+    font-size: 200%;
+    margin-bottom: 0;
+}
+
+article h2 {
+    font-size: 100%;
+}
