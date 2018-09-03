@@ -1,40 +1,60 @@
 package com.ipartek.formacion.javaee.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class LoginServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+import com.ipartek.formacion.javaee.modelos.LoginForm;
+import com.ipartek.formacion.javaee.modelos.LoginFormException;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter pw = response.getWriter();
-		pw.println("Hola a todos: " + new java.util.Date());
+public class LoginServlet extends HttpServlet {
+
+	private static final String USUARIO_POR_DEFECTO = "javierniño";
+	private static final String PASSWORD_POR_DEFECTO = "contra";
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		
-		String ruta = request.getContextPath();
-		
-		pw.println(ruta);
-		
+		//Recogida de datos
 		String nombre = request.getParameter("nombre");
+		String password = request.getParameter("password");
 		
-		if(nombre == null) {
-			nombre = "DESCONOCIDO";
+		System.out.println(nombre);
+		
+		//Empaquetado en Modelo
+		LoginForm login = new LoginForm();
+		
+		try {
+			login.setNombre(nombre);
+		} catch (LoginFormException e) {
+			login.setErrorNombre("*");
 		}
 			
-		pw.append("Hola ").append(nombre);
-		
-		//pw.println("Hola " + nombre);
-		//pw.println(new StringBuilder("Hola ").append(nombre).toString());
-		
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		try {
+			login.setPassword(password);
+		} catch (LoginFormException e) {
+			login.setErrorPassword("*");
+		}
+
+		//Llamada a lógica de negocio
+		if(!login.isErroneo() && validar(login)) {
+			//Redirección a vista
+			request.getSession().setAttribute("usuario", login);
+			response.sendRedirect("principal.jsp");
+		} else {
+			//Redirección a vista
+			login.setMensajeError(login.getMensajeError() + " El usuario o contraseña no son correctos");
+			request.setAttribute("login", login);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+	private boolean validar(LoginForm login) {
+		return USUARIO_POR_DEFECTO.equals(login.getNombre()) && PASSWORD_POR_DEFECTO.equals(login.getPassword());
 	}
 
+	private static final long serialVersionUID = 1L;
 }
