@@ -1,4 +1,4 @@
-package com.ipartek.formacion.prestamolibros.accesodatos;
+package com.ipartek.formacion.video.accesodatos;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -10,37 +10,30 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.ipartek.formacion.prestamolibros.pojo.Libro;
+import com.ipartek.formacion.video.pojo.VideoYoutube;
 
-class LibroArrayDAOTest {
+class VideoYoutubeArrayDAOTest {
 
 	private static final int ID_INEXISTENTE = 1234;
-	static Libro mock1;
+	static VideoYoutube mock1;
 	static final long MOCK1_ID = 325;
 	static final String MOCK1_CODIGO = "AY4QbN5PCxg";
 	static final String MOCK1_TITULO = "Que Te Den";
-	static final String MOCK1_EDITORIAL="eDITORIAL";
-	static final String MOCK1_CLIENTE="cLIENTE";
 
-	static Libro mock2;
+	static VideoYoutube mock2;
 	static final long MOCK2_ID = 421;
 	static final String MOCK2_CODIGO = "AY4hgwdcvuaesjdPCxg";
 	static final String MOCK2_TITULO = "En La Noche";
-	static final String MOCK2_EDITORIAL="eDITORIAL";
-	static final String MOCK2_CLIENTE="cLIENTE";
 
 	private static final long MOCK_NUEVO_ID = 555;
-
-	@SuppressWarnings("unused")
 	private static final String MOCK_NUEVO_CODIGO = "noexisteeninternet";
-	@SuppressWarnings("unused")
 	private static final String MOCK_NUEVO_TITULO = "Video de prueba";
 
-	private static LibroArrayDAO dao = null;
+	private static VideoYoutubeArrayDAO dao = null;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		dao = LibroArrayDAO.getInstance();
+		dao = VideoYoutubeArrayDAO.getInstance();
 	}
 
 	@AfterAll
@@ -50,13 +43,12 @@ class LibroArrayDAOTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		mock1 = new Libro(MOCK1_ID, MOCK1_TITULO, MOCK1_CODIGO, MOCK1_EDITORIAL, MOCK1_CLIENTE);
-		mock2 = new Libro(MOCK2_ID, MOCK2_TITULO, MOCK2_CODIGO, MOCK2_EDITORIAL, MOCK2_CLIENTE);
+		mock1 = new VideoYoutube(MOCK1_ID, MOCK1_TITULO, MOCK1_CODIGO);
+		mock2 = new VideoYoutube(MOCK2_ID, MOCK2_TITULO, MOCK2_CODIGO);
 
 		assertTrue(dao.insert(mock1));
 		assertTrue(dao.insert(mock2));
 	}
-
 
 	@AfterEach
 	void tearDown() throws Exception {
@@ -69,8 +61,8 @@ class LibroArrayDAOTest {
 
 	@Test
 	void testGetInstance() {
-		CrudAble<Libro> dao1 = LibroArrayDAO.getInstance();
-		LibroArrayDAO dao2 = LibroArrayDAO.getInstance();
+		CrudAble<VideoYoutube> dao1 = VideoYoutubeArrayDAO.getInstance();
+		VideoYoutubeArrayDAO dao2 = VideoYoutubeArrayDAO.getInstance();
 
 		assertNotNull(dao1);
 		assertNotNull(dao2);
@@ -80,7 +72,7 @@ class LibroArrayDAOTest {
 
 	@Test
 	void testGetAll() {
-		List<Libro> videos = dao.getAll();
+		List<VideoYoutube> videos = dao.getAll();
 
 		assertNotNull(videos);
 		assertEquals(2, videos.size());
@@ -89,31 +81,31 @@ class LibroArrayDAOTest {
 
 	@Test
 	void testGetById() {
-		Libro libro = dao.getById(MOCK2_ID);
+		VideoYoutube video = dao.getById(MOCK2_ID);
 
-		assertNotNull(libro);
-		assertEquals(mock2, libro);
+		assertNotNull(video);
+		assertEquals(mock2, video);
 
-		libro = dao.getById(ID_INEXISTENTE);
+		video = dao.getById(ID_INEXISTENTE);
 
-		assertNull(libro);
+		assertNull(video);
 	}
 
 	@Test
 	void testInsert() {
 		int cuantosAntes = dao.getAll().size();
 
-		Libro libroInsertado = new Libro(MOCK1_ID, MOCK1_TITULO, MOCK1_CODIGO, MOCK1_EDITORIAL, MOCK1_CLIENTE);
+		VideoYoutube videoInsertado = new VideoYoutube(MOCK_NUEVO_ID, MOCK_NUEVO_CODIGO, MOCK_NUEVO_TITULO);
 
-		assertTrue(dao.insert(libroInsertado));
+		assertTrue(dao.insert(videoInsertado));
 
 		int cuantosDespues = dao.getAll().size();
 
 		assertEquals(cuantosAntes + 1, cuantosDespues);
 
-		Libro recogido = dao.getById(MOCK_NUEVO_ID);
+		VideoYoutube recogido = dao.getById(MOCK_NUEVO_ID);
 
-		assertEquals(recogido, libroInsertado);
+		assertEquals(recogido, videoInsertado);
 
 		assertTrue(!dao.insert(null));
 
@@ -122,25 +114,23 @@ class LibroArrayDAOTest {
 		assertEquals(cuantosDespues, cuantosDespuesNull);
 	}
 
+	@SuppressWarnings("static-access")
 	@Test
 	void testUpdate() {
 		assertFalse(dao.update(null));
 
-		// Modificamos un Libro que Existe
-		Libro libroModificarConID = new Libro(MOCK1_ID, "1", "qqq", "ttt", "ddd");
-		assertTrue(dao.update(libroModificarConID));
+		// Modificamos un Video que Existe
+		VideoYoutube videoModificarConID = new VideoYoutube(MOCK1_ID, "fff", "El Fary");
+		assertTrue(dao.update(videoModificarConID));
 		// recuperar video y comprobar atributos
-		@SuppressWarnings("unused")
-		Libro libroModificado = dao.getById(MOCK1_ID);
-		assertEquals(MOCK1_ID, libroModificarConID.getId());
-		assertEquals("El Fary", libroModificarConID.getTitulo());
-		assertEquals("fff", libroModificarConID.getAutor());
+		VideoYoutube videoModificado = dao.getById(MOCK1_ID);
+		assertEquals(MOCK1_ID, videoModificado.getId());
+		assertEquals("El Fary", videoModificado.getTitulo());
+		assertEquals("fff", videoModificado.getCodigo());
 
-		// Modificamos un Libro que NO Existe
-		@SuppressWarnings("unused")
-		Libro libroModificarSinID = new Libro(ID_INEXISTENTE, "Inexistente", "fff", "fff", "rr");
-
-		assertFalse(dao.update(libroModificarConID));
+		// Modificamos un Video que NO Existe
+		VideoYoutube videoModificarSinID = new VideoYoutube(ID_INEXISTENTE, "Inexistente", "fff");
+		assertFalse(dao.update(videoModificarSinID));
 	}
 
 	@Test

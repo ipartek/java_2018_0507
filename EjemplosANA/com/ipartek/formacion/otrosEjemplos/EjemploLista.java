@@ -43,7 +43,6 @@ public class EjemploLista {
 		 	return p.getX() < 2;
 		 }
 		 });
-	
 		
 		for (Punto p:puntos)
 			System.out.println(p);

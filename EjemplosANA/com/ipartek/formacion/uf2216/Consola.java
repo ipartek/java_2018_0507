@@ -1,11 +1,19 @@
 package com.ipartek.formacion.uf2216;
 
-
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+
 import com.ipartek.formacion.uf2216.revista.Revista;
 
 
 public class Consola {
+	private static final String RUTA_FICHERO = "C:\\AnaWork\\fichero.txt";
+	private static final boolean AUTO_FLUSH = true;
+	private static final boolean SOBREESCRIBIR = false;
 
 	private static int ISBN;
 	private static  int n_paginas;
@@ -41,6 +49,8 @@ public class Consola {
 						Long revID= sc1.nextLong();
 						System.out.println("Revista elegida ID:"+revID);
 						revi.getRevistas(revID);
+						
+						mostrarRevista(revi);
 						
 						
 						
@@ -114,15 +124,46 @@ public class Consola {
 			System.out.println("ISBN Introducido"+ISBN);
 		
 			System.out.println("ISBN::: "+revista.getISBN()+" añadido");
-		//Quitando warning
-			//Quitando warning
 			sc.close();
 			return revista;
 		}
 		
 		private static void mostrarRevista(Revista rev) {
-		//CAmpiar
+
 			System.out.println(rev.getISBN() + "\t" + rev.getTitulo() + "\t" + rev.getFormato());
+			
+		
+			FileWriter fw;
+			try {
+					fw = new FileWriter(RUTA_FICHERO, SOBREESCRIBIR);
+				
+						
+					PrintWriter pw = new PrintWriter(fw,AUTO_FLUSH);
+					mostrarCabecera();
+					pw.println(rev.getISBN() + "\t" + rev.getTitulo() + "\t" + rev.getFormato());
+					
+					
+					pw.close();
+					fw.close();
+					
+					FileReader fr = new FileReader(RUTA_FICHERO);
+					BufferedReader br = new BufferedReader(fr);
+					
+					String linea;
+				
+					while( (linea = br.readLine()) != null ) {
+						System.out.println(linea);
+					}
+					
+				br.close();
+				fr.close();
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+		
+	
 
 }

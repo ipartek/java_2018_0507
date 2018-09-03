@@ -1,13 +1,9 @@
 package com.ipartek.formacion.primerProg.principal;
 
 import java.util.Date;
-
-import com.ipartek.formacion.primerProg.personas.Persona;
-
+import com.ipartek.formacion.primerProg.personas.*;
 
 public class Main {
-
-	@SuppressWarnings("unused")
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

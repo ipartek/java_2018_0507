@@ -11,7 +11,6 @@ public class ConsolaBiblioteca {
 
 	private static final int LISTADO = 1;
 
-
 	@SuppressWarnings("unused")
 	private static final int SALIR = 0;
 	@SuppressWarnings("unused")
