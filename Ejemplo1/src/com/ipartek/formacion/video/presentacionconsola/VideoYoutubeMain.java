@@ -8,18 +8,126 @@ import com.ipartek.formacion.video.pojo.VideoYoutube;
 
 public class VideoYoutubeMain {
 
+	private static final int DELETE_VIDEO = 5;
+	private static final int UPDATE_VIDEO = 4;
+	private static final int ADD_VIDEO = 3;
+	private static final int BUSCAR_ID = 2;
+	private static final int SALIR = 0;
 	private static final int LISTADO = 1;
+	
+	private static CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
 
 	public static void main(String[] args) {
 
 		cargarVideos();
+<<<<<<< HEAD
 		mostrarMenu();
+=======
 		
+		int opcion;
+>>>>>>> refs/remotes/origin/tt
+		
+<<<<<<< HEAD
 		
 		//TODO: Hacer el menú que se repita cada vez e implementar la lectura de teclado
 		int opcion = LISTADO;
 		
 
+=======
+		do {
+			mostrarMenu();
+			
+			opcion = Utils.leerInt();
+			
+			procesarOpcion(opcion);
+		}while(opcion != SALIR);
+	}
+
+	private static void procesarOpcion(int opcion) {
+		switch(opcion) {
+		case LISTADO:
+			listadoVideos();
+			break;
+		case BUSCAR_ID:
+			buscarPorId();
+			break;
+		case ADD_VIDEO: 
+			addVideo();
+			break;
+		case UPDATE_VIDEO:
+			updateVideo();
+			break;
+		case DELETE_VIDEO:
+			deleteVideo();
+			break;
+		case SALIR:
+			salir();
+			break;
+		default:
+			noDisponible();
+		}
+>>>>>>> refs/remotes/origin/tt
+	}
+
+	private static void deleteVideo() {
+		p("Dime el ID del video");
+		long id = Utils.leerLong();
+		
+		if(dao.delete(id)) {
+			p("Video borrado correctamente");
+		} else {
+			p("No se ha podido borrar el video");
+		}
+	}
+
+	private static void updateVideo() {
+		VideoYoutube video = crearVideoConDatosDeConsola();
+		
+		if(dao.update(video)) {
+			p("Video modificado correctamente");
+		} else {
+			p("No se ha podido modificar el video");
+		}
+	}
+
+	private static void addVideo() {
+		VideoYoutube video = crearVideoConDatosDeConsola();
+		
+		if(dao.insert(video)) {
+			p("Video añadido correctamente");
+		} else {
+			p("No se ha podido añadir el video");
+		}
+	}
+
+	private static VideoYoutube crearVideoConDatosDeConsola() {
+		p("ID:");
+		long id = Utils.leerLong();
+		p("Código:");
+		String codigo = Utils.leerLinea();
+		p("Título:");
+		String titulo = Utils.leerLinea();
+		
+		VideoYoutube video = new VideoYoutube(id, codigo, titulo);
+		return video;
+	}
+
+	private static void buscarPorId() {
+		p("Dime el ID del video");
+		long id = Utils.leerLong();
+		
+		VideoYoutube video = dao.getById(id);
+		
+		mostrarCabecera();
+		mostrarVideo(video);
+	}
+
+	private static void salir() {
+		p("Gracias por tu visita");
+	}
+
+	private static void noDisponible() {
+		p("Esa función no existe");		
 	}
 
 	private static void mostrarMenu() {
@@ -31,11 +139,20 @@ public class VideoYoutubeMain {
 		p("------------");
 		p("");
 		p("1. Listado de videos");
+<<<<<<< HEAD
 		p("2-buscar videos por id");
 		p("3-insertar video");
 		p("4-actualizar");
 		p("5-borrar video");
+=======
+		p("2. Buscar video por id");
+		p("3. Añadir video");
+		p("4. Modificar video");
+		p("5. Eliminar video");
+		p("");
+>>>>>>> refs/remotes/origin/tt
 		p("0. Salir");
+		p("");
 		p("Elige una opción");
 		try {
 		String num=entradaEscaner.nextLine();
@@ -103,8 +220,6 @@ public class VideoYoutubeMain {
 	}
 	
 	private static void listadoVideos() {
-		CrudAble<VideoYoutube> dao = VideoYoutubeArrayDAO.getInstance();
-		
 		mostrarCabecera();
 		
 		for(VideoYoutube video: dao.getAll()) {

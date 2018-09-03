@@ -36,7 +36,6 @@
             </span>
         </fieldset>
     </form>
-    <a title="guardar" href="GuardarServlet"><img src="img/save.png" width=40px; height=40;/></a>
-    <a title="actualizar" href="ActualizarServlet"><img src="img/load.png" width=40px; height=40;/></a>
+
 </body>
 </html>

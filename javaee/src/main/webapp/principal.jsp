@@ -9,6 +9,6 @@
 
 	<h1>Principal</h1>
 	<h2>Bienvenido <jsp:getProperty property="nombre" name="usuario"/> </h2>
-	<a href="index.jsp">regresar   </a><a href="juego.jsp">   jugar</a>
+
 </body>
 </html>

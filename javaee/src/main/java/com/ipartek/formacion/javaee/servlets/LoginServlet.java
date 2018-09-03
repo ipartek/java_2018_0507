@@ -44,6 +44,7 @@ public class LoginServlet extends HttpServlet {
 		}
 		LoginForm login = new LoginForm(nombre, password);
 		System.out.println(bot);
+<<<<<<< HEAD
 		if(bot==1){
 		if(validar(login)) {
 			request.getSession().setAttribute("usuario", login);
@@ -111,5 +112,66 @@ public class LoginServlet extends HttpServlet {
 			}
 			}return false;
 		}
+=======
+		if(bot==1) {
+		if(validar(login)) {
+			request.getSession().setAttribute("usuario", login);
+			response.sendRedirect("principal.jsp");
+		} else {
+			//response.sendRedirect("error.html");
+			//login.setMensajeError("El usuario o contraseña no son correctos");
+			request.setAttribute("login", login);
+			if(!validarnombre(login)) {
+				login.setNombre("error nombre");
+			}else {
+				login.setNombre("");
+			}
+			if(!validarcontraseina(login)) {
+				login.setPassword("error pasword");
+			}else {
+				login.setPassword("");
+			}
+			if(!validarcontraseina(login)&&!validarnombre(login)) {
+			login.setMensajeError("contraseña  y usuario incorrectos");
+			}else {
+				login.setPassword("");
+				login.setNombre("");
+			}
+			
+		}
+		}
+		if(bot==2) {
+			if(validar(login)==false) {
+				LoginForm.getLista().add(login);
+				login.setMensajeError("usuario añadido");
+				response.sendRedirect("index.jsp");
+			}else {
+				login.setMensajeError("usuario no añadido");
+				response.sendRedirect("index.jsp");
+			}
+		}
+		
+			
+	}
+
+	private boolean validar(LoginForm login) {
+		ArrayList<LoginForm> listi=LoginForm.getLista();
+		for(int i=0; i<listi.size();i++) {
+			
+			if((login.getNombre().equals(listi.get(i).getNombre()))&&(login.getPassword().equals(listi.get(i).getPassword()))){
+				return listi.get(i).getNombre().equals(login.getNombre()) && listi.get(i).getPassword().equals(login.getPassword());
+				
+			}
+		}
+		return false;
+		
+	}
+	private boolean validarcontraseina(LoginForm login) {
+		return "contra".equals(login.getPassword());
+	}
+	private boolean validarnombre(LoginForm login) {
+		return "javierniño".equals(login.getNombre());
+	}
+>>>>>>> refs/remotes/origin/tt
 
 }
