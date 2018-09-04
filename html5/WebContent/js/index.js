@@ -1,3 +1,5 @@
-window.onload = function(){
-	alert ('Hola Javascript');
+
+window.onload = function() {
+	alert('Bienvenidos a JavaScript');
 };
+
