@@ -1,8 +1,13 @@
+/*
+http://flukeout.github.io/
+https://flexboxfroggy.com/#es
+http://cssgridgarden.com/#es
+*/
 body {
     font-family: sans-serif;
 }
 
-body > header {
+body > header, body > footer {
     color: white;
     background: black;
     
