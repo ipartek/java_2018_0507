@@ -3,51 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <title>Ejemplo</title>
-    <link rel="stylesheet" href="css/estilos.css">
-    <!--<script src="js/index.js"></script>-->
+    
+    <link rel="stylesheet" href="css/estilos.css" />
+    <script src="js/index.js"></script>
 </head>
 
 <body>
+    <a id="arriba"></a>
     <header>
+       <img src="imgs/logo.png" alt="Logotipo" width="100" height="100"/>
         <h1>Mi super página web</h1>
     </header>
     <nav>
         <ul>
             <li><a href="#">Sección principal</a></li>
-            <li><a href="#">Contacto</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li>Enlaces externos
+                <ul>
+                    <li><a href="http://www.google.es?q=Mi super página web">Google</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
     <section id="principal">
         <article>
             <header>
                 <hgroup>
-                    <h1>💃El Titanic se ha hundido💃</h1>
-                    <h2>No era tan robusto como se pensaba</h2>
+                    <h1>El Titanic se ha hundido</h1>
+                    <h2>No era tan <del>cojonudo</del><ins>robusto</ins> como se pensaba</h2>
                 </hgroup>
-                <p>Autoridades dicen que lo de los iceberg no se habían incluído en las especificaciones yepa&nbsp;yepa&nbsp;yepa&nbsp;yepa&nbsp;yepa&nbsp;yepa&nbsp;yepa&nbsp;yepa&nbsp;yepa&nbsp;yepa&nbsp;yepa&nbsp;yepa&nbsp;</p>
+                <p>Autoridades dicen que lo de los iceberg no se habían incluído en las <em>especificaciones</em> de la compañía <strong>yepa&nbsp;yepa&nbsp;yepa&nbsp;yepa&nbsp;yepa</strong></p>
             </header>
             
-            <pre>
-            你好
-            🐈
-            &#128513
-            😁
-            🤷
-            💃
-            ñ
-            مرحبا
-            </pre>
+            <p><acronym title="What You See Is What You Get">WYSIWYG</acronym></p>
             
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam ratione optio hic est id aperiam dignissimos numquam, sit recusandae aliquam, odit assumenda ut eos architecto? Sint iure at laboriosam modi!</p>
+<pre>public class Hola {
+    public static void main(String[] args){
+        System.out.println();
+    }
+}</pre>
+
+<pre>
+    &lt;p>Hola&lt;/p>
+    Johnsons&amp;Johnsons
+    ni&ntilde;o
+    &#128513;
+    😁
+    &#10256;
+⠐
+          </pre>
+           <p>&lt;p>Hola&lt;/p>
+    Johnsons&amp;Johnsons</p>
+           
+           <p>
+               La variable <code>altura</code> representa la altura 😁.
+           </p>
+            
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br /> Magnam ratione optio hic est id aperiam dignissimos numquam, sit recusandae aliquam, odit assumenda ut eos architecto? Sint iure at laboriosam modi!</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta mollitia aliquam non esse natus eius, doloremque nam accusamus distinctio quisquam. Repellendus necessitatibus vitae mollitia harum perspiciatis commodi illo ipsum assumenda.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, itaque repudiandae consequatur ipsa sed fugit inventore, ducimus. Qui ullam quibusdam voluptate eius numquam omnis molestias, tempora incidunt doloremque porro consequatur.</p>
         </article>
     </section>
     <aside>
-        <p>Anuncio</p>
+        <p id="anuncio">Anuncio</p>
     </aside>
     <footer>
         <p>&copy;2018 Mio mio mio</p>
     </footer>
+    <p><a href="#arriba">^</a></p>
 </body>
 </html>
