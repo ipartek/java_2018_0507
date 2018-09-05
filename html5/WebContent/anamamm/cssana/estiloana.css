@@ -1,0 +1,35 @@
+header{
+	background-image: url("../imgsana/fondo_encabezado.png");
+	height:100px;
+}
+
+#logoenc{
+	
+	padding-left:20em;
+}
+
+#barraenc{
+	background-color:#6B8E23;
+	height: 50px;
+	
+}
+
+
+nav > ul> li{
+	display:inline;
+	
+	  
+	
+}
+
+a{
+	color:white;
+	font-variant: small-caps;
+	text-decoration: none;
+	
+	
+}
+
+#hojas{
+	margin-top:1000px;
+}
