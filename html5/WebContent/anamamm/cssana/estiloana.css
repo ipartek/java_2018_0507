@@ -1,42 +1,65 @@
-header{
+header {
 	background-image: url("../imgsana/fondo_encabezado.png");
-	height:100px;
+	height: 100px;
 }
 
-#logoenc{
-	
-	padding-left:20em;
+#logoenc {
+	padding-left: 20em;
 }
 
-#barraenc{
-	background-color:#6B8E23;
+#barraenc {
+	background-color: #6B8E23;
 	height: 50px;
-	
+	top: -10px;
+	position: relative;
 }
 
-nav>ul{
+#listaenc {
 	padding-left: 100px;
-}
-li{
-	display:inline;
-	margin-left: 200px;
-	
-	
+	margin-top: 0px;
+	padding-top: 15px;
+	margin-left: 250px;
 }
 
-div{
-	padding-top: 1px;
-	margin-top:auto;
+#listaenc li :hover {
+	background-color: yellow;
 }
 
-a{
-	color:white;
+#listaenc li {
+	display: inline;
+	margin-right: 10px;
+	padding: 10px;
+}
+
+#enlaceblog {
+	float: right;
+	margin-right: 40px;
+}
+
+a {
+	color: white;
 	font-variant: small-caps;
 	text-decoration: none;
-	
-	
+	font-size: 18px;
+	font-family: arial;
 }
 
-#hojas{
-	margin-top:1000px;
+#hojas {
+	float: right;
+}
+
+#cuadro {
+	background-color: #F6F7D5;
+	opacity:60%;
+	width: 300px;
+	height: 100px;
+	float: right;
+	margin-top: -250px;
+	margin-right: 150px;
+}
+
+#pcuadro {
+	font-size: 18px;
+	color: #35360B;
+	
 }
