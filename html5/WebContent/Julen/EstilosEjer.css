@@ -1,1 +1,33 @@
-@charset "UTF-8";
+
+#Menu  {
+	text-decoration: none;
+	list-style: none;
+	background-color:green;
+	padding:10px;
+
+}
+
+#Menu ul{
+	text-align:center;
+
+}
+
+#Menu ul > li {
+    display: inline;  
+
+}
+
+a {
+	color:white;
+	text-decoration: none;
+	padding:10px;
+	
+}
+
+.imgHojas {
+	display:inline-block;
+}
+
+.texto {
+	
+}
