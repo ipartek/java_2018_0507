@@ -33,3 +33,11 @@ nav#menuprincipal > ul{
 #menuprincipal li> ul> li{
     display: block;
 }
+
+h2 .alarma {
+    color;red;
+    font-size: ;
+}
+.barcos {
+    text-decoration: underline;
+}
