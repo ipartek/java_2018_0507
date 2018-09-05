@@ -20,12 +20,13 @@ public class Consola {
 		menuRevista();
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("SC"+sc.nextLine());
+		//System.out.println("SC"+sc.nextLine());
 
+		String opcion;
 		
-		while(sc.nextLine()!="0") {
+		while(!(opcion = sc.nextLine()).equals("0")) {
 			menuRevista();
-				switch(sc.nextLine()) {
+				switch(opcion) {
 					
 					case "1":
 						System.out.println("Añadir Revista");
@@ -38,14 +39,14 @@ public class Consola {
 						System.out.println("Buscar");
 						Revista revi=new Revista();
 						Scanner sc1 = new Scanner(System.in);
-						aniadirRevista();
+						//aniadirRevista();
 						Long revID= sc1.nextLong();
 						System.out.println("Revista elegida ID:"+revID);
-						revi.getRevistas(revID);
+						revi = revi.getRevistas(revID);
 						
+						System.out.println(revi);
 						
-						
-						revi.getRevistas(revID);
+						//revi.getRevistas(revID);
 						
 						menuRevista();
 				//		revi.getRevistas((long)idRevista);
@@ -92,11 +93,11 @@ public class Consola {
 			
 			
 			System.out.println("Introduce ISBN");
-			ISBN=sc.nextInt();
+			ISBN=sc.nextInt(); sc.nextLine();
 			System.out.println("Introduce Titulo");
-			titulo = sc.next();
+			titulo = sc.nextLine();
 			System.out.println("Introduce Formato: d para digital o p para papel");
-			String formatoReci = sc.next();
+			String formatoReci = sc.nextLine();
 			
 			
 			revista.setISBN(ISBN);
