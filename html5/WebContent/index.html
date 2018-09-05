@@ -11,13 +11,19 @@
 <body>
     <a id="arriba"></a>
     <header>
+       <img src="imgs/logo.png" alt="Logotipo" width="100" height="100"/>
         <h1>Mi super página web</h1>
     </header>
-    <nav>
+    <nav id="menuprincipal">
         <ul>
             <li><a href="#">Sección principal</a></li>
             <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="http://www.google.es?q=Mi super página web">Google</a></li>
+            <li><a href="#">Enlaces externos</a>
+                <ul>
+                    <li><a href="http://www.google.es?q=Mi super página web">Google</a></li>
+                    <li><a href="#">Otro enlace</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
     <section id="principal">
@@ -31,6 +37,18 @@
             </header>
             
             <p><acronym title="What You See Is What You Get">WYSIWYG</acronym></p>
+            
+            <ul>
+                <li>Uno</li>
+                <li>Dos</li>
+                <li>Tres</li>
+                <li>
+                    <ul>
+                        <li>A</li>
+                        <li>B</li>
+                    </ul>
+                </li>
+            </ul>
             
 <pre>public class Hola {
     public static void main(String[] args){
