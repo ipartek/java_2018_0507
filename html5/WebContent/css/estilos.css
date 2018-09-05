@@ -1,0 +1,53 @@
+/*
+http://flukeout.github.io/
+https://flexboxfroggy.com/#es
+http://cssgridgarden.com/#es
+*/
+body {
+    font-family: sans-serif;
+}
+
+body > header, body > footer {
+    color: white;
+    background: black;
+    
+    font-size: 200%;
+}
+
+article h1 {
+    font-size: 200%;
+    margin-bottom: 0;
+}
+
+article h2 {
+    font-size: 100%;
+}
+
+#menuprincipal {
+    background-color: black;
+    color: white;
+}
+
+#menuprincipal ul {
+    list-style: none;
+}
+
+#menuprincipal > ul {
+    border: 2px solid gray;
+}
+
+#menuprincipal li > ul > li {
+    display: block;
+}
+
+#menuprincipal a {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    padding: 0.5em 1em;
+}
+
+#menuprincipal a:hover {
+    color: black;
+    background-color: white;
+}
