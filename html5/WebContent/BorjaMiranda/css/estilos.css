@@ -1,0 +1,50 @@
+header{
+   background-image: url("../imagenes/fondo_encabezado.png");
+   height: 100px;
+}
+
+#nombrea{
+	padding-left:250px;
+}
+
+
+nav{
+	background-color: #006400;
+	height:40px;
+}
+#menua{
+margin-left:220px;	
+padding-top:1px;
+}
+
+li{
+	padding-bottom:3px;
+	display: inline;
+	margin-left:10px;
+}
+
+a{
+	color:white;
+}
+
+#principal{
+	background-image:  url("../imagenes/hojarasca.jpg");
+	height: 416px;
+	width: 1000px;
+	float:right;
+}
+
+aside{
+	background-color: #D3D3D3;
+	height:400px;
+	float: left;
+	width:20%;
+}
+
+#pie{
+	
+	background-color: #7CFC00;
+	height:25px;
+	width:1000px;
+margin-top: 370px;
+}
