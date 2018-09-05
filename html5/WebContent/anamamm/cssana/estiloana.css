@@ -14,12 +14,19 @@ header{
 	
 }
 
-
-nav > ul> li{
+nav>ul{
+	padding-left: 100px;
+}
+li{
 	display:inline;
+	margin-left: 200px;
 	
-	  
 	
+}
+
+div{
+	padding-top: 1px;
+	margin-top:auto;
 }
 
 a{
