@@ -21,13 +21,26 @@ a {
 	color:white;
 	text-decoration: none;
 	padding:10px;
-	
+}
+
+#Menu a:hover {
+    color: white;
+    background-color: #298A08;
+}
+
+#Bl{
+	text-align:right;
 }
 
 .imgHojas {
 	display:inline-block;
+	padding:0;
 }
 
 .texto {
+	padding:50px;
+	text-align:left;
+	display:inline-block;
+	margin-left:20px;
 	
 }
