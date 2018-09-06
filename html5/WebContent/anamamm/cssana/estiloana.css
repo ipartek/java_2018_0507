@@ -20,7 +20,24 @@ header {
 	margin-top: -65px;
 }
 
+#navfooter2 a {
+	color: #6B8E23;
+	text-decoration: none;
+	font-size: 10px;
+	font-family: arial;
+}
+
 #navfooter li {
+	display: inline;
+}
+
+#navfooter2 {
+	float: left;
+	clear: both;
+	margin-top: -40px;
+}
+
+#navfooter2 li {
 	display: inline;
 }
 
@@ -95,8 +112,6 @@ header {
 	font-family: arial;
 }
 
-
-
 #hojas {
 	float: right;
 }
@@ -131,7 +146,7 @@ header {
 
 #barrota {
 	background-color: #E4E682;
-	height: 95px;
+	height: 110px;
 	margin-bottom: 1px;
 }
 
@@ -139,4 +154,22 @@ header {
 	float: left;
 	margin-left: 580px;
 	height: 100px;
+}
+
+#copy {
+	float: left;
+	margin-left: -236px;
+	font-size: 10px;
+	font-family: arial;
+	color: #6B8E23;
+	margin-top: 0px;
+}
+
+#footerdcho {
+	font-size: 10px;
+	font-family: arial;
+	float: right;
+	margin-right: 300px;
+	margin-top: -96px;
+	color: #35360B;
 }
