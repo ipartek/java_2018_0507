@@ -112,7 +112,6 @@ a {
 	
 }
 
-.MenuPie{
-	text-decoration:none;
+#MenuPie ul{
 	list-style: none;
 }
