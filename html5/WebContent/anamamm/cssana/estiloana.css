@@ -14,6 +14,41 @@ header {
 	position: relative;
 }
 
+#navfooter {
+	float: left;
+	clear: both;
+	margin-top: -65px;
+}
+
+#navfooter li {
+	display: inline;
+}
+
+#barranum {
+	background-color: #E4E682;
+	height: 30px;
+	margin-top: 355px;
+	position: relative;
+	margin-left: 250px;
+	margin-right: 80px;
+}
+
+#listanum {
+	padding-left: 10px;
+	margin-top: 0px;
+	padding-top: 60px;
+	position: relative;
+	bottom: 50px;
+}
+
+#listanum li {
+	display: inline;
+}
+
+#listanum li :hover {
+	color: #35360B;
+}
+
 #listaenc {
 	padding-left: 100px;
 	margin-top: 0px;
@@ -22,7 +57,7 @@ header {
 }
 
 #listaenc li :hover {
-	background-color: yellow;
+	background-color: #BDB76B;
 }
 
 #listaenc li {
@@ -36,7 +71,7 @@ header {
 	margin-right: 40px;
 }
 
-a {
+#listaenc a {
 	color: white;
 	font-variant: small-caps;
 	text-decoration: none;
@@ -44,13 +79,31 @@ a {
 	font-family: arial;
 }
 
+#listanum a {
+	color: white;
+	font-variant: small-caps;
+	text-decoration: none;
+	font-size: 18px;
+	font-family: arial;
+}
+
+#listfoot a {
+	color: #6B8E23;
+	font-variant: small-caps;
+	text-decoration: none;
+	font-size: 18px;
+	font-family: arial;
+}
+
+
+
 #hojas {
 	float: right;
 }
 
 #cuadro {
 	background-color: #F6F7D5;
-	opacity:60%;
+	opacity: 0.6;
 	width: 300px;
 	height: 100px;
 	float: right;
@@ -61,5 +114,29 @@ a {
 #pcuadro {
 	font-size: 18px;
 	color: #35360B;
-	
+	opacity: 1;
+}
+
+#parrafo {
+	margin-left: 255px;
+	margin-top: 50px;
+	font-family: arial;
+}
+
+#barrita {
+	background-color: #6B8E23;
+	height: 30px;
+	margin-top: 650px;
+}
+
+#barrota {
+	background-color: #E4E682;
+	height: 95px;
+	margin-bottom: 1px;
+}
+
+#logopie {
+	float: left;
+	margin-left: 580px;
+	height: 100px;
 }
