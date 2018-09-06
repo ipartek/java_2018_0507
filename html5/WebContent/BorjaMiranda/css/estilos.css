@@ -4,38 +4,57 @@ header{
 }
 
 #nombrea{
-	padding-left:250px;
+	padding-left:280px;
 }
 
 
 nav{
 	background-color: #006400;
-	height:40px;
+	height:60px;
 }
 #menua{
-margin-left:220px;	
+margin-left:240px;	
 padding-top:1px;
+
 }
 
+
+
+#blog{
+	float:right;
+	margin-right: 51px;
+}
+
+ul{
+	
+}
+a{
+	text-decoration: none;
+	font-size: 21	px;
+}
 li{
 	padding-bottom:3px;
 	display: inline;
-	margin-left:10px;
+	margin-left:15px;
+	padding-left: 10px;
 }
 
 a{
 	color:white;
+	font-size: 21px;
+}
+a:hover{
+	color:black;
 }
 
 #principal{
-	background-image:  url("../imagenes/hojarasca.jpg");
 	height: 416px;
 	width: 1000px;
 	float:right;
+	margin-right: 50px;	
 }
 
 aside{
-	background-color: #D3D3D3;
 	height:400px;
 	float: left;
 	width:20%;
@@ -43,8 +62,110 @@ aside{
 
 #pie{
 	
-	background-color: #7CFC00;
+	background-color: #9EA123;
 	height:25px;
 	width:1000px;
-margin-top: 370px;
+
+    position:absolute;
+    bottom:53px;
+    }
+    #pielista{
+    display: inline;
+    font-size: 18px;
+    color:#E4E682;
+    padding-left: 0;
+    padding-top:1px;
+    }
+    
+    
+#flotar{
+	position:relative;
+	background-color: gray;
+	opacity:.8;
+
+	width: 462px;
+	height: 95px;
+	
+	    float: right;
+    margin-top: -300px;
+    margin-right: 59px;
+}
+#flotartexto{
+		font:18px ;
+	color: #35360B;
+}
+
+#orbella:hover {
+	background-color: red;
+	color:white;	
+	height: 300px;
+}
+
+#parrafoabajo{
+		float:right;
+	    margin-right: 190px;
+	    margin-top:30px;
+	
+}
+#parrafoabajo p{
+	font-size: 21px;	
+    line-height: 2;
+}
+
+footer{
+	clear:both;	
+    margin-top: 800px;
+}
+#arriba{
+	background-color: #006400;
+		height:30px;
+	
+}
+
+#abajo{
+	height:80px;
+	background-color: #9EA123;
+	
+}
+#logopie{
+	float: left;
+    margin-left: 571px;
+    width: 136px;
+
+}
+
+#izq{
+	
+      float: left;
+    clear: both;
+    margin-top: -72px;
+    margin-left: 100px;
+    font-size: 6px;
+}
+
+#izq a{
+    font-size: 14px;
+        color: #006400;}
+#dch{
+	
+    float: right;
+    margin-top: -80px;
+    margin-right: 271px;
+	
+}
+
+#b a,p{
+    font-size: 12px;
+    color: #006400;    
+}
+
+#palo{
+        font-size: 19px;
+    color: white;
+    padding-left: 26px;
+}
+#palogrande{
+	    float: left;
+    margin-left: 286px;
+    font-size: 81px;
 }
