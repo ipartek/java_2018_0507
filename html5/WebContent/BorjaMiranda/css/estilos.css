@@ -77,6 +77,14 @@ aside{
     padding-top:1px;
     }
     
+    td{
+        height: 50px;
+    
+    }
+    td:hover{
+    background-color: red;
+    height: 50px;
+    }
     
 #flotar{
 	position:relative;
