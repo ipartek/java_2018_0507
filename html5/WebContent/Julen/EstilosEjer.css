@@ -3,7 +3,7 @@
 	text-decoration: none;
 	list-style: none;
 	background-color:green;
-	padding:10px;
+	padding:8px;
 
 }
 
@@ -34,13 +34,30 @@ a {
 
 .imgHojas {
 	display:inline-block;
-	padding:0;
+    height: 95px;
+    width: 462px;
+	/*box-sizing: border-box;*/
+	postion:realtive;
+	
 }
 
 .texto {
-	padding:50px;
-	text-align:left;
 	display:inline-block;
-	margin-left:20px;
+	margin-left:21px;
+	float:left;
+	/*box-sizing: border-box;*/
+	width:300px;
+	height:400px;
+	
+}
+
+.piePag{
+	display:block;
+	position:absolute;
+	widht:960px;
+	clear:both;
+}
+
+.foot {
 	
 }
