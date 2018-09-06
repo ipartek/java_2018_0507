@@ -3,6 +3,23 @@ header {
 	height: 100px;
 }
 
+
+#span1 {
+	font-size: 70px;
+	float: left;
+	padding-top: 0px;
+	margin-left: 300px;
+	position: absolute
+}
+
+#span2 {
+	font-size: 70px;
+    float: right;
+    padding-top: 0px;
+    margin-left: 700px;
+    position: absolute;
+}
+
 #logoenc {
 	padding-left: 20em;
 }
@@ -129,7 +146,6 @@ header {
 #pcuadro {
 	font-size: 18px;
 	color: #35360B;
-	opacity: 1;
 }
 
 #parrafo {
