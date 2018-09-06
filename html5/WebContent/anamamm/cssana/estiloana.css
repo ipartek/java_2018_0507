@@ -92,6 +92,7 @@ header {
 
 #listaenc li :hover {
 	background-color: #BDB76B;
+	padding:10px;
 }
 
 #listaenc li {
