@@ -1,0 +1,38 @@
+body {
+    font-family: sans-serif;
+}
+
+header {
+    background-image: url(../imgs/fondo_encabezado.png);
+    height: 104px;
+    background-position: right;
+}
+
+/* body > header + nav */ 
+
+#menuprincipal {
+    background-color: #7C7C1D;
+    text-transform: uppercase;
+}
+
+#menuprincipal ul {
+    list-style: none;
+    padding: 3px;
+}
+
+#menuprincipal a {
+    display: block;
+    text-decoration: none;
+    color: #DCDC9B;
+    padding: 1em;
+}
+
+#menuprincipal a:hover {
+    background-color: #AEAE2D;
+}
+
+@media (min-width: 768px) {
+    #menuprincipal li {
+        display: inline-block;
+    }
+}

@@ -7,19 +7,20 @@ body {
     font-family: sans-serif;
 }
 
-body > header, body > footer {
+body > header,
+body > footer {
     color: white;
     background: black;
-    
+
     font-size: 200%;
 }
 
-article h1 {
+article h2 {
     font-size: 200%;
     margin-bottom: 0;
 }
 
-article h2 {
+article h3 {
     font-size: 100%;
 }
 
@@ -32,8 +33,13 @@ article h2 {
     list-style: none;
 }
 
+#menuprincipal ul > li {
+    display: inline;
+}
+
 #menuprincipal > ul {
     border: 2px solid gray;
+    padding: 0;
 }
 
 #menuprincipal li > ul > li {
@@ -50,4 +56,18 @@ article h2 {
 #menuprincipal a:hover {
     color: black;
     background-color: white;
+}
+
+header .alarma {
+    color: red;
+    font-size: 
+}
+
+.barcos {
+    text-decoration: underline;
+}
+
+p .alarma {
+    color: red;
+    font-size: 2em;
 }
