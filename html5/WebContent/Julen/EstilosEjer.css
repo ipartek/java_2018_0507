@@ -28,8 +28,9 @@ a {
     background-color: #298A08;
 }
 
-#Bl{
-	text-align:right;
+#Bl {
+	float:right;
+	
 }
 
 .texto {
@@ -73,6 +74,7 @@ a {
 	background-color:#298A08;
 	width: 960px;
 	height:20px;
+	margin-top: -4px;
 	
 }
 
