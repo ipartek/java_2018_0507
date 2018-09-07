@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Bilbo|Caveat:400,700&subset=latin-ext');
+
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +13,10 @@ header {
     background-image: url(../imgs/fondo_encabezado.png);
     height: 104px;
     background-position: right;
+}
+
+#informacion {
+    font-family: 'Bilbo', cursive;
 }
 
 #informacion h2,
@@ -78,6 +84,8 @@ header {
 }
 
 #cita {
+    font-family: 'Caveat', cursive;
+    
     position: absolute;
     top: 0;
     left: 0;
