@@ -7,18 +7,67 @@ body {
     font-family: sans-serif;
 }
 
-body > header, body > footer {
+body > header,
+body > footer {
     color: white;
     background: black;
-    
+
     font-size: 200%;
 }
 
-article h1 {
+article h2 {
     font-size: 200%;
     margin-bottom: 0;
 }
 
-article h2 {
+article h3 {
     font-size: 100%;
+}
+
+#menuprincipal {
+    background-color: black;
+    color: white;
+}
+
+#menuprincipal ul {
+    list-style: none;
+}
+
+#menuprincipal ul > li {
+    display: inline;
+}
+
+#menuprincipal > ul {
+    border: 2px solid gray;
+    padding: 0;
+}
+
+#menuprincipal li > ul > li {
+    display: block;
+}
+
+#menuprincipal a {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    padding: 0.5em 1em;
+}
+
+#menuprincipal a:hover {
+    color: black;
+    background-color: white;
+}
+
+header .alarma {
+    color: red;
+    font-size: 
+}
+
+.barcos {
+    text-decoration: underline;
+}
+
+p .alarma {
+    color: red;
+    font-size: 2em;
 }
