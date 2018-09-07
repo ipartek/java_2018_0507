@@ -8,19 +8,20 @@ header {
     background-position: right;
 }
 
-/* body > header + nav */ 
+/* body > header + nav */
 
 #menuprincipal {
     background-color: #7C7C1D;
     text-transform: uppercase;
 }
 
-#menuprincipal ul {
+#menuprincipal ul,
+paginacion ul {
     list-style: none;
     padding: 3px;
 }
 
-#menuprincipal a {
+#menuprincipal a{
     display: block;
     text-decoration: none;
     color: #DCDC9B;
@@ -31,6 +32,30 @@ header {
     background-color: #AEAE2D;
 }
 
+#menuprincipal li:last-child {
+    float: right;
+}
+
+.paginacion {
+    background-color: #AEAE2D;
+    padding-left: 21px;
+}
+
+.paginacion li {
+    display: inline-block;
+}
+
+.paginacion a{
+    display: block;
+    text-decoration: none;
+    font-size: 18px;
+    color: #E4E682;
+    padding: 1em;
+}
+
+.paginacion .numeropaginaactual{
+    color:#34360B;
+}
 @media (min-width: 768px) {
     #menuprincipal li {
         display: inline-block;
