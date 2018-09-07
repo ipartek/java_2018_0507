@@ -1,1 +1,7 @@
 @charset "UTF-8";
+
+
+.btn-default{
+	color:white;
+	background-color: #007da7;
+}
