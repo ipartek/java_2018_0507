@@ -1,0 +1,8 @@
+#encabezado{
+    background-image:url("../imgs/fondo_encabezado.png");
+    background-repeat: repeat-x;
+    background-position: right;
+}
+#logo{
+    margin-left: 25%;
+}
