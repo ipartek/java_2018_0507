@@ -1,3 +1,6 @@
+body{
+    background-color: beige;
+}
 #encabezado{
     background-image:url("../imgs/fondo_encabezado.png");
     background-repeat: repeat-x;
@@ -5,4 +8,30 @@
 }
 #logo{
     margin-left: 25%;
+}
+.navbar-default{
+    background-color: #7c7c1d;
+    margin-bottom: 0;
+}
+#barraInferior{
+    
+}
+.navbar-default .navbar-text {
+  color: white;
+}
+.active{
+    background-color: #aeae2d;
+}
+p{
+padding-left: 25%;
+    padding-top: 6%;
+}
+#barraInferior{
+    background-color: #aeae2d;
+    bottom:0;
+}
+@media (min-width: 600px){
+    #marca{
+        display: none;
+    }
 }
