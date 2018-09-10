@@ -18,7 +18,9 @@ public class StockMoviles {
 		this.memoria = memoria;
 	}
 	
-	public StockMoviles() {}
+	public StockMoviles() {
+		this(-1, false, "", 0, 0, 0 );
+	}
 	
 	public long getId() {
 		return id;
