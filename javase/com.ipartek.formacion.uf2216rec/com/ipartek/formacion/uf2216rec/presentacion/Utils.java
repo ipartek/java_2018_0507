@@ -7,6 +7,31 @@ public class Utils {
 	
 	private static Scanner s = new Scanner(System.in);
 	
+	public static boolean leerBoolean() {
+		String sOperativo;
+		boolean android;
+		boolean MostrarMensaje = false;
+		
+		do {
+			if(MostrarMensaje) {
+				System.out.println("¿Uticiza un sistema operativo Android? si/no");
+			}
+			
+			sOperativo = s.nextLine().trim();
+			
+			MostrarMensaje = true;
+		} while( sOperativo.length() == 0 );
+		
+		if(sOperativo == "si") {
+			android = true;
+		}
+		else {
+			android = false;
+		}
+		
+		return android;
+		}
+	
 	public static String leerLinea() {
 		String linea;
 		boolean MostrarMensaje = false;
@@ -70,7 +95,7 @@ public class Utils {
 		return i;
 	}
 	
-	public static int leerDouble() {
+	public static double leerDouble() {
 		int i = 0;
 		boolean repetir;
 		

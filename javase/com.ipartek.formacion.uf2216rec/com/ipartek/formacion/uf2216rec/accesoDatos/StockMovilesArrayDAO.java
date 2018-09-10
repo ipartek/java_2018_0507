@@ -32,13 +32,13 @@ public class StockMovilesArrayDAO implements CrudAble<StockMoviles> {
 	}
 
 	@Override
-	public boolean insert(StockMoviles pojo) {
+	public boolean insert(StockMoviles movil) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean update(StockMoviles pojo) {
+	public boolean update(StockMoviles movil) {
 		// TODO Auto-generated method stub
 		return false;
 	}
