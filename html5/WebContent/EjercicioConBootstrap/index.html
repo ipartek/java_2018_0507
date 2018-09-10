@@ -8,6 +8,7 @@
     <title>Ejercicio con Bootstrap</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/estilos.css" />
 
     <script src="js/jquery-1.12.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -16,10 +17,21 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12"><img src="imgs/fondo_encabezado.png" alt="Logo" class="img-rounded"></div>
+            <div class="col-md-9">
+                <!-- <div class="panel panel-primary" style="width: 100px">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Panel title</h3>
+                    </div>
+                    <div class="panel-body">Panel content</div>
+                </div> -->
+                <img src="imgs/fondo_encabezado.png" alt="Fondo" class="img-rounded">
+            </div>
+            <div class="col-md-3">
+                <img src="imgs/logo_encabezado.png" alt="Logo" class="img-rounded">
+            </div>
         </div>
     </div>
-    
+
     <nav class="navbar navbar-default navbar-inverse">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -39,7 +51,7 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-               
+
                 <ul class="nav navbar-nav">
                     <li><a href="#">Somos orbela</a></li>
                     <li><a href="#">Nuestros proyectos</a></li>
@@ -48,11 +60,45 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">Blog</a></li>
                 </ul>
-                
-                
+
+
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <h2>Información</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda voluptatem sit quod, voluptates eligendi autem, a et eos, quia debitis perspiciatis! Quo vitae iure cumque quae architecto consequuntur quas illum!</p>
+            </div>
+            <div class="col-md-9">
+                <blockquote id="cita">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                </blockquote>
+                <img src="imgs/hojarasca.jpg" alt="Hojarasca" class="img-rounded" width="980" height="416">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

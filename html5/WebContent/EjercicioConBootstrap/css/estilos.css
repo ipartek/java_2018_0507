@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+#cita {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    padding-left: 1em;
+    padding-top: 1em;
+    width: 462px;
+    height: 95px;
+
+    background-color: #F6F7D5;
+    opacity: 0.65;
+    font-size: 18px;
+    color: #35360B;
+}
