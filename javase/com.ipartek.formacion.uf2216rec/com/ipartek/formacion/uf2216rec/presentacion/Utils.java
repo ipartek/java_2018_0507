@@ -86,6 +86,27 @@ public class Utils {
 		return i;
 	}
 	
+	public static double leerRam() {
+		double i = 0;
+		
+		do {
+			try {
+				System.out.println("Por favor, introduce un número mayor que 0,5 GB");
+				i = s.nextDouble();
+			} catch (InputMismatchException e) {
+				System.out.println("Por favor, introduce un número mayor que 0,5 GB");
+				s.nextDouble();
+			} catch (Exception e) {
+				System.out.println("Error no esperado");
+				throw e;
+			}
+		} while (i < 0.50);
+		
+		s.nextLine();
+		
+		return i;
+	}
+	
 	public static double leerDouble() {
 		double i = 0;
 		boolean repetir;
@@ -108,5 +129,6 @@ public class Utils {
 		
 		return i;
 	}
+
 
 }

@@ -79,7 +79,7 @@ public class StockMovilesMain {
 		p("Marca:");
 		String marca = Utils.leerLinea();
 		p("Ram:");
-		double ram = Utils.leerDouble();
+		double ram = Utils.leerRam();
 		p("Pulgadas:");
 		double pulgadas = Utils.leerDouble();
 		p("Memoria:");
