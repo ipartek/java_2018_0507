@@ -29,17 +29,13 @@ public class Utils {
 	
 	public static String leerLinea() {
 		String linea;
-		boolean MostrarMensaje = false;
 
 		do {
-			if(MostrarMensaje) {
-				System.out.println("Introduce datos:");
-			}
-			
+			System.out.println("Introduce datos:");
+						
 			linea = s.nextLine().trim();
 			
-			MostrarMensaje = true;
-		} while( linea.length() == 0 );
+		} while( linea.length() <= 2 || linea.length() >= 16);
 		
 		return linea;
 	}
