@@ -73,13 +73,14 @@ public class Utils {
 	public static Boolean leerBoolean() {
 		boolean b = false;
 		boolean hayQueRepetir;
+
 		
 		do {
 			try {
 			hayQueRepetir = false;
 			b = s.nextBoolean();
 			}catch (RuntimeException e) {
-				System.out.println("Porfavor, introduce verdadero o falso.");
+				System.out.println("Porfavor, introduce True o False.");
 				s.nextLine();
 				hayQueRepetir = true;
 			}catch (Exception e) {

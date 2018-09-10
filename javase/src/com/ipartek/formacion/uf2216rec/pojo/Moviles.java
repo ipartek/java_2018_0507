@@ -17,6 +17,10 @@ public class Moviles {
 		this.pulgadas = pulgadas;
 		this.memoria = memoria;
 	}
+	
+	public Moviles() {
+		this(false, "", 0.0, 0.0, 0);
+	}
 
 
 	public boolean isAndroid() {

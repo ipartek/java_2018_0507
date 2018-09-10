@@ -110,9 +110,7 @@ public class MovilesMain {
 		}
 		
 		mostrarMenu();
-		
-		
-		
+
 	}
 	
 	
@@ -127,7 +125,7 @@ public class MovilesMain {
 	}
 	
 	private static Moviles crearMovilConDatosDeConsola() {
-		p("ANDROID: ");
+		p("ANDROID (TRUE o FALSE): ");
 		Boolean android = Utils.leerBoolean();
 		p("Marca: ");
 		String marca = Utils.leerLinea();
@@ -161,7 +159,7 @@ public class MovilesMain {
 		p("");
 		p("0. Salir");
 		p("");
-		p("Elige una opción");
+		p("Elige una opción: ");
 	}
 	
 	
@@ -174,18 +172,18 @@ public class MovilesMain {
 	}
 	
 	private static void mostrarCabecera() {
-		p("ANDROID \tMARCA\tRAM\tPULGADAS\tMEMORIA");
+		p("ANDROID " + " " +"MARCA" + " " + "RAM" + " " + "PULGADAS" + " " + "MEMORIA");
 	}
 	
 	private static void mostrarMovil(Moviles movil) {
-		p(movil.isAndroid() + " \t " + movil.getMarca() +"\t" + movil.getRam() +" \t " + movil.getPulgadas() +" \t " + movil.getMemoria());
+		p(movil.isAndroid() + "  " + movil.getMarca() +"  " + movil.getRam() +"   " + movil.getPulgadas() +"  " + movil.getMemoria());
 	}
 	
 	private static void cargarMoviles() {
 		CrudAble<Moviles> dao = MovilesArrayDAO.getInstace();
 		
 		for(int i = 1; i<= 5; i++) {
-			dao.insert(new Moviles(true, "samsumg", 0, 0, 0));
+			dao.insert(new Moviles(true, "marcaTelefono", 0, 0, 0));
 		}
 	}
 	
