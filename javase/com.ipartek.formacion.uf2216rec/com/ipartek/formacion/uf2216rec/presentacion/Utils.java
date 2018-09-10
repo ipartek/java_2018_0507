@@ -1,7 +1,12 @@
 package com.ipartek.formacion.uf2216rec.presentacion;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import com.ipartek.formacion.uf2216rec.pojo.StockMoviles;
 
 public class Utils {
 	
@@ -148,6 +153,24 @@ public class Utils {
 		
 		return i;
 	}
+/*
+	public static void guardarMovil() {
+		String g;
+		System.out.println("Guardar el movil introducido? S/N");
+		g = s.nextLine();
+		
+		if (g.equals("S")) {
+			String ruta = "C:\\Users\\curso\\git\\java_2018_0507\\javase\\com.ipartek.formacion.uf2216rec\\com\\ipartek\\formacion\\uf2216rec\\archivo1.txt";
+		    File f = new File(ruta);
+		    FileWriter fw = new FileWriter(f);
+		    BufferedWriter escritura = new BufferedWriter(fw);
+		    for(int i=0;i<StockMoviles.size();i++){
+		        escritura.write(StockMoviles.get(i));
+		        escritura.newLine();
 
+		    }
+		    escritura.close();
+		}
+	}*/
 
 }

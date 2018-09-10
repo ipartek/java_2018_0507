@@ -60,6 +60,7 @@ public class StockMovilesMain {
 		StockMoviles movil = crearMovilConDatosDeConsola();
 		
 		if(dao.insert(movil)) {
+			p(movil.toString());
 			p("Movil añadido correctamente");
 		} else {
 			p("No se ha podido añadir el movil");
@@ -67,7 +68,7 @@ public class StockMovilesMain {
 	}
 	
 	private static void saveMovil() {
-		// TODO Auto-generated method stub
+			// TODO Auto-generated method stub
 		
 	}
 
