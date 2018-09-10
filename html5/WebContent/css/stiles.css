@@ -1,0 +1,89 @@
+body{
+	
+	
+}
+#arriba{
+	position: absolute; top: 0px;right:0px;
+	
+}
+#lenguage{
+	float:right;
+	margin:5px;
+	color:black;
+}
+#lenguage:active {
+	background-color:#AEAE2D;
+	color:white;
+}
+#oja{width:50%;
+	height:75px;
+}
+#logo{height:75px;
+	position:absolute;
+	width:15%;
+	padding-left:45%;
+	z-index:1;
+}
+#oja2{width:50%;
+	box-sizing:border-box;
+	height:75px;
+	width:49%;
+}
+header{
+	height:100%;
+	
+}
+.navbar{
+	padding:0px!important;
+}
+#navbarNavAltMarkup{
+
+	background-color:#45450A;
+	width:100%;
+	height:100%;
+	color:white;
+	font-size:25px;
+	
+}
+
+#superiz{
+		padding-left:20%;
+		display:inline;
+
+}
+#izq{
+	margin-left:10px;
+	padding-left:3px;
+	padding-right:3px;
+}
+#izq:hover{
+	background-color:#AEAE2D;
+}
+#derech:hover{
+	background-color:#AEAE2D;
+}
+#derech{
+		padding-left:3px;
+	padding-right:3px;
+	float:right;
+	margin-right:10%;
+	
+}
+#ojaraska{
+	position:relative;
+	width:100%;
+	float:right;
+	margin-right:0px;
+}
+#numeros{
+	background-color:#AEAE2D;
+}
+#numeros ul li{padding:5px;
+	display:inline;
+	list-style:none;
+	
+}
+#numeros ul li a{
+	text-decoration:none;
+	color:white;
+}

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <faceted-project>
+  <runtime name="HTTP Server"/>
   <fixed facet="wst.web"/>
   <fixed facet="wst.jsdt.web"/>
   <installed facet="wst.web" version="1.0"/>
