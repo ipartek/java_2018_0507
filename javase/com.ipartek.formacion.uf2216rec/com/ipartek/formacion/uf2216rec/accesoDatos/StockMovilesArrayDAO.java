@@ -21,7 +21,6 @@ public class StockMovilesArrayDAO implements CrudAble<StockMoviles> {
 
 	@Override
 	public List<StockMoviles> getAll() {
-		// TODO Auto-generated method stub
 		return moviles;
 	}
 
@@ -33,9 +32,13 @@ public class StockMovilesArrayDAO implements CrudAble<StockMoviles> {
 
 	@Override
 	public boolean insert(StockMoviles movil) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+		boolean result = false;
+
+		if (movil != null) {
+			result = moviles.add(movil);
+		}
+		return result;
+		}
 
 	@Override
 	public boolean update(StockMoviles movil) {

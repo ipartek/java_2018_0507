@@ -96,13 +96,13 @@ public class Utils {
 	}
 	
 	public static double leerDouble() {
-		int i = 0;
+		double i = 0;
 		boolean repetir;
 		
 		do {
 			try {
 				repetir = false;
-				i = s.nextInt();
+				i = s.nextDouble();
 			} catch (InputMismatchException e) {
 				System.out.println("Por favor, introduce un número");
 				s.nextLine();

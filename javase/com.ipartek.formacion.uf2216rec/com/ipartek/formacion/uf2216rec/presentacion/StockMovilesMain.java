@@ -48,11 +48,6 @@ public class StockMovilesMain {
 		}
 	}
 	
-	private static void saveMovil() {
-		// TODO Auto-generated method stub
-		
-	}
-
 	private static void noDisponible() {
 		p("Esa función no existe");		
 	}
@@ -69,6 +64,11 @@ public class StockMovilesMain {
 		} else {
 			p("No se ha podido añadir el movil");
 		}		
+	}
+	
+	private static void saveMovil() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	private static StockMoviles crearMovilConDatosDeConsola() {
@@ -123,7 +123,6 @@ public class StockMovilesMain {
 	}
 
 	private static void cargarMoviles() {
-		CrudAble<StockMoviles> dao = StockMovilesArrayDAO.getInstance();
 
 		for(int i = 1; i <= 5; i++) {
 			dao.insert(new StockMoviles());
