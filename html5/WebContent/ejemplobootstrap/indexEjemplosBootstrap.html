@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    
+    <title>Ejemplo Bootstrap</title>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    
+    
+    <!--Tu css va el ultimo para que prevalezca sobre los anteriores-->
+    
+    <!--Es importante el orden, jquery tiene que ir antes de bootstrap-->
+     <script src="js/jquery-1.12.4.min.js"></script>
+     <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+   // Para usar bootstrap hay que usar las clases que tiene definidas 
+   
+   Doce huecos en el contenedor.. puedes meter contenedores dentro de contenedores. y se van dividiendo cada uno en doce
+    <div class="container-fluid">
+        <br>------------------------
+         Le dices cuanto hueco va a ocupar (Existen doce en total... , es una rejilla)
+        Para que se muestre en este formato hay que meterlo en un class determinado.. en este caso: div class="container-fluid"
+        <div class="row">
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+          <div class="col-md-1">.col-md-1</div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">.col-md-8</div>
+          <div class="col-md-4">.col-md-4</div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">.col-md-4</div>
+          <div class="col-md-4">.col-md-4</div>
+          <div class="col-md-4">.col-md-4</div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">.col-md-6</div>
+          <div class="col-md-6">.col-md-6</div>
+        </div>
+    </div>
+      <br>------------------------
+       <div class="container-fluid">
+           <div class="row">
+             <!--Si es movil cojes 12 columnas, siguiente 6 y siguiente 8-->
+              <div class="col-xs-12 col-sm-6 col-md-8">.col-xs-12 .col-sm-6 .col-md-8</div>
+              <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+              <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+              <!-- Optional: clear the XS cols if their content doesn't match in height -->
+              <div class="clearfix visible-xs-block"></div>
+              <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+        </div>
+   
+   
+   
+   <br>------------------------
+   
+    Extra small, Small, Medium, Large
+    
+   <div class="row">
+      <div class="col-xs-9">.col-xs-9</div>
+      <div class="col-xs-4">.col-xs-4<br>Since 9 + 4 = 13 &gt; 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit.</div>
+      <div class="col-xs-6">.col-xs-6<br>Subsequent columns continue along the new line.</div>
+    </div>
+   
+   </div>
+   
+   
+   
+   <br>------------------------
+   
+   <div class="row">
+  <div class="col-sm-5 col-md-6">.col-sm-5 .col-md-6</div>
+  <div class="col-sm-5 col-sm-offset-2 col-md-6 col-md-offset-0">.col-sm-5 .col-sm-offset-2 .col-md-6 .col-md-offset-0</div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 col-md-5 col-lg-6">.col-sm-6 .col-md-5 .col-lg-6</div>
+  <div class="col-sm-6 col-md-5 col-md-offset-2 col-lg-6 col-lg-offset-0">.col-sm-6 .col-md-5 .col-md-offset-2 .col-lg-6 .col-lg-offset-0</div>
+</div>
+  
+    
+    <br>----------------------------
+    <div class="row">
+  <div class="col-sm-9">
+    Level 1: .col-sm-9
+    <div class="row">
+      <div class="col-xs-8 col-sm-6">
+        Level 2: .col-xs-8 .col-sm-6
+      </div>
+      <div class="col-xs-4 col-sm-6">
+        Level 2: .col-xs-4 .col-sm-6
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid">
+      <table class="table" border=1><tr><td>dsdf</td><td>dsa</td></tr><tr><td>dsdf</td><td>dsa</td></tr><tr><td>dsdf</td><td>dsa</td></tr><tr><td>dsdf</td><td>dsa</td></tr></table>
+ </div>
+ 
+ 
+ 
+ 
+ <div>
+     <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputFile">File input</label>
+        <input type="file" id="exampleInputFile">
+        <p class="help-block">Example block-level help text here.</p>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Check me out
+        </label>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+ </div>
+ 
+ 
+ <form class="form-inline">
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+      <div class="input-group-addon">.00</div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Transfer cash</button>
+</form>
+ 
+ 
+ </div>
+ 
+ <div></div>
+ 
+ 
+ 
+ <div class="checkbox">
+  <label>
+    <input type="checkbox" value="">
+    Option one is this and that&mdash;be sure to include why it's great
+  </label>
+</div>
+<div class="checkbox disabled">
+  <label>
+    <input type="checkbox" value="" disabled>
+    Option two is disabled
+  </label>
+</div>
+
+<div class="radio">
+  <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+    Option one is this and that&mdash;be sure to include why it's great
+  </label>
+</div>
+<div class="radio">
+  <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+    Option two can be something else and selecting it will deselect option one
+  </label>
+</div>
+<div class="radio disabled">
+  <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+    Option three is disabled
+  </label>
+</div>
+
+<!-- Standard button -->
+<button type="button" class="btn btn-default">Default</button>
+
+<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+<button type="button" class="btn btn-primary">Primary</button>
+
+<!-- Indicates a successful or positive action -->
+<button type="button" class="btn btn-success">Success</button>
+
+<!-- Contextual button for informational alert messages -->
+<button type="button" class="btn btn-info">Info</button>
+
+<!-- Indicates caution should be taken with this action -->
+<button type="button" class="btn btn-warning">Warning</button>
+
+<!-- Indicates a dangerous or potentially negative action -->
+<button type="button" class="btn btn-danger">Danger</button>
+
+<!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
+<button type="button" class="btn btn-link">Link</button>
+
+
+<br>
+<img src="../imgs/logo.png" alt="..." class="img-rounded">
+<img src="../imgs/logo.png" alt="..." class="img-circle">
+<img src="../imgs/logo.png" alt="..." class="img-thumbnail">
+
+<ul class="nav nav-pills">
+  ...
+  <li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      Dropdown <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      ...
+    </ul>
+  </li>
+  ...
+</ul>
+
+<button type="button" class="btn btn-default" aria-label="Left Align">
+  <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+</button>
+
+<button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+</button>
+<br><br><br>
+</body>
+</html>
