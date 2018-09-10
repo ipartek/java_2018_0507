@@ -16,10 +16,13 @@ body{
 #imagenDiv{
     padding: 0;
 }
+.navbar-nav>li>a{
+    color: white !important;
+}
 .barraInferior{
- width: 100%;  
-background-color: #aeae2d;
-bottom:0;
+     
+    background-color: #aeae2d;
+    bottom:0;
 }
 .navbar-default .navbar-text {
   color: white;

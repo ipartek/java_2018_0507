@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+<body>
+<!-- para ir a una pagina despues de usar el boton submit action debe contener la direccion
+Si no se indica se implica el tipo get. Bueno para pruebas-->
+	<form action="#" >
+		<fieldset>
+			<legend>login</legend>
+			<p>
+				<label for="id">
+				Id
+				</label>
+				<input type="number"
+				id="id" name ="id" placeholder="id" min="1"/>
+			</p>
+			<p>
+				<label for="titulo">
+				Titulo
+				</label>
+				<!-- se usa pattern para inttroducir una expresion regular -->
+				<input type="text"
+				id="titulo" name ="titulo" placeholder="Titulo" pattern="[0-9A-Za-zñÑáéíóúÁÉÍÓÚ ]{3,10}" maxlength="10" required/>
+			</p>
+			<p>
+				<label for="dni">
+				DNI
+				</label>
+				<!-- se usa pattern para inttroducir una expresion regular -->
+				<input type="text"
+				id="dni" name ="dni" placeholder="12345678Y" pattern="[0-9]{8}[A-Za-z]" maxlength="10" required/>
+			</p>
+			<p>
+			<!-- Tienen que coincider el for con el id
+			     para relacionarlos. Que fuencion con accesibilidad y quede seleccionado al pulsar en el texto   -->
+				<label for="hombre">
+				Hombre
+				</label>
+				<input type="radio"
+				id="hombre" name ="sexo" />
+				<label for="mujer">
+				Mujer
+				</label>
+				<input type="radio"
+				id="mujer" name ="sexo" />
+			</p>
+			<p>
+				<label for="tipo">
+				Tipo
+				</label>
+				<select id="tipo" name ="tipo">
+				    <option value="1">Uno</option>
+				    <option value="2">Dos</option>
+				</select>
+			</p>
+			<p>
+				<label for="tipo">
+				Tipo
+				</label>
+				<input type="date"/>
+			</p>
+			<p>
+                <input type="submit" value="Aceptar"/>
+			    <!--<input type="button" value="Aceptar" id="aceptar" name="Aceptar"/>-->
+			</p>
+		</fieldset>
+	</form>
+</body>
+</html>

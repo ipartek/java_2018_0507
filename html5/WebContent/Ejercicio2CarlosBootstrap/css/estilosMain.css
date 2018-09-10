@@ -1,0 +1,22 @@
+body{
+    background-color: beige;
+    padding-top: 0;
+}
+.jumbotron{
+    margin-bottom: 0;
+}
+.navbar-nav{
+    margin-left:10%;
+}
+.navbar-default{
+    margin-bottom: 0;
+}
+.vertical{
+    background-color: lightgray;
+    margin-top: 0;
+}
+@media (min-width: 600px){
+    .navbar-brand{
+        display: none;   
+    }
+}
