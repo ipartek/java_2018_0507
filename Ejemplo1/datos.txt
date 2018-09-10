@@ -1,0 +1,11 @@
+Marca: qwe  Memoria: 456  Pulgadas: 123.0  RAM: 123.0
+Marca: qa  Memoria: 123  Pulgadas: 123.0  RAM: 12.0Marca: tr  Memoria: 100  Pulgadas: 5.0  RAM: 4.0Marca: sw  Memoria: 123  Pulgadas: 123.0  RAM: 123.0
+Marca: 1  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Marca: 1  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Androidfalse Marca: a  Memoria: 4  Pulgadas: 3.0  RAM: 2.0
+Android: false Marca: as  Memoria: 12  Pulgadas: 34.0  RAM: 12.0
+Android: true Marca: er  Memoria: 987  Pulgadas: 12.0  RAM: 12.0
+Android: true Marca: as  Memoria: 123  Pulgadas: 123.0  RAM: 123.0
+Android: true Marca: q  Memoria: 4  Pulgadas: 3.0  RAM: 2.0
+Android: true Marca: 123  Memoria: 2  Pulgadas: 1.0  RAM: 234.0
+Android: true Marca: q  Memoria: 12  Pulgadas: 123.0  RAM: 23.0
