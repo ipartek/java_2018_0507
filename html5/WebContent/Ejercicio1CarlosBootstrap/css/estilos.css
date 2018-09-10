@@ -13,8 +13,13 @@ body{
     background-color: #7c7c1d;
     margin-bottom: 0;
 }
-#barraInferior{
-    
+#imagenDiv{
+    padding: 0;
+}
+.barraInferior{
+ width: 100%;  
+background-color: #aeae2d;
+bottom:0;
 }
 .navbar-default .navbar-text {
   color: white;
@@ -25,10 +30,6 @@ body{
 p{
 padding-left: 25%;
     padding-top: 6%;
-}
-#barraInferior{
-    background-color: #aeae2d;
-    bottom:0;
 }
 @media (min-width: 600px){
     #marca{
