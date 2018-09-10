@@ -4,13 +4,17 @@ import java.util.List;
 
 	public interface CrudAble<R> {
 	
-	
-		List<Movil> getAll();
+		//Retrieve
 		
-		Movil getMovil(long id);
+		List<R> getAll();
+	
+		List<Movil> insert(R pojo);
+
 		
 
-		boolean insert(R pojo);
-	
+		Movil getMovil();
+		
+		
 	}
+
 

@@ -21,18 +21,22 @@ public class Movil implements  CrudAble<Movil> {
 	private float ram;
 	private float pulgadas;
 	private int memoria;
-
+	List<Movil> lista = null;
 	
 	public Movil(boolean android, String marca, float ram, float pulgadas,int memoria) {
 		this.setAndroid(android);
 		this.setMarca(marca);
-		this.setMemoria(memoria);
 		this.setRam(ram);
 		this.setPulgadas(pulgadas);
 		this.setMemoria(memoria);
 		
+		movil.add(this);
 	}
 	
+	public Movil() {
+		// TODO Auto-generated constructor stub
+	}
+
 	private List<Movil> movil = new ArrayList<>();
 	
 	public boolean isAndroid() {
@@ -85,11 +89,6 @@ public class Movil implements  CrudAble<Movil> {
 	}
 
 
-	public List<Movil> getMovil() {
-		return movil;
-	}
-
-
 	public void setMovil(List<Movil> movil) {
 		this.movil = movil;
 	}
@@ -102,15 +101,11 @@ public class Movil implements  CrudAble<Movil> {
 	}
 
 
-	@Override
-	public Movil getMovil(long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 
 	@Override
-	public boolean insert(Movil movil) {		
+	public List<Movil> insert(Movil movil) {		
+		
 		//DAO
 		
 		movil.setAndroid(android);
@@ -119,11 +114,20 @@ public class Movil implements  CrudAble<Movil> {
 		movil.setPulgadas(pulgadas);
 		movil.setRam(ram);
 		
-		System.out.println("movil.getPulgadas()"+movil.getPulgadas());
+		//lista.add(movil);
 		
 		ManejoFichero.escribirFich("Android: "+movil.android +" Marca: "+movil.marca + "  Memoria: "
 									+movil.memoria+"  Pulgadas: "+movil.pulgadas +"  RAM: "+movil.ram+"\n");
-		return true;
+		return lista;
 	}
+
+
+	@Override
+	public Movil getMovil() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 }

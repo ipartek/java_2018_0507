@@ -3,11 +3,9 @@ package com.ipartek.formacion.uf2216_recuperacion.movil;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 public class ManejoFichero {
 
@@ -27,7 +25,7 @@ public class ManejoFichero {
         
         bw.write(movil.toString());
         
-        System.out.println("info guardada");
+        System.out.println("info guardada en el fichero");
     } catch (IOException e) {
         e.printStackTrace();
     } finally {
@@ -43,22 +41,6 @@ public class ManejoFichero {
     }
     
 	}
-	/*public static void escribirFich(String movil) {
-			
-	
-		PrintWriter salida = null;
-		try {
-			salida = new PrintWriter("datos.txt");
-			salida.println(movil.toString());
-			salida.flush();
-			
-			System.out.println("Datos guardados en el fichero");
-		} catch (FileNotFoundException e) {
-			System.out.println(e.getMessage());
-		} finally {
-			salida.close();
-	}
-	}*/	
 	
 	public static void leerFich() {
 		FileReader fr = null;

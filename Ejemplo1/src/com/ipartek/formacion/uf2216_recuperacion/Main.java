@@ -1,31 +1,25 @@
 package com.ipartek.formacion.uf2216_recuperacion;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
+import com.ipartek.formacion.uf2216_recuperacion.movil.CrudAble;
 import com.ipartek.formacion.uf2216_recuperacion.movil.ManejoFichero;
 import com.ipartek.formacion.uf2216_recuperacion.movil.Movil;
+import com.ipartek.formacion.uf2216_recuperacion.movil.MovilArrayDAO;
 
 
 public class Main {
 
 	
+	public static List<Movil> lista;
+
 	/*
-	 * Crear una aplicación que nos solicite datos por pantalla para poder crear nuevos registros en nuestro CMS.
-Nuestro CMS se encarga de gestionar un stock de MÓVILES, por lo cual la aplicación debe solicitar los siguientes datos:
-1.      Android                                         verdadero o falso
-2.      Marca                                            de 3 a 15 caracteres
-3.      RAM                                              en GB, mínimo 0,5
-4.      Pulgadas                                      máximo 7,0
-5.      Memoria                                       múltiplo de 4 (en GB)
-
-Cada campo que solicitamos deberá ser comprobado que tiene un formato valido, en caso de no cumplir el formato se solicitará de nuevo el mismo campo.
-Si el formato es correcto solicita el siguiente campo.
-Cuando termina de solicitar todos los campos debe mostrar un resumen del móvil a ingresar en el CMS, además de pedir una confirmación si se quiere guardar.
- Además deberá tener las siguientes funcionalidades:
-Listar móviles insertados
-Guardar en un fichero.txt todos los móviles*/
-
-	
+	 * 
+	 * Solicita datos, guarda en el objeto y guarda en el archivo.
+	 * 
+	 * */
 	
 	
 	
@@ -38,19 +32,21 @@ Guardar en un fichero.txt todos los móviles*/
 		
 		Scanner sc1 = new Scanner(System.in);
 		
-		int opcion= sc1.nextInt();
+		int opcion=-1;
 		
 		while(opcion !=0) {
-			
-			
+			menu();
+			opcion= sc1.nextInt();
 			switch(opcion) {
 				case 1:
 					System.out.println("Añadir movil");
 					movilNuevo();
 					break;
 				case 2:
-					//Pedir DAO
-					//mov.getAll();
+					
+				
+					listadoMoviles();
+					
 					break;
 				case 3:
 					ManejoFichero.leerFich();
@@ -63,15 +59,29 @@ Guardar en un fichero.txt todos los móviles*/
 					System.out.println("ADIOS");
 					break;
 			}
-			menu();
-			//System.out.println("Introduce opcion: ");
-			//opcion=sc.nextInt();
-		
 		}
 		sc1.close();
+		
 	}
 
+	/////////////////////////
+
 	
+	private static void listadoMoviles() {
+		CrudAble<Movil> dao = MovilArrayDAO.getInstance();
+		
+		for(Movil mov: dao.getAll()) {
+			mostrarMovil(mov);
+		}
+	}
+	
+	private static void mostrarMovil(Movil movil) {
+		System.out.println(movil.getMarca() + "\t" + movil.getMemoria() 
+					+ "\t" + movil.getPulgadas()+"\t"+movil.getRam());
+	}
+	
+	
+	//////////////////////
 	
 	private static void menu() {
 		System.out.println("");
@@ -111,6 +121,7 @@ Guardar en un fichero.txt todos los móviles*/
 		
 		mov = new Movil(bandroid,marca,ram,pulgadas,memoria);
 		
+		
 		System.out.println("Resumen de movil a insertar:\n" 
 							+" Tiene android? "+bandroid
 							+"  Marca: "+mov.getMarca()
@@ -121,12 +132,15 @@ Guardar en un fichero.txt todos los móviles*/
 		System.out.println("Continuar con la insercion??:(s/n)");
 		String continuar=sc.next();
 		
-		if(continuar.equals("s")) {
-			mov.insert(mov);
-			System.out.println("Movil insertado");
-		}
+		MovilArrayDAO dao=new MovilArrayDAO();
 		
-		sc.close();
+		if(continuar.equals("s")) {
+			dao.insert(mov);
+			System.out.println("Movil insertado");
+		}else {
+			System.out.println("No insertado");
+		}
+	
 	}
 	
 }

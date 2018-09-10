@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class MovilArrayDAO implements  CrudAble<Movil> {
 
 
-	private List<Movil> movil = new ArrayList<>();
+	private List<Movil> movillist = new ArrayList<>();
 
 	private static MovilArrayDAO INSTANCE;
 
-	private MovilArrayDAO() {
+	public MovilArrayDAO() {
 	}
 
 	public static synchronized MovilArrayDAO getInstance() {
@@ -22,28 +23,38 @@ public class MovilArrayDAO implements  CrudAble<Movil> {
 
 		return INSTANCE;
 	}
-
-	@Override
 	public List<Movil> getAll() {
-		return movil;
+		return movillist;
 	}
 
+
 	@Override
-	public boolean insert(Movil movil) {
+	public List<Movil> insert(Movil movil) {
+		CrudAble<Movil> dao = movil;
+		if(dao.insert(movil) != null) {
+			movillist.add(movil);
+			System.out.println("Movil añadido");
+		} else {
+			System.out.println("Error al añadir");
+		}
 		
 	
-		boolean resul = false;
+		List<Movil> movillist = null;
 
 		if (movil != null) {
-			resul = movil.insert(movil);
+			movillist = movil.insert(movil);
 			
 			ManejoFichero.escribirFich(movil.toString());
 		}
-		return resul;
+		
+		for (int i=0;i<movillist.size();i++) {
+			System.out.println(movillist.get(i));
+		}
+		return movillist;
 	}
 
 	@Override
-	public Movil getMovil(long id) {
+	public Movil getMovil() {
 		// TODO Auto-generated method stub
 		return null;
 	}
