@@ -17,10 +17,7 @@ public class MovilesMain {
 	private static final int ADD_MOVIL = 2;
 	private static final int LISTADO = 1;
 	private static final int GUARDAR = 3;
-	
-	public static final char NO = 'n';
-	private static final char SI = 's';
-	
+		
 	
 	public static void main(String[] args) throws IOException {
 		
@@ -71,17 +68,14 @@ public class MovilesMain {
 	
 	
 	private static void guardarTxt() throws IOException {
+		
 		String nameTxt;
-		char seguro;
+		 do {
+			System.out.println("¿Como desea llamar al fichero?");
+			nameTxt = sc.nextLine();
+		}while (nameTxt == null );
 		
-		do {
-			System.out.println("¿Como desea llamar al fitxero?");
-			nameTxt = sc.nextLine().replaceAll("\\s", "");
-			System.out.println("¿Estas seguro de que deseas llamarlo" + nameTxt + "?(s/n)");
-			seguro = (char) System.in.read();
-		}while (seguro != SI);
-		
-		File f = new File("Moviles\\" + nameTxt + ".txt");
+		File f = new File("C:\\Users\\curso\\git\\java_2018_0507\\javase\\src\\com\\ipartek\\formacion\\uf2216rec\\Moviles\\" + nameTxt + ".txt");
 		
 		if(f.exists()) {
 			System.out.println("Ya existe un fichero con ese nombre");
