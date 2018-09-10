@@ -86,6 +86,27 @@ public class Utils {
 		return i;
 	}
 	
+	public static int leerMemoria() {
+		int i = 0;
+		
+		do {
+			try {
+				System.out.println("Por favor, introduce la memoria, un número entero multiplo de 4");
+				i = s.nextInt();
+			} catch (InputMismatchException e) {
+				System.out.println("Por favor, introduce la memoria, un número entero multiplo de 4");
+				s.nextLine();
+			} catch (Exception e) {
+				System.out.println("Error no esperado");
+				throw e;
+			}
+		} while (i%4 != 0);
+		
+		s.nextLine();
+		
+		return i;
+	}
+	
 	public static double leerRam() {
 		double i = 0;
 		
@@ -107,23 +128,21 @@ public class Utils {
 		return i;
 	}
 	
-	public static double leerDouble() {
+	public static double leerPulgadas() {
 		double i = 0;
-		boolean repetir;
 		
 		do {
 			try {
-				repetir = false;
+				System.out.println("Por favor, introduce pulgadas, maximo 7,0");
 				i = s.nextDouble();
 			} catch (InputMismatchException e) {
-				System.out.println("Por favor, introduce un número");
-				s.nextLine();
-				repetir = true;
+				System.out.println("Por favor, introduce pulgadas, maximo 7,0");
+				s.nextDouble();
 			} catch (Exception e) {
 				System.out.println("Error no esperado");
 				throw e;
 			}
-		} while (repetir);
+		} while (i > 7.0);
 		
 		s.nextLine();
 		

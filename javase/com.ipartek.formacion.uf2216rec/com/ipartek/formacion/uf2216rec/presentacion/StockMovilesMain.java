@@ -81,9 +81,9 @@ public class StockMovilesMain {
 		p("Ram:");
 		double ram = Utils.leerRam();
 		p("Pulgadas:");
-		double pulgadas = Utils.leerDouble();
+		double pulgadas = Utils.leerPulgadas();
 		p("Memoria:");
-		int memoria = Utils.leerInt();
+		int memoria = Utils.leerMemoria();
 		
 		StockMoviles movil = new StockMoviles(id, android, marca, ram, pulgadas, memoria);
 		return movil;
