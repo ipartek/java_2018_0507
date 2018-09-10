@@ -1,4 +1,4 @@
-package com.ipartek.formacion.uf2216rec;
+package com.ipartek.formacion.uf2216rec.presentacionconsola;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -26,7 +26,7 @@ public class Utils {
 	
 	
 	public static double leerDouble() {
-		double d = 0;
+		double d = 0.0;
 		boolean hayQueRepetir;
 		
 		do {

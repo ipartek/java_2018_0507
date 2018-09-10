@@ -1,9 +1,9 @@
-package com.ipartek.formacion.uf2216rec;
+package com.ipartek.formacion.uf2216rec.accesodatos;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ipartek.formacion.uf2216rec.Moviles;
+import com.ipartek.formacion.uf2216rec.pojo.Moviles;
 
 public class MovilesArrayDAO implements CrudAble<Moviles>{
 

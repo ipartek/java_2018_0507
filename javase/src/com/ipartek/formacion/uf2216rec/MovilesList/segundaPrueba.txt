@@ -1,0 +1,8 @@
+Moviles [android=true, marca=samsumg, ram=0.0, pulgadas=0.0, memoria=0]
+Moviles [android=true, marca=samsumg, ram=0.0, pulgadas=0.0, memoria=0]
+Moviles [android=true, marca=samsumg, ram=0.0, pulgadas=0.0, memoria=0]
+Moviles [android=true, marca=samsumg, ram=0.0, pulgadas=0.0, memoria=0]
+Moviles [android=true, marca=samsumg, ram=0.0, pulgadas=0.0, memoria=0]
+Moviles [android=true, marca=dascwe wc, ram=54.0, pulgadas=65.0, memoria=76]
+Moviles [android=false, marca=vdr vefec, ram=54.0, pulgadas=6.0, memoria=76]
+Moviles [android=true, marca=a, ram=43.0, pulgadas=53.0, memoria=2]

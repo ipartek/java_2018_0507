@@ -1,4 +1,4 @@
-package com.ipartek.formacion.uf2216rec;
+package com.ipartek.formacion.uf2216rec.accesodatos;
 
 import java.util.List;
 

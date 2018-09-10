@@ -1,10 +1,14 @@
-package com.ipartek.formacion.uf2216rec;
+package com.ipartek.formacion.uf2216rec.presentacionconsola;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+
+import com.ipartek.formacion.uf2216rec.accesodatos.CrudAble;
+import com.ipartek.formacion.uf2216rec.accesodatos.MovilesArrayDAO;
+import com.ipartek.formacion.uf2216rec.pojo.Moviles;
 
 
 
@@ -75,7 +79,7 @@ public class MovilesMain {
 			nameTxt = sc.nextLine();
 		}while (nameTxt == null );
 		
-		File f = new File("C:\\Users\\curso\\git\\java_2018_0507\\javase\\src\\com\\ipartek\\formacion\\uf2216rec\\Moviles\\" + nameTxt + ".txt");
+		File f = new File("C:\\Users\\curso\\git\\java_2018_0507\\javase\\src\\com\\ipartek\\formacion\\uf2216rec\\MovilesList\\" + nameTxt + ".txt");
 		
 		if(f.exists()) {
 			System.out.println("Ya existe un fichero con ese nombre");

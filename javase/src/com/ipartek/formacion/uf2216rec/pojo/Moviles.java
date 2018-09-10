@@ -1,4 +1,4 @@
-package com.ipartek.formacion.uf2216rec;
+package com.ipartek.formacion.uf2216rec.pojo;
 
 public class Moviles {
 	
@@ -64,7 +64,7 @@ public class Moviles {
 
 
 	public void setPulgadas(double pulgadas) {
-		if(pulgadas<7 && pulgadas>0) {
+		if(pulgadas<7.0 && pulgadas>0.0) {
 			this.pulgadas = pulgadas;
 		}else {
 			throw new RuntimeException();
