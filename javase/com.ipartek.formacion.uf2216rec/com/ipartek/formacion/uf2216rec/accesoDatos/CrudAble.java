@@ -2,7 +2,7 @@ package com.ipartek.formacion.uf2216rec.accesoDatos;
 
 import java.util.List;
 
-public interface crudAble<P> {
+public interface CrudAble<P> {
 
 	//Retrieve
 	
