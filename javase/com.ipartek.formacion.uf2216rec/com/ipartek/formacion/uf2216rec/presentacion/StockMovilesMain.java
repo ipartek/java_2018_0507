@@ -97,7 +97,7 @@ public class StockMovilesMain {
 	}
 	
 	private static void mostrarMovil(StockMoviles movil) {
-		p(movil.getId() + "\t" + movil.isAndroid() + "\t" + movil.getMarca() + "\t" + movil.getRam() + "\t" + movil.getPulgadas() + "\t" + movil.getMemoria());		
+		p(movil.getId() + "\t" + movil.isAndroid() + "\t" + movil.getMarca() + "\t" + movil.getRam() + "\t" + movil.getPulgadas() + "\t\t" + movil.getMemoria());		
 	}
 
 	private static void mostrarCabecera() {

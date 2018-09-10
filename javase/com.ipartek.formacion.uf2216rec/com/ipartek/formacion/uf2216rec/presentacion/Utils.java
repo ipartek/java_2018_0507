@@ -9,20 +9,15 @@ public class Utils {
 	
 	public static boolean leerBoolean() {
 		String sOperativo;
-		boolean android;
-		boolean MostrarMensaje = false;
+		boolean android = false;
 		
 		do {
-			if(MostrarMensaje) {
 				System.out.println("¿Uticiza un sistema operativo Android? si/no");
-			}
+				sOperativo = s.nextLine().trim();
 			
-			sOperativo = s.nextLine().trim();
-			
-			MostrarMensaje = true;
-		} while( sOperativo.length() == 0 );
+		} while( sOperativo.length() == 0 || !sOperativo.equals("si") && !sOperativo.equals("no"));
 		
-		if(sOperativo == "si") {
+		if (sOperativo.equals("si")) {
 			android = true;
 		}
 		else {
