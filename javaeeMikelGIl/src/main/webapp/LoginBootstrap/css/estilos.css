@@ -3,6 +3,15 @@
 body{ 
 	padding-bottom: 70px; 
 }
+h3{
+	color:#eea236;
+}
+.panel-title{
+	color:#2b3e50;
+}
+.alert-warning{
+	color:#2b3e50;
+}
 .jumbotron{
 	margin-bottom: 0;
 	background-image: url("../imgs/gradient1.jpg");
