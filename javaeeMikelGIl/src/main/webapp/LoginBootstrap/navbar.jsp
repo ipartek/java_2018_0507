@@ -10,7 +10,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="plantilla.jsp">
-							<img alt="Libro" id="iconoLibro" src="imgs/iconoLibro.jpg">
+							<img alt="Libro" id="iconoLibro" src="imgs/iconoLibro.png">
 						</a>
                     </div>
 
