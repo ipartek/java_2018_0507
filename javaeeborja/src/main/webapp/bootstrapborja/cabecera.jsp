@@ -13,10 +13,9 @@
     <script src="js/bootstrap.min.js"></script> 
 </head>
 
-<body>
+<body background="/css/fan-3645379_1920.jpg">
 <header>
     <div class="page-header" ID="cabecera">
-
   <h1 align="center">Libros Web</h1>
 
 
@@ -32,15 +31,22 @@
 
 <nav class="navbar navbar-default" role="navigation">
   <div class="navbar-header">
-    <a class="navbar-brand" href="#">LB</a>
+  <a class="navbar-brand" id="logo" href="http://localhost:8080/javaeeborja/bootstrapborja/indice.jsp">
+   <img src="icono-libros.png" id="librosicono"/> 
+   
+</a>
   </div>
  
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav">
+  <div class="collapse navbar-collapse navbar-ex1-collapse" id="barra">
+    <ul class="nav navbar-nav" >
       <li class=""><a href="#">Enlace #1</a></li>
       <li><a href="#" id="menucolor">Enlace #2</a></li>
-      <li><a href="#" id="menucolor">Enlace #3</a></li>
-      <li><a href="#" id="menucolor">Enlace #4</a></li>
+      <li><a href="http://localhost:8080/javaeeborja/bootstrapborja/registro.jsp" id="menucolor">Registro</a></li>
+      <li><a href="http://localhost:8080/javaeeborja/bootstrapborja/login.jsp" id="menucolor">login</a></li>
+    </ul>
+    <ul id="barra2">
+    <li><a href="http://localhost:8080/javaeeborja/bootstrapborja/login.jsp" id="menucolor">Login</a></li>
+    <li><a href="http://localhost:8080/javaeeborja/bootstrapborja/registro.jsp" id="menucolor">Register</a></li>
     </ul>
   </div>
 </nav>
