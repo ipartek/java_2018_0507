@@ -12,6 +12,13 @@
 
     <script src="js/jquery-1.12.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+        $(function() {
+        $('#btnEditar').click(function(){
+            $('#iframeContenido').attr('src', 'editar.html');
+        });
+        });
+    </script>
 </head>
 
 <body>
@@ -42,7 +49,8 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li class="active nav-item"><a href="#">Lista libros <span class="sr-only">(current)</span></a></li>
-                            <li class="nav-item"><a href="editar.html">Editar</a></li>
+                            <li class="nav-item"><a href="editar.html" id="btnEditar">Editar</a></li>
+
                             <li><a href="#">Categoria 3</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
@@ -59,7 +67,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="embed-responsive embed-responsive-16by9">
+                <div id="iframeContenido" class="embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item" src="libros.html"></iframe>
                 </div>
             </div>
