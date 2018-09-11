@@ -3,4 +3,7 @@
 body{ 
 	padding-bottom: 70px; 
 }
+.jumbotron{
+	margin-bottom: 0;
+}
 
