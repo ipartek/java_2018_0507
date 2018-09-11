@@ -4,19 +4,38 @@
 <html lang="es">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EJEMPLO KOLDOWEBAPP JSP 2</title>
+<title>Ejemplo webApp 2</title>
 </head>
 <body>
-
 	<header>
-		<nav>
-			<ul>
-				<li>Your menu</li>
-			</ul>
-		</nav>
+	 <!-- Fixed navbar -->
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="index.jsp"><img src="logo.png" ></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="bd.jsp"><a href="#">Catálogo</a></li>
+            <li><a href="editar.jsp">Editar</a></li>
+            <li><a href="login.jsp">Login</a></li>
+            <li class="dropdown"> </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
 	</header>
-
-
+<div class="container">
 
 
