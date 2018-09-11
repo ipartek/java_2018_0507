@@ -1,0 +1,149 @@
+<<<<<<< HEAD
+/* #-->identifica por id */
+body{
+    font-family: sans-serif;
+}
+
+body > header,body > footer{
+    color:white;
+    background: black;
+    font-size: 200%;
+}
+/*h1 dentro de article*/
+article h2{
+    font-size: 200%;
+    margin-bottom: 0;
+}
+article h3{
+    font-size: 100%;
+}
+
+
+#menuprincipal {
+   color:white;
+    background-color: black;
+    
+}
+/*los uls que estan en */
+#menuprincipal ul{
+    list-style: none;
+}
+/*solo al ul que cuelga directamente del menuprincipal*/
+ /*   padding: 1em 2em 3em 4em; cambias todos los bordes en orden a las agujas del reloj, em->relativo al tamaño de letra*/
+#menuprincipal  > ul{
+    border: 2px solid gray;
+}
+
+#menuprincipal ul > li{
+    list-style: none;
+    display:inline-block;
+}
+
+/*A los elementos li que cuelgan de ul que cuelgan del primer li que esta dentro de menuprincipal...Siempre el objetivo es el de la derecha del todo*/
+#menuprincipal li > ul > li {
+    display:block;
+}
+#menuprincipal a{
+    text-decoration: none;
+    color:white;
+    padding: 0.5em 1em;
+    display:inline-block;
+    
+}
+#menuprincipal a:hover{
+    color:black;
+    background-color: white;
+}
+
+/*solo la alarma que esta dentro de un parrafo*/
+p .alarma{
+    color:red;
+    font-size:2em;/*el doble del que tenia*/
+}
+/*h2.alarma-->a los alarmas que estan dentro de h2
+h2 .alarma --> al alarma que esta dentro de h2*/
+h2 .alarma{
+    color:red;
+}
+header .alarma{
+    color:red;
+    font-size:20;
+    text-decoration:underline;
+}
+.barcos{
+   text-decoration:underline;
+=======
+/*
+http://flukeout.github.io/
+https://flexboxfroggy.com/#es
+http://cssgridgarden.com/#es
+*/
+body {
+    font-family: sans-serif;
+}
+
+body > header,
+body > footer {
+    color: white;
+    background: black;
+
+    font-size: 200%;
+}
+
+article h2 {
+    font-size: 200%;
+    margin-bottom: 0;
+}
+
+article h3 {
+    font-size: 100%;
+}
+
+#menuprincipal {
+    background-color: black;
+    color: white;
+}
+
+#menuprincipal ul {
+    list-style: none;
+}
+
+#menuprincipal ul > li {
+    display: inline;
+}
+
+#menuprincipal > ul {
+    border: 2px solid gray;
+    padding: 0;
+}
+
+#menuprincipal li > ul > li {
+    display: block;
+}
+
+#menuprincipal a {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    padding: 0.5em 1em;
+}
+
+#menuprincipal a:hover {
+    color: black;
+    background-color: white;
+}
+
+header .alarma {
+    color: red;
+    font-size: 
+}
+
+.barcos {
+    text-decoration: underline;
+}
+
+p .alarma {
+    color: red;
+    font-size: 2em;
+>>>>>>> refs/remotes/origin/master
+}

@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Bilbo|Caveat:400,700&subset=latin-ext');
+
+/*El punto es para definir una clase, la cual la puedes utilizar muchas 
+veces en la misma página. La almohadilla es para definir un ID 
+(identificador), y sirve basicamente para eso, para tener IDentificado un 
+elemento de la página, por lo cual "solo se debe" utilizar una sola vez 
+en la misma. Pero a la hora de aplicar estilos sirven para lo mismo, les 
+puedes poner los mismos.*/
+
+#formulario{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+#cabecera{
+    text-align: center;
+}
+
+
+#contenedor{
+    background-color: SteelBlue;
+    padding:5px;
+    overflow: hidden;
+}
+#columnaIzq{
+    width:40%;
+    float:left;
+}
+#columnaDer{
+    width:70%;
+    float:right;
+}
+#flotante{
+    float: right;
+}
+
+.container {
+   border: 1px solid #DDDDDD;
+   width: 50%;
+   height: 50%;
+   position: relative;
+    float:right;
+}
+.tag {
+   float: left;
+   position: absolute;
+   left: 50px;
+   top:50px;
+   z-index: 1000;
+   background-color: #92AD40;
+   padding: 5px;
+   color: #FFFFFF;
+   font-weight: bold;
+}
+.footer{
+    font-family: cursive;
+}
