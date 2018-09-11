@@ -1,0 +1,18 @@
+body{
+       background-color: beige;
+}
+.editar{
+    margin:1em;
+}
+
+
+@media (min-width: 600px){
+    .etiquetas{
+        padding-top: 6px;    
+    }
+}
+@media (max-width: 600px){
+    .boton{
+        padding-top: 6px;    
+    }
+}
