@@ -40,15 +40,16 @@
 		<ul class="nav tabs">
           <li class="active"><a href="#tab1" data-toggle="tab">Login</a></li>
           <li class=""><a href="listado.html" data-toggle="tab">Listado de Libros</a></li>
-          <li class=""><a href="edicion.html" data-toggle="tab">A√±adir y Editar</a></li>                               
+          <li class=""><a href="edicion.html" data-toggle="tab">AÒadir y Editar</a></li>                               
 		</ul>
 	</nav>
-		<div><h2 class="add">Coloque aqu√≠ su anuncio!!!!!</h2></div>
+		<div><h2 class="add">Coloque aqui su anuncio!!!!!</h2></div>
 </div>
+
+<%@ include file="listado.jsp" %>
 
 <div class="tab-content">
 <div class="tab-pane active text-style" id="tab1">
-
   <h2>Login</h2>
        <p>
     <div class="container">	
@@ -81,7 +82,7 @@
           <img src="http://placehold.it/150x90" class="img-rounded pull-left">
 </div>
 <div class="tab-pane text-style" id="tab3">
-  <h2>Editar o A√±adir</h2>
+  <h2>Editar o AÒadir</h2>
   <p></p>
     <hr>
     <div class="col-xs-6 col-md-3">
