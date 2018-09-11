@@ -17,7 +17,7 @@
 
 <!-- ENCABEZADO-->
 
-	<header>
+	<header background ="imgsb/book.jpg">
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="page-header">

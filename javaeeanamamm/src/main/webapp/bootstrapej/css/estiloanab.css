@@ -5,28 +5,19 @@
 	color:white;
 	background-color: #007da7;
 }**/
-
-
-
-.page-header{
-	
+.page-header {
 	height: 150px;
-
-
 	
 }
 
-#hueco{
-	    background-color: #f2f2f2;
-}
-
-#footer{
+#hueco {
 	background-color: #f2f2f2;
 }
 
-#envolvente{
-	height: 1000px;
+#footer {
+	background-color: #f2f2f2;
 }
 
-
-
+#envolvente {
+	height: 1000px;
+}
