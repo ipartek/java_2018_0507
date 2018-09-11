@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -70,7 +63,7 @@
 
 
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#">Login</a></li>
+							<li><a href="http://localhost:8080/javaeeanamamm/bootstrapej/loginb.jsp">Login</a></li>
 							<li><a href="#">Editar</a></li>
 
 						</ul>
@@ -87,40 +80,12 @@
 
 	<!-- DIV CENTRAL -->
 	<!-- div central que envuelve la lista el hueco medio y el de la derecha -->
-	<div class="row" id="envolvente">
-		<div class="col-sm-12">
-
-			<!-- lista -->
-
-			<div class="col-sm-2" id="lista">
-
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">informática<span
-							class="sr-only">(current)</span></a></li>
-					</br>
-					<li><a href="#">historia</a></li>
-					</br>
-					<li><a href="#">ensayos</a></li>
-
-				</ul>
-
-			</div>
+	
 
 
 
-			<!-- hueco grande otras pag html -->
-
-			<div class="col-sm-8" id="huecogrande"></div>
 
 
 
-			<!-- hueco pequeño derecha -->
 
 
-			<div class="col-sm-2" id="hueco"></div>
-
-
-		</div>
-	</div>
-
-<section id="principal">
