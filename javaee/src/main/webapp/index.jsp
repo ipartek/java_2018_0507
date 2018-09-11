@@ -19,10 +19,10 @@
                 <label for="nombre">Nombre</label>
                 <input type="text" name="nombre" id="nombre" 
                 	value='<jsp:getProperty property="nombre" name="login"/>' />
-                
+                <!--
                 <span class="errorTexto">
-                	<jsp:getProperty property="errorNombre" name="login"/>
-                </span>
+                 	<jsp:getProperty property="errorNombre" name="login"/>
+                </span> -->
             </p>
             <p>
                 <label for="password">Contraseña</label>
