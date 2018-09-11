@@ -46,7 +46,7 @@
 								class="icon-bar"></span> <span class="icon-bar"></span> <span
 								class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#">Todos los libros</a>
+						<a class="navbar-brand" href="http://localhost:8080/javaeeanamamm/bootstrapej/tablab.jsp">Todos los libros</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
