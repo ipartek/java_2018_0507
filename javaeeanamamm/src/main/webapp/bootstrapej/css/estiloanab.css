@@ -5,15 +5,50 @@
 	color:white;
 	background-color: #007da7;
 }**/
-.page-header {
-	height: 150px;
-	
+#backbody {
+	background-color: whitesmoke;
 }
 
-#headent{
+.page-header {
+	height: 150px;
+	border: 0;
+}
+
+h1 {
+	font-size: 100px;
+	text-align: center;
+}
+
+thead{
+	background-color: grey;
+    color: whitesmoke;
+}
+
+tbody{
+	    background-color: floralwhite;
+}
+
+tfoot tr :last-child{
+	    background-color: papayawhip;
+}
+
+#lista {
+	color: darkslategrey;
+}
+
+
+
+
+
+.navbar-default {
+	background-color: lightgrey;
+}
+
+#headent {
 	background-color: pink;
 	color: lavenderblush;
-	background-image:url("http://localhost:8080/javaeeanamamm/bootstrapej/imgsb/book.jpg");
+	background-image:
+		url("http://localhost:8080/javaeeanamamm/bootstrapej/imgsb/book.jpg");
 }
 
 #hueco {
@@ -27,3 +62,4 @@
 #envolvente {
 	height: 1000px;
 }
+
