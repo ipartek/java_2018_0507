@@ -15,11 +15,8 @@ body{
     background-color: lightgray;
     margin-top: 0;
 }
-@media (min-width: 400px){
+@media (min-width: 768){
     .navbar-brand{
         display: none;   
     }
-}
-@media (min-width: 400px){
-    
 }
