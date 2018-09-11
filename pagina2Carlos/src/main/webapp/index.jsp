@@ -14,6 +14,7 @@
 </head>
 
 <body>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <!-- Jumbotron -->
     <div class="jumbotron jumbotron-fluid text-center">
         <div class="container">

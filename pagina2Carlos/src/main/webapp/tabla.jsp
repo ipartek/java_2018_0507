@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="index.jsp" %>
     <div class="row">
         <div class="col-md-3"></div>
@@ -15,31 +16,31 @@
                 <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Sue&ntilde;an los androides con ovejas electronicas?</td>
+                        <td>Sueñan los androides con ovejas electronicas?</td>
                         <td>Philip K.dick</td>
                         <td>Bermuda</td>
-                        <td>13,4&euro;</td>
+                        <td>13,4€</td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
                         <td>Ubik</td>
                         <td>Philip K.dick</td>
                         <td>Bermuda</td>
-                        <td>12&euro;</td>
+                        <td>12€</td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
                         <td>Radio libre Albemut</td>
                         <td>Philip K.dick</td>
                         <td>Bermuda</td>
-                        <td>8&euro;</td>
+                        <td>8€</td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
                         <td>El hombre en el castillo</td>
                         <td>Philip K.dick</td>
                         <td>Bermuda</td>
-                        <td>5&euro;</td>
+                        <td>5€</td>
                     </tr>
                 </tbody>
             </table>
