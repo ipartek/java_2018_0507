@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no" />
-    <title>Insert title here</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/estiloTabla.css" />
-    <script src="js/jquery-1.12.4.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <header>
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-9">
-                <h1>LIBROS</h1>
-            </div>
-        </div>
-    </header>
-</head>
-
-<body>
+<%@ include file="index.jsp" %>
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
@@ -35,36 +15,35 @@
                 <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Sueñan los androides con ovejas electronicas?</td>
+                        <td>Sue&ntilde;an los androides con ovejas electronicas?</td>
                         <td>Philip K.dick</td>
                         <td>Bermuda</td>
-                        <td>13,4€</td>
+                        <td>13,4&euro;</td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
                         <td>Ubik</td>
                         <td>Philip K.dick</td>
                         <td>Bermuda</td>
-                        <td>12€</td>
+                        <td>12&euro;</td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
                         <td>Radio libre Albemut</td>
                         <td>Philip K.dick</td>
                         <td>Bermuda</td>
-                        <td>8€</td>
+                        <td>8&euro;</td>
                     </tr>
                     <tr>
                         <th scope="row">1</th>
                         <td>El hombre en el castillo</td>
                         <td>Philip K.dick</td>
                         <td>Bermuda</td>
-                        <td>5€</td>
+                        <td>5&euro;</td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div class="col-md-3"></div>
     </div>
-</body>
-</html>
+<%@ include file="footer.jsp" %>

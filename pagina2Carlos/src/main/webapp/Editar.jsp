@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, user-scalable=no" />
-<title>Editar</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" href="css/estiloEditar.css" />
-	<script src="js/jquery-1.12.4.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<header><h1>LIBROS</h1></header>
-</head>
-<body>
+<%@ include file="index.jsp" %>
     <div class="container-fluid">
     	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
@@ -17,7 +6,7 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-12" >
-								<p class="text-center">Modificar/AÃ±adir</p>
+								<p class="text-center">Modificar/Añadir</p>
 							</div>
 						</div>
 						<hr>
@@ -80,5 +69,4 @@
             
         </div>
     </div>
-</body>
-</html>
+<%@ include file="footer.jsp" %>

@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no" />
-<title>Login</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" href="css/estilos.css" />
-	<script src="js/jquery-1.12.4.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-</head>
-<body>
+<%@ include file="index.jsp" %>
     <div class="container">
     	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
@@ -25,11 +14,13 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="login-form" action="https://bootsnipp.com/snippets/featured/login-and-register-tabbed-form" method="post" role="form" style="display: block;">
+								<form id="login-form" action="tabla.jsp" method="post" role="form" style="display: block;">
 									<div class="form-group">
+										<label>Usuario</label>
 										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
 									</div>
 									<div class="form-group">
+										<label>Contrase&ntilde;a</label>
 										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
 									</div>
 									<div class="form-group text-center">
@@ -51,5 +42,4 @@
 			</div>
 		</div>
 	</div>
-</body>
-</html>
+<%@ include file="footer.jsp" %>
