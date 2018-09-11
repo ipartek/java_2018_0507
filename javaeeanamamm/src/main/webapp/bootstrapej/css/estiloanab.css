@@ -10,6 +10,12 @@
 	
 }
 
+#headent{
+	background-color: pink;
+	color: lavenderblush;
+	background-image:url("http://localhost:8080/javaeeanamamm/bootstrapej/imgsb/book.jpg");
+}
+
 #hueco {
 	background-color: #f2f2f2;
 }

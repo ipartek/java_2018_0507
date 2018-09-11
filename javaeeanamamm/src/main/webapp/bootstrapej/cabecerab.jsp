@@ -19,7 +19,7 @@
 
 	<header background ="imgsb/book.jpg">
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-12" id="headent">
 				<div class="page-header">
 					<h1>
 						Libros <small>tu biblioteca online</small>
