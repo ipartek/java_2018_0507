@@ -22,4 +22,3 @@
     </ul>
 </nav>
 
-<section id="principal">
