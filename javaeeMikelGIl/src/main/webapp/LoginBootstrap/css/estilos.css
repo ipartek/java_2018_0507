@@ -5,5 +5,46 @@ body{
 }
 .jumbotron{
 	margin-bottom: 0;
+	background-image: url("../imgs/gradient1.jpg");
+	padding:10px;
 }
 
+.pagination{
+	margin: 0;
+}
+.pagination-sm>li>a, .pagination-sm>li>span{
+	font-size:16px;
+}
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+    background-color: #eea236;
+}
+
+#iconoLibro{
+	width:32px;
+	height:32px;
+	margin:0;
+	padding:0;
+}
+.navbar{
+	font-size:16px;
+	background-color:#eea236;
+}
+.navbar-brand {
+    padding: 5px 15px;
+}
+.table-bordered{
+	border: 1px solid #eea236;
+}
+
+.page-header{
+	border-bottom-color: #eea236;
+}
+.btn-group>button{
+	margin-right:10px;
+}
+.btn-warning{
+	background-color:#c85e17;
+}
+.btn-default{
+	background-color:#2ca1fe;
+}

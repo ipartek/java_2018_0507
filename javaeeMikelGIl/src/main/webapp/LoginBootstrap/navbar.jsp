@@ -7,8 +7,11 @@
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Brand</a>
+                        <a class="navbar-brand" href="plantilla.jsp">
+							<img alt="Libro" id="iconoLibro" src="imgs/iconoLibro.jpg">
+						</a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->

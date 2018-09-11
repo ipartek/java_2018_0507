@@ -33,7 +33,12 @@
         <div class="row">
             <div class="jumbotron">
                 <div class="container">
-                    <h1 class="text-center">Libros</h1>
+                    <h1 class="display-4">Libros</h1>
+                   	<p class="lead">Bienvenido a préstamo de libros</p>
+  
                 </div>
             </div>
         </div>
+
+
+  
