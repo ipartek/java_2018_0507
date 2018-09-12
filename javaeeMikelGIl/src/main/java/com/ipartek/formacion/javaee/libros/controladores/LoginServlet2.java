@@ -23,7 +23,6 @@ public class LoginServlet2 extends HttpServlet {
         String pass = request.getParameter("inputPassword");
         
 		request.setAttribute("datosLogin", new Login(email, pass));
-        request.getRequestDispatcher("plantilla.jsp").forward(request, response);
     }  
 	
 }
