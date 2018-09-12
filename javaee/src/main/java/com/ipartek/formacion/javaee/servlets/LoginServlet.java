@@ -15,8 +15,11 @@ import com.ipartek.formacion.javaee.modelos.LoginFormException;
 
 public class LoginServlet extends HttpServlet {
 
+
 //	private static final String USUARIO_POR_DEFECTO = "javierniño";
 //	private static final String PASSWORD_POR_DEFECTO = "contra";
+
+
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -44,14 +47,16 @@ public class LoginServlet extends HttpServlet {
 			login.setErrorPassword("*");
 		}
 
+
 		//Llamada a lógica de negocio
 		if(validar(login)) {//!login.isErroneo() && 
 			//Redirección a vista
+
 			request.getSession().setAttribute("usuario", login);
 			response.sendRedirect("principal.jsp");
 		} else {
-			//Redirección a vista
-			login.setMensajeError(login.getMensajeError() + " El usuario o contraseña no son correctos");
+			//Redirecciï¿½n a vista
+			login.setMensajeError(login.getMensajeError() + " El usuario o contraseï¿½a no son correctos");
 			request.setAttribute("login", login);
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
