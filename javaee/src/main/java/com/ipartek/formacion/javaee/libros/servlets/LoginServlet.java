@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ipartek.formacion.javaee.libros.modelos.LoginForm;
-import com.ipartek.formacion.javaee.libros.modelos.LoginFormException;
+import com.ipartek.formacion.javaee.modelos.LoginForm;
+import com.ipartek.formacion.javaee.modelos.LoginFormException;
 
 public class LoginServlet extends HttpServlet {
 
@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect("principal.jsp");
 		} else {
 			//Redirecci�n a vista
-			login.setMensajeError(login.getMensajeError() + " El usuario o contrase�a no son correctos");
+			login.setMensajeError(login.getMensajeError() + " El usuario o contrasenia no son correctos");
 			request.setAttribute("login", login);
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
