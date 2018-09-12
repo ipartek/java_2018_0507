@@ -9,9 +9,7 @@
 <head>
 <title>
 
-<% if(cabecera.getTitulo() != null) { 
-//out.println(cabecera.getTitulo());
-%>
+<% if(cabecera.getTitulo() != null) { %>
 <jsp:getProperty property="titulo" name="cabecera"/>
 <% } %>
 Préstamo de libros

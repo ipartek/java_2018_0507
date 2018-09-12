@@ -39,9 +39,9 @@ public class LoginServlet extends HttpServlet {
 			login.setErrorPassword("*");
 		}
 
-		//Llamada a l�gica de negocio
+		//Llamada a logica de negocio
 		if(!login.isErroneo() && validar(login)) {
-			//Redirecci�n a vista
+			//Redireccion a vista
 			request.getSession().setAttribute("usuario", login);
 			response.sendRedirect("principal.jsp");
 		} else {
