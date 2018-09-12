@@ -1,9 +1,14 @@
 <!DOCTYPE html>
+
+<<jsp:useBean id="cabecera" class="com.ipartek.formacion.javaee.libros.modelos.Cabecera"></jsp:useBean>
 <html lang="es">
 
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<title>
+<% if(cabecera.getTitulo()!=null){ %>
+<jsp:getProperty property="titulo" name="cabecera"/>
+<%} %>Prestamo de libros</title>
     
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
         <link rel="stylesheet" href="css/estilos.css"/>
