@@ -18,6 +18,12 @@
   	<description></description>
   	<servlet-class>com.ipartek.formacion.javaee.libros.controladores.LoginServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SeccionServlet</servlet-name>
+  	<display-name>SeccionServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.ipartek.formacion.javaee.libros.controladores.SeccionServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>login</servlet-name>
   	<url-pattern>/login</url-pattern>
@@ -30,5 +36,9 @@
 
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/LibreriaAna/login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SeccionServlet</servlet-name>
+  	<url-pattern>/libros/seccion</url-pattern>
   </servlet-mapping>
 </web-app>
