@@ -6,11 +6,7 @@
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
   	<servlet-name>login</servlet-name>
-  	<servlet-class>com.ipartek.formacion.javaee.libros.servlets.LoginServlet</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>registro</servlet-name>
-  	<servlet-class>com.ipartek.formacion.javaee.libros.servlets.Registro</servlet-class>
+  	<servlet-class>com.ipartek.formacion.javaee.servlets.LoginServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>LoginServlet</servlet-name>
@@ -29,13 +25,8 @@
   	<url-pattern>/login</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>registro</servlet-name>
-  	<url-pattern>/registro</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-
   	<servlet-name>LoginServlet</servlet-name>
-  	<url-pattern>/LibreriaAna/login</url-pattern>
+  	<url-pattern>/libros/login</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>SeccionServlet</servlet-name>

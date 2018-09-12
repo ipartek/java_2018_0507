@@ -1,4 +1,3 @@
-
 package com.ipartek.formacion.javaee.libros.modelos;
 
 public class Cabecera {
