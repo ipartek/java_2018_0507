@@ -1,10 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<jsp:useBean id="cabecera" scope="request" class="com.ipartek.formacion.javaee.libros.modelos.Cabecera" />
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-<title>Préstamo de libros</title>
+<title>
+<% if(cabecera.getTitulo() != null) { 
+//out.println(cabecera.getTitulo());
+%>
+<jsp:getProperty property="titulo" name="cabecera"/>
+<% } %>
+Préstamo de libros
+</title>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
