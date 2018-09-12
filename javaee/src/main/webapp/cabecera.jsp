@@ -1,9 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <title>Préstamo de libros</title>
+    <title>PrÃ©stamo de libros</title>
 
     <link rel="stylesheet" href="css/estilos.css" />
     
@@ -12,7 +14,7 @@
 <body>
 
 <header>
-	<h1>Préstamo de libros</h1>
+	<h1>PrÃ©stamo de libros</h1>
 </header>
 
 <nav>
