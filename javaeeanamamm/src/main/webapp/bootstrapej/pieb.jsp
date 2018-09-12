@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 </section>
 
 <footer>
@@ -67,7 +69,7 @@
 
 					<!-- Copyright -->
 					<div class="footer-copyright text-center py-3">
-						© 2018 Copyright: <a
+						Â© 2018 Copyright: <a
 							href="https://mdbootstrap.com/bootstrap-tutorial/">
 							MDBootstrap.com</a>
 					</div>

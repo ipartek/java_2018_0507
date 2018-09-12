@@ -1,3 +1,6 @@
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -53,7 +56,7 @@
 					<div class="collapse navbar-collapse"
 						id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="#">inform·tica<span
+							<li class="active"><a href="#">inform√°tica<span
 									class="sr-only">(current)</span></a></li>
 							<li><a href="#">historia</a></li>
 							<li><a href="#">ensayos</a></li>
