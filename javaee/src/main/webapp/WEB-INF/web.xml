@@ -9,10 +9,13 @@
   	<servlet-class>com.ipartek.formacion.javaee.servlets.LoginServlet</servlet-class>
   </servlet>
   <servlet>
+<<<<<<< HEAD
   	<servlet-name>registro</servlet-name>
   	<servlet-class>com.ipartek.formacion.javaee.servlets.Registro</servlet-class>
   </servlet>
   <servlet>
+=======
+>>>>>>> refs/remotes/origin/master
   	<servlet-name>LoginServlet</servlet-name>
   	<display-name>LoginServlet</display-name>
   	<description></description>
@@ -23,10 +26,13 @@
   	<url-pattern>/login</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+<<<<<<< HEAD
   	<servlet-name>registro</servlet-name>
   	<url-pattern>/registro</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+=======
+>>>>>>> refs/remotes/origin/master
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/libros/login</url-pattern>
   </servlet-mapping>
