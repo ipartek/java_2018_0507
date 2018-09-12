@@ -4,7 +4,6 @@ public class Descripciones {
 	private String datos;
 	
 	
-	
 	public Descripciones(String datos) {
 		super();
 		this.datos = datos;

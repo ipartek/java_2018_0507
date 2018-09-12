@@ -16,10 +16,10 @@ public class SubSeccionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //			String id = request.getParameter("id");
 			String subId = request.getParameter("subId");
-			String des = request.getParameter("des");
+//			String des = request.getParameter("des");
 			
 			String titulo="";
-			
+			String des = "";
 			
 			switch(subId) {
 			case "1":
