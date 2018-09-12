@@ -1,25 +1,25 @@
-package com.ipartek.formacion.javaee.servlets;
+package com.ipartek.formacion.javaee.libros.modelo;
 
 public class LoginForm {
 
 	private String nombre = "";
-	private String contraseña = "";
+	private String contrasenia = "";
 	private String mensajeError;
 	private String mensajeErrorUsuario;
 	private String mensajeErrorClave;
 	
-	public LoginForm(String nombre, String contraseña, String mensajeError,
+	public LoginForm(String nombre, String contrasenia, String mensajeError,
 			String mensajeErrorUsuario, String mensajeErrorClave) {
 		super();
 		this.nombre = nombre;
-		this.contraseña = contraseña;
+		this.contrasenia = contrasenia;
 		this.mensajeError = mensajeError;
 		this.mensajeErrorUsuario = mensajeErrorUsuario;
 		this.mensajeErrorClave = mensajeErrorClave;
 	}
-	public LoginForm(String nombre, String contraseña) {
+	public LoginForm(String nombre, String contrasenia) {
 		this.nombre = nombre;
-		this.contraseña = contraseña;
+		this.contrasenia = contrasenia;
 	}
 	public LoginForm() {
 		this("","","","","");
@@ -31,11 +31,11 @@ public class LoginForm {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasenia() {
+		return contrasenia;
 	}
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
 	}
 	public String getMensajeError() {
 		return mensajeError;

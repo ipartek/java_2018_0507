@@ -1,18 +1,20 @@
-package com.ipartek.formacion.javaee.servlets;
+package com.ipartek.formacion.javaee.libros.controlador;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ipartek.formacion.javaee.servlets.LoginForm;
+import com.ipartek.formacion.javaee.libros.modelo.Cabecera;
+import com.ipartek.formacion.javaee.libros.modelo.LoginForm;
 
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setAttribute("cabecera", new Cabecera("Login"));
+		request.getRequestDispatcher("login.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -29,12 +31,11 @@ public class LoginServlet extends HttpServlet {
 		//Comprobar si se ha introducido si el campo esta vacio o si
 		//el nombre es el correcto
 		if (nombre.equals("")) {
-			login.setMensajeErrorUsuario("No se ha introducido el nombre, burribestia");
+			login.setMensajeErrorUsuario("No se ha introducido el nombre");
 		}else if(!validarNombre(login)) {
-			login.setMensajeErrorUsuario("El nombre no es el correcto, burribestia");
+			login.setMensajeErrorUsuario("El nombre no es el correcto");
 		}else if(validarNombre(login)) {
 			login.setMensajeErrorUsuario("");
-			//request.getSession().setAttribute("usuario", login);
 		}
 		//Comprueba si el campo esta vacio o si la clave es incorrecta
 		if (password.equals("")) {
@@ -43,14 +44,12 @@ public class LoginServlet extends HttpServlet {
 			login.setMensajeErrorClave("La clave no es la correcta");
 		}else if(validarClave(login)){
 			login.setMensajeErrorClave("");
-			//request.getSession().setAttribute("contrase√±a", login);
 		}
-		//Si el usuario y contrase√±a son incorrectos manda mensaje
+		//Si el usuario y contrasenia son incorrectos manda mensaje
 		if (validar(login)) {
 			request.getSession().setAttribute("usuario", login);
 			response.sendRedirect("tabla.jsp");
 		} else {
-			//login.setMensajeError("El usuario o contrase√±a no son correctos");
 			login.setMensajeError("");
 			request.setAttribute("login", login);
 			request.getRequestDispatcher("login.jsp").forward(request, response);
@@ -58,12 +57,12 @@ public class LoginServlet extends HttpServlet {
 
 	}
 	private boolean validar(LoginForm login) {
-			return "batman".equals(login.getNombre()) && "batman".equals(login.getContraseÒa());
+			return "batman".equals(login.getNombre()) && "batman".equals(login.getContrasenia());
 	}
 	private boolean validarNombre(LoginForm logName) {
 		return "batman".equals(logName.getNombre());
 	}
 	private boolean validarClave(LoginForm logPassword) {
-		return "batman".equals(logPassword.getContraseÒa());
+		return "batman".equals(logPassword.getContrasenia());
 	}
 }

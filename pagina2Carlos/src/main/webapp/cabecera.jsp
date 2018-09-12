@@ -1,11 +1,13 @@
 <jsp:useBean id="cabecera" scope="request" 
-class="com.ipartek.formacion.javaee.servlets.Index"/> 
+class="com.ipartek.formacion.javaee.libros.modelo.Cabecera" /> 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no" />
-    <title><jsp:getProperty property="titulo" name="cabecera"/>Main</title>
+    
+    <title><jsp:getProperty property="titulo" name="cabecera"/></title>
+    
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/estilos.css" />
     <link rel="stylesheet" href="css/estilosMain.css" />
@@ -43,7 +45,7 @@ class="com.ipartek.formacion.javaee.servlets.Index"/>
                 <div class="col-md-3"></div>
                 <ul class="nav navbar-nav">
                     <li><a href="#">Opcion 1 </a></li>
-                    <li><a href="Editar.jsp">Editar</a></li>
+                    <li><a href="Editar.jsp" id="1">Editar</a></li>
                     <li><a href="#">Opcion 3</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -69,7 +71,7 @@ class="com.ipartek.formacion.javaee.servlets.Index"/>
                                 <a class="nav-link active" href="#">Opcion 1</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="tabla.jsp">Lista</a>
+                                <a class="nav-link" href="tabla.jsp" id="2">Lista</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Opcion 3</a>
@@ -82,4 +84,3 @@ class="com.ipartek.formacion.javaee.servlets.Index"/>
                 </div>
                 <div class="col-md-10">
                 <!-- Hay quecargar los otros JSP aqui -->
-                 
