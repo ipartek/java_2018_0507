@@ -13,22 +13,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<th>1</th>
-			<td>La Historia Interminable</td>
-			<td>Bruguera</td>
-			<td>12,5€</td>
-			<td><a class="btn btn-default" href="edicion.jsp">Editar</a> <a
-				class="btn btn-danger" href="edicion.jsp">Borrar</a></td>
-		</tr>
-		<tr>
-			<th>2</th>
-			<td>El Principito</td>
-			<td>Anaya</td>
-			<td>5,6€</td>
-			<td><a class="btn btn-default" href="edicion.jsp">Editar</a> <a
-				class="btn btn-danger" href="edicion.jsp">Borrar</a></td>
-		</tr>
+		
 		<% for(int i = 3; i <= 10; i++) { %>
 		<tr>
 			<th><%=i%></th>
