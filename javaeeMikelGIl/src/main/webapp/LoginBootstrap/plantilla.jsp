@@ -1,5 +1,4 @@
-﻿
-<%@ include file="cabecera.jsp" %>
+﻿<%@ include file="cabecera.jsp" %>
 
 <%@ include file="navbar.jsp" %>
 
