@@ -19,7 +19,7 @@
 
   <div id="header">
   <div class="logo">
-    <a href="#">Responsive Nav</a>
+    <a href="#">PaginaPablo</a>
   </div>  
   <nav>
     <form class="search" action="search.php"> 

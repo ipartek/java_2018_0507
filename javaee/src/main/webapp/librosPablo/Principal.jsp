@@ -10,10 +10,12 @@
 	<jsp:useBean id="usuario" scope="session" class="com.ipartek.formacion.javaee.modelos.LoginForm" />
 	<%@ include file="cabecera.jsp" %>
 	
-	<section>
-		<h1>Esta es la pagina principal</h1>
-		<h3>a la que se accede despues de iniciar sesion</h3>
-	</section>
+		<div class="jumbotron">
+		  <h1>Bienvenido a Préstamo de libros</h1>
+		  <p><a class="btn btn-primary btn-lg" href="login" role="button">Boton
+		</a></p>
+		
+		</div>
 	
 	<%@ include file="pie.jsp" %>
 </body>
