@@ -69,9 +69,9 @@ Préstamo de libros
 	<div class="row">
 		<nav class="col-md-2">
 			<ul class="nav nav-pills nav-stacked">
-				<li role="presentation" class="active"><a href="subseccion?id=1&sub=1">Home</a></li>
-				<li role="presentation"><a href="subseccion?id=1&sub=2">Profile</a></li>
-				<li role="presentation"><a href="subseccion?id=1&sub=3">Messages</a></li>
+				<li role="presentation" class="active"><a href="SubSeccion?id=1&subId=1">Historia</a></li>
+				<li role="presentation"><a href="SubSeccion?id=1&subId=2">Fantasia</a></li>
+				<li role="presentation"><a href="SubSeccion?id=1&subId=3">Drama</a></li>
 			</ul>
 		</nav>
 

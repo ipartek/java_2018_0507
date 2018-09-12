@@ -19,7 +19,7 @@ public class SeccionServlet extends HttpServlet {
 		
 		switch(id) {
 		case "1":
-			titulo = "Informática";
+			titulo = "Informatica";
 			break;
 		case "2":
 			titulo = "Empresa";
