@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.javaee.libros.modelos.Login;
 
-/**
+/** 
  * Servlet implementation class LoginServlet2
  */
 public class LoginServlet2 extends HttpServlet {
