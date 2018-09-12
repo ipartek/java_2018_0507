@@ -1,4 +1,4 @@
-package com.ipartek.formacion.javaee.servlets;
+package com.ipartek.formacion.javaee.libros.servlets;
 
 import java.io.IOException;
 
@@ -7,12 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ipartek.formacion.javaee.modelos.LoginForm;
-import com.ipartek.formacion.javaee.modelos.LoginFormException;
+import com.ipartek.formacion.javaee.libros.modelos.LoginForm;
+import com.ipartek.formacion.javaee.libros.modelos.LoginFormException;
 
 public class LoginServlet extends HttpServlet {
 
-	private static final String USUARIO_POR_DEFECTO = "javierniño";
+	private static final String USUARIO_POR_DEFECTO = "javierniÃ±o";
 	private static final String PASSWORD_POR_DEFECTO = "contra";
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,14 +39,14 @@ public class LoginServlet extends HttpServlet {
 			login.setErrorPassword("*");
 		}
 
-		//Llamada a lógica de negocio
+		//Llamada a lï¿½gica de negocio
 		if(!login.isErroneo() && validar(login)) {
-			//Redirección a vista
+			//Redirecciï¿½n a vista
 			request.getSession().setAttribute("usuario", login);
 			response.sendRedirect("principal.jsp");
 		} else {
-			//Redirección a vista
-			login.setMensajeError(login.getMensajeError() + " El usuario o contraseña no son correctos");
+			//Redirecciï¿½n a vista
+			login.setMensajeError(login.getMensajeError() + " El usuario o contraseï¿½a no son correctos");
 			request.setAttribute("login", login);
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}

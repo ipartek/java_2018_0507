@@ -1,4 +1,4 @@
-package com.ipartek.formacion.javaee.modelos;
+package com.ipartek.formacion.javaee.libros.modelos;
 
 public class LoginForm {
 	private String nombre = "";
@@ -25,9 +25,9 @@ public class LoginForm {
 
 	public void setNombre(String nombre) { //throws LoginFormException { // "              Hola Javier            ".trim() ---> "Hola Javier"
 		if(nombre == null || nombre.trim().length() == 0) {
-			setErrorNombre("No se admiten nombres vacíos");
+			setErrorNombre("No se admiten nombres vacï¿½os");
 			setErroneo(true);
-			throw new LoginFormException("No se admiten nombres vacíos");
+			throw new LoginFormException("No se admiten nombres vacÃ­os");
 		}
 		this.nombre = nombre;
 	}
@@ -38,9 +38,9 @@ public class LoginForm {
 
 	public void setPassword(String password) {
 		if(password == null || password.trim().length() == 0) {
-			setErrorPassword("No se admiten nombres vacíos");
+			setErrorPassword("No se admiten nombres vacÃ­os");
 			setErroneo(true);
-			throw new LoginFormException("No se admiten passwords vacíos");
+			throw new LoginFormException("No se admiten passwords vacÃ­os");
 		}
 		this.password = password;
 	}
