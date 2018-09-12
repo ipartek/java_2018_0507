@@ -36,7 +36,7 @@
 					type="password" name="password" id="password"> 
 					
 						<span class="errorClave"> <jsp:getProperty
-					 property="mensajeErrorClave" name="login"/></span>  
+					 property="mensajeErrorClave" name="login"/></span>
 			</p>
 			<div>
 			<p>

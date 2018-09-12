@@ -1,4 +1,6 @@
 <%@ include file="index.jsp" %>
+<jsp:useBean id="login" scope="request"
+		class="com.ipartek.formacion.javaee.servlets.LoginForm" />
     <div class="container">
     	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
@@ -14,14 +16,18 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="login-form" action="tabla.jsp" method="post" role="form" style="display: block;">
+								<form id="login-form" action="login" method="post" role="form" style="display: block;">
 									<div class="form-group">
 										<label>Usuario</label>
-										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" 
+										value='<jsp:getProperty property="nombre" name="login"/>'>
+										<span class="errorNombre"> <jsp:getProperty
+											 property="mensajeErrorUsuario" name="login"/></span>
 									</div>
 									<div class="form-group">
-										<label>Contrase&ntilde;a</label>
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+										<label>Contraseña</label>
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" <span class="errorClave"> <jsp:getProperty
+					 property="mensajeErrorClave" name="login"/></span>  >
 									</div>
 									<div class="form-group text-center">
 										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">

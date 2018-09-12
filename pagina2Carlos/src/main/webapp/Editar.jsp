@@ -1,4 +1,5 @@
 <%@ include file="index.jsp" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <div class="container-fluid">
     	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
@@ -6,7 +7,7 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-12" >
-								<p class="text-center">Modificar/Añadir</p>
+								<p class="text-center">Modificar/AÃ±adir</p>
 							</div>
 						</div>
 						<hr>

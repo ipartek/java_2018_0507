@@ -1,9 +1,11 @@
+<jsp:useBean id="cabecera" scope="request" 
+class="com.ipartek.formacion.javaee.servlets.Index"/> 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no" />
-    <title>Main</title>
+    <title><jsp:getProperty property="titulo" name="cabecera"/>Main</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/estilos.css" />
     <link rel="stylesheet" href="css/estilosMain.css" />
