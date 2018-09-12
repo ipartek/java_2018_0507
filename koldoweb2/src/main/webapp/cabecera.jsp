@@ -26,7 +26,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="bd.jsp"><a href="#">Catálogo</a></li>
+            <li><a href="bd.jsp">Catálogo</a></li>
             <li><a href="editar.jsp">Editar</a></li>
             <li><a href="login.jsp">Login</a></li>
             <li class="dropdown"> </li>
