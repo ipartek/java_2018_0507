@@ -1,4 +1,4 @@
-package com.ipartek.formacion.javaee.libros.modelos;
+package com.ipartek.formacion.javaee.modelos;
 
 public class LoginForm {
 	private String nombre = "";

@@ -29,15 +29,7 @@
 			<td><a class="btn btn-default" href="edicion.jsp">Editar</a> <a
 				class="btn btn-danger" href="edicion.jsp">Borrar</a></td>
 		</tr>
-<<<<<<< HEAD
-		<% for(int i=3;i>=10;i++){ %>
-		<tr><th><%=i %></th>
-		<td>Titulo <%=i %></td>
-		<td>Editorial <%=i %></td>
-		<td><%=i*10  %>€</td>
-		</tr>
-		<%} %>
-=======
+
 		<% for(int i = 3; i <= 10; i++) { %>
 		<tr>
 			<th><%=i%></th>
@@ -48,7 +40,7 @@
 				class="btn btn-danger" href="edicion.jsp">Borrar</a></td>
 		</tr>
 		<% } %>
->>>>>>> refs/remotes/origin/master
+
 	</tbody>
 	<tfoot>
 		<tr>
