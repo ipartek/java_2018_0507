@@ -15,6 +15,12 @@
 		<servlet-class>com.ipartek.formacion.javaee.libros.controladores.LoginServlet</servlet-class>
 	</servlet>
 	<servlet>
+	  	<servlet-name>SeccionServlet</servlet-name>
+	  	<display-name>SeccionServlet</display-name>
+	  	<description></description>
+	  	<servlet-class>com.ipartek.formacion.javaee.libros.controladores.SeccionServlet</servlet-class>
+ 	</servlet>
+ 	<servlet>
 		<servlet-name>PruebaServlet</servlet-name>
 		<display-name>PruebaServlet</display-name>
 		<description></description>
@@ -32,4 +38,8 @@
 		<servlet-name>PruebaServlet</servlet-name>
 		<url-pattern>/libros/prueba</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+  	<servlet-name>SeccionServlet</servlet-name>
+  	<url-pattern>/libros/seccion</url-pattern>
+  </servlet-mapping>
 </web-app>

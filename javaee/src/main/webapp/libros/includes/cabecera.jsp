@@ -18,8 +18,8 @@
 <% if(prueba.getAnuncio() != null) {
 %>
 <jsp:getProperty property="anuncio" name="prueba"/>
-<%} %>
-Préstamo de libros
+<% } %>
+
 </title>
 
 <meta charset="UTF-8">
@@ -56,14 +56,14 @@ Préstamo de libros
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-					<li><a href="#">Link</a></li>
+					<li class="active"><a href="seccion?id=1">Informática<span class="sr-only">(current)</span></a></li>
+					<li><a href="seccion?id=2">Empresa</a></li>
 				</ul>
 				<form class="navbar-form navbar-right">
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="Search">
 					</div>
-					<button type="submit" class="btn btn-default">Submit</button>
+					<button type="submit" class="btn btn-default">Buscar</button>
 				</form>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -74,9 +74,9 @@ Préstamo de libros
 	<div class="row">
 		<nav class="col-md-2">
 			<ul class="nav nav-pills nav-stacked">
-				<li role="presentation" class="active"><a href="#">Home</a></li>
-				<li role="presentation"><a href="#">Profile</a></li>
-				<li role="presentation"><a href="#">Messages</a></li>
+				<li role="presentation" class="active"><a href="subseccion?id=1&sub=1">Home</a></li>
+				<li role="presentation"><a href="subseccion?id=1&sub=2">Profile</a></li>
+				<li role="presentation"><a href="subseccion?id=1&sub=3">Messages</a></li>
 			</ul>
 		</nav>
 
