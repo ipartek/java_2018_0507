@@ -57,3 +57,23 @@ h3{
 .btn-default{
 	background-color:#2ca1fe;
 }
+.card{
+	padding: 0;
+	margin:15px;
+	max-width: 18rem;  
+	display: flex; 
+	flex-flow: row wrap; 
+	justify-content: center;
+}
+.card-text{
+	padding:5px;
+}
+.card-header > .card-title{
+	color:#4E5D6C;
+}
+.card-body{
+	background-color: #4E5D6C;
+}
+.card-body > .card-text > .text-muted{
+	color:#F0AD4E;
+}

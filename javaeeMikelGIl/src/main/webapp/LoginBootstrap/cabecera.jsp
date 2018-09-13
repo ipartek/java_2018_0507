@@ -28,6 +28,10 @@
 		    	$("#div_contenido").empty();
 		    	$("#div_contenido").load("libros.jsp");
 		    });
+		    $("#btnVerLibros").on("click", function(){
+		    	$("#div_contenido").empty();
+		    	$("#div_contenido").load("librosBonito.jsp");
+		    });
 	   });
     </script>
 </head>

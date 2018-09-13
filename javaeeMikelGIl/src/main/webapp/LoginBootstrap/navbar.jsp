@@ -10,7 +10,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="plantilla.jsp">
-							<img alt="Libro" id="iconoLibro" src="imgs/iconoLibro.jpg">
+							<img alt="Libro" id="iconoLibro" src="imgs/iconoLibro.png">
 						</a>
                     </div>
 
@@ -19,6 +19,7 @@
                         <ul class="nav navbar-nav">
                             <li class="active nav-item"><a href="#" id="btnListado">Lista libros <span class="sr-only">(current)</span></a></li>
                             <li class="nav-item"><a href="#" id="btnEditar">Editar</a></li>
+                        	<li class="nav-item"><a href="#" id="btnVerLibros">Ver libros</a></li>
                         </ul> 
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="index.jsp">Log out</a></li>
