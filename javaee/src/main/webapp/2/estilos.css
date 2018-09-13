@@ -21,7 +21,7 @@ article h2::after{
 }
 .barcos{
     text-decoration: underline;
-    content:var(--color-tinta-alerta);
+    color:var(--color-tinta-alerta);
 }
 
 /*

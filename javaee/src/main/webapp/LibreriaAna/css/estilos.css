@@ -1,0 +1,11 @@
+/*Tamaño de imgs de la galeria de libros*/
+.galerialibros{
+	width:150px;
+	height:150px;
+	valing:top;
+	
+}
+div{
+	margin-height:50px;
+	padding-bottom: 25px;
+}
