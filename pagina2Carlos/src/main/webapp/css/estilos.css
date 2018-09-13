@@ -1,6 +1,7 @@
 body{
     background-color: beige;
     padding-top: 90px;
+    font-family: sans-serif;
 }
 .navbar-default .navbar-nav > li > a {
     color: red;
