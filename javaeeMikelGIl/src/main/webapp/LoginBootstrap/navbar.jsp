@@ -19,7 +19,7 @@
                         <ul class="nav navbar-nav">
                             <li class="active nav-item"><a href="#" id="btnListado">Lista libros <span class="sr-only">(current)</span></a></li>
                             <li class="nav-item"><a href="#" id="btnEditar">Editar</a></li>
-                        </ul>
+                        </ul> 
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="index.jsp">Log out</a></li>
                         </ul>
