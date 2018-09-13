@@ -1,0 +1,117 @@
+#doge{
+	width:60%;
+	
+}
+#librosicono{
+	    width: 80px;
+}
+#doge2{
+	width:215%;
+	
+}
+#tabla{
+	width: 71%;
+}
+#barraizq{
+	    margin-top: 50px;
+	list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 180px;
+}
+#barraizq li{
+padding-top:20px;
+	
+	}
+	
+	#barra2{
+	margin-bottom: 10px;
+    size: 20px;
+    margin-left: 29px;
+    float: right;
+    color: white;
+    padding-bottom: 1px;
+	}
+	#barra2 li{
+	display: block;
+    margin-right: 40px;
+	}
+	nav.navbar {
+    background-color: BEAFAC;
+    border: 4px solid #000000;
+    margin-bottom: -7px;
+}
+#barraizq 	{
+	
+	padding-top: 20px;
+}
+
+	nav.navbar li:hover{
+    background-color: black;
+}
+#menucolor {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color:white;!mportant;
+}
+#barra{
+    background-color: #292929ba;
+}
+
+#cabecera{
+    background-color: #29304c;
+    opacity: 0.7;
+    color: white;
+    /* padding-bottom: 0; */
+    margin-top: 1px;
+    margin-bottom: -24px;
+    height: 114px;
+    border-radius: 67px 67px 67px 67px;
+    -moz-border-radius: 67px 67px 67px 67px;
+    -webkit-border-radius: 67px 49px 28px 11px;
+    border: 4px solid #846d6d69;
+}
+
+
+#barralateral{
+      height: 500px;
+    width: 232px;
+    background-color: #babfba3b;
+    border-radius: 0px 67px 67px 0px;
+    -moz-border-radius: 0px 67px 67px 0px;
+    -webkit-border-radius: 0px 67px 67px 0px;
+    border: 1px solid #000069;
+}
+
+#contenedorcentral{
+	margin-left: 10px;
+    background-color: #dcdcdc99;;
+    width: 843px;
+    height: 500px;
+    padding-left: 0;
+    border-radius: 0px 67px 67px 0px;
+    -moz-border-radius: 0px 67px 67px 0px;
+    -webkit-border-radius: 67px 67px 67px 67px;
+    border: 4px solid #000000;
+}
+
+#contenedorderecho{
+	    margin-left: 10px;
+    height: 500px;
+    width: 252px;
+    background-color: #4c484e5c;
+    border-radius: 67px 0px 0px 67px;
+    -moz-border-radius: 67px 0px 0px 67px;
+    -webkit-border-radius: 67px 0px 0px 67px;
+    border: 2px solid #000067;
+        background-image: url("http://localhost:8080/javaeeborja/bootstrapborja/css/3b5c99305823e5537712c4f53f37da7a.jpg")
+    
+}
+
+footer{
+	margin-top:10px;
+    background-color: green;
+width:100%;
+      border: 4px solid #000000;}
+
+      
+    

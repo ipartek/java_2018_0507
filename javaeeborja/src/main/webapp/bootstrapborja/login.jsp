@@ -22,7 +22,7 @@
 						<div class="row">
 							<div class="col-lg-12">
 							
-								<jsp:useBean id="login" scope="request" class="com.ipartek.formacion.javaee.libros.modelos.LoginForm" />
+								<jsp:useBean id="login" scope="request" class="com.ipartek.formacion.javaee.libros.controladores.LoginServlet" />
 							
 							
 								<form id="login" method="post" class="abajo" action="login"  role="form" style="display: block;">
@@ -42,7 +42,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3"> 
-											<button>Login</button>
+											<input type="submit" value="enviar"/>
 											</div>
 										</div>
 									</div>

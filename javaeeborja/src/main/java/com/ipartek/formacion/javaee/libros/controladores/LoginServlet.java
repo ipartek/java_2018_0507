@@ -1,6 +1,8 @@
 package com.ipartek.formacion.javaee.libros.controladores;
 import com.ipartek.formacion.javaee.libros.modelos.*;
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,20 +26,18 @@ public class LoginServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-Libro l=new Libro(1,"uheuhe","hulio", 13);
+
+//Libro l=new Libro(1,"uheuhe","hulio", 13);
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//Recogida de datos
 		
-		request.setAttribute("cabecera", new Cabecera("Login"));
+		/*request.setAttribute("cabecera", new Cabecera("Login"));
 		request.getRequestDispatcher("login.jsp").forward(request, response);
 		
 		request.getRequestDispatcher("contenedor.jsp").forward(request, response);
-		String nombre = request.getParameter("nombre");
+		*/
+		/*String nombre = request.getParameter("nombre");
 		String password = request.getParameter("password");
 		
 		//Empaquetado en Modelo
@@ -56,7 +56,7 @@ Libro l=new Libro(1,"uheuhe","hulio", 13);
 				}
 
 				//Llamada a lï¿½gica de negocio
-				if(!login.isErroneo() && validar(login)) {
+			/*	if(!login.isErroneo() && validar(login)) {
 					//Redirecciï¿½n a vista
 					request.getSession().setAttribute("usuario", login);
 					response.sendRedirect("login.jsp");
@@ -66,15 +66,34 @@ Libro l=new Libro(1,"uheuhe","hulio", 13);
 					request.setAttribute("login", login);
 					request.getRequestDispatcher("index.jsp").forward(request, response);
 				}
+				*/
+				//response.sendRedirect("/bootstrapborja/contenedor.jsp");
 			}
 
-			private boolean validar(LoginForm login) {
+			/*private boolean validar(LoginForm login) {
 				return USUARIO_POR_DEFECTO.equals(login.getNombre()) && PASSWORD_POR_DEFECTO.equals(login.getPassword());
 			}
-
+*/
 		// TODO Auto-generated method stub
 		
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
+	    String nombre = request.getParameter("nombre");
+	    String password = request.getParameter("password");
+	 
+	    //si el formulario falla
+	    if(nombre.isEmpty() || password.isEmpty())
+	    {
+	        request.setAttribute("error", "Usuario y password no pueden ir vacíos");
+	        RequestDispatcher rd = request.getRequestDispatcher("/bootstrapborja/login.jsp");
+	        rd.forward(request, response);
+	    }
+	    else 
+	    {
+	        //si el formulario pasa la validación
+	        System.out.println("Email: " + nombre + ", password: " + password);
+	    }       
+	}
 	}
 
 

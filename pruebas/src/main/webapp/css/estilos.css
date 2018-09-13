@@ -1,0 +1,60 @@
+
+      #anuncios{
+      background-color: lavender;
+      height: 409px;
+      border-radius: 31px 0px 0px 38px;
+-moz-border-radius: 31px 0px 0px 38px;
+-webkit-border-radius: 31px 0px 0px 38px;
+border: 0px solid #000000;
+      }
+    #centro{
+    margin-top: 20px;
+    }
+#wat{
+	background-color: .bg-light;
+}
+
+
+#fut{
+	
+	background-color:  lavender;;
+	margin-bottom:0px;
+}
+
+#libros{
+	background-color: .bg-dark;
+    height: device-width;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+
+
+#libro{
+    height: 391px;
+    padding-top: 50px;
+}
+
+#libro img{
+	width: 223px;	
+}
+#menuizq{
+	padding-top: 20px;
+	height: 409px;
+		background-color:  lavender;
+		border-radius: 0px 42px 31px 0px;
+-moz-border-radius: 0px 42px 31px 0px;
+-webkit-border-radius: 0px 42px 31px 0px;
+border: 0px solid #000000;
+	
+}
+
+#barra{
+	background-color: bg-secondary;
+	border:1px;
+border-radius: 0px 42px 31px 0px;
+-moz-border-radius: 0px 42px 31px 0px;
+-webkit-border-radius: 0px 42px 31px 0px;
+border: 0px solid #000000
+}
+
