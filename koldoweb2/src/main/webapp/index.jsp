@@ -3,8 +3,8 @@
 <div class="jumbotron">
       <div class="container">
         <h1>Tus libros y tú</h1>
-        <p>TodoLibros es la mayor base de datos de libros de habla hispana en Internet. Aquí podrás encontrar todo lo que necesites sobre libros físicos, e-books, enciclopedias clásicas y libros académicos</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Como usar TodoLibros</a></p>
+        <p>TodoLibros es la mayor base de datos de libros de habla hispana en Internet. Aquí podrás encontrar todo lo que necesites sobre libros físicos, e-books, enciclopedias clásicas y libros académicos.</p>
+        <p><a class="btn btn-primary btn-lg" href="visor.jsp" role="button">Comenzar a usar TodoLibros</a></p>
       </div>
     </div>
 
