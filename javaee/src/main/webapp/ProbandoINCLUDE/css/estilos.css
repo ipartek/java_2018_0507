@@ -1,4 +1,3 @@
-
 .cabecera {
 	background-color: red;
     display: block;
@@ -74,12 +73,7 @@ h2{color:#0b56a8;}
     border-top:0;
     }
     
-.probarBoot{
-	border:3;
-	backgorund-color:black;
-	font-color:white;
-	float:left;
-	padding:9px;
-	height:40px;
+.include {
+	float:right;
+	
 }
-

@@ -3,8 +3,18 @@ http://flukeout.github.io/
 https://flexboxfroggy.com/#es
 http://cssgridgarden.com/#es
 */
+:root {
+    --color-fondo-oscuro: #FEFEFE;
+    --color-texto-clarito: #010101;
+    --comillas-apertura: "'";
+    --comillas-cierre: "'";
+    --color-tinta-alerta: #FF3333;
+}
+
 body {
     font-family: sans-serif;
+    color: var(--color-texto-clarito);
+    background-color: var(--color-fondo-oscuro);
 }
 
 body > header,
@@ -22,6 +32,14 @@ article h2 {
 
 article h3 {
     font-size: 100%;
+}
+
+article h3::before {
+    content: var(--comillas-apertura);
+}
+
+article h3::after {
+    content: var(--comillas-cierre);
 }
 
 #menuprincipal {
@@ -59,8 +77,10 @@ article h3 {
 }
 
 header .alarma {
-    color: red;
-    
+
+    color: var(--color-tinta-alerta);
+    font-size: 110%;
+
 }
 
 .barcos {
@@ -68,6 +88,6 @@ header .alarma {
 }
 
 p .alarma {
-    color: red;
+    color: var(--color-tinta-alerta);
     font-size: 2em;
 }
