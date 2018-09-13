@@ -1,8 +1,10 @@
-<div>
-	<section id="seccionPrincipal">
+<section id="seccionPrincipal">
 		<h3>Sección principal</h3>
- 		<div class="card text-white bg-warning flexbox col-md-4">
-   			<img class="card-img-top" src="imgs/elPrincipito.jpg" alt="Card image cap" style="width:100%">
+ </section>
+<div id="visualizacionLibros">
+	
+ 		<div class="card text-white bg-warning libro-flex-item">
+   			<img class="card-img-top" src="imgs/elPrincipito.jpg" alt="Card image cap">
 	    	<div class="card-header">
 				<h5 class="card-title">Card title</h5>
 			</div>
@@ -11,8 +13,8 @@
       			<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 	    	</div>
 	  	</div>
-	  	<div class="card text-white bg-warning flexbox col-md-4 center-block">
-	    	<img class="card-img-top" src="imgs/elPrincipito.jpg" alt="Card image cap" style="width:100%">
+	  	<div class="card text-white bg-warning libro-flex-item">
+	    	<img class="card-img-top" src="imgs/elPrincipito.jpg" alt="Card image cap">
 	    	<div class="card-header">
   				<h5 class="card-title">Card title</h5>
 			</div>
@@ -21,8 +23,8 @@
       			<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 	    	</div>
 	  	</div>
-	  	<div class="card text-white bg-warning flexbox col-md-4 center-block">
-	    	<img class="card-img-top" src="imgs/elPrincipito.jpg" alt="Card image cap" style="width:100%">
+	  	<div class="card text-white bg-warning libro-flex-item">
+	    	<img class="card-img-top" src="imgs/elPrincipito.jpg" alt="Card image cap">
     		<div class="card-header">
   				<h5 class="card-title">Card title</h5>
 			</div>
@@ -31,5 +33,14 @@
       			<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     		</div>
 	 	</div>
-     </section>
+	 	<div class="card text-white bg-warning libro-flex-item">
+	    	<img class="card-img-top" src="imgs/elPrincipito.jpg" alt="Card image cap">
+    		<div class="card-header">
+  				<h5 class="card-title">Card title</h5>
+			</div>
+    		<div class="card-body">
+      			<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      			<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    		</div>
+	 	</div>
 </div>

@@ -60,10 +60,7 @@ h3{
 .card{
 	padding: 0;
 	margin:15px;
-	max-width: 18rem;  
-	display: flex; 
-	flex-flow: row wrap; 
-	justify-content: center;
+	background-color:#F0AD4E;
 }
 .card-text{
 	padding:5px;
@@ -76,4 +73,21 @@ h3{
 }
 .card-body > .card-text > .text-muted{
 	color:#F0AD4E;
+}
+
+#visualizacionLibros{
+	display: -webkit-box;
+  	display: -moz-box;
+  	display: -ms-flexbox;
+  	display: -webkit-flex;
+	display:flex;
+	
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.libro-flex-item {
+  width: 146px;
+  height: 100%;
 }
