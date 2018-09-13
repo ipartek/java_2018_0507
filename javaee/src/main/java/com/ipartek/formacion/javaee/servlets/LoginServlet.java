@@ -14,42 +14,42 @@ public class LoginServlet extends HttpServlet {
 
 	private static final String USUARIO_POR_DEFECTO = "javierniño";
 	private static final String PASSWORD_POR_DEFECTO = "contra";
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-		
-		//Recogida de datos
+
+		// Recogida de datos
 		String nombre = request.getParameter("nombre");
 		String password = request.getParameter("password");
-		
-		System.out.println(nombre);
-		
 
-		//Empaquetado en Modelo
+		System.out.println(nombre);
+
+		// Empaquetado en Modelo
 		LoginForm login = new LoginForm();
-		
+
 		try {
 			login.setNombre(nombre);
 		} catch (LoginFormException e) {
 			login.setErrorNombre("*");
 		}
-			
+
 		try {
 			login.setPassword(password);
 		} catch (LoginFormException e) {
 			login.setErrorPassword("*");
 		}
 
-		//Llamada a l�gica de negocio
-		if(!login.isErroneo() && validar(login)) {
+		// Llamada a l�gica de negocio
+		if (!login.isErroneo() && validar(login)) {
 
-			//Redirecci�n a vista
+			// Redirecci�n a vista
 			request.getSession().setAttribute("usuario", login);
 			response.sendRedirect("principal.jsp");
 		} else {
 
-			//Redirecci�n a vista
+			// Redirecci�n a vista
 			login.setMensajeError(login.getMensajeError() + " El usuario o contrase�a no son correctos");
 
 			request.setAttribute("login", login);

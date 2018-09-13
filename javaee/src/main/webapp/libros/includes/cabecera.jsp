@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <jsp:useBean id="cabecera" scope="request" class="com.ipartek.formacion.javaee.libros.modelos.Cabecera" />
+<jsp:useBean id="prueba" scope="request" class="com.ipartek.formacion.javaee.libros.modelos.Prueba"/>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -13,6 +14,11 @@
 %>
 <jsp:getProperty property="titulo" name="cabecera"/>
 <% } %>
+
+<% if(prueba.getAnuncio() != null) {
+%>
+<jsp:getProperty property="anuncio" name="prueba"/>
+<%} %>
 Préstamo de libros
 </title>
 
