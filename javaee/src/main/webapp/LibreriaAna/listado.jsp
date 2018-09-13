@@ -1,5 +1,6 @@
-
-<%@ include file="includes/header.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="includes/cabecera.jsp"%>
 
 <table class="table table-striped table-bordered table-hover">
 	<thead>
