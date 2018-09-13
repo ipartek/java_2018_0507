@@ -10,8 +10,6 @@
   </servlet>
   <servlet>
   	<servlet-name>EtiquetaServlet</servlet-name>
-  	<display-name>EtiquetaServlet</display-name>
-  	<description></description>
   	<servlet-class>com.ipartek.formacion.javaee.libros.controlador.EtiquetaServlet</servlet-class>
   </servlet>
   <servlet-mapping>

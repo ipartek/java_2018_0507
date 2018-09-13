@@ -101,3 +101,15 @@ body{
 	background-color: #1CA347;
 	border-color: #1CA347;
 }
+@media (max-width: 708){
+	#margenVisor{
+    	margin-left: 25em;   
+	}
+}
+.tamanioVisor{
+	height: 20em;
+	width: 15em;
+}
+.footer{
+	background-color: #f8f8f8;
+}

@@ -8,13 +8,13 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="col-sm-4">
-                        ¿Quienes somos?
+                        Â¿Quienes somos?
                     </div>
                     <div class="col-sm-4">
-                        ¿Donde estamos?
+                        Â¿Donde estamos?
                     </div>
                     <div class="col-sm-4">
-                        ¿A donde vamos?
+                        Â¿A donde vamos?
                     </div>
                 </div>
             </div>

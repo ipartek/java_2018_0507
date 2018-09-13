@@ -4,7 +4,7 @@ class="com.ipartek.formacion.javaee.libros.modelo.Cabecera" />
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     
     <title><jsp:getProperty property="titulo" name="cabecera"/></title>
     
@@ -45,8 +45,8 @@ class="com.ipartek.formacion.javaee.libros.modelo.Cabecera" />
                 <div class="col-md-3"></div>
                 <ul class="nav navbar-nav">
                     <li><a href="#">Opcion 1 </a></li>
-                    <li><a href="Editar.jsp" id="1">Editar</a></li>
-                    <li><a href="#">Opcion 3</a></li>
+                    <li><a href="Editar.jsp" >Editar</a></li>
+                    <li><a href="visor.jsp">Visor</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -71,10 +71,10 @@ class="com.ipartek.formacion.javaee.libros.modelo.Cabecera" />
                                 <a class="nav-link active" href="#">Opcion 1</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="tabla.jsp" id="2">Lista</a>
+                                <a class="nav-link" href="tabla.jsp">Lista</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Opcion 3</a>
+                                <a class="nav-link" href="EtiquetaServlet?id=1">Opcion 3</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Opcion 4</a>

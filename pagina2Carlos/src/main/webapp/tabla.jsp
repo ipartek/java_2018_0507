@@ -30,7 +30,7 @@
                     </tr>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Radio libre Albemut</td>
+                        <td>Gestarescala</td>
                         <td>Philip K.dick</td>
                         <td>Bermuda</td>
                         <td>8€</td>

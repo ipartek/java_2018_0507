@@ -14,7 +14,9 @@ body{
 .vertical{
     background-color: lightgray;
     margin-top: 0;
+
 }
+
 @media (min-width: 768){
     .navbar-brand{
         display: none;   

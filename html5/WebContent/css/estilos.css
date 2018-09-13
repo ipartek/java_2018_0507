@@ -6,7 +6,13 @@ http://cssgridgarden.com/#es
 body {
     font-family: sans-serif;
 }
-
+:root{
+    --color-fondo-oscuro: #FEFEFE;
+    --color-texto-clarito: #010101:
+    --comillas-apertura:"<";
+    --comillas-cierre:;">";
+    --color-tinta-alerta: #FF3333;
+}
 body > header,
 body > footer {
     color: white;
