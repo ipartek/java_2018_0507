@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
+    <!-- container fluid es que ocupa todo, container a secas ocupà pixels -->
 <%@ include file="cabecera.jsp" %>
 
 
