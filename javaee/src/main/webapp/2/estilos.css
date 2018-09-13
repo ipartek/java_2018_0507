@@ -1,0 +1,34 @@
+:root{
+    --color-fondo-oscuro:#FEFEFE;
+    --color-texto-clarito:darkgray;
+    --comillas-apertura:"<<";
+    --comillas-cierre:">>";
+    --color-tinta-alerta:#FF4444;
+    
+}
+
+body{
+    font-family: :sans-serif;
+    color:var(--color-texto-clarito);
+    background-color:var(--color-fondo-oscuro);
+}
+
+article h2::before{
+    content:var(--comillas-apertura);
+}
+article h2::after{
+    content:var(--comillas-cierre);
+}
+.barcos{
+    text-decoration: underline;
+    content:var(--color-tinta-alerta);
+}
+
+/*
+/* # --->Representa el atributo id de la etiqueta
+#mensaje{
+    font-variant: small-caps;
+}
+
+/* . -->representa al class(atributo de html)
+.destacado{*/

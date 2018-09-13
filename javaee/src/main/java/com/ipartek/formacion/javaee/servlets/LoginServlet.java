@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
 		String nombre = request.getParameter("nombre");
 		String password = request.getParameter("password");
 		
-		System.out.println(nombre);
+		System.out.println("nombrerecib:" + nombre);
 		
 		//Empaquetado en Modelo
 		LoginForm login = new LoginForm();

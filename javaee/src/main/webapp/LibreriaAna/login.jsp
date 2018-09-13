@@ -1,56 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="includes/header.jsp"%>
+<%@ include file="includes/cabecera.jsp" %>
 
-<table class="table table-striped table-bordered table-hover">
-	<thead>
-		<tr>
-			<th>ID</th>
-			<th>Título</th>
-			<th>Editorial</th>
-			<th>Precio</th>
-			<td></td>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<th>1</th>
-			<td>La Historia Interminable</td>
-			<td>Bruguera</td>
-			<td>12,5€</td>
-			<td><a class="btn btn-default" href="edicion.jsp">Editar</a> <a
-				class="btn btn-danger" href="edicion.jsp">Borrar</a></td>
-		</tr>
-		<tr>
-			<th>2</th>
-			<td>El Principito</td>
-			<td>Anaya</td>
-			<td>5,6€</td>
-			<td><a class="btn btn-default" href="edicion.jsp">Editar</a> <a
-				class="btn btn-danger" href="edicion.jsp">Borrar</a></td>
-		</tr>
+<form class="form-horizontal" action="listado.jsp">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-offset-1 col-sm-2 control-label">Email</label>
+    <div class="col-sm-8">
+      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-offset-1 col-sm-2 control-label">Password</label>
+    <div class="col-sm-8">
+      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-8">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Sign in</button>
+    </div>
+  </div>
+</form>
 
-		<% for(int i = 3; i <= 10; i++) { %>
-		<tr>
-			<th><%=i%></th>
-			<td>Título<%=i%></td>
-			<td>Editorial<%=i%></td>
-			<td><%=i*10%>€</td>
-			<td><a class="btn btn-default" href="edicion.jsp">Editar</a> <a
-				class="btn btn-danger" href="edicion.jsp">Borrar</a></td>
-		</tr>
-		<% } %>
-
-	</tbody>
-	<tfoot>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>18,1€</td>
-			<td><a class="btn btn-primary" href="edicion.jsp">Añadir</a></td>
-		</tr>
-	</tfoot>
-</table>
-
-<%@ include file="includes/pie.jsp"%>
+<%@ include file="includes/pie.jsp" %>
