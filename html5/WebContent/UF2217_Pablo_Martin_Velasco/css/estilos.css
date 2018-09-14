@@ -52,18 +52,29 @@ button{
     font-size: 12px;
 }
 
-#subir{
-    
-}
-
-
-/*Footer*/
 footer{
-    
+    background-color: #2C3E50;
+    height: 100px;
+    text-align: center;
+    color: white;
+    justify-content: space-evenly;
+    align-content: center;  
 }
-/*END Footer*/
+#subir{
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    visibility: hidden;
+}
+
 
 @media screen and (max-width:576px) {
-    
+
+#subir{
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    visibility: visible;
+}
     
 }
