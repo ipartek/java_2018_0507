@@ -1,4 +1,4 @@
-package com.ipartek.formacion.uf2216rec;
+package com.ipartek.formacion.uf2216.presentacionconsola;
 
 import java.util.List;
 
@@ -25,4 +25,8 @@ public interface CrudAble<P> {
 	boolean update(P pojo);
 	//Delete
 	boolean delete(long id);
+
+	List<Revista> getAllFormato();
+
+	Revista getById(String id);
 }
