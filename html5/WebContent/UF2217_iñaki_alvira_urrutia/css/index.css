@@ -16,6 +16,11 @@ footer a {
     color: red;
     
 }
+.price--line-through{
+    background-color: transparent;
+    background-image: gradient(linear, 19.1% -7.9%, 81% 107.9%, color-stop(0, transparent), color-stop(.48, transparent), color-stop(.5, #000), color-stop(.52, transparent), color-stop(1, transparent));
+    background-image: repeating-linear-gradient(163deg, transparent 0%, transparent 48%, #990000 50%, transparent 52%, transparent 100%);
+}
 .tachado{
     text-decoration: line-through;
 }
