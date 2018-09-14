@@ -1,3 +1,9 @@
+#bodyPr{
+	background-color: yellow;
+}
+
+
+
 .titulo {
 	text-align: center;
 	background-color: black;
@@ -51,4 +57,14 @@
     height: 42px;
     padding-top: 11px;
     border: 3px solid;
+}
+
+.pie {
+	background-color: orange;
+	
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 20px;
 }
