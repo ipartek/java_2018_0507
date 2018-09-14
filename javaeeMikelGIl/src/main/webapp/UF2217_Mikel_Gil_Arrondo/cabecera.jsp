@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Supermercados Mikel</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/bootstrap-flaty-theme.min.css" />
+<!--     <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
     <link rel="stylesheet" href="css/estilos.css" />
 
     <script src="js/jquery-1.12.4.min.js"></script>

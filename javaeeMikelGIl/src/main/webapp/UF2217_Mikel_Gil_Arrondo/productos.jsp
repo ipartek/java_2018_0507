@@ -3,7 +3,11 @@
 </section>
 <div id="visualizacionProductos">
 	<div class="card text-white bg-warning producto-flex-item">
- 		<img class="card-img-top" src="imgs/producto.jpg" alt="Producto1">
+				
+		<div class="capaDescuento">
+			<img class="card-img-top imgProducto" src="imgs/producto.jpg" alt="Producto1">
+			<img src="imgs/descuento_edited.png" class="imgDescuento">
+ 		</div>
 	   	<div class="card-header">
 			<h5 class="card-title"><s>13,35€</s> 12,95€</h5>
 		</div>
@@ -25,7 +29,7 @@
             </span>
         </div>	
 	   	<div>
-	   		<button type="button" class="btn btn-primary btn-lg btn-block">Añadir al carro</button>
+	   		<button type="button" class="btn btn-success btn-producto">Añadir al carro</button>
 	   	</div>
  	</div>
  	<div class="card text-white bg-warning producto-flex-item">

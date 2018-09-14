@@ -1,16 +1,16 @@
-<div class="col-md-3"></div>
+ï»¿<div class="col-md-3"></div>
 <div class="col-md-6">
 	<seccion id="registro">
 		<h3>Nuevo producto</h3>
 	    <form class="form-horizontal" action="index.jsp">
 	        <div class="form-group">
 	            <label for="inputNombre">Nombre producto</label>
-	            <input type="text" class="form-control" id="inputNombre" placeholder="Nombre (Mínimo 2, máximo 20)" minlength=2 maxlength=20 required>
+	            <input type="text" class="form-control" id="inputNombre" placeholder="Nombre (MÃ­nimo 2, mÃ¡ximo 20)" minlength=2 maxlength=20 required>
 	        </div>
 	        <div class="form-group">
 	            <label for="inputCategoria">Categoria</label>
 	            <select class="form-control">
-	              <option value="0" selected>Seleccione una categoría</option>
+	              <option value="0" selected>Seleccione una categorÃ­a</option>
 				  <option value="1">Bebida</option>
 				  <option value="2">Fruta</option>
 				  <option value="3">Carne</option>
@@ -19,16 +19,34 @@
 				</select>
 	        </div>
 	        <div class="form-group">
-	            <label for="inputDescripcion">Descripción producto</label>
-	            <textarea id="textareaNuevoProducto" class="form-control" rows="3" placeholder="Descripción producto (Mínimo 5 , máximo 100)" minlength=5 maxlength=100 required></textarea>
+	            <label for="inputDescripcion">DescripciÃ³n producto</label>
+	            <textarea id="textareaNuevoProducto" class="form-control" rows="3" placeholder="DescripciÃ³n producto (MÃ­nimo 5 , mÃ¡ximo 100)" minlength=5 maxlength=100 required></textarea>
 	        </div>
 	        <div class="form-group">
-	            <label for="inputPrecio">Precio</label>
-	            <input type="text" class="form-control" id="inputPrecio" placeholder="Precio">
-	        </div>
+	        	<label for="exampleInputAmount">Precio</label>
+			    <label class="sr-only" for="exampleInputAmount">Precio (en euros)</label>
+			    <div class="input-group">
+			      	<input type="number" class="form-control" id="exampleInputAmount" placeholder="Cantidad" min="1" max="1000" step="1" required>
+			      	<div class="input-group-addon">.</div>
+			      	<input type="number" class="form-control" id="exampleInputAmount2" placeholder="Decimal" min="0" max="99" step="1">
+			    	<div class="input-group-addon">â‚¬</div>
+			    </div>
+			 </div>
+	        
 	        <div class="form-group">
 	            <label for="inputDescuento">Descuento</label>
-	            <input type="text" class="form-control" id="inputDescuento" placeholder="Descuento">
+	            <div class="input-group">
+		            <input type="number" class="form-control" id="inputDescuento" placeholder="Descuento" min="0" max="100" required>
+		        	<div class="input-group-addon">%</div>
+		        </div>
+	        </div>
+	        
+	        <div class="form-group">
+	        	<label for="inputPrecioFinal">Precio Final contando descuento</label>
+	        	<div class="input-group">
+	        		<input type="number" class="form-control" id="inputPrecioFinal" readonly>
+	        		<div class="input-group-addon">â‚¬</div>
+	        	</div>
 	        </div>
 	        <div class="form-group text-center">
 	            <button type="submit" class="btn btn-default">Aplicar y aceptar</button>

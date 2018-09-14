@@ -1,4 +1,4 @@
-﻿	<div class="col-md-3">
+<div class="col-md-3">
 		<div class="page-header">
         	<h3>Anuncios</h3>
          	<div class="panel panel-warning">
@@ -14,6 +14,6 @@
 				</div>
 			</div>
 	    </div>
-	    
+	    <button id="btnArriba" title="Go to top">Top</button>
 	</div>
 </div>
