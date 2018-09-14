@@ -148,16 +148,6 @@ h1 {
     min-height: 100%;
 }
 
-.top {
-    visibility: hidden;
-}
-
-@media (max-width : 576px) {
-    .top {
-        visibility: visible;
-    }
-}
-
 #principal {
     /*background-image: url('../imgs/background.png');*/
     background-color: rgba(126, 123, 215, 0.2);
@@ -204,6 +194,16 @@ footer a {
     right: 2px;
     width: 50px;
     height: 50px;
+}
+
+.top {
+    visibility: hidden;
+}
+
+@media (max-width : 576px) {
+    .top {
+        visibility: visible;
+    }
 }
 
 
