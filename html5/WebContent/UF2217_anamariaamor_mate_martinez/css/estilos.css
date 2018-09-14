@@ -316,7 +316,7 @@ section .section-title {
 }
 
 #footer a {
-	color: #ffffff;
+	color: gray;
 	text-decoration: none !important;
 	background-color: transparent;
 	-webkit-text-decoration-skip: objects;
@@ -359,11 +359,6 @@ section .section-title {
 		margin-bottom: 10px;
 		
 	}
-	
-	
-	
-	
-	
 	
 	
 	.full {
@@ -415,4 +410,5 @@ section .section-title {
 			z-index: 1px;
 		}
 	}
-}
+	
+
