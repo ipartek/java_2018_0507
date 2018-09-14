@@ -1,0 +1,310 @@
+:root {
+    /*colores*/
+    --verde-claro: #5cb85c;
+    --verde-oscuro: #3c893c;
+    --azul-claro: #4c5f70;
+    --azul-oscuro: #3A3A54;
+    --gris: #7C8394;
+    --blanco-roto: #DAF7A6;
+    --rojo: #C9302C;
+}
+
+
+
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.col-xs-15 {
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+.col-sm-15 {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-15 {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-15 {
+        width: 20%;
+        float: left;
+    }
+}
+
+body {
+    /*-image: url('../imgs/background.png');*/
+    /*background:
+		url("http://mdbootstrap.com/img/Photos/Others/img%20(42).jpg")
+		no-repeat center center;*/
+    background-image: url('../imgs/background.png');
+    background-repeat: repeat;
+    /*background-size: cover;*/
+    min-height: 100%;
+    width: 100%;
+}
+
+/*seccion de productos*/
+
+.producto {
+    background-color: white;
+
+    border: 1px solid #EAEDED;
+
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+   
+
+}
+
+ .row > [class*='col-'] {
+       
+   
+    margin-bottom: 15px!important;
+}
+
+.sub-precio{
+    color: gray;
+    font-size: 14px;
+}
+.texto-producto {
+    margin-bottom: 10px;
+    padding: 10px 15px 5px 15px;
+}
+.descuento{
+    color: #ED5A5A;
+}
+.producto h3 {
+    margin: 0px !important;
+}
+
+.producto p {
+    margin-top: 10px;
+}
+
+.producto img {
+    max-width: 100%;
+}
+
+.añadir {
+    border-radius: 0px;
+    padding: 15px;
+    width: 100%;
+}
+
+.aumentar {
+    width: 130px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.aumentar button {
+    border-radius: 50px;
+}
+
+.input-group {
+    height: 100%;
+}
+
+.img-container{
+    position: relative;
+}
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    background-color: #ED5A5A;
+    border-radius: 25px;
+    color: white;
+    padding: 5px;
+    font-size: 18px;
+}
+
+/*fin seccion de productos*/
+
+.v-center {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand {
+    padding: 5px 5px;
+    padding-left: 15px !important;
+}
+
+#cabecera h1 {
+    color: var(--verde-claro);
+    font-size: 3em;
+    padding-left: 15px;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+#cabecera {
+    background-image: url('../imgs/fondo_encabezado.png');
+    background-repeat: repeat;
+    height: 100px;
+    color: #7C8394;
+    vertical-align: middle;
+}
+
+.wellcome {
+    padding: 100px;
+}
+
+.navbar {
+    border-radius: 0 !important;
+    min-height: 100%;
+}
+ .top{
+        visibility: hidden;
+    }
+
+@media (max-width : 576px) {
+   /* .row {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+    }
+
+    .row > [class*='col-'] {
+        display: flex;
+        flex-direction: column;
+    }*/
+    
+    .top{
+        visibility: visible;
+    }
+}
+
+@media (max-width : 993px) {
+   /* #principal {
+        margin-left: 15px;
+        margin-right: 15px;
+    }*/
+}
+
+#menulateral {
+    background-color: #3A3A54;
+}
+
+#menulateral.col-md-2 {
+    /*margin-left: 15px;
+    margin-right: 15px;*/
+    padding: 0px !important;
+    margin-top: -20px;
+}
+
+/*aside {
+	background-color: white;
+}
+*/
+
+#principal {
+    /*background-image: url('../imgs/background.png');*/
+    background-color: rgba(126, 123, 215, 0.2);
+    padding: 2% 2%;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    margin-top: 0px !important;
+	
+}
+
+/*.table{
+	background-color:white;
+}*/
+
+.form-horizontal {
+    padding-top: 2%;
+}
+
+
+/* menu lateral */
+.nav-pills > li > a {
+    /* no funciona poniendolos juntos */
+    border-radius: 0 !important;
+}
+
+.nav > li > a:hover {
+    background-color: var(--azul-claro);
+    color: white;
+}
+
+.nav > li > a:focus {
+    background-color: var(--verde-claro);
+}
+
+.nav-pills > li > a {
+    color: var(--gris);
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:focus,
+.nav-pills > li.active > a:hover {
+    color: white;
+    background-color: var(--verde-claro);
+}
+
+.nav-pills {
+    background-color: var(--azul-oscuro);
+}
+
+.verde {
+    background-color: var(--verde-claro);
+    color: white !important;
+}
+
+.verde:hover {
+    background-color: var(--verde-oscuro) !important;
+}
+
+/*footer*/
+footer {
+    color: white !important;
+    background-color: #222222;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #080808;
+
+}
+
+footer a{
+   color: white!important;
+    text-decoration: none;
+}
+
+.top img{
+    position: fixed;
+    bottom: 2px;
+    right: 2px;
+    width: 50px;
+    height: 50px;
+}
+
+
+table img{
+    width: 40px;
+}
+
+table th{
+     background-color: var(--verde-claro);
+}
+
+
+
