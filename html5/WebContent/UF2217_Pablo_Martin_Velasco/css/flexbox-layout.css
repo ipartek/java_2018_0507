@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --body-bg-color: #FFFFFF;
+    --header-bg-color: #2C3E50;
+    --footer-bg-color: #2C3E50;
+    --main-bg-color: #FFF;
+    --aside-bg-color: #E67E22;
+    --widget-bg-color: #D35400;
+    --nav-bg-color: #C0392B;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--body-bg-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+article {
+    margin: 1em;
+padding: .8em .5em;
+}
+
+i {
+    color: #E67E22;
+}
+
+
+.contenedor {
+    width: 90%;
+    max-width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+header {
+    background-color: var(--header-bg-color);
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+
+
+.main {
+    background-color: var(--main-bg-color);
+    flex: 1 1 70%;
+}
+
+
+.nav-main, .nav-links {
+    padding: 2.50em;
+    width: 50%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.nav-main a, .nav-links a {
+    color: #FFF;
+    text-align: center;
+    flex-grow: 1;
+    background-color: var(--nav-bg-color);
+    padding: .75em;
+}
+
+.nav-main a:hover, .nav-links a:hover {
+    background-color: #E74C3C;
+    transition: 1.2s;
+}
+
+
+
+/* menu mobile
+****************************************************/
+.overlay {
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+}
+
+.nav-main-mobile {
+    text-align: left;
+}
+
+.nav-main-mobile a {
+    width: 100%;
+    display: inline-block;
+    padding: .75em;
+    color: #FFF;
+    font-size: 1.15em;
+}
+
+.nav-main-mobile a:first-child {
+    margin-left: -12px;
+}
+
+.content-menu-mobile, .btn-open {
+    display: none;
+}
+
+.nav-main-mobile { 
+    padding: .75em;
+    color: #FFF;
+    position: absolute;
+    top: 15%;
+    text-align: center;
+}
+
+.btn-close {
+    position: fixed;
+    top: 10px;
+    right: 25px;
+    color: #FFF;
+    font-size: 3em;
+    z-index: 2;
+}
+
+.btn-open {
+    position: fixed;
+    top: 5%;
+    right: 10%;
+    color: #FFF;
+    font-size: 2em;
+    padding: .25em;
+}
+
+.btn-open:hover {
+    border: 1px solid #FFF;
+    border-radius: 50%;
+}
+
+
+.logo {
+    padding: .75em;
+    width: 50%;
+    display: block;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    align-items: center;
+}
+
+.logo img {
+    width: 75px;
+    height: 75px;
+}
+
+.logo h1 {
+    vertical-align: center;
+}
+
+.logo h1 a {
+    color: #FFF;
+}
+
+
+
+
+.nav-socials {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-content: center;
+    margin: 1.5em;
+}
+
+.nav-socials a {
+    padding: .15em;
+}
+
+.widget {
+    width: 150px;
+    height: 150px;
+    /* flex-grow: 1; */
+    margin: 1.85em 0;
+    background-color: var(--widget-bg-color);
+}
+
+.main article:first-child {
+    border-bottom: 1px solid #000;
+}
+
+/* Media Queries
+tablet: 768px
+movil: 375px
+*********************************************************************/
+@media screen and (max-width:768px) {
+
+    .logo, .nav-main {
+        width: 100%;
+    }
+
+    .nav-main {
+        padding: 0;
+    }
+
+    .main {
+        flex: 1 1 100%;
+    }
+
+    aside {
+        flex: 1 1 100%;
+        display: flex;
+        flex-flow: row wrap;
+        /* align-items: center; */
+    }
+
+    .widget {
+        flex-grow: 1;
+        margin: 0.5em;
+        background-color: var(--widget-bg-color);
+    }
+}
+
+@media screen and (max-width:375px) {
+
+    .contenedor{
+        flex-flow: column wrap;
+    }
+    .logo, .nav-main {
+        width: 100%;
+    }
+
+    .nav-main {
+        display: none;
+    }
+
+    .btn-open {
+        display: block;
+    }
+
+    aside {
+        flex: 1 1 100%;
+        display: flex;
+        flex-flow: column wrap;
+        /* align-items: center; */
+    }
+
+    aside .widget {
+        flex-grow: 1;
+        margin: .5em;
+        background-color: var(--widget-bg-color);
+    }
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    
+    
+    <link rel="stylesheet" href="vendors/datatables/1.10.19/css/jquery.dataTables.min.css">    
+    <link rel="stylesheet" href="vendors/datatables/responsive/2.1.0/css/responsive.dataTables.css"  />
+        <link rel="stylesheet" href="css/flexbox-layout.css">
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <script src="vendors/jquery/jquery-3.3.1.js"></script>
+    <script src="vendors/datatables/1.10.19/js/jquery.dataTables.min.js"></script>    
+    <script src="vendors/datatables/responsive/2.1.0/js/dataTables.responsive.js"></script>
+    
+    <style>
+            tr:hover td{
+                background-color: greenyellow !important;
+            }
+    </style>
+
+
+    <script>
+
+        //Esperamos a que todo el HTML este cargado == body onload
+        $(document).ready(function() { 
+
+            // $('#example')  => selecciona un objeto por id="example"
+            // .DataTable();  => ejecutar el plugin de dataTable
+            $('#example').DataTable({
+                "language": {
+                    "url": "vendors/datatables/i18n/Spanish.json"
+                }
+            });
+
+        } );
+
+    </script>
+
+</head>
+<body>
+    <div class ="text-center" class="contenedor">
+        <header>
+            <div class="logo">
+                <img src="img/logo-supermercado.jpg" alt="Logo">
+                <h1><a href="index.html">Supermar-Tek</a></h1>
+            </div>
+
+            <nav class="nav-main">
+                <a href="index.html">Inicio</a>
+                <a href="registro.html">Añadir</a>
+                <a href="modificar.html">Modificar</a>
+                <a href="productos.html">Listar</a>
+                <a href="login.html">Iniciar sesión</a>
+            </nav>
+            <a href="#" class="btn-open" onclick="openMenu()">&#9776;</a>
+
+            <div id="menu-mobile" class="content-menu-mobile">
+                <div  class="overlay">
+                    <div class="overlay-content">
+                        <a href="#" class="btn-close" onclick="closeMenu()">&times;</a>
+                        <nav class="nav-main-mobile">
+                            <a href="index.html">Inicio</a>
+                            <a href="registro.html">Añadir Productos</a>
+                            <a href="modificar.html">Modificar Productos</a>
+                            <a href="productos.html">Listar Productos</a>
+                            <a href="login.html">Iniciar sesión</a>
+                        </nav>
+                    </div>   
+                </div>
+            </div>
+
+
+            <script>
+                var menu = document.getElementById('menu-mobile');
+
+                function openMenu() {
+					menu.style.display = 'block';					
+                }
+
+                function closeMenu() {
+					menu.style.display = 'none';					
+                }
+            </script>
+        </header>
+    </div>
+
+        <h1>Tabla de Productos Supermar-tek</h1>
+       
+        <table id="example" class="display responsive nowrap" width="100%">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descuento</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Precio/Litro</th>
+                        <th>Capacidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BEEFEATER ginebra</td>
+                        <td>NO</td>
+                        <td>7.90€</td>
+                        <td>10</td>
+                        <td>18,50€/l</td>
+                        <td>70 cl</td>
+                    </tr>
+                    <tr>
+                        <td>Eristof Vodka</td>
+                        <td>SI</td>
+                        <td>10.20</td>
+                        <td>15</td>
+                        <td>19.20€/l</td>
+                        <td>70 cl</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descuento</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Precio/Litro</th>
+                        <th>Capacidad</th>
+                    </tr>
+                </tfoot>
+            </table>
+    
+</body>
+</html>
