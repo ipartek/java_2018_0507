@@ -16,7 +16,7 @@ body{
 }
 
 .btn-producto{
-	margin: 10px 10px 0px 16px;
+	margin: 10px 10px 5px 16px;
 }
 
 #visualizacionProductos{
@@ -48,28 +48,34 @@ body{
 }
 
 .producto-flex-item {
-  width: 168px;
+  width: 160px;
   height: 100%;
   background-color:#2C3E50;
-  color:#F39C12;
+  color: #C0CC5C;
 }
 
-textareaNuevoProducto {
+.producto-flex-item > .card-body, .producto-flex-item > .card-header{
+	padding-left:10px;
+}
+
+#textareaNuevoProducto {
   resize: none;
 }
 
 .imgProducto {
+	width:160px;
+	height:auto;
   position: relative;
   top: 0;
   left: 0;
 }
 .imgDescuento{
   position: absolute;
-  top: 70px;
+  top: 75px;
   left: 47px;
 }
 .capaDescuentos{
-	position: relative";
+	position: relative;
 	top: 0;
 	left: 0;
 }
@@ -83,7 +89,7 @@ textareaNuevoProducto {
   font-size: 18px;
   border: none;
   outline: none;
-  background-color: red;
+  background-color: #2C3E50;
   color: white;
   cursor: pointer;
   padding: 15px;
@@ -93,6 +99,18 @@ textareaNuevoProducto {
 #btnArriba:hover {
   background-color: #555;
  } 
+ 
+ .nav-item:hover{
+ 	background-color:#8CC6FF;
+ }
+ 
+.nav-item:hover > a{
+ 	color:#2C3E50;
+}
+
+#capaBuscador{
+	margin-bottom:20px;
+}
 
 
 

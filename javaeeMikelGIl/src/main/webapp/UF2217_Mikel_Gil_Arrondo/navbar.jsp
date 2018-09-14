@@ -18,20 +18,29 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
-                            	<a href="#" id="btnListadoCliente">Productos cliente<span class="sr-only">(current)</span></a>
+                            	<a href="#" id="btnListadoCliente">
+                            	<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                            	Productos cliente<span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                            	<a href="#" id="btnListadoAdmin">Listado productos</a>
+                            	<a href="#" id="btnListadoAdmin">
+                            	<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                            	Listado productos</a>
                             </li>
                             <li class="nav-item">
-                            	<a href="#" id="btnNuevo">Registro nuevo producto</a>
+                            	<a href="#" id="btnNuevo">
+                            	<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                            	Registro nuevo producto</a>
                             </li>
                             <!-- <li class="nav-item"><a href="#" id="btnEditar">Editar</a></li>
                         	<li class="nav-item"><a href="#" id="btnVerLibros">Ver libros</a></li> -->
                         </ul> 
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                            	<a href="#" id="btnLogIn">Log in</a>
+                            	<a href="#" id="btnLogIn">
+                            		<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            		Log in
+                            	</a>
                             </li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
