@@ -14,8 +14,29 @@
 <script src="js/jquery-1.12.4.min.js"></script>
 
 </head>
-<body>
-<table class="table table-striped table-bordered table-hover">
+<body id="bodyPr">
+<div class="container">	
+
+		<div class="row">
+			<div class="col-xs-3 col-md-4 logo">
+				<img class="logo" src="IMG/logo.png" alt="logo">
+			</div>
+			<div class="col-xs-6 col-md-8 titulo">Supermercados Julen</div>
+		</div>
+
+
+		<nav class="navbar navbar-inverse">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="Principal.html">Bienvenido a Supermercados BM</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="login.html">Login</a></li>
+				<li><a href="registro.html">Registrar Producto</a></li>
+				<li><a href="listado.html">Lista de Prodcutos</a></li>
+			</ul>
+		</nav>
+	<div class="row">
+	<table class="table table-striped table-bordered table-hover">
 	<thead>
 		<tr>
 			<th>ID</th>
@@ -69,6 +90,8 @@
 			<td><a class="btn btn-primary" href="registro.html">Añadir</a></td>
 		</tr>
 	</tfoot>
-</table>
+	</table>
+	</div>
+</div>	
 </body>
 </html>
