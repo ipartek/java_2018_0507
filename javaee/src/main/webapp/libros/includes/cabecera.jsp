@@ -43,15 +43,15 @@ Préstamo de libros
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.jsp">Préstamo de libros</a>
+				<a class="navbar-brand" href="listado.jsp">listado</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-					<li><a href="#">Link</a></li>
+					<li class="active"><a href="index.jsp">inicio <span class="sr-only">(current)</span></a></li>
+					<li><a href="login.jsp">login</a></li>
 				</ul>
 				<form class="navbar-form navbar-right">
 					<div class="form-group">

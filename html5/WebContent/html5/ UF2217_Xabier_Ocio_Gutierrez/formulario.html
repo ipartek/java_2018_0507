@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>tienda</title>
+	<!--bootstrap-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+	<!--mis ficheros css js -->
+    <link rel="stylesheet" href="css/estilos.css" />
+    <script src="js/index.js"></script>
+	<link rel="icon" href="img/favicon.png" type="image/x-icon"/>
+	<link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
+	</head>
+
+<body>
+
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <a href="administrar.html"><h4 class="text-white">administrar</h4></a>
+    </div>
+  </div>
+    <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <a href="admin.html"><h4 class="text-white">logout</h4></a>
+    </div>
+  </div>
+  
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
+
+<form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="ejemplo_email_3" class="col-lg-2 control-label">Nombre del producto</label>
+    <div class="col-lg-10">
+      <input class="form-control" id="ejemplo_email_3">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-2 control-label">Precio del producto</label>
+    <div class="col-lg-10">
+      <input class="form-control" id="ejemplo_password_3">
+    </div>
+  </div>
+    <div class="form-group">
+    <label class="col-lg-2 control-label">id del producto</label>
+    <div class="col-lg-10">
+      <input class="form-control" id="ejemplo_password_3">
+    </div>
+  </div>
+    <div class="form-group">
+    <label class="col-lg-2 control-label">Precio del litro</label>
+    <div class="col-lg-10">
+      <input class="form-control" id="ejemplo_password_3">
+    </div>
+  </div>
+    <div class="form-group">
+    <label class="col-lg-2 control-label">Descuento</label>
+    <div class="col-lg-10">
+      <input class="form-control" id="ejemplo_password_3">
+    </div>
+  </div>
+      <div class="form-group">
+    <label class="col-lg-2 control-label">foto</label>
+    <div class="col-lg-10">
+		<input name="uploadedfile" type="file" />
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <button onClick="alert('Registro realizado!')" type="submit" class="btn btn-default">Guardar Producto</button>
+	  <a href="administrar.html" type="button" class="btn btn-outline-primary">Ver Productos</a>
+    </div>
+  </div>
+</form>
+<footer>
+<!--Un pie de pagina con iconos para facebook, twitter, y enlaces a: Política de privacidad, Contacto, Localización y logo de copyright con año actual.-->
+<div class="container">
+	<div class="row" >
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+		<p><a href="">politica de privacidad</a></p>
+		<p><a href="">Contacto</a></p>
+		<p><a href="">Localizacion</a></p>
+		</div>
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+		<p><a href="https://eu-es.facebook.com/"><img src="img/face.png" id="ico"></a></p>
+		<p><a href="https://twitter.com/"><img src="img/twit.png" id="ico"></a></p>
+		<p><a href="https://copyright.es/index.html?utm_source=AdWords&utm_medium=PPC&utm_term=copyright&utm_content=147553632213&utm_campaign=AdGroup&Network=Search&SiteTarget=&gclid=EAIaIQobChMIlpOC-5263QIVCI9pCh2oeg_TEAAYASAAEgKEw_D_BwE"><img src="img/copy.png" id="ico"></a></p>
+		
+		</div>
+<p><a href="Index.html"><img src="img/logout.png" id="admin"></a></p>
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css?family=Bilbo|Caveat:400,700&subset=latin-ext');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+
+header {
+    background-image: url(../imgs/fondo_encabezado.png);
+    height: 104px;
+    background-position: right;
+}
+
+#informacion {
+    font-family: 'Bilbo', cursive;
+}
+
+#informacion h2,
+#contenido h2 {
+    /* visibility: hidden; */
+    display: none;
+}
+
+/* body > header + nav */
+
+#menuprincipal {
+    background-color: #7C7C1D;
+    text-transform: uppercase;
+}
+
+#menuprincipal ul,
+.paginacion ul {
+    list-style: none;
+    padding: 3px;
+}
+
+#menuprincipal a {
+    display: block;
+    text-decoration: none;
+    color: #DCDC9B;
+    padding: 1em;
+}
+
+#menuprincipal a:hover {
+    background-color: #AEAE2D;
+}
+
+#contenido {
+    position: relative;
+}
+
+#contenido img {
+    width: 100%;
+    height: auto;
+}
+
+#contenido footer {
+    margin-top: -4px;
+}
+
+.paginacion {
+    background-color: #AEAE2D;
+    padding-left: 21px;
+}
+
+.paginacion li {
+    display: inline-block;
+}
+
+.paginacion a {
+    display: block;
+    text-decoration: none;
+    color: #E4E682;
+    font-size: 18px;
+    padding: 1em;
+}
+
+.paginacion .numeropaginaactual a {
+    color: #35360B;
+}
+
+#cita {
+    font-family: 'Caveat', cursive;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    padding-left: 1em;
+    padding-top: 1em;
+    width: 462px;
+    height: 95px;
+
+    background-color: #F6F7D5;
+    opacity: 0.65;
+    font-size: 18px;
+    color: #35360B;
+}
+
+@media (min-width: 1000px) {
+    header {
+        padding-left: 25%;
+        margin-right: 10%
+    }
+
+    #menuprincipal {
+        padding-left: 25%;
+        padding-right: 10%;
+    }
+
+    #menuprincipal li {
+        display: inline-block;
+    }
+
+    .paginacion a {
+        padding: 0 0.3em;
+    }
+
+    /*
+    #contenido img {
+        width: 1000px;
+        height: 416px;
+    }
+    */
+
+    #menuprincipal li:last-child {
+        float: right;
+    }
+
+    #informacion {
+        width: 25%;
+        float: left;
+        padding: 2em;
+        box-sizing: border-box;
+    }
+
+    #contenido {
+        width: 65%;
+        float: left;
+    }
+
+    #cita {
+        top: 150px;
+        right: 100px;
+        left: inherit;
+    }
+}
