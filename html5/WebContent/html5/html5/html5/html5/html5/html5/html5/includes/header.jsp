@@ -13,9 +13,8 @@
 	<!--mis ficheros css js -->
     <link rel="stylesheet" href="css/estilos.css" />
     <script src="js/index.js"></script>
-	</head>
-
+</head>
 <body>
+ola soy el body 
 </body>
 
-</html>
