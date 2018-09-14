@@ -19,33 +19,36 @@
   
     <nav class="menuprincipal">
         <ul>
-            <li><a href="../index.html">Inicio</a></li>
+           <li><a href="../index.html">Inicio</a></li>
             <li><a href="bebidas.html">Bebidas</a></li>
             <li><a href="aperitivos.html">Aperitivos</a></li>
             <li><a href="contacto.html">Contacto</a></li>
             <li><a href="registroprod.html">Registro Producto</a></li>
             <li><a href="listadoprods.html">Lista de Productos</a></li>
             <li><a href="login.html">Login</a></li>
+           
+           
+           <div class="input-group" >
+              <span class="input-group-addon"><img src="../imgs/lupa.png" width="20px"></span>
+              <input type="text" class="form-control">
+              <span class="input-group-addon">Buscar</span>
+            </div>
+            
+            
             
         </ul>
     </nav>
     
-	  <form>
-        <fieldset>
-            <legend>Login de usuario</legend>
-           
-            <label for="usuario">Usuario: </label>
-               <input type="text" id="usuario" name="usuario" placeholder="usuario"
-                min="3" />
-
-            <label for="contraseña">Contraseña: </label>
-               <input type="text" id="contrasena" name="contrasena" placeholder="contrasena"
-                min="3" />
-                <br>
-            <button type="button" class="btn btn-success">Aceptar</button>
-            
-        </fieldset>
-    </form>
+	  <div id="contenedor">
+      
+		<table border="1" class="table" style="width: 50%" >
+        <tr><th>Producto</th><th>Precio</th><th>Rebajado</th></tr>
+            <tr><td>Kas</td><td>20€</td><td>-10€</td></tr>
+            <tr><td>Mosto</td><td>20€</td><td>-10€</td></tr>
+            <tr><td>Cola</td><td>20€</td><td>-10€</td></tr>
+            <tr><td>Ciervo</td><td>20€</td><td>-10€</td></tr>
+		  </table>
+    </div>
 		
 </body>
 
@@ -60,7 +63,7 @@
        </div>
        <div >&copy;</div>
        <a href="politicapriva.html">Politica de privacidad - </a>
-       <a href="contacto.html">Contacto - </a>
+      <a href="contacto.html">Contacto - </a>
        <a href="localizacion.html">Localizacion</a>
    
    </div>
