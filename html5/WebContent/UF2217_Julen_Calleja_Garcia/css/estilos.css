@@ -38,10 +38,11 @@
 	font-weight: 700;
 	letter-spacing: normal;
 	line-height: 17.5px;
-	list-style-image: none;
-	list-style-position: outside;
-	list-style-type: disc;
 	text-align: center;
+	/*margin-left:30px; Con este margen quedan todos los prodcutos centrados en la pagina pero en la version movil 
+	la pagina sale mal
+	*/
+	
 }
 
 .litro {
