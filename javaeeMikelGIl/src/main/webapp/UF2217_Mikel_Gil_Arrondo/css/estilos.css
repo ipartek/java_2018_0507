@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+body{ 
+	padding-bottom: 70px; 
+}
+
+.jumbotron{
+	margin-bottom: 0;
+	background-image: url("../imgs/gradient1.jpg");
+	padding:10px;
+}
+.card{
+	padding: 0;
+	margin:15px;
+}
+
+#visualizacionProductos{
+	display: -webkit-box;
+  	display: -moz-box;
+  	display: -ms-flexbox;
+  	display: -webkit-flex;
+	display:flex;
+	
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+#footerTable{
+    margin-left:auto; 
+    margin-right:auto;
+}
+#footerTable td {
+	 padding-left:10px;
+    padding-right:10px;
+}
+#footerTable img{
+	width:32px;
+	height:32px;
+}
+
+.producto-flex-item {
+  width: 146px;
+  height: 100%;
+}
