@@ -1,7 +1,7 @@
 package com.ipartek.formacion.javaee.libros.modelos;
 
 public class Cabecera {
-	private String titulo;
+	private String titulo = "Préstamo de libros";
 
 
 	public Cabecera() {
