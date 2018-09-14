@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#tituloPrincipal{
+    background-color: antiquewhite;
+    background-image: url(../imgs/fondo.jpg);
+    height: 100px;    
+}
+
+#barra{
+    background-color: #E0FAF5;
+}
+
+body{
+    background-color:#E0FAF5;
+}
+
+#productos{
+    display: flex;
+    border-color:black;
+    padding:1%;
+    margin-left:10%;
+    position:relative;
+    float: none;
+}
+
+#porcentaje{
+    position: absolute;
+}
+
+#litro{
+    color:grey;
+    font-size: 12px;
+}
+
+#precio{
+    color:red;
+    font-size: 20px;
+}
+
+#descuento{
+    text-decoration: line-through;
+}
+
+
+#descripcion{
+    text-align: center;
+}
+
+footer{
+    background-color: antiquewhite;
+    height: 70px;
+    align-content: center;
+    height: 80px;
+    margin-top: 30px;
+}
+
+
+    #top{
+       display:scroll;
+        position:fixed;
+        bottom:100px;
+        right:100px;
+        float:right;
+        font-family: helvetica;
+    font-weight: 300;
+    font-size: 25px;
+    font-style: italic;
+    color: #006505;
+    background-color: #82b085;
+    border-radius: 15px;
+    border: 3px double #006505;
+    }
+}
