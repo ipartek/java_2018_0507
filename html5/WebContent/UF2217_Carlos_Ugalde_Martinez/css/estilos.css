@@ -1,10 +1,5 @@
 body{
     background-color: beige;
-    padding-top: 90px;
-    font-family: sans-serif;
-}
-.navbar-default .navbar-nav > li > a {
-    color: red;
 }
 .panel-login {
 	border-color: #ccc;
@@ -102,11 +97,66 @@ body{
 	background-color: #1CA347;
 	border-color: #1CA347;
 }
-
-.tamanioVisor{
-	height: 20em;
-	width: 15em;
+/*----------------------------------------Fin css login----------------------------------------------------*/
+.jumbotron{
+    margin-bottom: 0;
+    background: #99b3ff;
 }
-.footer{
-	background-color: #f8f8f8;
+#brand{
+    margin-left: 1em;
+}
+.mod{
+    color:#029f5b;
+}
+.navbar-default {
+  background-color: #ccccff;
+}
+.tamanioVisor{
+    background-color: #efefc2;
+    margin:1em;
+}
+.aniadir{
+    margin-top: 1em;
+}
+.imageFooter{
+    height: 3em;
+    width: 3em;
+}
+#pie{
+    margin:0;
+    padding-top: 1em;
+}
+.quitaMargenes{
+    margin: 0;
+}
+footer{
+    margin-top: 1em;
+    background-color: burlywood;
+}
+.editar{
+    margin:1em;
+}
+@media (min-width: 576px){
+    .top{
+        display:none;
+    }
+    .etiquetas{
+        padding-top: 1em;    
+    }
+}
+@media (max-width: 768px){
+    .tamanioVisor{
+        margin:0;
+        margin-bottom: 1em;
+    }
+}
+
+@media (max-width: 576px){
+    .tamanioVisor{
+        margin:0;
+        margin-bottom: 1em;
+    }
+    .boton{
+        padding-top: 6px;    
+    }
 }
