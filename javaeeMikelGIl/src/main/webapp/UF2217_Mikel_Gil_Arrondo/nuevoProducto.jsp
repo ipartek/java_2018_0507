@@ -49,8 +49,8 @@
 	        	</div>
 	        </div>
 	        <div class="form-group text-center">
-	            <button type="submit" class="btn btn-default">Aplicar y aceptar</button>
-	            <button class="btn btn-default"><a href="index.jsp" alt="Cancelar">Cancelar</a></button>
+	            <button type="submit" class="btn btn-primary">Aplicar y aceptar</button>
+	            <button class="btn btn-primary"><a href="index.jsp" alt="Cancelar" id="botonCancelarProducto">Cancelar</a></button>
 	        </div>
 	    </form>
     </seccion>

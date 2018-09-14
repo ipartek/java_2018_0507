@@ -7,8 +7,9 @@
 				</div>
 				<div class="panel-body">
 					<img src="imgs/descuento1.jpg" alt="Descuento" title="Descuento" />
+					<img src="imgs/descuento2.jpg" alt="Descuento" title="Descuento" />
 				</div>
-			</div>
+			</div> 
 	    </div>
 	    <button id="btnArriba" title="Go to top">Top</button>
 	</div>
