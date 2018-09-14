@@ -1,4 +1,4 @@
-﻿<div class="row">
+<div class="row">
             <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -18,8 +18,13 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li class="nav-item">
-                            	<a href="#" id="btnListado">Lista productos<span class="sr-only">(current)</span>
-                            	</a>
+                            	<a href="#" id="btnListadoCliente">Productos cliente<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                            	<a href="#" id="btnListadoAdmin">Listado productos</a>
+                            </li>
+                            <li class="nav-item">
+                            	<a href="#" id="btnNuevo">Registro nuevo producto</a>
                             </li>
                             <!-- <li class="nav-item"><a href="#" id="btnEditar">Editar</a></li>
                         	<li class="nav-item"><a href="#" id="btnVerLibros">Ver libros</a></li> -->

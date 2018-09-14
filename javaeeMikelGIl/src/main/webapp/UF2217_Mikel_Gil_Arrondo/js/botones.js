@@ -12,12 +12,24 @@ $(document).ready(function(){
     	$("#div_contenido").load("librosBonito.jsp");
     });*/
 	
-	$("#btnListado").on("click", function(){
+	$("#btnListadoCliente").on("click", function(){
 		$("#div_contenido").empty();
 		$("#div_contenido").load("productos.jsp");
 	});
 	$("#btnLogIn").on("click", function(){
 		$("#div_contenido").empty();
 		$("#div_contenido").load("login.jsp");
+	});
+	$("#btnListadoAdmin").on("click", function(){
+		$("#div_contenido").empty();
+		$("#div_contenido").load("productos.jsp");
+	});
+	$("#btnListadoCliente").on("click", function(){
+		$("#div_contenido").empty();
+		$("#div_contenido").load("productos.jsp");
+	});
+	$("#btnNuevo").on("click", function(){
+		$("#div_contenido").empty();
+		$("#div_contenido").load("nuevoProducto.jsp");
 	});
 });
