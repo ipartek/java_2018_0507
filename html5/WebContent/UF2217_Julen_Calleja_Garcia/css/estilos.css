@@ -1,0 +1,54 @@
+.titulo {
+	text-align: center;
+	background-color: black;
+	color: white;
+	height: 150px;
+	padding: 34px;
+	font-size: 3em;
+}
+
+#menu a, ul {
+	text-decoration: none;
+	list-style: none;
+	display: block;
+}
+
+.logo {
+	height: 150px;
+	width: 150px;
+}
+
+.imagenes {
+	border: 3px inset;
+}
+
+.textoImagenes {
+	box-sizing: border-box;
+	color: rgb(177, 39, 4);
+	font-family: "Amazon Ember", Arial, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	letter-spacing: normal;
+	line-height: 17.5px;
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: disc;
+	text-align: center;
+}
+
+.litro {
+	color:gray;
+	text-align: center;
+}
+
+.carro {
+	color:white;
+	background-color: rgb(136,204,136);!important;
+	padding-right: 11px;
+    padding-bottom: 0px;
+    width: 195px;
+    height: 42px;
+    padding-top: 11px;
+    border: 3px solid;
+}
