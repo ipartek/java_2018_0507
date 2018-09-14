@@ -10,3 +10,5 @@
 
 
 <%@ include file="pie.jsp" %>
+
+<!-- principal es listado productos -->
