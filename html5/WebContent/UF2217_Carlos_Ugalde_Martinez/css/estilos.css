@@ -98,6 +98,12 @@ body{
 	border-color: #1CA347;
 }
 /*----------------------------------------Fin css login----------------------------------------------------*/
+.price--line-through{
+    background-color: transparent;
+    color:gray;
+    background-image: gradient(linear, 19.1% -7.9%, 81% 107.9%, color-stop(0, transparent), color-stop(.48, transparent), color-stop(.5, #000), color-stop(.52, transparent), color-stop(1, transparent));
+    background-image: repeating-linear-gradient(163deg, transparent 0%, transparent 48%, #990000 50%, transparent 52%, transparent 100%);
+}
 .jumbotron{
     margin-bottom: 0;
     background: #99b3ff;
@@ -136,6 +142,14 @@ footer{
 .editar{
     margin:1em;
 }
+.top{
+    margin-right: 1em;
+}
+@media (min-width: 1000px){
+    #margenVisor{
+      margin-left: 4em;  
+    } 
+}
 @media (min-width: 576px){
     .top{
         display:none;
@@ -144,6 +158,7 @@ footer{
         padding-top: 1em;    
     }
 }
+
 @media (max-width: 768px){
     .tamanioVisor{
         margin:0;
@@ -152,6 +167,9 @@ footer{
 }
 
 @media (max-width: 576px){
+    .twit{
+        margin-right: 1em;
+    }
     .tamanioVisor{
         margin:0;
         margin-bottom: 1em;
