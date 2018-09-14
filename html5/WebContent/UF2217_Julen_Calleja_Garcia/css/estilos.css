@@ -37,8 +37,9 @@
 	font-style: normal;
 	font-weight: 700;
 	letter-spacing: normal;
-	line-height: 17.5px;
 	text-align: center;
+	padding-left: 25px;
+	padding-left: 0px;
 	/*margin-left:30px; Con este margen quedan todos los prodcutos centrados en la pagina pero en la version movil 
 	la pagina sale mal
 	*/
@@ -57,7 +58,6 @@
     padding-bottom: 0px;
     width: 195px;
     height: 42px;
-    padding-top: 11px;
     border: 3px solid;
 }
 
@@ -88,5 +88,14 @@ h2 {
 	.botonTop{
 		display:inline;
 		width:100px;
+	}
+	
+	.titulo{
+		width: auto;
+		
+	}
+	
+	.logo{
+		width:auto;
 	}
 }
