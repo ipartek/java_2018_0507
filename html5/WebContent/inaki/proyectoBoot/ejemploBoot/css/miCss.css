@@ -1,0 +1,33 @@
+#mio {
+    background-image:url("../imgs/fondo_encabezado.png");
+   background-position: right;
+    display: flex;
+}
+#logo{
+    display: flex;
+    background-image:url("../imgs/logo_encabezado.png");
+    width: 30vw;
+    height: 18vh;
+    background-repeat: no-repeat;
+    margin-left: 20rem;
+     position: relative;
+   
+}
+#blog{
+   margin-left: 400px; 
+}
+.miNav{
+    margin-left: 200px;
+   
+}
+.navbar-nav>li>a{
+    color: white !important;
+}
+.navbar-nav>li>a:hover{
+    color: black !important;
+}
+.navbar 
+{
+    background-color: #7C7c1d;
+    color: green;
+}

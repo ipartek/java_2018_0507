@@ -1,0 +1,167 @@
+
+* {
+  box-sizing: border-box;
+    font-family:   cursive;
+
+}
+#mio {
+    background-image:url("../imgs/fondo_encabezado.png");
+   background-position: right;
+    display: flex;
+}
+#logo{
+    display: flex;
+    background-image:url("../imgs/logo_encabezado.png");
+    width: 25vw;
+    height: 12vh;
+    background-repeat: no-repeat;
+    margin-left: 20rem;
+     position: relative;
+        
+}
+#navegacion{
+    
+    background-color: #7C7c1d;
+      width: 100%; 
+    padding-left: 25%;
+     
+}
+#navegInf{
+    display: flex;
+    background-color: #7C7c1d;
+    width:100%;
+    flex-direction: row;
+    margin-top: -0.5%;
+    height:25px; 
+    
+}
+#navegacion ul:last-child{
+    margin-left:25%;
+}
+#menuBajo{
+     display: flex;
+    background-color: #7C7c1d;
+    flex-direction: row;
+    height:25px; 
+}
+
+#navegInf ul,#menuBajo ul{
+    margin: 0px;
+	padding: 0px;
+    
+}
+#menuBajo ul{
+     display: flex;
+    font-size: 0.8em;
+    padding: 10px;
+   
+}
+#navegacion a,#navegInf a,#menuBajo a{
+    color:white;    
+    text-decoration: none;    
+   
+}
+#navegacion a:hover,#navegInf a:hover,#menuBajo a:hover{
+    color:black;
+    background-color: white;
+}
+#contenedor{
+    display: flex;
+   flex-direction: row;
+    
+}
+#cuadroCentral{
+    display: flex;
+    width: 462px;
+    background-color: #F6F7D5;
+    opacity: .65;
+    position: absolute;
+    top: 40%;
+    left:  35%;
+}
+#capaDerecha{
+    position: relative;
+   height: 430px;
+}
+#miDescripcion p{
+    display: flex;
+    clear: both;
+    text-align: left;
+    width: 75%;
+}
+#verdeOscuro{
+     background-color: #2C4D0B; 
+}
+#miFoo{
+    margin-left: 40%
+}
+.wrapper {
+  display: grid;   
+  border-radius: 5px;
+  background-color: #fff4e6;
+    grid-template-rows: 20px 100px;
+    grid-template-columns: 400px 350px 210px;
+    
+    
+}
+.cabecera{
+    background: #2C4D0B;
+}
+#f{  
+    order: 1;
+     grid-column-start: 1;
+    grid-column-end: 4;
+    background: #7C7c1d;
+    background-image:url("../imgs/logo_pie.png"); 
+    background-repeat:no-repeat;
+    background-position: center;
+}
+
+#contCentral{
+    display: grid;
+     grid-template-columns: 400px 350px 210px;
+     background-color: #7C7c1d;
+    margin-top: -1.8%;
+}
+#miImp{
+   margin-top: -7% ;
+}
+#textos{
+    margin-top: 12%;
+    margin-left: -90%;
+    font-size: 0.5em;
+    color:
+}
+#contenedorPie{
+    background: #2C4D0B;
+    width: 960px;
+    height: 40px;
+}
+#central{
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width:600px){
+    
+       #central{
+        width: 1000px;
+        height: 416px;
+    }
+    
+    #cuadroCentral{
+        top: 0;
+        left:0;
+    }
+    #capaIzq{
+        width:25%;
+    }
+}
+@media (min-width:600px){
+        #navegacion{
+        display: inline-flex;
+    }
+    #navegacion ul:last-child{
+       float :left;
+    }
+}

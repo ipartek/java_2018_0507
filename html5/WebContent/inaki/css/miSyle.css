@@ -1,0 +1,82 @@
+#mio{
+    background-image:url("../imgs/fondo_encabezado.png");
+    height: 100px; width: 100%; border: 1px solid black;
+
+}
+#logo{
+     background-image:url("../imgs/logo_encabezado.png");
+     height: 100px; 
+     background-repeat: no-repeat;
+    margin-left: 25%;
+
+}
+#navegacion{
+    display: inline-flex;
+    background-color: #7C7c1d;
+      width: 100%; 
+    padding-left: 25%;
+    
+}
+#navegacion a{
+    color:white;    
+    text-decoration: none;
+   
+}
+#navegacion a:hover{
+    color:black;
+    background-color: white;
+}
+#capaCentral{
+    display: inline;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+#capaIzq{   
+    height: auto;
+    color:black;
+    float: left;
+    box-sizing: border-box;
+}
+#capaDer{   
+     background-image:url("../imgs/hojarasca.jpg");
+    width: 1000px;
+    height: 416px;
+    color:black;    
+    background-repeat: no-repeat;  
+    float:left;
+    box-sizing: border-box;
+}
+#cuadroCentral{
+    width: 462px;
+    height: 95px;
+    background-color: #F6F7D5;
+    left:  35%;
+     top: 40%;
+    position: relative;
+    opacity: .65;
+    
+}
+#cuadroCentral p{
+   text-align: center;
+    float: right;
+    
+}
+#barraAbajo{
+     background-color: #7C7c1d;   
+    width: 960px;
+    height: 25px;
+     position: relative;
+    top:70%; 
+    
+}
+#barraAbajo nav{
+    height: 25px;
+    width: 100px;
+    text-align: left;
+}
+#miPie{
+    background-color: black;
+     clear: both;
+     
+}
