@@ -1,3 +1,7 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
+encoding//src/main/webapp/WEB-INF=UTF-8
+=======
 encoding//src/main/webapp/libros/listado.jsp=UTF-8
+>>>>>>> branch 'Julen' of https://github.com/ipartek/java_2018_0507.git
 encoding//src/main/webapp/principal.jsp=UTF-8
