@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Ejemplo1/src"/>
+	<classpathentry kind="src" path="javaee/src/main/java"/>
+	<classpathentry kind="src" path="javaeeanamamm/src/main/java"/>
+	<classpathentry kind="src" path="javase/src"/>
+	<classpathentry kind="src" path="javaseana/src"/>
+	<classpathentry kind="src" path="youtube/src/main/java"/>
+	<classpathentry kind="lib" path="Ejemplo1/libraries/joda-time-2.10.jar"/>
+	<classpathentry kind="lib" path="javase/lib/joda-time-2.10.jar"/>
+	<classpathentry kind="lib" path="javaseana/libraries/joda-time-2.10.jar"/>
+	<classpathentry kind="output" path="Ejemplo1/bin"/>
+</classpath>
