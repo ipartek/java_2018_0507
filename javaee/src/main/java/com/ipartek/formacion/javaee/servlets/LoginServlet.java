@@ -14,7 +14,9 @@ public class LoginServlet extends HttpServlet {
 
 	private static final String USUARIO_POR_DEFECTO = "javierniño";
 	private static final String PASSWORD_POR_DEFECTO = "contra";
-	
+	protected void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request,response);
+	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
