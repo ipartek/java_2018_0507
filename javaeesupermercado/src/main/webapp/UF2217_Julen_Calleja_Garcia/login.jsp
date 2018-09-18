@@ -41,6 +41,7 @@
 	<div class="row">
 
 		<div class="col-xs-12 col-sm-7 col-md-7 col-lg-3">
+		<jsp:useBean id="login" scope="request" class="com.ipartek.formacion.controladores.LoginServlet" />
                     <form action="login" method="post">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email de Usuario</label>
