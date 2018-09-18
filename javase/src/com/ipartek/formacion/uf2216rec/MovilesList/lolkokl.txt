@@ -1,0 +1,6 @@
+Moviles [android=true, marca=samsumg, ram=0.0, pulgadas=0.0, memoria=0]
+Moviles [android=true, marca=samsumg, ram=0.0, pulgadas=0.0, memoria=0]
+Moviles [android=true, marca=samsumg, ram=0.0, pulgadas=0.0, memoria=0]
+Moviles [android=true, marca=samsumg, ram=0.0, pulgadas=0.0, memoria=0]
+Moviles [android=true, marca=samsumg, ram=0.0, pulgadas=0.0, memoria=0]
+Moviles [android=true, marca=as, ram=43.0, pulgadas=23.0, memoria=43]

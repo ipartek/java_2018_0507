@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="css/flexbox-layout.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    </head>
+<body id"#top">
+    <div class ="text-center" class="contenedor">
+        <header>
+            <div class="logo">
+                <img src="img/logo-supermercado.jpg" alt="Logo">
+                <h1><a href="#">SupermarTek</a></h1>
+            </div>
+
+            <nav class="nav-main">
+                <a href="index.html">Inicio</a>
+                <a href="registro.html">Añadir</a>
+                <a href="modificar.html">Modificar</a>
+                <a href="productos.html">Listar</a>
+                <a href="login.html">Iniciar Sesion</a>
+            </nav>
+            <a href="#" class="btn-open" onclick="openMenu()">&#9776;</a>
+
+            <div id="menu-mobile" class="content-menu-mobile">
+                <div  class="overlay">
+                    <div class="overlay-content">
+                        <a href="#" class="btn-close" onclick="closeMenu()">&times;</a>
+                        <nav class="nav-main-mobile">
+                            <a href="index.html">Inicio</a>
+                            <a href="registro.html">Añadir Productos</a>
+                            <a href="modificar.html">Modificar Productos</a>
+                            <a href="productos.html">Listar Productos</a>
+                            <a href="login.html">Iniciar Sesion</a>
+                        </nav>
+                    </div>   
+                </div>
+            </div>
+
+
+            <script>
+                var menu = document.getElementById('menu-mobile');
+
+                function openMenu() {
+					menu.style.display = 'block';					
+                }
+
+                function closeMenu() {
+					menu.style.display = 'none';					
+                }
+            </script>
+        </header>
+    </div>
+        
+        <form>
+            
+            <h1>Formulario modificador de productos</h1><br>
+
+            <div class="form-group"> <!-- Full Name -->
+                <label for="full_name_id" class="control-label">Nombre del Producto</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: Tomates">
+            </div>    
+
+            <div class="form-group"> <!-- Street 1 -->
+                <label for="street1_id" class="control-label">Precio Unitario</label>
+                <input type="text" class="form-control" id="unidad" name="unidad" placeholder="€/unidad">
+            </div>                    
+
+            <div class="form-group"> <!-- Street 2 -->
+                <label for="street2_id" class="control-label">Precio/litro</label>
+                <input type="text" class="form-control" id="litro" name="litro" placeholder="€/litro">
+            </div>    
+
+            <div class="form-group"> <!-- City-->
+                <label for="city_id" class="control-label">Cantidad</label>
+                <input type="number"  class="form-control" name="num" min="0" max="50">
+                
+            </div>
+        <div class="form-group"> <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Modificar Producto</button>
+            
+    </div>     
+    
+    </form>
+    
+     <footer>
+        
+        <p>&copy;2018 Pablo Martin</p><br/>
+        <div class="text-center">
+            <a href="<strong>www.twitter.com</strong>">
+                <img title="Twitter" src="img/twitter.jpg" alt="Twitter" width="35" height="35" /></a>
+            <a href="<strong>www.pinterest.com</strong>">
+                <img title="Pinterest" src="img/pinterest.jpg" alt="Pinterest" width="35" height="35" /></a> 
+            <a href="<strong>www.facebook.com</strong>">
+                <img title="Facebook" src="img/facebook.jpg" alt="Facebook" width="35" height="35" /></a> 
+            <a href="mailto:www.gmail.com">
+                <img title="Email" src="img/gmail.png" alt="Email" width="35" height="35" /></a>
+       </div>
+        
+    </footer>
+    
+    </body>
+</html>
