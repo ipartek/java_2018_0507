@@ -1,3 +1,11 @@
 .destacados {
     color:red;
 }
+<<<<<<< HEAD
+=======
+
+.col-xs-12, .col-sm-6, .col-md-8, .col-xs-6, .col-md-4, .col-sm-4 {
+    background-color: lightgray;
+    border: 1px solid black;
+}
+>>>>>>> refs/remotes/origin/master
