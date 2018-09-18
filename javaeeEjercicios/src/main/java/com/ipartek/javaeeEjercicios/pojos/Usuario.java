@@ -1,4 +1,4 @@
-package com.ipartek.formacion.javaeeEjercicios.pojos;
+package com.ipartek.javaeeEjercicios.pojos;
 
 public class Usuario {
 	private Long id;

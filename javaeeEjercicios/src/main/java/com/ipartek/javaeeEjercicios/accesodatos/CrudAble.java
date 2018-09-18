@@ -1,4 +1,4 @@
-package com.ipartek.formacion.javaeeEjercicios.accesodatos;
+package com.ipartek.javaeeEjercicios.accesodatos;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.ipartek.formacion.javaeeEjercicios.controladores;
+package com.ipartek.javaeeEjercicios.controladores;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -30,8 +30,8 @@ public class CargarProductos extends HttpServlet {
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-    	//Redirect al index.jsp
-    	response.sendRedirect("Examen_html5/index.jsp");
+
+    	//response.sendRedirect("index.jsp");
     }
 
 	/**

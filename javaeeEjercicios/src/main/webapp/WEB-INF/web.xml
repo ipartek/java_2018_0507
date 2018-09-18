@@ -8,19 +8,19 @@
   	<servlet-name>CargarProductos</servlet-name>
   	<display-name>CargarProductos</display-name>
   	<description></description>
-  	<servlet-class>com.ipartek.formacion.javaeeEjercicios.servlets.CargarProductos</servlet-class>
+  	<servlet-class>com.ipartek.javaeeEjercicios.servlets.CargarProductos</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>InsertarArticulosServlet</servlet-name>
   	<display-name>InsertarArticulosServlet</display-name>
   	<description></description>
-  	<servlet-class>com.ipartek.formacion.javaeeEjercicios.controladores.InsertarArticulosServlet</servlet-class>
+  	<servlet-class>com.ipartek.javaeeEjercicios.controladores.InsertarArticulosServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>UsuariosServlet</servlet-name>
   	<display-name>UsuariosServlet</display-name>
   	<description></description>
-  	<servlet-class>com.ipartek.formacion.javaeeEjercicios.controladores.UsuariosServlet</servlet-class>
+  	<servlet-class>com.ipartek.javaeeEjercicios.controladores.UsuariosServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>CargarProductos</servlet-name>
@@ -32,6 +32,6 @@
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>UsuariosServlet</servlet-name>
-  	<url-pattern>/UsuariosServlet</url-pattern>
+  	<url-pattern>/login</url-pattern>
   </servlet-mapping>
 </web-app>

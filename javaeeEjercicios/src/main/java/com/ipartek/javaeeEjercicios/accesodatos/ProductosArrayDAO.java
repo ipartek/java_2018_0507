@@ -1,9 +1,9 @@
-package com.ipartek.formacion.javaeeEjercicios.accesodatos;
+package com.ipartek.javaeeEjercicios.accesodatos;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.ipartek.formacion.javaeeEjercicios.pojos.Producto;
+import com.ipartek.javaeeEjercicios.pojos.Producto;
 
 
 public class ProductosArrayDAO implements CrudAble<Producto>{

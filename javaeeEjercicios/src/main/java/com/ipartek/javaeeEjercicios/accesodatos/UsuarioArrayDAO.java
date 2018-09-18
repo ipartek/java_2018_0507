@@ -1,8 +1,8 @@
-package com.ipartek.formacion.javaeeEjercicios.accesodatos;
+package com.ipartek.javaeeEjercicios.accesodatos;
 
 import java.util.List;
 
-import com.ipartek.formacion.javaeeEjercicios.pojos.Usuario;
+import com.ipartek.javaeeEjercicios.pojos.Usuario;
 
 public class UsuarioArrayDAO implements CrudAble<Usuario>{
 	private List<Usuario> usuarios;

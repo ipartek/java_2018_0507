@@ -2,7 +2,7 @@
 <div class="col-md-6">
 	<seccion id="registro">
 		<h3>Nuevo producto</h3>
-	    <form class="form-horizontal" action="index.jsp">
+	    <form class="form-horizontal" action="InsertarArticulosServlet">
 	        <div class="form-group">
 	            <label for="inputNombre">Nombre producto</label>
 	            <input type="text" class="form-control" id="inputNombre" placeholder="Nombre (Mínimo 2, máximo 20)" minlength=2 maxlength=20 required>

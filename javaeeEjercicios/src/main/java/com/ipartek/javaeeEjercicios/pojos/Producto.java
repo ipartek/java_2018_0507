@@ -1,4 +1,4 @@
-package com.ipartek.formacion.javaeeEjercicios.pojos;
+package com.ipartek.javaeeEjercicios.pojos;
 
 public class Producto {
 
@@ -59,7 +59,7 @@ public class Producto {
 	}
 	
 	public int getDecimal() {
-		return precio;
+		return decimal;
 	}
 
 	public void setDecimal(int decimal) {
