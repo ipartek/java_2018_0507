@@ -1,7 +1,10 @@
 package com.ipartek.supermercado.pojo;
 
 public class Usuario {
-	String nombre,password;
+	String nombre,password,error="";
+	public Usuario() {
+		
+	}
 	public Usuario(String nombre,String password) {
 		this.nombre=nombre;
 		this.password=password;
@@ -24,5 +27,11 @@ public String getNombre() {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public void setError(String error) {
+		this.error = error;
+	}
+	public String getError() {
+		return error;
 	}
 }

@@ -10,6 +10,7 @@
 </head>
 
 <body class="container-fluid">
+<jsp:useBean id="usuario" scope="session" class="com.ipartek.supermercado.pojo.Usuario"/>
     <header>
         <div class="row ">
             <div class="miCab col-md-12 text-center"><img src="imgs/descarga1.png" height="100px" width="200px" alt="Este es el ejemplo de un texto alternativo"></div>
@@ -26,9 +27,10 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="login.html">Login<span class="sr-only">(current)</span></a></li>
+                        <li class="active"><a href="login.jsp">Login<span class="sr-only">(current)</span></a></li>
                         <li><a href="regProd.html">registrar Producto</a></li>
                         <li><a href="listado.html">listado productos</a></li>
+                            <li><a href="regUsuarios.html">reg usuarios</a></li>
                     </ul>
                     <div class="row">
                         <form class="miCuadro navbar-form navbar-right">
@@ -42,7 +44,7 @@
             </nav>
         </div>
     </header>
-    <form class="form-horizontal" action="usuario"  method="get">
+    <form class="form-horizontal" action="usuario"   method="post">
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-offset-1 col-sm-2 control-label">Email</label>
             <div class="col-sm-8">
@@ -66,7 +68,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" value="boton" name="login" class="btn btn-default">Sign in</button>
+                <button type="submit" value="login" name="login" class="btn btn-default">Sign in</button><jsp:getProperty property="error"  name="usuario"/>
             </div>
         </div>
     </form>

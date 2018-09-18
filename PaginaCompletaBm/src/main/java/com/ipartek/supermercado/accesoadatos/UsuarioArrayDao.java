@@ -1,12 +1,13 @@
 package com.ipartek.supermercado.accesoadatos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.ipartek.supermercado.pojo.Articulo;
 import com.ipartek.supermercado.pojo.Usuario;
 
 public class UsuarioArrayDao implements CrudAble<Usuario>{
-	private List<Usuario> usuarios;
+	private List<Usuario> usuarios=new ArrayList<>();
 	private static UsuarioArrayDao INSTANCE;
 	private UsuarioArrayDao() {
 			

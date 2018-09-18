@@ -29,7 +29,7 @@
                         <li class="active"><a href="login.jsp">Login<span class="sr-only">(current)</span></a></li>
                         <li><a href="regProd.html">registrar Producto</a></li>
                         <li><a href="listado.html">listado productos</a></li>
-                         <li><a href="regUsuarios.html">reg usuarios</a></li>
+                      <li><a href="regUsuarios.html">reg usuarios</a></li>
                     </ul>
                     <div class="row">
                         <form class="miCuadro navbar-form navbar-right">
@@ -43,65 +43,28 @@
             </nav>
         </div>
     </header>
-    <table class="text-center table table-hover table-condensed table-bordered table-striped table-condensed" border=0>
-        <thead>
-            <tr>
-                <th class="text-center">IDproducto</th>
-                <th class="text-center">nombre</th>
-                <th class="text-center">descripcion</th>
-                <th class="text-center">Precio</th>
-                <th class="text-center">PrecioXunidad</th>
-                <th class="text-center">descuento</th>
-                <th class="text-center">imagen</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th class="text-center">1</th>
-                <td>beffeatter</td>
-                <td>BEFFEATTER ginebra inglesa botella 70cl</td>
-                <td>12,95€</td>
-                <td>17.95L</td>
-                <td>20%</td>
-                <td><img src="imgs/cardhu.jpg" height="50" width="50" alt="">
-                </td>
-            </tr>
-            <tr>
-                <th class="text-center">1</th>
-                <td>beffeatter</td>
-                <td>BEFFEATTER ginebra inglesa botella 70cl</td>
-                <td>12,95€</td>
-                <td>17.95L</td>
-                <td>20%</td>
-                <td><img src="imgs/bef.jpg" height="50" width="50" alt="">
-                </td>
-            </tr>
-            <tr>
-                <th class="text-center">1</th>
-                <td>beffeatter</td>
-                <td>BEFFEATTER ginebra inglesa botella 70cl</td>
-                <td>12,95€</td>
-                <td>17.95L</td>
-                <td>20%</td>
-                <td><img src="imgs/negri.jpg" height="50" width="50" alt="">
-                </td>
-            </tr>
-            <tr>
-                <th class="text-center">1</th>
-                <td>beffeatter</td>
-                <td>BEFFEATTER ginebra inglesa botella 70cl</td>
-                <td>12,95€</td>
-                <td>17.95L</td>
-                <td>20%</td>
-                <td><img src="imgs/seagrams.jpg" height="50" width="50" alt="">
-                </td>
-            </tr>
-        </tbody>
-        <tfoot>
+     <form class="form-horizontal" action="usuario" method="post">
+        <div class="form-group">
+            <label for="id" class="col-sm-offset-1 col-sm-2 control-label">email</label>
+            <div class="col-sm-8">
+                <input type="email" class="form-control" id="id" name="mail" required="required" min="1" placeholder="Id numérico">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="titulo" class="col-sm-offset-1 col-sm-2 control-label">password</label>
+            <div class="col-sm-8">
+                <input type="password" class="form-control" id="nombre" name="password" required="required" maxlength="100" pattern="[A-Za-z0-9ñÑáéíóúçàèìòù ]{3,50}" placeholder="nombre del articulo  mínimo 3 caracteres y máximo 50">
+            </div>
+        </div>
+            <div class="col-sm-offset-2 col-sm-10">
+                <button name="login" value="registro" class="btn btn-primary">Aceptar</button>
+                <a class="btn btn-danger" href="#">Cancelar</a>
+        
+        </div>
+    </form>
+  
 
-        </tfoot>
-    </table>
-  <footer>
+    <footer>
         <div class="row">
             <div class="col-md-2 col-xs-6 text-center"><img src="imgs/fb.png" height="50" width="50" alt="Este es el ejemplo de un texto alternativo"></div>
             <div class="col-md-2 col-xs-6 text-center"><img src="imgs/twitter2.png" height="50" width="50" alt="Este es el ejemplo de un texto alternativo"></div>
