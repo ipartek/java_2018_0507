@@ -28,6 +28,24 @@
   	<description></description>
   	<servlet-class>com.ipartek.formacion.javaee.servlets.MillasKmServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>LoginServletPrueba</servlet-name>
+  	<display-name>LoginServletPrueba</display-name>
+  	<description></description>
+  	<servlet-class>com.ipartek.formacion.javaee.prueba.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>HolaMundo</servlet-name>
+  	<display-name>HolaMundo</display-name>
+  	<description></description>
+  	<servlet-class>com.ipartek.formacion.javaee.prueba.HolaMundo</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>recuerdaColorPrueba</servlet-name>
+  	<display-name>recuerdaColorPrueba</display-name>
+  	<description></description>
+  	<servlet-class>com.ipartek.formacion.javaee.prueba.recuerdaColorPrueba</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/login</url-pattern>
@@ -43,6 +61,18 @@
   <servlet-mapping>
   	<servlet-name>MillasKmServlet</servlet-name>
   	<url-pattern>/millaskm</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LoginServletPrueba</servlet-name>
+  	<url-pattern>/LoginPrueba</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>HolaMundo</servlet-name>
+  	<url-pattern>/HolaMundo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>recuerdaColorPrueba</servlet-name>
+  	<url-pattern>/Color</url-pattern>
   </servlet-mapping>
  
   
