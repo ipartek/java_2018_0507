@@ -1,0 +1,485 @@
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Supermercados Mikel</title>
+
+	<link rel="stylesheet" href="css/bootstrap-flaty-theme.min.css" />
+<!--     <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
+    <link rel="stylesheet" href="css/estilos.css" />
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/botones.js"></script>
+    <script src="js/minusplus.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="jumbotron">
+                <div class="container">
+                    <h1 class="display-4">Supermercados Mikel</h1>
+                   	<p class="lead">No querrás perderte nuestros precios</p>
+  
+                </div>
+            </div>
+        </div>
+
+
+  
+
+<div class="row">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html">
+							<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+						</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                            	<a href="#" id="btnListadoCliente">
+                            	<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                            	Productos cliente<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                            	<a href="#" id="btnListadoAdmin">
+                            	<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                            	Listado productos</a>
+                            </li>
+                            <li class="nav-item">
+                            	<a href="#" id="btnNuevo">
+                            	<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                            	Registro nuevo producto</a>
+                            </li>
+                            <!-- <li class="nav-item"><a href="#" id="btnEditar">Editar</a></li>
+                        	<li class="nav-item"><a href="#" id="btnVerLibros">Ver libros</a></li> -->
+                        </ul> 
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                            	<a href="#" id="btnLogIn">
+                            		<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            		Log in
+                            	</a>
+                            </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+
+
+<div class="row">
+	<div class="col-md-9" id="div_contenido">
+	   <section id="seccionPrincipal">
+	<h3>Sección principal</h3>
+</section>
+<div id="visualizacionProductos">
+	<div class="card text-white bg-warning producto-flex-item">	
+		<div class="capaDescuento">
+			<img class="card-img-top imgProducto" src="imgs/producto.jpg" alt="Producto1">
+			<img src="imgs/descuento_edited.png" class="imgDescuento">
+ 		</div>
+	   	<div class="card-header">
+			<h5 class="card-title"><s>13,35€</s> 12,95€</h5>
+		</div>
+	   	<div class="card-body">
+	   		<p class="card-text"><small class="text-muted">(18.50€ / Litro)</small></p>
+	    	<p class="card-text">BEEFEATER ginebra inglesa botella 70cl</p>
+	   	</div>
+	   	<div class="input-group">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+            </span>
+            <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            </span>
+        </div>	
+	   	<div>
+	   		<button type="button" class="btn btn-success btn-producto">Añadir al carro</button>
+	   	</div>
+ 	</div>
+ 	<div class="card text-white bg-warning producto-flex-item">	
+		<div class="capaDescuento">
+			<img class="card-img-top imgProducto" src="imgs/producto.jpg" alt="Producto1">
+			<img src="imgs/descuento_edited.png" class="imgDescuento">
+ 		</div>
+	   	<div class="card-header">
+			<h5 class="card-title"><s>13,35€</s> 12,95€</h5>
+		</div>
+	   	<div class="card-body">
+	   		<p class="card-text"><small class="text-muted">(18.50€ / Litro)</small></p>
+	    	<p class="card-text">BEEFEATER ginebra inglesa botella 70cl</p>
+	   	</div>
+	   	<div class="input-group">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+            </span>
+            <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            </span>
+        </div>	
+	   	<div>
+	   		<button type="button" class="btn btn-success btn-producto">Añadir al carro</button>
+	   	</div>
+ 	</div>
+ 	<div class="card text-white bg-warning producto-flex-item">	
+		<div class="capaDescuento">
+			<img class="card-img-top imgProducto" src="imgs/producto.jpg" alt="Producto1">
+			<img src="imgs/descuento_edited.png" class="imgDescuento">
+ 		</div>
+	   	<div class="card-header">
+			<h5 class="card-title"><s>13,35€</s> 12,95€</h5>
+		</div>
+	   	<div class="card-body">
+	   		<p class="card-text"><small class="text-muted">(18.50€ / Litro)</small></p>
+	    	<p class="card-text">BEEFEATER ginebra inglesa botella 70cl</p>
+	   	</div>
+	   	<div class="input-group">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+            </span>
+            <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            </span>
+        </div>	
+	   	<div>
+	   		<button type="button" class="btn btn-success btn-producto">Añadir al carro</button>
+	   	</div>
+ 	</div>
+ 	<div class="card text-white bg-warning producto-flex-item">	
+		<div class="capaDescuento">
+			<img class="card-img-top imgProducto" src="imgs/producto.jpg" alt="Producto1">
+			<img src="imgs/descuento_edited.png" class="imgDescuento">
+ 		</div>
+	   	<div class="card-header">
+			<h5 class="card-title"><s>13,35€</s> 12,95€</h5>
+		</div>
+	   	<div class="card-body">
+	   		<p class="card-text"><small class="text-muted">(18.50€ / Litro)</small></p>
+	    	<p class="card-text">BEEFEATER ginebra inglesa botella 70cl</p>
+	   	</div>
+	   	<div class="input-group">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+            </span>
+            <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            </span>
+        </div>	
+	   	<div>
+	   		<button type="button" class="btn btn-success btn-producto">Añadir al carro</button>
+	   	</div>
+ 	</div>
+ 	<div class="card text-white bg-warning producto-flex-item">	
+		<div class="capaDescuento">
+			<img class="card-img-top imgProducto" src="imgs/producto.jpg" alt="Producto1">
+			<img src="imgs/descuento_edited.png" class="imgDescuento">
+ 		</div>
+	   	<div class="card-header">
+			<h5 class="card-title"><s>13,35€</s> 12,95€</h5>
+		</div>
+	   	<div class="card-body">
+	   		<p class="card-text"><small class="text-muted">(18.50€ / Litro)</small></p>
+	    	<p class="card-text">BEEFEATER ginebra inglesa botella 70cl</p>
+	   	</div>
+	   	<div class="input-group">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+            </span>
+            <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            </span>
+        </div>	
+	   	<div>
+	   		<button type="button" class="btn btn-success btn-producto">Añadir al carro</button>
+	   	</div>
+ 	</div>
+ 	<div class="card text-white bg-warning producto-flex-item">	
+		<div class="capaDescuento">
+			<img class="card-img-top imgProducto" src="imgs/producto.jpg" alt="Producto1">
+			<img src="imgs/descuento_edited.png" class="imgDescuento">
+ 		</div>
+	   	<div class="card-header">
+			<h5 class="card-title"><s>13,35€</s> 12,95€</h5>
+		</div>
+	   	<div class="card-body">
+	   		<p class="card-text"><small class="text-muted">(18.50€ / Litro)</small></p>
+	    	<p class="card-text">BEEFEATER ginebra inglesa botella 70cl</p>
+	   	</div>
+	   	<div class="input-group">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+            </span>
+            <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            </span>
+        </div>	
+	   	<div>
+	   		<button type="button" class="btn btn-success btn-producto">Añadir al carro</button>
+	   	</div>
+ 	</div>
+ 	<div class="card text-white bg-warning producto-flex-item">	
+		<div class="capaDescuento">
+			<img class="card-img-top imgProducto" src="imgs/producto.jpg" alt="Producto1">
+			<img src="imgs/descuento_edited.png" class="imgDescuento">
+ 		</div>
+	   	<div class="card-header">
+			<h5 class="card-title"><s>13,35€</s> 12,95€</h5>
+		</div>
+	   	<div class="card-body">
+	   		<p class="card-text"><small class="text-muted">(18.50€ / Litro)</small></p>
+	    	<p class="card-text">BEEFEATER ginebra inglesa botella 70cl</p>
+	   	</div>
+	   	<div class="input-group">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+            </span>
+            <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            </span>
+        </div>	
+	   	<div>
+	   		<button type="button" class="btn btn-success btn-producto">Añadir al carro</button>
+	   	</div>
+ 	</div>
+ 	<div class="card text-white bg-warning producto-flex-item">	
+		<div class="capaDescuento">
+			<img class="card-img-top imgProducto" src="imgs/producto.jpg" alt="Producto1">
+			<img src="imgs/descuento_edited.png" class="imgDescuento">
+ 		</div>
+	   	<div class="card-header">
+			<h5 class="card-title"><s>13,35€</s> 12,95€</h5>
+		</div>
+	   	<div class="card-body">
+	   		<p class="card-text"><small class="text-muted">(18.50€ / Litro)</small></p>
+	    	<p class="card-text">BEEFEATER ginebra inglesa botella 70cl</p>
+	   	</div>
+	   	<div class="input-group">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+            </span>
+            <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            </span>
+        </div>	
+	   	<div>
+	   		<button type="button" class="btn btn-success btn-producto">Añadir al carro</button>
+	   	</div>
+ 	</div>
+ 	<div class="card text-white bg-warning producto-flex-item">	
+		<div class="capaDescuento">
+			<img class="card-img-top imgProducto" src="imgs/producto.jpg" alt="Producto1">
+			<img src="imgs/descuento_edited.png" class="imgDescuento">
+ 		</div>
+	   	<div class="card-header">
+			<h5 class="card-title"><s>13,35€</s> 12,95€</h5>
+		</div>
+	   	<div class="card-body">
+	   		<p class="card-text"><small class="text-muted">(18.50€ / Litro)</small></p>
+	    	<p class="card-text">BEEFEATER ginebra inglesa botella 70cl</p>
+	   	</div>
+	   	<div class="input-group">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+            </span>
+            <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            </span>
+        </div>	
+	   	<div>
+	   		<button type="button" class="btn btn-success btn-producto">Añadir al carro</button>
+	   	</div>
+ 	</div>
+ 	<div class="card text-white bg-warning producto-flex-item">	
+		<div class="capaDescuento">
+			<img class="card-img-top imgProducto" src="imgs/producto.jpg" alt="Producto1">
+			<img src="imgs/descuento_edited.png" class="imgDescuento">
+ 		</div>
+	   	<div class="card-header">
+			<h5 class="card-title"><s>13,35€</s> 12,95€</h5>
+		</div>
+	   	<div class="card-body">
+	   		<p class="card-text"><small class="text-muted">(18.50€ / Litro)</small></p>
+	    	<p class="card-text">BEEFEATER ginebra inglesa botella 70cl</p>
+	   	</div>
+	   	<div class="input-group">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+            </span>
+            <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            </span>
+        </div>	
+	   	<div>
+	   		<button type="button" class="btn btn-success btn-producto">Añadir al carro</button>
+	   	</div>
+ 	</div>
+ 	<div class="card text-white bg-warning producto-flex-item">	
+		<div class="capaDescuento">
+			<img class="card-img-top imgProducto" src="imgs/producto.jpg" alt="Producto1">
+			<img src="imgs/descuento_edited.png" class="imgDescuento">
+ 		</div>
+	   	<div class="card-header">
+			<h5 class="card-title"><s>13,35€</s> 12,95€</h5>
+		</div>
+	   	<div class="card-body">
+	   		<p class="card-text"><small class="text-muted">(18.50€ / Litro)</small></p>
+	    	<p class="card-text">BEEFEATER ginebra inglesa botella 70cl</p>
+	   	</div>
+	   	<div class="input-group">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+            </span>
+            <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            </span>
+        </div>	
+	   	<div>
+	   		<button type="button" class="btn btn-success btn-producto">Añadir al carro</button>
+	   	</div>
+ 	</div>
+ 	<div class="card text-white bg-warning producto-flex-item">	
+		<div class="capaDescuento">
+			<img class="card-img-top imgProducto" src="imgs/producto.jpg" alt="Producto1">
+			<img src="imgs/descuento_edited.png" class="imgDescuento">
+ 		</div>
+	   	<div class="card-header">
+			<h5 class="card-title"><s>13,35€</s> 12,95€</h5>
+		</div>
+	   	<div class="card-body">
+	   		<p class="card-text"><small class="text-muted">(18.50€ / Litro)</small></p>
+	    	<p class="card-text">BEEFEATER ginebra inglesa botella 70cl</p>
+	   	</div>
+	   	<div class="input-group">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+            </span>
+            <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+            <span class="input-group-btn">
+          <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            </span>
+        </div>	
+	   	<div>
+	   		<button type="button" class="btn btn-success btn-producto">Añadir al carro</button>
+	   	</div>
+ 	</div>
+ 	
+</div>
+	</div>
+
+
+<div class="col-md-3">
+		<div class="page-header">
+        	<h3>Anuncios</h3>
+         	<div class="panel panel-primary">
+  				<div class="panel-heading">
+    				<h3 class="panel-title">Disfruta de nuestros descuentos en estos productos</h3>
+				</div>
+				<div class="panel-body">
+					<img src="imgs/descuento1.jpg" alt="Descuento" title="Descuento" />
+					<img src="imgs/descuento2.jpg" alt="Descuento" title="Descuento" />
+				</div>
+			</div> 
+	    </div>
+	    <button id="btnArriba" title="Go to top">Top</button>
+	</div>
+</div>    
+
+
+<div class="row">
+        <nav class="navbar navbar-default navbar-fixed-bottom" id="footerNavbar">
+        	<table id="footerTable" class="text-center">
+        		<tbody>
+        			<tr>
+        				<td><a href="https://es-es.facebook.com/"><img src="imgs/facebook.png" alt="Facebook"></a></td>
+        				<td><a href="https://twitter.com/?lang=es"><img src="imgs/twitter.png" alt="Twitter"></a></td>
+        				<td><a href="#" alt="Politica de privacidad">Politica de privacidad</a></td>
+        				<td><a href="#" alt="Contacto">Contacto</a></td>
+        				<td><a href="#" alt="Localización">Localización</a></td>
+        				<td>Copyright &copy; 2018</td>
+        		</tbody>
+        	</table>
+        </nav>
+    </div>
+</div>
+
+
+</body>
+
+</html>

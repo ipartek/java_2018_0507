@@ -1,5 +1,5 @@
 @charset "UTF-8";
-
+/* Comentario */
 body{ 
 	padding-bottom: 70px; 
 }
@@ -56,4 +56,38 @@ h3{
 }
 .btn-default{
 	background-color:#2ca1fe;
+}
+.card{
+	padding: 0;
+	margin:15px;
+	background-color:#F0AD4E;
+}
+.card-text{
+	padding:5px;
+}
+.card-header > .card-title{
+	color:#4E5D6C;
+}
+.card-body{
+	background-color: #4E5D6C;
+}
+.card-body > .card-text > .text-muted{
+	color:#F0AD4E;
+}
+
+#visualizacionLibros{
+	display: -webkit-box;
+  	display: -moz-box;
+  	display: -ms-flexbox;
+  	display: -webkit-flex;
+	display:flex;
+	
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.libro-flex-item {
+  width: 146px;
+  height: 100%;
 }

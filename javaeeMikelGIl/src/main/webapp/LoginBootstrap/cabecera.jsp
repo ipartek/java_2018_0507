@@ -1,4 +1,7 @@
 ﻿<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+<jsp:useBean id="cabecera" scope="request" class="com.ipartek.formacion.javaee.libros.modelos.Cabecera" />
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -24,6 +27,10 @@
 		    $("#btnListado").on("click", function(){
 		    	$("#div_contenido").empty();
 		    	$("#div_contenido").load("libros.jsp");
+		    });
+		    $("#btnVerLibros").on("click", function(){
+		    	$("#div_contenido").empty();
+		    	$("#div_contenido").load("librosBonito.jsp");
 		    });
 	   });
     </script>
