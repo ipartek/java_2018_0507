@@ -4,7 +4,7 @@ public class Articulo {
 private String nombre,descripcion;
 private int precio;
 private long id;
-	private Articulo() {
+	public Articulo() {
 		
 	}
 	public Articulo(long id,int precio,String nombre,String descripcion){
