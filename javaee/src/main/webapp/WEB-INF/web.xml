@@ -14,11 +14,25 @@
   	<description></description>
   	<servlet-class>com.ipartek.formacion.javaee.libros.controladores.LoginServlet</servlet-class>
   </servlet>
+  
+   <servlet>
+  	<servlet-name>CookiesTestServlet</servlet-name>
+  	<servlet-class>com.ipartek.formacion.javaee.servlets.CookiesTestServlet</servlet-class>
+  </servlet>
+  
+  
+  
   <servlet>
   	<servlet-name>SeccionServlet</servlet-name>
   	<display-name>SeccionServlet</display-name>
   	<description></description>
   	<servlet-class>com.ipartek.formacion.javaee.libros.controladores.SeccionServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Hola</servlet-name>
+  	<display-name>Hola</display-name>
+  	<description></description>
+  	<servlet-class>com.ipartek.formacion.javaee.servlets.HolaMundo</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>login</servlet-name>
@@ -31,5 +45,13 @@
   <servlet-mapping>
   	<servlet-name>SeccionServlet</servlet-name>
   	<url-pattern>/libros/seccion</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Hola</servlet-name>
+  	<url-pattern>/hola</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+  	<servlet-name>CookiesTestServlet</servlet-name>
+  	<url-pattern>/cookies</url-pattern>
   </servlet-mapping>
 </web-app>
