@@ -2,14 +2,14 @@ package com.ipartek.formacion.CrudAble;
 
 import java.util.List;
 
-public interface CrudAble <L> {
+public interface CrudAble <B> {
 	
-	List <L> getAll();
+	List <B> getAll();
 	
-	L getByID(long id);
+	B getByID(long id);
 	
-	boolean insert(L pojo);
-	boolean update(L pojo);
+	boolean insert(B pojo);
+	boolean update(B pojo);
 	boolean delete(long id);
 	
 	
