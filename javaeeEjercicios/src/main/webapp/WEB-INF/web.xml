@@ -4,4 +4,34 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>CargarProductos</servlet-name>
+  	<display-name>CargarProductos</display-name>
+  	<description></description>
+  	<servlet-class>com.ipartek.formacion.javaeeEjercicios.servlets.CargarProductos</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>InsertarArticulosServlet</servlet-name>
+  	<display-name>InsertarArticulosServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.ipartek.formacion.javaeeEjercicios.controladores.InsertarArticulosServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UsuariosServlet</servlet-name>
+  	<display-name>UsuariosServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.ipartek.formacion.javaeeEjercicios.controladores.UsuariosServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CargarProductos</servlet-name>
+  	<url-pattern>/CargarProductos</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>InsertarArticulosServlet</servlet-name>
+  	<url-pattern>/InsertarArticulosServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UsuariosServlet</servlet-name>
+  	<url-pattern>/UsuariosServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

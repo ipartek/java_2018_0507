@@ -1,6 +1,5 @@
 package com.ipartek.formacion.javaee.servlets;
 
-import java.awt.Color;
 import java.io.IOException;
 import java.io.PrintWriter;
 
