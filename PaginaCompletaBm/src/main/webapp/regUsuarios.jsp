@@ -10,6 +10,7 @@
 </head>
 
 <body class="container-fluid">
+		<jsp:useBean id="errorpo" scope="session" class="com.ipartek.supermercado.pojo.Articulo"/>
     <header>
         <div class="row ">
             <div class="miCab col-md-12 text-center"><img src="imgs/descarga1.png" height="100px" width="200px" alt="Este es el ejemplo de un texto alternativo"></div>
@@ -29,7 +30,7 @@
                         <li class="active"><a href="login.jsp">Login<span class="sr-only">(current)</span></a></li>
                         <li><a href="regProd.html">registrar Producto</a></li>
                         <li><a href="listado.jsp">listado productos</a></li>
-                            <li><a href="regUsuarios.jsp">reg usuarios</a></li>
+                      <li><a href="regUsuarios.jsp">reg usuarios</a></li>
                     </ul>
                     <div class="row">
                         <form class="miCuadro navbar-form navbar-right">
@@ -43,37 +44,21 @@
             </nav>
         </div>
     </header>
-     <form class="form-horizontal" action="articulo" method="post">
+     <form class="form-horizontal" action="usuario" method="post">
         <div class="form-group">
-            <label for="id" class="col-sm-offset-1 col-sm-2 control-label">IdProducto</label>
+            <label for="id" class="col-sm-offset-1 col-sm-2 control-label">email</label>
             <div class="col-sm-8">
-                <input type="number" class="form-control" id="id" name="id" required="required" min="1" placeholder="Id numérico">
+                <input type="email" class="form-control" id="id" name="mail" required="required" min="1" placeholder="Id numérico">
             </div>
         </div>
         <div class="form-group">
-            <label for="titulo" class="col-sm-offset-1 col-sm-2 control-label">Nombre producto</label>
+            <label for="titulo" class="col-sm-offset-1 col-sm-2 control-label">password</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="nombre" name="nombre" required="required" maxlength="100" pattern="[A-Za-z0-9ñÑáéíóúçàèìòù ]{3,50}" placeholder="nombre del articulo  mínimo 3 caracteres y máximo 50">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="marca" class="col-sm-offset-1 col-sm-2 control-label">Descripcion</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="descripcion" name="descripcion" maxlength="20" pattern="\w{3,20}" placeholder="marca de mínimo 3 caracteres y máximo 20">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="precio" class="col-sm-offset-1 col-sm-2 control-label">Precio</label>
-            <div class="col-sm-8">
-                <div class="input-group">
-                    <input required type="number" class="form-control" id="precio" name="precio" min="0" step="0.01" placeholder="Precio">
-                    <div class="input-group-addon">€</div>
-                </div>
+                <input type="password" class="form-control" id="nombre" name="password" required="required" maxlength="100" pattern="[A-Za-z0-9ñÑáéíóúçàèìòù ]{3,50}" placeholder="nombre del articulo  mínimo 3 caracteres y máximo 50">
             </div>
         </div>
             <div class="col-sm-offset-2 col-sm-10">
-                <button class="btn btn-primary">Aceptar</button>
+                <button name="login" value="registro" class="btn btn-primary">Aceptar</button>
                 <a class="btn btn-danger" href="#">Cancelar</a>
         
         </div>

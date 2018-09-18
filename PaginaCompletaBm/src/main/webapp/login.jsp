@@ -10,7 +10,7 @@
 </head>
 
 <body class="container-fluid">
-<jsp:useBean id="usuario" scope="session" class="com.ipartek.supermercado.pojo.Usuario"/>
+<jsp:useBean id="error" scope="request"  class="com.ipartek.supermercado.pojo.Errores"/>
     <header>
         <div class="row ">
             <div class="miCab col-md-12 text-center"><img src="imgs/descarga1.png" height="100px" width="200px" alt="Este es el ejemplo de un texto alternativo"></div>
@@ -29,8 +29,8 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="login.jsp">Login<span class="sr-only">(current)</span></a></li>
                         <li><a href="regProd.html">registrar Producto</a></li>
-                        <li><a href="listado.html">listado productos</a></li>
-                            <li><a href="regUsuarios.html">reg usuarios</a></li>
+                        <li><a href="listado.jsp">listado productos</a></li>
+                            <li><a href="regUsuarios.jsp">reg usuarios</a></li>
                     </ul>
                     <div class="row">
                         <form class="miCuadro navbar-form navbar-right">
@@ -38,6 +38,7 @@
                                 <input type="text" class="form-control" placeholder="buscar">
                             </div>
                             <button type="submit" class="btn btn-default">Buscar</button>
+                            
                         </form>
                     </div>
                 </div>
@@ -68,7 +69,8 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" value="login" name="login" class="btn btn-default">Sign in</button><jsp:getProperty property="error"  name="usuario"/>
+                <button type="submit" value="login" name="login" class="btn btn-default">login</button>
+               <jsp:getProperty property="error" name="error"/>
             </div>
         </div>
     </form>
