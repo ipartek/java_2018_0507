@@ -1,0 +1,79 @@
+footer {
+    background-color: black;
+    color: white;
+    margin-top: 5%;
+}
+
+.miCuadro {
+    margin-right: 10px
+}
+
+footer a {
+    color: white;
+  top: 100%;
+}
+.rojo{
+    color: red;
+    
+}
+.price--line-through{
+    background-color: transparent;
+    background-image: gradient(linear, 19.1% -7.9%, 81% 107.9%, color-stop(0, transparent), color-stop(.48, transparent), color-stop(.5, #000), color-stop(.52, transparent), color-stop(1, transparent));
+    background-image: repeating-linear-gradient(163deg, transparent 0%, transparent 48%, #990000 50%, transparent 52%, transparent 100%);
+}
+.tachado{
+    text-decoration: line-through;
+}
+.miCab {
+    background-color: #004387
+}
+
+.miProducto {
+    width: 170px;
+    display: inline-block;
+    margin-left: 5%;
+    margin-top: 1%;
+    position: relative;
+    border: 1px solid;
+    border-color: black;
+}
+
+.texto-encima {
+    position: absolute;
+    top: 0px;
+    background-color: #d1344e;
+    border-radius: 20px;
+    width: 45px;
+    color: white;
+    padding-left: 3%;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.miTopp {
+    visibility: hidden;
+}
+
+.miBot {
+    border-radius: 20px;
+    border: 0px;
+    background: none;
+    color: inherit;
+}
+
+.miBotonera {
+    background-color: #eaefec;
+    width: 55px;
+    border-radius: 30px;
+    margin-left: 30%
+}
+
+.micop {
+    width: 10px;
+}
+
+@media (max-width: 576px) {
+    .miTopp {
+        visibility: visible;
+    }
+}
