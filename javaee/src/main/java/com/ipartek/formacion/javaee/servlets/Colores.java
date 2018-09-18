@@ -54,9 +54,8 @@ public class Colores extends HttpServlet {
 			throws ServletException, IOException {
 		String color = request.getParameter("color");
 
-		PrintWriter out = response.getWriter();
-
-		out.println(color);
+//		PrintWriter out = response.getWriter();
+//		out.println(color);
 
 		Cookie c = new Cookie("color", color);
 		c.setMaxAge(60 * 60 * 24 * 365 * 100);
