@@ -1,5 +1,5 @@
 package modelos;
-
+import modelos.*;
 import java.util.List;
 
 /**
