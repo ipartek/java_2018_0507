@@ -2,6 +2,14 @@ package com.ipartek.supermercado.pojo;
 
 public class Usuario {
 	String nombre,password,error="";
+	boolean logeado=false;
+	public boolean isLogeado() {
+		return logeado;
+	}
+	public void setLogeado(boolean logeado) {
+		this.logeado = logeado;
+	}
+	
 	public Usuario() {
 		
 	}

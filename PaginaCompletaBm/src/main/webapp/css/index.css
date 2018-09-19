@@ -27,7 +27,9 @@ footer a {
 .miCab {
     background-color: #004387
 }
-
+ li#miNombre.miLi{
+	color:white;
+}
 .miProducto {
     width: 170px;
     display: inline-block;

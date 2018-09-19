@@ -9,9 +9,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ipartek.supermercado.accesoadatos.ArticuloArrayDao;
 import com.ipartek.supermercado.accesoadatos.UsuarioArrayDao;
+import com.ipartek.supermercado.pojo.Carrito;
 import com.ipartek.supermercado.pojo.Errores;
 import com.ipartek.supermercado.pojo.Usuario;
 
@@ -23,7 +25,7 @@ public class UsuarioServlet extends HttpServlet {
 	Usuario user;
 	ArrayList<Usuario> usuarios=new ArrayList<>();
 	Errores error=new Errores("");
-	
+	Carrito carro;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PrintWriter out=response.getWriter();
@@ -41,6 +43,7 @@ public class UsuarioServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		usuarios=(ArrayList<Usuario>) UsuarioArrayDao.getInstance().getAll();
 		System.out.println(usuarios.size()+"tamaño");
 		PrintWriter out=response.getWriter();
@@ -51,7 +54,7 @@ public class UsuarioServlet extends HttpServlet {
 		 if(formulario.equalsIgnoreCase("registro")) {			 
 			 System.out.println(usuario+password);
 			 UsuarioArrayDao.getInstance().insert(new Usuario(usuario, password));
-			 response.sendRedirect("regUsuarios.jsp");
+			 request.getRequestDispatcher("regUsuarios.jsp").forward(request, response);
 			 
 		 }
 			if(formulario.equalsIgnoreCase("login"))
@@ -64,18 +67,22 @@ public class UsuarioServlet extends HttpServlet {
 				else {
 					for(int i=0;i<usuarios.size();i++) {
 						if(usuarios.get(i).getNombre().equalsIgnoreCase(usuario) 
-						&& usuarios.get(i).getPassword().equalsIgnoreCase(password)) {
-							
+						&& usuarios.get(i).getPassword().equalsIgnoreCase(password)) {							
+							HttpSession session = request.getSession(true);
+							carro=new Carrito();
 							usuarios.get(i).setError("");
+							usuarios.get(i).setLogeado(true);
+							session.setAttribute("carro", carro);
 							request.setAttribute("error", error);
-							request.getRequestDispatcher("listado.html").forward(request, response);
+							session.setAttribute("usuario", usuarios.get(i));
+							request.getRequestDispatcher("index.jsp").forward(request, response);
 							break;
 						}
 						else {
 							//user=new Usuario();
 							error.setError("usuario o contraseña incorrectos");
 							if(i+1==usuarios.size()) {
-								request.setAttribute("error", error);
+							request.setAttribute("error", error);
 							request.getRequestDispatcher("login.jsp").forward(request, response);
 							}
 						}			
