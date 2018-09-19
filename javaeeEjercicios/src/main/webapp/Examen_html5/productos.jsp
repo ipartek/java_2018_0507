@@ -3,13 +3,8 @@
 	<h3>Sección principal</h3>
 </section>
 <div id="visualizacionProductos">
-	
-	
-	
-	
-	
-	<!-- Productos escritos en html  -->
-	<!-- <div class="card text-white bg-warning producto-flex-item">	
+
+	<div class="card text-white bg-warning producto-flex-item">	
 		<div class="capaDescuento">
 			<img class="card-img-top imgProducto" src="imgs/producto.jpg" alt="Producto1">
 			<img src="imgs/descuento_edited.png" class="imgDescuento">
@@ -357,7 +352,6 @@
 	   		<button type="button" class="btn btn-success btn-producto">Añadir al carro</button>
 	   	</div>
  	</div>
--->
  
  </div>
 </html>

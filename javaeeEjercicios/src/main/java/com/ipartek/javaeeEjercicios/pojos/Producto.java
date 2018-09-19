@@ -9,12 +9,13 @@ public class Producto {
 	private int precio;
 	private int decimal;
 	private int descuento;
+	private Double precioTotal;
 	
 	public Producto() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Producto(String nombre, String categoria, String descripcion, int precio, int decimal, int descuento) {
+	public Producto(String nombre, String categoria, String descripcion, int precio, int decimal, int descuento, Double precioTotal) {
 		super();
 		ID += 1;
 		this.nombre = nombre;
@@ -23,6 +24,7 @@ public class Producto {
 		this.precio = precio;
 		this.decimal = decimal;
 		this.descuento = descuento;
+		this.precioTotal = precioTotal;
 	}
 
 
@@ -76,6 +78,14 @@ public class Producto {
 
 	public long getId() {
 		return ID;
+	}
+
+	public Double getPrecioTotal() {
+		return precioTotal;
+	}
+
+	public void setPrecioTotal(Double precioTotal) {
+		this.precioTotal = precioTotal;
 	}
 
 	

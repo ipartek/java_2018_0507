@@ -8,7 +8,7 @@
   	<servlet-name>CargarProductos</servlet-name>
   	<display-name>CargarProductos</display-name>
   	<description></description>
-  	<servlet-class>com.ipartek.javaeeEjercicios.servlets.CargarProductos</servlet-class>
+  	<servlet-class>com.ipartek.javaeeEjercicios.controladores.CargarProductos</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>InsertarArticulosServlet</servlet-name>
@@ -28,10 +28,10 @@
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>InsertarArticulosServlet</servlet-name>
-  	<url-pattern>/InsertarArticulosServlet</url-pattern>
+  	<url-pattern>/Examen_html5/InsertarArticulosServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>UsuariosServlet</servlet-name>
-  	<url-pattern>/login</url-pattern>
+  	<url-pattern>/Examen_html5/login</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -37,7 +37,8 @@
                         </ul> 
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                            	<a href="#" id="btnLogIn">
+<!--                             	<a href="login.jsp" id="btnLogIn"> -->
+									<a href="login.jsp">
                             		<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                             		Log in
                             	</a>

@@ -27,20 +27,29 @@ public class InsertarArticulosServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String nombre = request.getParameter("nombre");
-		String categoria = request.getParameter("categoria");
-		String descripcion = request.getParameter("descripcion");
-		int precio = Integer.parseInt(request.getParameter("precio"));
-		int decimal = Integer.parseInt(request.getParameter("decimal"));
-		int descuento = Integer.parseInt(request.getParameter("descuento"));
+		String nombre = request.getParameter("inputNombre");
+		String categoria = request.getParameter("inputCategoria");
+		String descripcion = request.getParameter("textareaDescripcion");
+		int precio = Integer.parseInt(request.getParameter("inputPrecio"));
+		int decimal = Integer.parseInt(request.getParameter("inputDecimal"));
+		int descuento = Integer.parseInt(request.getParameter("inputDescuento"));
 		
-		producto = new Producto(nombre, categoria, descripcion, precio, decimal, descuento);
+		String precioTotal = precio + "." + decimal;
+		//Double precioTotal2 = Double.parseDouble(precioTotal);
+		
+		//Discount = bill - (bill * discount / 100)
+		Double precioTotal2 = Double.parseDouble(precioTotal) - (Double.parseDouble(precioTotal) * descuento / 100);
+		
+		producto = new Producto(nombre, categoria, descripcion, precio, decimal, descuento, precioTotal2);
 		
 		ProductosArrayDAO.getInstance().insert(producto);
 		
-		for(int i = 0; i < ProductosArrayDAO.getInstance().getAll().size(); i++) {
+		/*for(int i = 0; i < ProductosArrayDAO.getInstance().getAll().size(); i++) {
 			System.out.println(ProductosArrayDAO.getInstance().getAll().get(i).getNombre());
-		}
+		}*/
+		
+		
+		response.sendRedirect("index.jsp");
 			
 		//System.out.println("id "+ id+" nombre "+nombre+ " descripcion "+ descripcion+ " precio " +precio);
 		//response.sendRedirect("regProd.html");

@@ -1,4 +1,5 @@
-﻿<div>
+﻿<%@page import = "com.ipartek.javaeeEjercicios.accesodatos.ProductosArrayDAO" %>
+<div>
 <section id="seccionPrincipal">
 	<h3>Sección principal</h3>
 	
@@ -22,7 +23,27 @@
 	        </tr>
 	    </thead>
 	    <tbody>
-	        <tr>
+	    <% 
+        for (int i = 0; i < ProductosArrayDAO.getInstance().getAll().size(); i++){  %>
+        
+            <tr>
+                <td class="text-center"><%= i + 1 %></td>
+                <td><%=ProductosArrayDAO.getInstance().getAll().get(i).getNombre() %></td>
+                <td><%=ProductosArrayDAO.getInstance().getAll().get(i).getCategoria() %></td>
+                <td><%=ProductosArrayDAO.getInstance().getAll().get(i).getDescripcion() %></td>
+                <td><%=ProductosArrayDAO.getInstance().getAll().get(i).getPrecio() %>.
+                <%=ProductosArrayDAO.getInstance().getAll().get(i).getDecimal() %></td>
+                <td><%=ProductosArrayDAO.getInstance().getAll().get(i).getDescuento() %> %</td>
+                <td><%=ProductosArrayDAO.getInstance().getAll().get(i).getPrecioTotal() %> %</td>
+                <td>
+	            	<div class="btn-group  btn-group-sm" role="group" aria-label="...">
+						<button type="button" class="btn btn-primary">Editar</button>
+						<button type="button" class="btn btn-danger">Borrar</button>
+					</div>
+				</td>
+            </tr>
+            <%} %>
+	        <!-- <tr>
 	            <td>1</td>
 	            <td>Vodka Beefeater</td>
 	            <td>Bebidas</td>
@@ -66,7 +87,7 @@
 						<button type="button" class="btn btn-danger">Borrar</button>
 					</div>
 				</td>
-	        </tr>
+	        </tr> 
 	        <tr class="success">
 	            <td>4</td>
 	            <td>Vodka Beefeater</td>
@@ -141,7 +162,7 @@
 						<button type="button" class="btn btn-danger">Borrar</button>
 					</div>
 				</td>
-	        </tr>
+	        </tr> -->
 	    </tbody>
 	</table>
 		<nav aria-label="Productos" class="text-center">
