@@ -398,7 +398,7 @@
 				</p>
 				<jsp:useBean id="login" scope="request"
 			class="com.ipartek.formacion.javaee.modelo.LoginForm" />
-				<p><jsp:getProperty
+				<p><span class="error"><jsp:getProperty
 		property="mensajeError" name="login" /></span>
 					<a href="#">Bilbao</a>
 				</p>
