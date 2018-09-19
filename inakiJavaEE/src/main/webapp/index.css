@@ -1,0 +1,90 @@
+@import "lesshat";
+body{
+	font-family:sans-serif;
+	background-color: #C71515;
+}
+label{
+	width:6em;
+     display: inline-block;
+}
+input,button{
+    border: 1px solid black;
+}
+button{    
+    padding:5px 10px;        
+}
+.errorCuadro{
+	border: 2px solid darkred;
+}
+.errorTexto,.errorCuadro{
+	color:darkred;
+}
+*/#=id atributo del elemento html,
+#miP{
+    font-variant: small-caps;
+    position: relative;
+    top: 500px;
+}
+.mia{
+      position: relative;
+    left: 300px;
+    top:-150;
+}
+passwordBot:before {
+content:â€�;
+position: absolute;
+top: 0px;
+left: 0px;
+width: 0px;
+height: 42px;
+background: rgba(255,255,255,0.3);
+border-radius: 5px;
+transition: all 2s ease;
+}
+#passwordBot{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+  }
+#cabeza{
+
+}
+.destacado{
+font-weight: bold;
+   text-align: left;
+    
+}
+.milegen{
+	background-color: green;
+}
+.lab{
+	font-weight: bold;
+    color:black;
+    
+}
+input[name=nombre]{
+    font-style: italic;
+}
+a.btn {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+}
+.btn{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+  }
