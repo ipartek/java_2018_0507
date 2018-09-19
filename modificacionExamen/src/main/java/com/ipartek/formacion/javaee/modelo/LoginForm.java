@@ -3,15 +3,17 @@ package com.ipartek.formacion.javaee.modelo;
 public class LoginForm {
 	private String nombre = "";
 	private String clave = "";
+	private String recordar = "";
 	private String mensajeError;
 	private String mensajeErrorUsuario;
 	private String mensajeErrorClave;
 	
-	public LoginForm(String nombre, String clave, String mensajeError,
+	public LoginForm(String nombre, String clave, String recordar, String mensajeError,
 			String mensajeErrorUsuario, String mensajeErrorClave) {
 		super();
 		this.nombre = nombre;
 		this.clave = clave;
+		this.recordar = recordar;
 		this.mensajeError = mensajeError;
 		this.mensajeErrorUsuario = mensajeErrorUsuario;
 		this.mensajeErrorClave = mensajeErrorClave;
@@ -20,8 +22,11 @@ public class LoginForm {
 		this.nombre = nombre;
 		this.clave = clave;
 	}
+	public LoginForm(String recordar) {
+		this.recordar = recordar;
+	}
 	public LoginForm() {
-		this("","","","","");
+		this("","","","","","");
 	}
 	
 	public String getNombre() {
@@ -30,11 +35,17 @@ public class LoginForm {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getContraseña() {
+	public String getClave() {
 		return clave;
 	}
-	public void setContraseña(String clave) {
+	public void setClave(String clave) {
 		this.clave = clave;
+	}
+	public String getRecordar() {
+		return recordar;
+	}
+	public void setRecordar(String recordar) {
+		this.recordar = recordar;
 	}
 	public String getMensajeError() {
 		return mensajeError;

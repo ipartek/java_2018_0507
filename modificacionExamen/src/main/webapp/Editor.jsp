@@ -28,18 +28,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="paginaPrincipal.html" id="brand"><img src="imgs/supermercado.png"></a>
+                <a class="navbar-brand" href="paginaPrincipal.jsp" id="brand"><img src="imgs/supermercado.png"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="tabla.html">Listado Productos</a></li>
-                    <li><a href="Editor.html">Editar producto</a></li>
+                    <li><a href="tabla.jsp">Listado Productos</a></li>
+                    <li><a href="Editor.jsp">Editar producto</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="login.html">Login</a></li>
+                    <li><a href="login.jsp">Login</a></li>
                 </ul>
             </div>
         </div>
@@ -127,7 +127,7 @@
     <div class="container">
         <div class="row col-xs-12 text-center top">
            <div></div>
-            <a href="Editor.html"><button type="button" class="btn btn-info ">Top</button></a>
+            <a href="Editor.jsp"><button type="button" class="btn btn-info ">Top</button></a>
         </div>
     </div>
     <footer>
