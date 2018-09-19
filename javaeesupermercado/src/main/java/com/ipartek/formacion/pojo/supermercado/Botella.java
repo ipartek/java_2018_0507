@@ -2,7 +2,7 @@ package com.ipartek.formacion.pojo.supermercado;
 
 public class Botella {
 	
-	private int id;
+	private long id;
 	private String nombre;
 	private String tipo;
 	private Double precio;
@@ -13,10 +13,10 @@ public class Botella {
 	
 	
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getNombre() {
@@ -37,6 +37,11 @@ public class Botella {
 	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
+
+
+
+
+
 	
 	
 	
