@@ -8,15 +8,15 @@
 
 <form action="Usuario" method="post">
 	<p>
-		<label for="nombre">Nombre</label>
+		<label>Nombre</label>
 		<input id="nombre" name="nombre" />
 	</p>
 	<p>
-		<label for="apellido">Apellido</label>
-		<input type="password" id="apellido" name="apellido" />
+		<label>password</label>
+		<input type="password"  name="contrasena" />
 	</p>
 	<p>
-                <button type="submit" value="login" name="login" class="btn btn-default">login</button>
+                <button type="submit" value="login" name="login" class="btn btn-default">Login</button>
 	</p>
 </form>
 

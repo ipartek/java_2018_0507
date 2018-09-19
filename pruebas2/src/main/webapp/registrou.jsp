@@ -8,25 +8,25 @@
 
 <form action="Usuario" method="post">
 	<p>
-		<label for="nombre">Nombre</label>
+		<label>Nombre</label>
 		<input id="nombre" name="nombre" />
 		
 	</p>
 	<p>
-		<label for="apellido">Apellido</label>
+		<label>Apellido</label>
 		<input type="text" id="apellido" name="apellido" />
 	</p>
 	<p>
-	<label for="contrasena">contraseña</label>
-		<input id="password" name="contrasena" />
+	<label>contraseña</label>
+		<input type="password" name="contrasena" />
 	</p>
 	<p>
-	<label for="telefono">telefono</label>
+	<label>telefono</label>
 		<input id="text" name="telefono" />
 	</p>
 	
 	<p>
-                <button type="submit" value="login" name="login" class="btn btn-default">Registro</button>
+                <button type="submit" value="registro" name="login" class="btn btn-default">Registro</button>
 	</p>
 </form>
 
