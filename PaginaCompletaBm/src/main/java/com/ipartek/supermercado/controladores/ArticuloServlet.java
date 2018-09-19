@@ -35,8 +35,7 @@ public class ArticuloServlet extends HttpServlet {
 		int precio=Integer.parseInt(request.getParameter("precio"));
 		articulo=new Articulo(id, precio, nombre, descripcion);
 		ArticuloArrayDao.getInstance().insert(articulo);
-		for(int i=0;i<ArticuloArrayDao.getInstance().getAll().size();i++)
-		System.out.println(ArticuloArrayDao.getInstance().getAll().get(i).getNombre());
+		response.sendRedirect("regProd.html");
 		//System.out.println("id "+ id+" nombre "+nombre+ " descripcion "+ descripcion+ " precio " +precio);
 		//response.sendRedirect("regProd.html");
 	}
