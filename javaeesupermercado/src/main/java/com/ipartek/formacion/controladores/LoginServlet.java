@@ -1,6 +1,8 @@
 package com.ipartek.formacion.controladores;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,15 +20,11 @@ public class LoginServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String nombreUsu = request.getParameter("Usuario");
+		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		
-		Usuario usu = new Usuario();
+		PrintWriter out = response.getWriter();
 		
-		if (usu != null) {
-			
-			
-		}
 		
 		
 		

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="com.ipartek.formacion.pojo.supermercado.Botella"%>
 <%@page import="com.ipartek.formacion.DAO.BotellaArrayDAO"%>
 <html>
 <head>
@@ -80,16 +81,25 @@
 			<td><a class="btn btn-default" href="registro.html">Editar</a> <a
 				class="btn btn-danger" href="registro.html">Borrar</a></td>
 		</tr>
-		<jsp:useBean id="producto" scope="request" class="com.ipartek.formacion.controladores.registroProductoServlet" />
-		<%for (i=0;BotellaArrayDAO.getInstance().getAll().size();i++) %>
+		<% java.util.List<Botella> botellas = (java.util.List<Botella>)request.getAttribute("botellas"); %>
+		<% for (Botella b: botellas) { %> 
+			<tr>
+			<th><%= b.getId() %></th>
+			<td><%= b.getNombre() %></td>
+			<td><%= b.getTipo() %></td>
+			<td><%= b.getPrecio() %>�</td>
+			<td><a class="btn btn-default" href="registro.jsp">Editar</a> <a
+				class="btn btn-danger" href="registro.jsp">Borrar</a></td>
+		</tr>
 		
+		<% } %>
 	</tbody>
 	<tfoot>
 		<tr>
 			<td></td>
 			<td></td>
 			<td></td>
-			<td>53,4€</td>
+			<td></td>
 			<td><a class="btn btn-primary" href="registro.html">Añadir</a></td>
 		</tr>
 	</tfoot>

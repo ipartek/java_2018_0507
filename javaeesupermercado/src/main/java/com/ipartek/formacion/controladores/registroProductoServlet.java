@@ -35,7 +35,7 @@ public class registroProductoServlet extends HttpServlet {
 		BotellaArrayDAO.getInstance().insert(bot);
 		
 		
-		
+		request.setAttribute("botellas", BotellaArrayDAO.getInstance().getAll());
 		request.getRequestDispatcher("listado.jsp").forward(request, response);
 		
 	}
