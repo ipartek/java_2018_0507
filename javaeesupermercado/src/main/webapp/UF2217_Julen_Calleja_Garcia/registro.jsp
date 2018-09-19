@@ -42,22 +42,22 @@
 	<div class="row">
 
 		<div class="col-xs-12 col-sm-7 col-md-7 col-lg-3">
-                    <form action="registroproducto">
+                    <form action="registroproducto" method="post">
+                     <div class="form-group">
+                        <label for="id">ID</label>
+                        <input type="text" class="form-control" name="id"  placeholder="Id"  required>
+                      </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Nombre del Producto</label>
-                        <input type="text" class="form-control"   placeholder="Producto"  required>
+                        <input type="text" class="form-control" name="nombre"   placeholder="Producto"  required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Tipo</label>
-                        <input type="text" class="form-control"  placeholder="Tipo: Ron, Vodka...">
+                        <input type="text" class="form-control" name="tipo"  placeholder="Tipo: Ron, Vodka...">
                       </div>
                        <div class="form-group">
                         <label for="exampleInputPassword1">Precio</label>
-                        <input type="number" class="form-control"  placeholder="14,5..."  required>
-                      </div>
-                       <div class="form-group">
-                        <label for="exampleInputPassword1">Seleccionar archivo para Imagen</label>
-                        <input type="file" name="archivo" title="seleccionar fichero" id="importData" accept=".jpg,.png" />
+                        <input type="number" class="form-control" name="precio"  placeholder="14,5..."  required>
                       </div>
                       <div class="form-check"> 
                         <button type="submit" class="btn btn-primary">Aceptar</button>

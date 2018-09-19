@@ -18,10 +18,10 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>registroProductoServlet</servlet-name>
-  	<url-pattern>/registroproducto</url-pattern>
+  	<url-pattern>/UF2217_Julen_Calleja_Garcia/registroproducto</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
-  	<url-pattern>/LoginServlet</url-pattern>
+  	<url-pattern>/UF2217_Julen_Calleja_Garcia/login</url-pattern>
   </servlet-mapping>
 </web-app>

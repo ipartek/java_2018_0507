@@ -10,9 +10,20 @@ public class BotellaArrayDAO implements CrudAble <Botella> {
 		
 	private List<Botella> botellas = new ArrayList<>();
 	
+	private static BotellaArrayDAO INSTANCE;
+	
 	private BotellaArrayDAO() {
 		
 		
+	}
+	
+	public static synchronized BotellaArrayDAO getInstance() {
+
+		if (INSTANCE == null) {
+			INSTANCE = new BotellaArrayDAO();
+		}
+
+		return INSTANCE;
 	}
 	
 	@Override

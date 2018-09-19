@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="com.ipartek.formacion.DAO.BotellaArrayDAO"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -79,6 +80,8 @@
 			<td><a class="btn btn-default" href="registro.html">Editar</a> <a
 				class="btn btn-danger" href="registro.html">Borrar</a></td>
 		</tr>
+		<jsp:useBean id="producto" scope="request" class="com.ipartek.formacion.controladores.registroProductoServlet" />
+		<%for (i=0;BotellaArrayDAO.getInstance().getAll().size();i++) %>
 		
 	</tbody>
 	<tfoot>

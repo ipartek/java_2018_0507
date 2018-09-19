@@ -13,6 +13,16 @@ public class Botella {
 	
 	
 	
+	public Botella(long id, String nombre, String tipo, Double precio) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.tipo = tipo;
+		this.precio = precio;
+	}
+
+
+
 	public long getId() {
 		return id;
 	}
