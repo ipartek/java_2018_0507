@@ -47,9 +47,9 @@ Información básica sobre protección de datos
            <img class="redsocial" src="../imgs/insta.jpg" width="30px">
        </div>
        <div >&copy;</div>
-       <a href="bebidas.html">Volver - </a>
-      <a href="contacto.html">Contacto - </a>
-       <a href="localizacion.html">Localizacion</a>
+       <a href="bebidas.jsp">Volver - </a>
+      <a href="contacto.jsp">Contacto - </a>
+       <a href="localizacion.jsp">Localizacion</a>
    
    </div>
 </footer>

@@ -71,9 +71,9 @@
            <img class="redsocial" src="../imgs/insta.jpg" width="30px">
        </div>
        <div >&copy;</div>
-       <a href="politicapriva.html">Politica de privacidad - </a>
-      <a href="contacto.html">Contacto - </a>
-       <a href="localizacion.html">Localizacion</a>
+       <a href="politicapriva.jsp">Politica de privacidad - </a>
+      <a href="contacto.jsp">Contacto - </a>
+       <a href="localizacion.jsp">Localizacion</a>
    
    </div>
 </footer>

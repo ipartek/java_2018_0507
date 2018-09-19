@@ -15,6 +15,20 @@
 		<servlet-name>ListadoProdServlet</servlet-name>
 		<servlet-class>supermercado.servlet.ListadoProdServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>UserLogin</display-name>
+		<servlet-name>UserLogin</servlet-name>
+		<servlet-class>supermercado.servlet.UserLogin</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>UserLogout</display-name>
+		<servlet-name>UserLogout</servlet-name>
+		<servlet-class>supermercado.servlet.UserLogout</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>RegistroProdServlet</servlet-name>
 		<url-pattern>/RegistroProdServlet</url-pattern>
@@ -22,6 +36,14 @@
 	<servlet-mapping>
 		<servlet-name>ListadoProdServlet</servlet-name>
 		<url-pattern>/ListadoProdServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserLogin</servlet-name>
+		<url-pattern>/UserLogin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserLogout</servlet-name>
+		<url-pattern>/UserLogout</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

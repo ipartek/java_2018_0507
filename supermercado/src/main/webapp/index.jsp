@@ -17,23 +17,7 @@
       <h1>Supermercado Ana</h1> 
     </div>
   
-   <nav class="menuprincipal">
-        <ul>
-           <li><a href="../index.jsp">Inicio</a></li>
-            <li><a href="contenidos/bebidas.jsp">Bebidas</a></li>
-            <li><a href="contenidos/aperitivos.jsp">Aperitivos</a></li>
-            <li><a href="contenidos/contacto.jsp">Contacto</a></li>
-            <li><a href="contenidos/registroprod.jsp">Registro Producto</a></li>
-            <li><a href="contenidos/listadoprods.jsp">Lista de Productos</a></li>
-            <li><a href="contenidos/login.jsp">Login</a></li>
-            
-           <div class="input-group" >
-              <span class="input-group-addon"><img src="../imgs/lupa.png" width="20px"></span>
-              <input type="text" class="form-control">
-              <span class="input-group-addon">Buscar</span>
-            </div> 
-        </ul>
-    </nav>
+    <jsp:include page="contenidos/menuprincipalInicio.jsp" />
     
 <div class="jumbotron">
       <h1>Bienvenido al supermercado ana, vaya a la seccion correspondiente a sus necesidades.</h1> 
@@ -43,14 +27,15 @@
        <i class="fas fa-envelope"></i>
         <p>Mail <a href="mailto:mail@mail.com"> mail@mail.com</a>.</p>
        <div id="iconredsocial">
-           <img class="redsocial" src="../imgs/facebook.png" width="30px">
-           <img class="redsocial" src="../imgs/twiter.png" width="30px">
-           <img class="redsocial" src="../imgs/insta.jpg" width="30px">
+           <img class="redsocial" src="imgs/facebook.png" width="30px">
+           <img class="redsocial" src="imgs/twiter.png" width="30px">
+           <img class="redsocial" src="imgs/insta.jpg" width="30px">
        </div>
        <div >&copy;</div>
-       <a href="bebidas.jsp">Volver - </a>
-      <a href="contenidos/contacto.html">Contacto - </a>
-       <a href="localizacion.html">Localizacion</a>
+       <a href="contenidos/bebidas.jsp">Volver - </a>
+      <a href="contenidos/contacto.jsp">Contacto - </a>
+       <a href="contenidos/localizacion.jsp">Localizacion</a>
+       
    
    </div>
 </footer>

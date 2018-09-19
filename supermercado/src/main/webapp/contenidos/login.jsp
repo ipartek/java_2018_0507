@@ -18,22 +18,19 @@
     </div>
   
     <jsp:include page="menuprincipal.jsp" />
-    
-	  <form>
+   
+	  <form action="../UserLogin" method="post" name="formularioReg"> 
         <fieldset>
             <legend>Login de usuario</legend>
            
             <label for="usuario">Usuario: </label>
-               <input type="text" id="usuario" name="usuario" placeholder="usuario"
-                min="3" />
+               <input type="text" id="usuario" name="usuario" min="3" />
 
-            <label for="contraseña">Contraseña: </label>
-               <input type="text" id="contrasena" name="contrasena" placeholder="contrasena"
-                min="3" />
+            <label for="contrasena">Contrasena: </label>
+               <input type="password" id="contrasena" name="contrasena" min="3" />
                 <br>
-            <button type="button" class="btn btn-success">Aceptar</button>
-            
         </fieldset>
+          <br><input class="btn btn-primary" type="submit" value="Submit">     
     </form>
 		
 </body>
@@ -48,9 +45,9 @@
            <img class="redsocial" src="../imgs/insta.jpg" width="30px">
        </div>
        <div >&copy;</div>
-       <a href="politicapriva.html">Politica de privacidad - </a>
-       <a href="contacto.html">Contacto - </a>
-       <a href="localizacion.html">Localizacion</a>
+       <a href="politicapriva.jsp">Politica de privacidad - </a>
+       <a href="contacto.jsp">Contacto - </a>
+       <a href="localizacion.jsp">Localizacion</a>
    
    </div>
 </footer>
