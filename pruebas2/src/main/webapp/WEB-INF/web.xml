@@ -10,8 +10,32 @@
   	<description></description>
   	<servlet-class>controladores.LoginServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ServletUsuario</servlet-name>
+  	<display-name>ServletUsuario</display-name>
+  	<description></description>
+  	<servlet-class>controladores.ServletUsuario</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ServletArticulo</servlet-name>
+  	<display-name>ServletArticulo</display-name>
+  	<description></description>
+  	<servlet-class>controladores.ServletArticulo</servlet-class>
+  </servlet>
+
+
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/Login</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServletUsuario</servlet-name>
+  	<url-pattern>/Usuario</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServletArticulo</servlet-name>
+  	<url-pattern>/Articulo</url-pattern>
+  </servlet-mapping>
+
+
 </web-app>

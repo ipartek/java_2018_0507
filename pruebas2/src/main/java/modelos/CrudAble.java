@@ -1,41 +1,25 @@
 package modelos;
-import modelos.*;
+
 import java.util.List;
 
-/**
- * Interfaz para especificar los metodos de <b>CRUD</b>:
- * <ul>
- * <li>Create</li>
- * <li>Read</li>
- * <li>Update</li>
- * <li>Delete</li>
- * </ul>
- * @author Curso
- *
- */
+//Create
+//Retrieve
+//Update
+//Delete
 public interface CrudAble<P> {
-	
-	//Create
+	//retrieve(obtener Todo)
+	//recupera todos los pojos si 
+	//no exixten retotna lista vacia no null
+	List<P> getAll();	
+	//buscamos un pojo por su identificador 
+	//P pojo si lo encuentra,null si no encuentra
+	P getById(long id);
+	//create
 	boolean insert(P pojo);
-	
-	//Read
-	/**
-	 * Recupera todos los pojo
-	 * @return si no existe resultados retorna Lista vacia, no null
-	 */
-	List<P> getAll();
-	
-	/**
-	 * Buscamos un pojo por su identificador
-	 * @param id
-	 * @return VideoYoutube si lo encuentra, null si no lo encuentra
-	 */
-	P getById(String id);
-	
-	//Upadte
+	//Update
 	boolean update(P pojo);
-	
 	//Delete
-	boolean delete(String id);
-
+	boolean delete(long id);
 }
+
+

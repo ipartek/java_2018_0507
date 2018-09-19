@@ -1,4 +1,4 @@
-package modelos;
+package pojo;
 
 public class Video {
 
