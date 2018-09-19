@@ -29,9 +29,9 @@
 				<a class="navbar-brand" href="#">Bienvenido a Supermercados BM</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><a href="login.html">Login</a></li>
-				<li><a href="registro.html">Registrar Producto</a></li>
-				<li><a href="listado.html">Lista de Prodcutos</a></li>
+				<li><a href="login">Login</a></li>
+				<li><a href="registroproducto">Registrar Producto</a></li>
+				<li><a href="listado.jsp">Lista de Productos</a></li>
 			</ul>
 		</nav>
 		<div class="row">

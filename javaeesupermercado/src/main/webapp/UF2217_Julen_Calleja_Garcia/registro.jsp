@@ -30,9 +30,9 @@
 				<a class="navbar-brand" href="Principal.html">Bienvenido a Supermercados BM</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><a href="login.html">Login</a></li>
-				<li><a href="registro.html">Registrar Producto</a></li>
-				<li><a href="listado.html">Lista de Prodcutos</a></li>
+				<li><a href="login.jsp">Login</a></li>
+				<li><a href="registro.jsp">Registrar Producto</a></li>
+				<li><a href="listado.jsp">Lista de Prodcutos</a></li>
 			</ul>
 		</nav>
 		
@@ -42,7 +42,7 @@
 	<div class="row">
 
 		<div class="col-xs-12 col-sm-7 col-md-7 col-lg-3">
-                    <form action="listado.html">
+                    <form action="registroproducto">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Nombre del Producto</label>
                         <input type="text" class="form-control"   placeholder="Producto"  required>

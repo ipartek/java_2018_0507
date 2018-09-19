@@ -15,7 +15,13 @@ public class registroProductoServlet extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+				
+		String nombre = request.getParameter("nombre");
+		String tipo = request.getParameter("tipo");
+		String precio = request.getParameter("precio");
+		
+		
+		
 	}
 
 }

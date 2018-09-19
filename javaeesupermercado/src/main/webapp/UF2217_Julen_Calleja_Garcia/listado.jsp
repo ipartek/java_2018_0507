@@ -27,12 +27,12 @@
 
 		<nav class="navbar navbar-inverse">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="Principal.html">Bienvenido a Supermercados BM</a>
+				<a class="navbar-brand" href="Principal.jsp">Bienvenido a Supermercados BM</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><a href="login.html">Login</a></li>
-				<li><a href="registro.html">Registrar Producto</a></li>
-				<li><a href="listado.html">Lista de Prodcutos</a></li>
+				<li><a href="login.jsp">Login</a></li>
+				<li><a href="registro.jsp">Registrar Producto</a></li>
+				<li><a href="listado.jsp">Lista de Prodcutos</a></li>
 			</ul>
 		</nav>
 	<div class="row">
