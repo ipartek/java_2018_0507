@@ -1,3 +1,4 @@
+<%@page import="com.ipartek.supermercado.accesoadatos.UsuarioArrayDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -30,7 +31,7 @@
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">BM</a>
+                    <a class="navbar-brand" href="index.jsp">BM</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -39,7 +40,13 @@
                         <li><a href="regProd.jsp">registrar Producto</a></li>
                         <li><a href="listado.jsp">listado productos</a></li>
                         <li><a href="regUsuarios.jsp">reg usuarios</a></li>
-                        <li id="miNombre" class="miLi" style='color:white;'>HOLA <%=user.getNombre()%> </li>
+                        <li id="miNombre" class="miLi" style='color:white;'>HOLA <%=user.getNombreReal()%> </li>
+                       
+                        <li><form action="usuario" method="post"><button  type="submit" value="fin" name="login">salir</button>
+                      		 </form>
+                        </li>
+                        
+                        
                     </ul>
                     <div class="row">
                         <form class="miCuadro navbar-form navbar-right">

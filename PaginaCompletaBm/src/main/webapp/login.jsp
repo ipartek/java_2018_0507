@@ -1,4 +1,8 @@
-<%@include file="cabeceraNoLog.jsp" %>
+<% Usuario user;
+user=(Usuario)request.getSession().getAttribute("usuario");
+if(user!=null)
+{%><%@include file="cabeceraLogjsp.jsp" %>
+<% }else{%> <%@include file="cabeceraNoLog.jsp" %> <%}%>
     </header>
     <jsp:useBean id="error" scope="request"  class="com.ipartek.supermercado.pojo.Errores"/>
     <form class="form-horizontal" action="usuario"   method="post">

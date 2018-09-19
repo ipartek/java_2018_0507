@@ -1,5 +1,9 @@
-<%@include file="cabeceraNoLog.jsp" %>
-    </header>
+<% Usuario user;
+user=(Usuario)request.getSession().getAttribute("usuario");
+if(user!=null)
+{%><%@include file="cabeceraLogjsp.jsp" %>
+<% }else{%> <%@include file="cabeceraNoLog.jsp" %> <%}%>
+ </header>
      <form class="form-horizontal" action="articulo" method="post">
         <div class="form-group">
             <label for="id" class="col-sm-offset-1 col-sm-2 control-label">IdProducto</label>

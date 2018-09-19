@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<%@include file="cabeceraNoLog.jsp" %>
+<% Usuario user;
+user=(Usuario)request.getSession().getAttribute("usuario");
+if(user!=null)
+{%><%@include file="cabeceraLogjsp.jsp" %>
+<% }else{%> <%@include file="cabeceraNoLog.jsp" %> <%}%>
     </header>
      <form class="form-horizontal" action="usuario" method="post">
         <div class="form-group">
             <label for="id" class="col-sm-offset-1 col-sm-2 control-label">email</label>
             <div class="col-sm-8">
                 <input type="email" class="form-control" id="id" name="mail" required="required" min="1" placeholder="Id numérico">
+            </div>
+        </div>
+          <div class="form-group">
+            <label for="id" class="col-sm-offset-1 col-sm-2 control-label">email</label>
+            <div class="col-sm-8">
+                <input type="email" class="form-control" id="id" name="nombre" required="required" min="1" placeholder="Id numérico">
             </div>
         </div>
         <div class="form-group">

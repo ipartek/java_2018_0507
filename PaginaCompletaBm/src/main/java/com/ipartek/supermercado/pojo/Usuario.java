@@ -1,7 +1,7 @@
 package com.ipartek.supermercado.pojo;
 
 public class Usuario {
-	String nombre,password,error="";
+	String nombre,nombreReal,password,error="";
 	boolean logeado=false;
 	public boolean isLogeado() {
 		return logeado;
@@ -13,9 +13,16 @@ public class Usuario {
 	public Usuario() {
 		
 	}
-	public Usuario(String nombre,String password) {
+	public Usuario(String nombre,String nombreReal,String password) {
 		this.nombre=nombre;
 		this.password=password;
+		this.nombreReal=nombreReal;
+	}
+	public String getNombreReal() {
+		return nombreReal;
+	}
+	public void setNombreReal(String nombreReal) {
+		this.nombreReal = nombreReal;
 	}
 	public long getId() {
 		return id;

@@ -29,8 +29,9 @@ public class UsuarioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PrintWriter out=response.getWriter();
-		String usuario,password,formulario;
+		String usuario,password,formulario,nombreBueno;
 		 usuario=request.getParameter("mail");
+		 nombreBueno=request.getParameter("nombre");
 		 password=request.getParameter("password");
 		 formulario=request.getParameter("login");
 		 formulario="algo";
@@ -47,15 +48,20 @@ public class UsuarioServlet extends HttpServlet {
 		usuarios=(ArrayList<Usuario>) UsuarioArrayDao.getInstance().getAll();
 		System.out.println(usuarios.size()+"tamaño");
 		PrintWriter out=response.getWriter();
-		String usuario,password,formulario;
+		String usuario,password,formulario,nombreBueno;
 		 formulario=request.getParameter("login");
 		 usuario=request.getParameter("mail");
 		 password=request.getParameter("password");
+		 nombreBueno=request.getParameter("nombre");
 		 if(formulario.equalsIgnoreCase("registro")) {			 
 			 System.out.println(usuario+password);
-			 UsuarioArrayDao.getInstance().insert(new Usuario(usuario, password));
+			 UsuarioArrayDao.getInstance().insert(new Usuario(usuario,nombreBueno, password));
 			 request.getRequestDispatcher("regUsuarios.jsp").forward(request, response);
 			 
+		 }
+		 if(formulario.equalsIgnoreCase("fin")) {
+			 request.getSession().invalidate();
+			 response.sendRedirect("login.jsp");
 		 }
 			if(formulario.equalsIgnoreCase("login"))
 			{

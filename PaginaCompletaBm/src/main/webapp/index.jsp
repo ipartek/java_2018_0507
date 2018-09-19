@@ -8,8 +8,7 @@ if(user!=null)
   <%
   for(int i=0;i<15;i++){
 	  ArticuloArrayDao.getInstance().insert(new Articulo(i,i+10,"nombre"+i,"descripcion"+i));
-  }
-  	
+  }  	
     Carrito articulosCarrito;    
     articulosCarrito=(Carrito)request.getSession().getAttribute("carro");
     if(articulosCarrito!=null){

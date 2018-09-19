@@ -1,4 +1,8 @@
-<%@include file="cabeceraNoLog.jsp" %>
+<% Usuario user;
+user=(Usuario)request.getSession().getAttribute("usuario");
+if(user!=null)
+{%><%@include file="cabeceraLogjsp.jsp" %>
+<% }else{%> <%@include file="cabeceraNoLog.jsp" %> <%}%>
     </header>
     <table class="text-center table table-hover table-condensed table-bordered table-striped table-condensed" border=0>
         <thead>
