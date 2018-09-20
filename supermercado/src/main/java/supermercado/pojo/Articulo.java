@@ -6,7 +6,7 @@ public class Articulo {
 	public String precio;
 	public String descuento;
 	public String nombre;
-	public int id;
+	public String id;
 
 	public Articulo(String nombre, String categoria, String precio, String descuento) {
 		super();
@@ -17,6 +17,9 @@ public class Articulo {
 	}
 	public Articulo() {
 		
+	}
+	public Articulo(String id) {
+		this.id=id;
 	}
 	public String getNombre() {
 		return nombre;
@@ -42,7 +45,7 @@ public class Articulo {
 	public void setDescuento(String descuento) {
 		this.descuento = descuento;
 	}
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 	public void setId() {

@@ -20,6 +20,7 @@
             <li><a href="contenidos/registroprod.jsp">Registro Producto</a></li>
             <li><a href="../ListadoProdServlet">Lista de Productos</a></li>
             <li><a href="contenidos/login.jsp">Login</a></li>
+            <li><a href="../VerCarrito">Carrito</a></li>
             
            <div class="input-group" >
               <span class="input-group-addon"><img src="../imgs/lupa.png" width="20px"></span>

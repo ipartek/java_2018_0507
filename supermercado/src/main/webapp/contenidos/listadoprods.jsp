@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="UTF-8"%>
 <%@ page import="supermercado.pojo.Articulo" %>
 <%@ page import="supermercado.accesodatos.ArticuloArrayDAO" %>
 <%@ page import="java.util.ArrayList" %>

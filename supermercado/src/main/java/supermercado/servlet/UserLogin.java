@@ -6,6 +6,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import supermercado.pojo.Articulo;
 
 /**
  * Servlet implementation class UserLogin
@@ -38,35 +41,16 @@ public class UserLogin extends HttpServlet {
 		String pass=request.getParameter("contrasena");
 		System.out.println("Recibidos:  User "+user+" Pass "+pass);
 		
-		
-		
-		
-		if(user.length()>0) {
-		
-			//System.out.println("User OK:");
-			if(pass.length()>0) {
-				//////////////
-				Cookie c = new Cookie("usuario", user);
-				c.setMaxAge(60 * 60 * 24 * 365 * 100);
-				response.addCookie(c);
-				///////////////////
 
-				
-				
-				request.getSession().setAttribute("usuario", user);
-				response.sendRedirect("index.jsp");
-				
-			}else {
-				response.sendRedirect("contenidos/login.jsp");
-			}
-			
-		}else {
-			response.sendRedirect("contenidos/login.jsp");
-		}
+		HttpSession misession= request.getSession(true);
+		System.out.println("Sessionantesde: "+ misession.toString());
 		
+		misession.setAttribute("user",user);
+		misession.setAttribute("pass", pass);
 		
+	
+		System.out.println("Sessiondespuesde: "+ misession.toString());
 		
-		
+		response.sendRedirect("contenidos/bebidas.jsp");
 	}
-
 }

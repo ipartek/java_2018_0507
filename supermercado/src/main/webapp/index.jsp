@@ -17,7 +17,10 @@
       <h1>Supermercado Ana</h1> 
     </div>
   
-    <jsp:include page="contenidos/menuprincipalInicio.jsp" />
+<!--Este include cachea la pagina y no tiene que recargarse todo el tiempo  -->
+<!--  %@ include file="foo.jsp" %-->
+<!--Este include llama continuamente a buscar el otro jsp  -->    
+<jsp:include page="contenidos/menuprincipalInicio.jsp" />
     
 <div class="jumbotron">
       <h1>Bienvenido al supermercado ana, vaya a la seccion correspondiente a sus necesidades.</h1> 

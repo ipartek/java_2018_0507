@@ -30,7 +30,7 @@ public class ArticuloArrayDAO implements CrudAble<Articulo> {
 		return articulos;
 	}
 
-	public Articulo getById(long id) {
+	public Articulo getById(String id) {
 		Articulo resul = null;
 		//foreach
 		for (Articulo articuloIteracion : articulos) {
@@ -74,7 +74,7 @@ public class ArticuloArrayDAO implements CrudAble<Articulo> {
 		return resul;
 	}
 
-	public boolean delete(long id) {
+	public boolean delete(String id) {
 		boolean resul = false;
 		
 		Articulo aIteracion = null;
@@ -91,5 +91,17 @@ public class ArticuloArrayDAO implements CrudAble<Articulo> {
 		}
 		
 		return resul;
+	}
+
+	@Override
+	public Articulo getById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean delete(long id) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

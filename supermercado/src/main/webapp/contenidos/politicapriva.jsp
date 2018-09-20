@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="UTF-8"%>
 <html>
 
 <head>
@@ -21,17 +23,17 @@
     
 	  <div id="contenedor">
       
-		  Política de privacidad y aviso legal
-Política de privacidad
-A través de este sitio web no se recaban datos de carácter personal de los usuarios sin su conocimiento, ni se ceden a terceros.
+		  PolÃ­tica de privacidad y aviso legal
+PolÃ­tica de privacidad
+A travÃ©s de este sitio web no se recaban datos de carÃ¡cter personal de los usuarios sin su conocimiento, ni se ceden a terceros.
 
-Con la finalidad de ofrecerle el mejor servicio y con el objeto de facilitar el uso, se analizan el número de páginas visitadas, el número de visitas, así como la actividad de los visitantes y su frecuencia de utilización. A estos efectos, la Agencia Española de Protección de Datos (AEPD) utiliza la información estadística elaborada por el Proveedor de Servicios de Internet.
+Con la finalidad de ofrecerle el mejor servicio y con el objeto de facilitar el uso, se analizan el nÃºmero de pÃ¡ginas visitadas, el nÃºmero de visitas, asÃ­ como la actividad de los visitantes y su frecuencia de utilizaciÃ³n. A estos efectos, la Agencia EspaÃ±ola de ProtecciÃ³n de Datos (AEPD) utiliza la informaciÃ³n estadÃ­stica elaborada por el Proveedor de Servicios de Internet.
 
-La AEPD no utiliza cookies para recoger información de los usuarios, ni registra las direcciones IP de acceso. Únicamente se utilizan cookies propias,  de sesión, con finalidad técnica (aquellas que permiten al usuario la navegación a través del sitio web y la utilización de las diferentes opciones y servicios que en ella existen).
+La AEPD no utiliza cookies para recoger informaciÃ³n de los usuarios, ni registra las direcciones IP de acceso. Ãnicamente se utilizan cookies propias,  de sesiÃ³n, con finalidad tÃ©cnica (aquellas que permiten al usuario la navegaciÃ³n a travÃ©s del sitio web y la utilizaciÃ³n de las diferentes opciones y servicios que en ella existen).
 
-El portal del que es titular la AEPD contiene enlaces a sitios web de terceros, cuyas políticas de privacidad son ajenas a la de la AEPD. Al acceder a tales sitios web usted puede decidir si acepta sus políticas de privacidad y de cookies. Con carácter general, si navega por internet usted puede aceptar o rechazar las cookies de terceros desde las opciones de configuración de su navegador.
+El portal del que es titular la AEPD contiene enlaces a sitios web de terceros, cuyas polÃ­ticas de privacidad son ajenas a la de la AEPD. Al acceder a tales sitios web usted puede decidir si acepta sus polÃ­ticas de privacidad y de cookies. Con carÃ¡cter general, si navega por internet usted puede aceptar o rechazar las cookies de terceros desde las opciones de configuraciÃ³n de su navegador.
 
-Información básica sobre protección de datos
+InformaciÃ³n bÃ¡sica sobre protecciÃ³n de datos
 
     
       </div>

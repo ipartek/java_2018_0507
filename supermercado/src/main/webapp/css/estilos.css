@@ -2,6 +2,9 @@
 # para id
 .para clase
 */
+.addcarrito{
+	width:100%;
+}
 .UsuarioLoggueado{
 	font-size:22px;
 	color:white;
@@ -9,11 +12,13 @@
 }
 #pie{
     padding: 5%;
+    color:red;
 }
 
-#bebidafoto{
-    width:100%;
-    height:100%;
+.bebidafoto{
+    width:200;
+    height:200;
+   
 }
 
 #contenedor{

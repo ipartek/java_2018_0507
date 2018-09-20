@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="UTF-8"%>
 <html>
 
 <head>
@@ -27,7 +29,7 @@
      
         <form action="../RegistroProdServlet" method="post" name="formularioReg"> 
             <label for="nombre">Nombre del producto</label> 
-                <input id="nombre" type="text" name="nombre" pattern="[A-Za-zñÑáéíóúÁÉÍÓÚ ]{2,20}"  placeholder="Entre 2 y 20 caracteres"/><br>
+                <input id="nombre" type="text" name="nombre" pattern="[A-Za-zÃ±ÃÃ¡Ã©Ã­Ã³ÃºÃÃÃÃÃ ]{2,20}"  placeholder="Entre 2 y 20 caracteres"/><br>
             
             <br><label for="precio">Precio</label> 
                 <input id="precio" type="number" name="precio"/>
@@ -41,7 +43,7 @@
                 
                 <br>
             <br><label for="categoria">Categoria</label> 
-                <input  id="categoria" type="text" name="categoria" pattern="[A-Za-zñÑáéíóúÁÉÍÓÚ ]{2,20}"  placeholder="Entre 2 y 20 caracteres"/><br>
+                <input  id="categoria" type="text" name="categoria" pattern="[A-Za-zÃ±ÃÃ¡Ã©Ã­Ã³ÃºÃÃÃÃÃ ]{2,20}"  placeholder="Entre 2 y 20 caracteres"/><br>
             <br><input class="btn btn-primary" type="submit" value="Submit">            
         
         </form> 
