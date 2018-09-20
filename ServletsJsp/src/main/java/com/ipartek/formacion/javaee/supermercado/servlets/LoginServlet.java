@@ -1,6 +1,8 @@
 package com.ipartek.formacion.javaee.supermercado.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,10 +16,10 @@ public class LoginServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html, charset=UTF-8");
-		Printwriter out = response.getWriter();
-		String user = request.getParameter("username")
-		String pass = request.getParameter("password")
-				LoginForm login = new LoginForm(user, pass);
+		PrintWriter out = response.getWriter();
+		String user = request.getParameter("username");
+		String pass = request.getParameter("password");
+				Login login = new Login(user, pass);
 				///////////////////////////////////////////////////
 				if (user == null || pass == null) {
 					throw new RuntimeException("No se han recibido los datos" + " de nombre y/o password");
@@ -54,16 +56,16 @@ public class LoginServlet extends HttpServlet {
 	
 	
 	
-	private boolean validar(LoginForm login) {
+	private boolean validar(Login login) {
 		//crear array de objeto usuarios
 		return "batman".equals(login.getNombre()) && "batman".equals(login.getClave());
 	}
 
-	private boolean validarNombre(LoginForm logName) {
+	private boolean validarNombre(Login logName) {
 		return "batman".equals(logName.getNombre());
 	}
 
-	private boolean validarClave(LoginForm logPassword) {
+	private boolean validarClave(Login logPassword) {
 		return "batman".equals(logPassword.getClave());
 	}
 }

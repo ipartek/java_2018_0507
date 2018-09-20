@@ -8,7 +8,7 @@ public class Login {
 	private String mensajeErrorUsuario;
 	private String mensajeErrorClave;
 	
-	public LoginForm(String nombre, String clave, String recordar, String mensajeError,
+	public Login(String nombre, String clave, String recordar, String mensajeError,
 			String mensajeErrorUsuario, String mensajeErrorClave) {
 		super();
 		this.nombre = nombre;
@@ -18,14 +18,14 @@ public class Login {
 		this.mensajeErrorUsuario = mensajeErrorUsuario;
 		this.mensajeErrorClave = mensajeErrorClave;
 	}
-	public LoginForm(String nombre, String clave) {
+	public Login(String nombre, String clave) {
 		this.nombre = nombre;
 		this.clave = clave;
 	}
-	public LoginForm(String recordar) {
+	public Login(String recordar) {
 		this.recordar = recordar;
 	}
-	public LoginForm() {
+	public Login() {
 		this("","","","","","");
 	}
 	
