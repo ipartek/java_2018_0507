@@ -1,5 +1,6 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang=es>
 
 <head>
     <meta name="viewport" content="width=device-width, user-scalable=no" />
@@ -132,7 +133,7 @@
     </div>
     <footer>
         <!--
-            Iconos para facebook, twitter, enlaces a politica de privacidad, contacto , Localización y logo de copyright con año actual.
+            Iconos para facebook, twitter, enlaces a politica de privacidad, contacto , LocalizaciÃ³n y logo de copyright con aÃ±o actual.
              -->
         <div class="container-fluid"></div>
         <div class="row" id="pie">

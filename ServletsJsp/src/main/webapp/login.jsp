@@ -67,21 +67,31 @@
 							<div class="col-lg-12">
 								<jsp:useBean id="login" scope="request"
 									class="com.ipartek.formacion.javaee.supermercado.pojo.Login" />
-								<form id="login-form" action="#" role="form"
+								<form id="login-form" action="login" method="post" role="form"
 									style="display: block;">
 									<div class="form-group">
-										<label>Usuario</label> <input type="text" name="username"
-											id="username" tabindex="1" class="form-control"
-											placeholder="Username" value="">
+										<label>Usuario</label>
+										<!-- El value del input nos sirve para poder recordar el nombre
+									si no seintroduce el usuarioy contraseña adecuados -->
+										<input type="text" name="username" id="username" tabindex="1"
+											class="form-control" placeholder="Usuario"
+											value='<jsp:getProperty property="nombre" name="login"/>'>
+											<!-- Usamos span y el get property para enviar el mensaje de error -->
+											<span class="errorNombre"> <jsp:getProperty
+												property="mensajeErrorUsuario" name="login" /></span>
 									</div>
 									<div class="form-group">
-										<label>ContraseÃ±a</label> <input type="password"
+										<label>Contrase&ntilde;a</label> <input type="password"
 											name="password" id="password" tabindex="2"
-											class="form-control" placeholder="Password">
+											class="form-control" placeholder="Clave" value='<jsp:getProperty 
+											property="clave" name="login"/>'>
+											<span class="errorClave"> <jsp:getProperty
+												property="mensajeErrorClave" name="login" /></span>
 									</div>
 									<div class="form-group text-center">
 										<input type="checkbox" tabindex="3" class="" name="remember"
-											id="remember"> <label for="remember">
+											id="remember"/>
+											  <label for="remember">
 											Remember Me</label>
 									</div>
 									<div class="form-group">
