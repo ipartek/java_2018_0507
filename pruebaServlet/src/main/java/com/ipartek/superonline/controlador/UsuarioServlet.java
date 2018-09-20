@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+import com.ipartek.supermercado.pojo.Errores;
 import com.ipartek.superonline.modelo.UsuarioDAO;
 import com.ipartek.superonline.pojo.Usuario;
 
@@ -21,6 +21,7 @@ public class UsuarioServlet extends HttpServlet {
 
 	Usuario user;
 	ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+	Error error=new Error("");
 
 	/**
 	 * @see HttpServlet#HttpServlet()

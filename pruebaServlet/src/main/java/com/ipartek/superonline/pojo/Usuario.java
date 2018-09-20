@@ -17,6 +17,16 @@ public class Usuario {
 		this.ID = ID;
 	}
 
+	
+	public Usuario(String nombre, String contrasena) {
+		super();
+		this.nombre = nombre;
+		this.contrasena = contrasena;
+	
+	}
+
+	
+	
 	public String getNombre() {
 		return nombre;
 	}
