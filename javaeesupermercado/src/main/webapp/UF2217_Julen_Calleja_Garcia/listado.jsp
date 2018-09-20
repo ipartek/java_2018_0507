@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+<%@page import="com.ipartek.formacion.pojo.supermercado.Usuario"%>
+<%@page import="com.ipartek.formacion.controladores.LoginServlet"%>
 <%@page import="com.ipartek.formacion.pojo.supermercado.Botella"%>
 <%@page import="com.ipartek.formacion.DAO.BotellaArrayDAO"%>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Listado prodcutos</title>
+<title>Listado productos</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,6 +19,9 @@
 
 </head>
 <body id="bodyPr">
+
+<% session.getAttribute("usuario"); %>
+<h1>Bienvenido<% %></h1>
 <div class="container">	
 
 		<div class="row">

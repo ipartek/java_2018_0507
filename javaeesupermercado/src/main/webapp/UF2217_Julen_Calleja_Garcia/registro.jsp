@@ -32,7 +32,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="login.jsp">Login</a></li>
 				<li><a href="registro.jsp">Registrar Producto</a></li>
-				<li><a href="listado.jsp">Lista de Prodcutos</a></li>
+				<li><a href="listado.jsp">Lista de Productos</a></li>
 			</ul>
 		</nav>
 		

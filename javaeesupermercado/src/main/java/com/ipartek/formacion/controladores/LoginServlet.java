@@ -23,12 +23,10 @@ public class LoginServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		
-		PrintWriter out = response.getWriter();
+		Usuario usu = new Usuario (email,password);
 		
 		
-		
-		
-		
+		request.getSession().setAttribute("usuario", usu);
 		request.getRequestDispatcher("listado.jsp").forward(request, response);
 	}
 

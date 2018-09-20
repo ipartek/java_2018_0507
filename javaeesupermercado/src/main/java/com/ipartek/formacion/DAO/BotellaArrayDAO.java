@@ -17,11 +17,11 @@ public class BotellaArrayDAO implements CrudAble <Botella> {
 		
 	}
 	
-	public static synchronized BotellaArrayDAO getInstance() {
-
+	public static synchronized BotellaArrayDAO getInstance() { //es recomendable crearlo siempre. Es para no saturar el servidor
+													
 		if (INSTANCE == null) {
-			INSTANCE = new BotellaArrayDAO();
-		}
+			INSTANCE = new BotellaArrayDAO(); //para que haga minimo un new del DAO y SOLO uno, no mas
+		}									//de ahi el synchronized, para que no te deje crear mas objetos DAO
 
 		return INSTANCE;
 	}
@@ -46,11 +46,11 @@ public class BotellaArrayDAO implements CrudAble <Botella> {
 	}
 	
 	@Override
-	public boolean insert(Botella video) {
+	public boolean insert(Botella bot) {
 		boolean resul = false;
 
-		if (video != null) {
-			resul = botellas.add(video);
+		if (bot != null) {
+			resul = botellas.add(bot);
 		}
 		return resul;
 	}

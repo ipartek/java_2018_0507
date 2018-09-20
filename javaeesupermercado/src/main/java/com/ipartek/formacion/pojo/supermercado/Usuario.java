@@ -6,6 +6,11 @@ public class Usuario {
 	
 	
 
+	public Usuario(String emailUsuario, String password) {
+		super();
+		this.emailUsuario = emailUsuario;
+		Password = password;
+	}
 	public String getPassword() {
 		return Password;
 	}
