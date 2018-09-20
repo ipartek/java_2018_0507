@@ -56,7 +56,18 @@
 	</nav>
 	<!-- fin barra navegacion -->
 	<!-- Visor: colecciÃ³n de 12 productos, ordenados en filas de 5 en 5.  -->
+	<jsp:useBean id="carro" scope="request"
+			class="com.ipartek.formacion.javaee.modelo.pojo.Carro" />
 	<div class="container-fluid" id="margenVisor">
+		<div class="row"></div>
+		
+		<p>Carro de la compra</p>
+		<ul>
+			<li>1
+				<button>Eliminar</button>
+			</li>
+		</ul>
+		
 		<div class="row">
 			<div class="col-xs-12 container">
 				<div class="row center-block">
@@ -66,9 +77,9 @@
 						<div class="row">
 							<img src="imgs/100x140.png">
 						</div>
-						<div class="row precio">0,50â¬</div>
+						<div class="row precio">0,50</div>
 						<div class="row precioxq">1â¬/litro</div>
-						<div class="row nombre">1/2 Leche</div>
+						<div class="row nombre" name="prod1">galletas</div>
 						<div class="input-group">
 							<span class="input-group-btn btnMenos">
 								<button type="button" class="btn btn-danger btn-number"
@@ -93,9 +104,9 @@
 						<div class="row">
 							<img src="imgs/100x140.png">
 						</div>
-						<div class="row precio">0,50â¬</div>
+						<div class="row precio">0,50</div>
 						<div class="row precioxq">1â¬/litro</div>
-						<div class="row nombre">1/2 Leche</div>
+						<div class="row nombre"name="prod2">manzanas</div>
 						<div class="input-group">
 							<span class="input-group-btn btnMenos">
 								<button type="button" class="btn btn-danger btn-number"
@@ -120,9 +131,9 @@
 						<div class="row">
 							<img src="imgs/100x140.png">
 						</div>
-						<div class="row precio">0,50â¬</div>
+						<div class="row precio">0,50</div>
 						<div class="row precioxq">1â¬/litro</div>
-						<div class="row nombre">1/2 Leche</div>
+						<div class="row nombre" name="prod3">1/2 Leche</div>
 						<div class="input-group">
 							<span class="input-group-btn btnMenos">
 								<button type="button" class="btn btn-danger btn-number"
@@ -147,9 +158,9 @@
 						<div class="row">
 							<img src="imgs/100x140.png">
 						</div>
-						<div class="row precio">0,50â¬</div>
+						<div class="row precio">0,50</div>
 						<div class="row precioxq">1â¬/litro</div>
-						<div class="row nombre">1/2 Leche</div>
+						<div class="row nombre" name="prod4">naranjas</div>
 						<div class="input-group">
 							<span class="input-group-btn">
 								<button type="button" class="btn btn-danger btn-number btnMenos"
@@ -377,7 +388,7 @@
 		<!--
             Iconos para facebook, twitter, enlaces a politica de privacidad, contacto , LocalizaciÃ³n y logo de copyright con aÃ±o actual.
              -->
-             	
+
 		<div class="container-fluid"></div>
 		<div class="row" id="pie">
 			<div class="col-xs-1 container"></div>
@@ -394,13 +405,13 @@
 			<div class="col-xs-2 container"></div>
 			<div class="col-xs-4 container" id="footerDerecha">
 				<p>
-					 <a href="#">Politica de privacidad</a> 
+					<a href="#">Politica de privacidad</a>
 				</p>
 				<jsp:useBean id="login" scope="request"
-			class="com.ipartek.formacion.javaee.modelo.LoginForm" />
-				<p><span class="error"><jsp:getProperty
-		property="mensajeError" name="login" /></span>
-					<a href="#">Bilbao</a>
+					class="com.ipartek.formacion.javaee.modelo.LoginForm" />
+				<p>
+					<span class="error"><jsp:getProperty property="mensajeError"
+							name="login" /></span> <a href="#">Bilbao</a>
 				</p>
 				<p>
 					<a href="#">@2018</a>

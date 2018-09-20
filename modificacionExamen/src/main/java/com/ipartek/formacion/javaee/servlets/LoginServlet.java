@@ -2,12 +2,14 @@ package com.ipartek.formacion.javaee.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ipartek.formacion.javaee.modelo.LoginForm;
 
@@ -32,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 		String pass = request.getParameter("password");
 		String remember = "";
 		remember = request.getParameter("remember");
-
+        
 		// declaro objeto login segun los atributos de la clase LoginForm
 		// nombre y clave
 		LoginForm login = new LoginForm(user, pass);
@@ -42,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 			// de la cookie son su nombre y valor
 
 		}
-
+/*
 		// leemos las cookies usando getCookies que nos devuelve un array de cookies
 		Cookie[] cookies_recibidas = request.getCookies();
 		if (cookies_recibidas != null) {
@@ -63,7 +65,7 @@ public class LoginServlet extends HttpServlet {
     			response.addCookie(c);
             }
 		}
-
+*/
 		// compruebo que los datos recibidos no sean null
 		if (user == null || pass == null) {
 			throw new RuntimeException("No se han recibido los datos" + " de nombre y/o password");
@@ -90,6 +92,15 @@ public class LoginServlet extends HttpServlet {
 		// principal
 		// si no se recarga la pagina
 		if (validar(login)) {
+			HttpSession session = request.getSession(true);
+			//
+			 // set session info if needed
+	        String dataName = request.getParameter("dataName");
+	        if (dataName != null && dataName.length() > 0) {
+	            String dataValue = request.getParameter("dataValue");
+	            session.setAttribute(dataName, dataValue);
+	        }
+			//
 			request.getSession().setAttribute("usuario", login);
 			response.sendRedirect("paginaPrincipal.jsp");
 		} else {
