@@ -115,9 +115,7 @@ public class LoginServlet extends HttpServlet {
 
 	}
 
-	/*
-	 * private boolean recordar(LoginForm login) { return true; }
-	 */
+	
 	private boolean validar(LoginForm login) {
 		return "batman".equals(login.getNombre()) && "batman".equals(login.getClave());
 	}
