@@ -1,6 +1,7 @@
 package com.ipartek.formacion.javaee.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.javaee.modelos.LoginForm;
 import com.ipartek.formacion.javaee.modelos.LoginFormException;
+import com.ipartek.formacion.javaee.modelos.Usuario;
 
 public class LoginServlet extends HttpServlet {
 
@@ -41,9 +43,17 @@ public class LoginServlet extends HttpServlet {
 
 		//Llamada a l�gica de negocio
 		if(!login.isErroneo() && validar(login)) {
+			
+			ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+			
+			usuarios.add(new Usuario(1, "javierlete", "Javier", "contra"));
+			usuarios.add(new Usuario(2, "pepeperez", "Pepe", "perez"));
+			
+			request.setAttribute("usuarios", usuarios);
+			
 			//Redirecci�n a vista
 			request.getSession().setAttribute("usuario", login);
-			response.sendRedirect("principal.jsp");
+			request.getRequestDispatcher("principal.jsp").forward(request, response);
 		} else {
 			//Redirecci�n a vista
 			login.setMensajeError(login.getMensajeError() + " El usuario o contrase�a no son correctos");
