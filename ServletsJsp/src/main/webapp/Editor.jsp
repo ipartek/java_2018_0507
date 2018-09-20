@@ -100,7 +100,7 @@
 									<div class="form-group">
 										<div class="col-md-2 etiquetas">Precio/Um</div>
 										<div class="col-md-9">
-											<input type="text" name="Precio/Um" id="precio/um"
+											<input type="text" name="PrecioUm" id="precio/um"
 												tabindex="4" class="form-control  text-right"
 												placeholder="Introduzca precio * unidad de medida..."
 												value='<jsp:getProperty property="precioUm" name="editor"/>'>
