@@ -1,4 +1,4 @@
-﻿<%@page import = "com.ipartek.javaeeEjercicios.accesodatos.ProductosArrayDAO" %>
+<%@page import = "com.ipartek.javaeeEjercicios.accesodatos.ProductosArrayDAO" %>
 <div>
 <section id="seccionPrincipal">
 	<h3>Sección principal</h3>
