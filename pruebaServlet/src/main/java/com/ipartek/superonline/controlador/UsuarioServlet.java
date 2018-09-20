@@ -19,9 +19,11 @@ import com.ipartek.superonline.pojo.Usuario;
 public class UsuarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	
 	Usuario user;
 	ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 	Error error=new Error("");
+	
 
 	/**
 	 * @see HttpServlet#HttpServlet()
