@@ -1,4 +1,4 @@
-package controladores;
+package libros.controladores;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelos.LoginForm;
-import modelos.LoginFormException;
-import modelos.Usuario;
+import libros.modelos.LoginForm;
+import libros.modelos.LoginFormException;
+import libros.modelos.Usuario;
 
 public class LoginServlet extends HttpServlet {
 
@@ -67,4 +67,5 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	private static final long serialVersionUID = 1L;
+
 }

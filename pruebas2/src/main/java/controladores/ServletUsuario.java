@@ -9,9 +9,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.ipartek.supermercado.accesoadatos.UsuarioArrayDao;
-import com.ipartek.supermercado.pojo.Usuario;
 
 
 
@@ -50,7 +49,8 @@ public class ServletUsuario extends HttpServlet {
 		doGet(request, response);
 		usuarios=(ArrayList<Usuario>) UsuarioArrayDao.getInstance().getAll();
 		 UsuarioArrayDao.getInstance().insert(new Usuario("borja", "miranda","3412432","contrasena"));
-	
+		 HttpSession misession= request.getSession(true);
+
 		String nombre,contrasena,apellido,telefono,formulario;
 		 nombre=request.getParameter("nombre");
 		 contrasena=request.getParameter("contrasena");
@@ -59,23 +59,38 @@ public class ServletUsuario extends HttpServlet {
 		 formulario=request.getParameter("login");
 		 //System.out.println(nombre+apellido+telefono+contrasena);
 
-		 
+	
+		
 		 if(formulario.equalsIgnoreCase("login")) {
 	System.out.println(usuarios.get(0).getNombre());
+	System.out.println(usuarios.get(0).getContrasena());
+
 	System.out.println("entras desde el login");
 	
-		 if((nombre.equalsIgnoreCase("borja"))&&(contrasena.equalsIgnoreCase("contrasena"))) {
+		 if((nombre.equalsIgnoreCase("borja"))&&(contrasena.equalsIgnoreCase("contrasena"))
+				 &&misession.getAttribute("usuario")==null) {
+			 misession.setAttribute("usuario", nombre);
+			 
 			 response.sendRedirect("index.jsp");
 			 
-			 System.out.println("asdasdas");
+			 System.out.println("usuario y contra correctos.creando sesion");
 			 
-		 }	else {
-			 	response.sendRedirect("registrou.jsp");
-			}
+		 }	
+		
+		 else {
+			 
+			 System.out.println("nope");
+			 response.sendRedirect("login.jsp");
+		 }
 	
 	}
+		 
+if(formulario.equalsIgnoreCase("cerrar")) {
+	misession.invalidate();
+	System.out.println("cerrando session");
+    response.sendRedirect("login.jsp");
 	
-
+}
 		 
 if(formulario.equalsIgnoreCase("registro")) {
 	
