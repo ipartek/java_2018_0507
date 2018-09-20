@@ -18,7 +18,7 @@ public class LoginServlet extends HttpServlet {
 		String user = request.getParameter("username")
 		String pass = request.getParameter("password")
 				LoginForm login = new LoginForm(user, pass);
-				
+				///////////////////////////////////////////////////
 				if (user == null || pass == null) {
 					throw new RuntimeException("No se han recibido los datos" + " de nombre y/o password");
 				}
@@ -37,6 +37,7 @@ public class LoginServlet extends HttpServlet {
 				} else if (validarClave(login)) {
 					login.setMensajeErrorClave("");
 				}
+				////////////////////////////////////////////////////////
 				if (validar(login)) {
 					//Creo sesion
 					HttpSession session = request.getSession(true);
@@ -50,6 +51,8 @@ public class LoginServlet extends HttpServlet {
 					request.getRequestDispatcher("login.jsp").forward(request, response);
 				}
 	}
+	
+	
 	
 	private boolean validar(LoginForm login) {
 		//crear array de objeto usuarios
