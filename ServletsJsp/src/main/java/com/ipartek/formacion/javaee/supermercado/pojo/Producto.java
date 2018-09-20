@@ -6,17 +6,18 @@ public class Producto {
 	private long precio = 0;
 	private String precioUm = "";
 	private long descuento = 0;
-	
+	private String ruta = "";
 	public Producto() {
 		super();
 	}
-	public Producto(long id, String nombre, long precio, String precioUm, long descuento) {
+	public Producto(long id, String nombre, long precio, String precioUm, long descuento, String ruta) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.precio = precio;
 		this.precioUm = precioUm;
 		this.descuento = descuento;
+		this.ruta = ruta;
 	}
 	public long getId() {
 		return id;
@@ -48,6 +49,12 @@ public class Producto {
 	public void setDescuento(long descuento) {
 		this.descuento = descuento;
 	}
+	public String getRuta() {
+		return ruta;
+	}
+	public void setRuta(String ruta) {
+		this.ruta = ruta;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -57,6 +64,7 @@ public class Producto {
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		result = prime * result + (int) (precio ^ (precio >>> 32));
 		result = prime * result + ((precioUm == null) ? 0 : precioUm.hashCode());
+		result = prime * result + ((ruta == null) ? 0 : ruta.hashCode());
 		return result;
 	}
 	@Override
@@ -84,11 +92,16 @@ public class Producto {
 				return false;
 		} else if (!precioUm.equals(other.precioUm))
 			return false;
+		if (ruta == null) {
+			if (other.ruta != null)
+				return false;
+		} else if (!ruta.equals(other.ruta))
+			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
 		return "Producto [id=" + id + ", nombre=" + nombre + ", precio=" + precio + ", precioUm=" + precioUm
-				+ ", descuento=" + descuento + "]";
+				+ ", descuento=" + descuento + ", ruta=" + ruta + "]";
 	}
 }
