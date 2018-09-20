@@ -32,6 +32,8 @@ public class EditorServlet extends HttpServlet {
 		Producto prod = new Producto(id, nombre, precio, precioUm, descuento, ruta);
 		
 		dao.insert(prod);
+		
+		
 	}
 
 }

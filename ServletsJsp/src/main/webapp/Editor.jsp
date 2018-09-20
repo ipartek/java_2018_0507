@@ -66,7 +66,7 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-md-12">
-								<form id="login-form" action="#" method="post" role="form"
+								<form id="login-form" action="editor" method="post" role="form"
 									style="display: block;">
 									<div class="row  editar"></div>
 									<div class="form-group">
