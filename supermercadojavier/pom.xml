@@ -3,11 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.ipartek.formacion.ejemplos.javaee</groupId>
-	<artifactId>supermercadomaster</artifactId>
+	<artifactId>supermercadojavier</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Supermercado Master</name>
-	<url>http://www.supermercadomaster.com</url>
+	<name>supermercadojavier Maven Webapp</name>
+	<url>http://maven.apache.org</url>
 
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -15,13 +15,6 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -29,7 +22,6 @@
 			<version>3.0.1</version>
 			<scope>provided</scope>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -37,8 +29,14 @@
 			<version>1.2</version>
 		</dependency>
 
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<build>
-		<finalName>supermercadomaster</finalName>
+		<finalName>supermercadojavier</finalName>
 	</build>
 </project>
