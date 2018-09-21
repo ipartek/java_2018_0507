@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%@ include file="includes/cabecera.jsp" %>
+<%@ include file="WEB-INF/includes/cabecera.jsp" %>
 
 	<jsp:useBean id="login" scope="request" class="libros.modelos.LoginForm" />
    
@@ -38,5 +38,5 @@
 </div>
 </div>
     
-<%@ include file="includes/anuncios.jsp" %>
-<%@ include file="includes/pie.jsp" %>
+<%@ include file="WEB-INF/includes/anuncios.jsp" %>
+<%@ include file="WEB-INF/includes/pie.jsp" %>
