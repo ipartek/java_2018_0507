@@ -21,6 +21,9 @@
   	<dispatcher>REQUEST</dispatcher>
   	<dispatcher>FORWARD</dispatcher>
   </filter-mapping>
+  <listener>
+  	<listener-class>com.ipartek.formacion.javaee.listeners.EjemploListener</listener-class>
+  </listener>
   
   <servlet>
   	<servlet-name>login</servlet-name>
