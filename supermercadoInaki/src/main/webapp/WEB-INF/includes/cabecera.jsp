@@ -15,7 +15,7 @@
 	<li><a href="Principal.jsp" >principal</a></li>
 	<li><a href="carrito.jsp" >carrito</a></li>
 	<li><a href="admin" >adminitador</a></li>
-	<li><a href="login" >login</a></li>
+	<li><a href="login.jsp" >login</a></li>
 	</ul>
 	</nav>
 	<main>

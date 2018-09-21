@@ -4,7 +4,7 @@
 <header>
 	<h1>login</h1>
 </header>
-<form action="Principal.jsp">
+<form action="login" method="post">
 	<p>
 		<label for="email">nick</label>
 		<input type="email" name="email" id="email">
