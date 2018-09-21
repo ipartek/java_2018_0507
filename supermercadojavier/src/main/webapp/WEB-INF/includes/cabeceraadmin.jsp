@@ -12,10 +12,7 @@
 	</header>
 	<nav>
 		<ul>
-			<li><a href="principal.jsp">Principal</a>
-			<li><a href="carrito.jsp">Carrito</a>
-			<li><a href="login.jsp">Login</a>
-			<li><a href="admin">Administración</a>
+			<li><a href="../principal.jsp">Principal</a>
 		</ul>
 	</nav>
 
