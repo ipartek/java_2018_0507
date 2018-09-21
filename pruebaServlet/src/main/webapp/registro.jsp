@@ -24,13 +24,9 @@
 						<div class="pwstrength_viewport_progress"></div>
 
 
-						<button type="submit" name="login" value="login"
-							class="btn btn-lg btn-primary btn-block" id="botonsub">Iniciar sesión</button>
-							
-							<div>
-							<c:out value="${error}"></c:out>
-							
-							</div>
+						<button type="submit" name="login" value="registro"
+							class="btn btn-lg btn-primary btn-block" id="botonsub">Registrar</button>
+						
 
 					</form>
 
