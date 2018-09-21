@@ -11,6 +11,21 @@
 		<servlet-name>login</servlet-name>
 		<servlet-class>com.ipartek.formacion.supermercado.controladores.LoginServlet</servlet-class>
 	</servlet>
+	<filter>
+		<description>
+  		</description>
+		<display-name>LoginFilter</display-name>
+
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>com.ipartek.formacion.javaee.filtros.LoginFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
 
 	<servlet-mapping>
 		<servlet-name>login</servlet-name>
