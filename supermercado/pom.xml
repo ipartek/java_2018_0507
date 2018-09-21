@@ -6,8 +6,8 @@
 	<artifactId>supermercado</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>supermercado Maven Webapp</name>
-	<url>http://maven.apache.org</url>
+	<name>Supermercado</name>
+	<url>http://www.supermercado.com</url>
 
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
