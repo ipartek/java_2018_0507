@@ -1,5 +1,7 @@
-<html>
-<body>
-<h2>Hello World!</h2>
-</body>
-</html>
+<%@include file="/WEB-INF/includes/cabecera.jsp"%>
+
+<header>
+	<h1>Bienvenido</h1>
+</header>
+
+<%@include file="/WEB-INF/includes/pie.jsp"%>
