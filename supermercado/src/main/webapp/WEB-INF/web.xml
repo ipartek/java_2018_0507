@@ -17,7 +17,7 @@
 		<display-name>LoginFilter</display-name>
 
 		<filter-name>LoginFilter</filter-name>
-		<filter-class>com.ipartek.formacion.javaee.filtros.LoginFilter</filter-class>
+		<filter-class>com.ipartek.formacion.supermercado.filtros.LoginFilter</filter-class>
 	</filter>
 
 	<filter-mapping>
