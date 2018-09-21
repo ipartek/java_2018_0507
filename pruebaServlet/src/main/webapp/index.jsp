@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
-<%@ include file="/includes/cabecera.jsp" %>
+<%@ include file="WEB-INF/includes/cabecera.jsp" %>
 
 <div class="center-block" id="contenedorproductos">
 		<div class="row">
@@ -233,5 +233,5 @@
 
 	</div>
 
-<%@ include file="/includes/pie.jsp" %>
+<%@ include file="WEB-INF/includes/pie.jsp" %>
 

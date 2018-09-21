@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
-<%@ include file="/includes/cabecera.jsp" %>
+<%@ include file="WEB-INF/includes/cabecera.jsp" %>
 	<div class="container">
 
 		<div class="row" id="pwd-container">
@@ -44,4 +44,4 @@
 
 	</div>
 
-<%@ include file="/includes/pie.jsp" %>
+<%@ include file="WEB-INF/includes/pie.jsp" %>
