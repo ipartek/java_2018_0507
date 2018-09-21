@@ -1,27 +1,19 @@
-<% Usuario user;
-user=(Usuario)request.getSession().getAttribute("usuario");
-if(user!=null)
-{%><%@include file="cabeceraLogjsp.jsp" %>
-<% }else{%> <%@include file="cabeceraNoLog.jsp" %> <%}%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:if test="${usuario!=null}"><%@include file="cabeceraLogjsp.jsp" %></c:if>
+<c:if test="${usuario==null}"><%@include file="cabeceraNoLog.jsp" %></c:if>
 
     </header>
-  <%
-  for(int i=0;i<15;i++){
-	  ArticuloArrayDao.getInstance().insert(new Articulo(i,i+10,"nombre"+i,"descripcion"+i));
-  }  	
-    Carrito articulosCarrito;    
-    articulosCarrito=(Carrito)request.getSession().getAttribute("carro");
-    if(articulosCarrito!=null){
- %>
+
+ <c:if test="${carro.obtenerIntArticu!=0 }">
    <div class="row">
-    <div class="col-md-11">
-    <% for (int i=0;i<15;i++){%>
+    <div class="col-md-10">
+     <c:forEach items="${dao}" var="item" > 
         <article class="miProducto">
             <img src="imgs/bef.jpg" height="170" width="165" alt="">
             <section>
                 <div class="texto-encima text-center">20%</div>
-                <h3 class="text-center"><span class="price--line-through">12.95</span><span class="rojo"><%=ArticuloArrayDao.getInstance().getById(i).getPrecio()%></span> </h3>
-                <p class="text-center"><%=ArticuloArrayDao.getInstance().getById(i).getDescripcion()+i%></p>
+                <h3 class="text-center"><span class="price--line-through">12.95</span><span class="rojo">${item.nombre}</span> </h3>
+                <p class="text-center">${item.descripcion}</p>
                 <div class="miBotonera">
                     <button class="miBot" type="submit">+</button>
                     <span>1</span>
@@ -29,29 +21,41 @@ if(user!=null)
                 </div>
             </section>
             <form action="carrito" method="get">
-            <button class="btn btn-lg btn-success btn-block" value=<%=i%> name="idBoton" type="submit">añadir al carrito</button>
+            <button class="btn btn-lg btn-success btn-block" value="${item.id}" name="idBoton" type="submit">añadir al carrito</button>
             </form>
         </article>
-   <% }%>
+   </c:forEach>
 	</div>
-	 <div class="col-md-1">
-	<%for (int i=0;i<articulosCarrito.obtenerArrayArticu().size();i++){ %>
-	 <p><%=articulosCarrito.obtenerArrayArticu().get(i).getNombre() %></p>
-	 <%} %>
+	 <div class="col-md-2">
+	 <c:forEach items="${carro.obtenerArrayArticu}" var="item" >        
+          <article class="miProducto">
+            <section>
+              <p>descuento: 20%</p>
+            <p> nombre articulo: ${item.nombre}</p>
+             <p> precio: ${item.precio}</p>
+            <form action="carrito" method="get">
+            <button value="${item.id}" name="borrarDelCarro" type="submit">borrar</button>
+            </form>
+            </section>
+        </article>
+    </c:forEach>
+    <p>precio total:  ${carro.precioTotal} euros</p>
 	 </div>
        
 
         <a href="#top" class="miTopp btn-danger">top</a>
     </div>
-<% } else{%>
+</c:if>
+<c:if test="${carro.obtenerIntArticu==0 }">
 <div class="row">
-    <% for (int i=0;i<15;i++){%>
+<div class="col-md-12">
+    <c:forEach items="${dao}" var="item" > 
         <article class="miProducto">
             <img src="imgs/bef.jpg" height="170" width="165" alt="">
             <section>
                 <div class="texto-encima text-center">20%</div>
-                <h3 class="text-center"><span class="price--line-through">12.95</span><span class="rojo"><%=ArticuloArrayDao.getInstance().getById(i).getPrecio()%></span> </h3>
-                <p class="text-center"><%=ArticuloArrayDao.getInstance().getById(i).getDescripcion()+i%></p>
+                <h3 class="text-center"><span class="price--line-through">12.95</span><span class="rojo">${item.nombre}</span> </h3>
+                <p class="text-center">${item.descripcion}</p>
                 <div class="miBotonera">
                     <button class="miBot" type="submit">+</button>
                     <span>1</span>
@@ -59,13 +63,14 @@ if(user!=null)
                 </div>
             </section>
             <form action="carrito" method="get">
-            <button class="btn btn-lg btn-success btn-block" value=<%=i%> name="idBoton" type="submit">añadir al carrito</button>
+            <button class="btn btn-lg btn-success btn-block" value="${item.id}" name="idBoton" type="submit">añadir al carrito</button>
             </form>
         </article>
-   <% }%>
+  </c:forEach>
+  </div>
         <a href="#top" class="miTopp btn-danger">top</a>
     </div>
-<% } %>
+</c:if>
 
 <footer>
         <div class="row">

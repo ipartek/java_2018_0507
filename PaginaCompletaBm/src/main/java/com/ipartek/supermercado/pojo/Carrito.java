@@ -13,10 +13,30 @@ public class Carrito {
 	public void insertarArticulo(Articulo a){
 		articulosCarrito.add(a);
 	}
-	public ArrayList<Articulo> obtenerArrayArticu(){
+	public void borrarArticulo(long a){
+		for(int i=0;i<articulosCarrito.size();i++){
+			if(articulosCarrito.get(i).getId()==a)
+				articulosCarrito.remove(i);
+		}
+	}
+	public ArrayList<Articulo> getObtenerArrayArticu(){
+		
 		return articulosCarrito;
+	}
+	public int getObtenerIntArticu(){
+		System.out.println(articulosCarrito.size());
+		return articulosCarrito.size();
 	}
 	public Articulo obtenerElementoCarrito(int id) {
 		return articulosCarrito.get(id);
+	}
+	public int getPrecioTotal() {
+		int precioFinal=0,aux=0;
+		for(int i=0;i<articulosCarrito.size();i++) {
+			aux=articulosCarrito.get(i).getPrecio();
+			precioFinal=precioFinal+aux;
+		}
+		System.out.println("precFinal"+precioFinal);
+		return precioFinal;
 	}
 }

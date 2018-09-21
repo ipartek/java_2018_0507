@@ -40,7 +40,7 @@
                         <li><a href="regProd.jsp">registrar Producto</a></li>
                         <li><a href="listado.jsp">listado productos</a></li>
                         <li><a href="regUsuarios.jsp">reg usuarios</a></li>
-                        <li id="miNombre" class="miLi" style='color:white;'>HOLA <%=user.getNombreReal()%> </li>
+                        <li id="miNombre" class="miLi" style='color:white;'>hola ${usuario.nombre} </li>
                        
                         <li><form action="usuario" method="post"><button  type="submit" value="fin" name="login">salir</button>
                       		 </form>

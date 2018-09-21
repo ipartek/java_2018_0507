@@ -61,6 +61,7 @@ public class UsuarioServlet extends HttpServlet {
 		 }
 		 if(formulario.equalsIgnoreCase("fin")) {
 			 request.getSession().invalidate();
+			// carro=null;
 			 response.sendRedirect("login.jsp");
 		 }
 			if(formulario.equalsIgnoreCase("login"))

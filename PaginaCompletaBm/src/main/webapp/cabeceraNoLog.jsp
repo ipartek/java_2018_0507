@@ -34,8 +34,6 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="login.jsp">Login<span class="sr-only">(current)</span></a></li>
-                        <li><a href="regProd.jsp">registrar Producto</a></li>
-                        <li><a href="listado.jsp">listado productos</a></li>
                             <li><a href="regUsuarios.jsp">reg usuarios</a></li>
                     </ul>
                     <div class="row">

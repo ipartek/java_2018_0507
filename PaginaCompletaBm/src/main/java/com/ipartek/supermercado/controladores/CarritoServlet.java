@@ -17,7 +17,7 @@ import com.ipartek.supermercado.pojo.Carrito;
  */
 public class CarritoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       String  numBoton;
+       String  numBoton,borrar;
        Articulo art;
       Carrito carro;
 
@@ -26,9 +26,14 @@ public class CarritoServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		carro=(Carrito)session.getAttribute("carro");
 		 numBoton=request.getParameter("idBoton");
+		 if(request.getParameter("borrarDelCarro")!=null) {
+			 borrar=request.getParameter("borrarDelCarro");
+			 carro.borrarArticulo(Long.parseLong(borrar));
+		 }else {
 		 art=ArticuloArrayDao.getInstance().getById(Long.parseLong(numBoton));
 		 if(carro!=null)
 		 carro.insertarArticulo(art);
+		 }
 		//session.setAttribute("carro", carro);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 		// response.sendRedirect("index.jsp");
