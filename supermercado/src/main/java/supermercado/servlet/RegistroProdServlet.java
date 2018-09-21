@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,6 +28,19 @@ public class RegistroProdServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		   Cookie[] cookies = request.getCookies();
+	        for (int i = 0; i < cookies.length; i++) {
+	            Cookie c = cookies[i];
+	            String name = c.getName();
+	            String value = c.getValue();
+	            System.out.println("Cookie "+name + " = " + value);
+	        }
+		
+		
+		
+		
+		
 		String nombre=request.getParameter("nombre");//nombre
 		String precio=request.getParameter("precio");
 		String categoria=request.getParameter("categoria");
@@ -49,6 +63,10 @@ public class RegistroProdServlet extends HttpServlet {
 		/**/
 		
 		dao.getAll();
+		
+		 // print out cookies
+
+     
 		
 		response.sendRedirect("contenidos/registroprod.jsp");
 		

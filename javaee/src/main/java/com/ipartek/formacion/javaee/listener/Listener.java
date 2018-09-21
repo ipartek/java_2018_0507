@@ -11,13 +11,15 @@ import javax.servlet.http.HttpSessionListener;
  */
 public class Listener implements ServletContextListener, HttpSessionListener {
 
-   
+   public static long contadorSesiones=0;
 
 	/**
      * @see HttpSessionListener#sessionCreated(HttpSessionEvent)
      */
+   @Override
     public void sessionCreated(HttpSessionEvent se)  { 
-         // TODO Auto-generated method stub
+       System.out.println("Sesion: ");
+       System.out.println("Contador sesiones: " + ++contadorSesiones);
     }
 
 	/**

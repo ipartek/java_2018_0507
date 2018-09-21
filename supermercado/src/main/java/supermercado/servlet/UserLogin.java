@@ -49,6 +49,9 @@ public class UserLogin extends HttpServlet {
 		misession.setAttribute("pass", pass);
 		
 		Cookie cok = new Cookie("usuario",user);
+		response.addCookie(cok);
+		
+		
 	
 		System.out.println("Sessiondespuesde: "+ misession.toString());
 		
