@@ -4,6 +4,19 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <filter>
+  	<filter-name>LoginFilter</filter-name>
+  	<display-name>LoginFilter</display-name>
+  	<description></description>
+  	<filter-class>com.ipartek.formacion.javaee.filtros.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>LoginFilter</filter-name>
+  	<url-pattern>/admin/*</url-pattern>
+  </filter-mapping>
+  <listener>
+  	<listener-class>com.ipartek.formacion.javaee.listener.EjemploListener</listener-class>
+  </listener>
   <servlet>
   	<servlet-name>LoginServlet</servlet-name>
   	<display-name>LoginServlet</display-name>
