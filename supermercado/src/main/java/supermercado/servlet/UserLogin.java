@@ -48,9 +48,11 @@ public class UserLogin extends HttpServlet {
 		misession.setAttribute("user",user);
 		misession.setAttribute("pass", pass);
 		
+		Cookie cok = new Cookie("usuario",user);
 	
 		System.out.println("Sessiondespuesde: "+ misession.toString());
 		
 		response.sendRedirect("contenidos/bebidas.jsp");
+		System.out.println(misession.getAttribute(user));
 	}
 }

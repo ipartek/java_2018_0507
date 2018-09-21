@@ -4,15 +4,12 @@
 	<nav class="menuprincipal">
 	
 	<div class="UsuarioLoggueado">
-		<%String usuarioRecib = (String)session.getAttribute("usuario");%>
+		<%String usuarioRecib = (String)session.getAttribute("user");%>
 		<%=usuarioRecib %>
 		<a href="../UserLogout">Desconectar</a>
 		
-		
 	</div>
 
-	
-	
         <ul>
            <li><a href="../index.jsp">Inicio</a></li>
             <li><a href="bebidas.jsp">Bebidas</a></li>

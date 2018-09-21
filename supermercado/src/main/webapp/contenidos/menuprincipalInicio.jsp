@@ -4,9 +4,9 @@
 	<nav class="menuprincipal">
 	
 	<div class="UsuarioLoggueado">
-		<%String usuarioRecib = (String)session.getAttribute("usuario");%>
+		<%String usuarioRecib = (String)session.getAttribute("user");%>
 		<%=usuarioRecib %>
-		<a href="../UserLogout">Desconectar</a>
+		<a href="UserLogout">Desconectar</a>
 		
 	</div>
 

@@ -14,6 +14,9 @@
   	<filter-name>LoginFilter</filter-name>
   	<url-pattern>/admin/*</url-pattern>
   </filter-mapping>
+  <listener>
+  	<listener-class>com.ipartek.formacion.javaee.listener.Listener</listener-class>
+  </listener>
   
   <servlet>
   	<servlet-name>login</servlet-name>
