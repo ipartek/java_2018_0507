@@ -8,6 +8,7 @@
 
 <div class="center-block" id="contenedorproductos">
 		<div class="row">
+		<div class="col-md-12 col-sm-6" >
 			<div class="col-md-2">
 				<!-- START The Product Item -->
 
@@ -219,11 +220,14 @@
 				</button>
 
 				<!-- END!! The Product Item -->
+		
 			</div>
+			
 			<div class="col-md-2"></div>
 			<div class="col-md-2"></div>
 			<div class="col-md-2"></div>
 			<div class="col-md-2"></div>
+					</div>
 		</div>
 
 
