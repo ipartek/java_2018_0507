@@ -7,7 +7,7 @@
 	<h1>Login</h1>
 </header>
 
-<form action="principal.jsp">
+<form action="login" method="post">
 	<p>
 	<label for="email">Email</label>
 	<input type="email" name="email" id="email" />

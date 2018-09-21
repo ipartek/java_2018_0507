@@ -19,6 +19,17 @@
 			<dd>12,34€</dd>
 		</dl>
 	</article>
+	<article>
+		<dl>
+			<dt>Nombre</dt>
+			<dd>
+				Mi producto 
+				<a href="carrito.jsp?accion=add&id=2">Añadir al	carrito</a>
+			</dd>
+			<dt>Precio</dt>
+			<dd>12,34€</dd>
+		</dl>
+	</article>
 </section>
 
 <%@ include file="/WEB-INF/includes/pie.jsp"%>
