@@ -1,12 +1,11 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
-<web-app>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	      xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	      version="3.0">
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
 		<servlet-name>PruebaServlet</servlet-name>
-		<display-name>PruebaServlet</display-name>
-		<description></description>
 		<servlet-class>com.ipartek.formacion.javaee.libros.controladores.PruebaServlet</servlet-class>
 	</servlet>
   <servlet>
@@ -15,27 +14,27 @@
   </servlet>
   <servlet>
   	<servlet-name>LoginServlet</servlet-name>
-  	<display-name>LoginServlet</display-name>
-  	<description></description>
   	<servlet-class>com.ipartek.formacion.javaee.libros.controladores.LoginServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>SeccionServlet</servlet-name>
-  	<display-name>SeccionServlet</display-name>
-  	<description></description>
   	<servlet-class>com.ipartek.formacion.javaee.libros.controladores.SeccionServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>Hola</servlet-name>
-  	<display-name>Hola</display-name>
-  	<description></description>
   	<servlet-class>com.ipartek.formacion.javaee.servlets.HolaMundo</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>Colores</servlet-name>
-  	<display-name>Colores</display-name>
-  	<description></description>
   	<servlet-class>com.ipartek.formacion.javaee.servlets.Colores</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ServletLogin</servlet-name>
+  	<servlet-class>com.prueba.piero.modelos.ServletLogin</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ServletError</servlet-name>
+  	<servlet-class>com.prueba.piero.modelos.ServletError</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>login</servlet-name>
@@ -60,5 +59,13 @@
   <servlet-mapping>
   	<servlet-name>Colores</servlet-name>
   	<url-pattern>/colores</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServletLogin</servlet-name>
+  	<url-pattern>/abc123</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServletError</servlet-name>
+  	<url-pattern>/ServletError</url-pattern>
   </servlet-mapping>
 </web-app>
