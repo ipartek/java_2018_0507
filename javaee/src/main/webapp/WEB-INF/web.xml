@@ -3,7 +3,28 @@
 	      xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	      version="3.0">
+
+	<welcome-file-list>
+		<welcome-file>colores</welcome-file>
+	</welcome-file-list>
   <display-name>Archetype Created Web Application</display-name>
+  <filter>
+  	<description>
+  	</description>
+  	<display-name>LoginFilter</display-name>
+  	<filter-name>LoginFilter</filter-name>
+  	<filter-class>com.ipartek.formacion.javaee.filtros.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>LoginFilter</filter-name>
+  	<url-pattern>/admin/*</url-pattern>
+  	<dispatcher>REQUEST</dispatcher>
+  	<dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+  <listener>
+  	<listener-class>com.ipartek.formacion.javaee.listeners.EjemploListener</listener-class>
+  </listener>
+  
   <servlet>
 		<servlet-name>PruebaServlet</servlet-name>
 		<servlet-class>com.ipartek.formacion.javaee.libros.controladores.PruebaServlet</servlet-class>
