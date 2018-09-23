@@ -1,0 +1,142 @@
+
+.cabecera {
+	background-color: red;
+    display: block;
+    text-align: center;
+    height: 107px;
+    margin-top: 0;
+    padding-top: 32px;
+    margin-bottom: 0;
+}
+
+.blogShort{ border-bottom:1px solid #ddd;}
+.add{background: #333; padding: 10%; height: 300px;}
+
+.nav-sidebar { 
+    width: 100%;
+    padding: 30px 0; 
+    border-right: 1px solid #ddd;
+}
+.nav-sidebar a {
+    color: #333;
+    -webkit-transition: all 0.08s linear;
+    -moz-transition: all 0.08s linear;
+    -o-transition: all 0.08s linear;
+    transition: all 0.08s linear;
+}
+.nav-sidebar .active a { 
+    cursor: default;
+    background-color: #0b56a8; 
+    color: #fff; 
+}
+.nav-sidebar .active a:hover {
+    background-color: #E50000;   
+}
+.nav-sidebar .text-overflow a,
+.nav-sidebar .text-overflow .media-body {
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis; 
+}
+
+.btn-blog {
+    color: #ffffff;
+    background-color: #E50000;
+    border-color: #E50000;
+    border-radius:0;
+    margin-bottom:10px
+}
+.btn-blog:hover,
+.btn-blog:focus,
+.btn-blog:active,
+.btn-blog.active,
+.open .dropdown-toggle.btn-blog {
+    color: white;
+    background-color:#0b56a8;
+    border-color: #0b56a8;
+}
+article h2{color:#333333;}
+h2{color:#0b56a8;}
+ .margin10{margin-bottom:10px; margin-right:10px;}
+ 
+ .container .text-style
+{
+  text-align: justify;
+  line-height: 23px;
+  margin: 0 13px 0 0;
+  font-size: 19px;
+}
+
+.button {
+    background-color: white;
+    border: 0;
+    border-top:0;
+    }
+    
+.probarBoot{
+	border:3px solid black;
+	background-color:orange;
+	color:white;
+	padding:9px;
+	height: 164px;
+	width:390px;
+
+}
+.probarBoot2{
+	border:3px solid black;
+	background-color:green;
+	color:white;
+	padding:9px;
+	height: 164px;
+	width:390px;
+
+}
+.probarBoot3{
+	border:3px solid black;
+	background-color:lime;
+	color:white;
+	padding:9px;
+	height: 164px;
+	width:390px;
+
+}
+
+.fifa {
+	width: 390px;
+    height: 440px;
+	display: inline-block;
+}
+
+
+.imagenDiv {
+	padding-left: 0px;
+    padding-right: 0px;
+    display: inline-block;
+    width: 390px;
+    height: 440px;
+}
+
+.final {
+	background-color: black;
+    color: white;
+    height: 100px;
+    text-align: center;
+    padding: 15;
+    padding-top: 15px;
+    padding-bottom: 15px;
+	
+}
+
+h1 {
+	text-align: center;
+}
+
+@media (max-width: 1000px){
+	
+	.fifa .imagenDiv{
+		width:133px;
+    	
+	}
+	
+}
