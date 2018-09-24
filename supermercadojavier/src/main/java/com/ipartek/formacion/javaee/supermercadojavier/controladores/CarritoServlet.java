@@ -33,11 +33,16 @@ public class CarritoServlet extends HttpServlet {
 		}
 		
 		if(id != null && accion != null) {
-			Producto producto = LogicaNegocio.obtenerProductoPorId(Long.parseLong(id));
+			Producto producto = LogicaNegocio.obtenerProductoPorId(Long.parseLong(id));	
 			
-			productos.add(producto);
-			
-			session.setAttribute("carrito", productos);
+			switch(accion) {
+			case "add":
+				productos.add(producto);
+				break;
+			case "delete":
+				productos.remove(producto);
+				break;
+			}
 		}
 		
 		request.getRequestDispatcher("carrito.jsp").forward(request, response);

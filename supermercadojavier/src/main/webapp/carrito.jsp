@@ -19,7 +19,7 @@
 			<tr>
 				<td>${producto.nombre}</td>
 				<td><fmt:formatNumber value="${producto.precio}" type="currency"/></td>
-				<td><a href="carrito.jsp?id=${producto.id}&accion=delete">Borrar</a></td>
+				<td><a href="carrito?id=${producto.id}&accion=delete">Borrar</a></td>
 			</tr>
 		</c:forEach>
 	</tbody>
