@@ -2,6 +2,7 @@ package com.ipartek.formacion.javaee.supermercado.controladores;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.ipartek.formacion.javaee.supermercado.logica.LogicaNegocio;
 import com.ipartek.formacion.javaee.supermercado.pojo.Usuario;
 
-
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,14 +30,16 @@ public class LoginServlet extends HttpServlet {
 			throw new RuntimeException("Programador del login.jsp. Ya puedes poner un email y password");
 		}
 		
-		// Cargamos el modelo
+		// Cargamos el modelo (En nuestro caso el pojo)
 		Usuario usuario = new Usuario(email, password);
 		
 		// Lógica de negocio
 		if (LogicaNegocio.validarUsuario(usuario)) {
+			// Redireccion a otra pagina con uno o varios modelos
 			request.getSession().setAttribute("user", usuario);
 			request.getRequestDispatcher("principal.jsp").forward(request, response);
 		}else {
+			// Redireccion a otra pagina con uno o varios modelos
 			request.setAttribute("user", usuario);
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
