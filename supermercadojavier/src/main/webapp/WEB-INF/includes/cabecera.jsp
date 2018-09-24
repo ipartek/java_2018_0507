@@ -24,8 +24,8 @@
 	<nav>
 		<ul>
 			<li><a href="principal">Principal</a>
-			<li><a href="carrito.jsp">Carrito</a>
-			<li><a href="login.jsp">Login</a>
+			<li><a href="carrito">Carrito</a>
+			<li><a href="login">Login</a>
 			<li><a href="admin">Administración</a>
 		</ul>
 	</nav>

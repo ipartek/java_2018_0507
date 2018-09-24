@@ -14,7 +14,7 @@
 			<dl>
 				<dt>Nombre</dt>
 				<dd>
-					${producto.nombre} <a href="carrito.jsp?accion=add&id=${producto.id}">Añadir al
+					${producto.nombre} <a href="carrito?accion=add&id=${producto.id}">Añadir al
 						carrito</a>
 				</dd>
 				<dt>Precio</dt>
