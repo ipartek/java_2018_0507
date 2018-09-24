@@ -1,16 +1,19 @@
 package com.ipartek.formacion.javaee.supermercado.pojo;
 
 public class Usuario {
+	private static String REGEX_EMAIL = "^\\w+@\\w+\\.\\w+$";
 	private long id;
 	private String email = "";
 	private String password = "";
 	
 	private String errorEmail = "";
 	private String errorPassword = "";
+	
+	private boolean correcto = true;
 
 	public Usuario(long id, String email, String password) {
 		this.id = id;
-		this.email = email;
+		setEmail(email);
 		this.password = password;
 	}
 	
@@ -33,6 +36,12 @@ public class Usuario {
 	}
 
 	public void setEmail(String email) {
+		if (email == null || email.trim().length() == 0) {
+			setErrorEmail("No se admite un email vacio");
+		} else if (email.matches(REGEX_EMAIL)){
+			setErrorEmail("El email introducido no es correcto");
+		}
+		
 		this.email = email;
 	}
 
@@ -49,6 +58,7 @@ public class Usuario {
 	}
 
 	public void setErrorEmail(String errorEmail) {
+		correcto = false;
 		this.errorEmail = errorEmail;
 	}
 
@@ -57,7 +67,12 @@ public class Usuario {
 	}
 
 	public void setErrorPassword(String errorPassword) {
+		correcto = false;
 		this.errorPassword = errorPassword;
+	}
+
+	public boolean isCorrecto() {
+		return correcto;
 	}
 
 	@Override

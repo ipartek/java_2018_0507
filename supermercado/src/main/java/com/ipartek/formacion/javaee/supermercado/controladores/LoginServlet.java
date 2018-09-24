@@ -34,12 +34,17 @@ public class LoginServlet extends HttpServlet {
 		Usuario usuario = new Usuario(email, password);
 		
 		// Lógica de negocio
-		if (LogicaNegocio.validarUsuario(usuario)) {
+		boolean usuarioValido = LogicaNegocio.validarUsuario(usuario);
+		
+		if (usuario.isCorrecto() && usuarioValido) {
 			// Redireccion a otra pagina con uno o varios modelos
 			request.getSession().setAttribute("user", usuario);
-			request.getRequestDispatcher("principal.jsp").forward(request, response);
+			request.getRequestDispatcher("principal").forward(request, response);
 		}else {
 			// Redireccion a otra pagina con uno o varios modelos
+			if (!usuarioValido) {
+				request.setAttribute("errores", "El usuario no es valido");
+			}
 			request.setAttribute("user", usuario);
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}

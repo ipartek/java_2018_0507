@@ -17,15 +17,17 @@
 		</tr>
 	</thead>
 	<tbody>
+		<c:forEach items="${productos}" var="producto">
 		<tr>
-			<th>1</th>
-			<td>Producto 1</td>
-			<td>12,34€</td>
+			<th>${producto.id}</th>
+			<td>${producto.nombre}</td>
+			<td><fmt:formatNumber value="${producto.precio}" type="currency" /></td>
 			<td>
 				<a href="edicion.jsp?id=1&accion=update">Editar</a> 
 				<a href="edicion.jsp?id=1&accion=delete">Borrar</a>
 			</td>
 		</tr>
+		</c:forEach>
 		<tr>
 			<th>2</th>
 			<td>Producto 2</td>

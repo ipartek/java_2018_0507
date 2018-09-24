@@ -1,0 +1,27 @@
+package com.ipartek.formacion.javaee.supermercado.controladores;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.ipartek.formacion.javaee.supermercado.logica.LogicaNegocio;
+
+
+@WebServlet("/principal")
+public class PrincipalServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setAttribute("productos", LogicaNegocio.obtenerProductos());
+		request.getRequestDispatcher("principal.jsp").forward(request, response);
+	}
+	
+	
+	protected void doGPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+}

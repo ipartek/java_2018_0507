@@ -8,28 +8,18 @@
 </header>
 
 <section id="listado">
+	<c:forEach items="{productos}" var="producto">
 	<article>
 		<dl>
 			<dt>Nombre</dt>
 			<dd>
-				Mi producto
-				<a href="carrito.jsp?accion=add&id=1">Añadir al carrito</a>
+				${producto.nombre} <a href="carrito.jsp?accion=add&id=${producto.id}"> Añadir al carrito</a>
 			</dd>
 			<dt>Precio</dt>
-			<dd>12,34€</dd>
+			<dd><fmt:formatNumber value="${producto.precio}" type="currency"/></dd>
 		</dl>
 	</article>
-	<article>
-		<dl>
-			<dt>Nombre</dt>
-			<dd>
-				Mi producto 
-				<a href="carrito.jsp?accion=add&id=2">Añadir al	carrito</a>
-			</dd>
-			<dt>Precio</dt>
-			<dd>12,34€</dd>
-		</dl>
-	</article>
+	</c:forEach>
 </section>
 
 <%@ include file="/WEB-INF/includes/pie.jsp"%>
