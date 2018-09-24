@@ -28,7 +28,6 @@
 					carrito</a>
 			</dd>
 
-			</dd>
 			<dt>Precio</dt>
 			<dd>12,34€</dd>
 		</dl>
