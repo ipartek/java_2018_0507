@@ -5,6 +5,14 @@
 <head>
 <meta charset="UTF-8" />
 <title>Supermercado Javier</title>
+
+<style>
+	.error {
+		color: red;
+		font-weight: bold;
+	}
+</style>
+
 </head>
 <body>
 	<header>
