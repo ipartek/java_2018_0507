@@ -26,12 +26,7 @@
 	</header>
 	<nav>
 		<ul>
-<<<<<<< HEAD
-			<li><a href="principal">Principal</a>
-			<li><a href="carrito.jsp">Carrito</a>
-			<li><a href="login.jsp">Login</a>
-			<li><a href="admin">Administración</a>
-=======
+
 			<li><a href="principal">Principal</a></li>
 			<li><a href="carrito">Carrito</a></li>
 			
@@ -46,7 +41,7 @@
 			</c:choose>
 				
 			
->>>>>>> branch 'master' of https://github.com/ipartek/java_2018_0507.git
+
 		</ul>
 	</nav>
 
