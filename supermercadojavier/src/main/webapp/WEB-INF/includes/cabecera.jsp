@@ -19,14 +19,18 @@
 </head>
 <body>
 	<header>
-		<h1>Supermercado Javier</h1>
+		<h1>Supermercado Javier <small>${user.email}</small></h1>
+		<p>
+			
+		</p>
 	</header>
 	<nav>
 		<ul>
-			<li><a href="principal">Principal</a>
-			<li><a href="carrito">Carrito</a>
-			<li><a href="login">Login</a>
-			<li><a href="admin">Administración</a>
+			<li><a href="principal">Principal</a></li>
+			<li><a href="carrito">Carrito</a></li>
+			<li><a href="login">Login</a></li>
+			<li><a href="admin">Administración</a></li>
+			<li><a href="desconectar">Logout</a></li>
 		</ul>
 	</nav>
 
