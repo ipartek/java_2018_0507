@@ -18,14 +18,21 @@
 </head>
 <body>
 	<header>
-		<h1>Supermercado Mikel</h1>
+		<h1>Supermercado Mikel ${user.nombre}</h1>	
 	</header>
 	<nav>
 		<ul>
 			<li><a href="principal">Principal</a></li>
-			<li><a href="carrito.jsp">Carrito</a></li>
-			<li><a href="login.jsp">Login</a></li>
+			<li><a href="carrito">Carrito</a></li>
 			<li><a href="admin">Administración</a></li>
+			<c:choose>
+				<c:when test="${sessionScope != null }">
+					<li><a href="login">Login</a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="desconectar">Logout</a></li>
+				</c:otherwise>
+		</c:choose>
 		</ul>
 	</nav>
 	<main>

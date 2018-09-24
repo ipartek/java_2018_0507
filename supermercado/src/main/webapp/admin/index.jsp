@@ -7,13 +7,16 @@
 	<h1>Administración</h1>
 </header>
 
+<div class="mensaje">
+	${mensaje}
+</div>
 <table id="adminlistado">
 	<thead>
 		<tr>
 			<th>Id</th>
 			<th>Nombre</th>
 			<th>Precio</th>
-			<td><a href="edicion.jsp?accion=add">Añadir</a></td>
+			<td><a href="edicion?accion=add">Añadir</a></td>
 		</tr>
 	</thead>
 	<tbody>
@@ -23,20 +26,11 @@
 			<td>${producto.nombre}</td>
 			<td><fmt:formatNumber value="${producto.precio}" type="currency" /></td>
 			<td>
-				<a href="edicion.jsp?id=1&accion=update">Editar</a> 
-				<a href="edicion.jsp?id=1&accion=delete">Borrar</a>
+				<a href="edicion?id=${producto.id}&accion=update">Editar</a> 
+				<a href="edicion?id=${producto.id}&accion=delete">Borrar</a>
 			</td>
 		</tr>
 		</c:forEach>
-		<tr>
-			<th>2</th>
-			<td>Producto 2</td>
-			<td>23,45€</td>
-			<td>
-				<a href="edicion.jsp?id=2&accion=editar">Editar</a> 
-				<a href="edicion.jsp?id=2&accion=delete">Borrar</a>
-			</td>
-		</tr>
 	</tbody>
 </table>
 

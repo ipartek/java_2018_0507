@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+
 <%@ include file="/WEB-INF/includes/cabecera.jsp"%>
 
 <header>
@@ -12,24 +12,16 @@
 		<tr>
 			<th>Nombre</th>
 			<th>Precio</th>
-			<th></th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td>Producto 1</td>
-			<td>12,34€</td>
-			<td>
-				<a href="edicion.jsp?id=1&accion=delete">Borrar</a>
-			</td>
-		</tr>
-		<tr>
-			<td>Producto 2</td>
-			<td>23,45€</td>
-			<td>
-				<a href="edicion.jsp?id=2&accion=delete">Borrar</a>
-			</td>
-		</tr>
+		<c:forEach items="${carrito}" var="producto">
+			<tr>
+				<td>${producto.nombre}</td>
+				<td><fmt:formatNumber value="${producto.precio}" type="currency"/></td>
+				<td><a href="carrito?id=${producto.id}&accion=delete">Borrar</a></td>
+			</tr>
+		</c:forEach>
 	</tbody>
 </table>
 
