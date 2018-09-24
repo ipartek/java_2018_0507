@@ -10,7 +10,8 @@
 <form action="login" method="post">
 	<p>
 		<label for="email">Email</label>
-		<input type="email" name="email" id="email" />
+		<input type="email" name="email" id="email" value="${user.email}" />
+		<span class="error">${user.errorEmail}</span>
 	</p>
 	<p>
 		<label for="password">Contraseña</label>
@@ -18,6 +19,7 @@
 	</p>
 	<p>
 		<button>Login</button>
+		<span class="error">${errores}</span>
 	</p>
 	
 </form>
