@@ -1,6 +1,7 @@
 package com.ipartek.formacion.javaee.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,44 +10,57 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.javaee.modelos.LoginForm;
 import com.ipartek.formacion.javaee.modelos.LoginFormException;
+import com.ipartek.formacion.javaee.modelos.Usuario;
 
 public class LoginServlet extends HttpServlet {
 
-	private static final String USUARIO_POR_DEFECTO = "javierniño";
+	private static final String USUARIO_POR_DEFECTO = "javierniÃ±o";
 	private static final String PASSWORD_POR_DEFECTO = "contra";
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		request.setCharacterEncoding("UTF-8");
-		
-		//Recogida de datos
+
+		// Recogida de datos
 		String nombre = request.getParameter("nombre");
 		String password = request.getParameter("password");
-		
+
 		System.out.println(nombre);
-		
-		//Empaquetado en Modelo
+
+		// Empaquetado en Modelo
 		LoginForm login = new LoginForm();
-		
+
 		try {
 			login.setNombre(nombre);
 		} catch (LoginFormException e) {
 			login.setErrorNombre("*");
 		}
-			
+
 		try {
 			login.setPassword(password);
 		} catch (LoginFormException e) {
 			login.setErrorPassword("*");
 		}
 
-		//Llamada a lógica de negocio
+		//Llamada a lï¿½gica de negocio
 		if(!login.isErroneo() && validar(login)) {
-			//Redirección a vista
+			
+			ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+			
+			usuarios.add(new Usuario(1, "javierlete", "Javier", "contra"));
+			usuarios.add(new Usuario(2, "pepeperez", "Pepe", "perez"));
+			
+			request.setAttribute("usuarios", usuarios);
+			
+			//Redirecciï¿½n a vista
 			request.getSession().setAttribute("usuario", login);
-			response.sendRedirect("principal.jsp");
+			request.getRequestDispatcher("principal.jsp").forward(request, response);
 		} else {
-			//Redirección a vista
-			login.setMensajeError(login.getMensajeError() + " El usuario o contraseña no son correctos");
+
+			// Redirecciï¿½n a vista
+			login.setMensajeError(login.getMensajeError() + " El usuario o contraseï¿½a no son correctos");
+
 			request.setAttribute("login", login);
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
