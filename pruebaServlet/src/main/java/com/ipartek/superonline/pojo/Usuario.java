@@ -5,6 +5,15 @@ public class Usuario {
 	private String nombre, contrasena;
 	private long ID;
 
+	private String error;
+
+	public String getError() {
+		return error;
+	}
+
+	public void setError(String error) {
+		this.error = error;
+	}
 
 	public Usuario() {
 		

@@ -6,8 +6,8 @@
 <%@ include file="WEB-INF/includes/cabecera.jsp"%>
 <div class="container">
 
-	<h2>Administración</h2>
-	<p class="lead">Listado de productos</p>
+	<h2>Carrito</h2>
+	<p class="lead">Su compra</p>
 
 	<hr />
 
@@ -21,9 +21,7 @@
 				<th>Título</th>
 				<th>Editorial</th>
 				<th>Precio</th>
-				<th style="width: 10%"><button type="submit" class="btn btn-xs"
-				id="submitedit">Añadir</button></th>
-					
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -34,8 +32,7 @@
 				<td>12,5€</td>
 				<td style="width: 10%"><button type="submit" class="btn btn-xs"
 							id="submitedit">Borrar</button>
-				    <button type="submit" class="btn btn-xs"
-							id="submitedit">Editar</button>
+				  
 				</td>
 				
 			</tr>

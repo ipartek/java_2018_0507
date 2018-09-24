@@ -5,7 +5,7 @@ public class Producto {
 	private String nombre, descripcion;
 	private double precio;
 	private long ID;
-	
+	private int cantidad;
 	
 	
 	public Producto() {
@@ -18,6 +18,15 @@ public class Producto {
 		this.descripcion = descripcion;
 		this.precio = precio;
 		ID = iD;
+	}
+	
+	public Producto(String nombre, String descripcion, double precio, long iD, int cantidad) {
+		super();
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.precio = precio;
+		ID = iD;
+		this.cantidad = cantidad;
 	}
 
 	public String getNombre() {
@@ -50,6 +59,14 @@ public class Producto {
 
 	public void setID(long iD) {
 		ID = iD;
+	}
+
+	public int getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
 	}
 
 	

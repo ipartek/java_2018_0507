@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ipartek.superonline.pojo.Error;
 import com.ipartek.superonline.modelo.UsuarioDAO;
@@ -40,16 +41,17 @@ public class UsuarioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession();  //recoge la session
 		
-		String usuario, password, formulario;
+		String salir;
 		
-		usuario = request.getParameter("mail");
-		password = request.getParameter("password");
-		formulario = request.getParameter("login");
-		formulario = "algo";
+		salir=request.getParameter("salir");//name
 		
-		//System.out.println(usuario + password + formulario);
+		if(salir.equalsIgnoreCase("salir")) {
+		session.invalidate();
+		}
+		
+		response.sendRedirect("index.jsp");
 	}
 
 	/**
@@ -59,56 +61,74 @@ public class UsuarioServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		usuarios=(ArrayList<Usuario>) UsuarioDAO.getInstance().getAll();
+		HttpSession session = request.getSession();  //recoge la session
 		
-		//System.out.println(usuarios.size()+"tamaño");
+		Usuario user = (Usuario) session.getAttribute("usuario"); //consigues un obj usuario que este en la sesion
 		
-		PrintWriter out=response.getWriter();
-		
-		String usuario,password,formulario;
-		
-		 formulario=request.getParameter("login");//name
-		 usuario=request.getParameter("mail");
-		 password=request.getParameter("password");
-		 
-		 if(formulario.equalsIgnoreCase("registro")) {			 
-			// System.out.println(usuario+password);
-			 UsuarioDAO.getInstance().insert(new Usuario(usuario, password));
-			 response.sendRedirect("Login.jsp");
+		if (user != null) {  //si existe el usuario nos olvidamos del coigo a continuacion xq significa que ya ha hecho login
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}else {
+			usuarios=(ArrayList<Usuario>) UsuarioDAO.getInstance().getAll();
+			
+			//System.out.println(usuarios.size()+"tamaño");
+			
+			PrintWriter out=response.getWriter();
+			
+			String usuario,password,formulario;
+			
+			 formulario=request.getParameter("login");//name
+			 usuario=request.getParameter("mail");
+			 password=request.getParameter("password");
 			 
-		 }
-			if(formulario.equalsIgnoreCase("login")) //si el value es login
-			{
-				if(usuarios.isEmpty()) {
-				
-					error.setError("No existen usuarios");					
-					request.setAttribute("error", error);
-					request.getRequestDispatcher("Login.jsp").forward(request, response);//para ir a una pagina pasandole los atributos en la request
-				}
-				else {
-					for(int i=0;i<usuarios.size();i++) {
-						if(usuarios.get(i).getNombre().equalsIgnoreCase(usuario) 
-						&& usuarios.get(i).getContrasena().equalsIgnoreCase(password)) {
-							
-							//usuarios.get(i).setError("");
-							request.setAttribute("error", error);
-							request.getRequestDispatcher("listado.html").forward(request, response);
-							break;
-						}
-						else {
-							//user=new Usuario();
-							error.setError("usuario o contraseña incorrectos");
-							if(i+1==usuarios.size()) {
-								request.setAttribute("error", error);
-							request.getRequestDispatcher("login.jsp").forward(request, response);
-							}
-						}			
+			 if(formulario.equalsIgnoreCase("registro")) {			 
+				// System.out.println(usuario+password);
+				 UsuarioDAO.getInstance().insert(new Usuario(usuario, password));
+				 response.sendRedirect("Login.jsp");
+				 
+			 }
+			 
+			 
+			 if(formulario.equalsIgnoreCase("login")) { //si el value es login
+					if(usuarios.isEmpty()) {
+					
+						error.setError("No existen usuarios");					
+						request.setAttribute("error", error);
+						request.getRequestDispatcher("registro.jsp").forward(request, response);//para ir a una pagina pasandole los atributos en la request
 					}
-				}
-			// System.out.println(usuario+password+formulario);
-		
+					else {
+						boolean encontrado = false;
+						
+						for(int i=0;i<usuarios.size();i++) {
+							if(usuarios.get(i).getNombre().equalsIgnoreCase(usuario) 
+							&& usuarios.get(i).getContrasena().equalsIgnoreCase(password)) {
+							
+								encontrado=true;
+								
+								session.setAttribute("usuario", usuarios.get(i)); //se mete al usuario en la sesion
+								
+								request.getRequestDispatcher("index.jsp").forward(request, response);
+								
+							}
+									
+						}
+						
+						if(!encontrado) {
+							
+							error.setError("No existen usuarios");					
+							request.setAttribute("error", error);
+							request.getRequestDispatcher("Login.jsp").forward(request, response);//para ir a una pagina pasandole los atributos en la request
+						}
+						
+						
+					}
+			
+			
+			
+			}
+				System.out.println(usuarios.size()+"tamaño");
 		}
-			System.out.println(usuarios.size()+"tamaño");
-	}
+		}
+		
+
 
 }

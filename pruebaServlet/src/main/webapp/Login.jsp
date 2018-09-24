@@ -28,9 +28,7 @@
 							class="btn btn-lg btn-primary btn-block" id="botonsub">Iniciar sesión</button>
 							
 							<div>
-							<c:if value="${error}" test="">
-							...
-							</c:if>
+							
 							
 							</div>
 

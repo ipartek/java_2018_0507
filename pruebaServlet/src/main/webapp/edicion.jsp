@@ -52,7 +52,7 @@
 
 							<div class="form-group">
 								<div class="col-md-12 text-center">
-									<button type="submit" class="btn btn-primary btn-lg"
+									<button type="submit" class="btn btn-xs btn-lg"
 										id="submitedit">Submit</button>
 								</div>
 							</div>

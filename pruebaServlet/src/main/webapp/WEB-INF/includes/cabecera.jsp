@@ -36,7 +36,7 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<img src="imgs/logo.png" alt="" id="logotipo" />
+					<a href="http://localhost:8080/pruebaServlet/index.jsp"><img src="imgs/logo.png" alt="" id="logotipo" /></a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,12 +52,26 @@
 
 					</ul>
 					<form class="navbar-form navbar-right">
+					
+					<c:if test="${sessionScope.usuario!=null}">
+					
+					<a href="http://localhost:8080/pruebaServlet/carrito.jsp"
+							class="btn btn-default">Carrito</a>
+							
+					<a href="login?salir=salir"
+							class="btn btn-default">Salir</a>
+					</c:if>
+					
+					<c:if test="${sessionScope.usuario==null}">
+					    
 						
 						<a href="http://localhost:8080/pruebaServlet/registro.jsp"
 							class="btn btn-default">Registro</a>
 							
 						<a href="http://localhost:8080/pruebaServlet/Login.jsp"
 							class="btn btn-default">Login</a>
+							
+						</c:if>
 
 					</form>
 
