@@ -12,7 +12,7 @@
 	</header>
 	<nav>
 		<ul>
-			<li><a href="../principal.jsp">Principal</a>
+			<li><a href="../principal">Principal</a>
 		</ul>
 	</nav>
 
