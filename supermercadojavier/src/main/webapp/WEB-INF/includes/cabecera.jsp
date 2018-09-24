@@ -19,7 +19,7 @@
 </head>
 <body>
 	<header>
-		<h1>Supermercado Javier <small>${user.email}</small></h1>
+		<h1>Supermercado Javier <small>${sessionScope.user.email}</small></h1>
 		<p>
 			
 		</p>
@@ -28,9 +28,18 @@
 		<ul>
 			<li><a href="principal">Principal</a></li>
 			<li><a href="carrito">Carrito</a></li>
-			<li><a href="login">Login</a></li>
+			
 			<li><a href="admin">Administración</a></li>
-			<li><a href="desconectar">Logout</a></li>
+			<c:choose>
+				<c:when test="${sessionScope.user == null}">
+					<li><a href="login">Login</a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="desconectar">Logout</a></li>
+				</c:otherwise>
+			</c:choose>
+				
+			
 		</ul>
 	</nav>
 

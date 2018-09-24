@@ -14,7 +14,8 @@ public class LogicaNegocio {
 		//TODO: Consultar por email
 		//TODO: Comparar Password
 		
-		return "javier@email.com".equalsIgnoreCase(usuario.getEmail()) && "contra".equals(usuario.getPassword());	
+		return ("javier@email.com".equalsIgnoreCase(usuario.getEmail()) && "contra".equals(usuario.getPassword())) ||
+				("admin@email.com".equalsIgnoreCase(usuario.getEmail()) && "contra".equals(usuario.getPassword()));	
 	}
 	
 	public static List<Producto> obtenerProductos() {
