@@ -21,6 +21,8 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1.Recogida de datos de formularios, URLs, cookies, session...
+		request.setCharacterEncoding("UTF-8");
+		
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		
