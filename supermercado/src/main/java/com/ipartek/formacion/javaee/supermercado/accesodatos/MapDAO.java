@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 import com.ipartek.formacion.javaee.supermercado.pojo.Identificable;
 
-public class MapDAO<T> implements CrudAble<T> {
+public class MapDAO<T extends Identificable> implements CrudAble<T> {
 	private TreeMap<Long, T> pojos = new TreeMap<Long, T>();
 
 	@Override
