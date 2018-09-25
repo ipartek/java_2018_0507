@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
 			if(!usuarioValido) {
 				request.setAttribute("errores", "El usuario no es válido");
 			}
-			request.setAttribute("user", usuario);
+			request.setAttribute("user", usuario); //si no es correcto devuelvo el usuario para que me salga en el input text
 			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		}
 	}

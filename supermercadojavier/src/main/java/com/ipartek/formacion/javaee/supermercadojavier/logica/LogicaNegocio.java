@@ -20,7 +20,7 @@ public class LogicaNegocio {
 		}
 	}
 	
-	public static boolean validarUsuario(Usuario usuario) {
+	public static boolean validarUsuario(Usuario usuario)  { //lo que le paso a la funcion es lo que va en parentesis (un objeto)
 		for(Usuario u: usuarios.getAll()) {
 			if(u.getEmail().equals(usuario.getEmail())) {
 				return u.getPassword().equals(usuario.getPassword()); //devuelvo la password si coinciden (true)
@@ -44,6 +44,9 @@ public class LogicaNegocio {
 		if(!productos.insert(producto)) { //compruebo si se ha hecho lo que he dicho, por si ha habido algun fallo
 			throw new LogicaNegocioException("No se ha podido insertar el registro");
 		}
+		
+		//no necesito hacer una linea de un insert porque si eso devuelve true ya me lo inserta directamente
+		//se ve en la implementacion del insert en el DAO
 	}
 
 	public static void modificarProducto(Producto producto) {
