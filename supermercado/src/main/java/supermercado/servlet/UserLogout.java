@@ -25,7 +25,7 @@ public class UserLogout extends HttpServlet {
 		//Borrar usuario logueado
 		session.invalidate();
 		
-		response.sendRedirect("contenidos/login.jsp");
+		response.sendRedirect("login.jsp");
 	}
 
 }

@@ -38,9 +38,6 @@ public class RegistroProdServlet extends HttpServlet {
 	        }
 		
 		
-		
-		
-		
 		String nombre=request.getParameter("nombre");//nombre
 		String precio=request.getParameter("precio");
 		String categoria=request.getParameter("categoria");
@@ -68,7 +65,7 @@ public class RegistroProdServlet extends HttpServlet {
 
      
 		
-		response.sendRedirect("contenidos/registroprod.jsp");
+		response.sendRedirect("registroprod.jsp");
 		
 		//Ya he creado el nuevo articulo y ahora tengo que mostrarlo desde la otra web
 	}

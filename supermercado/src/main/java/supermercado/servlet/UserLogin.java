@@ -55,7 +55,7 @@ public class UserLogin extends HttpServlet {
 	
 		System.out.println("Sessiondespuesde: "+ misession.toString());
 		
-		response.sendRedirect("contenidos/bebidas.jsp");
+		response.sendRedirect("bebidas.jsp");
 		System.out.println(misession.getAttribute(user));
 	}
 }

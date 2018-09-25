@@ -32,8 +32,8 @@ public class CarritoDAO implements CrudAble<Carrito> {
 	public boolean insert(Carrito carrito) {
 		
 		System.out.println("En carrito dao"+carrito.getId());
-		System.out.println("En carrito dao"+carrito.getNombre());
-		System.out.println("En carrito dao"+carrito.getPrecio());
+		//System.out.println("En carrito dao"+carrito.getNombre());
+		//System.out.println("En carrito dao"+carrito.getPrecio());
 		boolean resul = false;
 
 		if (carrito != null) {

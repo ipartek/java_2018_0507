@@ -38,7 +38,7 @@ public class ListadoProdServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		response.sendRedirect("contenidos/listadoprods.jsp");
+		response.sendRedirect("listadoprods.jsp");
 		
 			CrudAble<Articulo> dao = ArticuloArrayDAO.getInstance();
 			

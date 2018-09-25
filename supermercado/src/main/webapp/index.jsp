@@ -1,3 +1,5 @@
+
+
 <html>
 
 <head>
@@ -20,7 +22,9 @@
 <!--Este include cachea la pagina y no tiene que recargarse todo el tiempo  -->
 <!--  %@ include file="foo.jsp" %-->
 <!--Este include llama continuamente a buscar el otro jsp  -->    
-<jsp:include page="contenidos/menuprincipalInicio.jsp" />
+
+
+<jsp:include page="menuprincipal.jsp" />
     
 <div class="jumbotron">
       <h1>Bienvenido al supermercado ana, vaya a la seccion correspondiente a sus necesidades.</h1> 
@@ -35,9 +39,9 @@
            <img class="redsocial" src="imgs/insta.jpg" width="30px">
        </div>
        <div >&copy;</div>
-       <a href="contenidos/bebidas.jsp">Volver - </a>
-      <a href="contenidos/contacto.jsp">Contacto - </a>
-       <a href="contenidos/localizacion.jsp">Localizacion</a>
+       <a href="bebidas.jsp">Volver - </a>
+      <a href="contacto.jsp">Contacto - </a>
+       <a href="localizacion.jsp">Localizacion</a>
        
    
    </div>

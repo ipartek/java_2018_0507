@@ -44,25 +44,15 @@ public class AnadiralCarrito extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("CARRITO");
+		String id = request.getParameter("id");
+		String accion = request.getParameter("accion");
 		
-		/*
-		 String idprod1=request.getParameter("b1");
-		String idprod2=request.getParameter("b2");
-		String idprod3=request.getParameter("b3");
-		String idprod4=request.getParameter("b4");
-		String idprod5=request.getParameter("b5");
-		String idprod6=request.getParameter("b6");
-		String idprod7=request.getParameter("b7");
-		String idprod8=request.getParameter("b8");
-		String idprod9=request.getParameter("b9");
-		String idprod10=request.getParameter("b10");
-		System.out.println(idprod1);
-		System.out.println(idprod2);
-		System.out.println(idprod3);
-		System.out.println(idprod4);
-		System.out.println(idprod5);
-		System.out.println(idprod6);
-		carrito.setId(idprod1);
+		String idprod=request.getParameter("id");
+		
+		carrito.setId(idprod);
+		
+		
+		System.out.println("idprod"+idprod);
 		CarritoDAO cardao=new CarritoDAO();
 		cardao.insert(carrito);
 		//carrito.add(e)*/
@@ -72,7 +62,6 @@ public class AnadiralCarrito extends HttpServlet {
 
 			HttpSession misession= request.getSession(true);
 			Articulo miproducto= new Articulo(request.getParameter("b1"));
-		
 			misession.setAttribute("producto",miproducto);
 			
 		}
@@ -84,7 +73,7 @@ public class AnadiralCarrito extends HttpServlet {
 			misession.setAttribute("producto",miproducto);
 			
 		}
-		response.sendRedirect("contenidos/bebidas.jsp");
+		response.sendRedirect("bebidas.jsp");
 	}
 
 }
