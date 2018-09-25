@@ -1,8 +1,6 @@
 package com.ipartek.formacion.video.pojo;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
