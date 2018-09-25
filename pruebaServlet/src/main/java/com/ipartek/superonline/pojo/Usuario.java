@@ -59,8 +59,7 @@ public class Usuario {
 	public void setID(long iD) {
 		ID = iD;
 	}
-	
-	
-	
+
+
 
 }

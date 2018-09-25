@@ -31,7 +31,8 @@
 				<th>${producto.id}</th>
 				<td>${producto.nombre}</td>
 				<td><fmt:formatNumber value="${producto.precio}" type="currency"/></td>
-				<td style="width: 10%"><a class="btn btn-success add-to-cart-button" href="edicion?accion=update&id=${producto.id}">Editar</a>
+				<td><a class="btn btn-success add-to-cart-button" href="edicion?accion=update&id=${producto.id}">Editar</a>
+				
 				  <a class="btn btn-success add-to-cart-button" href="edicion?accion=delete&id=${producto.id}">Borrar</a>
 				</td>
 				

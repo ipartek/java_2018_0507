@@ -43,12 +43,7 @@
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a
-							href="http://localhost:8080/pruebaServlet/listado.jsp">Listado
-								de productos</a></li>
-						<li><a
-							href="http://localhost:8080/pruebaServlet/edicion.jsp">aÃ±adir
-								producto</a></li>
+						
 								<li><a href="admin/index">Administracion</a></li>
 
 					</ul>
