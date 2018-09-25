@@ -25,7 +25,8 @@ public class CarritoServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		List<Producto> productos = (List<Producto>)session.getAttribute("carrito");
+		List<Producto> productos = (List<Producto>)session.getAttribute("carrito"); //crea una lista de productos para cada session
+		//de usuario que inicialize sesion
 		
 		if(productos == null) {
 			productos = new ArrayList<Producto>();

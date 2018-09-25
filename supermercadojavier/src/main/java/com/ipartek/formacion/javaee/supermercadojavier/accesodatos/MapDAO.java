@@ -21,7 +21,7 @@ public class MapDAO<T> implements CrudAble<T> {
 
 	@Override
 	public boolean insert(T pojo) {
-		if(pojos.containsKey(((Identificable)pojo).getId())) {
+		if(pojos.containsKey(((Identificable)pojo).getId())) { //comparacion de ID's 
 			return false;
 		}
 		pojos.put(((Identificable) pojo).getId(), pojo);
