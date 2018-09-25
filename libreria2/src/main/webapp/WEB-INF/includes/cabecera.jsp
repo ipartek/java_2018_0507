@@ -27,7 +27,9 @@
 	width:20px;
 	
 	}
-	
+	#minisss{
+	width:100px;
+	}
 	tbody{
 	
 	border:1px;}

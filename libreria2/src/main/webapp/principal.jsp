@@ -8,11 +8,13 @@
 </header>
 
 <div id="container-fluid">
-<div class="row" id="contenido">
+	<div class="row" id="contenido">
+
 	<c:forEach items="${productos}" var="producto">
+	
 		<div class="col-md-2"	>
 			<dl>
-			<dd><img src="imgs/2.jpg"></dd>
+			<dd><img src="imgs/${producto.id}.jpg" id="minisss"></dd>
 				<dt>Nombre</dt>
 				<dd>
 					${producto.nombre} <a href="carrito?accion=add&id=${producto.id}">Añadir al
@@ -23,8 +25,13 @@
 				
 			</dl>
 		</div>
-	</c:forEach>
-	</div>
-</div>
+		<c:if test="${producto.id%5==0 }">
+			</div>
+			<div class="row" id="contenido">
+		
+		</c:if>
+	</c:forEach>	
+	
 
+	</div>
 <%@ include file="/WEB-INF/includes/pie.jsp"%>
