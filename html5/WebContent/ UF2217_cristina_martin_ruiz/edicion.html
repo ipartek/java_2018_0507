@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<title>Supermercado</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/estilos.css" />
+
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:600"
+	rel="stylesheet">
+</head>
+
+<body class="container-fluid">
+
+	<header id="cabecera" class="v-center p-2">
+		<h1>Supermercado</h1>
+	</header>
+
+	<nav class="navbar navbar-inverse noborder">
+		<div class="container-fluid">
+
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+					aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html"><img
+					src="imgs/logo.png" alt="logo" width="40px"></a>
+			</div>
+
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="index.html">Inicio <span
+							class="sr-only">(current)</span></a></li>
+					<li><a href="listado.html">Listado</a></li>
+					<li><a href="edicion.html">Modificar</a></li>
+					<li><a href="#">Otros</a></li>
+
+				</ul>
+				<ul class="nav navbar-nav pull-right">
+					<li><a href="login.html" class="pull-right verde">Login</a></li>
+				</ul>
+
+			</div>
+
+		</div>
+
+	</nav>
+
+	<div class="row">
+
+
+		<section id="principal" class="col-12">
+
+			<h2>Edición de registro</h2>
+
+			<form class="form-horizontal" action="listado">
+				<div class="form-group">
+					<label for="descuento"
+						class="col-sm-offset-1 col-sm-2 control-label">Descuento</label>
+					<div class="col-sm-8">
+						<div class="input-group">
+							<input type="number" class="form-control" id="descuento"
+								name="descuento" required="required" min="1" max="99" value="1"
+								placeholder="Descuento en %">
+							<div class="input-group-addon">%</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="producto"
+						class="col-sm-offset-1 col-sm-2 control-label">Producto</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="producto"
+							name="producto" required="required" maxlength="100"
+							pattern="[A-Za-z0-9ñÑáéíóúçàèìòù ]{3,100}" value="Producto1"
+							placeholder="Nombre del producto de mínimo 3 caracteres y máximo 10">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputFile"
+						class="col-sm-offset-1 col-sm-2 control-label">Foto</label>
+					<div class="col-sm-8">
+						<input type="file" id="exampleInputFile" required="required">
+						<p class="help-block">Busca la imagen que deseas subir.</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="precio" class="col-sm-offset-1 col-sm-2 control-label">Precio</label>
+					<div class="col-sm-8">
+						<div class="input-group">
+							<input type="number" class="form-control" id="precio"
+								name="precio" required="required" min="0" step="0.01"
+								placeholder="Precio del libro">
+							<div class="input-group-addon">€</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="descripcion"
+						class="col-sm-offset-1 col-sm-2 control-label">Descripción</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="descripcion"
+							name="descripcion" required="required" maxlength="50"
+							pattern="\w{3,50}"
+							placeholder="Descripción de mínimo 3 caracteres y máximo 50">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="unidad" class="col-sm-offset-1 col-sm-2 control-label">Unidades</label>
+					<div class="col-sm-8">
+						<input type="number" class="form-control" id="unidad"
+							name="unidad" required="required" maxlength="30"
+							pattern="\w{1,30}"
+							placeholder="Numero de unidades mínimo 1 y máximo 30">
+					</div>
+				</div>
+
+
+
+
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-primary">Aceptar</button>
+						<a class="btn btn-danger" href="listado.html">Cancelar</a>
+					</div>
+				</div>
+			</form>
+
+
+		</section>
+
+	</div>
+
+	<footer>
+		<div class="row text-center v-center">
+			<div class="col-md-6 col-xs-12">
+				<a href="#">Localizacion</a><br /> <a href="#">Contacto</a><br />
+				<a href="#">Política de privacidad</a><br /> <a href="#">&copy;2018
+					Cristina Martin</a>
+
+			</div>
+			<div class="col-md-6 col-xs-12">
+
+				<div class="footer-icons">
+
+					<a href="#"><img src="imgs/fb.png" alt="facebook"></a> <a
+						href="#"><img src="imgs/tt.png" alt="twitter"></a>
+
+
+				</div>
+			</div>
+		</div>
+
+
+	</footer>
+
+	<div class="top">
+		<a href="#cabecera"><img src="imgs/top.png"></a>
+	</div>
+
+</body>
+
+</html>

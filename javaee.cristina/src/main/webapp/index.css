@@ -1,0 +1,39 @@
+body{
+    font-family: sans-serif;
+}
+
+label{
+    width: 6em;
+    display: inline-block;
+}
+
+input, button{
+    border: 1px solid black;
+}
+
+button{
+    padding:  5px 10px;
+}
+
+.errorCuadro{
+	border: 2px solid red;
+}
+
+.errorTexto, .errorCuadro{
+	color: red;
+}
+
+/* # ----> ID (Atributo de HTML) */
+#mensaje{
+	font-variant: small-caps;
+}
+
+/* . ----> class (atributo de HTML) */
+.destacado {
+	font-weight: bold;
+	color: darkblue;
+}
+
+input[name=nombre]{
+	font-style: italic;
+}
