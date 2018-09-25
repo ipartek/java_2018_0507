@@ -31,8 +31,8 @@ public class AdminFilter implements Filter {
 		HttpServletRequest httpRequest = (HttpServletRequest)request;
 		Usuario usuario = (Usuario) httpRequest.getSession().getAttribute("user");
 		
-		if (usuario == null  || !"admin@email.com".equals(usuario.getEmail())) {
-			httpRequest.getRequestDispatcher("/").forward(request, response);
+		if (usuario == null  || !"admin@gmail.com".equals(usuario.getEmail())) {
+			httpRequest.getRequestDispatcher("/login").forward(request, response);
 		}else {
 			chain.doFilter(request, response);
 		}
