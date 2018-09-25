@@ -12,15 +12,19 @@
 		<tr>
 			<th>Nombre</th>
 			<th>Precio</th>
+			<th>   .   </th>
+			<th>.</th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody border=1>
 		<c:forEach items="${carrito}" var="producto">
 			<tr>
 				<td>${producto.nombre}</td>
 				<td><fmt:formatNumber value="${producto.precio}" type="currency"/></td>
-				<td><a href="carrito?id=${producto.id}&accion=delete">Borrar</a></td>
-			</tr>
+							<td><img alt="" src="imgs/2.jpg" id="mini"></td>	
+				
+						<td><a href="carrito?id=${producto.id}&accion=delete">Borrar</a></td>
+			</tr>	
 		</c:forEach>
 	</tbody>
 </table>

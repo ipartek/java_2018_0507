@@ -23,6 +23,14 @@
 		color: red;
 		font-weight: bold;
 	}
+	#mini{
+	width:20px;
+	
+	}
+	
+	tbody{
+	
+	border:1px;}
 </style>
 
 </head>

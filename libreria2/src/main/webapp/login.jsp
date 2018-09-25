@@ -3,10 +3,11 @@
 
 <%@ include file="/WEB-INF/includes/cabecera.jsp" %>
 
-<header>
-	<h1>Login</h1>
-</header>
 
+	<h1>Login</h1>
+
+<div id="row">
+<div id="col-xm-6">
 <form action="login" method="post">
 	<p>
 		<label for="email">Email</label>
@@ -23,5 +24,6 @@
 	</p>
 	
 </form>
-
+</div>
+</div>
 <%@ include file="/WEB-INF/includes/pie.jsp" %>

@@ -29,6 +29,9 @@ header h1 {
 #botella {
 	width: 200px;
 }
+#mini{
+	with:10px;
+}
 
 #precios {
 	padding-left: 22px;
