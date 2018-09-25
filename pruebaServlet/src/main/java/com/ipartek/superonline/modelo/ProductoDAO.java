@@ -49,7 +49,7 @@ public class ProductoDAO implements CrudAble<Producto>{
 		// TODO Auto-generated method stub
 		if(pojo!=null)
 			for(int i=0;i<productos.size();i++) {
-				if(productos.get(i).equals(pojo))
+				if(productos.get(i).equals(pojo.getId()))
 					productos.set(i, pojo);
 			}
 		return false;
