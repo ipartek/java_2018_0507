@@ -1,6 +1,6 @@
 package com.ipartek.formacion.javaee.supermercadojavier.pojo;
 
-public class Usuario {
+public class Usuario implements Identificable {
 	private long id;
 	private String email = "";
 	private String password = "";
