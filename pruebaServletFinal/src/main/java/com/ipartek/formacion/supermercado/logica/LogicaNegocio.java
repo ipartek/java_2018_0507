@@ -17,7 +17,7 @@ public class LogicaNegocio {
 		usuarios.insert(new Usuario(1, "batman@email.com", "contra"));
 		usuarios.insert(new Usuario(2, "admin@email.com", "contra"));
 		
-		for(int i = 1; i <= 10; i++) {
+		for(int i = 1; i <= 100; i++) {
 			productos.insert(new Producto(i, "Producto" + i, new BigDecimal(i*10 + "." + i)));
 		}
 	}
