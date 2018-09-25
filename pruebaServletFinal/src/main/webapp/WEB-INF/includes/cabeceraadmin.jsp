@@ -14,7 +14,7 @@
 	</header>
 	<nav>
 		<ul>
-			<li><a href="../principal">Principal</a>
+			<li><a href="../main.jsp">Principal</a>
 		</ul>
 	</nav>
 

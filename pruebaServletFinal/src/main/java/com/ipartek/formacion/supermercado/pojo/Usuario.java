@@ -1,4 +1,7 @@
-package com.ipartek.formacion.javaee.supermercadojavier.pojo;
+package com.ipartek.formacion.supermercado.pojo;
+
+import com.ipartek.formacion.supermercado.pojo.Identificable;
+import com.ipartek.formacion.supermercado.pojo.Usuario;
 
 public class Usuario implements Identificable {
 	private long id;
@@ -126,3 +129,4 @@ public class Usuario implements Identificable {
 		return correcto;
 	}
 }
+

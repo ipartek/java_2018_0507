@@ -1,7 +1,6 @@
-package com.ipartek.formacion.javaee.supermercadojavier.filtros;
+package com.ipartek.formacion.supermercado.filtros;
 
 import java.io.IOException;
-
 import javax.servlet.DispatcherType;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -12,16 +11,21 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
-import com.ipartek.formacion.javaee.supermercadojavier.pojo.Usuario;
+import com.ipartek.formacion.supermercado.pojo.Usuario;
 
-@WebFilter(dispatcherTypes = { DispatcherType.REQUEST, DispatcherType.FORWARD }, urlPatterns = { "/admin/*" })
+
+@WebFilter(dispatcherTypes = {
+				DispatcherType.REQUEST, 
+				DispatcherType.FORWARD
+		}
+					, urlPatterns = { "/admin/*" })
 public class AdminFilter implements Filter {
 
 	public void destroy() {
 	}
-
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-			throws IOException, ServletException {
+	public void doFilter(ServletRequest request,
+			ServletResponse response, FilterChain chain)
+					throws IOException, ServletException {
 		// place your code here
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		Usuario usuario = (Usuario) httpRequest.getSession().getAttribute("user");
@@ -35,4 +39,5 @@ public class AdminFilter implements Filter {
 
 	public void init(FilterConfig fConfig) throws ServletException {
 	}
+
 }

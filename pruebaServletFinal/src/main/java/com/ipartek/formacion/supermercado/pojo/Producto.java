@@ -1,4 +1,4 @@
-package com.ipartek.formacion.javaee.supermercadojavier.pojo;
+package com.ipartek.formacion.supermercado.pojo;
 
 import java.math.BigDecimal;
 

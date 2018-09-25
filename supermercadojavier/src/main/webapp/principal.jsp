@@ -14,8 +14,8 @@
 			<dl>
 				<dt>Nombre</dt>
 				<dd>
-					${producto.nombre} <a href="carrito?accion=add&id=${producto.id}">Añadir al
-						carrito</a>
+					${producto.nombre} <a href="carrito?accion=add&id=${producto.id}">
+					Añadir al carrito</a>
 				</dd>
 				<dt>Precio</dt>
 				<dd><fmt:formatNumber value="${producto.precio}" type="currency"/></dd>

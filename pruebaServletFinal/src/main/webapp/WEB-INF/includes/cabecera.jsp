@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Supermercado Javier</title>
+<title>Supermercado</title>
 
 <style>
 	.error {
@@ -20,16 +20,13 @@
 <body>
 	<header>
 	<!-- Aqui usamos el sessionScope para colocar el nombre del usuario -->
-		<h1>Supermercado Javier <small>${sessionScope.user.email}</small></h1>
+		<h1>Supermercado<small>${sessionScope.user.email}</small></h1>
 		<p>
 			
 		</p>
 	</header>
 	<nav>
 		<ul>
-		<!-- esta indicado en los servlets (@WebServlet("/principal"))
-		Como reconoce href la redireccion principal
-		 -->
 			<li><a href="principal">Principal</a></li>
 			<li><a href="carrito">Carrito</a></li>
 			

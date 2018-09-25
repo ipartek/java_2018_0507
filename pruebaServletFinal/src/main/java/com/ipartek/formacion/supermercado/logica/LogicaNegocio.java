@@ -1,18 +1,20 @@
-package com.ipartek.formacion.javaee.supermercadojavier.logica;
+package com.ipartek.formacion.supermercado.logica;
 
 import java.math.BigDecimal;
-import java.util.List;
 
-import com.ipartek.formacion.javaee.supermercadojavier.accesodatos.MapDAO;
-import com.ipartek.formacion.javaee.supermercadojavier.pojo.Producto;
-import com.ipartek.formacion.javaee.supermercadojavier.pojo.Usuario;
+import com.ipartek.formacion.supermercado.logica.LogicaNegocioException;
+import com.ipartek.formacion.supermercado.accesodatos.MapDAO;
+import com.ipartek.formacion.supermercado.pojo.Producto;
+import com.ipartek.formacion.supermercado.pojo.Usuario;
 
 public class LogicaNegocio {
-	private static MapDAO<Usuario> usuarios = new MapDAO<Usuario>();
 	private static MapDAO<Producto> productos = new MapDAO<Producto>();
-
+	private static MapDAO<Usuario> usuarios = new MapDAO<Usuario>();
+	
 	static {
-		usuarios.insert(new Usuario(1, "javier@email.com", "contra"));
+		//La diferencia entre usuario y administrador ç
+		//se encuentra en el filtro
+		usuarios.insert(new Usuario(1, "batman@email.com", "contra"));
 		usuarios.insert(new Usuario(2, "admin@email.com", "contra"));
 		
 		for(int i = 1; i <= 10; i++) {
@@ -26,26 +28,25 @@ public class LogicaNegocio {
 				return u.getPassword().equals(usuario.getPassword());
 			}
 		}
-		
 		return false;
 		//return ("javier@email.com".equalsIgnoreCase(usuario.getEmail()) && "contra".equals(usuario.getPassword())) ||
 		//		("admin@email.com".equalsIgnoreCase(usuario.getEmail()) && "contra".equals(usuario.getPassword()));	
 	}
 	
-	public static List<Producto> obtenerProductos() {
+	public static Object obtenerProductos() {
 		return productos.getAll();
 	}
-	
+
 	public static Producto obtenerProductoPorId(long id) {
 		return productos.getById(id);
 	}
-	
+
 	public static void agregarProducto(Producto producto) {
 		if(!productos.insert(producto)) {
 			throw new LogicaNegocioException("No se ha podido insertar el registro");
 		}
+		
 	}
-
 	public static void modificarProducto(Producto producto) {
 		if(!productos.update(producto)) {
 			throw new LogicaNegocioException("No se ha podido modificar el registro");
@@ -57,4 +58,5 @@ public class LogicaNegocio {
 			throw new LogicaNegocioException("No se ha podido borrar el registro");
 		}
 	}
+
 }
