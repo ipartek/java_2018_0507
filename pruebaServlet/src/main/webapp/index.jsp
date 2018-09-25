@@ -6,13 +6,13 @@
 
 <%@ include file="WEB-INF/includes/cabecera.jsp" %>
 
-<div class="center-block" id="contenedorproductos">
+<div class="center-block" id="container-fluid">
 		<div class="row">
-		<div class="col-md-12 col-sm-6" >
-			<div class="col-md-2">
+		
+		
 			
 			<c:forEach items="${productos}" var="prod">
-			
+				<div class="col-md-2" style="margin-left: 30px">
 			<!-- START The Product Item -->
 
 				<img src="http://www.jarrow.com/productImg2/KETO.jpg" alt="" />
@@ -30,18 +30,11 @@
 	
 
 				<!-- END!! The Product Item -->
-			
+			</div>
 			</c:forEach>
 				
-			</div>
 			
-		
-			</div>
 			
-			<div class="col-md-2"></div>
-			<div class="col-md-2"></div>
-			<div class="col-md-2"></div>
-			<div class="col-md-2"></div>
 					</div>
 		</div>
 

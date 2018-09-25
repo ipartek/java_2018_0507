@@ -50,7 +50,7 @@ public class ProductoDAO implements CrudAble<Producto>{
 		if(pojo!=null)
 			for(int i=0;i<productos.size();i++) {
 				if(productos.get(i).equals(pojo))
-					productos.add(i, pojo);
+					productos.set(i, pojo);
 			}
 		return false;
 	}
@@ -64,5 +64,9 @@ public class ProductoDAO implements CrudAble<Producto>{
 					}
 				return false;
 			}
+	
+	
+	
+	
 	
 }
