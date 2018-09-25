@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.javaee.supermercado.logica.LogicaNegocio;
 
-
 @WebServlet("/admin/index")
 public class AdminIndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -19,9 +18,7 @@ public class AdminIndexServlet extends HttpServlet {
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

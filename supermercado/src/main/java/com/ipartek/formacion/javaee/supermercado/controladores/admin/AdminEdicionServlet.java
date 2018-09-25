@@ -15,8 +15,13 @@ import com.ipartek.formacion.javaee.supermercado.pojo.Producto;
 public class AdminEdicionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public static final String ADD = "Añadir", UPDATE = "Modificar", DELETE = "Borrar";
+	public static String ADD = "Añadir", UPDATE = "Modificar", DELETE = "Borrar";
 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doGet(request, response);
+	}
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String id = request.getParameter("id");
@@ -42,11 +47,8 @@ public class AdminEdicionServlet extends HttpServlet {
 	}
 
 	private void cargarProducto(HttpServletRequest request, String id) {
-		Producto producto = LogicaNegocio.obtenerProductoPorId(Long.parseLong(id));
+		Producto producto;
+		producto = LogicaNegocio.obtenerProductoPorId(Long.parseLong(id));
 		request.setAttribute("prod", producto);
-	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
 	}
 }

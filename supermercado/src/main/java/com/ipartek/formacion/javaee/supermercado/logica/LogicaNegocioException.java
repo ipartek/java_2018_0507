@@ -2,7 +2,7 @@ package com.ipartek.formacion.javaee.supermercado.logica;
 
 public class LogicaNegocioException extends RuntimeException {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 8318305496713949185L;
 
 	public LogicaNegocioException() {
 		// TODO Auto-generated constructor stub

@@ -1,84 +1,14 @@
 package com.ipartek.formacion.javaee.supermercado.pojo;
 
-public class Usuario {
+public class Usuario implements Identificable {
 	private long id;
 	private String email = "";
 	private String password = "";
-	
+
 	private String errorEmail = "";
 	private String errorPassword = "";
 	
 	private boolean correcto = true;
-
-	public Usuario(long id, String email, String password) {
-		this.id = id;
-		setEmail(email);
-		this.password = password;
-	}
-	
-	public Usuario(String email, String password) {
-		this(-1, email, password);
-	}
-	public Usuario() {}
-
-	
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		if (email == null || email.trim().length() == 0) {
-			setErrorEmail("No se admite un email vacio");
-		}else if (email.matches("^\\w+@\\w+\\.\\w+$")){
-			setErrorEmail("El email introducido no es correcto");
-		}
-		
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getErrorEmail() {
-		return errorEmail;
-	}
-
-	public void setErrorEmail(String errorEmail) {
-		correcto = false;
-		this.errorEmail = errorEmail;
-	}
-
-	public String getErrorPassword() {
-		return errorPassword;
-	}
-
-	public void setErrorPassword(String errorPassword) {
-		correcto = false;
-		this.errorPassword = errorPassword;
-	}
-
-	public boolean isCorrecto() {
-		return correcto;
-	}
-
-	@Override
-	public String toString() {
-		return "Usuario [id=" + id + ", email=" + email + ", password=" + password + ", errorEmail=" + errorEmail
-				+ ", errorPassword=" + errorPassword + "]";
-	}
 
 	@Override
 	public int hashCode() {
@@ -125,6 +55,74 @@ public class Usuario {
 			return false;
 		return true;
 	}
-	
 
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", email=" + email + ", password=" + password + ", errorEmail=" + errorEmail
+				+ ", errorPassword=" + errorPassword + "]";
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		if(email == null || email.trim().length() == 0) {
+			setErrorEmail("No se admite un email vacío");
+		} else if(!email.matches("^\\w+@\\w+\\.\\w+$")) {
+			setErrorEmail("El email introducido no es correcto");
+		}
+		
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getErrorEmail() {
+		return errorEmail;
+	}
+
+	public void setErrorEmail(String errorEmail) {
+		correcto = false;
+		this.errorEmail = errorEmail;
+	}
+
+	public String getErrorPassword() {
+		return errorPassword;
+	}
+
+	public void setErrorPassword(String errorPassword) {
+		correcto = false;
+		this.errorPassword = errorPassword;
+	}
+
+	public Usuario(long id, String email, String password) {
+		this.id = id;
+		setEmail(email);
+		setPassword(password);
+	}
+
+	public Usuario(String email, String password) {
+		this(-1, email, password);
+	}
+	
+	public Usuario() {}
+
+	public boolean isCorrecto() {
+		return correcto;
+	}
 }

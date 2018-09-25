@@ -7,37 +7,35 @@
 	<h1>Administración Edición</h1>
 </header>
 
-<form action="procesaredicion">
+<form action="procesaredicion" method="post">
 	<p>
-		<label for="id">Id</label>
-		<input type="number" name="id" id="id" value="${prod.id}"
-		<c:if test="${param.accion == 'delete'}">
-				readonly = "readonly"
-			</c:if>
-		/>
-	</p>	
-	<p>
-		<label for="nombre">Nombre</label>
-		<input type="text" name="nombre" id="nombre" value="${prod.nombre}" 
+		<label for="id">Id</label> <input type="number" name="id" id="id"
+			value="${prod.id}"
 			<c:if test="${param.accion == 'delete'}">
-				disabled = "disabled"
-			</c:if>
-		/>
+			readonly="readonly"
+		</c:if> />
 	</p>
 	<p>
-		<label for="precio">Precio</label>
-		<input type="number" step=".01" name="precio" id="precio" value="${prod.precio}"
-		<c:if test="${param.accion == 'delete'}">
-				disabled = "disabled"
-			</c:if>
-		/>
+		<label for="nombre">Nombre</label> <input type="text" name="nombre"
+			id="nombre" value="${prod.nombre}"
+			<c:if test="${param.accion == 'delete'}">
+			disabled="disabled"
+		</c:if> />
 	</p>
 	<p>
-		<input type="hidden" name="accion" value="${param.accion}">
+		<label for="precio">Precio</label> <input type="number" step=".01"
+			name="precio" id="precio" value="${prod.precio}"
+			<c:if test="${param.accion == 'delete'}">
+			disabled="disabled"
+		</c:if> />
+	</p>
+	<p>
+		<input type="hidden" name="accion" value="${param.accion}" />
 		<button>${accion}</button><a href="index">Cancelar</a>
 		<span class="error">${error}</span>
 	</p>
-</form>
 
+
+</form>
 
 <%@ include file="/WEB-INF/includes/pie.jsp"%>

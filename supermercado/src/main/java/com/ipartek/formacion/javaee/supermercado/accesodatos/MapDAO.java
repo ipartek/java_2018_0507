@@ -7,7 +7,6 @@ import java.util.TreeMap;
 import com.ipartek.formacion.javaee.supermercado.pojo.Identificable;
 
 public class MapDAO<T> implements CrudAble<T> {
-
 	private TreeMap<Long, T> pojos = new TreeMap<Long, T>();
 
 	@Override
@@ -22,29 +21,30 @@ public class MapDAO<T> implements CrudAble<T> {
 
 	@Override
 	public boolean insert(T pojo) {
-		if (pojos.containsKey(((Identificable)pojo).getId())){
+		if(pojos.containsKey(((Identificable)pojo).getId())) {
 			return false;
 		}
-		pojos.put(((Identificable)pojo).getId(), pojo);
+		pojos.put(((Identificable) pojo).getId(), pojo);
 		return true;
 	}
 
 	@Override
 	public boolean update(T pojo) {
-		if (!pojos.containsKey(((Identificable)pojo).getId())){
+		if(!pojos.containsKey(((Identificable) pojo).getId())) {
 			return false;
 		}
-		pojos.put(((Identificable)pojo).getId(), pojo);
+		pojos.put(((Identificable) pojo).getId(), pojo);
 		return true;
 	}
 
 	@Override
 	public boolean delete(long id) {
-		if (!pojos.containsKey(id)){
+		if(!pojos.containsKey(id)) {
 			return false;
 		}
 		pojos.remove(id);
 		return true;
 	}
-
+	
+	
 }

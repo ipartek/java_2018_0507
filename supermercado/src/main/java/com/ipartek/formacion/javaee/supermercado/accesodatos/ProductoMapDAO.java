@@ -6,8 +6,7 @@ import java.util.TreeMap;
 
 import com.ipartek.formacion.javaee.supermercado.pojo.Producto;
 
-public class ProductoMapDAO implements CrudAble<Producto>{
-
+public class ProductoMapDAO implements CrudAble<Producto> {
 	private TreeMap<Long, Producto> productos = new TreeMap<Long, Producto>();
 
 	@Override
@@ -22,7 +21,7 @@ public class ProductoMapDAO implements CrudAble<Producto>{
 
 	@Override
 	public boolean insert(Producto pojo) {
-		if (productos.containsKey(pojo.getId())){
+		if(productos.containsKey(pojo.getId())) {
 			return false;
 		}
 		productos.put(pojo.getId(), pojo);
@@ -31,7 +30,7 @@ public class ProductoMapDAO implements CrudAble<Producto>{
 
 	@Override
 	public boolean update(Producto pojo) {
-		if (!productos.containsKey(pojo.getId())){
+		if(!productos.containsKey(pojo.getId())) {
 			return false;
 		}
 		productos.put(pojo.getId(), pojo);
@@ -40,11 +39,11 @@ public class ProductoMapDAO implements CrudAble<Producto>{
 
 	@Override
 	public boolean delete(long id) {
-		if (!productos.containsKey(id)){
+		if(!productos.containsKey(id)) {
 			return false;
 		}
 		productos.remove(id);
 		return true;
 	}
-
+	
 }

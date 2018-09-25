@@ -10,6 +10,7 @@
 <div class="mensaje">
 	${mensaje}
 </div>
+
 <table id="adminlistado">
 	<thead>
 		<tr>
@@ -21,15 +22,13 @@
 	</thead>
 	<tbody>
 		<c:forEach items="${productos}" var="producto">
-		<tr>
-			<th>${producto.id}</th>
-			<td>${producto.nombre}</td>
-			<td><fmt:formatNumber value="${producto.precio}" type="currency" /></td>
-			<td>
-				<a href="edicion?id=${producto.id}&accion=update">Editar</a> 
-				<a href="edicion?id=${producto.id}&accion=delete">Borrar</a>
-			</td>
-		</tr>
+			<tr>
+				<th>${producto.id}</th>
+				<td>${producto.nombre}</td>
+				<td><fmt:formatNumber value="${producto.precio}" type="currency" /></td>
+				<td><a href="edicion?id=${producto.id}&accion=update">Editar</a> <a
+					href="edicion?id=${producto.id}&accion=delete">Borrar</a></td>
+			</tr>
 		</c:forEach>
 	</tbody>
 </table>

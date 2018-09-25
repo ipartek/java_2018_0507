@@ -2,21 +2,15 @@ package com.ipartek.formacion.javaee.supermercado.pojo;
 
 import java.math.BigDecimal;
 
-public class Producto {
-	private long id;	// Servira para crear las URLs de las imagenes también
+public class Producto implements Identificable{
+	private long id; //Servirá de base para crear las URLs de las imágenes también
 	private String nombre;
 	private BigDecimal precio;
-	private String urlFoto;
-	
 	public Producto(long id, String nombre, BigDecimal precio) {
+		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.precio = precio;
-	}
-	
-	@Override
-	public String toString() {
-		return "Producto [id=" + id + ", nombre=" + nombre + ", precio=" + precio + ", urlFoto=" + urlFoto + "]";
 	}
 	public long getId() {
 		return id;
@@ -36,12 +30,6 @@ public class Producto {
 	public void setPrecio(BigDecimal precio) {
 		this.precio = precio;
 	}
-	public String getUrlFoto() {
-		return urlFoto;
-	}
-	public void setUrlFoto(String urlFoto) {
-		this.urlFoto = urlFoto;
-	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -49,7 +37,6 @@ public class Producto {
 		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		result = prime * result + ((precio == null) ? 0 : precio.hashCode());
-		result = prime * result + ((urlFoto == null) ? 0 : urlFoto.hashCode());
 		return result;
 	}
 	@Override
@@ -73,12 +60,11 @@ public class Producto {
 				return false;
 		} else if (!precio.equals(other.precio))
 			return false;
-		if (urlFoto == null) {
-			if (other.urlFoto != null)
-				return false;
-		} else if (!urlFoto.equals(other.urlFoto))
-			return false;
 		return true;
 	}
-
+	@Override
+	public String toString() {
+		return "Producto [id=" + id + ", nombre=" + nombre + ", precio=" + precio + "]";
+	}
+	
 }

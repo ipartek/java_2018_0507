@@ -21,6 +21,7 @@
 		<button>Login</button>
 		<span class="error">${errores}</span>
 	</p>
+	
 </form>
 
-<%@ include file="/WEB-INF/includes/pie.jsp"%>
+<%@ include file="/WEB-INF/includes/pie.jsp" %>

@@ -13,14 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.ipartek.formacion.javaee.supermercado.logica.LogicaNegocio;
 import com.ipartek.formacion.javaee.supermercado.pojo.Producto;
 
-
 @WebServlet("/admin/procesaredicion")
 public class AdminProcesarEdicionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-
 		String accion = request.getParameter("accion");
 
 		String id = request.getParameter("id");
@@ -30,6 +29,7 @@ public class AdminProcesarEdicionServlet extends HttpServlet {
 		Producto producto = null;
 
 		RequestDispatcher edicion = request.getRequestDispatcher("edicion");
+
 		try {
 			switch (accion) {
 			case "add":
@@ -53,12 +53,6 @@ public class AdminProcesarEdicionServlet extends HttpServlet {
 
 		request.setAttribute("mensaje", "Operación correcta");
 		request.getRequestDispatcher("index").forward(request, response);
-
 	}
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
-	}
-
 
 }
