@@ -1,45 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<fmt:setLocale value="es_ES"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Supermercado Cristina</title>
-
-<style>
-	.error {
-		color: red;
-		font-weight: bold;
-	}
-</style>
-
+<title>Supermercado Javier</title>
 </head>
 <body>
 	<header>
-		<h1>Supermercado Cristina <small>${sessionScope.user.email}</small></h1>
-		<p>
-			
-		</p>
+		<h1>Supermercado Javier</h1>
 	</header>
 	<nav>
 		<ul>
-			<li><a href="principal">Principal</a></li>
-			<li><a href="carrito">Carrito</a></li>
-			
-			<li><a href="admin">Administración</a></li>
-			<c:choose>
-				<c:when test="${sessionScope.user == null}">
-					<li><a href="login">Login</a></li>
-				</c:when>
-				<c:otherwise>
-					<li><a href="desconectar">Logout</a></li>
-				</c:otherwise>
-			</c:choose>
-				
-			
+			<li><a href="principal.jsp">Principal</a>
+			<li><a href="carrito.jsp">Carrito</a>
+			<li><a href="login.jsp">Login</a>
+			<li><a href="admin">Administración</a>
 		</ul>
 	</nav>
 

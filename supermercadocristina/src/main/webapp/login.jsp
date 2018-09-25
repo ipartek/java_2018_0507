@@ -7,11 +7,10 @@
 	<h1>Login</h1>
 </header>
 
-<form action="login" method="post">
+<form action="principal.jsp">
 	<p>
 		<label for="email">Email</label>
-		<input type="email" name="email" id="email" value="${user.email}" />
-		<span class="error">${user.errorEmail}</span>
+		<input type="email" name="email" id="email" />
 	</p>
 	<p>
 		<label for="password">Contraseña</label>
@@ -19,7 +18,6 @@
 	</p>
 	<p>
 		<button>Login</button>
-		<span class="error">${errores}</span>
 	</p>
 	
 </form>
