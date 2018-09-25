@@ -47,11 +47,24 @@ public class ProductoDAO implements CrudAble<Producto>{
 
 	public boolean update(Producto pojo) {
 		// TODO Auto-generated method stub
-		if(pojo!=null)
+		/**if(pojo!=null)
 			for(int i=0;i<productos.size();i++) {
 				if(productos.get(i).equals(pojo.getId()))
 					productos.set(i, pojo);
+			}**/
+		
+		if(pojo!=null) {
+			for(int i =0; i<productos.size();i++) {
+				if(productos.get(i).getId()==pojo.getId()){
+					productos.get(i).setNombre(pojo.getNombre());
+					productos.get(i).setPrecio(pojo.getPrecio());
+					return true;
+				}
 			}
+		}
+		
+		
+		
 		return false;
 	}
 
