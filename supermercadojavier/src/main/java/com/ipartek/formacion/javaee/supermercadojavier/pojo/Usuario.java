@@ -7,6 +7,8 @@ public class Usuario {
 
 	private String errorEmail = "";
 	private String errorPassword = "";
+	
+	private boolean correcto = true;
 
 	@Override
 	public int hashCode() {
@@ -73,6 +75,12 @@ public class Usuario {
 	}
 
 	public void setEmail(String email) {
+		if(email == null || email.trim().length() == 0) {
+			setErrorEmail("No se admite un email vacío");
+		} else if(!email.matches("^\\w+@\\w+\\.\\w+$")) {
+			setErrorEmail("El email introducido no es correcto");
+		}
+		
 		this.email = email;
 	}
 
@@ -89,6 +97,7 @@ public class Usuario {
 	}
 
 	public void setErrorEmail(String errorEmail) {
+		correcto = false;
 		this.errorEmail = errorEmail;
 	}
 
@@ -97,13 +106,14 @@ public class Usuario {
 	}
 
 	public void setErrorPassword(String errorPassword) {
+		correcto = false;
 		this.errorPassword = errorPassword;
 	}
 
 	public Usuario(long id, String email, String password) {
 		this.id = id;
-		this.email = email;
-		this.password = password;
+		setEmail(email);
+		setPassword(password);
 	}
 
 	public Usuario(String email, String password) {
@@ -111,4 +121,8 @@ public class Usuario {
 	}
 	
 	public Usuario() {}
+
+	public boolean isCorrecto() {
+		return correcto;
+	}
 }

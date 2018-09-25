@@ -2,12 +2,12 @@ package com.ipartek.formacion.pajaros;
 
 public class DatosPersonales {
 	public static String nombreAve;
-	public String nombreDueño;
+	public String nombreDueno;
 	
 	
 	public DatosPersonales() {
 		nombreAve="paquito";
-		nombreDueño="PEPE";
+		nombreDueno="PEPE";
 	}
 	
 	public static String getNombreAve() {

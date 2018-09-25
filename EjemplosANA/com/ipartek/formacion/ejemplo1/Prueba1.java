@@ -86,7 +86,7 @@ public class Prueba1 {
 			//b = 1;
 			div = a / b;
 		} catch (ArithmeticException ae) {
-			System.out.println("División por cero");
+			System.out.println("Divisiï¿½n por cero");
 			div = Integer.MAX_VALUE;
 		} catch (ArrayIndexOutOfBoundsException aioobe) {
 			System.out.println(aioobe.getMessage());
@@ -190,7 +190,7 @@ public class Prueba1 {
 		LocalDate newYear = LocalDate.now().plusYears(1).withDayOfYear(1);
 		System.out.println(newYear);
 	}
-
+	
 	public static void mainMap(String[] args) {
 		Map<Punto, String> ubicaciones = new HashMap<>();
 
@@ -272,7 +272,7 @@ public class Prueba1 {
 
 		Logger l = Logger.getLogger(Prueba1.class.getName()); // getClass().getName());
 		l.info("Prueba de logger");
-		l.log(Level.SEVERE, "Prueba GRAVE", new RuntimeException("Prueba de excepción"));
+		l.log(Level.SEVERE, "Prueba GRAVE", new RuntimeException("Prueba de excepciï¿½n"));
 
 		String sNum = "123";
 		int i = Integer.parseInt(sNum);
