@@ -1,33 +1,47 @@
-package com.ipartek.superonline.pojo;
+ package com.ipartek.superonline.pojo;
 
 public class Producto {
 
-	private String nombre, descripcion;
+	private String nombre;
 	private double precio;
-	private long ID;
-	private int cantidad;
+	private long id;
+
 	
 	
 	public Producto() {
 		
 	}
 	
-	public Producto(String nombre, String descripcion, double precio, long iD) {
-		super();
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.precio = precio;
-		ID = iD;
-	}
 	
-	public Producto(String nombre, String descripcion, double precio, long iD, int cantidad) {
+	
+
+
+	public Producto(String nombre, double precio, long id) {
 		super();
 		this.nombre = nombre;
-		this.descripcion = descripcion;
 		this.precio = precio;
-		ID = iD;
-		this.cantidad = cantidad;
+		this.id = id;
 	}
+
+
+
+
+
+	public long getId() {
+		return id;
+	}
+
+
+
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
+
+
 
 	public String getNombre() {
 		return nombre;
@@ -35,14 +49,6 @@ public class Producto {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
 	}
 
 	public double getPrecio() {
@@ -53,21 +59,50 @@ public class Producto {
 		this.precio = precio;
 	}
 
-	public long getID() {
-		return ID;
+
+
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(precio);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
 	}
 
-	public void setID(long iD) {
-		ID = iD;
+
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Producto other = (Producto) obj;
+		if (id != other.id)
+			return false;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		if (Double.doubleToLongBits(precio) != Double.doubleToLongBits(other.precio))
+			return false;
+		return true;
 	}
 
-	public int getCantidad() {
-		return cantidad;
-	}
+	
 
-	public void setCantidad(int cantidad) {
-		this.cantidad = cantidad;
-	}
+
 
 	
 	

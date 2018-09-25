@@ -50,7 +50,7 @@
 		<!-- ./Footer -->
 	</footer>
 
-<a class="btn btn-default" href="../index.jsp" role="button" id="topb" style="display:none">TOP</a>
+<a class="btn btn-default" href="../principal" role="button" id="topb" style="display:none">TOP</a>
 
 
 </body>

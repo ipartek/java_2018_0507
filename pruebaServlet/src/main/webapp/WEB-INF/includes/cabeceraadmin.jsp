@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/estilos.css" />
+<link rel="stylesheet" href="../css/bootstrap.min.css" />
+<link rel="stylesheet" href="../css/estilos.css" />
 
 
 
@@ -17,8 +17,8 @@
 	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
 	crossorigin="anonymous">
 
-<script src="js/jquery-1.12.4.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 
 
 <title>Principal</title>
@@ -36,7 +36,7 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a href="http://localhost:8080/pruebaServlet/principal"><img src="imgs/logo.png" alt="" id="logotipo" /></a>
+					<a href="http://localhost:8080/pruebaServlet/index.jsp"><img src="imgs/logo.png" alt="" id="logotipo" /></a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -44,12 +44,8 @@
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li><a
-							href="http://localhost:8080/pruebaServlet/listado.jsp">Listado
-								de productos</a></li>
-						<li><a
-							href="http://localhost:8080/pruebaServlet/edicion.jsp">aÃ±adir
-								producto</a></li>
-								<li><a href="admin/index">Administracion</a></li>
+							href="../principal">Principal</a></li>
+						
 
 					</ul>
 					<form class="navbar-form navbar-right">

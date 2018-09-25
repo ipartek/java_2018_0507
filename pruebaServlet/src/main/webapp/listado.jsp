@@ -19,41 +19,26 @@
 			<tr>
 				<th>ID</th>
 				<th>Título</th>
-				<th>Editorial</th>
 				<th>Precio</th>
-				<th style="width: 10%"><button type="submit" class="btn btn-xs"
-				id="submitedit">Añadir</button></th>
+				<th style="width: 10%"> <a class="btn btn-success add-to-cart-button" href="edicion?accion=add">Añadir</a></th>
 					
 			</tr>
 		</thead>
 		<tbody>
+		<c:forEach items="${productos}" var="producto">
+		
 			<tr>
-				<th>1</th>
-				<td>La Historia Interminable</td>
-				<td>Bruguera</td>
-				<td>12,5€</td>
-				<td style="width: 10%"><button type="submit" class="btn btn-xs"
-							id="submitedit">Borrar</button>
-				    <button type="submit" class="btn btn-xs"
-							id="submitedit">Editar</button>
+				<th>${producto.id}</th>
+				<td>${producto.nombre}</td>
+				<td><fmt:formatNumber value="${producto.precio}" type="currency"/></td>
+				<td style="width: 10%"><a class="btn btn-success add-to-cart-button" href="edicion?accion=update&id=${producto.id}">Editar</a>
+				  <a class="btn btn-success add-to-cart-button" href="edicion?accion=delete&id=${producto.id}">Borrar</a>
 				</td>
 				
 			</tr>
-			<tr>
-				<th>2</th>
-				<td>El Principito</td>
-				<td>Anaya</td>
-				<td>5,6€</td>
-			</tr>
+		</c:forEach>	
 		</tbody>
-		<tfoot>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>18,1€</td>
-			</tr>
-		</tfoot>
+	
 	</table>
 
 

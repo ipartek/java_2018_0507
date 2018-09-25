@@ -30,7 +30,7 @@ public class ProductoDAO implements CrudAble<Producto>{
 		// TODO Auto-generated method stub
 		Producto prod=null;
 		for(Producto p:productos)
-			if(p.getID()==id)
+			if(p.getId()==id)
 			{
 				return p;
 				
@@ -59,7 +59,7 @@ public class ProductoDAO implements CrudAble<Producto>{
 		// TODO Auto-generated method stub
 		
 			for(int i=0;i<productos.size();i++) {
-				if(productos.get(i).getID()==id)
+				if(productos.get(i).getId()==id)
 					productos.remove(i);
 					}
 				return false;

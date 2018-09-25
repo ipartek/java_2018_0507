@@ -18,38 +18,23 @@
 		<thead>
 			<tr>
 				<th>ID</th>
-				<th>Título</th>
-				<th>Editorial</th>
+				<th>Nombre</th>
 				<th>Precio</th>
 				<th></th>
 			</tr>
 		</thead>
 		<tbody>
+		<c:forEach items="${carrito}" var="producto">
 			<tr>
-				<th>1</th>
-				<td>La Historia Interminable</td>
-				<td>Bruguera</td>
-				<td>12,5€</td>
-				<td style="width: 10%"><button type="submit" class="btn btn-xs"
-							id="submitedit">Borrar</button>
+				<th>${producto.id}</th>
+				<td>${producto.nombre}</td>
+				<td>${producto.precio}</td>
+				<td>	<a class="btn add-to-cart-button" href="carrito?accion=delete&id=${producto.id}">Borrar</a>
 				  
 				</td>
 				
 			</tr>
-			<tr>
-				<th>2</th>
-				<td>El Principito</td>
-				<td>Anaya</td>
-				<td>5,6€</td>
-			</tr>
-		</tbody>
-		<tfoot>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>18,1€</td>
-			</tr>
+			</c:forEach>
 		</tfoot>
 	</table>
 
