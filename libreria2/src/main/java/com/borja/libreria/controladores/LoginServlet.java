@@ -15,12 +15,10 @@ import com.borja.libreria.pojo.Usuario;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.sendRedirect(request.getContextPath() + "/login.jsp");
 	}
 
-	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1.Recogida de datos de formularios, URLs, cookies, session...
 		request.setCharacterEncoding("UTF-8");

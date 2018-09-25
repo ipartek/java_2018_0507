@@ -2,7 +2,10 @@ package com.borja.libreria.pojo;
 
 import java.math.BigDecimal;
 
-public class Producto {
+import com.borja.libreria.pojo.Identificable;
+import com.borja.libreria.pojo.Producto;
+
+public class Producto implements Identificable{
 	private long id; //Servirá de base para crear las URLs de las imágenes también
 	private String nombre;
 	private BigDecimal precio;

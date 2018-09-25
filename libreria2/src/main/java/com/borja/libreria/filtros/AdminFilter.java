@@ -17,25 +17,22 @@ import com.borja.libreria.pojo.Usuario;
 @WebFilter(dispatcherTypes = { DispatcherType.REQUEST, DispatcherType.FORWARD }, urlPatterns = { "/admin/*" })
 public class AdminFilter implements Filter {
 
-	@Override
 	public void destroy() {
 	}
 
-	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		// place your code here
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		Usuario usuario = (Usuario) httpRequest.getSession().getAttribute("user");
 
-		if (usuario == null || !"admin@email.com".equals(usuario.getEmail())) {
+		if (usuario == null || !"admin@admin.com".equals(usuario.getEmail())) {
 			httpRequest.getRequestDispatcher("/login").forward(request, response);
 		} else {
 			chain.doFilter(request, response);
 		}
 	}
 
-	@Override
 	public void init(FilterConfig fConfig) throws ServletException {
 	}
 }

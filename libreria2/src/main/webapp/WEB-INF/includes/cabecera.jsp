@@ -6,8 +6,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" />
-<title>Supermercado Javier</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carrefour</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="css/estilos.css" />
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+
+<script src="js/jquery-1.12.4.min.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
 
 <style>
 	.error {
@@ -18,19 +27,31 @@
 
 </head>
 <body>
-	<header>
-		<h1>Supermercado Javier <small>${sessionScope.user.email}</small></h1>
-		<p>
-			
-		</p>
-	</header>
-	<nav>
-		<ul>
-			<li><a href="principal">Principal</a></li>
-			<li><a href="carrito">Carrito</a></li>
-			
-			<li><a href="admin">Administración</a></li>
-			<c:choose>
+
+<header>
+
+<h1 align="center">Libreria</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      
+      <a class="navbar-brand" href="principal">LB</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="principal">Principal <span class="sr-only">(current)</span></a></li>
+        <li><a href="admin">Administracion</a></li>
+        
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+             <li><a href="carrito">Carrito</a></li>
+ 
+            <li><c:choose>
 				<c:when test="${sessionScope.user == null}">
 					<li><a href="login">Login</a></li>
 				</c:when>
@@ -38,9 +59,20 @@
 					<li><a href="desconectar">Logout</a></li>
 				</c:otherwise>
 			</c:choose>
-				
+			            <li><small>${sessionScope.user.email}</small></li>
 			
-		</ul>
-	</nav>
+            
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
-	<main>
+</header>
+
+
+
+
+
+	
+

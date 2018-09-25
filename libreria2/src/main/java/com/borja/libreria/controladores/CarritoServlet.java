@@ -18,7 +18,6 @@ import com.borja.libreria.pojo.Producto;
 public class CarritoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String id = request.getParameter("id");
@@ -49,7 +48,6 @@ public class CarritoServlet extends HttpServlet {
 		request.getRequestDispatcher("carrito.jsp").forward(request, response);
 	}
 
-	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doGet(request, response);

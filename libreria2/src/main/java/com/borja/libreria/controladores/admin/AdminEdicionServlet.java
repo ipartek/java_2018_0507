@@ -17,13 +17,11 @@ public class AdminEdicionServlet extends HttpServlet {
 
 	public static String ADD = "Añadir", UPDATE = "Modificar", DELETE = "Borrar";
 
-	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doGet(request, response);
 	}
 	
-	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String id = request.getParameter("id");

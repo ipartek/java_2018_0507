@@ -7,11 +7,12 @@
 	<h1>Productos</h1>
 </header>
 
-<section id="listado">
-
+<div id="container-fluid">
+<div class="row" id="contenido">
 	<c:forEach items="${productos}" var="producto">
-		<article>
+		<div class="col-md-2"	>
 			<dl>
+			<dd><img src="imgs/2.jpg"></dd>
 				<dt>Nombre</dt>
 				<dd>
 					${producto.nombre} <a href="carrito?accion=add&id=${producto.id}">Añadir al
@@ -19,10 +20,11 @@
 				</dd>
 				<dt>Precio</dt>
 				<dd><fmt:formatNumber value="${producto.precio}" type="currency"/></dd>
+				
 			</dl>
-		</article>
+		</div>
 	</c:forEach>
-	
-</section>
+	</div>
+</div>
 
 <%@ include file="/WEB-INF/includes/pie.jsp"%>

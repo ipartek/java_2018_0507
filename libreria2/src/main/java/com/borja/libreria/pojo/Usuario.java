@@ -1,6 +1,9 @@
 package com.borja.libreria.pojo;
 
-public class Usuario {
+import com.borja.libreria.pojo.Identificable;
+import com.borja.libreria.pojo.Usuario;
+
+public class Usuario implements Identificable {
 	private long id;
 	private String email = "";
 	private String password = "";
