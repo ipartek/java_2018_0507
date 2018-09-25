@@ -11,6 +11,7 @@
 	${mensaje}
 </div>
 
+
 <table id="adminlistado">
 	<thead>
 		<tr>

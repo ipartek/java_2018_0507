@@ -27,7 +27,7 @@
 	<nav>
 		<ul>
 			<li><a href="principal">Principal</a></li>
-			<li><a href="carrito">Carrito</a></li>
+			<li><a href="carrito?pageNumber=1">Carrito</a></li>
 			
 			<li><a href="admin">Administración</a></li>
 			<c:choose>

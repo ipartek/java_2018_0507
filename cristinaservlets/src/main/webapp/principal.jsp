@@ -15,7 +15,7 @@
 				<dt>Nombre</dt>
 				<!--  <dd><img src="imgs/${producto.id}.jpg"></dd> -->
 				<dd>
-					${producto.nombre} <a href="carrito?accion=add&id=${producto.id}">Añadir al
+					${producto.nombre} <a href="carrito?accion=add&id=${producto.id}&pageNumber=1">Añadir al
 						carrito</a>
 				</dd>
 				<dt>Precio</dt>
