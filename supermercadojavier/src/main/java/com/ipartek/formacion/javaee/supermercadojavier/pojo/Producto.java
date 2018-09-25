@@ -2,7 +2,7 @@ package com.ipartek.formacion.javaee.supermercadojavier.pojo;
 
 import java.math.BigDecimal;
 
-public class Producto {
+public class Producto implements Identificable{
 	private long id; //Servirá de base para crear las URLs de las imágenes también
 	private String nombre;
 	private BigDecimal precio;
