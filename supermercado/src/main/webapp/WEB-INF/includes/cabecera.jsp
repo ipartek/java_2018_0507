@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Supermercado Javier</title>
+<title>Supermercado Mikel</title>
 
 <style>
 	.error {
@@ -19,7 +19,7 @@
 </head>
 <body>
 	<header>
-		<h1>Supermercado Javier <small>${sessionScope.user.email}</small></h1>
+		<h1>Supermercado Mikel <small>${sessionScope.user.email}</small></h1>
 		<p>
 			
 		</p>
