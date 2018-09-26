@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -32,7 +31,17 @@
 				<!-- END!! The Product Item -->
 			</div>
 			</c:forEach>
-				
+			
+				  <div style="clear:both;margin-right:20px">
+				  
+				   <p>Pagina:${pagina}</p>
+				  
+        <!--Los if contienen los href para queno funcionen , es decir si estamos en la primera pagina, no dejarle al usuario darle a primera pagina porque ya estamos en ella !!!, lo mismo con el resto-->
+        <a class="btn btn-primary" <c:if test="${pagina!=0}" > href="principal?pagina=0" </c:if> >   |<   </a>
+        <a class="btn btn-primary"  <c:if test="${pagina!=0}" > href="principal?pagina=${pagina-1}" </c:if>>  <<   </a>
+        <a class="btn btn-primary"  <c:if test="${pagina!=total}" >href="principal?pagina=${pagina+1}"</c:if> >  >>  </a>
+        <a class="btn btn-primary"  <c:if test="${pagina!=total}" >href="principal?pagina=${total}"</c:if> >    >|   </a>
+    </div>
 			
 			
 					</div>

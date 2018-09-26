@@ -5,17 +5,24 @@ public class Producto {
 	private String nombre;
 	private double precio;
 	private long id;
-
-	
-	
-	public Producto() {
-		
+	public String getNombre() {
+		return nombre;
 	}
-	
-	
-	
-
-
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public double getPrecio() {
+		return precio;
+	}
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public Producto(String nombre, double precio, long id) {
 		super();
 		this.nombre = nombre;
@@ -23,46 +30,10 @@ public class Producto {
 		this.id = id;
 	}
 
-
-
-
-
-	public long getId() {
-		return id;
+	public Producto() {
+		super();
+		
 	}
-
-
-
-
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-
-
-
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public double getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(double precio) {
-		this.precio = precio;
-	}
-
-
-
-
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -74,11 +45,6 @@ public class Producto {
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
-
-
-
-
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -99,11 +65,6 @@ public class Producto {
 			return false;
 		return true;
 	}
-
-	
-
-
-
 	
 	
 	

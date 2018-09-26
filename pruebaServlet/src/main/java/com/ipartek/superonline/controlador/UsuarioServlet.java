@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.ipartek.superonline.logica.LogicaNegocio;
 import com.ipartek.superonline.modelo.UsuarioDAO;
 import com.ipartek.superonline.pojo.Usuario;
 
@@ -43,7 +44,7 @@ public class UsuarioServlet extends HttpServlet {
 
 		salir = request.getParameter("salir");// name
 
-		if (salir!=null && salir.equalsIgnoreCase("salir")) {
+		if (salir != null && salir.equalsIgnoreCase("salir")) {
 			session.invalidate();
 		}
 
@@ -77,52 +78,62 @@ public class UsuarioServlet extends HttpServlet {
 			usuario = request.getParameter("mail");
 			password = request.getParameter("password");
 
-			if (formulario.equalsIgnoreCase("registro")) {
-				// System.out.println(usuario+password);
-				UsuarioDAO.getInstance().insert(new Usuario(usuario, password));
-				response.sendRedirect("Login.jsp");
+			Usuario usuarioObj = new Usuario(usuario, password);
 
-			}
+			// Llama a la logica de negocio esta hace las validaciones y nos devolvera un
+			// true en caso de que la validacion haya sido correcta y haya encontrado al
+			// usuario
+			boolean usuarioValido = LogicaNegocio.validarUsuario(usuarioObj);
+			// Si el usuariuo es valido , comprobamos si es un registro o un login (Solo en
+			// el caso en el que haya los dos)
+			if (usuarioValido) {
+				if (formulario.equalsIgnoreCase("registro")) {
+					// System.out.println(usuario+password);
+					// Esto iria en el DAO , se llamaria al dao asi
+					// LogicaNegocio.insertUsuario(usuarioObj)
 
-			if (formulario.equalsIgnoreCase("login")) { // si el value es login
-				if (usuarios.isEmpty()) {
+					// Esto insertaria al usuario
+					UsuarioDAO.getInstance().insert(new Usuario(usuario, password));
+					// Se redirige a la pagina de login , para que vuelva a intentar el login
+					response.sendRedirect("Login.jsp");
 
-				
-					request.setAttribute("error", "No existen usuarios");
-					request.getRequestDispatcher("registro.jsp").forward(request, response);// para ir a una pagina
-																							// pasandole los atributos
-																							// en la request
-				} else {
-					boolean encontrado = false;
+				}
+				if (formulario.equalsIgnoreCase("login")) { // si el value es login
+					// Buscamos al usuario en la lista
+					if (LogicaNegocio.buscarUsuario(usuarioObj)) {
+						session.setAttribute("usuario", usuarioObj); // se mete al usuario en la sesion
+						request.getRequestDispatcher("principal").forward(request, response);
 
-					for (int i = 0; i < usuarios.size(); i++) {
-						if (usuarios.get(i).getNombre().equalsIgnoreCase(usuario)
-								&& usuarios.get(i).getContrasena().equalsIgnoreCase(password)) {
-
-							encontrado = true;
-
-							session.setAttribute("usuario", usuarios.get(i)); // se mete al usuario en la sesion
-
-							request.getRequestDispatcher("principal").forward(request, response);
-
-						}
-
-					}
-
-					if (!encontrado) {
-
-						request.setAttribute("error", "El usuario no es correcto");
+					}else {
+						request.setAttribute("error", "No existe ese usuario");
 						request.getRequestDispatcher("Login.jsp").forward(request, response);// para ir a una pagina
-																								// pasandole los
-																								// atributos en la
-																								// request
+						// pasandole los
+						// atributos en la
+						// request
 					}
-
+				}
+			} else {
+//Creamos en la request el parametro error (que se recoge en la jsp ) y este pintara el error del usuario 
+				request.setAttribute("error", usuarioObj.getError());
+				
+				//En funcion de si ha fallado en registro o login redirigimos a su respectivo
+				
+				if (formulario.equalsIgnoreCase("registro")) {
+					request.getRequestDispatcher("registro.jsp").forward(request, response);// para ir a una pagina
+					// pasandole los
+					// atributos en la
+					// request
+				} else if (formulario.equalsIgnoreCase("login")) {
+					request.getRequestDispatcher("Login.jsp").forward(request, response);// para ir a una pagina
+					// pasandole los
+					// atributos en la
+					// request
 				}
 
 			}
-			System.out.println(usuarios.size() + "tamaño");
+
 		}
+
 	}
 
 }
