@@ -7,6 +7,7 @@ import com.ipartek.formacion.examen.pojo.Libro;
 import com.ipartek.formacion.examen.pojo.Usuario;
 
 
+
 public class LogicaLibro {
 	private static MapDAO<Usuario> usuarios = new MapDAO<Usuario>();
 	private static MapDAO<Libro> paginas = new MapDAO<Libro>();
@@ -31,7 +32,11 @@ public class LogicaLibro {
 
 	}
 
-	public static Libro obtenerPagina(long id) {
+	public static List<Libro> obtenerPagina() {
+		return paginas.getAll();
+	}
+	
+	public static Libro obtenerPaginaPorId(long id) {
 		return paginas.getById(id);
 	}
 

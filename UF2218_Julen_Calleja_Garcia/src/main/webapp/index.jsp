@@ -13,12 +13,12 @@
 			
 				<Label>Pagina</Label> ${paginas.id}
 				
-				<div>{paginas.texto}></div>
+				<div>${paginas.texto}></div>
 		
 				
 			
 		</article>
 	</c:forEach>
-	
+	<label>Autor</label>${usuario.nombre}
 </section>
 <%@ include file="/WEB-INF/Pie.jsp" %>

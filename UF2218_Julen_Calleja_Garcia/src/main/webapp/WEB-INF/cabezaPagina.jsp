@@ -12,7 +12,7 @@
 </head>
 <body>
 
-		<a href="#">Escribir pagina</a>
+		<a href="escritura">Escribir pagina</a>
 		<p>
 		<Label>Ir a pagina </Label> <input type="text"/> 
 		</p>
