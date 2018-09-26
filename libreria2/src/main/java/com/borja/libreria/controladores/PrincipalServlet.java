@@ -14,7 +14,7 @@ public class PrincipalServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("productos", LogicaNegocio.obtenerProductos());
+		request.setAttribute("paginas", LogicaNegocio.obtenerPagina());
 		request.getRequestDispatcher("principal.jsp").forward(request, response);
 		
 		

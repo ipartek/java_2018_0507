@@ -4,21 +4,21 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.borja.libreria.pojo.Producto;
+import com.borja.libreria.pojo.Pagina;
 import com.borja.libreria.pojo.Usuario;
 import com.borja.libreria.accesodatos.MapDAO;
 import com.borja.libreria.logica.LogicaNegocioException;
 
 public class LogicaNegocio {
 	private static MapDAO<Usuario> usuarios = new MapDAO<Usuario>();
-	private static MapDAO<Producto> productos = new MapDAO<Producto>();
+	private static MapDAO<Pagina> paginas = new MapDAO<Pagina>();
 
 	static {
 		usuarios.insert(new Usuario(1, "borja@email.com", "libreria"));
 		usuarios.insert(new Usuario(2, "admin@admin.com", "admin"));
 		
 		for(int i = 1; i <= 100; i++) {
-			productos.insert(new Producto(i, "Producto" + i, new BigDecimal(i*10 + "." + i)));
+			paginas.insert(new Pagina(i, "pagina<br>pagina<br>", "borja"));
 		}
 	}
 	
@@ -34,29 +34,29 @@ public class LogicaNegocio {
 		//		("admin@email.com".equalsIgnoreCase(usuario.getEmail()) && "contra".equals(usuario.getPassword()));	
 	}
 	
-	public static List<Producto> obtenerProductos() {
-		return productos.getAll();
+	public static List<Pagina> obtenerPagina() {
+		return paginas.getAll();
 	}
 	
-	public static Producto obtenerProductoPorId(long id) {
-		return productos.getById(id);
+	public static Pagina obtenerPaginaPorId(long id) {
+		return paginas.getById(id);
 	}
 	
-	public static void agregarProducto(Producto producto) {
+	public static void agregarPagina(Pagina pagina) {
 		
-		if(!productos.insert(producto)) {
+		if(!paginas.insert(pagina)) {
 			throw new LogicaNegocioException("No se ha podido insertar el registro");
 		}
 	}
 
-	public static void modificarProducto(Producto producto) {
-		if(!productos.update(producto)) {
+	public static void modificarPagina(Pagina pagina) {
+		if(!paginas.update(pagina)) {
 			throw new LogicaNegocioException("No se ha podido modificar el registro");
 		}
 	}
 
-	public static void borrarProducto(long id) {
-		if(!productos.delete(id)) {
+	public static void borrarPagina(long id) {
+		if(!paginas.delete(id)) {
 			throw new LogicaNegocioException("No se ha podido borrar el registro");
 		}
 	}

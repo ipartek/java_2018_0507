@@ -1,7 +1,6 @@
-package com.borja.libreria.controladores.admin;
+package com.borja.libreria.controladores;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,13 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 import com.borja.libreria.logica.LogicaNegocio;
 import com.borja.libreria.pojo.Pagina;
 
-@WebServlet("/admin/procesaredicion")
-public class AdminProcesarEdicionServlet extends HttpServlet {
+/**
+ * Servlet implementation class EdicionServlet
+ */
+@WebServlet("/EdicionServlet")
+public class EdicionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("suuuu");
 		request.setCharacterEncoding("UTF-8");
 		String accion = request.getParameter("accion");
 

@@ -10,21 +10,21 @@
 <form action="procesaredicion" method="post">
 	<p>
 		<label for="id">Id</label> <input type="number" name="id" id="id"
-			value="${prod.id}"
+			value="${pag.id}"
 			<c:if test="${param.accion == 'delete'}">
 			readonly="readonly"
 		</c:if> />
 	</p>
 	<p>
-		<label for="nombre">Nombre</label> <input type="text" name="nombre"
-			id="nombre" value="${prod.nombre}"
+		<label for="nombre">Texto</label> <input type="text" name="texto"
+			id="texto" value="${pag.texto}"
 			<c:if test="${param.accion == 'delete'}">
 			disabled="disabled"
 		</c:if> />
 	</p>
 	<p>
-		<label for="precio">Precio</label> <input type="number" step=".01"
-			name="precio" id="precio" value="${prod.precio}"
+		<label for="nick">nick</label> <input type="text" 
+			name="nick" id="nick" value="${pag.nick}"
 			<c:if test="${param.accion == 'delete'}">
 			disabled="disabled"
 		</c:if> />

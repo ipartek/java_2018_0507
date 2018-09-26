@@ -53,12 +53,19 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="principal">Principal <span class="sr-only">(current)</span></a></li>
-        <li><a href="admin">Administracion</a></li>
+        <li><c:choose>
+				<c:when test="${sessionScope.user != null}">
+					<li><a href="admin">Crear pagina</a></li>
+				</c:when>
+				
+			</c:choose></li>
         
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li>
+                     <li><a href="edicion.jsp">èdicion</a></li>
+        
              <li><a href="carrito">Carrito</a></li>
  
             <li><c:choose>

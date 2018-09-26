@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.borja.libreria.logica.LogicaNegocio;
-import com.borja.libreria.pojo.Producto;
+import com.borja.libreria.pojo.Pagina;
 
 @WebServlet("/admin/edicion")
 public class AdminEdicionServlet extends HttpServlet {
@@ -35,20 +35,20 @@ public class AdminEdicionServlet extends HttpServlet {
 			break;
 		case "update":
 			textoAccion = UPDATE;
-			cargarProducto(request, id);
+			cargarPagina(request, id);
 			break;
 		case "delete":
 			textoAccion = DELETE;
-			cargarProducto(request, id);
+			cargarPagina(request, id);
 		}
 
 		request.setAttribute("accion", textoAccion);
 		request.getRequestDispatcher("edicion.jsp").forward(request, response);
 	}
 
-	private void cargarProducto(HttpServletRequest request, String id) {
-		Producto producto;
-		producto = LogicaNegocio.obtenerProductoPorId(Long.parseLong(id));
-		request.setAttribute("prod", producto);
+	private void cargarPagina(HttpServletRequest request, String id) {
+		Pagina pagina;
+		pagina = LogicaNegocio.obtenerPaginaPorId(Long.parseLong(id));
+		request.setAttribute("pag", pagina);
 	}
 }

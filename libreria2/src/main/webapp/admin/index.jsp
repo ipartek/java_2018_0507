@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -8,7 +9,6 @@
 </header>
 
 <div class="mensaje">
-	${mensaje}
 </div>
 
 <table id="adminlistado">
@@ -21,13 +21,13 @@
 		</tr>
 	</thead>
 	<tbody>
-		<c:forEach items="${productos}" var="producto">
+		<c:forEach items="${paginas}" var="pagina">
 			<tr>
-				<th>${producto.id}</th>
-				<td>${producto.nombre}</td>
-				<td><fmt:formatNumber value="${producto.precio}" type="currency" /></td>
-				<td><a href="edicion?id=${producto.id}&accion=update">Editar</a> <a
-					href="edicion?id=${producto.id}&accion=delete">Borrar</a></td>
+				<th>${pagina.id}</th>
+				<td>${pagina.texto}</td>
+				<td>${pagina.nick}</td>
+				<td><a href="edicion?id=${pagina.id}&accion=update">Editar</a> <a
+					href="edicion?id=${pagina.id}&accion=delete">Borrar</a></td>
 			</tr>
 		</c:forEach>
 	</tbody>
