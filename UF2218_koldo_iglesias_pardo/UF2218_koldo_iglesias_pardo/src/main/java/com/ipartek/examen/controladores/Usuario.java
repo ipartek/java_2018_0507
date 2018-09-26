@@ -73,8 +73,6 @@ public class Usuario implements Identificable {
 		this.pass = pass;
 	}
 
-	
-
 	public Usuario(long id, String user, String pass) {
 		this.id = id;
 		setUser(user);
@@ -85,8 +83,6 @@ public class Usuario implements Identificable {
 		this(-1, email, password);
 	}
 	
-	public Usuario() {}
-
 	public boolean isCorrecto() {
 		return correcto;
 	}
