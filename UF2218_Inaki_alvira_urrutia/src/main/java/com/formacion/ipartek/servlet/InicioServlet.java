@@ -40,7 +40,7 @@ public class InicioServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		ServletContext context=getServletConfig().getServletContext();
 		for(int i=0;i<1;i++){
-			  LibroElecDao.getInstance().insert(new HojaLibro(i,"erase una vez..."+i,"auto"+i));
+			  LibroElecDao.getInstance().insert(new HojaLibro(i,"erase una vez...","auto"));
 		  } 
 		UsuarioArrayDao.getInstance().insert(new Usuario(1,"inaki@a","aaa","usuario"));
 		UsuarioArrayDao.getInstance().insert(new Usuario(2,"a@a","aaa","admin"));

@@ -26,18 +26,18 @@ public class EdicionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String inser=null,texto="",autor="";
-		int id=-1;
-		if(request.getParameter("texto")!=null)
-			texto=request.getParameter("texto");
-		if(request.getParameter("autor")!=null)
-			autor=request.getParameter("autor");
-		if(request.getParameter("id")!=null)
-			id=Integer.parseInt(request.getParameter("id"));
-		if(request.getParameter("insertarHoja")!=null)
-			if(request.getParameter("insertarHoja").equalsIgnoreCase("true")) {
-				LogicaNegocio.insertarHoja(new HojaLibro(id,texto,autor));
-				System.out.println(texto+"te"+autor+"au"+id+"id"+"dentro anadir");
+		String inser = null, texto = "", autor = "";
+		int id = -1;
+		if (request.getParameter("texto") != null)
+			texto = request.getParameter("texto");
+		if (request.getParameter("autor") != null)
+			autor = request.getParameter("autor");
+		if (request.getParameter("id") != null)
+			id = Integer.parseInt(request.getParameter("id"));
+		if (request.getParameter("insertarHoja") != null)
+			if (request.getParameter("insertarHoja").equalsIgnoreCase("true")) {
+				LogicaNegocio.insertarHoja(new HojaLibro(id, texto, autor));
+				System.out.println(texto + "te" + autor + "au" + id + "id" + "dentro anadir");
 			}
 		LogicaNegocio.devolverTamanoLibro(request);
 		movimientos(request);
@@ -56,7 +56,7 @@ public class EdicionServlet extends HttpServlet {
 
 	private void movimientos(HttpServletRequest request) {
 		String avanzar = null, move = null;
-		boolean fin=false;
+		boolean fin = false;
 		int paginaBarra = -1;
 		ServletContext context = getServletConfig().getServletContext();
 		if (request.getParameter("page") != null)
@@ -66,13 +66,11 @@ public class EdicionServlet extends HttpServlet {
 		if (request.getParameter("fromJsp") != null)
 			avanzar = request.getParameter("fromJsp");
 		context.getAttribute("pagina");
-		if(request.getParameter("move") != null && move.equalsIgnoreCase("siguiente") &&paginaBarra>=(Integer)request.getSession().getAttribute("tamanoLibro")) {
-			fin=true;
-		}
-		else
-			fin=false;
-	
-			
+		if (request.getParameter("move") != null && move.equalsIgnoreCase("siguiente")
+				&& paginaBarra >= (Integer) request.getSession().getAttribute("tamanoLibro")) {
+			fin = true;
+		} else
+			fin = false;
 
 		if ((Integer) context.getAttribute("pagina") == 0 && avanzar == null) {// cuando llego del servidor y cargo la
 																				// primera vez dvuelvo el arra echo por
@@ -82,8 +80,9 @@ public class EdicionServlet extends HttpServlet {
 			request.getSession().setAttribute("pagAct", LogicaNegocio.obtenerPagina(pagina).getTextoHoja());
 			request.getSession().setAttribute("autor", LogicaNegocio.obtenerPagina(pagina).getAutor());
 		}
-		if (!fin&&avanzar != null && avanzar.equalsIgnoreCase("true") && move.equalsIgnoreCase("barra")) {// cuando pulso uno
-																									// de los botones de
+		if (!fin && avanzar != null && avanzar.equalsIgnoreCase("true") && move.equalsIgnoreCase("barra")) {// cuando
+																											// pulso uno
+			// de los botones de
 			// la barra
 			int pagina = (Integer) context.getAttribute("pagina");
 			context.setAttribute("pagina", paginaBarra);// para notificarlo en toda la pagina
@@ -92,17 +91,18 @@ public class EdicionServlet extends HttpServlet {
 			request.getSession().setAttribute("autor", LogicaNegocio.obtenerPagina(paginaBarra).getAutor());
 			System.out.println("entro");
 		}
-		if (!fin &&avanzar != null && avanzar.equalsIgnoreCase("true") && move.equalsIgnoreCase("siguiente")) {// cunado pulso
-																										// el boton de
-																										// siguiente
+		if (!fin && avanzar != null && avanzar.equalsIgnoreCase("true") && move.equalsIgnoreCase("siguiente")) {// cunado
+																												// pulso
+			// el boton de
+			// siguiente
 			int pagina = (Integer) context.getAttribute("pagina");
 			pagina++;
-			
-				context.setAttribute("pagina", pagina);
-				request.getSession().setAttribute("rangos", LogicaNegocio.getPorRangos(pagina));
-				request.getSession().setAttribute("pagAct", LogicaNegocio.obtenerPagina(pagina).getTextoHoja());
-				request.getSession().setAttribute("autor", LogicaNegocio.obtenerPagina(pagina).getAutor());
-			
+
+			context.setAttribute("pagina", pagina);
+			request.getSession().setAttribute("rangos", LogicaNegocio.getPorRangos(pagina));
+			request.getSession().setAttribute("pagAct", LogicaNegocio.obtenerPagina(pagina).getTextoHoja());
+			request.getSession().setAttribute("autor", LogicaNegocio.obtenerPagina(pagina).getAutor());
+
 		}
 		if ((Integer) context.getAttribute("pagina") == 0) {// comprobar despues de sumar por que si no siempre va a
 															// asignar

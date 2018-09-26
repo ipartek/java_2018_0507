@@ -4,18 +4,33 @@
 <header>
 	<h1>login</h1>
 </header>
-<form action="login" method="post">
-	<p>
-		<label for="email">nick</label>
-		<input type="email" name="email" id="email"><span>${usuario.errorEmail}</span>
-	</p>
-	<p>
-		<label for="password">contraseña</label>
-		<input type="password" name="password" id="password"><span>${usuario.errorPassword}</span>
-		</p>
-		<p>
-	<button> Login</button>
-	</p>
-	
-</form>
+<div class="container">
+<h1 class="form-heading">login Form</h1>
+<div class="login-form">
+<div class="main-div">
+    <div class="panel">
+   <h2>Admin Login</h2>
+   <p>Please enter your email and password</p>
+   </div>
+    <form action="login" method="post" >
+
+        <div class="form-group">
+
+
+            <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email Address">
+		<span>${usuario.errorEmail}</span>
+        </div>
+
+        <div class="form-group">
+
+            <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
+	<span>${usuario.errorPassword}</span>
+        </div>
+  
+        <button type="submit" class="btn btn-primary">Login</button>
+
+    </form>
+    </div>
+<p class="botto-text"> Designed by Sunil Rajput</p>
+</div></div></div>
 <%@ include file="WEB-INF/includes/pie.jsp"%>
