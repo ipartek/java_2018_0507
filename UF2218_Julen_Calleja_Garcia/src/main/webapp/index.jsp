@@ -9,7 +9,6 @@
 		<article>
 
 			<Label>Pagina</Label> ${pagina.id}
-
 			<div>${pagina.texto}></div>
 
 		</article>
