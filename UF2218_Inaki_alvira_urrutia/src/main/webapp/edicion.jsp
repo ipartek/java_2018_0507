@@ -12,7 +12,7 @@
 	</c:if>
 	<div>
 		<a href="edicion?move=anterior&fromJsp=true&page=${pagina}">anterior</a>
-		<c:forEach begin="1" end="${tamanoLibro}" var="item">
+		<c:forEach begin="0" end="${tamanoLibro}" var="item">
 			<a href="edicion?move=barra&fromJsp=true&page=${item}"> ${item} </a>
 		</c:forEach>
 		<a href="edicion?move=siguiente&fromJsp=true&page=${pagina}">siguiente</a>
@@ -33,7 +33,7 @@
 	</div>
 	<div>
 		<a href="edicion?move=anterior&fromJsp=true&page=${pagina}">anterior</a>
-		<c:forEach begin="1" end="${tamanoLibro}" var="item">
+		<c:forEach begin="0" end="${tamanoLibro}" var="item">
 			<a href="edicion?move=barra&fromJsp=true&page=${item}"> ${item} </a>
 		</c:forEach>
 		<a href="edicion?move=siguiente&fromJsp=true&page=${pagina}">siguiente</a>
@@ -46,7 +46,11 @@
 	</p>
 	<button type="submit"> Buscar Palabra</button>
 	</p>
-	
+	<div>
+	<c:forEach items="${coincidencias}" var="item">
+		<p><a href="edicion?move=barra&fromJsp=true&${item}"> ${item} </a></p>
+	</c:forEach>
+	</div>
 </form>
 </body>
 </html>

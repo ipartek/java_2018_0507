@@ -33,7 +33,7 @@ public class BuscarPalabraServlet extends HttpServlet {
 		if(request.getParameter("palabra")!=null) {
 			palabra=request.getParameter("palabra");
 			LogicaNegocio.buscaPal(palabra, request);
-			request.getRequestDispatcher("coincidencias.jsp").forward(request, response);
+			request.getRequestDispatcher("edicion.jsp").forward(request, response);
 		}
 	}
 
