@@ -20,9 +20,9 @@
 	<nav>
 		<ul>
 			<c:if test="${sessionScope.user != null}">
-				<li><a href="cambiarEstado">Escribir Pagina</a></li>
+				<li><a href="nueva">Escribir Pagina</a></li>
 			</c:if>
-
+			
 			<li><button>Ir a pagina</button>
 				<input type="number"></li>
 

@@ -5,6 +5,7 @@
 
 <header>
 	<h1>Erase una vez...</h1>
+	<p><a href="main.jsp">continuar</a></p>
 </header>
 
 <%@ include file="/WEB-INF/includes/pie.jsp" %>

@@ -10,11 +10,13 @@
 </p>
 
 <c:if test="${sessionScope.user == null}">
-	<textarea disabled>Loreemsndsionasonsalkcklnm</textarea>
+	<textarea disabled>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente laudantium, at natus ullam inventore sunt accusantium reprehenderit, quisquam delectus laborum nisi quia ratione voluptatum, accusamus mollitia autem deserunt quibusdam repudiandae.
+</textarea>
 </c:if>
 
 <c:if test="${sessionScope.user != null}">
-	<textarea>Loreemsndsionasonsalkcklnm</textarea><p></p>
+
+	<textarea>${paginas.texto}</textarea><p></p>
 	<input type="text" disabled value="Autor: ${sessionScope.user.nombre}">
 </c:if>	
 <p></p>

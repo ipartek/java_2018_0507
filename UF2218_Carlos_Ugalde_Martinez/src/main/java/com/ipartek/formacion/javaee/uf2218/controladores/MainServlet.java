@@ -7,20 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class CambiarEstado
- */
-@WebServlet("/cambiarEstado")
-public class CambiarEstado extends HttpServlet {
+import com.ipartek.formacion.javaee.uf2218.logica.LogicaNegocio;
 
-	private static final long serialVersionUID = -683486157849854533L;
+
+@WebServlet("/main")
+public class MainServlet extends HttpServlet {
+	private static final long serialVersionUID = -2004523021066993005L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setAttribute("paginas", LogicaNegocio.obtenerPaginas());
+		request.getRequestDispatcher("main.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		doGet(request, response);
 	}
 
