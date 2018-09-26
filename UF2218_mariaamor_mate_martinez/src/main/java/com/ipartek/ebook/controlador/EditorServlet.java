@@ -19,42 +19,45 @@ import java.io.IOException;
 public class EditorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public EditorServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-        
-    }
-
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public EditorServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		String texto = request.getParameter("texto");
 		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
-		String error="" ;
-		if(usuario==null){
-			error="Tiene que iniciar sesion para escribir";
+		String error = "";
+		if (usuario == null) {
+			error = "Tiene que iniciar sesion para escribir";
 			request.setAttribute("error", error);
 			request.getRequestDispatcher("editorPagina.jsp").forward(request, response);
-		}else{
+		} else {
 			Pagina pagina = new Pagina();
 			pagina.setTexto(texto);
 			pagina.setAutor(usuario.getNombre());
 			LogicaNegocio.agregarPagina(pagina);
 			request.getRequestDispatcher("principal").forward(request, response);
 		}
-
 
 	}
 

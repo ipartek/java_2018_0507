@@ -16,44 +16,47 @@ import java.io.IOException;
  */
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-        
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public LoginServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
 
-    }
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
 
-        String nombre = request.getParameter("nombre");
-        String pass = request.getParameter("pass");
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-        Usuario usuario = new Usuario(nombre, pass);
+		String nombre = request.getParameter("nombre");
+		String pass = request.getParameter("pass");
 
-        Boolean valido = LogicaNegocio.validarUsuario(usuario);
-        if (valido) {
-            request.getSession().setAttribute("usuario", usuario);
-            request.getRequestDispatcher("principal").forward(request, response);
-        } else {
-            request.setAttribute("error","No existe ese usuario o no son correctos los datos");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        }
+		Usuario usuario = new Usuario(nombre, pass);
 
+		Boolean valido = LogicaNegocio.validarUsuario(usuario);
+		if (valido) {
+			request.getSession().setAttribute("usuario", usuario);
+			request.getRequestDispatcher("principal").forward(request, response);
+		} else {
+			request.setAttribute("error", "No existe ese usuario o no son correctos los datos");
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+		}
 
-    }
+	}
 
 }
