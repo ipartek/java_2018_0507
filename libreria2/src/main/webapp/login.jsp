@@ -10,9 +10,8 @@
 <div id="col-xm-6">
 <form action="login" method="post">
 	<p>
-		<label for="email">Email</label>
-		<input type="email" name="email" id="email" value="${user.email}" />
-		<span class="error">${user.errorEmail}</span>
+		<label for="text">Email</label>
+		<input type="text" name="email" id="email" value="${user.email}" />
 	</p>
 	<p>
 		<label for="password">Contraseña</label>

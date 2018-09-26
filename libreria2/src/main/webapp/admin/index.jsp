@@ -5,18 +5,19 @@
 <%@ include file="/WEB-INF/includes/cabeceraadmin.jsp"%>
 
 <header>
-	<h1>Administración</h1>
+	<h1>Listado de paginas</h1>
 </header>
 
 <div class="mensaje">
 </div>
+			<td><a href="edicion?accion=add"><H1>Añadir Pagina</H1></a></td>
 
 <table id="adminlistado">
 	<thead>
 		<tr>
 			<th>Id</th>
-			<th>Nombre</th>
-			<th>Precio</th>
+			<th>Texto</th>
+			<th>Autor</th>
 			<td><a href="edicion?accion=add">Añadir</a></td>
 		</tr>
 	</thead>
@@ -26,8 +27,6 @@
 				<th>${pagina.id}</th>
 				<td>${pagina.texto}</td>
 				<td>${pagina.nick}</td>
-				<td><a href="edicion?id=${pagina.id}&accion=update">Editar</a> <a
-					href="edicion?id=${pagina.id}&accion=delete">Borrar</a></td>
 			</tr>
 		</c:forEach>
 	</tbody>

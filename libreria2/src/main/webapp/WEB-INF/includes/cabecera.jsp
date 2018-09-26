@@ -64,9 +64,8 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li>
-                     <li><a href="edicion.jsp">èdicion</a></li>
         
-             <li><a href="carrito">Carrito</a></li>
+            
  
             <li><c:choose>
 				<c:when test="${sessionScope.user == null}">

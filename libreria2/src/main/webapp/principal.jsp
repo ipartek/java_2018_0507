@@ -4,32 +4,61 @@
 <%@ include file="/WEB-INF/includes/cabecera.jsp"%>
 
 <header>
-	<h1>Productos</h1>
+	<h1>Paginas</h1>
 </header>
 
 <div id="container-fluid">
+<form action="PaginacionServlet" method="post" align="center">
+	Introduce Numero de pagina<input type="number" name="numero"/>
+	<input type="submit">
+	
+	</form>
 	<div class="row" id="contenido">
 
-	<c:forEach items="${paginas}" var="pagina">
+
+
+
+<c:if test="${paginaF<=1||paginaF==null}">
+
+
+<c:forEach items="${paginas}" var="pagina" begin="0" end="0">
 	
-		<div class="col-md-2"	>
-			<dl>
-			<dd><img src="imgs/${pagina.id}.jpg" id="minisss"></dd>
-				<dt>Nombre</dt>
-				${pagina.id}
-				<dd>
-					${pagina.texto} <a href="carrito?accion=add&id=${pagina.id}">Añadir al
-						carrito</a>
-				</dd>
-				<dt>Precio</dt>
-				<dd>${pagina.nick}</dd>
+		<div class="col-md-8"	>
+			
+					${pagina.texto} 
+				<dd><br><br><small><bold>${pagina.nick}</bold></small></dd>
 				
 			</dl>
 		</div>
 		
 	</c:forEach>	
+
+
+
+</c:if>
+
+<c:if test="${paginaF>1}">
+	<c:forEach items="${paginas}" var="pagina" begin="${paginaF}" end="${paginaF}">
 	
+		<div class="col-md-8"	>
+			
+					${pagina.texto} 
+				<dd><br><br><small><bold>${pagina.nick}</bold></small></dd>
+				
+			</dl>
+		</div>
+		
+	</c:forEach>	
+	</c:if>
 
 	</div>
+	
+	
 	</div>
+		
+	<form action="PaginacionServlet" method="post">
+	<button value="next" name="siguiente">sigiente</button>
+		
+	
+	</form>
 <%@ include file="/WEB-INF/includes/pie.jsp"%>

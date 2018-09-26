@@ -35,7 +35,31 @@ public class PaginacionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String numero=request.getParameter("numero");
+
+		if(numero!=null) {
+		
+			request.getSession().setAttribute("paginaF", numero);
+	response.sendRedirect("principal?paginaF="+numero);
+
+		}
+		
+		System.out.println(numero);
+//	int pagina;
+//		String paginaQ=request.getParameter("pagina");
+//		pagina =Integer.parseInt(paginaQ);
+//		System.out.println(pagina);
+////		if(request.getParameter("siguiente").equalsIgnoreCase("next")) {
+////			pagina++;
+////		}
+//		request.getSession().setAttribute("paginaQ", pagina);
+//		
+//		System.out.println();
+//		response.sendRedirect("principal?paginaQ="+pagina);
+//		
+//		
+//		
+//		doGet(request, response);
 	}
 
 }
