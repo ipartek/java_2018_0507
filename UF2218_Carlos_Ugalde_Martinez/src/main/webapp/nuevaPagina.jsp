@@ -7,12 +7,15 @@
 </header>
 <p>
 </p>
-
-	<textarea></textarea><p></p>
-	<input type="text" value="Autor: ${sessionScope.user.nombre}">
+<form action="nueva" method="post">
+<label name="id" id="id" value="5">id 5</label>
+	<textarea name="texto" id="texto"></textarea><p></p>
+	<input type="text" name="nombre" id="nombre"
+	 value="Autor: ${sessionScope.user.nombre}">
 
 <p></p>
 <p>
-	<button>Incluir</button>
+	<input type="button" value="Incluir"></button>
+</form>
 </p>
 <%@ include file="/WEB-INF/includes/pie.jsp"%>

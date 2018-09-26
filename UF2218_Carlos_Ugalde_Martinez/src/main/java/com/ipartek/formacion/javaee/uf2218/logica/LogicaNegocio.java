@@ -20,9 +20,9 @@ public class LogicaNegocio {
 		
 		paginas.insert(new Pagina(1, "b", "ERASE UNA VEZ"));
 		
-	/*	for(int i = 1; i <= 10; i++) {
+		for(int i = 2; i <= 10; i++) {
 			paginas.insert(new Pagina(i, "gato","Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente laudantium, at natus ullam inventore sunt accusantium reprehenderit, quisquam delectus laborum nisi quia ratione voluptatum, accusamus mollitia autem deserunt quibusdam repudiandae."));
-		}*/
+		}
 	}
 	
 	public static boolean validarUsuario(Usuario usuario) {

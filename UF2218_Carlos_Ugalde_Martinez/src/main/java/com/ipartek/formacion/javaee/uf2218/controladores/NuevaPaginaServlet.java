@@ -31,12 +31,13 @@ public class NuevaPaginaServlet extends HttpServlet {
 
 		String id = request.getParameter("5");
 		String nombre = request.getParameter("nombre");
-		String texto = request.getParameter("${sessionScope.user.nombre}");
+		String texto = request.getParameter("texto");
 
 		Pagina pagina = null;
 
 		pagina = new Pagina(Long.parseLong(id), nombre, texto);
 		LogicaNegocio.agregarPagina(pagina);
+		response.sendRedirect(request.getContextPath() + "/main.jsp");
 	}
 
 }
