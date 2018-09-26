@@ -2,7 +2,12 @@
 	pageEncoding="UTF-8"%>
 </main>
 <footer>
-	<label>Buscar palabra</label>
+
+<c:if test="${sessionScope.user != null}">
+<button>Buscar palabra</button>
+	<input type="text">
+</c:if>
+	
 </footer>
 </body>
 </html>

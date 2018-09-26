@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<fmt:setLocale value="es_ES"/>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<fmt:setLocale value="es_ES" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,23 +10,27 @@
 <title>Libro Electronico Colaborativo</title>
 </head>
 <body>
-<header>
-	
-		<h1>Libro electronico colaborativo <small>v0.1</small></h1>
-		<p>
-			
-		</p>
+	<header>
+
+		<h1>
+			Libro electronico colaborativo <small>v0.1</small>
+		</h1>
+		<p></p>
 	</header>
 	<nav>
 		<ul>
-			<li><a href="#">Escribir PAgina</a></li>
-			<li>Ir a pagina<input type="number"></li>
-			
+			<c:if test="${sessionScope.user != null}">
+				<li><a href="cambiarEstado">Escribir Pagina</a></li>
+			</c:if>
+
+			<li><button>Ir a pagina</button>
+				<input type="number"></li>
+
 		</ul>
 		<ul>
-		<li>Usuario</li>
-		<li>Iniciar sesion</li>
-		<li>Cerrar sesion</li>
+			<li>${sessionScope.user.nombre}</li>
+			<li><a href="login">Iniciar sesion</a></li>
+			<li><a href="desconectar">Cerrar sesion</a></li>
 		</ul>
 	</nav>
 

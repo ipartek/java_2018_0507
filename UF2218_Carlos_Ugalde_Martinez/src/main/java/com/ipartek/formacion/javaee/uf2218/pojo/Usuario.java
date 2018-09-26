@@ -1,29 +1,15 @@
 package com.ipartek.formacion.javaee.uf2218.pojo;
 
-public class Usuario {
+public class Usuario implements Identificable{
 		
 	private long id;
-	private String email = "";
+	private String nombre = "";
 	private String password = "";
 
-	private String errorEmail = "";
+	private String errorNombre = "";
 	private String errorPassword = "";
 	
 	private boolean correcto = true;
-	
-	public Usuario() {
-		super();
-	}
-
-	public Usuario(long id, String email, String password, String errorEmail, String errorPassword, boolean correcto) {
-		super();
-		this.id = id;
-		this.email = email;
-		this.password = password;
-		this.errorEmail = errorEmail;
-		this.errorPassword = errorPassword;
-		this.correcto = correcto;
-	}
 
 	public long getId() {
 		return id;
@@ -33,12 +19,13 @@ public class Usuario {
 		this.id = id;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setNombre(String nombre) {
+		
+		this.nombre = nombre;
 	}
 
 	public String getPassword() {
@@ -49,12 +36,13 @@ public class Usuario {
 		this.password = password;
 	}
 
-	public String getErrorEmail() {
-		return errorEmail;
+	public String getErrorNombre() {
+		return errorNombre;
 	}
 
-	public void setErrorEmail(String errorEmail) {
-		this.errorEmail = errorEmail;
+	public void setErrorNombre(String errorNombre) {
+		correcto = false;
+		this.errorNombre = errorNombre;
 	}
 
 	public String getErrorPassword() {
@@ -62,15 +50,23 @@ public class Usuario {
 	}
 
 	public void setErrorPassword(String errorPassword) {
+		correcto = false;
 		this.errorPassword = errorPassword;
 	}
+	public Usuario(long id, String nombre, String password) {
+		this.id = id;
+		setNombre(nombre);
+		setPassword(password);
+	}
+
+	public Usuario(String nombre, String password) {
+		this(-1, nombre, password);
+	}
+	
+	public Usuario() {}
 
 	public boolean isCorrecto() {
 		return correcto;
-	}
-
-	public void setCorrecto(boolean correcto) {
-		this.correcto = correcto;
 	}
 
 	@Override
@@ -78,10 +74,10 @@ public class Usuario {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + (correcto ? 1231 : 1237);
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((errorEmail == null) ? 0 : errorEmail.hashCode());
+		result = prime * result + ((errorNombre == null) ? 0 : errorNombre.hashCode());
 		result = prime * result + ((errorPassword == null) ? 0 : errorPassword.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		return result;
 	}
@@ -97,15 +93,10 @@ public class Usuario {
 		Usuario other = (Usuario) obj;
 		if (correcto != other.correcto)
 			return false;
-		if (email == null) {
-			if (other.email != null)
+		if (errorNombre == null) {
+			if (other.errorNombre != null)
 				return false;
-		} else if (!email.equals(other.email))
-			return false;
-		if (errorEmail == null) {
-			if (other.errorEmail != null)
-				return false;
-		} else if (!errorEmail.equals(other.errorEmail))
+		} else if (!errorNombre.equals(other.errorNombre))
 			return false;
 		if (errorPassword == null) {
 			if (other.errorPassword != null)
@@ -113,6 +104,11 @@ public class Usuario {
 		} else if (!errorPassword.equals(other.errorPassword))
 			return false;
 		if (id != other.id)
+			return false;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
 			return false;
 		if (password == null) {
 			if (other.password != null)
@@ -124,9 +120,10 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", email=" + email + ", password=" + password + ", errorEmail=" + errorEmail
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", password=" + password + ", errorNombre=" + errorNombre
 				+ ", errorPassword=" + errorPassword + ", correcto=" + correcto + "]";
 	}
+
 	
 	
 }
