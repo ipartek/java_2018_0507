@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="es_ES"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,9 +22,11 @@
 			<li><a href="#">Escribir PAgina</a></li>
 			<li>Ir a pagina<input type="number"></li>
 			
-
-				
-			
+		</ul>
+		<ul>
+		<li>Usuario</li>
+		<li>Iniciar sesion</li>
+		<li>Cerrar sesion</li>
 		</ul>
 	</nav>
 
