@@ -5,13 +5,12 @@
 
 <div class="row">
 	<div class="col-md-4"></div>
-
 	<div class="col-md-4">
 		<div class="well bs-component">
 			<header>
 				<h1>Escribir en nueva página</h1>
 			</header>
-
+			
 			<form action="editarLibro" method="post" class="form-horizontal">
 				<div class="form-group">
 					<label for="autor" class="col-sm-2 control-label">Autor</label><br />

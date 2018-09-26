@@ -5,18 +5,18 @@ import java.util.List;
 
 import com.ipartek.formacion.javaee.libroelectronico.pojo.Libro;
 
-public class LibroDAO implements CrudAble<Libro>{
+public class LibroMapDAO implements CrudAble<Libro>{
 
 	private List<Libro> paginas = new ArrayList<>();
 	
-	private static LibroDAO INSTANCE;
+	private static LibroMapDAO INSTANCE;
 	
-	public LibroDAO() {
+	public LibroMapDAO() {
 	}
 	
-	public static synchronized LibroDAO getInstance() {
+	public static synchronized LibroMapDAO getInstance() {
 		if (INSTANCE == null) {
-			INSTANCE = new LibroDAO();
+			INSTANCE = new LibroMapDAO();
 		}
 		return INSTANCE;
 	}
@@ -24,7 +24,7 @@ public class LibroDAO implements CrudAble<Libro>{
 	public List<Libro> getAll(){
 		return paginas;
 	}
-
+	
 	@Override
 	public Libro getById(long id) {
 		return paginas.get((int) id);
@@ -51,17 +51,5 @@ public class LibroDAO implements CrudAble<Libro>{
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
-	/*public List<Pagina> getRecords(int start, int total){
-		List<Pagina> list = new ArrayList<Pagina>();
-		
-		
-		for (int i = start; i<= total; i++) {
-			list.add(employees.get(i+1));
-			//list.add(getById(i));
-		}
-		
-		return list;
-	}*/
 }
 

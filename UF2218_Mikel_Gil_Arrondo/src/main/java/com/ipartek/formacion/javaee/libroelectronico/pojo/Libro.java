@@ -1,21 +1,24 @@
 package com.ipartek.formacion.javaee.libroelectronico.pojo;
 
-public class Libro {
+public class Libro implements Identificable {
 	private long id;
+	private static long totalid;
 	private String texto = "";
 	private String autor = "";
 	
+	private String errorTexto = "";
+	
+	private boolean correcto = true;
+	
 	public Libro() {
+		totalid++;
 	}
 	
 	public Libro(long id, String texto, String autor) {
 		this.id = id;
-		this.texto = texto;
-		this.autor = autor;
-	}
-	
-	public Libro(String texto, String autor) {
-		this(-1, texto, autor);
+		setTexto(texto);
+		setAutor(autor);
+		totalid++;
 	}
 
 	@Override
@@ -31,6 +34,14 @@ public class Libro {
 		this.id = id;
 	}
 	
+	public long getTotalid() {
+		return totalid;
+	}
+
+	public void setTotalid(long totalid) {
+		Libro.totalid = totalid;
+	}
+
 	public String getAutor() {
 		return autor;
 	}
@@ -45,6 +56,23 @@ public class Libro {
 
 	public void setTexto(String texto) {
 		this.texto = texto;
+	}
+
+	public boolean isCorrecto() {
+		return correcto;
+	}
+
+	public void setCorrecto(boolean correcto) {
+		this.correcto = correcto;
+	}
+
+	public String getErrorTexto() {
+		return errorTexto;
+	}
+
+	public void setErrorTexto(String errorTexto) {
+		correcto = false;
+		this.errorTexto = errorTexto;
 	}
 
 	@Override
@@ -77,5 +105,4 @@ public class Libro {
 			return false;
 		return true;
 	}
-
 }

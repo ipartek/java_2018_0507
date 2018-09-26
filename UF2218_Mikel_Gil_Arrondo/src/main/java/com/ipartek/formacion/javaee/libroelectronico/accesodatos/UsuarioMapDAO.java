@@ -45,7 +45,4 @@ public class UsuarioMapDAO implements CrudAble<Usuario> {
 		usuarios.remove(id);
 		return true;
 	}
-	
-	
-
 }

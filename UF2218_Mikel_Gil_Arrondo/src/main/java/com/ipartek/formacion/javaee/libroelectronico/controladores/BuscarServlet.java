@@ -10,42 +10,39 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.javaee.libroelectronico.accesodatos.LibroMapDAO;
-import com.ipartek.formacion.javaee.libroelectronico.logica.LogicaNegocio;
 import com.ipartek.formacion.javaee.libroelectronico.pojo.Libro;
 
 /**
- * Servlet implementation class EditarLibroServlet
+ * Servlet implementation class BuscarServlet
  */
-@WebServlet("/editarLibro")
-public class EditarLibroServlet extends HttpServlet {
+@WebServlet("/buscar")
+public class BuscarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
 
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		
-		String autor = request.getParameter("autor");
-		String texto = request.getParameter("texto");
+		String palabraABuscar = request.getParameter("buscador");
 		
 		List<Libro> paginas = LibroMapDAO.getInstance().getAll();
 		
-		Libro libro = new Libro();
-		libro.setId(libro.getTotalid());	
-		libro.setTexto(texto);
-		libro.setAutor(autor);
-	
-		boolean textoValido = LogicaNegocio.validarPagina(libro);
-		//boolean textovalido = true;
-
-		if (libro.isCorrecto() && textoValido) {
-			request.setAttribute("libro", libro);
-			paginas.add(libro);
-			request.getRequestDispatcher("/index.jsp").forward(request, response);
-		}else {
-			request.getRequestDispatcher("/escribirPagina.jsp").forward(request, response);
+		for(Libro pagina : paginas){
+			if (palabraABuscar.equals(pagina.getTexto())) {
+				//TODO: POR PROBAR
+				// Palabra encontrada
+				int id = (int) pagina.getId();
+				// Cargar la pagina con la id sacada.
+				 Libro libro = paginas.get(id);
+				request.setAttribute("libro", libro);
+				request.getRequestDispatcher("/index.jsp").forward(request, response);
+				
+			}else {
+			 	// Palabra no encontrada
+				response.sendRedirect(request.getContextPath() + "/index.jsp");
+			}
 		}
 	}
 }

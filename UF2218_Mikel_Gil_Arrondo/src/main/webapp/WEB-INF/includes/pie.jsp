@@ -3,8 +3,11 @@
 </div>
 <footer>
 	<p>
-	Buscar palabra
-	<input type="text" placeholder="buscar en el libro..."/>
+		<form action="buscar" method="post">
+		<span>Buscar palabra</span>
+			<input type="text" placeholder="Buscar en el libro..." name="buscador" id="buscador"/>
+			<button type="submit" class="btn btn-default" >Buscar</button>
+		</form>
 	</p>
 </footer>
 </body>

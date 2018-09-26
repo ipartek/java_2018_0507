@@ -45,6 +45,4 @@ public class MapDAO<T extends Identificable> implements CrudAble<T> {
 		pojos.remove(id);
 		return true;
 	}
-	
-	
 }

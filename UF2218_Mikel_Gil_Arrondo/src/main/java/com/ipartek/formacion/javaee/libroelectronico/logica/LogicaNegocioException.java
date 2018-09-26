@@ -28,5 +28,4 @@ public class LogicaNegocioException extends RuntimeException {
 		super(message, cause, enableSuppression, writableStackTrace);
 		// TODO Auto-generated constructor stub
 	}
-
 }
