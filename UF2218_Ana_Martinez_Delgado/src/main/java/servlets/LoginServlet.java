@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,11 +19,10 @@ public class LoginServlet extends HttpServlet{
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//1.Recogida de datos de formularios, URLs, cookies, session...
 		request.setCharacterEncoding("UTF-8");
 		
 		String user = request.getParameter("user");
-		System.out.println("user "+user);
+		//System.out.println("user "+user);
 		String pass = request.getParameter("pass");
 		
 		/*
@@ -43,9 +43,14 @@ public class LoginServlet extends HttpServlet{
 			request.setAttribute("user", user);
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		} else {
-			System.out.println("Usuario nulo");
+			response.setContentType("text/html");
+			
+			response.setContentType("text/html");
+			PrintWriter out = response.getWriter();
+			
+			out.println("<body>Usuario incorrecto<br>");
+			out.println("<a href='index.jsp'>Volver</a></body>");
+			
 		}
-		
-	
 	}
 }

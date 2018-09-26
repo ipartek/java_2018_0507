@@ -51,11 +51,11 @@ public class AniadirPag extends HttpServlet {
 		//List<Pagina> paginas = (List<Pagina>)session.getAttribute("paginas");
 		
 		
-		  System.out.println("paginas.toString:  "+pagi.toString());
+		 // System.out.println("paginas.toString:  "+pagi.toString());
 		
 		
 		
-		System.out.println("pagi.getContenido()"+pagi.getContenido());
+		//System.out.println("pagi.getContenido()"+pagi.getContenido());
 		System.out.println("Autor:" + autor + "\n Texto a insertar: " + escritonuevo +" \n Numero de pagina: " + contpags);
 		
 		//response.getWriter().append("Pagina añadida al libro <a href='index.jsp'>volver</a>").append(request.getContextPath());
