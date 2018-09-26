@@ -30,7 +30,7 @@
 					<a href="desconectar">Cerrar Sesion</a>
 				</c:otherwise>
 			</c:choose>
-		
+		<p> </p>
 		
 		
 <main>

@@ -1,24 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
-<%@ include file="/WEB-INF/cabezaPagina.jsp" %>
+<%@ include file="/WEB-INF/cabezaPagina.jsp"%>
 
-<div>
-	<label>Pagina</label>
-</div>
 <section id="paginacion">
 
 	<c:forEach items="${paginas}" var="pagina">
 		<article>
-			
-				<Label>Pagina</Label> ${paginas.id}
-				
-				<div>${paginas.texto}></div>
-		
-				
-			
+
+			<Label>Pagina</Label> ${paginas.id}
+
+			<div>${paginas.texto}></div>
+
 		</article>
 	</c:forEach>
-	<label>Autor</label>${usuario.nombre}
+	<p>
+	<label>Pagina</label> 
+	</p>
+	<p>
+	<input type="text" name="texto">
+	</p>
+	<p>
+		<label>Autor</label>${usuario.nombre}
+	</p>
 </section>
-<%@ include file="/WEB-INF/Pie.jsp" %>
+<%@ include file="/WEB-INF/Pie.jsp"%>
