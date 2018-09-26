@@ -36,8 +36,13 @@ public class EdicionServlet extends HttpServlet {
 			id = Integer.parseInt(request.getParameter("id"));
 		if (request.getParameter("insertarHoja") != null)
 			if (request.getParameter("insertarHoja").equalsIgnoreCase("true")) {
+				if(texto.split("\\s+|\n").length<25 ) {
+					response.sendRedirect("admin/nuevoArticulo.jsp");	
+					return;
+				}
+				else
 				LogicaNegocio.insertarHoja(new HojaLibro(id, texto, autor));
-				System.out.println(texto + "te" + autor + "au" + id + "id" + "dentro anadir");
+				
 			}
 		LogicaNegocio.devolverTamanoLibro(request);
 		movimientos(request);
