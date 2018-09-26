@@ -4,9 +4,9 @@
 <%@ include file="/WEB-INF/includes/cabeceraadmin.jsp"%>
 
 <header>
-	<h1>Administración Edición</h1>
+	<h1>Añadir Pagina</h1>
 </header>
-
+<div align="center">
 <form action="procesaredicion" method="post">
 	<p>
 		<label for="id">Id</label> <input type="number" name="id" id="id"
@@ -37,5 +37,5 @@
 
 
 </form>
-
+</div>
 <%@ include file="/WEB-INF/includes/pie.jsp"%>

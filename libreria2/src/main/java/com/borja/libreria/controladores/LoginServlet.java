@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
 		
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		
+		email=email+"@biblioteca.com";
 		if(email == null || password == null) {
 			throw new RuntimeException("Programador del login.jsp. Ya puedes poner un email y password.");
 		}

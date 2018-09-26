@@ -8,57 +8,74 @@
 </header>
 
 <div id="container-fluid">
-<form action="PaginacionServlet" method="post" align="center">
-	Introduce Numero de pagina<input type="number" name="numero"/>
-	<input type="submit">
-	
+	<form action="PaginacionServlet" method="post" align="center">
+		<br>
+		<br>Introduce Numero de pagina<input type="number" name="numero" />
+		<input type="submit">
+
 	</form>
+	<br>
+	<br>
 	<div class="row" id="contenido">
 
 
 
-
-<c:if test="${paginaF<=1||paginaF==null}">
-
-
-<c:forEach items="${paginas}" var="pagina" begin="0" end="0">
-	
-		<div class="col-md-8"	>
-			
-					${pagina.texto} 
-				<dd><br><br><small><bold>${pagina.nick}</bold></small></dd>
-				
-			</dl>
-		</div>
-		
-	</c:forEach>	
+		<c:if test="${paginaF<=1||paginaF==null}">
 
 
+<h1>pagina ${paginaF}</h1>
 
-</c:if>
 
-<c:if test="${paginaF>1}">
-	<c:forEach items="${paginas}" var="pagina" begin="${paginaF}" end="${paginaF}">
-	
-		<div class="col-md-8"	>
-			
-					${pagina.texto} 
-				<dd><br><br><small><bold>${pagina.nick}</bold></small></dd>
-				
-			</dl>
-		</div>
-		
-	</c:forEach>	
-	</c:if>
+			<c:forEach items="${paginas}" var="pagina" begin="0" end="0">
+
+				<div class="col-md-8">
+
+					${pagina.texto}
+					<dd>
+						<br>
+						<br>
+						<small><bold>${pagina.nick}</bold></small>
+					</dd>
+
+					</dl>
+				</div>
+
+			</c:forEach>
+
+
+
+		</c:if>
+
+		<c:if test="${paginaF>1}">
+			<h1>pagina ${paginaF}</h1>
+
+			<c:forEach items="${paginas}" var="pagina" begin="${paginaF}"
+				end="${paginaF}">
+
+				<div class="col-md-8">
+
+					${pagina.texto}
+					<dd>
+						<br>
+						<br>
+						<small><bold>${pagina.nick}</bold></small>
+					</dd>
+
+					</dl>
+				</div>
+
+			</c:forEach>
+		</c:if>
 
 	</div>
-	
-	
-	</div>
-		
-	<form action="PaginacionServlet" name="siguiente" value="next" method="post">
+
+
+</div>
+
+<form action="PaginacionServlet" name="siguiente" value="next"
+	method="post">
 	<button value="next" name="siguiente" align="center">sigiente</button>
-		
-	
-	</form>
+
+
+</form>
 <%@ include file="/WEB-INF/includes/pie.jsp"%>
