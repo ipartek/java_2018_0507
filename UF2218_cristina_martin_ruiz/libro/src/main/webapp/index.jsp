@@ -9,7 +9,7 @@
 
 
 
-<header>
+<header> 
 	<h1 class="text-center">LIBRO</h1>
 </header>
 
