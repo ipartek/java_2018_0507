@@ -23,6 +23,7 @@ public class LoginServlet extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		
 		String nombre = request.getParameter("nombre");
 		String password = request.getParameter("password");
@@ -38,7 +39,7 @@ public class LoginServlet extends HttpServlet {
 		if(usuario.isCorrecto() && usuarioValido) {
 			
 			request.getSession().setAttribute("user", usuario);
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			request.getRequestDispatcher("index").forward(request, response);
 		} else {
 			if(!usuarioValido) {
 				request.setAttribute("errores", "El usuario no es válido");

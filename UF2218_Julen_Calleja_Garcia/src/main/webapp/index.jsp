@@ -18,7 +18,10 @@
 	<label>Pagina</label> 
 	</p>
 	<p>
-	<input type="text" name="texto">
+	<form action="escritura" method="post">
+	<input type="text" name="texto" value="${paginas.text}">
+	<button>Agregar texto</button>
+	</form>
 	</p>
 	<p>
 		<label>Autor</label>${usuario.nombre}
