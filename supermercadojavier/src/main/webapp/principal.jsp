@@ -9,16 +9,16 @@
 
 <section id="listado">
 
-	<c:forEach items="${articulos}" var="articulo">
+	<c:forEach items="${productos}" var="producto">
 		<article>
 			<dl>
 				<dt>Nombre</dt>
 				<dd>
-					${articulo.nombre} <a href="carrito?accion=add&id=${articulo.id}">Añadir al
+					${producto.nombre} <a href="carrito?accion=add&id=${producto.id}">Añadir al
 						carrito</a>
 				</dd>
 				<dt>Precio</dt>
-				<dd><fmt:formatNumber value="${articulo.precio}" type="currency"/></dd>
+				<dd><fmt:formatNumber value="${producto.precio}" type="currency"/></dd>
 			</dl>
 		</article>
 	</c:forEach>

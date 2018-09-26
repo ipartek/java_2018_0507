@@ -20,28 +20,7 @@
     </div>
   
     <jsp:include page="menuprincipal.jsp" />
-    
-    
-    
-    
-    
-    
-    <c:forEach items="${productos}" var="producto">
-		<article>
-			<dl>
-				<dt>Nombre</dt>
-				<dd>
-					${producto.nombre} <a href="carrito?accion=add&id=${producto.id}">Añadir al
-						carrito</a>
-				</dd>
-				<dt>Precio</dt>
-				<dd><fmt:formatNumber value="${producto.precio}" type="currency"/></dd>
-			</dl>
-		</article>
-	</c:forEach>
-    
-    
-    
+   
 	  <div id="contenedor">
      <form id="bebidas" action="AnadiralCarrito">
 		  <div class="row">
@@ -52,8 +31,7 @@
 				  <div class="bebida">
 				 		<div class="preciotachado">30&euro;</div>
 				        <div class="preciooferta">20&euro; </div>
-				        
-				        <button id="1" name="1" value="1" type="submit" class="btn btn-success addcarrito"><i class="fas fa-shopping-cart"></i></button>  
+				         <a href="AnadiralCarrito?accion=add&id=1&nombre=bebi1&precio=22" class="btn-success"><i class="fas fa-shopping-cart"></i></a>
 				       
 				  </div>
 				   <div class="bebida">
@@ -63,8 +41,8 @@
 				 		<div class="preciotachado">30&euro;</div>
 				        <div class="preciooferta">20&euro; </div>
 				       
-				        <button id="2" name="2"  value="2" type="submit" class="btn btn-success addcarrito"><i class="fas fa-shopping-cart"></i></button>  
-				      
+				         <a href="AnadiralCarrito?accion=add&id=2&nombre=bebi2&precio=22" class="btn-success"><i class="fas fa-shopping-cart"></i></a>
+				       
 				  </div>
 			  </div>
 			  <div class="col-sm-2">
@@ -74,8 +52,7 @@
 				  <div class="bebida">
 				 		<div class="preciotachado">30&euro;</div>
 				        <div class="preciooferta">20&euro; </div>
-				       
-				        <button  id="3" name="3" value="3" type="submit" class="btn btn-success addcarrito"><i class="fas fa-shopping-cart"></i></button>  
+				        <a href="AnadiralCarrito?accion=add&id=3&nombre=bebi3&precio=22" class="btn-success"><i class="fas fa-shopping-cart"></i></a>
 				       
 				  </div>
 				   <div class="bebida">
@@ -85,7 +62,7 @@
 				 		<div class="preciotachado">30&euro;</div>
 				        <div class="preciooferta">20&euro; </div>
 				        
-				        <button  id="4" name="4" value="4" type="submit" class="btn btn-success addcarrito"><i class="fas fa-shopping-cart"></i></button>  
+				         <a href="AnadiralCarrito?accion=add&id=4&nombre=bebi4&precio=22" class="btn-success"><i class="fas fa-shopping-cart"></i></a>
 				       
 				  </div>
 			  </div>
@@ -97,7 +74,7 @@
 				 		<div class="preciotachado">30&euro;</div>
 				        <div class="preciooferta">20&euro; </div>
 				       
-				        <button  id="5" name="5" value="5" type="submit" class="btn btn-success addcarrito"><i class="fas fa-shopping-cart"></i></button>  
+				         <a href="AnadiralCarrito?accion=add&id=5&nombre=bebi5&precio=22" class="btn-success"><i class="fas fa-shopping-cart"></i></a>
 				       
 				  </div>
 				   <div class="bebida">
@@ -107,8 +84,8 @@
 				 		<div class="preciotachado">30&euro;</div>
 				        <div class="preciooferta">20&euro; </div>
 				     
-				        <button  id="6" name="6" value="6" type="submit" class="btn btn-success addcarrito"><i class="fas fa-shopping-cart"></i></button>  
-				      
+				         <a href="AnadiralCarrito?accion=add&id=6&nombre=bebi6&precio=22" class="btn-success"><i class="fas fa-shopping-cart"></i></a>
+				       
 				  </div>
 				  
 			  </div>
@@ -120,8 +97,8 @@
 				 		<div class="preciotachado">30&euro;</div>
 				        <div class="preciooferta">20&euro; </div>
 				        
-				        <button  id="7" name="7" value="7" type="submit" class="btn btn-success addcarrito"><i class="fas fa-shopping-cart"></i></button>  
-				      
+				         <a href="AnadiralCarrito?accion=add&id=7&nombre=bebi7&precio=7" class="btn-success"><i class="fas fa-shopping-cart"></i></a>
+				       
 				  </div>
 				   <div class="bebida">
 				 	<img class="bebidafoto" src="imgs/bebidas/cola.jpg" alt="Cola"  width="50px" height="50px"/> 
@@ -130,8 +107,8 @@
 				 		<div class="preciotachado">30&euro;</div>
 				        <div class="preciooferta">20&euro; </div>
 				       
-				        <button  id="8" name="8" value="8" type="submit" class="btn btn-success addcarrito"><i class="fas fa-shopping-cart"></i></button>  
-				        
+				         <a href="AnadiralCarrito?accion=add&id=8&nombre=bebi8&precio=22" class="btn-success"><i class="fas fa-shopping-cart"></i></a>
+				       
 				  </div>
 				  
 			  </div>
@@ -143,8 +120,8 @@
 				 		<div class="preciotachado">30&euro;</div>
 				        <div class="preciooferta">20&euro; </div>
 				       
-				        <button  id="9" name="9" value="9" type="submit" class="btn btn-success addcarrito"><i class="fas fa-shopping-cart"></i></button>  
-				      
+				         <a href="AnadiralCarrito?accion=add&id=9&nombre=bebi9&precio=22" class="btn-success"><i class="fas fa-shopping-cart"></i></a>
+				       
 				  </div>
 				   <div class="bebida">
 				 	<img class="bebidafoto" src="imgs/bebidas/cola.jpg" alt="Cola"  width="200px" height="200px"/> 
@@ -153,8 +130,8 @@
 				 		<div class="preciotachado">30&euro;</div>
 				        <div class="preciooferta">20&euro; </div>
 				      
-				        <button  id="10" name="10" value="10" type="submit" class="btn btn-success addcarrito"><i class="fas fa-shopping-cart"></i></button>  
-				     
+				        <a href="AnadiralCarrito?accion=add&id=10&nombre=bebi10&precio=22" class="btn-success"><i class="fas fa-shopping-cart"></i></a>
+				       
 				  </div>
 			  </div>
 		</div>

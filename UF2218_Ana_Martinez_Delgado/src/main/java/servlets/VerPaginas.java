@@ -1,30 +1,29 @@
-package supermercado.servlet;
+package servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import supermercado.accesodatos.Carrito;
-import supermercado.pojo.Articulo;
+import datos.Pagina;
 
 /**
- * Servlet implementation class AnadiralCarrito
+ * Servlet implementation class VerPaginas
  */
-public class AnadiralCarrito extends HttpServlet {
+@WebServlet("/verPaginas")
+public class VerPaginas extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Carrito carrito;
-	List<Articulo> articulos;
-	
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AnadiralCarrito() {
+    public VerPaginas() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,39 +32,18 @@ public class AnadiralCarrito extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		doPost(request,response);
+		doPost(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("CARRITO");
-		
-		
-		String accion = request.getParameter("accion");
-		
-		String idprod=request.getParameter("id");
-		
-		
-		System.out.println("idprod "+idprod);
-		String nombre=request.getParameter("nombre");
-		String precio=request.getParameter("precio");
-		
-		System.out.println("nombre "+nombre);
-		System.out.println("precio "+precio);
-		
 		HttpSession session = request.getSession();
 		
-		
-		
-		carrito.setNombre(nombre);
-		carrito.setPrecio(precio);
+		response.sendRedirect("verpagina.jsp");
 	
 		
-		response.sendRedirect("bebidas.jsp");
 	}
 
 }

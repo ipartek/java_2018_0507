@@ -6,7 +6,7 @@
 	<div class="UsuarioLoggueado">
 		<%String usuarioRecib = (String)session.getAttribute("user");%>
 		<%=usuarioRecib %>
-		<a href="../UserLogout">Desconectar</a>
+		<a href="UserLogout">Desconectar</a>
 		
 	</div>
 
@@ -22,7 +22,7 @@
             
             
            <div class="input-group" >
-              <span class="input-group-addon"><img src="../imgs/lupa.png" width="20px"></span>
+              <span class="input-group-addon"><img src="imgs/lupa.png" width="20px"></span>
               <input type="text" class="form-control">
               <span class="input-group-addon">Buscar</span>
             </div> 
