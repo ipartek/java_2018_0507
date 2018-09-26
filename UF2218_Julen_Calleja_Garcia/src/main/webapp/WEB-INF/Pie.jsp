@@ -1,0 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+    
+</main>
+<footer>
+	<p>
+		<label>Buscar palabra</label> <input type="text" name="buscar" value="buscar">
+	</p>
+		<button>Buscar</button>
+</footer>
+</body>
+</html>
