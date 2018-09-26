@@ -31,13 +31,15 @@ public class LoginServlet extends HttpServlet {
 					throw new RuntimeException("Requeridos nombre y contraseña.");
 				}
 				Usuario usuario = new Usuario(nombre, password);
-				
+		
 				boolean usuarioValido = LogicaNegocio.validarUsuario(usuario);
 
 				if (usuario.isCorrecto() && usuarioValido) {
 					
 					//cargarPagina(request, id);
 					request.getSession().setAttribute("user", usuario);
+					Pagina pagina = LogicaNegocio.obtenerPaginasPorId(Long.parseLong("1"));
+					request.setAttribute("pagina",pagina);
 					request.getRequestDispatcher("/main.jsp").forward(request, response);
 					//request.getRequestDispatcher("principal").forward(request, response);
 				} else {

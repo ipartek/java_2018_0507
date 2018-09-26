@@ -15,6 +15,9 @@ public class Pagina implements Identificable{
 	public long getId() {
 		return id;
 	}
+	public Pagina(String nombre, String texto) {
+		this(-1, nombre, texto);
+	}
 
 	public void setId(long id) {
 		this.id = id;

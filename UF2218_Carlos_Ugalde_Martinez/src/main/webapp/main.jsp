@@ -16,8 +16,8 @@
 
 <c:if test="${sessionScope.user != null}">
 
-	<textarea>${paginas.texto}</textarea><p></p>
-	<input type="text" disabled value="Autor: ${sessionScope.user.nombre}">
+	<textarea>${pagina.texto}</textarea><p></p>
+	<input type="text" disabled value="Autor: ${pagina.nombre}">
 </c:if>	
 <p></p>
 <p>

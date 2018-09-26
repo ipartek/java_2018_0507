@@ -18,7 +18,7 @@ public class LogicaNegocio {
 		usuarios.insert(new Usuario(4, "paulo", "cohelo"));
 		usuarios.insert(new Usuario(5, "a", "a"));
 		
-		paginas.insert(new Pagina(1, "b", "sfsdihsiaod"));
+		paginas.insert(new Pagina(1, "b", "ERASE UNA VEZ"));
 		
 	/*	for(int i = 1; i <= 10; i++) {
 			paginas.insert(new Pagina(i, "gato","Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente laudantium, at natus ullam inventore sunt accusantium reprehenderit, quisquam delectus laborum nisi quia ratione voluptatum, accusamus mollitia autem deserunt quibusdam repudiandae."));
