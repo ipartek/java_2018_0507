@@ -27,7 +27,11 @@ public class PaginacionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		String next=request.getParameter("siguiente");
+		System.out.println(next);
+
+		
 	}
 
 	/**
@@ -37,12 +41,16 @@ public class PaginacionServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String numero=request.getParameter("numero");
 
+		
 		if(numero!=null) {
 		
 			request.getSession().setAttribute("paginaF", numero);
 	response.sendRedirect("principal?paginaF="+numero);
 
 		}
+		
+		
+		
 		else {
 			response.sendRedirect("principal?paginaF"+"-1");
 

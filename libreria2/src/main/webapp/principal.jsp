@@ -72,9 +72,8 @@
 
 </div>
 
-<form action="PaginacionServlet" name="siguiente" value="next"
-	method="post">
-	<button value="next" name="siguiente" align="center">sigiente</button>
+<form action="PaginacionServlet" method="post">
+	<input type="submit" value="next" name="siguiente" align="center">sigiente</input>
 
 
 </form>
