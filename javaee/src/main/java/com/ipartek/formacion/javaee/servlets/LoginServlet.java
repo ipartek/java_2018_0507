@@ -27,19 +27,17 @@ public class LoginServlet extends HttpServlet {
 		//Empaquetado en Modelo
 		LoginForm login = new LoginForm();
 		
-<<<<<<< HEAD
 		LoginForm login = new LoginForm();
 		login.setNombre(nombre);
 		try {
 			login.setNombre(nombre);
 		}catch(LoginFormException e) {
 			login.setMensajeError(login.getMensajeError()+e.getMessage());
-=======
+			
 		try {
 			login.setNombre(nombre);
 		} catch (LoginFormException e) {
 			login.setErrorNombre("*");
->>>>>>> refs/remotes/origin/master
 		}
 			
 		try {
