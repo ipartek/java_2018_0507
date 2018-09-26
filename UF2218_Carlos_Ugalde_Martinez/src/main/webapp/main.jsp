@@ -5,4 +5,6 @@
 
 <p><a href="#">Anterior</a><a href="#">Siguiente</a></p>
 
+<textarea>Loreemsndsionasonsalkcklnm</textarea>
+
 <%@ include file="/WEB-INF/includes/pie.jsp" %>
