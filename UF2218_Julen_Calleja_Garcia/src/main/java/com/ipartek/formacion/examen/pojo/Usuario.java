@@ -8,7 +8,8 @@ public class Usuario {
 	private String errorNombre = "";
 	private String errorPassword = "";
 	
-	
+	private boolean correcto = true;
+
 
 	public Usuario(long id, String nombre, String password) {
 		super();
@@ -97,6 +98,14 @@ public class Usuario {
 				+ ", errorPassword=" + errorPassword + "]";
 	}
 	
+	public Usuario(String nombre, String password) {
+		this(-1, nombre, password);
+	}
 	
+	public Usuario() {}
+
+	public boolean isCorrecto() {
+		return correcto;
+	}
 	
 }

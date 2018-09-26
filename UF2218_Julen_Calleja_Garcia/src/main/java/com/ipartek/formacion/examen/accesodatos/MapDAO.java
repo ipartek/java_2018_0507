@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
-import com.ipartek.formacion.examen.accesodatos.CrudAble;
+import com.ipartek.formacion.examen.pojo.Identificable;
 
 
 public class MapDAO<T> implements CrudAble<T>{

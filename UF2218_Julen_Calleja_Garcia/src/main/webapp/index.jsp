@@ -3,8 +3,22 @@
 
 <%@ include file="/WEB-INF/cabezaPagina.jsp" %>
 
-<header>
-	<h1>Libro Electronico Julen</h1>
-</header>
+<div>
+	<label>Pagina</label>
+</div>
+<section id="paginacion">
 
+	<c:forEach items="${paginas}" var="pagina">
+		<article>
+			
+				<Label>Pagina</Label> ${paginas.id}
+				
+				<div>{paginas.texto}></div>
+		
+				
+			
+		</article>
+	</c:forEach>
+	
+</section>
 <%@ include file="/WEB-INF/Pie.jsp" %>

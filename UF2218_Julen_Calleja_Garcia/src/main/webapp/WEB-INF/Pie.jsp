@@ -5,7 +5,7 @@
 </main>
 <footer>
 	<p>
-		<label>Buscar palabra</label> <input type="text" name="buscar" value="buscar">
+		<label>Buscar palabra</label> <input type="text" name="buscar" >
 	</p>
 		<button>Buscar</button>
 </footer>

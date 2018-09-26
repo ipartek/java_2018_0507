@@ -36,8 +36,8 @@ public class LogicaLibro {
 	}
 
 	public static void agregarPagina(Libro pagina) {
-		if (!paginas.insert(pagina)) { // compruebo si se ha hecho lo que he dicho, por si ha habido algun fallo
-			throw new LogicaNegocioException("No se ha podido insertar el registro");
+		if (!paginas.insert(pagina)) { 
+			//throw new LogicaLibroException("No se ha podido insertar la pagina");
 		}
 	}
 }

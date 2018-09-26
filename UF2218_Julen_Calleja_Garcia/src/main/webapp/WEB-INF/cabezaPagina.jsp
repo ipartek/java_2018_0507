@@ -13,10 +13,14 @@
 <body>
 
 		<a href="#">Escribir pagina</a>
+		<p>
 		<Label>Ir a pagina </Label> <input type="text"/> 
+		</p>
+		<p>
+		<a href="#">Anterior</a> <a href="#">Siguiente</a>
+		</p>
 		
 		
-		<!--  
 		<small>${sessionScope.user.nombre}</small>
 		<c:choose>
 				 <c:when test="${sessionScope.user == null}">
@@ -25,7 +29,7 @@
 				<c:otherwise>
 					<a href="desconectar">Cerrar Sesion</a>
 				</c:otherwise>
-			</c:choose>-->
+			</c:choose>
 		
 		
 		

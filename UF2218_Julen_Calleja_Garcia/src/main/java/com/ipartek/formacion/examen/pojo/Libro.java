@@ -5,7 +5,9 @@ public class Libro {
 		private long id;
 		private String texto;
 		
-	
+		public Libro(String texto) {
+			this(-1, texto);
+		}
 		
 		public Libro(long id, String texto) {
 			super();
