@@ -6,11 +6,11 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Supermercado Javier</title>
+<title>Supermercado Pablo</title>
 </head>
 <body>
 	<header>
-		<h1>Supermercado Javier</h1>
+		<h1>Supermercado Pablo</h1>
 	</header>
 	<nav>
 		<ul>

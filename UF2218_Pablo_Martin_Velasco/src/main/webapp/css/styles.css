@@ -1,0 +1,289 @@
+/* Estilos generales */ 
+
+
+img{
+    max-width: 100%;
+}
+
+/* Estilos para el logo del menu de cabecera */
+
+nav img{
+    width:150px;
+}
+
+/* Estilos para la cabecera */
+
+#login-header{
+    margin-bottom:4em;
+}
+
+/* Estilos para el menu de cabecera */
+
+.menu a{
+    color:#fff!important;
+}
+
+.menu a:hover{
+    color:#999!important;
+}
+
+/* Estilos para el contenido principal de la página */
+
+main.container{
+    min-height: 68vh;
+}    
+
+.contenido{
+    margin: auto;
+    max-width: 90vw;
+    height:auto;
+    padding-left:2em;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:flex-start;
+    align-items: flex-end;
+}
+
+/* Estilos para la carta de producto */
+
+.producto{
+    background-color:#fff;
+    box-sizing: border-box;
+    width:200px;
+    height:auto;
+    border:thin solid #F5F5F5;
+    padding-top:20px;
+    margin:1em;
+    font-family: 'Lato', sans-serif;
+    font-size:0.8em;
+    color:#696969;
+    position:relative;
+}
+
+.descuento{
+    position: absolute;
+    top:5px;
+    left:5px;
+    color:#fff;
+    background-color:#ED5A5A;
+    padding:1px 10px;
+    border-radius:20px;
+    font-size:1.2em;
+}
+
+.producto img{
+    margin-bottom:1em;
+    height: 200px;
+}
+
+.texto-producto{
+    padding:20px;
+}
+
+.tachado {
+    position: relative;
+}
+
+.invisible{
+	display:none;
+}
+ 
+.tachado:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 50%;
+    right: 0;
+    border-top: 1px solid;
+    border-color: rgb(117, 117, 117);
+     
+    -webkit-transform:rotate(-10deg);
+    -moz-transform:rotate(-10deg);
+    -ms-transform:rotate(-10deg);
+    -o-transform:rotate(-10deg);
+    transform:rotate(-20deg);
+}
+
+.texto-producto p:first-of-type span:last-of-type{
+    color:#ED5A5A;
+    font-weight:bold;
+    font-size:1.5em;
+    margin-left:0.7em;
+}
+
+.no-descuento{
+    font-weight: bold!important;
+    font-size:1.5em!important;
+    color: #696969!important;
+    margin-left:0!important;
+}
+
+.precio-litro{
+    color:#999;
+}
+
+.cantidad{
+    margin:0 1em;
+    border:thin solid #ccc;
+    border-radius:30px;
+    background-color:#F7F7F7;
+    padding: 5px 10px;
+    display:flex;
+    justify-content:space-between;
+    font-size:1.3em;
+}
+
+.cantidad span{
+    font-weight: bolder;
+    color:#000;
+    cursor: pointer;
+}
+
+.producto a{
+    text-decoration:none;
+    display:block;
+    text-align: center;
+    padding:20px 20px;
+    background-color: #88CC88;
+    color:#fff;
+}
+
+.producto a:hover{
+    background-color:green;
+}
+
+/* Estilos para el ancla 'top' */
+
+.top{
+    display:none;
+    background-color:#88CC88;
+    color:#fff;
+    text-decoration: none;
+    padding:5px 10px;
+    position:fixed;
+    right:10px;
+    bottom:10px;
+    border-radius:10px;
+}
+
+.top:hover{
+    text-decoration: none;
+    color:#fff;
+    background-color: green;
+}
+
+/* Estilos para el formulario de login */
+
+#login-small{
+    margin-bottom:1em;
+}
+
+.required::before{
+    content:"*";
+    color:#f00;
+}
+
+/* Estilos para el formulario de alta producto */
+
+.form-alta-producto{
+    margin-top:1em;
+    margin-bottom:3em;
+}
+
+#descuento:checked #cant-descuento{
+    background-color:red;
+}
+
+/* Estilos para la página de listado */
+
+table img{
+    width:100px;
+    height: auto;
+}
+
+/* Estilos para el pie de página */
+
+footer{
+    background-color:#343A40;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:center;
+    color:#fff;
+    padding:1em;
+}
+
+footer nav a{
+    color:#fff;
+    margin:0 0.2em;
+}
+
+footer nav a:hover{
+    text-decoration:none;
+    color:#999;
+}
+
+.social a{
+    margin-right:0.5em;
+}
+
+#facebook{
+    color:#3b5998;
+}
+
+#facebook:hover{
+    color:#8b9dc3;
+}
+
+#twitter{
+    color:#00aced;
+}
+
+#twitter:hover{
+    color:#1dcaff;
+}
+
+/* Footer de la página login */
+
+#login-footer{
+    width:100%;
+    position:fixed;
+    bottom:0;
+}
+
+/* Footer de la página listado */
+
+#listado-footer{
+    margin-top:3em;
+}
+
+/* Media queries para dispositivos de anchurra menor a 576px */
+
+@media (max-width: 576px) {
+
+    .navbar-brand{
+        margin:0 auto;
+    }
+
+    li.nav-item{
+        display:inline;
+    }
+
+    .contenido{
+        justify-content:center;
+        padding:0;
+    }
+
+    .top{
+       display:block; 
+    }
+
+    footer{
+        flex-direction:column;
+    }
+
+    footer nav{
+        margin-bottom:1em;
+    }
+
+}
