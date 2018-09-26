@@ -9,11 +9,14 @@ public class Usuario {
 	private String errorPassword = "";
 	
 	
-	public Usuario(String nombre, String password) {
+
+	public Usuario(long id, String nombre, String password) {
 		super();
+		this.id = id;
 		this.nombre = nombre;
 		this.password = password;
 	}
+
 	public long getId() {
 		return id;
 	}

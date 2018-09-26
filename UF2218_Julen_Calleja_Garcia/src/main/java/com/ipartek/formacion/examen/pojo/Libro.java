@@ -5,6 +5,13 @@ public class Libro {
 		private long id;
 		private String texto;
 		
+	
+		
+		public Libro(long id, String texto) {
+			super();
+			this.id = id;
+			this.texto = texto;
+		}
 		@Override
 		public int hashCode() {
 			final int prime = 31;
