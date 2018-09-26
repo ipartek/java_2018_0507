@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 		if(usuario.isCorrecto() && usuarioValido) {
 			
 			request.getSession().setAttribute("user", usuario);
-			request.getRequestDispatcher("//crear una servlet princiapl y rediderccionar").forward(request, response);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		} else {
 			if(!usuarioValido) {
 				request.setAttribute("errores", "El usuario no es válido");
