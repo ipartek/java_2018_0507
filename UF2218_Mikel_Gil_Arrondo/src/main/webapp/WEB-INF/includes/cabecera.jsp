@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="es_ES"/>
+<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Libro electrónico Mikel</title>
+	
+	<link rel="stylesheet" href="css/bootstrap-superhero-theme.min.css" />
+    <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="shortcut icon" href="#" />
+    
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container-fluid">
+	
