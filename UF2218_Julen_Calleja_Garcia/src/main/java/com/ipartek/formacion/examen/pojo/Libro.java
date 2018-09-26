@@ -1,6 +1,6 @@
 package com.ipartek.formacion.examen.pojo;
 
-public class Libro {
+public class Libro implements Identificable {
 	
 		private long id;
 		private String texto;

@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet {
 				request.setAttribute("errores", "El usuario no es válido");
 			}
 			request.setAttribute("user", usuario); 
-			request.getRequestDispatcher("/index.jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 	}
 

@@ -14,7 +14,9 @@
 
 		<a href="#">Escribir pagina</a>
 		<p>
-		<Label>Ir a pagina </Label> <input type="text"/> 
+		<form action="escritura" method="post">
+		<Label>Ir a pagina </Label> <input type="text"> <button>Ir</button>
+		</form>
 		</p>
 		<p>
 		<a href="#">Anterior</a> <a href="#">Siguiente</a>
@@ -30,7 +32,9 @@
 					<a href="desconectar">Cerrar Sesion</a>
 				</c:otherwise>
 			</c:choose>
+		
 		<p> </p>
+		
 		
 		
 <main>

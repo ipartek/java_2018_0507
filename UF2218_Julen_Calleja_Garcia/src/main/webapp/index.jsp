@@ -8,9 +8,9 @@
 	<c:forEach items="${paginas}" var="pagina">
 		<article>
 
-			<Label>Pagina</Label> ${paginas.id}
+			<Label>Pagina</Label> ${pagina.id}
 
-			<div>${paginas.texto}></div>
+			<div>${pagina.texto}></div>
 
 		</article>
 	</c:forEach>
@@ -19,12 +19,12 @@
 	</p>
 	<p>
 	<form action="escritura" method="post">
-	<input type="text" name="texto" value="${paginas.text}">
+	<input type="text" name="texto" value="${pagina.texto}">
 	<button>Agregar texto</button>
 	</form>
 	</p>
 	<p>
-		<label>Autor</label>${usuario.nombre}
+		<label>Autor</label>${sessionScope.user.nombre}
 	</p>
 </section>
 <%@ include file="/WEB-INF/Pie.jsp"%>
