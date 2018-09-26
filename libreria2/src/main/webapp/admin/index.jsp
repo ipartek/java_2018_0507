@@ -10,7 +10,7 @@
 
 <div class="mensaje">
 </div>
-			<td><a href="edicion?accion=add"><H1>Añadir Pagina</H1></a></td>
+			<td><a href="edicion?accion=add"><H1 align="center">Añadir Pagina</H1></a></td>
 
 <table id="adminlistado">
 	<thead>
@@ -18,14 +18,13 @@
 			<th>Id</th>
 			<th>Texto</th>
 			<th>Autor</th>
-			<td><a href="edicion?accion=add">Añadir</a></td>
 		</tr>
 	</thead>
 	<tbody>
 		<c:forEach items="${paginas}" var="pagina">
 			<tr>
 				<th>${pagina.id}</th>
-				<td>${pagina.texto}</td>
+				<td><br><br>${pagina.texto}</td>
 				<td>${pagina.nick}</td>
 			</tr>
 		</c:forEach>

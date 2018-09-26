@@ -10,7 +10,7 @@
 <div id="col-xm-6">
 <form action="login" method="post">
 	<p>
-		<label for="text">Email</label>
+		<label for="text">Usuario</label>
 		<input type="text" name="email" id="email" value="${user.email}" />
 	</p>
 	<p>

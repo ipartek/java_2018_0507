@@ -1,6 +1,5 @@
 package com.borja.libreria.logica;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,14 +13,13 @@ public class LogicaNegocio {
 	private static MapDAO<Pagina> paginas = new MapDAO<Pagina>();
 
 	static {
-		usuarios.insert(new Usuario(1, "admin@admin.com", "admin"));
-		usuarios.insert(new Usuario(2, "william", "shakespeare"));
-		usuarios.insert(new Usuario(3, "cervantes", "saavedra"));
-		usuarios.insert(new Usuario(4, "pablo", "neruda"));
-		usuarios.insert(new Usuario(5, "paulo", "cohelo"));
+		usuarios.insert(new Usuario(1, "cervantes@saavedra.com", "saavedra"));
+		usuarios.insert(new Usuario(2, "william@shakespeare.com", "shakespeare"));
+		usuarios.insert(new Usuario(3, "pablo@neruda.com", "neruda"));
+		usuarios.insert(new Usuario(4, "paulo@cohelo.com", "cohelo"));
 
 		
-			paginas.insert(new Pagina(1, "Erase Una vez....", 
+			paginas.insert(new Pagina(1, "<br><br><h1>Erase Una vez....</h1><br>", 
 					"borja"));
 			paginas.insert(new Pagina(2,"Nota: Si aparece el mensaje 500 Internal Server Error durante el proceso de compra de un visitante en línea, ten en cuenta que los intentos duplicados de pago pueden terminar creando múltiples pedidos y ¡múlría tienen protecciones aener en cuenta.ra la memoria caché de tu navegador. Si hay un problema con la versión en caché de la página que estás viendo, podría estar causando problemas HTTP 500.Nota: Los errores internos del servidor no suelen ser causados ​​por problemas de almacenamiento en caché, pero, en ocasiones, se ha visto desaparecer el error después de borrar el caché. Es algo fácil de intentar, así que no te lo saltes."
 					,"Ursula"));

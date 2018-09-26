@@ -56,8 +56,8 @@
 	
 	</div>
 		
-	<form action="PaginacionServlet" method="post">
-	<button value="next" name="siguiente">sigiente</button>
+	<form action="PaginacionServlet" name="siguiente" value="next" method="post">
+	<button value="next" name="siguiente" align="center">sigiente</button>
 		
 	
 	</form>

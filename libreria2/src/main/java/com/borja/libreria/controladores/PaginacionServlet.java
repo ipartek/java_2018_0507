@@ -43,8 +43,24 @@ public class PaginacionServlet extends HttpServlet {
 	response.sendRedirect("principal?paginaF="+numero);
 
 		}
+		else {
+			response.sendRedirect("principal?paginaF"+"-1");
+
+			
+		}
 		
-		System.out.println(numero);
+//		System.out.println(numero);
+//		if(numero==null) {
+//			numero="0";
+//			System.out.println(numero);
+//		}
+//			
+//		if(request.getParameter("siguiente").equalsIgnoreCase("next"))
+//		{			request.getSession().setAttribute("paginaF", numero+1);
+//		response.sendRedirect("principal?paginaF="+numero);
+//System.out.println("entra");
+//
+//		}
 //	int pagina;
 //		String paginaQ=request.getParameter("pagina");
 //		pagina =Integer.parseInt(paginaQ);
