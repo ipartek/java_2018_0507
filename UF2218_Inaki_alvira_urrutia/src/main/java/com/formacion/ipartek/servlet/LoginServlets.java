@@ -16,37 +16,45 @@ import com.formacion.ipartek.pojo.Usuario;
 @WebServlet("/login")
 public class LoginServlets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String logout="";
-		logout =request.getParameter("logout");
-		if (logout.equalsIgnoreCase("true")) {
+		String logout = "";
+		logout = request.getParameter("logout");
+		if (logout != null && logout.equalsIgnoreCase("true")) {
 			request.getSession().invalidate();
+			logout = "false";
+
 		}
+
 		response.sendRedirect("login.jsp");
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//recogida de datos 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// recogida de datos
 		request.setCharacterEncoding("UTF-8");
-		String email=request.getParameter("email");
-		String password=request.getParameter("password");
-		ArrayList<Usuario>usuarios=(ArrayList<Usuario>) getServletConfig().getServletContext().getAttribute("daoUsuarios");
-		if(email==null || password==null) {
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		ArrayList<Usuario> usuarios = (ArrayList<Usuario>) getServletConfig().getServletContext()
+				.getAttribute("daoUsuarios");
+		if (email == null || password == null) {
 			throw new RuntimeException("error");
 		}
-		Usuario usuario=new Usuario(email,password);
-		//correccion de error meter el usurio en sesion cuando lo e comprobado
-		if(LogicaNegocio.validarUsuario(usuario,usuarios,request)) {
+		Usuario usuario = new Usuario(email, password);
+		// correccion de error meter el usurio en sesion cuando lo e comprobado
+		if (LogicaNegocio.validarUsuario(usuario, usuarios, request)) {
 			request.getRequestDispatcher("edicion").forward(request, response);
-		}else {
+		} else {
 			request.setAttribute("usuario", usuario);
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}

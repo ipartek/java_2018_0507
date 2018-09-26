@@ -5,12 +5,12 @@
 	<h1>login</h1>
 </header>
 <div class="container">
-<h1 class="form-heading">login Form</h1>
+<h1 class="form-heading">Admin login</h1>
 <div class="login-form">
 <div class="main-div">
     <div class="panel">
    <h2>Admin Login</h2>
-   <p>Please enter your email and password</p>
+   <p>Usuario y contraseña</p>
    </div>
     <form action="login" method="post" >
 
@@ -31,6 +31,5 @@
 
     </form>
     </div>
-<p class="botto-text"> Designed by Sunil Rajput</p>
-</div></div></div>
+</div></div>
 <%@ include file="WEB-INF/includes/pie.jsp"%>
