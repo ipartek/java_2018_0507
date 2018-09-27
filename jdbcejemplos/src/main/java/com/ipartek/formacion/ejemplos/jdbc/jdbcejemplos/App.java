@@ -8,19 +8,13 @@ public class App {
 		String usuario = "root";
 		String password = "admin";
 
-		Connection conn = null;
-		try {
-			conn = DriverManager.getConnection(url, usuario, password);
+		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
 
-			Statement stmt = null;
-			try {
-				stmt = conn.createStatement();
+			try (Statement stmt = conn.createStatement()) {
 
 				String sql = "SELECT id, email, password FROM usuarios";
 
-				ResultSet rs = null;
-				try {
-					rs = stmt.executeQuery(sql);
+				try (ResultSet rs = stmt.executeQuery(sql)) {
 
 					// Columnas desde metadatos
 					ResultSetMetaData rsmd = rs.getMetaData();
@@ -38,31 +32,14 @@ public class App {
 					}
 				} catch (Exception e) {
 					System.out.println("ERROR AL CREAR EL RESULTSET");
-				} finally {
-					if(rs != null) {
-						rs.close();
-					}
-				}
+				} 
 			} catch (Exception e) {
 				System.out.println("ERROR AL CREAR LA SENTENCIA");
-			} finally {
-				if(stmt != null) {
-					stmt.close();
-				}
-					
-			}
+			} 
 			
 		} catch (SQLException e) {
 			System.out.println("ERROR DE CONEXION");
 			System.out.println(e.getMessage());
-		} finally {
-			try {
-				if(conn != null) {
-					conn.close();
-				}
-			} catch (SQLException e) {
-				System.out.println("ERROR EN CIERRE DE CONEXION");
-			}
 		}
 	}
 }
