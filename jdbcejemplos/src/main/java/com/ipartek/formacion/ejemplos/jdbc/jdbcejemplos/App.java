@@ -34,7 +34,7 @@ public class App {
 					// Fin
 
 					while (rs.next()) {
-						System.out.printf("%s\t%s\t%s\n", rs.getLong("id"), rs.getString("email"), rs.getString("contra"));
+						System.out.printf("%s\t%s\t%s\n", rs.getLong("id"), rs.getString("email"), rs.getString("password"));
 					}
 				} catch (Exception e) {
 					System.out.println("ERROR AL CREAR EL RESULTSET");
