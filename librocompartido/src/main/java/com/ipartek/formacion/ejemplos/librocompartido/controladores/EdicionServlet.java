@@ -23,15 +23,22 @@ public class EdicionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
+		String contenido = request.getParameter("texto");
+		
 		int numero = LogicaNegocio.obtenerNumeroPaginas() + 1;
 		String autor = ((Usuario)request.getSession().getAttribute("usuario")).getNick();
-		String contenido = request.getParameter("texto");
 		
 		Pagina pagina = new Pagina(numero, autor, contenido);
 		
-		LogicaNegocio.agregarPagina(pagina);
+		boolean correcto = LogicaNegocio.agregarPagina(pagina);
 		
-		response.sendRedirect("index?pagina=" + numero);
+		if(correcto) {
+			response.sendRedirect("index?pagina=" + numero);
+		} else {
+			request.setAttribute("texto", contenido);
+			request.setAttribute("error", "Se deben rellenar 25 palabras mínimo");
+			request.getRequestDispatcher("edicion.jsp").forward(request, response);
+		}
 	}
 
 }

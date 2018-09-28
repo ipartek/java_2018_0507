@@ -1,5 +1,8 @@
 package com.ipartek.formacion.ejemplos.librocompartido.logica;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 import java.util.TreeMap;
 
 import com.ipartek.formacion.ejemplos.librocompartido.pojos.Pagina;
@@ -27,7 +30,24 @@ public class LogicaNegocio {
 		return libro.size();
 	}
 
-	public static void agregarPagina(Pagina pagina) {
-		libro.put(pagina.getNumero(), pagina);		
+	public static boolean agregarPagina(Pagina pagina) {
+		if(new StringTokenizer(pagina.getContenido()).countTokens() >= 25) {
+			libro.put(pagina.getNumero(), pagina);
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public static List<Integer> buscarTexto(String texto) {
+		ArrayList<Integer> numerosPagina = new ArrayList<>();
+		
+		for(Pagina pagina: libro.values()) {
+			if(pagina.getContenido().contains(texto)) {
+				numerosPagina.add(pagina.getNumero());
+			}
+		}
+		
+		return numerosPagina;
 	}
 }

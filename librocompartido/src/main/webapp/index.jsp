@@ -5,32 +5,30 @@
 </header>
 
 <main>
-	<a href="edicion">Escribir página</a>
+	<c:if test="${sessionScope.usuario != null}">
+		<a href="edicion">Escribir página</a>
+	</c:if>
 	<form action="index">
 		Ir a página <input type="number" name="pagina" />
 	</form>
 	
-	<c:if test="${pagina.numero > 1}">
-		<a href="index?pagina=${pagina.numero - 1}">Anterior</a>
-	</c:if>
-	<c:if test="${pagina.numero <= numeroPaginas}">
-		<a href="index?pagina=${pagina.numero + 1}">Siguiente</a>
-	</c:if>
+	<%@ include file="/WEB-INF/includes/paginacion.jsp" %>
 	
 	<p>Página ${pagina.numero} / ${numeroPaginas}</p>
 	<p>${pagina.contenido}</p>
 	<p>${pagina.autor}</p>
 	
-	<c:if test="${pagina.numero > 1}">
-		<a href="index?pagina=${pagina.numero - 1}">Anterior</a>
-	</c:if>
-	<c:if test="${pagina.numero != numeroPaginas}">
-		<a href="index?pagina=${pagina.numero + 1}">Siguiente</a>
-	</c:if>
+	<%@ include file="/WEB-INF/includes/paginacion.jsp" %>
 	
 	<form action="buscarPalabra" method="post">
 		Buscar palabra <input type="search" name="palabra" />
 	</form>
+	
+	<ul>
+	<c:forEach items="${resultadosBusqueda}" var="paginaResultado">
+		<li><a href="index?pagina=${paginaResultado}">${paginaResultado}</a>
+	</c:forEach>
+	</ul>
 </main>
 
 <%@ include file="/WEB-INF/includes/pie.jsp" %>
