@@ -55,7 +55,10 @@ public class App {
 			String sql = "UPDATE usuarios SET password = ? WHERE id = ?";
 			
 			try(PreparedStatement pst = con.prepareStatement(sql)) {
+
 				pst.setLong(2, id); //el 2 es a la interrogacion que hago referencia en la sentencia SQL arriba
+
+
 				pst.setString(1, contra);
 				
 				int numFilas = pst.executeUpdate();
