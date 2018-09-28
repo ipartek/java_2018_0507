@@ -1,4 +1,4 @@
-package supermercado.accesodatos;
+package com.ipartek.formacion.video.accesodatos;
 
 import java.util.List;
 

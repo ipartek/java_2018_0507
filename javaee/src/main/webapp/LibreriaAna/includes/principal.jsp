@@ -14,7 +14,7 @@
             <%@include file="menuizq.jsp" %>
         </div>
        <div class="informacion">
-		<%@include file="infoprincipal.jsp" %>     
+		<%@include file="principal.jsp" %>     
         </div>
     </div>    
 </body>

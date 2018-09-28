@@ -2,12 +2,12 @@ package especifico;
 
 public class DatosPersonales {
 	public static String nombreAve;
-	public static String nombreDueño;
+	public static String nombreDueno;
 	
 	
 	public DatosPersonales() {
 		nombreAve="paquito";
-		nombreDueño="PEPE";
+		nombreDueno="PEPE";
 	}
 	
 	public static String getNombreAve() {
@@ -18,11 +18,11 @@ public class DatosPersonales {
 	}	
 	
 	
-	public static void setNombreDueño(String nombreDueño) {
-		DatosPersonales.nombreDueño=nombreDueño;
+	public static void setNombreDueno(String nombreDueno) {
+		DatosPersonales.nombreDueno=nombreDueno;
 	}	
-	public static String getNombreDueño() {
-		return nombreDueño;
+	public static String getNombreDueno() {
+		return nombreDueno;
 	}	
 	
 }

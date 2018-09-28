@@ -34,9 +34,9 @@ public class Principal extends Ave {
 			
 		DatosPersonales.setNombreAve("PepitoAve");
 		System.out.println(DatosPersonales.getNombreAve());
-		DatosPersonales.setNombreDueño("DueñoPePe");
-		System.out.println(DatosPersonales.getNombreDueño());
+		DatosPersonales.setNombreDueno("DuenoPePe");
+		System.out.println(DatosPersonales.getNombreDueno());
 		
-		System.out.println("NºAves  "+Ave.num_aves);
+		System.out.println("Nï¿½Aves  "+Ave.num_aves);
 	}
 }
