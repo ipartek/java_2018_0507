@@ -1,5 +1,11 @@
 package com.ipartek.formacion.youtube.model;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,5 +80,59 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 		}	
 		return resul;
 	}
+public static void main(String args[]) {
+	conectBD();
+}
+	
+	
+	public static void conectBD() {
+		String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
+		String usuario = "root";
+		String password = "admin";
 
+		String id = "2";
+		String nombre = "https://youtu.be/pynDvIsLoU0";
+		
+		
+	
+		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+
+			String sql = "insert into videos values(?,?) ";
+		
+	
+			try (PreparedStatement pst = conn.prepareStatement(sql)) {
+				pst.setLong(1, Long.parseLong(id));
+				pst.setString(2, nombre);
+				
+				
+				try (ResultSet rs = pst.executeQuery()) {
+	
+					// Columnas desde metadatos
+					ResultSetMetaData rsmd = rs.getMetaData();
+					int columnas = rsmd.getColumnCount();
+	
+					for (int i = 1; i <= columnas; i++) {
+						System.out.print(rsmd.getColumnName(i) + '\t');
+					}
+	
+					System.out.println();
+					// Fin
+	
+					while (rs.next()) {
+						System.out.printf("%s\t%s\t%s\n", rs.getLong("id"), rs.getString("email"), rs.getString("password"));
+					}
+				} catch (Exception e) {
+					System.out.println("ERROR AL CREAR EL RESULTSET");
+				} 
+			} catch (Exception e) {
+				System.out.println("ERROR AL CREAR LA SENTENCIA");
+			} 
+			
+		} catch (SQLException e) {
+			System.out.println("ERROR DE CONEXION");
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	
 }

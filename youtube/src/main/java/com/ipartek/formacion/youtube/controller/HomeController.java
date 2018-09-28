@@ -30,6 +30,8 @@ public class HomeController extends HttpServlet {
 		
 		try {
 			
+			VideoArrayListDAO.conectBD();
+			
 			String id = request.getParameter("id");
 			if ( id != null ) {
 				dao.delete(id);
