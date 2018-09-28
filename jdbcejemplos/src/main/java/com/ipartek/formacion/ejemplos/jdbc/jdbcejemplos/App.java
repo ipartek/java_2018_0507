@@ -8,13 +8,19 @@ public class App {
 		String usuario = "root";
 		String password = "admin";
 
+		//String id = "2";
+		String email = "admin@email.com";
+		
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
 
-			try (Statement stmt = conn.createStatement()) {
+			//String sql = "SELECT id, email, password FROM usuarios WHERE id = ?";
+			String sql = "SELECT id, email, password FROM usuarios WHERE email = ?";
 
-				String sql = "SELECT id, email, password FROM usuarios";
-
-				try (ResultSet rs = stmt.executeQuery(sql)) {
+			try (PreparedStatement pst = conn.prepareStatement(sql)) {
+				//pst.setLong(1, Long.parseLong(id));
+				pst.setString(1, email);
+				
+				try (ResultSet rs = pst.executeQuery()) {
 
 					// Columnas desde metadatos
 					ResultSetMetaData rsmd = rs.getMetaData();
@@ -40,6 +46,31 @@ public class App {
 		} catch (SQLException e) {
 			System.out.println("ERROR DE CONEXION");
 			System.out.println(e.getMessage());
+		}
+		
+		try(Connection con = DriverManager.getConnection(url, usuario, password)) {
+			long id = 2;
+			String contra = "nuevapassword";
+			
+			String sql = "UPDATE usuarios SET password = ? WHERE id = ?";
+			
+			try(PreparedStatement pst = con.prepareStatement(sql)) {
+				pst.setLong(2, id);
+				pst.setString(1, contra);
+				
+				int numFilas = pst.executeUpdate();
+				
+				if(numFilas != 1) {
+					System.out.println("El número de filas modificado ha sido " + numFilas);
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }
