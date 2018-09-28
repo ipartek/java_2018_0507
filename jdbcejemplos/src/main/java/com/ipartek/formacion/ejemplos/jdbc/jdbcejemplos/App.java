@@ -8,19 +8,19 @@ public class App {
 		String usuario = "root";
 		String password = "admin";
 
-		Connection conn = null;
-		try {
-			conn = DriverManager.getConnection(url, usuario, password);
+		//String id = "2";
+		String email = "admin@email.com";
+		
+		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
 
-			Statement stmt = null;
-			try {
-				stmt = conn.createStatement();
+			//String sql = "SELECT id, email, password FROM usuarios WHERE id = ?";
+			String sql = "SELECT id, email, password FROM usuarios WHERE email = ?";
 
-				String sql = "SELECT id, email, password FROM usuarios";
-
-				ResultSet rs = null;
-				try {
-					rs = stmt.executeQuery(sql);
+			try (PreparedStatement pst = conn.prepareStatement(sql)) {
+				//pst.setLong(1, Long.parseLong(id));
+				pst.setString(1, email);
+				
+				try (ResultSet rs = pst.executeQuery()) {
 
 					// Columnas desde metadatos
 					ResultSetMetaData rsmd = rs.getMetaData();
@@ -34,35 +34,43 @@ public class App {
 					// Fin
 
 					while (rs.next()) {
-						System.out.printf("%s\t%s\t%s\n", rs.getLong("id"), rs.getString("email"), rs.getString("contra"));
+						System.out.printf("%s\t%s\t%s\n", rs.getLong("id"), rs.getString("email"), rs.getString("password"));
 					}
 				} catch (Exception e) {
 					System.out.println("ERROR AL CREAR EL RESULTSET");
-				} finally {
-					if(rs != null) {
-						rs.close();
-					}
-				}
+				} 
 			} catch (Exception e) {
 				System.out.println("ERROR AL CREAR LA SENTENCIA");
-			} finally {
-				if(stmt != null) {
-					stmt.close();
-				}
-					
-			}
+			} 
 			
 		} catch (SQLException e) {
 			System.out.println("ERROR DE CONEXION");
 			System.out.println(e.getMessage());
-		} finally {
-			try {
-				if(conn != null) {
-					conn.close();
+		}
+		
+		try(Connection con = DriverManager.getConnection(url, usuario, password)) {
+			long id = 2;
+			String contra = "nuevapassword";
+			
+			String sql = "UPDATE usuarios SET password = ? WHERE id = ?";
+			
+			try(PreparedStatement pst = con.prepareStatement(sql)) {
+				pst.setLong(2, id); //el 2 es a la interrogacion que hago referencia en la sentencia SQL arriba
+				pst.setString(1, contra);
+				
+				int numFilas = pst.executeUpdate();
+				
+				if(numFilas != 1) {
+					System.out.println("El número de filas modificado ha sido " + numFilas);
 				}
+				
 			} catch (SQLException e) {
-				System.out.println("ERROR EN CIERRE DE CONEXION");
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }

@@ -9,7 +9,7 @@ import com.ipartek.formacion.examen.pojo.Usuario;
 
 
 public class LogicaLibro {
-	private static MapDAO<Usuario> usuarios = new MapDAO<Usuario>();
+	private static MapDAO<Usuario> usuarios = new MapDAO<Usuario>(); //USAR TREEMAP NO PUTO MAP 
 	private static MapDAO<Libro> paginas = new MapDAO<Libro>();
 
 	static {
