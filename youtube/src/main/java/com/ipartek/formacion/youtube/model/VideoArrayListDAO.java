@@ -59,13 +59,16 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 				pst.executeUpdate();
 
 			} catch (Exception e) {
-				System.out.println("ERROR AL CREAR LA SENTENCIA");
+				System.out.println("ERROR AL CREAR LA SENTENCIA insert");
+				System.out.println(e.getMessage());
+				e.printStackTrace();
 				return false;
 			}
 
 		} catch (SQLException e) {
-			System.out.println("ERROR DE CONEXION");
+			System.out.println("ERROR DE CONEXION insert");
 			System.out.println(e.getMessage());
+			e.printStackTrace();
 			return false;
 		}
 
@@ -82,7 +85,7 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 		 * return resul;
 		 */
 		ArrayList<Video> videos = new ArrayList<Video>();
-		
+
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
 
 			String sql = "SELECT * FROM videos";
@@ -92,7 +95,7 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 				try (ResultSet rs = stmt.executeQuery(sql)) {
 
 					while (rs.next()) {
-						System.out.printf( rs.getString("id"), rs.getString("nombre"));
+						// System.out.printf(rs.getString("id"), rs.getString("nombre"));
 						videos.add(new Video(rs.getString("id"), rs.getString("nombre")));
 					}
 				} catch (Exception e) {
@@ -101,12 +104,15 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 
 				}
 			} catch (Exception e) {
-				System.out.println("ERROR AL CREAR LA SENTENCIA");
+				System.out.println("ERROR AL CREAR LA SENTENCIA getall");
+				System.out.println(e.getMessage());
+				e.printStackTrace();
 			}
 
 		} catch (SQLException e) {
-			System.out.println("ERROR DE CONEXION");
+			System.out.println("ERROR DE CONEXION getall");
 			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
 		return videos;
 	}
@@ -132,13 +138,16 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 
 			} catch (SQLException e) {
 
-				System.out.println("ERROR AL CREAR LA SENTENCIA");
+				System.out.println("ERROR AL CREAR LA SENTENCIA update");
+				System.out.println(e.getMessage());
+				e.printStackTrace();
 				return false;
 
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR DE CONEXION");
+			System.out.println("ERROR DE CONEXION update");
 			System.out.println(e.getMessage());
+			e.printStackTrace();
 			return false;
 		}
 
@@ -147,27 +156,19 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 
 	@Override
 	public boolean delete(String id) {
-	  /*boolean resul = false;
-		Video v = null;
-		if (id != null) {
-			for (int i = 0; i < videos.size(); i++) {
-				v = videos.get(i);
-				if (id.equals(v.getId())) {
-					resul = videos.remove(v);
-					break;
-				}
-			}
-		}
-		return resul;*/
-		
+		/*
+		 * boolean resul = false; Video v = null; if (id != null) { for (int i = 0; i <
+		 * videos.size(); i++) { v = videos.get(i); if (id.equals(v.getId())) { resul =
+		 * videos.remove(v); break; } } } return resul;
+		 */
+
 		try (Connection con = DriverManager.getConnection(url, usuario, password)) {
 
-			String sql = "DELETE id, nombre FROM videos WHERE id = ?";
+			String sql = "DELETE FROM videos WHERE id = ?";
 
 			try (PreparedStatement pst = con.prepareStatement(sql)) {
 
-				pst.setString(1,id);
-				
+				pst.setString(1, id);
 
 				int numFilas = pst.executeUpdate();
 
@@ -178,13 +179,16 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 
 			} catch (SQLException e) {
 
-				System.out.println("ERROR AL CREAR LA SENTENCIA");
+				System.out.println("ERROR AL CREAR LA SENTENCIA delete");
+				System.out.println(e.getMessage());
+				e.printStackTrace();
 				return false;
 
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR DE CONEXION");
+			System.out.println("ERROR DE CONEXION delete");
 			System.out.println(e.getMessage());
+			e.printStackTrace();
 			return false;
 		}
 
@@ -193,38 +197,45 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 
 	@Override
 	public Video getById(String id) {
-		
-		Video videos = new Video();
-		
-		
+
+		Video video = null;
+
 		try (Connection con = DriverManager.getConnection(url, usuario, password)) {
 
-			String sql = "SELECT id, nombre from videos WHERE id = ?";
+			String sql = "SELECT * from videos WHERE id = ?";
 
 			try (PreparedStatement pst = con.prepareStatement(sql)) {
 
-				pst.setString(1, id);
-				
+				try (ResultSet rs = pst.executeQuery(sql)) {
 
-				int numFilas = pst.executeUpdate();
+					if (rs.next()) {
+						
+						video = new Video();
 
-				if (numFilas != 1) {
-					System.out.println("El número de filas modificado ha sido " + numFilas);
+						video.setId(rs.getString("id"));
+						video.setNombre(rs.getString("nombre"));
+					}
+				} catch (Exception e) {
+					System.out.println("ERROR AL CREAR EL RESULTSET:" + e.getMessage());
+					e.printStackTrace();
 
 				}
 
 			} catch (SQLException e) {
 
-				System.out.println("ERROR AL CREAR LA SENTENCIA");
-			
+				System.out.println("ERROR AL CREAR LA SENTENCIA getById");
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR DE CONEXION");
+			System.out.println("ERROR DE CONEXION getById");
 			System.out.println(e.getMessage());
-		
+			e.printStackTrace();
+
 		}
 
-		return videos;
+		return video;
 	}
 
 }
