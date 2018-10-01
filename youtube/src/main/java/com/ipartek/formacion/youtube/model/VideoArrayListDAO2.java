@@ -5,12 +5,12 @@ import java.util.List;
 
 import com.ipartek.formacion.youtube.Video;
 
-public class VideoArrayListDAO implements CrudAble<Video> {
+public class VideoArrayListDAO2 implements CrudAble<Video> {
 
-	private static VideoArrayListDAO INSTANCE = null;
+	private static VideoArrayListDAO2 INSTANCE = null;
 	private static List<Video> videos = null;
 
-	private VideoArrayListDAO() {
+	private VideoArrayListDAO2() {
 		videos = new ArrayList<Video>();
 		try {
 			videos.add(new Video("LPDhuthFD98", "Surf Search Spot 2 0 video promo"));
@@ -22,9 +22,9 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 
 	}
 
-	public static synchronized VideoArrayListDAO getInstance() {
+	public static synchronized VideoArrayListDAO2 getInstance() {
 		if (INSTANCE == null) {
-			INSTANCE = new VideoArrayListDAO();
+			INSTANCE = new VideoArrayListDAO2();
 		}
 
 		return INSTANCE;

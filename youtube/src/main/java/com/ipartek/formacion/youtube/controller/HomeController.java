@@ -10,34 +10,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.youtube.Video;
-import com.ipartek.formacion.youtube.model.VideoArrayListDAO;
+import com.ipartek.formacion.youtube.model.VideoMySqlDAO;
 
-/**
- * Servlet implementation class HomeController
- */
 @WebServlet("/inicio")
 public class HomeController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private static VideoArrayListDAO dao;
+	private static VideoMySqlDAO dao;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		try {
-			
 			String id = request.getParameter("id");
-			dao = VideoArrayListDAO.getInstance();
-			if ( id != null ) {
+			if (id != null) {
 				dao.delete(id);
 			}
-	
-			
+
+			dao = VideoMySqlDAO.getInstance();
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
+			
+			System.out.println("VIDEOS: " + videos);
+			
 			request.setAttribute("videos", videos);
 
 		} catch (Exception e) {
@@ -47,24 +41,20 @@ public class HomeController extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			
-			//recoger parametros
-			String id = request.getParameter("id");
+			dao = VideoMySqlDAO.getInstance();
+
+			// recoger parametros
+			String idVideo = request.getParameter("id");
 			String nombre = request.getParameter("nombre");
-			
-			//insertar
-			Video v = new Video(id, nombre);
+
+			// insertar
+			Video v = new Video(idVideo, nombre);
 			dao.insert(v);
-			
-			//pedir listado
-			dao = VideoArrayListDAO.getInstance();
+
+			// pedir listado
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
 			request.setAttribute("videos", videos);
 
@@ -74,5 +64,4 @@ public class HomeController extends HttpServlet {
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 		}
 	}
-
 }

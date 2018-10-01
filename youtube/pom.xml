@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.ipartek.formacion</groupId>
@@ -16,6 +17,7 @@
 		<javax.servlet.api>3.0.1</javax.servlet.api>
 		<javax.servlet.jsp.version>2.2</javax.servlet.jsp.version>
 		<javax.servlet.jstl.version>1.2</javax.servlet.jstl.version>
+		<mysql.connector.version>8.0.12</mysql.connector.version>
 	</properties>
 
 
@@ -98,6 +100,13 @@
 			<artifactId>javax.el</artifactId>
 			<version>2.2.4</version>
 			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.12</version>
 		</dependency>
 
 
