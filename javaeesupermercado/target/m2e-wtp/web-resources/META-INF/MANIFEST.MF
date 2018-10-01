@@ -1,10 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
-Built-By: Curso
-Build-Jdk: 1.8.0_171
-=======
 Built-By: Raide
 Build-Jdk: 1.8.0_181
->>>>>>> branch 'master' of https://github.com/ipartek/java_2018_0507.git
 Created-By: Maven Integration for Eclipse
 
