@@ -1,5 +1,6 @@
 <%@page import="com.ipartek.formacion.youtube.Video"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Iterator" %>
 
 
 <!DOCTYPE html>
@@ -38,16 +39,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <form action="" method="post" class="form-inline mt-2 mt-md-0">
+              <form action="/youtube/anadir" method="post" class="form-inline mt-2 mt-md-0">
 	            <input name="id" class="form-control mr-sm-2" type="text" placeholder="ID 11 caracerteres" title="11 caracteres" required pattern=".{11,11}">
 	            <input name="nombre" class="form-control mr-sm-2" type="text" placeholder="Nombre minimo 2 letras" required pattern=".{2,125}">
 	            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Añadir</button>
 	          </form>
             </li>            
           </ul>
-          
-          
-          
         </div>
       </div>
     </nav>
@@ -60,19 +58,35 @@
         <div class="col-lg-3">        	
           <h1 class="my-4">Lista Reproduccion</h1>
           <div class="list-group">
+          
+          
+          
+          <br>
           	<%
-          		ArrayList<Video> videos = (ArrayList<Video>) request.getAttribute("videos");
           	
-          		Video videoInicio = new Video();
-          		if ( !videos.isEmpty() ){
-          			videoInicio = videos.get(0);
-          		}	
+          	ArrayList<Video> videos = (ArrayList<Video>) request.getAttribute("videos");
+          	Iterator<Video> itr = videos.iterator();
+            while (itr.hasNext()) {
+            	String id=itr.next().getId();
+            
+              out.println("<a href='?id="+id.trim()+" onclick='reproducir('"+id.trim()+"')'>"+id+"</a><br>");
+             
+            
+           
+            }
+          	
+           
+          		//Video videoInicio = new Video();
+          		//if ( !videos.isEmpty() ){
+          		//	videoInicio = videos.get(0);
+          		//}	
     			
           		for( Video v : videos ){
           	%>
                    
-          	  <a href="#" onclick="reproducir('<%=v.getId()%>')" class="list-group-item"><%=v.getNombre()%></a>
-          	  <a href="?id=<%=v.getId()%>"><i style="color:red;" class="float-right fas fa-trash-alt"></i></a>
+          	 
+            <a href="#" onclick="reproducir('<%=v.getId()%>')" class="list-group-item"><%=v.getNombre()%></a>
+          	  <a href="?id=<%=v.getId()%>"><i style="color:red;" class="float-right fas fa-trash-alt"></i></a -->
             
             <%
           		} //end for
@@ -87,10 +101,10 @@
 
           <div class="card mt-4">
           
-            <iframe id="iframe" width="823" height="415" src="https://www.youtube.com/embed/<%=videoInicio.getId()%>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe id="iframe" width="823" height="415" src="https://www.youtube.com/embed/<%//=videoInicio.getId()%>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             
             <div class="card-body">
-              <h3 class="card-title"><%=videoInicio.getNombre()%></h3>              
+              <h3 class="card-title"><%//=videoInicio.getNombre()%></h3>              
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dicta fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam sequi pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>
               <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
               4.0 stars

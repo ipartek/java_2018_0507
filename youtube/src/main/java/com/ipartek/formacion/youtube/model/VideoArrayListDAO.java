@@ -16,6 +16,13 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 	private static VideoArrayListDAO INSTANCE = null;
 	private static List<Video> videos = null;
 
+	
+	public static String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
+	
+	public static String usuario = "root";
+	public static String password = "admin";
+	
+	
 	private VideoArrayListDAO() {
 		videos = new ArrayList<Video>();
 		try {
@@ -28,16 +35,44 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 
 	}
 
-	public static synchronized VideoArrayListDAO getInstance() {
+	public static synchronized VideoArrayListDAO getInstance() throws ClassNotFoundException {
 		if (INSTANCE == null) {
 			INSTANCE = new VideoArrayListDAO();
 		}
-
+		Class.forName("com.mysql.jdbc.Driver");
 		return INSTANCE;
 	}
 
 	@Override
 	public boolean insert(Video pojo) {
+		System.out.println("VideoArrayListDAO Añadir");
+		
+		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+			Class.forName("com.mysql.jdbc.Driver");
+			String sql = "insert into videos(id,nombre) values(?,?);";
+		
+			try (PreparedStatement pst = conn.prepareStatement(sql)) {
+				pst.setString(1,pojo.getId());
+				pst.setString(2, pojo.getNombre());
+				
+				pst.executeUpdate();
+				System.out.println("Insertados datos: ID: "+pojo.getId()+" Nombre: "+pojo.getNombre());
+				
+			      
+			      conn.close();
+			
+			} catch (Exception e) {
+				System.out.println("ERROR AL CREAR LA SENTENCIA");
+			} 
+			
+		} catch (SQLException e) {
+			System.out.println("ERROR DE CONEXION");
+			System.out.println(e.getMessage());
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		}
+				
+		
 		return videos.add(pojo);
 	}
 
@@ -61,7 +96,33 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 
 	@Override
 	public boolean update(Video pojo) {
-		// TODO Auto-generated method stub
+		
+		
+		pojo.getNombre();
+		try(Connection con = DriverManager.getConnection(url, usuario, password)) {
+			long idl = 2;
+			String nombre = "nombrevideoActu";
+			
+			String sql = "UPDATE videos SET nombre = ? WHERE id = ?";
+			
+			try(PreparedStatement pst = con.prepareStatement(sql)) {
+				pst.setLong(2, idl);
+				pst.setString(1, nombre);
+				
+				int numFilas = pst.executeUpdate();
+				
+				if(numFilas != 1) {
+					System.out.println("El número de filas modificado ha sido " + numFilas);
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return false;
 	}
 
@@ -81,46 +142,86 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 		return resul;
 	}
 public static void main(String args[]) {
-	conectBD();
+	//conectBD();
+	getListBD();
 }
 	
-	
-	public static void conectBD() {
-		String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
-		String usuario = "root";
-		String password = "admin";
-
+	public static ResultSet conectBD() {
+		
 		String id = "2";
-		String nombre = "https://youtu.be/pynDvIsLoU0";
+		String email = "admin@email.com";
 		
-		
-	
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
-
-			String sql = "insert into videos values(?,?) ";
+			Class.forName("com.mysql.jdbc.Driver");
+			String sql = "SELECT id, nombre FROM videos WHERE id = ?";
 		
-	
 			try (PreparedStatement pst = conn.prepareStatement(sql)) {
 				pst.setLong(1, Long.parseLong(id));
-				pst.setString(2, nombre);
-				
+				//pst.setString(1, email);
 				
 				try (ResultSet rs = pst.executeQuery()) {
-	
+		
 					// Columnas desde metadatos
 					ResultSetMetaData rsmd = rs.getMetaData();
 					int columnas = rsmd.getColumnCount();
-	
+		
 					for (int i = 1; i <= columnas; i++) {
 						System.out.print(rsmd.getColumnName(i) + '\t');
 					}
-	
+		
 					System.out.println();
 					// Fin
-	
+		
 					while (rs.next()) {
-						System.out.printf("%s\t%s\t%s\n", rs.getLong("id"), rs.getString("email"), rs.getString("password"));
+						System.out.printf("%s\t%s\n", rs.getString("id"), rs.getString("nombre"));
+						new Video(rs.getString("id"), rs.getString("nombre"));
+						
 					}
+				} catch (Exception e) {
+					System.out.println("ERROR AL CREAR EL RESULTSET");
+				} 
+			} catch (Exception e) {
+				System.out.println("ERROR AL CREAR LA SENTENCIA");
+			} 
+			
+		} catch (SQLException e) {
+			System.out.println("ERROR DE CONEXION");
+			System.out.println(e.getMessage());} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+//	} catch (ClassNotFoundException e1) {
+//		e1.printStackTrace();
+//	}
+		return null;
+	}
+	
+	public static void getListBD() {
+		
+		
+		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+			//Class.forName("com.mysql.jdbc.Driver");
+			String sql = "SELECT id, nombre FROM videos";
+		
+			try (PreparedStatement pst = conn.prepareStatement(sql)) {
+				
+				try (ResultSet rs = pst.executeQuery()) {
+		
+					// Columnas desde metadatos
+					ResultSetMetaData rsmd = rs.getMetaData();
+					int columnas = rsmd.getColumnCount();
+		
+					for (int i = 1; i <= columnas; i++) {
+						System.out.print(rsmd.getColumnName(i) + '\t');
+					}
+		
+					System.out.println();
+					// Fin
+		
+					while (rs.next()) {
+						System.out.printf("%s\t%s\n", rs.getLong("id"), rs.getString("nombre"));
+					}
+					
 				} catch (Exception e) {
 					System.out.println("ERROR AL CREAR EL RESULTSET");
 				} 
@@ -132,7 +233,36 @@ public static void main(String args[]) {
 			System.out.println("ERROR DE CONEXION");
 			System.out.println(e.getMessage());
 		}
+		
+		
 	}
 	
 	
+//	public static void updateBBDD() {
+//		
+//		try(Connection con = DriverManager.getConnection(url, usuario, password)) {
+//			long idl = 2;
+//			String nombre = "nombrevideoActu";
+//			
+//			String sql = "UPDATE videos SET nombre = ? WHERE id = ?";
+//			
+//			try(PreparedStatement pst = con.prepareStatement(sql)) {
+//				pst.setLong(2, idl);
+//				pst.setString(1, nombre);
+//				
+//				int numFilas = pst.executeUpdate();
+//				
+//				if(numFilas != 1) {
+//					System.out.println("El número de filas modificado ha sido " + numFilas);
+//				}
+//				
+//			} catch (SQLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
 }

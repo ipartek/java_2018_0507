@@ -1,6 +1,7 @@
 package com.ipartek.formacion.youtube.controller;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -29,8 +30,7 @@ public class HomeController extends HttpServlet {
 			throws ServletException, IOException {
 		
 		try {
-			
-			VideoArrayListDAO.conectBD();
+			Class.forName("com.mysql.jdbc.Driver");
 			
 			String id = request.getParameter("id");
 			if ( id != null ) {
@@ -40,7 +40,13 @@ public class HomeController extends HttpServlet {
 			
 			dao = VideoArrayListDAO.getInstance();
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
+			System.out.println("HOMECONTROLER !");
+			for(Video video:videos){
+				System.out.println(videos.get(0).getId());
+				System.out.println(videos.get(1).getNombre());
+			}
 			request.setAttribute("videos", videos);
+			System.out.println("HomeController saliendo");
 
 		} catch (Exception e) {
 			e.printStackTrace();
