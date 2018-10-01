@@ -1,21 +1,16 @@
 package com.ipartek.formacion.youtube.model;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import java.sql.*;
 
 import com.ipartek.formacion.youtube.Video;
 
 public class VideoArrayListDAO implements CrudAble<Video> {
 
 	private static VideoArrayListDAO INSTANCE = null;
-	//private static List<Video> videos = null;
-	
-	String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
-	String usuario = "root";
-	String password = "admin";
+	private static List<Video> videos = null;
 
-	/*private VideoArrayListDAO() {
+	private VideoArrayListDAO() {
 		videos = new ArrayList<Video>();
 		try {
 			videos.add(new Video("LPDhuthFD98", "Surf Search Spot 2 0 video promo"));
@@ -25,7 +20,7 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 			e.printStackTrace();
 		}
 
-	}*/
+	}
 
 	public static synchronized VideoArrayListDAO getInstance() {
 		if (INSTANCE == null) {
@@ -34,102 +29,28 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 
 		return INSTANCE;
 	}
-	
-	public Connection getConnection() {
-		Connection conn = null;
-		try {
-			conn = DriverManager.getConnection(url, usuario, password);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return conn;
-	}
-	
-	public void closeConnection(Connection con) {
-		try {
-			con.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 
-	@SuppressWarnings("finally")
 	@Override
 	public boolean insert(Video pojo) {
-		// INSERTAR EN LA TABLA
-		String sql = "INSERT INTO videos (id,nombre) VALUES (?,?)";	
-		boolean result = false;
-		Connection conn = getConnection();
-		try (PreparedStatement pst = conn.prepareStatement(sql);){
-			pst.setString(1, pojo.getId());
-			pst.setString(2, pojo.getNombre());
-			
-			int numFilas = pst.executeUpdate();
-			
-			if (numFilas != 1) {
-				result = false;
-			}else {
-				result = true;
-			}
-		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA");
-			result = false;
-		}finally {
-			closeConnection(conn);
-			return result;
-		}
+		return videos.add(pojo);
 	}
 
-	@SuppressWarnings({ "null", "finally" })
 	@Override
 	public List<Video> getAll() {
-		// SELECT ALL FROM TABLA
-		String sql = "SELECT * FROM videos";	
-		List<Video> videos = null;
-		Connection conn = getConnection();
-		
-		try (PreparedStatement pst = conn.prepareStatement(sql)) {
-			try(ResultSet rs = pst.executeQuery()){
-				while (rs.next()) {
-					videos.add(new Video(rs.getString(1), rs.getString(2)));
-				}
-			}catch (Exception e) {
-				System.out.println("ERROR AL CREAR EL RESULTSET");
-			}
-		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA");
-		}finally {
-			closeConnection(conn);
-			return videos;
-		}
+		return videos;
 	}
 
-	@SuppressWarnings({ "finally", "null" })
 	@Override
 	public Video getById(String id) {
-		String sql = "SELECT id, nombre FROM videos WHERE id = ?";	
-		Video video = null;
-		Connection conn = getConnection();
-		
-		try (PreparedStatement pst = conn.prepareStatement(sql)) {
-			pst.setString(1, id);
-			try(ResultSet rs = pst.executeQuery()){
-				while (rs.next()) {
-					video.setId(rs.getString(1));
-					video.setNombre(rs.getString(2));
+		Video resul = null;
+		if (id != null) {
+			for (Video v : videos) {
+				if (id.equals(v.getId())) {
+					resul = v;
 				}
-			}catch (Exception e) {
-				System.out.println("ERROR AL CREAR EL RESULTSET");
 			}
-		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA");
-		}finally {
-			closeConnection(conn);
-			return video;
 		}
+		return resul;
 	}
 
 	@Override
@@ -140,8 +61,18 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 
 	@Override
 	public boolean delete(String id) {
-		
-		return false;
+		boolean resul = false;
+		Video v = null;
+		if ( id != null ) { 
+			for (int i = 0; i < videos.size(); i++) {
+				v = videos.get(i); 
+				if (id.equals(v.getId()) ) { 
+					resul = videos.remove(v);
+					break;
+				}
+			}
+		}	
+		return resul;
 	}
 
 }

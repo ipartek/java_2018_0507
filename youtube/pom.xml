@@ -49,7 +49,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.6</version>
+			<version>8.0.12</version>
 		</dependency>
 
 		<dependency>
@@ -101,16 +101,8 @@
 			<version>2.2.4</version>
 			<scope>test</scope>
 		</dependency>
-
-
-
 	</dependencies>
-
-
-
-
 	<build>
-
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -135,8 +127,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-
-
 		<finalName>youtube</finalName>
 	</build>
 </project>

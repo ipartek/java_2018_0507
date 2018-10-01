@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.youtube.Video;
-import com.ipartek.formacion.youtube.model.VideoArrayListDAO;
+import com.ipartek.formacion.youtube.model.VideoMySqlDAO;
 
 /**
  * Servlet implementation class HomeController
@@ -19,12 +19,8 @@ import com.ipartek.formacion.youtube.model.VideoArrayListDAO;
 public class HomeController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private static VideoArrayListDAO dao;
+	private static VideoMySqlDAO dao;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
@@ -35,8 +31,7 @@ public class HomeController extends HttpServlet {
 				dao.delete(id);
 			}
 			
-			
-			dao = VideoArrayListDAO.getInstance();
+			dao = VideoMySqlDAO.getInstance();
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
 			request.setAttribute("videos", videos);
 
@@ -47,10 +42,6 @@ public class HomeController extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
@@ -64,7 +55,7 @@ public class HomeController extends HttpServlet {
 			dao.insert(v);
 			
 			//pedir listado
-			dao = VideoArrayListDAO.getInstance();
+			dao = VideoMySqlDAO.getInstance();
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
 			request.setAttribute("videos", videos);
 
