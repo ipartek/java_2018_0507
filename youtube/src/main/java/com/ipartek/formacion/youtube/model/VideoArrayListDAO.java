@@ -19,30 +19,8 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 	private static VideoArrayListDAO INSTANCE = null;
 	private static List<Video> videos = null;
 
-	private VideoArrayListDAO() {
-		videos = new ArrayList<Video>();
+	// private VideoArrayListDAO() {
 
-		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
-
-			String sql = "SELECT id, nombre, FROM videos";
-
-			try (PreparedStatement pst = conn.prepareStatement(sql)) {
-
-				ResultSet rs = pst.executeQuery();
-
-				while (rs.next()) {
-					videos.add(new Video(rs.getString("id"), rs.getString("nombre")));
-				}
-
-			} catch (SQLException e) {
-				System.out.println("ERROR AL METER DATOS EN ARRAY");
-			}
-
-		} catch (Exception e) {
-			System.out.println("ERROR DE CONEXION");
-		}
-
-	}
 	/*
 	 * try { videos.add(new Video("LPDhuthFD98",
 	 * "Surf Search Spot 2 0 video promo")); videos.add(new Video("a9WnQFI8jQU",
@@ -88,6 +66,32 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 
 	@Override
 	public List<Video> getAll() {
+
+		String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
+		String usuario = "root";
+		String password = "admin";
+
+		videos = new ArrayList<Video>();
+
+		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+
+			String sql = "SELECT id, nombre, FROM videos";
+
+			try (PreparedStatement pst = conn.prepareStatement(sql)) {
+
+				ResultSet rs = pst.executeQuery();
+
+				while (rs.next()) {
+					videos.add(new Video(rs.getString("id"), rs.getString("nombre")));
+				}
+
+			} catch (SQLException e) {
+				System.out.println("ERROR AL METER DATOS EN ARRAY");
+			}
+
+		} catch (Exception e) {
+			System.out.println("ERROR DE CONEXION");
+		}
 		return videos;
 	}
 
