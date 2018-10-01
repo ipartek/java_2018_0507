@@ -44,10 +44,7 @@
 	            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Añadir</button>
 	          </form>
             </li>            
-          </ul>
-          
-          
-          
+          </ul>  
         </div>
       </div>
     </nav>

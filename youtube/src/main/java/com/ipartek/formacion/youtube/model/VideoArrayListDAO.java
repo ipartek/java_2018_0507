@@ -11,6 +11,10 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 	private static VideoArrayListDAO INSTANCE = null;
 	private static List<Video> videos = null;
 
+	private String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
+	private String usuario = "root";
+	private String password = "admin";
+
 	private VideoArrayListDAO() {
 		videos = new ArrayList<Video>();
 		try {
@@ -25,7 +29,16 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 
 	public static synchronized VideoArrayListDAO getInstance() {
 		if (INSTANCE == null) {
+			
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+			} catch (ClassNotFoundException e) {
+
+				e.printStackTrace();
+			}
 			INSTANCE = new VideoArrayListDAO();
+		
+
 		}
 
 		return INSTANCE;
@@ -33,123 +46,123 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 
 	@Override
 	public boolean insert(Video pojo) {
-		//return videos.add(pojo);
-		
-		
-		String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
-		String usuario = "root";
-		String password = "admin";
+		// return videos.add(pojo);
 
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
 
-			//String sql = "SELECT id, email, password FROM usuarios WHERE id = ?";
-			
+			String sql = "INSERT INTO videos values (?,?)";
 
 			try (PreparedStatement pst = conn.prepareStatement(sql)) {
-				
-				stmt.executeUpdate("insert into product values ("
-	                    + video.getId() + ",'"
-	                    + video.getName() + "',"
-	                  
-				
-				//pst.setLong(1, Long.parseLong(id));
-				pst.setString(1, email);
-				
-				try (ResultSet rs = pst.executeQuery()) {
 
-					// Columnas desde metadatos
-					ResultSetMetaData rsmd = rs.getMetaData();
-					int columnas = rsmd.getColumnCount();
+				pst.setString(1, pojo.getId());
+				pst.setString(2, pojo.getNombre());
 
-					for (int i = 1; i <= columnas; i++) {
-						System.out.print(rsmd.getColumnName(i) + '\t');
-					}
+				pst.executeUpdate();
 
-					System.out.println();
-					// Fin
-
-					while (rs.next()) {
-						System.out.printf("%s\t%s\t%s\n", rs.getLong("id"), rs.getString("email"), rs.getString("password"));
-					}
-				} catch (Exception e) {
-					System.out.println("ERROR AL CREAR EL RESULTSET");
-				} 
 			} catch (Exception e) {
 				System.out.println("ERROR AL CREAR LA SENTENCIA");
-			} 
-			
+				return false;
+			}
+
 		} catch (SQLException e) {
 			System.out.println("ERROR DE CONEXION");
 			System.out.println(e.getMessage());
+			return false;
 		}
-		
-		try(Connection con = DriverManager.getConnection(url, usuario, password)) {
-			long id = 2;
-			String contra = "nuevapassword";
-			
-			String sql = "UPDATE usuarios SET password = ? WHERE id = ?";
-			
-			try(PreparedStatement pst = con.prepareStatement(sql)) {
-				pst.setLong(2, id);
-				pst.setString(1, contra);
-				
-				int numFilas = pst.executeUpdate();
-				
-				if(numFilas != 1) {
-					System.out.println("El número de filas modificado ha sido " + numFilas);
-				
-				}
-				
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+
 		return true;
 	}
 
 	@Override
 	public List<Video> getAll() {
+		/*
+		 * return videos; }
+		 * 
+		 * @Override public Video getById(String id) { Video resul = null; if (id !=
+		 * null) { for (Video v : videos) { if (id.equals(v.getId())) { resul = v; } } }
+		 * return resul;
+		 */
+
+		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+
+			String sql = "SELECT * FROM videos";
+
+			try (Statement stmt = conn.createStatement()) {
+
+				try (ResultSet rs = stmt.executeQuery(sql)) {
+
+					while (rs.next()) {
+						System.out.printf("%s\t%s\t%s\n", rs.getString("id"), rs.getString("nombre"));
+					}
+				} catch (Exception e) {
+					System.out.println("ERROR AL CREAR EL RESULTSET");
+
+				}
+			} catch (Exception e) {
+				System.out.println("ERROR AL CREAR LA SENTENCIA");
+			}
+
+		} catch (SQLException e) {
+			System.out.println("ERROR DE CONEXION");
+			System.out.println(e.getMessage());
+		}
 		return videos;
 	}
 
 	@Override
-	public Video getById(String id) {
-		Video resul = null;
-		if (id != null) {
-			for (Video v : videos) {
-				if (id.equals(v.getId())) {
-					resul = v;
-				}
-			}
-		}
-		return resul;
-	}
-
-	@Override
 	public boolean update(Video pojo) {
-		// TODO Auto-generated method stub
-		return false;
+
+		try (Connection con = DriverManager.getConnection(url, usuario, password)) {
+
+			String sql = "UPDATE videos SET nombre = ? WHERE id = ?";
+
+			try (PreparedStatement pst = con.prepareStatement(sql)) {
+
+				pst.setString(1, pojo.getNombre());
+				pst.setString(2, pojo.getId());
+
+				int numFilas = pst.executeUpdate();
+
+				if (numFilas != 1) {
+					System.out.println("El número de filas modificado ha sido " + numFilas);
+
+				}
+
+			} catch (SQLException e) {
+
+				System.out.println("ERROR AL CREAR LA SENTENCIA");
+				return false;
+
+			}
+		} catch (SQLException e) {
+			System.out.println("ERROR DE CONEXION");
+			System.out.println(e.getMessage());
+			return false;
+		}
+
+		return true;
 	}
 
 	@Override
 	public boolean delete(String id) {
 		boolean resul = false;
 		Video v = null;
-		if ( id != null ) { 
+		if (id != null) {
 			for (int i = 0; i < videos.size(); i++) {
-				v = videos.get(i); 
-				if (id.equals(v.getId()) ) { 
+				v = videos.get(i);
+				if (id.equals(v.getId())) {
 					resul = videos.remove(v);
 					break;
 				}
 			}
-		}	
+		}
 		return resul;
+	}
+
+	@Override
+	public Video getById(String id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
