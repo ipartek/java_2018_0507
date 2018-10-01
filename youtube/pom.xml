@@ -16,6 +16,7 @@
 		<javax.servlet.api>3.0.1</javax.servlet.api>
 		<javax.servlet.jsp.version>2.2</javax.servlet.jsp.version>
 		<javax.servlet.jstl.version>1.2</javax.servlet.jstl.version>
+		<mysql.connector.version>8.0.12</mysql.connector.version>
 	</properties>
 
 
@@ -43,11 +44,11 @@
 			<version>${javax.servlet.jstl.version}</version>
 		</dependency>
 
-		<!-- libreria MySQL -->
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.6</version>
+			<version>${mysql.connector.version}</version>
 		</dependency>
 
 		<dependency>
