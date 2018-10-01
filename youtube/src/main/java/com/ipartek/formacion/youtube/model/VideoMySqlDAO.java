@@ -19,7 +19,7 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 
 	public static synchronized VideoMySqlDAO getInstance() throws ClassNotFoundException {
 		if (INSTANCE == null) {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");//registrar un driver que necesitaba sql
 			INSTANCE = new VideoMySqlDAO();
 		}
 
