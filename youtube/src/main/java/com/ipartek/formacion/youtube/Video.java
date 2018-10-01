@@ -13,6 +13,12 @@ public class Video {
 		this.nombre = "Red Hot Chili Peppers - Californication";		
 	}
 	
+	public Video(String id) {
+		super();
+		this.id = id;
+			
+	}
+	
 	public Video(String id, String nombre) throws Exception {
 		this();
 		this.setId(id);
