@@ -1,0 +1,17 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>login</servlet-name> <!--  nombre de la clase  -->
+  	<!-- <display-name>LoginServlet</display-name> -->
+  	<!-- <description></description>  -->
+  	<servlet-class>com.ipartek.formacion.javaee.servlets.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>login</servlet-name> <!--  nombre de la clase  -->
+  	<url-pattern>/login</url-pattern> <!--  nombre de la clase  -->
+  </servlet-mapping>
+</web-app>
