@@ -15,11 +15,13 @@
     <meta name="author" content="">
 
     <title>Youtube Video Play List</title>
-
-	<link rel="stylesheet" href="css/all.css">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 	
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://blackrockdigital.github.io/startbootstrap-shop-item/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/all.css">
 
     <!-- Custom styles for this template -->
     <link href="css/shop-item.css" rel="stylesheet">
@@ -59,7 +61,7 @@
 
         <div class="col-lg-3">        	
           <h1 class="my-4">Lista Reproduccion</h1>
-          <div class="list-group">
+          <ul class="list-group">
           	<%
           		ArrayList<Video> videos = (ArrayList<Video>) request.getAttribute("videos");
           	
@@ -69,17 +71,20 @@
           		}	
     			
           		for( Video v : videos ){
-          	%>
-                   
-          	  <a href="#" onclick="reproducir('<%=v.getIdVideo()%>')" class="list-group-item"><%=v.getNombre()%></a>
-          	  <a href="?id=<%=v.getId()%>"><i style="color:red;" class="float-right fas fa-trash-alt"></i></a>
+          	%>      	  
+          	  
+          	  <li class="list-group-item mb-1">
+						<a href="#" onclick="reproducir('<%=v.getIdVideo()%>')"><%=v.getNombre()%></a>
+						<a href="?id=<%=v.getId()%>" style="color: red;" class="float-right fas fa-trash-alt"></a>
+						<a href="?id=<%=v.getId()%>" style="color: grey;" class="float-right fas fa-pencil-alt mr-3"></a>
+				</li>
             
             <%
           		} //end for
             %>
             
             
-          </div>
+          </ul>
         </div>
         <!-- /.col-lg-3 -->
 
