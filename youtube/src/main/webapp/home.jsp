@@ -71,7 +71,7 @@
           		for( Video v : videos ){
           	%>
                    
-          	  <a href="#" onclick="reproducir('<%=v.getId()%>')" class="list-group-item"><%=v.getNombre()%></a>
+          	  <a href="#" onclick="reproducir('<%=v.getIdVideo()%>')" class="list-group-item"><%=v.getNombre()%></a>
           	  <a href="?id=<%=v.getId()%>"><i style="color:red;" class="float-right fas fa-trash-alt"></i></a>
             
             <%
@@ -87,7 +87,7 @@
 
           <div class="card mt-4">
           
-            <iframe id="iframe" width="823" height="415" src="https://www.youtube.com/embed/<%=videoInicio.getId()%>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe id="iframe" width="823" height="415" src="https://www.youtube.com/embed/<%=videoInicio.getIdVideo()%>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             
             <div class="card-body">
               <h3 class="card-title"><%=videoInicio.getNombre()%></h3>              
