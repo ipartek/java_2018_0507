@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <div class="row">
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
@@ -7,7 +8,7 @@
 				<div class="form-group">
 					<label for="nombre" class="col-sm-2 control-label">Nick</label>
 					<div class="col-sm-10">
-						<input type=text class="form-control" id="nombre"
+						<input type=text class="form-control" id="nombre" name="nombre"
 							placeholder="Nick">
 					</div>
 				</div>
@@ -15,7 +16,7 @@
 					<label for="password" class="col-sm-2 control-label">Contraseña</label>
 					<div class="col-sm-10">
 						<input type="password" class="form-control" id="password"
-							placeholder="Contraseña">
+							name="password" placeholder="Contraseña">
 					</div>
 				</div>
 				<div class="form-group">

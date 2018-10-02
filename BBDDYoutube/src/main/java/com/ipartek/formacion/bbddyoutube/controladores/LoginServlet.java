@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		if(nombre == null || password == null) {
-			throw new RuntimeException("Programador del login.jsp. Ya puedes poner un email y password.");
+			throw new RuntimeException("Programador del login.jsp. Ya puedes poner un nick y un password.");
 		}
 		
 		//2.Cargamos el modelo (en nuestro caso el pojo)
@@ -39,14 +39,15 @@ public class LoginServlet extends HttpServlet {
 		if(usuario.isCorrecto() && usuarioValido) {
 			//4.Redirección a otra página con uno o varios modelos
 			request.getSession().setAttribute("user", usuario);
-			request.getRequestDispatcher("/contenido.jsp").forward(request, response);
+			//request.getRequestDispatcher("/WEB-INF/contenido.jsp").forward(request, response);
+			request.getRequestDispatcher("contenido").forward(request, response);
 		} else {
 			//4.Redirección a otra página con uno o varios modelos
 			if(!usuarioValido) {
 				request.setAttribute("errores", "El usuario no es válido");
 			}
 			request.setAttribute("user", usuario);
-			request.getRequestDispatcher("/index.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 		}
 	}
 }
