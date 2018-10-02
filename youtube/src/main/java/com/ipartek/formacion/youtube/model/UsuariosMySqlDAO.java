@@ -97,7 +97,7 @@ public class UsuariosMySqlDAO implements CrudAble<Usuarios> {
 
 				try (ResultSet rs = pst.executeQuery()) {
 					if (rs.next()) {
-						user = new Usuarios(Long.parseLong(rs.getLong("id")), rs.getString("email"), rs.getString("password"));
+						user = new Usuarios((rs.getLong("id")), rs.getString("email"), rs.getString("password"));
 					} else {
 						return null;
 					}
@@ -114,7 +114,7 @@ public class UsuariosMySqlDAO implements CrudAble<Usuarios> {
 
 		return user;
 	}
-	}
+	
 
 	@Override
 	public boolean update(Usuarios pojo) {
