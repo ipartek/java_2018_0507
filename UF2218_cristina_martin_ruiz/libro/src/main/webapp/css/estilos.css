@@ -1,0 +1,20 @@
+
+body {
+    background-image: url('../imgs/background.png');
+    background-repeat: repeat;
+    min-height: 100%;
+    width: 100%;
+}
+
+.v-center {
+    display: flex;
+    align-items: center;
+}
+
+.white{
+	color: white!important;
+}
+
+a{
+	text-decoration:none!important;
+}

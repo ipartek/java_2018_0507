@@ -29,7 +29,7 @@ public class AdminFilter implements Filter {
 		if (usuario == null || !"admin@email.com".equals(usuario.getEmail())) {
 			httpRequest.getRequestDispatcher("/login").forward(request, response);
 		} else {
-			chain.doFilter(request, response);
+			chain.doFilter(request, response); //haz lo que hubieras hecho si no estuviera el filtro
 		}
 	}
 
