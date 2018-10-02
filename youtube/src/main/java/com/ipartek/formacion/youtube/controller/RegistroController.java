@@ -12,36 +12,33 @@ import javax.servlet.http.HttpServletResponse;
 import com.ipartek.formacion.youtube.Usuarios;
 import com.ipartek.formacion.youtube.model.UsuariosMySqlDAO;
 
-/**
- * Servlet implementation class RegistroController
- */
+
 @WebServlet("/registro")
 public class RegistroController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		doGet(request,response);
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 			String Email = request.getParameter("email");
-			String Contraseña = request.getParameter("passsword");
+			String Contraseña = request.getParameter("password");
 			
 			
 			Usuarios usu = new Usuarios(Email, Contraseña);
 			try {
+				System.out.println(Email + Contraseña);
 				UsuariosMySqlDAO.getInstance().insert(usu);
-
-				ArrayList<Usuarios> users = (ArrayList<Usuarios>) UsuariosMySqlDAO.getInstance().getAll();
-				request.setAttribute("users", users);
+				
 				
 			} catch (Exception e) {
 				e.getMessage();
 			}
 			
-			request.getRequestDispatcher("inicio").forward(request, response);
+			response.sendRedirect("inicio");
 	}
 
 }
