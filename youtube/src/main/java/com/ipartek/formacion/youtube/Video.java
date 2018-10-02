@@ -1,21 +1,33 @@
 package com.ipartek.formacion.youtube;
 
 public class Video {
-
-	public static final int ID_LONGITUD = 11;
-	
 	private String id;
 	private String nombre;
 	
+	public static final int ID_LONGITUD = 11;
+	private String idvideo;
+	public String getIdvideo() {
+		return idvideo;
+	}
+
+	public void setIdvideo(String idvideo) {
+		this.idvideo = idvideo;
+	}
+
+	public static int getIdLongitud() {
+		return ID_LONGITUD;
+	}
+
+	
 	public Video() {
 		super();
-		this.id = "YlUKcNNmywk";
+		this.idvideo = "YlUKcNNmywk";
 		this.nombre = "Red Hot Chili Peppers - Californication";		
 	}
 	
 	public Video(String id, String nombre) throws Exception {
 		this();
-		this.setId(id);
+		this.setIdvideo(id);
 		this.nombre = nombre;
 	}
 

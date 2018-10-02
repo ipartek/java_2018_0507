@@ -36,7 +36,7 @@ public class HomeController extends HttpServlet {
 			}
 			
 			
-			dao = VideoArrayListDAO.getInstance();
+			VideoArrayListDAO dao = VideoArrayListDAO.getInstance();
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
 			request.setAttribute("videos", videos);
 

@@ -1,5 +1,9 @@
 package com.ipartek.formacion.youtube.model;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,70 +13,136 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 
 	private static VideoArrayListDAO INSTANCE = null;
 	private static List<Video> videos = null;
-
+	String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
+	String usuario = "root";
+	String password = "admin";
+	ArrayList<Video> lista=new ArrayList();
 	private VideoArrayListDAO() {
-		videos = new ArrayList<Video>();
-		try {
-			videos.add(new Video("LPDhuthFD98", "Surf Search Spot 2 0 video promo"));
-			videos.add(new Video("a9WnQFI8jQU", "Betagarri - Sweet Mary"));
-			videos.add(new Video("0sLK1SKfItM", "Su Ta Gar - Begira"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-
-	public static synchronized VideoArrayListDAO getInstance() {
-		if (INSTANCE == null) {
-			INSTANCE = new VideoArrayListDAO();
-		}
-
-		return INSTANCE;
+		
 	}
 
 	@Override
 	public boolean insert(Video pojo) {
-		return videos.add(pojo);
+		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+			String sql="INSERT INTO ipartek.video (idvideo,nombre) VALUES (?,?)";
+		try (PreparedStatement pst = conn.prepareStatement(sql)) {
+			pst.setString(1, pojo.getId());
+			pst.setString(2, pojo.getNombre());
+			try {
+				pst.executeQuery();
+				return true;
+			
+			}catch(Exception e) {
+				System.out.println("no se ha producido introducir el video.");
+				return false;
+			}
+		
+		}catch(Exception e) {
+			return false;
+		}
+	}catch(Exception e) {
+		return false;
+	}
 	}
 
 	@Override
-	public List<Video> getAll() {
-		return videos;
+	public List<Video> getAll(){
+		
+		Video k=new Video();
+		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+			String sql = "SELECT * FROM ipartek.video";
+		try (PreparedStatement pst = conn.prepareStatement(sql)) {				
+				ResultSet result1=pst.executeQuery();
+				while(result1.next()){
+					String nombre= result1.getString("titulo");
+					String id=result1.getString("idvideo");
+					k.setId(id);
+					k.setNombre(nombre);
+					lista.add(k);
+					}
+			}catch(Exception e) {
+				e.getMessage();
+			}
+		}catch(Exception e) {
+			e.getMessage();
+		}
+		return lista;
 	}
 
 	@Override
 	public Video getById(String id) {
-		Video resul = null;
-		if (id != null) {
-			for (Video v : videos) {
-				if (id.equals(v.getId())) {
-					resul = v;
-				}
+		Video k=new Video();
+		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+			String sql = "SELECT * FROM ipartek.video where idvideo=?";
+		try (PreparedStatement pst = conn.prepareStatement(sql)) {
+				pst.setString(1, id);
+				ResultSet result1=pst.executeQuery();
+				String nombre2= result1.getString("titulo");
+				String id2=result1.getString("idvideo");
+					
+					k.setId(id2);
+					k.setNombre(nombre2);
+			}catch(Exception e) {
+				e.getMessage();
 			}
+		}catch(Exception e) {
+			e.getMessage();
 		}
-		return resul;
+		return k;
 	}
 
 	@Override
 	public boolean update(Video pojo) {
-		// TODO Auto-generated method stub
+		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+			String sql="update INTO ipartek.video (nombre) VALUES (?) where idvideo=?";
+		try (PreparedStatement pst = conn.prepareStatement(sql)) {
+			pst.setString(1, pojo.getNombre());
+			pst.setString(2, pojo.getId());
+			try {
+				pst.executeQuery();
+				return true;
+			
+			}catch(Exception e) {
+				System.out.println("no se ha producido introducir el video.");
+				e.getMessage();
+				return false;
+			}
+		
+		}catch(Exception e) {
+			e.getMessage();
+			return false;
+		}
+	}catch(Exception e) {
 		return false;
+	}
 	}
 
 	@Override
 	public boolean delete(String id) {
-		boolean resul = false;
-		Video v = null;
-		if ( id != null ) { 
-			for (int i = 0; i < videos.size(); i++) {
-				v = videos.get(i); 
-				if (id.equals(v.getId()) ) { 
-					resul = videos.remove(v);
-					break;
-				}
+		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+			String sql="delete * from ipartek.video where idvideo=?";
+		try (PreparedStatement pst = conn.prepareStatement(sql)) {
+			pst.setString(1, id);
+			
+			try {
+				pst.executeQuery();
+				return true;
+			
+			}catch(Exception e) {
+				System.out.println("no se ha producido borrar el video.");
+				e.getMessage();
+				return false;
 			}
-		}	
-		return resul;
+		
+		}catch(Exception e) {
+			e.getMessage();
+			return false;
+		}
+	}catch(Exception e) {
+		return false;
+	}
+	
+
 	}
 
 }
