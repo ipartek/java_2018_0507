@@ -28,8 +28,8 @@
 </head>
 
 <body>
-
-
+	<a href="registrar.jsp">Registrar Usuario</a>
+	
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
