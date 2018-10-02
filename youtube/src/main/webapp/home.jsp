@@ -1,5 +1,6 @@
 <%@page import="com.ipartek.formacion.youtube.Video"%>
 <%@page import="java.util.ArrayList"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
 <!DOCTYPE html>
@@ -44,13 +45,13 @@
 	            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Añadir</button>
 	          </form>
 	          
-	          <form action="" method="post" class="form-inline mt-2 mt-md-0">
-	          <input name="idbuscarborrar" class="form-control mr-sm-2" type="text" placeholder="ID 11 caracerteres" title="11 caracteres" required pattern=".{11,11}">
-	            <button name="btnupd" value="borrar" class="btn btn-outline-info my-2 my-sm-0" type="submit">Borrar</button>
-	            <button name="btnupd" value="buscar" class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
-	            <button name="btnupd" value="modificar" class="btn btn-outline-info my-2 my-sm-0" type="submit">Modificar</button>
+	          <form action="updateform" method="post" class="form-inline mt-2 mt-md-0">
+	          <input name="idbuscarborrar" class="form-control mr-sm-2" type="text" placeholder="ID 11 caracerteres" title="11 caracteres" required pattern=".{11,11}" >
+	            <button  href="inicio?accion=delete&id=${video.id} name="btnupd" value="borrar" class="btn btn-outline-info my-2 my-sm-0" type="submit"  >Borrar</button>
+	            <button  href="inicio?accion=buscar&id=${video.id} name="btnupd" value="buscar" class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
+	            <button  href="inicio?accion=modificar&id=${video.id} name="btnupd" value="modificar" class="btn btn-outline-info my-2 my-sm-0" type="submit">Modificar</button>
 	          </form>
-	          <p>${error}</p>
+	         
             </li>            
           </ul>  
         </div>

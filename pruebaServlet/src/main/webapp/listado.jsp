@@ -11,7 +11,7 @@
 
 	<hr />
 
-	
+
 
 	<table class="table table-striped table-bordered table-hover">
 
@@ -20,26 +20,29 @@
 				<th>ID</th>
 				<th>Título</th>
 				<th>Precio</th>
-				<th style="width: 10%"> <a class="btn btn-success add-to-cart-button" href="edicion?accion=add">Añadir</a></th>
-					
+				<th style="width: 10%"><a
+					class="btn btn-success add-to-cart-button"
+					href="edicion?accion=add">Añadir</a></th>
+
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach items="${productos}" var="producto">
-		
-			<tr>
-				<th>${producto.id}</th>
-				<td>${producto.nombre}</td>
-				<td><fmt:formatNumber value="${producto.precio}" type="currency"/></td>
-				<td><a class="btn btn-success add-to-cart-button" href="edicion?accion=update&id=${producto.id}">Editar</a>
-				
-				  <a class="btn btn-success add-to-cart-button" href="edicion?accion=delete&id=${producto.id}">Borrar</a>
-				</td>
-				
-			</tr>
-		</c:forEach>	
+			<c:forEach items="${productos}" var="producto">
+
+				<tr>
+					<th>${producto.id}</th>
+					<td>${producto.nombre}</td>
+					<td><fmt:formatNumber value="${producto.precio}"
+							type="currency" /></td>
+					<td><a class="btn btn-success add-to-cart-button"
+						href="edicion?accion=update&id=${producto.id}">Editar</a> <a
+						class="btn btn-success add-to-cart-button"
+						href="edicion?accion=delete&id=${producto.id}">Borrar</a></td>
+
+				</tr>
+			</c:forEach>
 		</tbody>
-	
+
 	</table>
 
 

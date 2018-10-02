@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.ipartek.formacion.youtube.Video;
 import com.ipartek.formacion.youtube.model.VideoArrayListDAO;
 
+
 /**
  * Servlet implementation class HomeController
  */
@@ -46,6 +47,47 @@ public class HomeController extends HttpServlet {
 		} finally {
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 		}
+		
+		
+		// borrar actualizar y buscar videos y que desaparezcan o cambien
+				// recoger parametros
+
+				String idbb = request.getParameter("idbuscarborrar");
+				String btnborrar = request.getParameter("btnupd");
+				String btnbuscar = request.getParameter("btnupd");
+				String btnupdate = request.getParameter("btnupd");
+		        String accion = request.getParameter("updateform");
+				
+		    
+				
+
+				if(idbb != null && accion != null) {
+					
+					switch(accion) { 
+					case "buscar":
+						dao.getById(idbb);
+						
+						break;
+					case "borrar":   // se borra
+						dao.delete(idbb);
+						break;
+					case "modificar":   // se edita
+						Video v = dao.getById(idbb);
+						dao.update(v);
+						break;
+					}
+				}else {
+					request.setAttribute("error", "exixte el video");
+				}
+				
+				
+				
+				
+		
+		
+		
+		
+		
 	}
 
 	/**
@@ -78,15 +120,16 @@ public class HomeController extends HttpServlet {
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 		}
 
-		// borrar actualizar y buscar videos y que desaparezcan o cambien
-		// recoger parametros
-
-		String idbb = request.getParameter("idbuscarborrar");
-		String btnborrar = request.getParameter("btnupd");
-		String btnbuscar = request.getParameter("btnupd");
-		String btnupdate = request.getParameter("btnupd");
-
-		if (btnborrar.equalsIgnoreCase("borrar")) {
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*if (btnborrar.equalsIgnoreCase("borrar")) {
 
 			if (!dao.getAll().isEmpty()) {
 				// borrar
@@ -106,7 +149,7 @@ public class HomeController extends HttpServlet {
 			
 		}else {
 			request.setAttribute("error", "exixte el video");
-		}
+		}*/
 		
 		
 		
