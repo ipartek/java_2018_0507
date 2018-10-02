@@ -4,19 +4,16 @@
 		<div class="well">
 			<h2 class="text-center">Listado videos</h2>
 			<div class="list-group">
-			<%
-				ArrayList<Video> videos = (ArrayList<Video>) request.getAttribute("videos");
-			%>
-         	<%-- <%
-          		ArrayList<Video> videos = (ArrayList<Video>) request.getAttribute("videos");
-    			
-          		for( Video v : videos ){
-          	%>
-          	  <a href="#" onclick="reproducir('<%=v.getIdVideo()%>')" class="list-group-item"><%=v.getNombre()%></a>
-          	  <a href="?id=<%=v.getIdVideo()%>"><i style="color:red;" class="float-right fas fa-trash-alt"></i></a>
-            <%
-          		} //end for
-            %> --%>
+			<p>
+				<c:forEach items="${videos}" var="video">
+					
+				    <a href="#" onclick="reproducir('${video.idVideo}')" class="list-group-item">
+				    	<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+				    	${video.nombre}
+				    </a>
+          	  		<a href="?id=${video.idVideo}"><i style="color:red;" class="float-right fas fa-trash-alt"></i></a>
+				</c:forEach>
+			</p>
           </div>
 		</div>
 	</div>

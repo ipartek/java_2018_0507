@@ -33,7 +33,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 		try {
 			conn = DriverManager.getConnection(url, usuario, password);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.out.println("ERROR AL CONECTARSE A LA BBDD");
 			e.printStackTrace();
 		}
 		
@@ -208,8 +208,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 	public List<Video> getAllUserVideos(long idVideo) {
 		String sql = "SELECT v.idYoutube, v.nombre FROM videos v "
 				+ "INNER JOIN usuariosvideos uv ON v.idVideo = uv.idVideo "
-				+ "INNER JOIN usuarios u ON u.idUsuario = uv.idUsuario " 
-				+ "WHERE u.idUsuario = ?";
+				+ "WHERE uv.idUsuario = ?";
 				
 		ArrayList<Video> videos = new ArrayList<Video>();
 		Connection conn = getConnection();
