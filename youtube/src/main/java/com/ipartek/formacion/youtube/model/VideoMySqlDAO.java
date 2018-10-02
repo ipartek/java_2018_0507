@@ -29,7 +29,7 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 	@Override
 	public boolean insert(Video pojo) {
 		try (Connection con = DriverManager.getConnection(url, usuario, password)) {
-			String sql = "INSERT INTO videos (idvideo, nombre) VALUES (?, ?)";
+			String sql = "INSERT INTO videos (idvideos, nombre) VALUES (?, ?)";
 
 			try (PreparedStatement pst = con.prepareStatement(sql)) {
 				pst.setString(1, pojo.getIdVideo());
@@ -60,13 +60,13 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 		ArrayList<Video> videos = new ArrayList<>();
 
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
-			String sql = "SELECT id, idvideo, nombre FROM videos";
+			String sql = "SELECT id, idvideos, nombre FROM videos";
 
 			try (PreparedStatement pst = conn.prepareStatement(sql)) {
 
 				try (ResultSet rs = pst.executeQuery()) {
 					while (rs.next()) {
-						videos.add(new Video(rs.getLong("id"), rs.getString("idvideo"), rs.getString("nombre")));
+						videos.add(new Video(rs.getLong("id"), rs.getString("idvideos"), rs.getString("nombre")));
 					}
 				} catch (Exception e) {
 					throw new AccesoDatosException(e.getMessage(), e);
@@ -89,7 +89,7 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
 
-			String sql = "SELECT id, idvideo, nombre FROM videos WHERE id = ?";
+			String sql = "SELECT id, idvideos, nombre FROM videos WHERE id = ?";
 
 			try (PreparedStatement pst = conn.prepareStatement(sql)) {
 
@@ -97,7 +97,7 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 
 				try (ResultSet rs = pst.executeQuery()) {
 					if (rs.next()) {
-						video = new Video(rs.getLong("id"), rs.getString("idvideo"), rs.getString("nombre"));
+						video = new Video(rs.getLong("id"), rs.getString("idvideos"), rs.getString("nombre"));
 					} else {
 						return null;
 					}
@@ -118,7 +118,7 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 	@Override
 	public boolean update(Video pojo) {
 		try (Connection con = DriverManager.getConnection(url, usuario, password)) {
-			String sql = "UPDATE videos SET idvideo = ?, nombre = ? WHERE id = ?";
+			String sql = "UPDATE videos SET idvideos = ?, nombre = ? WHERE id = ?";
 
 			try (PreparedStatement pst = con.prepareStatement(sql)) {
 				pst.setString(1, pojo.getIdVideo());

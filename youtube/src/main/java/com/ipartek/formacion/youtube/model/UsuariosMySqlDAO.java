@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ipartek.formacion.youtube.Usuarios;
-import com.ipartek.formacion.youtube.Video;
+
 
 public class UsuariosMySqlDAO implements CrudAble<Usuarios> {
 	String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
@@ -127,5 +127,29 @@ public class UsuariosMySqlDAO implements CrudAble<Usuarios> {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	  public boolean InicioSesion(String email, String password1) throws Exception 
+	    {
+		  try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+
+				String sql = "SELECT * FROM usuarios WHERE email = ? AND password = ?";
+
+				try (PreparedStatement pst = conn.prepareStatement(sql)) {
+
+					 	pst.setString(1, email);
+				        pst.setString(2, password1);
+				        ResultSet rs =pst.executeQuery();
+				        return rs.next();
+				        
+					} catch (SQLException e) {
+						throw new AccesoDatosException(e.getMessage(), e);
+						
+					}
+				} catch (Exception e) {
+					throw new AccesoDatosException(e.getMessage(), e);
+					
+				}
+	        
+	    }
 
 }

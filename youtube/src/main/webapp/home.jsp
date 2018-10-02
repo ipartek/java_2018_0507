@@ -28,13 +28,28 @@
 </head>
 
 <body>
+	<form action="login" method="post">
+		<p>
+			<label for="email">Email</label> <input type="email" name="email"
+				id="email" value="${user.email}" /> 
+		</p>
+		<p>
+			<label for="password">Contraseña</label> <input type="password"
+				name="password" id="password" />
+		</p>
+		<p>
+			<button>Login</button>
+			
+		</p>
 
+	</form>
+	<a href="registrar.jsp">Registrar Usuario</a>
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
 			<a class="navbar-brand" href="#">Youtube PlayList</a>
-			
+
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
