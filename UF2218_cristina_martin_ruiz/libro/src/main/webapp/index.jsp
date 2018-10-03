@@ -5,49 +5,57 @@
 
 
 
-
 <header>
 	<h1 class="text-center">LIBRO</h1>
 </header>
 
 
-<form class="form-inline" action="index">
-	<div class="form-group">
+<form class="form-inline justify-content-center" action="index">
+	<div class="form-group ">
 		<span class="mr-1">Ir a la página</span> <input type="number"
 			class="form-control" name="pagina">
 	</div>
 </form>
 
 
-<c:if test="${pagina.numero > 1}">
-	<a href="index?pagina=${pagina.numero - 1}">Anterior</a>
-</c:if>
-<c:if test="${pagina.numero < numeroPaginas}">
-	<a href="index?pagina=${pagina.numero + 1}">Siguiente</a>
-</c:if>
 
 <div class="row">
-	<div id="login" class="justify-content-center col-md-5">
+	<div class="box text-center col-md-5">
 
-		<p class="text-center">Página ${pagina.numero} / ${numeroPaginas}</p>
-		
-		<p>${pagina.contenido}</p>
-		<p>${pagina.autor}</p>		
-		
+		<div class="m-2">
+			<c:if test="${pagina.numero > 1}">
+				<a href="index?pagina=${pagina.numero - 1}">Anterior</a>
+			</c:if>
+
+			Página ${pagina.numero} / ${numeroPaginas}
+
+			<c:if test="${pagina.numero < numeroPaginas}">
+				<a href="index?pagina=${pagina.numero + 1}">Siguiente</a>
+			</c:if>
+		</div>
+
+		<div class="m-2">${pagina.contenido}</div>
+		<div class="m-2">${pagina.autor}</div>
+
 	</div>
 </div>
 
-<form action="buscarPalabra" method="post">
-	Buscar palabra <input type="search" name="palabra" />
-</form>
 
 
+	<form class="form-inline justify-content-center" action="buscarPalabra" method="post">
+		<div class="form-group">
+			<span class="mr-1">Buscar palabra</span> <input type="search"
+				class="form-control" name="palabra" />
+		</div>
+	</form>
 
-<ul>
-	<c:forEach items="${resultadosBusqueda}" var="paginaResultado">
-		<li><a href="index?pagina=${paginaResultado}">${paginaResultado}</a>
-	</c:forEach>
-</ul>
+<div class="text-center mb-5">
+	<ul class="list-inline">
+		<c:forEach items="${resultadosBusqueda}" var="paginaResultado">
+			<li class="list-inline-item"><a href="index?pagina=${paginaResultado}">${paginaResultado}</a></li>
+		</c:forEach>
+	</ul>
+</div>
 
 
 <%@ include file="/WEB-INF/includes/pie.jsp"%>

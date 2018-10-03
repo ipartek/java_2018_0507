@@ -7,7 +7,7 @@
 
 <div class="row">
 
-	<section id="login" class="justify-content-center col-md-4">
+	<sectio class="box justify-content-center col-md-4">
 	
 	<h1 class="text-center">Login</h1>
 

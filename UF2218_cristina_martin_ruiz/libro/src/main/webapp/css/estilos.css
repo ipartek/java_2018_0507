@@ -4,10 +4,9 @@ body {
     min-height: 100%;
     width: 100%;
 }
-
-#login{	
+.box{	
     background: white;
-    padding: 40px;
+    padding: 20px;
     margin: 3% auto;
     border-radius: 4px;
     box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
