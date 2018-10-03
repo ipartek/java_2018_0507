@@ -87,19 +87,18 @@ public class VideoMySQLDAO implements CrudAble<Video> {
 
 	@Override
 	public Video getById(String id) {
-		System.out.println("El valor del string id recogido es: " + id);
 		Video video = new Video();
-		System.out.println("El valor del string id recogido es: " + id);
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
 
 			String sql = "SELECT id, codigo, nombre, idusuario FROM videos WHERE id = ?";
-
+			System.out.println("Entro en getById y realizo la conexion");
 			try (PreparedStatement pst = conn.prepareStatement(sql)) {
-
+				//Mirando que valor entra en el prepared statement
 				pst.setInt(1, Integer.parseInt(id));
 
 				try (ResultSet rs = pst.executeQuery()) {
 					if (rs.next()) {
+						System.out.println(rs.getInt("id") + " " + rs.getString("codigo") + " " + rs.getString("nombre") + " " + rs.getInt("idusuario"));
 						video = new Video(rs.getInt("id"), rs.getString("codigo"), rs.getString("nombre"), rs.getInt("idusuario"));
 					} else {
 						return null;

@@ -28,8 +28,8 @@
 <form action="update" method="post" class="form-inline mt-2 mt-md-0">
 	<input type="text" placeholder="id" disabled value="<%=v.getId()%>"> <br>
 	<input type="text" placeholder="codigo" value="<%=v.getCodigo()%>"> <br>
-	<input type="text" placeholder="nombre" value="<%=v.getCodigo()%>"><br>
-	<input type="text" placeholder="idusuario" disabled value="<%=v.getCodigo()%>"><br>
+	<input type="text" placeholder="nombre" value="<%=v.getNombre()%>"><br>
+	<input type="text" placeholder="idusuario" disabled value="<%=v.getIdUsuario()%>"><br>
 	<%
           		 //end for
             %>

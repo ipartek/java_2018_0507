@@ -26,6 +26,11 @@ public class UpdateServlet extends HttpServlet {
 			String id = request.getParameter("id");
 			Video v = new Video();
 			v = dao.getById(id);
+			//No esta recogiendo el video del getByID
+			/*System.out.println("Este es el codigo del video " +v.getCodigo());
+			System.out.println("Este es el nombre del video " +v.getNombre());
+			System.out.println("Este es el id del video " +v.getId());
+			System.out.println("Este es el idusuario del video " +v.getIdUsuario());*/
 			request.setAttribute("video", v);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
