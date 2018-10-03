@@ -12,9 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.ipartek.formacion.youtube.model.UsuariosMySqlDAO;
 
-/**
- * Servlet implementation class LoginController
- */
+
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -46,7 +44,7 @@ public class LoginController extends HttpServlet {
 					      respuesta.setAttribute("email", NombreUsuario);
 					      
 					  } else {
-					      respuesta.setAttribute("error", "Esta direccion de correo ya fue registrada");
+					      respuesta.setAttribute("error", "Datos mal metidos");
 					  }
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
@@ -55,7 +53,6 @@ public class LoginController extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-                 // request.getRequestDispatcher("inicio").forward(request, response);
                   response.sendRedirect("inicio");
               } 
 
