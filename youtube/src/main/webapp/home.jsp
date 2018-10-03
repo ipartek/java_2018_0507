@@ -31,8 +31,9 @@
 	<form action="login" method="post">
 		<p>
 			<label for="email">Email</label> <input type="email" name="email"
-				id="email" value="${user.email}" /> 
+				id="email"  /> 
 		</p>
+		${sessionScope.email.email}
 		<p>
 			<label for="password">Contraseña</label> <input type="password"
 				name="password" id="password" />

@@ -10,7 +10,6 @@ import java.util.List;
 
 import com.ipartek.formacion.youtube.Usuarios;
 
-
 public class UsuariosMySqlDAO implements CrudAble<Usuarios> {
 	String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
 	String usuario = "root";
@@ -20,12 +19,13 @@ public class UsuariosMySqlDAO implements CrudAble<Usuarios> {
 
 	public static synchronized UsuariosMySqlDAO getInstance() throws ClassNotFoundException {
 		if (INSTANCE == null) {
-			Class.forName("com.mysql.cj.jdbc.Driver");//registrar un driver que necesitaba sql
+			Class.forName("com.mysql.cj.jdbc.Driver");// registrar un driver que necesitaba sql
 			INSTANCE = new UsuariosMySqlDAO();
 		}
 
 		return INSTANCE;
 	}
+
 	@Override
 	public boolean insert(Usuarios pojo) {
 		try (Connection con = DriverManager.getConnection(url, usuario, password)) {
@@ -114,7 +114,6 @@ public class UsuariosMySqlDAO implements CrudAble<Usuarios> {
 
 		return user;
 	}
-	
 
 	@Override
 	public boolean update(Usuarios pojo) {
@@ -127,29 +126,56 @@ public class UsuariosMySqlDAO implements CrudAble<Usuarios> {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
-	  public boolean InicioSesion(String email, String password1) throws Exception 
-	    {
-		  try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
 
-				String sql = "SELECT * FROM usuarios WHERE email = ? AND password = ?";
+	// Metodo para consultar si un email y contraseñan pertenecen a una cuenta
+	// registrada
+	public boolean isAcountExists(String email, String password) throws SQLException {
 
-				try (PreparedStatement pst = conn.prepareStatement(sql)) {
+		try (Connection con = DriverManager.getConnection(url, usuario, password)) {
+			  String sql = "SELECT * FROM usuarios WHERE email='"+email+"' AND password='"+password+"'";
 
-					 	pst.setString(1, email);
-				        pst.setString(2, password1);
-				        ResultSet rs =pst.executeQuery();
-				        return rs.next();
-				        
-					} catch (SQLException e) {
-						throw new AccesoDatosException(e.getMessage(), e);
-						
+			try (PreparedStatement ps = con.prepareStatement(sql)) {
+				ResultSet rs = ps.executeQuery();
+
+				return rs.next();
+
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+				return false;
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+
+	}
+
+	public String getNameByEmail(String email) throws SQLException {
+
+		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+
+			String sql = "SELECT * FROM usuarios WHERE email='" + email + "'";
+
+			try (PreparedStatement ps = conn.prepareStatement(sql);) {
+
+				try (ResultSet rs = ps.executeQuery();) {
+					if (rs.next()) {
+						return rs.getString("email");
 					}
-				} catch (Exception e) {
+				} catch (SQLException e) {
 					throw new AccesoDatosException(e.getMessage(), e);
-					
 				}
-	        
-	    }
+			} catch (Exception e) {
+				throw new AccesoDatosException(e.getMessage(), e);
+			}
+
+		} catch (SQLException e) {
+			throw new AccesoDatosException(e.getMessage(), e);
+		}
+
+		return null;
+	}
 
 }
