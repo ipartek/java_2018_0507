@@ -77,7 +77,9 @@
           	  <li class="list-group-item mb-1">
 						<a href="#" onclick="reproducir('<%=v.getIdVideo()%>')"><%=v.getNombre()%></a>
 						<a href="?id=<%=v.getId()%>" style="color: red;" class="float-right fas fa-trash-alt"></a>
-						<a href="?id=<%=v.getId()%>" style="color: grey;" class="float-right fas fa-pencil-alt mr-3"></a>
+						<a href="" style="color: grey;" class="float-right fas fa-pencil-alt mr-3"></a>
+						<a onclick="showModalModificar('<%=v.getId()%>' , '<%=v.getNombre()%>')" style="color:blue;" class="float-right fas fa-pencil-alt"></a>
+						
 				</li>
             
             <%
@@ -86,6 +88,36 @@
             
             
           </ul>
+          
+         <!-- modalModificar -->
+			<div class="modal fade" id="modalModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalLabel">Modificar Nombre Video</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			        
+			      </div>
+			      <div class="modal-footer">
+			      
+			      	<form action=" ???? " method="post">			      		
+			      		<input type="text" id="nombre" name="nombre" required >
+			      		<input type="hidden" name="id" id="id" value="-1">
+			      		<input type="hidden" name="op" value=" ???? ">
+			      		<input type="submit" value="Modificar">
+			      	</form>
+			      
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+			        			        
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
         </div>
         <!-- /.col-lg-3 -->
 
@@ -151,6 +183,15 @@
 			iframe.src = "https://www.youtube.com/embed/" + id;
 			
 		}	
+		
+		function showModalModificar( idVideo, nombre ){
+			
+			console.log('showModalModificar id=' + idVideo +  " nombre=" + nombre);
+			$('#modalModificar').modal('show');
+			document.getElementById('id').value = idVideo;
+			document.getElementById('nombre').value = nombre;
+						
+		}
 	
 	</script>
 
