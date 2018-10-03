@@ -52,11 +52,9 @@ public class HomeController extends HttpServlet {
 		// borrar actualizar y buscar videos y que desaparezcan o cambien
 				// recoger parametros
 
-				String idbb = request.getParameter("idbuscarborrar");
-				String btnborrar = request.getParameter("btnupd");
-				String btnbuscar = request.getParameter("btnupd");
-				String btnupdate = request.getParameter("btnupd");
-		        String accion = request.getParameter("updateform");
+				String idbb = request.getParameter("id");
+				
+		        String accion = request.getParameter("accion");
 				
 		    
 				
@@ -68,7 +66,7 @@ public class HomeController extends HttpServlet {
 						dao.getById(idbb);
 						
 						break;
-					case "borrar":   // se borra
+					case "delete":   // se borra
 						dao.delete(idbb);
 						break;
 					case "modificar":   // se edita
@@ -124,36 +122,7 @@ public class HomeController extends HttpServlet {
 		
 		
 		
-		
-		
-		
-		
-		
-		/*if (btnborrar.equalsIgnoreCase("borrar")) {
-
-			if (!dao.getAll().isEmpty()) {
-				// borrar
-				dao.delete(idbb);
-			}else {
-				request.setAttribute("error", "No hay videos que borrar");
-				//request.getRequestDispatcher("home.jsp").forward(request, response);
-			}
-
-		}
-		
-		
-		if(btnbuscar.equalsIgnoreCase("buscar")) {
-			
-			dao.getById(idbb);
-			
-			
-		}else {
-			request.setAttribute("error", "exixte el video");
-		}*/
-		
-		
-		
-		
+	
 		
 
 	}

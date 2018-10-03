@@ -1,4 +1,4 @@
-package com.ipartek.formacion.youtube.controller;
+/*package com.ipartek.formacion.youtube.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,27 +14,19 @@ import javax.servlet.http.HttpSession;
 import com.ipartek.formacion.youtube.model.UsuarioArrayListDAO;
 import com.ipartek.formacion.youtube.Usuario;
 
-/**
- * Servlet implementation class UsuarioServlet
- */
 public class UsuarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	Usuario user;
 	ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
+	
 	public UsuarioServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -51,10 +43,7 @@ public class UsuarioServlet extends HttpServlet {
 		response.sendRedirect("index.jsp");
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -136,4 +125,4 @@ public class UsuarioServlet extends HttpServlet {
 
 	}
 
-}
+}*/

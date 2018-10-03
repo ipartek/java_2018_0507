@@ -1,24 +1,24 @@
-package com.ipartek.formacion.youtube.model;
+//package com.ipartek.formacion.youtube.model;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+//import java.sql.*;
+//import java.util.ArrayList;
+//import java.util.List;
 
-import org.apache.taglibs.standard.tag.common.core.ForEachSupport;
+//import org.apache.taglibs.standard.tag.common.core.ForEachSupport;
 
-import com.ipartek.formacion.youtube.Usuario;
-import com.ipartek.formacion.youtube.Video;
+//import com.ipartek.formacion.youtube.Usuario;
+//import com.ipartek.formacion.youtube.Video;
 
-public class UsuarioArrayListDAO implements CrudAble<Usuario> {
+//public class UsuarioArrayListDAO implements CrudAble<Usuario> {
 
-	private static UsuarioArrayListDAO INSTANCE = null;
-	private static List<Usuario> usuarios = null;
+//	private static UsuarioArrayListDAO INSTANCE = null;
+//	private static List<Usuario> usuarios = null;
 
-	private String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
-	private String usuario = "root";
-	private String password = "admin";
+//	private String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
+//	private String usuario = "root";
+//	private String password = "admin";
 
-	private UsuarioArrayListDAO() {
+//	private UsuarioArrayListDAO() {
 		/*videos = new ArrayList<Video>();
 		try {
 			videos.add(new Video("LPDhuthFD98", "Surf Search Spot 2 0 video promo"));
@@ -28,29 +28,29 @@ public class UsuarioArrayListDAO implements CrudAble<Usuario> {
 			e.printStackTrace();
 		}*/
 
-	}
+//	}
 
-	public static synchronized UsuarioArrayListDAO getInstance() {
-		if (INSTANCE == null) {
+//	public static synchronized UsuarioArrayListDAO getInstance() {
+//		if (INSTANCE == null) {
 
-			try {
-				Class.forName("com.mysql.jdbc.Driver");
-			} catch (ClassNotFoundException e) {
+//			try {
+//				Class.forName("com.mysql.jdbc.Driver");
+//			} catch (ClassNotFoundException e) {
 
-				e.printStackTrace();
-			}
-			INSTANCE = new UsuarioArrayListDAO();
+//				e.printStackTrace();
+//			}
+//			INSTANCE = new UsuarioArrayListDAO();
 
-		}
+//		}
 
-		return INSTANCE;
-	}
+//		return INSTANCE;
+//	}
 
-	@Override
-	public boolean insert(Usuario pojo) {
+//	@Override
+//	public boolean insert(Usuario pojo) {
 		// return videos.add(pojo);
 
-		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+/*		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
 
 			String sql = "INSERT INTO usuarios values (?,?,?)";
 
@@ -78,10 +78,10 @@ public class UsuarioArrayListDAO implements CrudAble<Usuario> {
 		}
 
 		return true;
-	}
+	}*/
 
-	@Override
-	public List<Usuario> getAll() {
+//	@Override
+	//public List<Usuario> getAll() {
 		/*
 		 * return videos; }
 		 * 
@@ -89,7 +89,7 @@ public class UsuarioArrayListDAO implements CrudAble<Usuario> {
 		 * null) { for (Video v : videos) { if (id.equals(v.getId())) { resul = v; } } }
 		 * return resul;
 		 */
-		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+	/*	ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
 
@@ -122,9 +122,9 @@ public class UsuarioArrayListDAO implements CrudAble<Usuario> {
 	}
 
 	@Override
-	public boolean update(Usuario pojo) {
+	public boolean update(Usuario pojo) {*/
 
-		try (Connection con = DriverManager.getConnection(url, usuario, password)) {
+	/*	try (Connection con = DriverManager.getConnection(url, usuario, password)) {
 
 			String sql = "UPDATE usuarios SET email = ?, password = ? WHERE id = ?";
 
@@ -160,14 +160,14 @@ public class UsuarioArrayListDAO implements CrudAble<Usuario> {
 	}
 
 	@Override
-	public boolean delete(String id) {
+	public boolean delete(String id) {*/
 		/*
 		 * boolean resul = false; Video v = null; if (id != null) { for (int i = 0; i <
 		 * videos.size(); i++) { v = videos.get(i); if (id.equals(v.getId())) { resul =
 		 * videos.remove(v); break; } } } return resul;
 		 */
 
-		try (Connection con = DriverManager.getConnection(url, usuario, password)) {
+		/*try (Connection con = DriverManager.getConnection(url, usuario, password)) {
 
 			String sql = "DELETE FROM usuarios WHERE id = ?";
 
@@ -199,8 +199,8 @@ public class UsuarioArrayListDAO implements CrudAble<Usuario> {
 
 		return true;
 	}
-
-	@Override
+*/
+/*	@Override
 	public Usuario getById(String id) {
 
 		Usuario user = null;
@@ -246,4 +246,4 @@ public class UsuarioArrayListDAO implements CrudAble<Usuario> {
 
 
 
-}
+}*/
