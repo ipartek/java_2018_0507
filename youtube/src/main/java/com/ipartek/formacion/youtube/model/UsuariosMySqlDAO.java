@@ -131,7 +131,7 @@ public class UsuariosMySqlDAO implements CrudAble<Usuarios> {
 	// registrada
 	public boolean isAcountExists(String email, String password) throws SQLException {
 
-		try (Connection con = DriverManager.getConnection(url, usuario, password)) {
+		try (Connection con = DriverManager.getConnection(this.url, this.usuario, this.password)) {
 			  String sql = "SELECT * FROM usuarios WHERE email='"+email+"' AND password='"+password+"'";
 
 			try (PreparedStatement ps = con.prepareStatement(sql)) {
