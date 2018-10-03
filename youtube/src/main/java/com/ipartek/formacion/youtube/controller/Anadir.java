@@ -38,10 +38,19 @@ public class Anadir extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println(request.getParameter("id"));
-		System.out.println(request.getParameter("nombre"));
+		String id=request.getParameter("id");
+		String nombre=request.getParameter("nombre");
+		System.out.println("ID de video recibido al crear:"+ id);
+		System.out.println("NOMBRE de video recibido al crear:"+ nombre);
 		try {
-			VideoArrayListDAO.getInstance().insert(new Video(request.getParameter("id"),request.getParameter("nombre")));
+			id="1";
+
+			VideoArrayListDAO.getInstance().insert(new Video((long) 1,id,nombre));
+		
+			
+			VideoArrayListDAO.getListBD();
+			request.setAttribute("video", VideoArrayListDAO.getInstance().getAll());
+		
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -50,7 +59,7 @@ public class Anadir extends HttpServlet {
 			e.printStackTrace();
 		}finally {
 			//request.getRequestDispatcher("home.jsp").forward(request, response);
-			request.getRequestDispatcher("insertado.jsp").forward(request, response);
+			request.getRequestDispatcher("/inicio").forward(request, response);
 		}
 	
 	}

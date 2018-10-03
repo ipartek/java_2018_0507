@@ -14,21 +14,23 @@ import com.ipartek.formacion.youtube.Video;
 public class VideoArrayListDAO implements CrudAble<Video> {
 
 	private static VideoArrayListDAO INSTANCE = null;
-	private static List<Video> videos = null;
+	private static List<Video> videos = new ArrayList<Video>();
 
 	
 	public static String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
 	
 	public static String usuario = "root";
 	public static String password = "admin";
+	//public static String usuario = "Akasha";
+	//public static String password = "Akasha1";
 	
 	
 	private VideoArrayListDAO() {
 		videos = new ArrayList<Video>();
 		try {
-			videos.add(new Video("LPDhuthFD98", "Surf Search Spot 2 0 video promo"));
-			videos.add(new Video("a9WnQFI8jQU", "Betagarri - Sweet Mary"));
-			videos.add(new Video("0sLK1SKfItM", "Su Ta Gar - Begira"));
+//			videos.add(new Video("LPDhuthFD98", "Surf Search Spot 2 0 video promo"));
+//			videos.add(new Video("a9WnQFI8jQU", "Betagarri - Sweet Mary"));
+//			videos.add(new Video("0sLK1SKfItM", "Su Ta Gar - Begira"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -49,20 +51,32 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 		
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
 			Class.forName("com.mysql.jdbc.Driver");
-			String sql = "insert into videos(id,nombre) values(?,?);";
-		
+			String sql = "insert into videos(idvideo,nombre,id_usuario) values(?,?,?);";
+			//String sql = "insert into videos(idvideo,nombre) values(?,?)";
+	
+			System.out.println("AKI");
+			
 			try (PreparedStatement pst = conn.prepareStatement(sql)) {
-				pst.setString(1,pojo.getId());
-				pst.setString(2, pojo.getNombre());
+				//System.out.println("getL:"+pojo.getL());
+				//System.out.println("getID"+pojo.getId());
+				//System.out.println("getNombre"+pojo.getNombre());
 				
-				pst.executeUpdate();
-				System.out.println("Insertados datos: ID: "+pojo.getId()+" Nombre: "+pojo.getNombre());
+				pst.setString(1, pojo.getId());
+				pst.setString(2,pojo.getNombre());
+				pst.setString(3, "1");//TODO:Usuario provisional
 				
+				//pst.executeUpdate();
+				//System.out.println("SQL:"+sql);
+				//System.out.println("AKI3");
 			      
-			      conn.close();
+			     pst.executeUpdate();
+			     System.out.println("Insertados datos: ID: "+pojo.getId()+" Nombre: "+pojo.getNombre());
+				
+				conn.close();
 			
 			} catch (Exception e) {
 				System.out.println("ERROR AL CREAR LA SENTENCIA");
+				e.printStackTrace();
 			} 
 			
 		} catch (SQLException e) {
@@ -76,8 +90,58 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 		return videos.add(pojo);
 	}
 
+	
+	public static void main(String args[]) {
+		VideoArrayListDAO vardo=new VideoArrayListDAO();
+		vardo.getAll();
+	}
 	@Override
 	public List<Video> getAll() {
+		
+		
+		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+
+			String sql = "SELECT id,idvideo, nombre FROM videos";
+		
+
+			try (PreparedStatement pst = conn.prepareStatement(sql)) {				
+				try (ResultSet rs = pst.executeQuery()) {
+
+					// Columnas desde metadatos
+					ResultSetMetaData rsmd = rs.getMetaData();
+					int columnas = rsmd.getColumnCount();
+
+					for (int i = 1; i <= columnas; i++) {
+						System.out.print(rsmd.getColumnName(i) + '\t');
+					}
+
+					System.out.println();
+					// Fin
+
+					while (rs.next()) {
+						//System.out.printf("HOlA %s\t%s\t%s\n", rs.getLong("id"), rs.getString("idvideo"), rs.getString("nombre"));
+						Video vid=new Video(rs.getLong("id"), rs.getString("idvideo"), rs.getString("nombre"));
+						videos.add(vid);
+					
+					}
+					
+					return videos;
+				} catch (Exception e) {
+					System.out.println("ERROR AL CREAR EL RESULTSET");
+				} 
+			} catch (Exception e) {
+				System.out.println("ERROR AL CREAR LA SENTENCIA");
+			} 
+			
+		} catch (SQLException e) {
+			System.out.println("ERROR DE CONEXION");
+			System.out.println(e.getMessage());
+		}
+		
+		
+		
+		
+		//
 		return videos;
 	}
 
@@ -141,10 +205,6 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 		}	
 		return resul;
 	}
-public static void main(String args[]) {
-	//conectBD();
-	getListBD();
-}
 	
 	public static ResultSet conectBD() {
 		
@@ -173,8 +233,8 @@ public static void main(String args[]) {
 					// Fin
 		
 					while (rs.next()) {
-						System.out.printf("%s\t%s\n", rs.getString("id"), rs.getString("nombre"));
-						new Video(rs.getString("id"), rs.getString("nombre"));
+						System.out.printf("%s\t%s\t%s\n", rs.getString("id"),rs.getLong("idvideo"), rs.getString("nombre"));
+						new Video(rs.getLong("idvideo"),rs.getString("id"), rs.getString("nombre"));
 						
 					}
 				} catch (Exception e) {
@@ -196,12 +256,12 @@ public static void main(String args[]) {
 		return null;
 	}
 	
-	public static void getListBD() {
-		
+	public static List getListBD() {
+		List lista = null;
 		
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
 			//Class.forName("com.mysql.jdbc.Driver");
-			String sql = "SELECT id, nombre FROM videos";
+			String sql = "SELECT id,idvideo, nombre FROM videos";
 		
 			try (PreparedStatement pst = conn.prepareStatement(sql)) {
 				
@@ -219,8 +279,13 @@ public static void main(String args[]) {
 					// Fin
 		
 					while (rs.next()) {
-						System.out.printf("%s\t%s\n", rs.getLong("id"), rs.getString("nombre"));
+						lista.add(new Video(rs.getLong("id"), rs.getString("idvideo"),rs.getString("nombre")));
+						//System.out.printf("%s\t%s\t%s\n", rs.getLong("id"), rs.getString("idvideo"),rs.getString("nombre"));
+					
+					
+					
 					}
+					return lista;
 					
 				} catch (Exception e) {
 					System.out.println("ERROR AL CREAR EL RESULTSET");
@@ -233,6 +298,7 @@ public static void main(String args[]) {
 			System.out.println("ERROR DE CONEXION");
 			System.out.println(e.getMessage());
 		}
+		return lista;
 		
 		
 	}

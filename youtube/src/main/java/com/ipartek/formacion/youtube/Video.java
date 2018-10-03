@@ -5,6 +5,14 @@ public class Video {
 	public static final int ID_LONGITUD = 11;
 	
 	private String id;
+	private Long l;
+	public Long getL() {
+		return l;
+	}
+
+	public void setL(Long l) {
+		this.l = l;
+	}
 	private String nombre;
 	
 	public Video() {
@@ -13,9 +21,10 @@ public class Video {
 		this.nombre = "Red Hot Chili Peppers - Californication";		
 	}
 	
-	public Video(String id, String nombre) throws Exception {
+	public Video(Long l, String id, String nombre) throws Exception {
 		this();
-		this.setId(id);
+		this.l=l;
+		this.id=id;
 		this.nombre = nombre;
 	}
 
@@ -23,6 +32,7 @@ public class Video {
 		return id;
 	}
 	public void setId(String id) throws Exception {
+		System.out.println(id + " ---" + id.length());
 		if ( id != null && id.length() == ID_LONGITUD ) {
 			this.id = id;
 		}else {

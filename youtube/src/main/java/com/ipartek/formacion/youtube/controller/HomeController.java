@@ -3,6 +3,7 @@ package com.ipartek.formacion.youtube.controller;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,23 +31,33 @@ public class HomeController extends HttpServlet {
 			throws ServletException, IOException {
 		
 		try {
+			
+			System.out.println("DOGET");
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			String id = request.getParameter("id");
-			if ( id != null ) {
-				dao.delete(id);
+			String idvideo = request.getParameter("id");
+			
+			if ( idvideo != null ) {
+				dao.delete(idvideo);
 			}
 			
 			
 			dao = VideoArrayListDAO.getInstance();
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
 			System.out.println("HOMECONTROLER !");
-			for(Video video:videos){
-				System.out.println(videos.get(0).getId());
-				System.out.println(videos.get(1).getNombre());
-			}
+		
+		/*	VideoArrayListDAO vald = null;
+			vald.getAll();*/
+			//List lista=VideoArrayListDAO.getListBD();
+			
+			/*for(Video video:videos){
+				System.out.println("FOR");
+				System.out.println(video.getId()+"--"+video.getNombre()+"--"+video.getL());
+				
+			}*/
+			
 			request.setAttribute("videos", videos);
-			System.out.println("HomeController saliendo");
+			//System.out.println("HomeController saliendo");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -61,15 +72,19 @@ public class HomeController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		try {
-			
+		
+		doGet(request,response);
+		
+		/*try {
+			System.out.println("DOPOST");
 			//recoger parametros
-			String id = request.getParameter("id");
+			String id=request.getParameter("id");
 			String nombre = request.getParameter("nombre");
 			
+			
 			//insertar
-			Video v = new Video(id, nombre);
-			dao.insert(v);
+			//Video v = new Video(Long.parseLong("1") ,id, nombre);
+			//dao.insert(v);
 			
 			//pedir listado
 			dao = VideoArrayListDAO.getInstance();
@@ -80,7 +95,7 @@ public class HomeController extends HttpServlet {
 			e.printStackTrace();
 		} finally {
 			request.getRequestDispatcher("home.jsp").forward(request, response);
-		}
+		}*/
 	}
 
 }

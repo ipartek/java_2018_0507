@@ -1,41 +1,52 @@
 <%@page import="com.ipartek.formacion.youtube.Video"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Iterator" %>
-
+<%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-
 	<base href="<%=request.getContextPath()%>/">
-	
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <title>Youtube Video Play List</title>
-
 	<link rel="stylesheet" href="css/all.css">
-	
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="css/shop-item.css" rel="stylesheet">
 
   </head>
-
-  <body>
-
+   <body>      
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
         <a class="navbar-brand" href="#">Youtube PlayList</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <form action="/youtube/login" method="post" class="form-inline mt-2 mt-md-0">
+	            <input name="user" class="form-control mr-sm-2" type="text" placeholder="user" title="user">
+	            <input name="pass" class="form-control mr-sm-2" type="text" placeholder="pass">
+	            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Login</button>
+	          </form>
+            </li>      
+            <li>
+		     	<form action="logout" method="post" class="form-inline mt-2 mt-md-0 navbar-brand">
+		      		Bienvenido <%=request.getAttribute("user")%>
+		      	   <button class="btn btn-outline-info my-2 my-sm-0" type="submit">logout</button>
+			   </form>
+            </li>      
+          </ul>
+        </div>
+        
+        
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
@@ -52,45 +63,38 @@
 
     <!-- Page Content -->
     <div class="container">
-
       <div class="row">
 
         <div class="col-lg-3">        	
           <h1 class="my-4">Lista Reproduccion</h1>
           <div class="list-group">
-          
-          
-          
           <br>
+          
+          
           	<%
           	
-          	ArrayList<Video> videos = (ArrayList<Video>) request.getAttribute("videos");
-          	Iterator<Video> itr = videos.iterator();
-            while (itr.hasNext()) {
-            	String id=itr.next().getId();
-            
-              out.println("<a href='?id="+id.trim()+" onclick='reproducir('"+id.trim()+"')'>"+id+"</a><br>");
-             
-            
-           
-            }
           	
+          	ArrayList<Video> videos = (ArrayList<Video>) request.getAttribute("videos");
+          
+          	/*for(Video video:videos){
+			 	System.out.println("FOR");
+				System.out.println(video.getId()+"--"+video.getNombre()+"--"+video.getL()); 
+				
+			
+          	Video videoInicio = new Video();
+          	if ( !videos.isEmpty() ){
+          		videoInicio = videos.get(0);
+          	}	
+          	}*/
+    		
+       		for( Video v : videos ){
+       		%>
+         		<a href="#" onclick="reproducir('<%=v.getId()%>')" class="list-group-item"><%=v.getNombre()%></a>
+       	 		<a href="?id=<%=v.getId()%>"><i style="color:red;" class="float-right fas fa-trash-alt"></i></a>
            
-          		//Video videoInicio = new Video();
-          		//if ( !videos.isEmpty() ){
-          		//	videoInicio = videos.get(0);
-          		//}	
-    			
-          		for( Video v : videos ){
-          	%>
-                   
-          	 
-            <a href="#" onclick="reproducir('<%=v.getId()%>')" class="list-group-item"><%=v.getNombre()%></a>
-          	  <a href="?id=<%=v.getId()%>"><i style="color:red;" class="float-right fas fa-trash-alt"></i></a -->
-            
-            <%
-          		} //end for
-            %>
+           	<%
+         	} //end for
+           	%>
             
             
           </div>
