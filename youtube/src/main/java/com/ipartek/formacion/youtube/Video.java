@@ -2,31 +2,42 @@ package com.ipartek.formacion.youtube;
 
 public class Video {
 
-	public static final int ID_LONGITUD = 11;
+	public static final int CODIGO_LONGITUD = 11;
 	
-	private String id;
+	private int id;
+	private String codigo;
 	private String nombre;
-	
+	private int idUsuario;
 	public Video() {
 		super();
-		this.id = "YlUKcNNmywk";
+		this.codigo = "YlUKcNNmywk";
 		this.nombre = "Red Hot Chili Peppers - Californication";		
 	}
 	
-	public Video(String id, String nombre) throws Exception {
+	public Video(int id, String codigo, String nombre) throws Exception {
 		this();
-		this.setId(id);
+		this.id = id;
+		this.setCodigo(codigo);
 		this.nombre = nombre;
 	}
-
-	public String getId() {
+	public Video(int id, String codigo, String nombre, int idUsuario) throws Exception {
+		this();
+		this.id = id;
+		this.setCodigo(codigo);
+		this.nombre = nombre;
+		this.idUsuario = idUsuario;
+	}
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) throws Exception {
-		if ( id != null && id.length() == ID_LONGITUD ) {
-			this.id = id;
+	public String getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(String codigo) throws Exception {
+		if ( codigo != null && codigo.length() == CODIGO_LONGITUD ) {
+			this.codigo = codigo;
 		}else {
-			throw new Exception("El ID debe ser exactamente de " + ID_LONGITUD + " caracteres");
+			throw new Exception("El Codigo debe ser exactamente de " + CODIGO_LONGITUD + " caracteres");
 		}	
 	}
 	public String getNombre() {
@@ -35,6 +46,9 @@ public class Video {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+
+	
 	
 	
 	

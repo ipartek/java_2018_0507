@@ -1,10 +1,6 @@
 package com.ipartek.formacion.youtube.model;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,39 +8,27 @@ import com.ipartek.formacion.youtube.Video;
 
 public class VideoArrayListDAO implements CrudAble<Video> {
 
+	 
+
 	private static VideoArrayListDAO INSTANCE = null;
-	private static List<Video> videos = null;
-	String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
-	static String usuario = "root";
-	static String password = "admin";
+private static List<Video> videos = null;
 	
 	
 	private VideoArrayListDAO() {
-		videos = new ArrayList<Video>();
-		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
-			try (Statement stmt = conn.createStatement()) {
-				String sql = "SELECT id, codigo, titulo FROM videoyoutube";
-				try (ResultSet rs = stmt.executeQuery(sql)) {			
-					while (rs.next()) {
-						String id = rs.getString("id");
-						String nombre = rs.getString("nombre");
-						Video vid = new Video(id, nombre);
-						videos.add(vid);
-					}
-				} catch (Exception e) {
-					System.out.println("ERROR AL CREAR EL RESULTSET");
-				}
-			} catch (Exception e) {
-				System.out.println("ERROR AL CREAR LA SENTENCIA");
-			}
-		} catch (SQLException e) {
-			System.out.println("ERROR DE CONEXION");
-			System.out.println(e.getMessage());
-		}
+	/*	videos = new ArrayList<Video>();
+		try {
+			videos.add(new Video("LPDhuthFD98", "Surf Search Spot 2 0 video promo"));
+			videos.add(new Video("a9WnQFI8jQU", "Betagarri - Sweet Mary"));
+			videos.add(new Video("0sLK1SKfItM", "Su Ta Gar - Begira"));
+		} catch (Exception e) {
+			e.printStackTrace();
+}*/
 	}
 
-	public static synchronized VideoArrayListDAO getInstance() {
+	public static synchronized VideoArrayListDAO getInstance() throws ClassNotFoundException {
+		
 		if (INSTANCE == null) {
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			INSTANCE = new VideoArrayListDAO();
 		}
 
@@ -76,7 +60,7 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 
 	@Override
 	public boolean update(Video pojo) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 

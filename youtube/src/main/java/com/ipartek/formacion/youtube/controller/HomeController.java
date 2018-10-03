@@ -2,11 +2,6 @@ package com.ipartek.formacion.youtube.controller;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -15,8 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.youtube.Usuario;
 import com.ipartek.formacion.youtube.Video;
-import com.ipartek.formacion.youtube.model.VideoArrayListDAO;
+import com.ipartek.formacion.youtube.model.VideoMySQLDAO;
 
 @WebServlet("/inicio")
 public class HomeController extends HttpServlet {
@@ -27,19 +23,17 @@ public class HomeController extends HttpServlet {
 	Connection conn;
 
 	private static final long serialVersionUID = 1L;
-	private static VideoArrayListDAO dao;
+	private static VideoMySQLDAO dao;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-try {
-			
+		try {
 			String id = request.getParameter("id");
-			if ( id != null ) {
+			if (id != null) {
 				dao.delete(id);
 			}
-			
-			
-			dao = VideoArrayListDAO.getInstance();
+
+			dao = VideoMySQLDAO.getInstance();
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
 			request.setAttribute("videos", videos);
 
@@ -47,7 +41,7 @@ try {
 			e.printStackTrace();
 		} finally {
 			request.getRequestDispatcher("home.jsp").forward(request, response);
-}
+		}
 	}
 
 	/**
@@ -59,17 +53,20 @@ try {
 		try {
 
 			// recoger parametros
-			String id = request.getParameter("id");
+			int id = Integer.parseInt(request.getParameter("id"));
+			String codigo = request.getParameter("codigo");
 			String nombre = request.getParameter("nombre");
-
+			int idUsuario = Integer.parseInt(request.getParameter("idusuario"));
+			
 			// insertar
-			Video v = new Video(id, nombre);
+			Video v = new Video(id, codigo, nombre);
 			dao.insert(v);
-
 			// pedir listado
-			dao = VideoArrayListDAO.getInstance();
-			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
-			request.setAttribute("videos", videos);
+			dao = VideoMySQLDAO.getInstance();
+			/*
+			 * ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
+			 * request.setAttribute("videos", videos);
+			 */
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -77,5 +74,6 @@ try {
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 		}
 	}
+	
 
 }
