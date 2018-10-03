@@ -12,6 +12,7 @@ public class Video {
 		super();
 		this.codigo = "YlUKcNNmywk";
 		this.nombre = "Red Hot Chili Peppers - Californication";		
+		this.idUsuario = 1;
 	}
 	
 	public Video(int id, String codigo, String nombre) throws Exception {
@@ -25,7 +26,7 @@ public class Video {
 		this.id = id;
 		this.setCodigo(codigo);
 		this.nombre = nombre;
-		this.idUsuario = idUsuario;
+		this.setIdUsuario(idUsuario);
 	}
 	public int getId() {
 		return id;
@@ -45,6 +46,14 @@ public class Video {
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public int getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 

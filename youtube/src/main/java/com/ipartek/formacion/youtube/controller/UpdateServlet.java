@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.youtube.Video;
 import com.ipartek.formacion.youtube.model.VideoMySQLDAO;
 
 
@@ -14,14 +15,29 @@ import com.ipartek.formacion.youtube.model.VideoMySQLDAO;
 public class UpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = -5136805947201077663L;
 	private static VideoMySQLDAO video = null;
-
+	private static VideoMySQLDAO dao;
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		video = new VideoMySQLDAO();
+		//
+			video = new VideoMySQLDAO();
+		//
+		try {
+			dao=VideoMySQLDAO.getInstance();
+			String id = request.getParameter("id");
+			Video v = new Video();
+			v = dao.getById(id);
+			request.setAttribute("video", v);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		request.getRequestDispatcher("update.jsp").forward(request, response);
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

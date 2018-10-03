@@ -37,6 +37,7 @@ public class LoginServlet extends HttpServlet {
 		if(validarUsuario(usuario)) {
 			request.getSession().setAttribute("usuario", usuario);
 			request.getRequestDispatcher("inicio").forward(request, response);
+			
 		} else {
 			//TODO: Errores
 			request.getRequestDispatcher("login.jsp").forward(request, response);

@@ -62,7 +62,7 @@
           <div class="list-group">
           	<%
           		ArrayList<Video> videos = (ArrayList<Video>) request.getAttribute("videos");
-          	
+
           		Video videoInicio = new Video();
           		if ( !videos.isEmpty() ){
           			videoInicio = videos.get(0);
