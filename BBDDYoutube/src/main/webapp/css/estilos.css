@@ -2,95 +2,31 @@
 
 body {
 	padding-bottom: 70px;
+	padding-top: 70px;
 }
 
 .jumbotron {
 	padding: 10px;
+	margin-top:-70px; 
 }
 
 .navbar {
-	margin-top: -30px;
-	background-color: #5CB85C;
+	background-color: #6f8296;
 }
 
 .card {
 	padding: 0;
 	margin: 15px;
 }
-
-.btn-producto {
-	margin: 10px 10px 5px 16px;
+.list-group-mine .list-group-item {
+  background-color: #5CB85C;
 }
 
-#visualizacionProductos {
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: flex-start;
+.list-group-mine .list-group-item:hover {
+  background-color: #4CAE4C;
 }
 
-#footerNavbar {
-	margin-bottom: -20px;
-}
-
-#footerTable {
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#footerTable td {
-	padding-left: 10px;
-	padding-right: 10px;
-}
-
-#footerTable img {
-	width: 32px;
-	height: 32px;
-}
-
-.producto-flex-item {
-	width: 160px;
-	height: 100%;
-}
-
-.producto-flex-item>.card-body, .producto-flex-item>.card-header {
-	padding-left: 10px;
-}
-
-#textareaNuevoProducto {
-	resize: none;
-}
-
-.imgProducto {
-	width: 160px;
-	height: auto;
-	position: relative;
-	top: 0;
-	left: 0;
-}
-
-.capaDescuentos {
-	position: relative;
-	top: 0;
-	left: 0;
-}
-
-#capaBuscador {
-	margin-bottom: 20px;
-}
-
-.botonCancelar {
-	color: white;
-}
-
-.well {
-	background-color: #5CB85C;
-}
-
-.btn-group>button{
-	margin-right:10px;
+.badge{
+	color:#5CB85C;
+	background-color:#ffffff;
 }

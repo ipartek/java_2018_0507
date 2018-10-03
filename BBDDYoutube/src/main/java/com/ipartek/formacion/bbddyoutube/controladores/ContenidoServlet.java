@@ -24,7 +24,6 @@ public class ContenidoServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Usuario user = (Usuario) request.getSession().getAttribute("user");
-		//Usuario user = (Usuario) request.getAttribute("user");
 		UsuarioMySqlDAO dao = UsuarioMySqlDAO.getInstance();
 		
 		Long idUser = dao.getUserId(user);

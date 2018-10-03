@@ -39,7 +39,6 @@ public class LoginServlet extends HttpServlet {
 		if(usuario.isCorrecto() && usuarioValido) {
 			//4.Redirección a otra página con uno o varios modelos
 			request.getSession().setAttribute("user", usuario);
-			//request.getRequestDispatcher("/WEB-INF/contenido.jsp").forward(request, response);
 			request.getRequestDispatcher("contenido").forward(request, response);
 		} else {
 			//4.Redirección a otra página con uno o varios modelos

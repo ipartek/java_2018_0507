@@ -14,14 +14,14 @@
     
     <script src="js/jquery-1.12.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+		function reproducir(id) {
+			console.info('reproducir video ' + id);
+			var iframe = document.getElementById('visionarYoutube');
+			iframe.src = "https://www.youtube.com/embed/" + id;
+			
+		}	
+	</script>
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="row">
-			<div class="jumbotron">
-                <div class="container">
-                    <h1 class="display-4 text-center">YOUTUBE</h1>
-                </div>
-            </div>
-		</div>
-	

@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <div class="row">
 	<!-- Navigation -->    
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -24,22 +24,27 @@
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li>
-						<form action="" method="post" class="navbar-form navbar-left">
-				            <input name="idVideo" class="form-control" type="text" placeholder="ID 11 caracerteres" title="11 caracteres" required pattern=".{11,11}">
+						<form action="anadirContenido" method="post" class="navbar-form navbar-left">
+				            <input name="idVideo" class="form-control" type="text" placeholder="ID 11 caracteres" title="11 caracteres" required pattern=".{11,11}">
 				            <input name="nombreVideo" class="form-control" type="text" placeholder="Nombre minimo 2 letras" required pattern=".{2,125}">
-				            <button class="btn btn-default navbar-btn" type="submit">Añadir</button>
+				            <button class="btn btn-success navbar-btn" type="submit">Añadir</button>
 				         </form>
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
+					<%-- <c:if test="${user.rol == 1}">
+						<li>
+							<a href="administrarUsers">Administrar</a>
+						</li>
+					</c:if> --%>
 					<li><p class="navbar-text">
 							<span class="glyphicon glyphicon-user" aria-hidden="true">
 								Bienvenido ${user.nombre}</span>
 						</p></li>
 					<li>
 						<form action="logout">
-							<button type="submit" class="btn btn-default navbar-btn">Log
-								out</button>
+							<button type="submit" class="btn btn-danger navbar-btn">Log
+								out  <span class="glyphicon glyphicon-off" aria-hidden="true"></span></button>
 						</form>
 					</li>
 				</ul>

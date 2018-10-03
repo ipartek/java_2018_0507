@@ -10,10 +10,6 @@ import com.ipartek.formacion.bbddyoutube.pojos.Video;
 public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 
 	private static UsuarioMySqlDAO INSTANCE = null;
-	
-	String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
-	String usuario = "root";
-	String password = "admin";
 
 	public static synchronized UsuarioMySqlDAO getInstance() {
 		if (INSTANCE == null) {
@@ -28,35 +24,14 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 		return INSTANCE;
 	}
 	
-	public Connection getConnection() {
-		Connection conn = null;
-		try {
-			conn = DriverManager.getConnection(url, usuario, password);
-		} catch (SQLException e) {
-			System.out.println("ERROR AL CONECTARSE A LA BBDD");
-			e.printStackTrace();
-		}
-		
-		return conn;
-	}
-	
-	public void closeConnection(Connection con) {
-		try {
-			con.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
 	@SuppressWarnings("finally")
 	@Override
 	public boolean insert(Usuario pojo) {
 		// INSERTAR EN LA TABLA
 		String sql = "INSERT INTO usuarios (nombre,password) VALUES (?,?)";	
 		boolean result = false;
-		Connection conn = getConnection();
-		try (PreparedStatement pst = conn.prepareStatement(sql);){
+		Connection conn = UtilsDAO.getConnection();
+		try (PreparedStatement pst = conn.prepareStatement(sql)){
 			pst.setString(1, pojo.getNombre());
 			pst.setString(2, pojo.getPassword());
 			
@@ -71,7 +46,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 			System.out.println("ERROR AL CREAR LA SENTENCIA DE INSERT USUARIO");
 			result = false;
 		}finally {
-			closeConnection(conn);
+			UtilsDAO.closeConnection(conn);
 			return result;
 		}
 	}
@@ -81,7 +56,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 	public List<Usuario> getAll() {
 		String sql = "SELECT * FROM usuarios";	
 		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-		Connection conn = getConnection();
+		Connection conn = UtilsDAO.getConnection();
 		
 		try (PreparedStatement pst = conn.prepareStatement(sql)) {
 			try(ResultSet rs = pst.executeQuery()){
@@ -95,7 +70,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 		} catch (SQLException e) {
 			System.out.println("ERROR AL CREAR LA SENTENCIA DE GET ALL");
 		}finally {
-			closeConnection(conn);
+			UtilsDAO.closeConnection(conn);
 			return usuarios;
 		}
 	}
@@ -105,7 +80,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 	public Usuario getById(long idUsuario) {
 		String sql = "SELECT nombre, password FROM usuarios WHERE idUsuario = ?";	
 		Usuario usuario = null;
-		Connection conn = getConnection();
+		Connection conn = UtilsDAO.getConnection();
 		
 		try (PreparedStatement pst = conn.prepareStatement(sql)) {
 			pst.setLong(1, idUsuario);
@@ -121,7 +96,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 		} catch (SQLException e) {
 			System.out.println("ERROR AL CREAR LA SENTENCIA DE GET BY ID");
 		}finally {
-			closeConnection(conn);
+			UtilsDAO.closeConnection(conn);
 			return usuario;
 		}
 	}
@@ -131,8 +106,8 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 	public boolean update(Usuario pojo) {
 		String sql = "UPDATE usuarios SET nombre = ?, password = ? WHERE idUsuario = ?";	
 		boolean result = false;
-		Connection conn = getConnection();
-		try (PreparedStatement pst = conn.prepareStatement(sql);){
+		Connection conn = UtilsDAO.getConnection();
+		try (PreparedStatement pst = conn.prepareStatement(sql)){
 			pst.setString(1, pojo.getNombre());
 			pst.setString(2, pojo.getPassword());
 			pst.setLong(3, pojo.getId());
@@ -148,7 +123,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 			System.out.println("ERROR AL CREAR LA SENTENCIA DE UPDATE");
 			result = false;
 		}finally {
-			closeConnection(conn);
+			UtilsDAO.closeConnection(conn);
 			return result;
 		}
 	}
@@ -157,8 +132,8 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 	public boolean delete(long idUsuario) {
 		String sql = "DELETE FROM usuarios WHERE idUsuario = ?";	
 		boolean result = false;
-		Connection conn = getConnection();
-		try (PreparedStatement pst = conn.prepareStatement(sql);){
+		Connection conn = UtilsDAO.getConnection();
+		try (PreparedStatement pst = conn.prepareStatement(sql)){
 			pst.setLong(1, idUsuario);
 			
 			int numFilas = pst.executeUpdate();
@@ -172,7 +147,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 			System.out.println("ERROR AL CREAR LA SENTENCIA DE DELETE");
 			result = false;
 		}finally {
-			closeConnection(conn);
+			UtilsDAO.closeConnection(conn);
 			return result;
 		}
 	}
@@ -181,9 +156,8 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 	public long getUserId(Usuario user) {
 		String sql = "SELECT idUsuario FROM usuarios "
 				+ "WHERE nombre = ? AND password = ?";
-		//Long userId = (long) 2;
 		Long userId = null;
-		Connection conn = getConnection();
+		Connection conn = UtilsDAO.getConnection();
 		
 		try (PreparedStatement pst = conn.prepareStatement(sql)) {
 			pst.setString(1, user.getNombre());
@@ -199,7 +173,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 		}catch (SQLException e) {
 			System.out.println("ERROR AL CREAR LA SENTENCIA DE GET USER ID");
 		}finally {
-			closeConnection(conn);
+			UtilsDAO.closeConnection(conn);
 			return userId;
 		}
 	}
@@ -211,7 +185,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 				+ "WHERE uv.idUsuario = ?";
 				
 		ArrayList<Video> videos = new ArrayList<Video>();
-		Connection conn = getConnection();
+		Connection conn = UtilsDAO.getConnection();
 		
 		try (PreparedStatement pst = conn.prepareStatement(sql)) {
 			pst.setLong(1, idVideo);
@@ -226,7 +200,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 		} catch (SQLException e) {
 			System.out.println("ERROR AL CREAR LA SENTENCIA DE GET ALL BY USER");
 		}finally {
-			closeConnection(conn);
+			UtilsDAO.closeConnection(conn);
 			return videos;
 		}
 	}

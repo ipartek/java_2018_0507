@@ -21,7 +21,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-12 text-center">
-						<button type="submit" class="btn btn-default">Sign in</button>
+						<button type="submit" class="btn btn-success">Sign in</button>
 					</div>
 				</div>
 			</form>
