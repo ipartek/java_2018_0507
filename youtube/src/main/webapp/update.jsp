@@ -15,8 +15,9 @@
 <!--  -->
 <%
           		//ArrayList<Video> videos = (ArrayList<Video>) request.getAttribute("videos");
-				
-          		Video v = new Video();
+          		//Rellenar el objeto con getAtributes
+				Video v = new Video(Integer.parseInt(request.getParameter("id")), request.getParameter("codigo"), 
+						request.getParameter("nombre"), Integer.parseInt(request.getParameter("idusuario")));
           		
           		
           		/*if ( !videos.isEmpty() ){
