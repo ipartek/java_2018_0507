@@ -20,12 +20,13 @@
 			
 		}	
 		
-		function showModalModificar( idVideo, nombre ){
+		function showModalModificar(idVideo, nombre, id ){
 			
-			console.log('showModalModificar id=' + idVideo +  " nombre=" + nombre);
+			console.log('showModalModificar idVideo=' + idVideo +  " nombre=" + nombre + " id=" + id);
 			$('#modalModificar').modal('show');
-			document.getElementById('id').value = idVideo;
+			document.getElementById('idVideo').value = idVideo;
 			document.getElementById('nombre').value = nombre;
+			document.getElementById('id').value = id;
 						
 		}
 	

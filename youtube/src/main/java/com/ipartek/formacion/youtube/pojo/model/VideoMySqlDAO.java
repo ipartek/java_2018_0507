@@ -1,5 +1,5 @@
 
-package com.ipartek.formacion.youtube.model;
+package com.ipartek.formacion.youtube.pojo.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ipartek.formacion.youtube.Video;
+import com.ipartek.formacion.youtube.pojo.Video;
 
 public class VideoMySqlDAO implements CrudAble<Video> {
 	String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";

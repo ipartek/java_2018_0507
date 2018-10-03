@@ -1,4 +1,4 @@
-package com.ipartek.formacion.youtube;
+package com.ipartek.formacion.youtube.pojo;
 
 public class Video {
 
@@ -46,7 +46,7 @@ public class Video {
 		if ( idVideo != null && idVideo.length() == ID_LONGITUD ) {
 			this.idVideo = idVideo;
 		}else {
-			throw new RuntimeException("El ID debe ser exactamente de " + ID_LONGITUD + " caracteres");
+			throw new RuntimeException("El IDVIDEO debe ser exactamente de " + ID_LONGITUD + " caracteres");
 		}	
 		this.idVideo = idVideo;
 	}

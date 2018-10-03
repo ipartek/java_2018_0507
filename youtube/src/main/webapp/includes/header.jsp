@@ -1,4 +1,4 @@
-<%@page import="com.ipartek.formacion.youtube.Video"%>
+<%@page import="com.ipartek.formacion.youtube.pojo.Video"%>
 <%@page import="java.util.ArrayList"%>
 
 
@@ -20,8 +20,6 @@
 	
     <!-- Bootstrap core CSS -->
     <link href="https://blackrockdigital.github.io/startbootstrap-shop-item/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-	<link rel="stylesheet" href="css/all.css">
 
     <!-- Custom styles for this template -->
     <link href="css/shop-item.css" rel="stylesheet">

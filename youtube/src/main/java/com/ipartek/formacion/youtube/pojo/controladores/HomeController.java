@@ -1,4 +1,4 @@
-package com.ipartek.formacion.youtube.controller;
+package com.ipartek.formacion.youtube.pojo.controladores;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ipartek.formacion.youtube.Video;
-import com.ipartek.formacion.youtube.model.VideoMySqlDAO;
+import com.ipartek.formacion.youtube.pojo.Video;
+import com.ipartek.formacion.youtube.pojo.model.VideoMySqlDAO;
 
 @WebServlet("/inicio")
 public class HomeController extends HttpServlet {
@@ -47,16 +47,27 @@ public class HomeController extends HttpServlet {
 			dao = VideoMySqlDAO.getInstance();
 
 			// recoger parametros
-			String idVideo = request.getParameter("id");
+			String idVideo = request.getParameter("idVideo");
 			String nombre = request.getParameter("nombre");
+			//Long id = Long.valueOf(request.getParameter("id"));
+
 
 			// insertar
 			Video v = new Video(idVideo, nombre);
 			dao.insert(v);
-
+			
 			// pedir listado
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
 			request.setAttribute("videos", videos);
+			
+			//modificar		
+			
+			/*v.setNombre(nombre);
+			v.setIdVideo(idVideo);
+			v.setId(id);
+			dao.update(v);*/
+			
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
