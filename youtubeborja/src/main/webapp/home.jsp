@@ -37,11 +37,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+          <li><a href="login.jsp">login</a></li>
             <li class="nav-item active">
               <form action="" method="post" class="form-inline mt-2 mt-md-0">
 	            <input name="id" class="form-control mr-sm-2" type="text" placeholder="ID 11 caracerteres" title="11 caracteres" required pattern=".{11,11}">
 	            <input name="nombre" class="form-control mr-sm-2" type="text" placeholder="Nombre minimo 2 letras" required pattern=".{2,125}">
 	            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Añadir</button>
+	          	            <button class="btn btn-outline-info my-2 my-sm-0" type="submit" name="modificar">modificar</button>
+	          	          	            <button class="btn btn-outline-info my-2 my-sm-0" type="submit" name="borrar">borrar</button>
+	          
 	          </form>
             </li>            
           </ul>
