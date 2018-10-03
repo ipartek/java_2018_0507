@@ -10,14 +10,14 @@
 			<header>
 				<h1>Escribe tu nueva página</h1>
 			</header>
- 			<form action="editarLibro" method="post" class="form-horizontal">
-				<div class="form-group">
+ 			<form action="edicion" method="post" class="form-horizontal">
+				 <div class="form-group">
 					<label for="autor" class="col-sm-offset-1 col-sm-2 control-label">Autor</label><br />
 					<div class="col-sm-7">
 						<input type="text" class="form-control" id="autor" name="autor"
 							placeholder="Autor" value="${user.nombre}" readonly />
 					</div>
-				</div>
+				</div> 
 				<div class="form-group">
 					<label for="texto" class="col-sm-offset-1 col-sm-2 control-label">Texto</label><br />
 					<div class="col-sm-7">
@@ -28,9 +28,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-offset-3 col-sm-8">
-						<button  class="btn btn-primary">Enviar</button>
-						<a href="EditarLibroServlet?accion=add&id=${pagina.id}&pageNumber=1">Añadir al
-						libro</a>
+						<button  class="btn btn-primary">Añadir</button>				
 						<button class="btn btn-danger">
 							<a href="index.jsp" alt="cancelar" class="white">Cancelar</a>
 						</button>

@@ -18,7 +18,6 @@ public class MapDAO<T> implements CrudAble<T> {
 	public T getById(long id) {
 		return pojos.get(id);
 	}
-
 	@Override
 	public boolean insert(T pojo) {
 		if(pojos.containsKey(((Identificable)pojo).getId())) {
