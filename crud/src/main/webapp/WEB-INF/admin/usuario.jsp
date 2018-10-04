@@ -23,7 +23,7 @@
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-10">
 			<button type="submit" class="btn btn-primary">Aceptar</button>
-			<a class="btn btn-danger" href="index.jsp">Cancelar</a>
+			<a class="btn btn-danger" href="index">Cancelar</a>
 		</div>
 	</div>
 </form>

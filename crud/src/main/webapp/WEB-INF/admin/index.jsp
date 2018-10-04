@@ -17,7 +17,7 @@
 			<th>Id</th>
 			<th>Email</th>
 			<th>Password</th>
-			<th><a class="btn btn-primary" href="usuario.jsp?accion=add">Añadir</a></th>
+			<th><a class="btn btn-primary" href="usuarios?accion=add">Añadir</a></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -26,8 +26,8 @@
 			<td>falso@email.com</td>
 			<td>falso</td>
 			<td><a class="btn btn-primary"
-				href="usuario.jsp?accion=editar&id=1">Editar</a> <a
-				class="btn btn-danger" href="usuario.jsp?accion=borrar&id=1">Borrar</a>
+				href="usuarios?accion=editar&id=1">Editar</a> <a
+				class="btn btn-danger" href="usuarios?accion=borrar&id=1">Borrar</a>
 			</td>
 		</tr>
 	</tbody>
