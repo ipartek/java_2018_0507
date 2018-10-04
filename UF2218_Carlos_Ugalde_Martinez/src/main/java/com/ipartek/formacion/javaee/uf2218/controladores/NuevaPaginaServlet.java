@@ -38,11 +38,14 @@ public class NuevaPaginaServlet extends HttpServlet {
 		String nombre = request.getParameter("nombre");
 		String texto = request.getParameter("texto");
 
-		Pagina pagina = null;
-
-		pagina = new Pagina(id, nombre, texto);
-		boolean correcto = LogicaNegocio.agregarPagina(pagina);
+		Pagina pag = null;
 		
+		pag = new Pagina(id, nombre, texto);
+		boolean correcto = LogicaNegocio.agregarPagina(pag);
+		Pagina pagina = LogicaNegocio.obtenerPaginasPorId(Long.parseLong("1"));
+		request.setAttribute("pagina",pagina);
+		int numPaginas = LogicaNegocio.obtenerNumeroPaginas();
+		request.setAttribute("numPaginas", numPaginas);
 		response.sendRedirect(request.getContextPath() + "/main.jsp");
 	}
 

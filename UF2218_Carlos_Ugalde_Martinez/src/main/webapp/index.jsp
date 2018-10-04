@@ -5,8 +5,8 @@
 
 <header>
 	<h1>Erase una vez...</h1>
-	<form action="index">
-	<p><a href="main.jsp">continuar</a></p>
+	<form action="index" method="get">
+	<p><a href="index">continuar</a></p>
 	</form>
 </header>
 

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.javaee.uf2218.logica.LogicaNegocio;
+import com.ipartek.formacion.javaee.uf2218.pojo.Pagina;
 
 @WebServlet("/buscador")
 public class BuscaPalabrasServlet extends HttpServlet {
@@ -20,7 +21,10 @@ public class BuscaPalabrasServlet extends HttpServlet {
 		if(palabra != null) {
 			request.setAttribute("resultadosBusqueda", LogicaNegocio.buscarTexto(palabra));
 		}
-		
+		Pagina pagina = LogicaNegocio.obtenerPaginasPorId(Long.parseLong("1"));
+		request.setAttribute("pagina",pagina);
+		int numPaginas = LogicaNegocio.obtenerNumeroPaginas();
+		request.setAttribute("numPaginas", numPaginas);
 		request.getRequestDispatcher("main").forward(request, response);
 	}
 
