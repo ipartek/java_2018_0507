@@ -14,7 +14,7 @@
 					<span class="icon-bar"></span> 
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"> 
+				<a class="navbar-brand" href="contenido"> 
 					<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
 				</a>
 			</div>
@@ -32,14 +32,17 @@
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<%-- <c:if test="${user.rol == 1}">
+					<c:if test="${sessionScope != null}">
 						<li>
-							<a href="administrarUsers">Administrar</a>
+							<a href="administrar?accion=users" class="btn btn-success navbar-btn">Administrar usuarios</a>
 						</li>
-					</c:if> --%>
+						<li>
+							<a href="administrar?accion=videos" class="btn btn-success navbar-btn">Administrar videos</a>
+						</li>
+					</c:if>
 					<li><p class="navbar-text">
 							<span class="glyphicon glyphicon-user" aria-hidden="true">
-								Bienvenido ${user.nombre}</span>
+								Bienvenido ${sessionScope.user.nombre}</span>
 						</p></li>
 					<li>
 						<form action="logout">
