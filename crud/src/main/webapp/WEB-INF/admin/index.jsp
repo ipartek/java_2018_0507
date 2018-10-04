@@ -21,15 +21,17 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<th>1</th>
-			<td>falso@email.com</td>
-			<td>falso</td>
-			<td><a class="btn btn-primary"
-				href="usuarios?accion=editar&id=1">Editar</a> <a
-				class="btn btn-danger" href="usuarios?accion=borrar&id=1">Borrar</a>
-			</td>
-		</tr>
+		<c:forEach items="${usuarios}" var="usuario">
+			<tr>
+				<th>${usuario.id}</th>
+				<td>${usuario.email}</td>
+				<td>${usuario.password}</td>
+				<td><a class="btn btn-primary"
+					href="usuarios?accion=editar&id=${usuario.id}">Editar</a> <a
+					class="btn btn-danger" href="usuarios?accion=borrar&id=${usuario.id}">Borrar</a>
+				</td>
+			</tr>
+		</c:forEach>
 	</tbody>
 </table>
 
