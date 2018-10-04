@@ -20,9 +20,11 @@
 			<c:if test="${sessionScope.user != null}">
 				<li><a href="nueva">Escribir Pagina</a></li>
 			</c:if>
+			
 			<c:if test="${sessionScope.user != null}">
 			<form action="index" >
-				<li><button>Ir a pagina</button> <input type="number" name="pagina"></li>
+				<li><button>Ir a pagina</button> <input type="number"
+				 name="pagina"></li>
 				</form>
 			</c:if>
 		</ul>

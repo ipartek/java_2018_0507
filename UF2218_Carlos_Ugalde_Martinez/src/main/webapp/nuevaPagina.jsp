@@ -5,17 +5,18 @@
 <header>
 	<h1>Nueva Pagina</h1>
 </header>
-<p>
-</p>
+
+<p>Ultima pagina ${numPaginas}, nueva pagina: ${numPaginas + 1}</p>
+
 <form action="nueva" method="post">
 <label name="id" id="id" value="5"></label>
-	<textarea name="texto" id="texto"></textarea><p></p>
-	<input type="text" name="nombre" id="nombre"
+	<textarea rows="15" cols="40" name="texto" id="texto">${texto}</textarea>
+	<p></p>
+	<input type="text" name="nombre" id="nombre" readOnly
 	 value="Autor: ${sessionScope.user.nombre}">
 
 <p></p>
 <p>
-	<input type="button" value="Incluir"></button>
+	<input type="submit" value="Aceptar">
 </form>
 </p>
-<%@ include file="/WEB-INF/includes/pie.jsp"%>

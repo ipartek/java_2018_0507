@@ -23,20 +23,26 @@ public class NuevaPaginaServlet extends HttpServlet {
 	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect(request.getContextPath() + "/nuevaPagina.jsp");
+		int numPaginas = LogicaNegocio.obtenerNumeroPaginas();
+		request.setAttribute("numPaginas", numPaginas);
+		request.getRequestDispatcher("nuevaPagina.jsp").forward(request, response);
+//		request.setAttribute("paginas", LogicaNegocio.obtenerPaginas());
+//		response.sendRedirect(request.getContextPath() + "/nuevaPagina.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-		String id = request.getParameter("5");
+		//String id = request.getParameter("27");
+		long id = LogicaNegocio.obtenerNumeroPaginas() + 1;
 		String nombre = request.getParameter("nombre");
 		String texto = request.getParameter("texto");
 
 		Pagina pagina = null;
 
-		pagina = new Pagina(Long.parseLong(id), nombre, texto);
-		LogicaNegocio.agregarPagina(pagina);
+		pagina = new Pagina(id, nombre, texto);
+		boolean correcto = LogicaNegocio.agregarPagina(pagina);
+		
 		response.sendRedirect(request.getContextPath() + "/main.jsp");
 	}
 

@@ -31,7 +31,7 @@ public class IndexServlet extends HttpServlet {
 		request.setAttribute("numPaginas", numPaginas);
 		request.setAttribute("numeroPaginas", numeroPaginas);
 		request.setAttribute("pagina", objetoPagina);
-request.getRequestDispatcher("main.jsp").forward(request, response);
+		request.getRequestDispatcher("main.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

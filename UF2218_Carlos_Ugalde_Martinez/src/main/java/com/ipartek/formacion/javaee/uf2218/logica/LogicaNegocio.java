@@ -3,6 +3,7 @@ package com.ipartek.formacion.javaee.uf2218.logica;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import com.ipartek.formacion.javaee.uf2218.accesodatos.MapDAO;
 import com.ipartek.formacion.javaee.uf2218.pojo.Pagina;
@@ -68,9 +69,12 @@ public class LogicaNegocio {
 		return paginas.getById(id);
 	}
 	
-	public static void agregarPagina(Pagina pagina) {
-		if(!paginas.insert(pagina)) {
-			throw new LogicaNegocioException("No se ha podido insertar la pagina");
+	public static boolean agregarPagina(Pagina pagina) {
+		if(new StringTokenizer(pagina.getTexto()).countTokens() >= 25) {
+			paginas.insert(pagina);
+			return true;
+		} else {
+			return false;
 		}
 	}
 	public static List<Long> buscarTexto(String texto) {
