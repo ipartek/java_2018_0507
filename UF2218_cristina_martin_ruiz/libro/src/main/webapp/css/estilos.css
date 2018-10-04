@@ -1,20 +1,15 @@
-
 body {
     background-image: url('../imgs/background.png');
     background-repeat: repeat;
     min-height: 100%;
     width: 100%;
 }
-
-.v-center {
-    display: flex;
-    align-items: center;
+.box{	
+    background: white;
+    padding: 20px;
+    margin: 3% auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
 }
+   
 
-.white{
-	color: white!important;
-}
-
-a{
-	text-decoration:none!important;
-}

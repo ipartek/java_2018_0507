@@ -1,42 +1,20 @@
 package com.ipartek.formacion.javaee.libro.pojo;
+public class Pagina {
 
-
-public class Pagina implements Identificable{
-	private long id; 
+	private int numero;
 	private String autor;
-	private String texto;
+	private String contenido;
 	
-	public Pagina(long id, String autor, String texto) {
+	public Pagina(int numero, String autor, String contenido) {
 		super();
-		this.id = id;
+		this.numero = numero;
 		this.autor = autor;
-		this.texto = texto;
-	}
-
-	public String getAutor() {
-		return autor;
-	}
-
-	public void setAutor(String autor) {
-		this.autor = autor;
-	}
-
-	public String getTexto() {
-		return texto;
-	}
-
-	public void setTexto(String texto) {
-		this.texto = texto;
-	}
-
-	public void setId(long id) {
-		this.id = id;
+		this.contenido = contenido;
 	}
 
 	@Override
-	public long getId() {
-		// TODO Auto-generated method stub
-		return id;
+	public String toString() {
+		return "Pagina [numero=" + numero + ", autor=" + autor + ", contenido=" + contenido + "]";
 	}
 
 	@Override
@@ -44,8 +22,8 @@ public class Pagina implements Identificable{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((autor == null) ? 0 : autor.hashCode());
-		result = prime * result + (int) (id ^ (id >>> 32));
-		result = prime * result + ((texto == null) ? 0 : texto.hashCode());
+		result = prime * result + ((contenido == null) ? 0 : contenido.hashCode());
+		result = prime * result + numero;
 		return result;
 	}
 
@@ -63,19 +41,41 @@ public class Pagina implements Identificable{
 				return false;
 		} else if (!autor.equals(other.autor))
 			return false;
-		if (id != other.id)
-			return false;
-		if (texto == null) {
-			if (other.texto != null)
+		if (contenido == null) {
+			if (other.contenido != null)
 				return false;
-		} else if (!texto.equals(other.texto))
+		} else if (!contenido.equals(other.contenido))
+			return false;
+		if (numero != other.numero)
 			return false;
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "Pagina [id=" + id + ", autor=" + autor + ", texto=" + texto + "]";
+	public int getNumero() {
+		return numero;
 	}
-	
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public String getAutor() {
+		return autor;
+	}
+
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
+
+	public String getContenido() {
+		return contenido;
+	}
+
+	public void setContenido(String contenido) {
+		this.contenido = contenido;
+	}
+
+	public Pagina() {
+	}
+
 }

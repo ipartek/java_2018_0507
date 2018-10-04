@@ -3,113 +3,60 @@
 
 <%@ include file="/WEB-INF/includes/cabecera.jsp"%>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
-
-<header> 
+<header>
 	<h1 class="text-center">LIBRO</h1>
 </header>
 
-<c:if test="${not empty user.nombre}">
 
-	<div class="btn btn-default">
-		<a href="escribirPagina.jsp">Escribir página</a>
+<form class="form-inline justify-content-center" action="index">
+	<div class="form-group ">
+		<span class="mr-1">Ir a la página</span> <input type="number"
+			class="form-control" name="pagina">
 	</div>
+</form>
 
-</c:if>
-</br>
 
-<!-- <div class="row">
-	<div class="well col-md-8 col-md-offset-2 ">
 
-		<div class="well">
-			<p>Erase una vez...</p>
+<div class="row">
+	<div class="box text-center col-md-5">
+
+		<div class="m-2">
+			<c:if test="${pagina.numero > 1}">
+				<a href="index?pagina=${pagina.numero - 1}">Anterior</a>
+			</c:if>
+
+			Página ${pagina.numero} / ${numeroPaginas}
+
+			<c:if test="${pagina.numero < numeroPaginas}">
+				<a href="index?pagina=${pagina.numero + 1}">Siguiente</a>
+			</c:if>
 		</div>
 
-		<div id="pieLibro">Autor: Unkown</div>
+		<div class="m-2">${pagina.contenido}</div>
+		<div class="m-2">${pagina.autor}</div>
 
 	</div>
 </div>
 
- -->
- 
- <!--  inicio paginacion -->
-<c:set var="rowsPerPage" value="2" />
-<c:set var="pageNumber" value="${param.pageNumber}" />
-<c:set var="rowCount" value="${fn:length(paginas)}" /> 
 
-<c:set var="a">
-    <fmt:formatNumber value="${rowCount/rowsPerPage}" maxFractionDigits="0"/> 
-</c:set>
 
-<c:set var="b" value="${rowCount/rowsPerPage}" />
+	<form class="form-inline justify-content-center" action="buscarPalabra" method="post">
+		<div class="form-group">
+			<span class="mr-1">Buscar palabra</span> <input type="search"
+				class="form-control" name="palabra" />
+		</div>
+	</form>
 
-<c:choose>
-    <c:when test="${a==0}">
-        <c:set var="numberOfPages" value="1" scope="session"/>   
-    </c:when>
- 
-    <c:when test="${b>a}">
-        <c:set var="xxx" value="${b%a}"/>
-        <c:if test="${xxx>0}">
-            <c:set var="numberOfPages" value="${b-xxx+1}" scope="session"/>   
-        </c:if>
-    </c:when>
- 
-    <c:when test="${a>=b}">
-        <c:set var="numberOfPages" value="${a}" scope="session"/>    
-    </c:when>
-</c:choose>
-
-<c:set var="start" value="${pageNumber*rowsPerPage-rowsPerPage}"/>
-<c:set var="stop" value="${pageNumber*rowsPerPage-1}"/>
-<center>
-
-<table border="1" width="60%">
-
-	<thead>
-		<tr>
-			<th>texto</th>
-			<th>autor</th>
-		</tr>
-	</thead>
-	<tbody>
-<!-- begin="${start}" end="${stop} -->
-		<c:forEach items="${paginas}" var="pagina"  >
-			<tr>
-				<td>${pagina.texto}</td>
-				<td>${pagina.autor}</td>
-			</tr>
+<div class="text-center mb-5">
+	<ul class="list-inline">
+		<c:forEach items="${resultadosBusqueda}" var="paginaResultado">
+			<li class="list-inline-item"><a href="index?pagina=${paginaResultado}">${paginaResultado}</a></li>
 		</c:forEach>
-
-	</tbody>
-
-</table>
-
-
-    <%--For displaying Previous link --%>
-    <c:if test="${pageNumber gt 1}">
-        <a href="index?pageNumber=${pageNumber - 1}">Previous</a>
-    </c:if>
-    <c:forEach begin="1" end="${numberOfPages}" var="i">
-        <c:choose>
-            <c:when test="${i!=pageNumber}">
-                <a href="index?pageNumber=<c:out value="${i}"/>"><c:out value="${i}"/></a>
-            </c:when>
-            <c:otherwise>
-                <c:out value="${i}"/>
-            </c:otherwise>        
-        </c:choose>       
-    </c:forEach>  
-    <%--For displaying Next link --%>
-    <c:if test="${pageNumber lt numberOfPages}">
-        <a href="index?pageNumber=${pageNumber + 1}">Next</a>
-    </c:if>
-</center>
+	</ul>
 </div>
+
 
 <%@ include file="/WEB-INF/includes/pie.jsp"%>
 
