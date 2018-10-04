@@ -9,6 +9,9 @@ public class Usuario {
 		this.email = email;
 		this.password = password;
 	}
+	public Usuario(String email, String password) {
+		this(-1L, email, password);
+	}
 	public Long getId() {
 		return id;
 	}

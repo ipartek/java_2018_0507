@@ -20,6 +20,7 @@ public class AdminUsuariosServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		//MOSTRAR PANTALLA
 		String accion = request.getParameter("accion");
 		String id = request.getParameter("id");
 
@@ -39,15 +40,7 @@ public class AdminUsuariosServlet extends HttpServlet {
 			break;
 		case "update":
 		case "delete":
-			if(id == null) {
-				throw new ControladorException("Necesito un id");
-			}
-			
-			try {
-				longId = Long.parseLong(id);
-			} catch (NumberFormatException e) {
-				throw new ControladorException("El id no era numérico", e);
-			}
+			longId = extraerId(id);
 			
 			usuario = dao.getById(longId);
 			request.setAttribute("usuario", usuario);
@@ -63,7 +56,66 @@ public class AdminUsuariosServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
+		//PROCESAR OPCION SELECCIONADA
+		String accion = request.getParameter("accion");
+		String id = request.getParameter("id");
+
+		if (accion == null) {
+			throw new ControladorException("No se admite una petición que no tenga accion");
+		}
+
+		CrudAble<Usuario> dao = UsuarioTreeMapDAO.getInstance();
+		//UsuarioTreeMapDAO dao = UsuarioTreeMapDAO.getInstance();
+		
+		long longId;
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		
+		Usuario usuario;
+		
+		String mensaje = "";
+		
+		switch (accion) {
+		case "insert":
+			usuario = new Usuario(email, password);
+			dao.insert(usuario);
+			mensaje = "Inserción correcta del usuario " + usuario.getEmail();
+			break;
+		case "update":
+			longId = extraerId(id);
+			usuario = new Usuario(longId, email, password);
+			dao.update(usuario);
+			mensaje = "Actualización correcta del usuario " + usuario.getEmail();
+			break;
+		case "delete":
+			longId = extraerId(id);
+			dao.delete(longId);
+			mensaje = "Borrado correcto del usuario id " + longId;
+			
+			usuario = dao.getById(longId);
+			request.setAttribute("usuario", usuario);
+			break;
+		default:
+			throw new ControladorException("No se admite una petición que no sea insert, update o delete");
+		}
+
+		request.setAttribute("mensaje", mensaje);
+		request.getRequestDispatcher("/admin/index").forward(request, response);
+	}
+
+	private long extraerId(String id) {
+		long longId;
+		
+		if(id == null) {
+			throw new ControladorException("Necesito un id");
+		}
+		
+		try {
+			longId = Long.parseLong(id);
+		} catch (NumberFormatException e) {
+			throw new ControladorException("El id no era numérico", e);
+		}
+		return longId;
 	}
 
 }
