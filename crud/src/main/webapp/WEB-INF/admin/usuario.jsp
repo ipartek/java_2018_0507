@@ -3,7 +3,7 @@
 
 <%@ include file="includes/cabecera.jsp"%>
 
-<form action="usuarios" method="get" class="form-horizontal">
+<form action="usuarios" method="post" class="form-horizontal">
 	<fieldset>
 		<legend>
 			<c:choose>
@@ -14,6 +14,7 @@
 		</legend>
 		
 		<input type="hidden" name="id" value="${usuario.id}" />
+		<input type="hidden" name="accion" value="${accion}" />
 		
 		<div class="form-group">
 			<label for="email" class="col-sm-2 control-label">Email</label>

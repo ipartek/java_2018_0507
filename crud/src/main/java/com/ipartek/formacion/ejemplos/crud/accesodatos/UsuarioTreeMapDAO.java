@@ -24,7 +24,7 @@ public class UsuarioTreeMapDAO implements CrudAble<Usuario> {
 		//...
 		//10, email10@email.com, contra10
 		for(long i = 1; i <= 10; i++) {
-			dao.insert(new Usuario(i, "email" + i + "@email.com", "contra" + i));
+			dao.insert(new Usuario(0, "email" + i + "@email.com", "contra" + i));
 		}
 	}
 	//FIN
@@ -43,9 +43,17 @@ public class UsuarioTreeMapDAO implements CrudAble<Usuario> {
 
 	@Override
 	public void insert(Usuario usuario) {
-		if(usuarios.containsKey(usuario.getId())) {
-			throw new AccesoDatos("Clave duplicada");
+		//ID AUTONUMERICO
+		Long idUltimo;
+		
+		if(usuarios.isEmpty()) {
+			idUltimo = 0L;
+		} else {
+			idUltimo = usuarios.lastKey();
 		}
+			
+		Long id = idUltimo + 1;
+		usuario.setId(id);
 		usuarios.put(usuario.getId(), usuario);
 	}
 
