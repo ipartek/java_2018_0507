@@ -2,8 +2,8 @@ package com.ipartek.formacion.youtube.logica;
 
 import java.util.ArrayList;
 
+import com.ipartek.formacion.youtube.accessoadatos.UsuarioMySqlDAO;
 import com.ipartek.formacion.youtube.pojo.Usuario;
-import com.ipartek.formacion.youtube.pojo.model.UsuarioMySqlDAO;
 
 public class LogicaNegocio {
 	private static ArrayList<Usuario> usuarios = (ArrayList<Usuario>) UsuarioMySqlDAO.getInstance().getAll();

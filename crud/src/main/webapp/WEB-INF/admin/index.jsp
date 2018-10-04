@@ -17,7 +17,7 @@
 			<th>Id</th>
 			<th>Email</th>
 			<th>Password</th>
-			<th><a class="btn btn-primary" href="usuarios?accion=add">Añadir</a></th>
+			<th><a class="btn btn-primary" href="usuarios?accion=insert">Añadir</a></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -27,8 +27,8 @@
 				<td>${usuario.email}</td>
 				<td>${usuario.password}</td>
 				<td><a class="btn btn-primary"
-					href="usuarios?accion=editar&id=${usuario.id}">Editar</a> <a
-					class="btn btn-danger" href="usuarios?accion=borrar&id=${usuario.id}">Borrar</a>
+					href="usuarios?accion=update&id=${usuario.id}">Editar</a> <a
+					class="btn btn-danger" href="usuarios?accion=delete&id=${usuario.id}">Borrar</a>
 				</td>
 			</tr>
 		</c:forEach>

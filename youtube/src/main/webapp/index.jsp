@@ -1,4 +1,4 @@
-<%@page import="com.ipartek.formacion.youtube.pojo.controladores.HomeController"%>
+<%@page import="com.ipartek.formacion.youtube.controladores.HomeController"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>

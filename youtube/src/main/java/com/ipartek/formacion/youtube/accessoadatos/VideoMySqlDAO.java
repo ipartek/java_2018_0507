@@ -1,5 +1,5 @@
 
-package com.ipartek.formacion.youtube.pojo.model;
+package com.ipartek.formacion.youtube.accessoadatos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

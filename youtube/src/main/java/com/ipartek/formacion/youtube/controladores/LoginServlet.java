@@ -1,4 +1,4 @@
-package com.ipartek.formacion.youtube.pojo.controladores;
+package com.ipartek.formacion.youtube.controladores;
 
 import java.io.IOException;
 
