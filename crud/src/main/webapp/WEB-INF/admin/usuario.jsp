@@ -12,6 +12,9 @@
 				<c:when test="${accion=='delete'}">Borrado de usuario</c:when>
 			</c:choose>
 		</legend>
+		
+		<input type="hidden" name="id" value="${usuario.id}" />
+		
 		<div class="form-group">
 			<label for="email" class="col-sm-2 control-label">Email</label>
 			<div class="col-sm-10">
