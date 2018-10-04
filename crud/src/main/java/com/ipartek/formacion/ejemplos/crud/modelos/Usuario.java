@@ -9,12 +9,11 @@ public class Usuario {
 		this.email = email;
 		this.password = password;
 	}
-<<<<<<< HEAD
+
 	public Usuario(String email, String password) {
 		this(-1L, email, password);
 	}
-=======
->>>>>>> branch 'cristina' of https://github.com/ipartek/java_2018_0507
+
 	public Long getId() {
 		return id;
 	}
