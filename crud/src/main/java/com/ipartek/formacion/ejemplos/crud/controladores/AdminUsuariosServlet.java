@@ -73,19 +73,24 @@ public class AdminUsuariosServlet extends HttpServlet {
 		
 		Usuario usuario;
 		
+		String mensaje = "";
+		
 		switch (accion) {
 		case "insert":
 			usuario = new Usuario(email, password);
 			dao.insert(usuario);
+			mensaje = "Inserción correcta del usuario " + usuario.getEmail();
 			break;
 		case "update":
 			longId = extraerId(id);
 			usuario = new Usuario(longId, email, password);
 			dao.update(usuario);
+			mensaje = "Actualización correcta del usuario " + usuario.getEmail();
 			break;
 		case "delete":
 			longId = extraerId(id);
 			dao.delete(longId);
+			mensaje = "Borrado correcto del usuario id " + longId;
 			
 			usuario = dao.getById(longId);
 			request.setAttribute("usuario", usuario);
@@ -94,6 +99,7 @@ public class AdminUsuariosServlet extends HttpServlet {
 			throw new ControladorException("No se admite una petición que no sea insert, update o delete");
 		}
 
+		request.setAttribute("mensaje", mensaje);
 		request.getRequestDispatcher("/admin/index").forward(request, response);
 	}
 
