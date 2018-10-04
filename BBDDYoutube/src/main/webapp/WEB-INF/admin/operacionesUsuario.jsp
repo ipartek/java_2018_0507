@@ -20,16 +20,17 @@
 				<div class="form-group">
 					<label for="nombre" class="col-sm-2 control-label">Nick</label>
 					<div class="col-sm-10">
-						<input type=text class="form-control" id="nombre" name="nombre"
-							placeholder="Nick" value="${usuario.nombre}"
-							<c:if test="${accion='borrar'}"> disabled="disabled"</c:if>>
+						<input type="text" class="form-control" id="nombre" name="nombre"
+							placeholder="Nombre" value="${usuario.nombre}"
+							<c:if test="${accion=='borrar'}">disabled="disabled"</c:if>>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="password" class="col-sm-2 control-label">Contraseña</label>
 					<div class="col-sm-10">
 						<input type="password" class="form-control" id="password"
-							name="password" placeholder="Contraseña" value="${usuario.password}">
+							name="password" placeholder="Password" value="${usuario.password}"
+							<c:if test="${accion=='borrar'}">disabled="disabled"</c:if>>
 					</div>
 				</div>
 				<div class="form-group">
