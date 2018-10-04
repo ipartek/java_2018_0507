@@ -17,6 +17,12 @@ public static final int CODIGO_LONGITUD = 11;
 		setEmail(email);
 		setPassword(password);
 	}
+	
+	public Usuario(int id) {
+		super();
+		this.id = id;
+	}
+
 	public Usuario(String email, String password) {
 		this(-1, email, password);
 	}

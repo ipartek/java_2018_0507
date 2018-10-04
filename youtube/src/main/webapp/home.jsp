@@ -71,7 +71,7 @@
           		for( Video v : videos ){
           	%>
                    
-          	  <a href="#" onclick="reproducir('<%=v.getCodigo()%>')" class="list-group-item"><%=v.getNombre()%></a>
+          	  <a href="#" onclick="reproducir('<%=v.getCodigo()%>'); return false" class="list-group-item"><%=v.getNombre()%></a>
           	  <a href="?id=<%=v.getId()%>"><i style="color:red;" class="float-right fas fa-trash-alt"></i></a>
               <a href="delete?id=<%=v.getId()%>">Borrar</a>
               <a href="update?id=<%=v.getId()%>">Actualizar</a>  
@@ -144,7 +144,7 @@
 			console.info('reproducir video ' + id);
 			var iframe = document.getElementById('iframe');
 			iframe.src = "https://www.youtube.com/embed/" + id;
-			
+			return false;
 		}	
 	
 	</script>

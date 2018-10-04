@@ -16,20 +16,17 @@
 <%
           		//ArrayList<Video> videos = (ArrayList<Video>) request.getAttribute("videos");
           		//Rellenar el objeto con getAtributes
-				Video v = new Video(Integer.parseInt(request.getParameter("id")), request.getParameter("codigo"), 
-						request.getParameter("nombre"), Integer.parseInt(request.getParameter("idusuario")));
-          		
-          		
           		/*if ( !videos.isEmpty() ){
           			v = videos.get(0);
           		}	*/
     			
           	%>
 <form action="update" method="post" class="form-inline mt-2 mt-md-0">
-	<input type="text" placeholder="id" disabled value="<%=v.getId()%>"> <br>
-	<input type="text" placeholder="codigo" value="<%=v.getCodigo()%>"> <br>
-	<input type="text" placeholder="nombre" value="<%=v.getNombre()%>"><br>
-	<input type="text" placeholder="idusuario" disabled value="<%=v.getIdUsuario()%>"><br>
+	<input type="text" name="id" readOnly placeholder="id"  value="${video.id }"> <br>
+	<input type="text" name="codigo" placeholder="codigo" value="${video.codigo }"> <br>
+	<input type="text" name="nombre" placeholder="nombre" value="${video.nombre }"><br>
+	<input type="text" name="idusuario" placeholder="idusuario" readOnly value="${video.idUsuario }"><br>
+	<input type="submit" value="modificar">
 	<%
           		 //end for
             %>

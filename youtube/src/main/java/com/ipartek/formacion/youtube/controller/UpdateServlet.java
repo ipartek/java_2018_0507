@@ -1,6 +1,8 @@
 package com.ipartek.formacion.youtube.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,16 +26,10 @@ public class UpdateServlet extends HttpServlet {
 		try {
 			dao=VideoMySQLDAO.getInstance();
 			String id = request.getParameter("id");
-			Video v = new Video();
+			Video v;
 			v = dao.getById(id);
-			//No esta recogiendo el video del getByID
-			/*System.out.println("Este es el codigo del video " +v.getCodigo());
-			System.out.println("Este es el nombre del video " +v.getNombre());
-			System.out.println("Este es el id del video " +v.getId());
-			System.out.println("Este es el idusuario del video " +v.getIdUsuario());*/
 			request.setAttribute("video", v);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -43,7 +39,25 @@ public class UpdateServlet extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+
+		try {
+			dao = VideoMySQLDAO.getInstance();
+			Video v= new Video(Integer.parseInt(request.getParameter("id")),
+					request.getParameter("codigo"), request.getParameter("nombre"),
+					Integer.parseInt(request.getParameter("idusuario")));
+			
+			dao.update(v);
+
+			dao = VideoMySQLDAO.getInstance();
+			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
+			request.setAttribute("videos", videos);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			request.getRequestDispatcher("home.jsp").forward(request, response);
+		}
+		
 	}
 
 }

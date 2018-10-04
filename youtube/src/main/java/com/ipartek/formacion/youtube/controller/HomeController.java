@@ -66,9 +66,13 @@ public class HomeController extends HttpServlet {
 		} finally {
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 		}
+		//Switch para poder elegir que quieres hacer
+		String accion = request.getParameter("accion");
+		
+		
+		
 		//TODO Descomentar el insert
-		/*
-		try {
+		/*try {
 
 			// recoger parametros
 			//TODO No entro aqui al cargar el servlet
@@ -78,15 +82,15 @@ public class HomeController extends HttpServlet {
 			String codigo = request.getParameter("codigo");
 			//System.out.println("Valor del " + codigo);
 			String nombre = request.getParameter("nombre");
-			//System.out.println("Valor del " + nombre);
-			int idUsuario = Integer.parseInt(request.getParameter("idusuario"));
-			//System.out.println("Valor del " + idUsuario);
+			//System.out.println("Valor del " + nombre);	
+			int idUsuario = Integer.parseInt(request.getSession().getId());
+			System.out.println("Valor del " + idUsuario);
 			
 			// insertar
-			Video v = new Video(id, codigo, nombre, idUsuario);
-			dao.insert(v);
+			//Video v = new Video(id, codigo, nombre, idUsuario);
+			///////dao.insert(v);
 			// pedir listado
-			dao = VideoMySQLDAO.getInstance();
+			////////dao = VideoMySQLDAO.getInstance();
 			/*
 			 * ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
 			 * request.setAttribute("videos", videos);
