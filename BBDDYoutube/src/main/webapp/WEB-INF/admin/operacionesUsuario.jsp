@@ -8,7 +8,7 @@
 	<div class="col-md-4">
 		<h2>
 			<c:choose>
-				<c:when test="${accion == 'insertar'}">Inserción de nuevo usuario</c:when>
+				<c:when test="${accion =='insertar'}">Inserción de nuevo usuario</c:when>
 				<c:when test="${accion == 'editar'}">Modificación de usuario</c:when>
 				<c:when test="${accion == 'borrar'}">Borrado de usuario</c:when>
 			</c:choose>
