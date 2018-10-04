@@ -5,4 +5,8 @@ org.eclipse.jdt.core.compiler.compliance=1.8
 org.eclipse.jdt.core.compiler.problem.assertIdentifier=error
 org.eclipse.jdt.core.compiler.problem.enumIdentifier=error
 org.eclipse.jdt.core.compiler.problem.forbiddenReference=warning
+<<<<<<< HEAD
+=======
+org.eclipse.jdt.core.compiler.release=disabled
+>>>>>>> branch 'cristina' of https://github.com/ipartek/java_2018_0507
 org.eclipse.jdt.core.compiler.source=1.8

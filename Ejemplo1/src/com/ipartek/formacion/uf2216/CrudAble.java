@@ -25,5 +25,10 @@ public interface CrudAble<P> {
 	boolean update(P pojo);
 	//Delete
 	boolean delete(long id);
+<<<<<<< HEAD
 }
 
+=======
+
+}
+>>>>>>> branch 'cristina' of https://github.com/ipartek/java_2018_0507

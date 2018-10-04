@@ -2,7 +2,11 @@
     <wb-module deploy-name="crud">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+<<<<<<< HEAD
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+=======
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+>>>>>>> branch 'cristina' of https://github.com/ipartek/java_2018_0507
         <property name="context-root" value="crud"/>
         <property name="java-output-path" value="/crud/target/classes"/>
     </wb-module>
