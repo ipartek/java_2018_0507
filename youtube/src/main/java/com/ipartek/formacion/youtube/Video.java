@@ -10,8 +10,15 @@ public class Video {
 		return idvideo;
 	}
 
-	public void setIdvideo(String idvideo) {
+	public Video(String id, String nombre, String idvideo) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
 		this.idvideo = idvideo;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public static int getIdLongitud() {
@@ -34,9 +41,9 @@ public class Video {
 	public String getId() {
 		return id;
 	}
-	public void setId(String id) throws Exception {
-		if ( id != null && id.length() == ID_LONGITUD ) {
-			this.id = id;
+	public void setIdvideo(String idvideo) throws Exception {
+		if ( idvideo != null && idvideo.length() == ID_LONGITUD ) {
+			this.idvideo = idvideo;
 		}else {
 			throw new Exception("El ID debe ser exactamente de " + ID_LONGITUD + " caracteres");
 		}	

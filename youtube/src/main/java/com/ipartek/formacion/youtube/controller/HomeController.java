@@ -8,23 +8,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.ipartek.formacion.youtube.Video;
-import com.ipartek.formacion.youtube.model.VideoArrayListDAO;
+import com.ipartek.formacion.youtube.model.VideoArrayMysqlDAO;
 
-/**
- * Servlet implementation class HomeController
- */
 @WebServlet("/inicio")
 public class HomeController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private static VideoArrayListDAO dao;
+	private static VideoArrayMysqlDAO dao;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
@@ -36,11 +29,12 @@ public class HomeController extends HttpServlet {
 			}
 			
 			
-			VideoArrayListDAO dao = VideoArrayListDAO.getInstance();
+			VideoArrayMysqlDAO dao = VideoArrayMysqlDAO.getInstance();
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
 			request.setAttribute("videos", videos);
 
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		} finally {
 			request.getRequestDispatcher("home.jsp").forward(request, response);
@@ -58,18 +52,19 @@ public class HomeController extends HttpServlet {
 			//recoger parametros
 			String id = request.getParameter("id");
 			String nombre = request.getParameter("nombre");
-			
+			String idvideo = request.getParameter("idvideo");
+			dao = VideoArrayMysqlDAO.getInstance();
 			//insertar
-			Video v = new Video(id, nombre);
+			Video v = new Video(id, nombre,idvideo);
 			dao.insert(v);
 			
 			//pedir listado
-			dao = VideoArrayListDAO.getInstance();
+			
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
 			request.setAttribute("videos", videos);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		} finally {
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 		}

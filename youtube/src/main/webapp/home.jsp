@@ -1,3 +1,4 @@
+<%@page import="com.ipartek.formacion.youtube.model.VideoArrayMysqlDAO"%>
 <%@page import="com.ipartek.formacion.youtube.Video"%>
 <%@page import="java.util.ArrayList"%>
 
@@ -69,6 +70,7 @@
           		}	
     			
           		for( Video v : videos ){
+          			
           	%>
                    
           	  <a href="#" onclick="reproducir('<%=v.getId()%>')" class="list-group-item"><%=v.getNombre()%></a>
