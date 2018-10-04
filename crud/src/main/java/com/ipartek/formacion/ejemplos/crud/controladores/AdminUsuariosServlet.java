@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.ejemplos.crud.accesodatos.CrudAble;
+import com.ipartek.formacion.ejemplos.crud.accesodatos.UsuarioTreeMapDAO;
+import com.ipartek.formacion.ejemplos.crud.modelos.Usuario;
+
 @WebServlet("/admin/usuarios")
 public class AdminUsuariosServlet extends HttpServlet {
 
@@ -23,12 +27,30 @@ public class AdminUsuariosServlet extends HttpServlet {
 			throw new ControladorException("No se admite una petición que no tenga accion");
 		}
 
+		CrudAble<Usuario> dao = UsuarioTreeMapDAO.getInstance();
+		//UsuarioTreeMapDAO dao = UsuarioTreeMapDAO.getInstance();
+		
+		long longId;
+		
+		Usuario usuario;
+		
 		switch (accion) {
 		case "insert":
 			break;
 		case "update":
-			break;
 		case "delete":
+			if(id == null) {
+				throw new ControladorException("Necesito un id");
+			}
+			
+			try {
+				longId = Long.parseLong(id);
+			} catch (NumberFormatException e) {
+				throw new ControladorException("El id no era numérico", e);
+			}
+			
+			usuario = dao.getById(longId);
+			request.setAttribute("usuario", usuario);
 			break;
 		default:
 			throw new ControladorException("No se admite una petición que no sea insert, update o delete");

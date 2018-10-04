@@ -16,7 +16,7 @@
 			<label for="email" class="col-sm-2 control-label">Email</label>
 			<div class="col-sm-10">
 				<input type="email" class="form-control" id="email" name="email"
-					placeholder="Email"
+					placeholder="Email" value="${usuario.email}"
 					<c:if test="${accion=='delete'}">disabled="disabled"</c:if>>
 				<span class="text-danger">Error en el email</span>
 			</div>
@@ -25,7 +25,7 @@
 			<label for="password" class="col-sm-2 control-label">Password</label>
 			<div class="col-sm-10">
 				<input type="password" class="form-control" id="password"
-					name="password" placeholder="Password"
+					name="password" placeholder="Password" value="${usuario.password}"
 					<c:if test="${accion=='delete'}">disabled="disabled"</c:if>>
 				<span class="text-danger">Error en la password</span>
 			</div>
