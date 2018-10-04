@@ -2,47 +2,46 @@
 	pageEncoding="UTF-8"%>
 
 <%@ include file="includes/header.jsp"%>
-<%@ include file="includes/nav.jsp"%>
 
-<!-- Dependiendo de la accion en la pagina usuario.jsp se cambian los botones -->
+<!-- Dependiendo de la accion en la pagina video.jsp se cambian los botones -->
 
-<form action="usuarios" method="get" class="form-horizontal">
+<form action="videos" method="get" class="form-horizontal">
 
 	<c:choose>
 		<c:when test="${accion=='insert'}">
-			<h1>Inserta nuevo usuario</h1>
+			<h1>Inserta nuevo video</h1>
 		</c:when>
 		<c:when test="${accion=='update'}">
-			<h1>Modificar usuario</h1>
+			<h1>Modificar video</h1>
 		</c:when>
 		<c:when test="${accion=='delete'}">
-			<h1>Eliminar usuario</h1>
+			<h1>Eliminar video</h1>
 		</c:when>
 	</c:choose>
 	
-	<input type="hidden" name="id" value="${usuario.id}" />
+	<input type="number" name="id" value="${video.id}" />
 
 	<div class="form-group">
-		<label for="email" class="col-sm-2 control-label">Email</label>
+		<label for="idvideo" class="col-sm-2 control-label">Id (url)</label>
 		<div class="col-sm-10">
-			<input type="email" class="form-control" id="email" name="email"
-				placeholder="Email" value="${usuario.email}"
+			<input type="text" class="form-control" id="idVideo" name="idVideo"
+				placeholder="IdVideo" value="${video.idVideo}"
 
 				<c:if test="${accion=='delete'}">disabled="disabled"</c:if>
 				
-				> <span class="text-danger">Error en el email</span>
+				> <span class="text-danger">Error en el idVideo</span>
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="password" class="col-sm-2 control-label">Password</label>
+		<label for="nombre" class="col-sm-2 control-label">Nombre</label>
 		<div class="col-sm-10">
-			<input type="password" class="form-control" id="password"
-				name="password" placeholder="Password" value="${usuario.password}"
+			<input type="text" class="form-control" id="nombre"
+				name="nombre" placeholder="Nombre" value="${video.nombre}"
 				
 				<c:if test="${accion=='delete'}">disabled="disabled"</c:if>
 				
 				> <span
-				class="text-danger">Error en la password</span>
+				class="text-danger">Error en el nombre</span>
 		</div>
 	</div>
 	<div class="form-group">
