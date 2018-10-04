@@ -1,29 +1,22 @@
 package com.ipartek.formacion.youtubeSinBBDD.modelos;
 
 public class Video {
-
+	
 	public static final int ID_LONGITUD = 11;
 	
-	private Long id;
-	private String idVideo;
-	private String nombre;
-	
-	public Video() {
+	private Long id = -1L;
+	private String idVideo = "", nombre = "";
+	public Video(long id, String idVideo, String nombre) {
 		super();
-		this.idVideo = "YlUKcNNmywk";
-		this.nombre = "Red Hot Chili Peppers - Californication";		
-	}
-	
-	public Video(Long id, String idVideo, String nombre) {
-		this.setId(id);
-		this.setIdVideo(idVideo);
-		this.setNombre(nombre);
-	}
-	
-	public Video(String idVideo, String nombre ) {
-		this(-1L, idVideo, nombre);
+		this.id = id;
+		this.idVideo = idVideo;
+		this.nombre = nombre;
 	}
 
+	public Video(String idVideo, String nombre) {
+		this(-1L, idVideo, nombre);
+	}
+	
 	public Long getId() {
 		return id;
 	}

@@ -116,7 +116,6 @@ public class AdminUsuariosServlet extends HttpServlet {
 			throw new ControladorException("El id no era numérico", e);
 		}
 		return longId;
-
 	}
 
 }

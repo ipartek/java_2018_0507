@@ -19,29 +19,25 @@
 		</c:when>
 	</c:choose>
 	
-	<input type="number" name="id" value="${video.id}" />
+	<input type="text" name="id" value="${video.id}" /> 
+	<input type="text" name="accion" value="${accion}" />
 
 	<div class="form-group">
 		<label for="idvideo" class="col-sm-2 control-label">Id (url)</label>
 		<div class="col-sm-10">
 			<input type="text" class="form-control" id="idVideo" name="idVideo"
 				placeholder="IdVideo" value="${video.idVideo}"
-
-				<c:if test="${accion=='delete'}">disabled="disabled"</c:if>
-				
-				> <span class="text-danger">Error en el idVideo</span>
+				<c:if test="${accion=='delete'}">disabled="disabled"</c:if>>
+			<span class="text-danger">Error en el idVideo</span>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="nombre" class="col-sm-2 control-label">Nombre</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="nombre"
-				name="nombre" placeholder="Nombre" value="${video.nombre}"
-				
-				<c:if test="${accion=='delete'}">disabled="disabled"</c:if>
-				
-				> <span
-				class="text-danger">Error en el nombre</span>
+			<input type="text" class="form-control" id="nombre" name="nombre"
+				placeholder="Nombre" value="${video.nombre}"
+				<c:if test="${accion=='delete'}">disabled="disabled"</c:if>>
+			<span class="text-danger">Error en el nombre</span>
 		</div>
 	</div>
 	<div class="form-group">

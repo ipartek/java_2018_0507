@@ -100,7 +100,7 @@ public class VideosServlet extends HttpServlet {
 		}
 
 		request.setAttribute("mensaje", mensaje);
-		request.getRequestDispatcher("/admin/index").forward(request, response);
+		request.getRequestDispatcher("/index").forward(request, response);
 	}
 
 	private long extraerId(String id) {
