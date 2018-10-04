@@ -31,6 +31,8 @@ public class UsuarioTreeMapDAO implements CrudAble<Usuario> {
 	
 	private TreeMap<Long, Usuario> usuarios = new TreeMap<>();
 	
+	private Long idUltimo = 0L;
+	
 	@Override
 	public List<Usuario> getAll() {
 		return new ArrayList<Usuario>(usuarios.values());
@@ -44,15 +46,7 @@ public class UsuarioTreeMapDAO implements CrudAble<Usuario> {
 	@Override
 	public void insert(Usuario usuario) {
 		//ID AUTONUMERICO
-		Long idUltimo;
-		
-		if(usuarios.isEmpty()) {
-			idUltimo = 0L;
-		} else {
-			idUltimo = usuarios.lastKey();
-		}
-			
-		Long id = idUltimo + 1;
+		Long id = ++idUltimo;
 		usuario.setId(id);
 		usuarios.put(usuario.getId(), usuario);
 	}
