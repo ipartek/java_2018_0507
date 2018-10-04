@@ -12,25 +12,27 @@
 <body>
 	<header>
 
-		<h1>
-			Libro electronico colaborativo <small>v0.1</small>
-		</h1>
-		<p></p>
+		<h1>Libro electronico colaborativo</h1>
+		<h4>${sessionScope.user.nombre}</h4>
 	</header>
 	<nav>
 		<ul>
 			<c:if test="${sessionScope.user != null}">
 				<li><a href="nueva">Escribir Pagina</a></li>
 			</c:if>
-			
-			<li><button>Ir a pagina</button>
-				<input type="number"></li>
-
+			<c:if test="${sessionScope.user != null}">
+			<form action="index" >
+				<li><button>Ir a pagina</button> <input type="number" name="pagina"></li>
+				</form>
+			</c:if>
 		</ul>
 		<ul>
-			<li>${sessionScope.user.nombre}</li>
-			<li><a href="login">Iniciar sesion</a></li>
-			<li><a href="desconectar">Cerrar sesion</a></li>
+			<c:if test="${sessionScope.user == null}">
+				<li><a href="login">Iniciar sesion</a></li>
+			</c:if>
+			<c:if test="${sessionScope.user != null}">
+				<li><a href="desconectar">Cerrar sesion</a></li>
+			</c:if>
 		</ul>
 	</nav>
 

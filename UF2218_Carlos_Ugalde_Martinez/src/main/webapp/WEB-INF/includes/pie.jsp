@@ -4,9 +4,13 @@
 <footer>
 
 <c:if test="${sessionScope.user != null}">
-<button>Buscar palabra</button>
-	<input type="text">
+<form action="buscador" method="post">
+		<button>Buscar palabra</button> <input type="text" name="palabra">
+	</form>
 </c:if>
+	<c:forEach items="${resultadosBusqueda}" var="paginaResultado">
+		<li><a href="index?pagina=${paginaResultado}">${paginaResultado}</a>
+	</c:forEach>
 	
 </footer>
 </body>

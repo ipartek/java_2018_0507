@@ -35,13 +35,14 @@ public class LoginServlet extends HttpServlet {
 				boolean usuarioValido = LogicaNegocio.validarUsuario(usuario);
 
 				if (usuario.isCorrecto() && usuarioValido) {
-					
-					//cargarPagina(request, id);
+					//Crear ArrayList de paginas/Get all y recorrer con un for
 					request.getSession().setAttribute("user", usuario);
+					
 					Pagina pagina = LogicaNegocio.obtenerPaginasPorId(Long.parseLong("1"));
 					request.setAttribute("pagina",pagina);
+					int numPaginas = LogicaNegocio.obtenerNumeroPaginas();
+					request.setAttribute("numPaginas", numPaginas);
 					request.getRequestDispatcher("/main.jsp").forward(request, response);
-					//request.getRequestDispatcher("principal").forward(request, response);
 				} else {
 					
 					if (!usuarioValido) {

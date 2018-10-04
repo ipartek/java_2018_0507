@@ -8,7 +8,7 @@
 <p>
 </p>
 <form action="nueva" method="post">
-<label name="id" id="id" value="5">id 5</label>
+<label name="id" id="id" value="5"></label>
 	<textarea name="texto" id="texto"></textarea><p></p>
 	<input type="text" name="nombre" id="nombre"
 	 value="Autor: ${sessionScope.user.nombre}">

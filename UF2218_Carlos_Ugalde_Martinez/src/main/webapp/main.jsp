@@ -5,10 +5,14 @@
 <header>
 	<h1>Libro</h1>
 </header>
-<p>
-	<a href="#">Anterior</a><a href="#">Siguiente</a>
-</p>
 
+
+<p>Página ${pagina.id} / ${numPaginas}</p>
+<!-- Paginacion -->
+
+<!-- Fin Paginacion -->
+<!-- <a href="#">Anterior</a><a href="#">Siguiente</a> -->
+<p></p>
 <c:if test="${sessionScope.user == null}">
 	<textarea disabled>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente laudantium, at natus ullam inventore sunt accusantium reprehenderit, quisquam delectus laborum nisi quia ratione voluptatum, accusamus mollitia autem deserunt quibusdam repudiandae.
 </textarea>
