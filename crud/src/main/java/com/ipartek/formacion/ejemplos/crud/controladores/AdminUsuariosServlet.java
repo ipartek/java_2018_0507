@@ -14,13 +14,34 @@ public class AdminUsuariosServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String accion = request.getParameter("accion");
+		String id = request.getParameter("id");
+
+		if (accion == null) {
+			throw new ControladorException("No se admite una petición que no tenga accion");
+		}
+
+		switch (accion) {
+		case "insert":
+			break;
+		case "update":
+			break;
+		case "delete":
+			break;
+		default:
+			throw new ControladorException("No se admite una petición que no sea insert, update o delete");
+		}
+
+		request.setAttribute("accion", accion);
 		request.getRequestDispatcher("/WEB-INF/admin/usuario.jsp").forward(request, response);
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
-	
+
 }
