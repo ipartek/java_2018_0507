@@ -3,11 +3,11 @@ package com.ipartek.formacion.javaee.libroelectronico.accesodatos;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ipartek.formacion.javaee.libroelectronico.pojo.Libro;
+import com.ipartek.formacion.javaee.libroelectronico.pojo.Pagina;
 
-public class LibroMapDAO implements CrudAble<Libro>{
+public class LibroMapDAO implements CrudAble<Pagina>{
 
-	private List<Libro> paginas = new ArrayList<>();
+	private List<Pagina> paginas = new ArrayList<>();
 	
 	private static LibroMapDAO INSTANCE;
 	
@@ -21,17 +21,17 @@ public class LibroMapDAO implements CrudAble<Libro>{
 		return INSTANCE;
 	}
 	
-	public List<Libro> getAll(){
+	public List<Pagina> getAll(){
 		return paginas;
 	}
 	
 	@Override
-	public Libro getById(long id) {
+	public Pagina getById(long id) {
 		return paginas.get((int) id);
 	}
 
 	@Override
-	public boolean insert(Libro pagina) {
+	public boolean insert(Pagina pagina) {
 		boolean resul = false;
 
 		if (pagina != null) {
@@ -41,7 +41,7 @@ public class LibroMapDAO implements CrudAble<Libro>{
 	}
 
 	@Override
-	public boolean update(Libro pojo) {
+	public boolean update(Pagina pojo) {
 		// TODO Auto-generated method stub
 		return false;
 	}

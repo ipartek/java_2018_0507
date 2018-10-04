@@ -16,7 +16,7 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect(request.getContextPath() + "/login.jsp");
+		request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,14 +40,14 @@ public class LoginServlet extends HttpServlet {
 			//4.Redirección a otra página con uno o varios modelos
 			request.getSession().setAttribute("user", usuario);
 			//request.getRequestDispatcher("principal").forward(request, response);
-			request.getRequestDispatcher("/index.jsp").forward(request, response);
+			request.getRequestDispatcher("index").forward(request, response);
 		} else {
 			//4.Redirección a otra página con uno o varios modelos
 			if(!usuarioValido) {
 				request.setAttribute("errores", "El usuario no es válido");
 			}
-			request.setAttribute("user", usuario);
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
+			request.getSession().setAttribute("user", usuario);
+			request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
 		}
 	}
 }

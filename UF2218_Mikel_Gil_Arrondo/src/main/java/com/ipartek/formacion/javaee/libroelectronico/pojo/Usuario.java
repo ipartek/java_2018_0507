@@ -2,7 +2,7 @@ package com.ipartek.formacion.javaee.libroelectronico.pojo;
 
 import com.ipartek.formacion.javaee.libroelectronico.pojo.Usuario;
 
-public class Usuario implements Identificable{
+public class Usuario{
 	private long id;
 	private String nombre = "";
 	private String password = "";

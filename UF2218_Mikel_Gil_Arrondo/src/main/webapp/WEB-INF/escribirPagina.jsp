@@ -16,7 +16,7 @@
 					<label for="autor" class="col-sm-2 control-label">Autor</label><br />
 					<div class="col-sm-12">
 						<input type="text" class="form-control" id="autor" name="autor"
-							placeholder="Autor" value="${user.nombre}" readonly />
+							placeholder="Autor" value="${sessionScope.user.nombre}" readonly />
 					</div>
 				</div>
 				<div class="form-group">

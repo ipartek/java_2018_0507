@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.javaee.libroelectronico.accesodatos.LibroMapDAO;
 import com.ipartek.formacion.javaee.libroelectronico.logica.LogicaNegocio;
-import com.ipartek.formacion.javaee.libroelectronico.pojo.Libro;
+import com.ipartek.formacion.javaee.libroelectronico.pojo.Pagina;
 
 /**
  * Servlet implementation class EditarLibroServlet
@@ -21,7 +21,7 @@ public class EditarLibroServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+		request.getRequestDispatcher("/WEB-INF/escribirPagina.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,22 +30,23 @@ public class EditarLibroServlet extends HttpServlet {
 		String autor = request.getParameter("autor");
 		String texto = request.getParameter("texto");
 		
-		List<Libro> paginas = LibroMapDAO.getInstance().getAll();
+		// Sumar 1 al numero de páginas
+		int id = LogicaNegocio.obtenerPaginas() + 1;
 		
-		Libro libro = new Libro();
-		libro.setId(libro.getTotalid());	
-		libro.setTexto(texto);
-		libro.setAutor(autor);
+		List<Pagina> paginas = LibroMapDAO.getInstance().getAll();
+		
+		Pagina pagina = new Pagina(id, texto, autor);
 	
-		boolean textoValido = LogicaNegocio.validarPagina(libro);
-		//boolean textovalido = true;
-
-		if (libro.isCorrecto() && textoValido) {
-			request.setAttribute("libro", libro);
-			paginas.add(libro);
-			request.getRequestDispatcher("/index.jsp").forward(request, response);
-		}else {
-			request.getRequestDispatcher("/escribirPagina.jsp").forward(request, response);
+		// Validar el texto que se va a introducir
+		boolean textoValido = LogicaNegocio.validarPagina(pagina);
+		
+		if(pagina.isCorrecto() && textoValido) {
+			response.sendRedirect("index?page=" + id);
+			paginas.add(pagina);
+		} else {
+			request.setAttribute("texto", texto);
+			request.setAttribute("error", "Se deben rellenar 25 palabras mínimo");
+			request.getRequestDispatcher("/WEB-INF/escribirPagina.jsp").forward(request, response);
 		}
 	}
 }
