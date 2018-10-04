@@ -4,7 +4,7 @@
 
 </div>
 
-<div class="footer fixed-bottom navbar navbar-light bg-light ">
+<div class="footer fixed-bottom navbar navbar-light bg-light justify-content-center">
 	<span class="text-muted">&copy; 2018 Cristina Martin</span>
 </div>
 

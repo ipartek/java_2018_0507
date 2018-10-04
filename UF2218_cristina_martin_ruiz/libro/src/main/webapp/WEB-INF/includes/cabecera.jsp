@@ -32,10 +32,10 @@
 
 
 	<header>
-		<h1>Libro Electrónico Colaborativo.</h1>
+		<h1>Libro Electrónico Colaborativo</h1>
 	</header>
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
 		<a class="navbar-brand" href="index.jsp"><img src="imgs/logo.png"
 			alt="logo" width="50px"> </a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -48,7 +48,7 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<c:if test="${not empty user.nombre}">
-					<li class="nav-item"><a class="btn btn-outline-light" href="edicion.jsp">Escribir pagina</a></li>
+					<li class="nav-item"><i class="fa fa-pencil"></i><a class="btn btn-outline-light" href="edicion.jsp">Escribir pagina</a></li>
 				</c:if>
 			</ul>
 			<ul  class="navbar-nav float-right">

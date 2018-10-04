@@ -5,7 +5,7 @@
  
  <div class="row">
 
-	<section class="box justify-content-center col-md-4">
+	<section class="box justify-content-center col-md-5 col-sm-7 col-xs-12">
 	
 	<h1 class="text-center">Escribe tu nueva página</h1>
 
@@ -32,5 +32,8 @@
 		
 		</section>
 	</div>
+	
+	</br>
+	</br>
 	
  <%@ include file="/WEB-INF/includes/pie.jsp"%>
