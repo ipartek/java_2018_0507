@@ -6,26 +6,31 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<table class="table table-striped table-hover">
-			<thead>
-				<tr class="success">
-					<th>ID VIDEO</th>
-					<th>ID YOUTUBE</th>
-					<th>NOMBRE</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${videos}" var="video">
-					<tr>
-						<td>${video.id}</td>
-						<td>${video.idVideo}</td>
-						<td>${video.nombre}</td>
-						<td></td>
+		<div class="table-responsive"> 
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr class="success">
+						<th>ID VIDEO</th>
+						<th>ID YOUTUBE</th>
+						<th>NOMBRE</th>
+						<th><a class="btn btn-sm btn-primary" href="videos?accion=insertar">Crear nuevo</a></th>
 					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+				</thead>
+				<tbody>
+					<c:forEach items="${videos}" var="video">
+						<tr>
+							<td class="text-md-left">${video.id}</td>
+							<td>${video.idVideo}</td>
+							<td>${video.nombre}</td>
+							<td>
+								<a class="btn btn-sm btn-info" href="videos?accion=editar&id=${video.id}">Editar</a>
+								<a class="btn btn-sm btn-danger" href="videos?accion=borrar&id=${video.id}">Borrar</a>
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
 

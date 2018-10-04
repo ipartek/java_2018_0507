@@ -17,7 +17,7 @@ public class Usuario implements Identificable{
 	}
 
 	public Usuario(String nombre, String password) {
-		this(-1, nombre, password);
+		this(-1L, nombre, password);
 	}
 	
 	public Usuario() {}

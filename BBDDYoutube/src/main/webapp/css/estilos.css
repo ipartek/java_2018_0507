@@ -30,3 +30,7 @@ body {
 	color:#5CB85C;
 	background-color:#ffffff;
 }
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}
+

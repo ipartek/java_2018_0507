@@ -78,7 +78,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 	@SuppressWarnings({ "finally" })
 	@Override
 	public Usuario getById(long idUsuario) {
-		String sql = "SELECT nombre, password FROM usuarios WHERE idUsuario = ?";	
+		String sql = "SELECT * FROM usuarios WHERE idUsuario = ?";	
 		Usuario usuario = null;
 		Connection conn = UtilsDAO.getConnection();
 		

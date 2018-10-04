@@ -6,26 +6,31 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<table class="table table-striped table-hover">
-			<thead>
-				<tr class="success">
-					<th>ID</th>
-					<th>NOMBRE</th>
-					<th>PASSWORD</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${usuarios}" var="usuario">
-					<tr>
-						<td>${usuario.id}</td>
-						<td>${usuario.nombre}</td>
-						<td>${usuario.password}</td>
-						<td></td>
+		<div class="table-responsive"> 
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr class="success">
+						<th>ID</th>
+						<th>NOMBRE</th>
+						<th>PASSWORD</th>
+						<th><a class="btn btn-sm btn-primary" href="usuarios?accion=insertar">Crear nuevo</a></th>
 					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+				</thead>
+				<tbody>
+					<c:forEach items="${usuarios}" var="usuario">
+						<tr>
+							<td>${usuario.id}</td>
+							<td>${usuario.nombre}</td>
+							<td>${usuario.password}</td>
+							<td>
+								<a class="btn btn-sm btn-info" href="usuarios?accion=editar&id=${usuario.id}">Editar</a>
+								<a class="btn btn-sm btn-danger" href="usuarios?accion=borrar&id=${usuario.id}">Borrar</a>
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
 
