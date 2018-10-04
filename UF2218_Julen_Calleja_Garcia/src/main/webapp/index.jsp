@@ -3,27 +3,39 @@
 
 <%@ include file="/WEB-INF/cabezaPagina.jsp"%>
 
-<section id="paginacion">
 
-	<c:forEach items="${paginas}" var="pagina">
-		<article>
+<main> 
 
-			<Label>Pagina</Label> ${pagina.id}
-			<div>${pagina.texto}></div>
+<c:if test="${sessionScope.usuario != null}">
+	<a href="edicion">Escribir página</a>
+</c:if>
+<form action="index">
+	Ir a página <input type="number" name="pagina" />
+</form>
 
-		</article>
+<%@ include file="/WEB-INF/paginacion.jsp" %>
+
+<c:forEach items="${paginas}" var="pagina">
+	<article>
+
+		<Label>Pagina</Label> ${pagina.id}
+		<div>${pagina.texto}></div>
+
+	</article>
+</c:forEach>
+<p>
+	<label>Pagina</label>
+</p>
+
+	<%@ include file="/WEB-INF/paginacion.jsp" %>
+<p>
+	<label>Autor</label>${sessionScope.user.nombre}
+</p>
+
+<ul>
+	<c:forEach items="${resultadosBusqueda}" var="paginaResultado">
+		<li><a href="index?pagina=${paginaResultado}">${paginaResultado}</a>
 	</c:forEach>
-	<p>
-	<label>Pagina</label> 
-	</p>
-	<p>
-	<form action="escritura" method="post">
-	<input type="text" name="texto" value="${pagina.texto}">
-	<button>Agregar texto</button>
-	</form>
-	</p>
-	<p>
-		<label>Autor</label>${sessionScope.user.nombre}
-	</p>
-</section>
+	</ul>
+</main>
 <%@ include file="/WEB-INF/Pie.jsp"%>

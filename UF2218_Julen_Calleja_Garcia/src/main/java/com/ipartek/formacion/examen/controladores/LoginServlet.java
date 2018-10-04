@@ -18,7 +18,7 @@ public class LoginServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect(request.getContextPath() + "/login.jsp");
+		request.getRequestDispatcher("login.jsp").forward(request, response);
 	}
 
 
@@ -34,19 +34,18 @@ public class LoginServlet extends HttpServlet {
 		
 		Usuario usuario = new Usuario(nombre, password);
 		
-		boolean usuarioValido = LogicaLibro.validarUsuario(usuario);
-		
-		if(usuario.isCorrecto() && usuarioValido) {
-			
-			request.getSession().setAttribute("user", usuario);
+		if(validarUsuario(usuario)) {
+			request.getSession().setAttribute("usuario", usuario);
 			request.getRequestDispatcher("index").forward(request, response);
 		} else {
-			if(!usuarioValido) {
-				request.setAttribute("errores", "El usuario no es válido");
-			}
-			request.setAttribute("user", usuario); 
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
+	}
+
+	private boolean validarUsuario(Usuario usuario) {
+		//TODO: Poner lista de usuarios
+		return true;
 	}
 
 }
