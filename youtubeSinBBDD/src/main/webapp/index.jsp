@@ -8,19 +8,36 @@
 <div class="container">
 
 	<div class="row">
+		<div class="col-12">
+			<c:if test="${mensaje!=null}">
+				<div class="alert alert-success alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					${mensaje}
+				</div>
+			</c:if>
+		</div>
+	</div>
+	<div class="row">
 
 		<div class="col-lg-3">
 			<h1 class="my-4">Lista Reproduccion</h1>
 			<ul class="list-group">
 
 				<c:forEach items="${videos}" var="video">
-					<li class="list-group-item mb-1"><a href="#" onclick="reproducir('${video.idVideo}')">${video.nombre}</a>
-					<a href="videos?accion=update&id=${video.id}" style="color: grey;" class="float-right fas fa-pencil-alt ml-2 mr-2 mt-1"></a>
-					<a href="videos?accion=delete&id=${video.id}" style="color: red;" class="float-right fas fa-trash-alt mt-1"></a>
+					<li class="list-group-item mb-1"><a href="#"
+						onclick="reproducir('${video.idVideo}')">${video.nombre}</a> <a
+						href="videos?accion=update&id=${video.id}" style="color: grey;"
+						class="float-right fas fa-pencil-alt ml-2 mr-2 mt-1"></a> <a
+						href="videos?accion=delete&id=${video.id}" style="color: red;"
+						class="float-right fas fa-trash-alt mt-1"></a>
 				</c:forEach>
 
 				<li class="list-group-item mb-1"><a class="btn btn-primary"
-					href="videos?accion=insert"><i class="fa fa-plus mr-2"></i>Añadir video</a></li>
+					href="videos?accion=insert"><i class="fa fa-plus mr-2"></i>Añadir
+						video</a></li>
 
 			</ul>
 		</div>

@@ -22,15 +22,6 @@
 			
 		}	
 		
-		function showModalModificar(idVideo, nombre, id ){
-			
-			console.log('showModalModificar idVideo=' + idVideo +  " nombre=" + nombre + " id=" + id);
-			$('#modalModificar').modal('show');
-			document.getElementById('idVideo').value = idVideo;
-			document.getElementById('nombre').value = nombre;
-			document.getElementById('id').value = id;
-						
-		}
 	
 	</script>
 

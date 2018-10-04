@@ -5,7 +5,7 @@
 
 <!-- Dependiendo de la accion en la pagina video.jsp se cambian los botones -->
 
-<form action="videos" method="get" class="form-horizontal">
+<form action="videos" method="post" class="form-horizontal">
 
 	<c:choose>
 		<c:when test="${accion=='insert'}">
@@ -19,8 +19,8 @@
 		</c:when>
 	</c:choose>
 	
-	<input type="text" name="id" value="${video.id}" /> 
-	<input type="text" name="accion" value="${accion}" />
+	<input type="hidden" name="accion" value="${accion}" />
+	<input type="hidden" name="id" value="${video.id}" /> 
 
 	<div class="form-group">
 		<label for="idvideo" class="col-sm-2 control-label">Id (url)</label>
@@ -28,7 +28,6 @@
 			<input type="text" class="form-control" id="idVideo" name="idVideo"
 				placeholder="IdVideo" value="${video.idVideo}"
 				<c:if test="${accion=='delete'}">disabled="disabled"</c:if>>
-			<span class="text-danger">Error en el idVideo</span>
 		</div>
 	</div>
 	<div class="form-group">
@@ -37,7 +36,6 @@
 			<input type="text" class="form-control" id="nombre" name="nombre"
 				placeholder="Nombre" value="${video.nombre}"
 				<c:if test="${accion=='delete'}">disabled="disabled"</c:if>>
-			<span class="text-danger">Error en el nombre</span>
 		</div>
 	</div>
 	<div class="form-group">
