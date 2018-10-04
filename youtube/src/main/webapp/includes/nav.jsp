@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 	<div class="container">
@@ -17,6 +20,17 @@
 							placeholder="Nombre minimo 2 letras" required pattern=".{2,125}">
 						<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Añadir</button>
 					</form>
+					
+					<c:choose>
+					<c:when test="${sessionScope.user == null}">
+						<li><a href="login">Login</a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a><span class="glyphicon glyphicon-user">
+									${sessionScope.user.nombre} </span></a></li>
+						<li><a href="desconectar">Logout</a></li>
+					</c:otherwise>
+				</c:choose>
 
 				</li>
 			</ul>

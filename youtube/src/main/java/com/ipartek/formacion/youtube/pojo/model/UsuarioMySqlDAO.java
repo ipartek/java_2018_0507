@@ -1,5 +1,11 @@
 package com.ipartek.formacion.youtube.pojo.model;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.ipartek.formacion.youtube.pojo.Usuario;
@@ -33,8 +39,29 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 
 	@Override
 	public List<Usuario> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Usuario> usuarios = new ArrayList<>();
+
+		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+			String sql = "SELECT * FROM usuarios";
+
+			try (PreparedStatement pst = conn.prepareStatement(sql)) {
+
+				try (ResultSet rs = pst.executeQuery()) {
+					while (rs.next()) {
+						usuarios.add(new Usuario(rs.getLong("id"), rs.getString("nombre"), rs.getString("usuario")));
+					}
+				} catch (Exception e) {
+					throw new AccesoDatosException(e.getMessage(), e);
+				}
+			} catch (SQLException e) {
+				throw new AccesoDatosException(e.getMessage(), e);
+			}
+
+		} catch (SQLException e) {
+			throw new AccesoDatosException(e.getMessage(), e);
+		}
+
+		return usuarios;
 	}
 
 	@Override

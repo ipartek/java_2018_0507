@@ -37,7 +37,7 @@ public class HomeController extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			request.getRequestDispatcher("home.jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 	}
 
@@ -49,7 +49,7 @@ public class HomeController extends HttpServlet {
 			// recoger parametros
 			String idVideo = request.getParameter("idVideo");
 			String nombre = request.getParameter("nombre");
-			//Long id = Long.valueOf(request.getParameter("id"));
+			Long id = Long.valueOf(request.getParameter("id"));
 
 
 			// insertar
@@ -62,11 +62,11 @@ public class HomeController extends HttpServlet {
 			
 			//modificar		
 			
-			/*v.setNombre(nombre);
+			v.setNombre(nombre);
 			v.setIdVideo(idVideo);
 			v.setId(id);
-			dao.update(v);*/
-			
+			dao.update(v);
+			 
 			
 
 		} catch (Exception e) {

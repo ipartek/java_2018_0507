@@ -19,7 +19,7 @@
 				<label for="nombre" class=" control-label">Nombre</label> <input
 					type="text" class="form-control" id="nombre" name="nombre"
 					required="required" placeholder="Nombre" value="${user.nombre}">
-				<span class="error">${user.errornombre}</span>  <!-- user. viene de LoginServlet -->
+				<span class="error"></span>  <!-- user. viene de LoginServlet -->
 
 			</div>
 			<div class="form-group">
@@ -31,7 +31,7 @@
 			<div class="form-group">
 				<div class="">
 					<button class="btn btn-primary">Entrar</button>
-					<span class="error">${errores}</span>
+					<span class="error"></span>
 				</div>
 			</div>
 		</form>
