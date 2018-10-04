@@ -15,22 +15,16 @@
 
 <%@ include file="/WEB-INF/paginacion.jsp" %>
 
-<c:forEach items="${paginas}" var="pagina">
-	<article>
-
-		<Label>Pagina</Label> ${pagina.id}
-		<div>${pagina.texto}></div>
-
-	</article>
-</c:forEach>
-<p>
-	<label>Pagina</label>
-</p>
+	<p>Página ${pagina.numero} / ${numeroPaginas}</p>
+	<p>${pagina.contenido}</p>
+	<p>${pagina.autor}</p>
 
 	<%@ include file="/WEB-INF/paginacion.jsp" %>
-<p>
-	<label>Autor</label>${sessionScope.user.nombre}
-</p>
+	
+
+	<form action="buscarPalabra" method="post">
+		Buscar palabra <input type="search" name="palabra" />
+	</form>
 
 <ul>
 	<c:forEach items="${resultadosBusqueda}" var="paginaResultado">
