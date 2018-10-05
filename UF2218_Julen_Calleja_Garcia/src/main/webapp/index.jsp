@@ -7,19 +7,19 @@
 <main> 
 
 <c:if test="${sessionScope.usuario != null}">
-	<a href="edicion">Escribir página</a>
+	<a href="escritura">Escribir página</a>
 </c:if>
 <form action="index">
 	Ir a página <input type="number" name="pagina" />
 </form>
 
-<%@ include file="/WEB-INF/paginacion.jsp" %>
+<%@ include file="/WEB-INF/paginacion.jsp"%>
 
 	<p>Página ${pagina.numero} / ${numeroPaginas}</p>
 	<p>${pagina.contenido}</p>
 	<p>${pagina.autor}</p>
 
-	<%@ include file="/WEB-INF/paginacion.jsp" %>
+<%@ include file="/WEB-INF/paginacion.jsp"%>
 	
 
 	<form action="buscarPalabra" method="post">

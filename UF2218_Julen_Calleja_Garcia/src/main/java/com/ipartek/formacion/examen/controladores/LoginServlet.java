@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 		
 		Usuario usuario = new Usuario(nombre, password);
 		
-		if(validarUsuario(usuario)) {
+		if(LogicaLibro.validarUsuario(usuario)) {
 			request.getSession().setAttribute("usuario", usuario);
 			request.getRequestDispatcher("index").forward(request, response);
 		} else {
@@ -43,9 +43,6 @@ public class LoginServlet extends HttpServlet {
 		}
 	}
 
-	private boolean validarUsuario(Usuario usuario) {
-		//TODO: Poner lista de usuarios
-		return true;
-	}
+	
 
 }
