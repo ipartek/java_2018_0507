@@ -30,10 +30,8 @@
 				<div class="form-group">
 					<div class="col-sm-offset-3 col-sm-9">
 						<button type="submit" class="btn btn-default">Enviar</button>
-						<button class="btn btn-primary">
-							<a href="index.jsp" alt="Cancelar" class="botonCancelar">Cancelar</a>
-						</button>
-						<span class="error">${errores}</span>
+						<a href="index" class="botonCancelar btn btn-primary">Cancelar</a>
+						<br><span class="error"> ${error}</span>
 					</div>
 				</div>
 			</form>

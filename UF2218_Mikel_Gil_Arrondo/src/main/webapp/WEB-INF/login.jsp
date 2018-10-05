@@ -31,6 +31,7 @@
 					<div class="col-sm-offset-2 col-sm-10">
 						<button type="submit" class="btn btn-default">Login</button>
 						<span class="error">${errores}</span>
+						<br><span>Usuario: William Pass: Shakespeare</span>
 					</div>
 				</div>
 			</form>
