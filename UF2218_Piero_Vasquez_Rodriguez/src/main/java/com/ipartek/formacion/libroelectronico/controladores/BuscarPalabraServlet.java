@@ -1,4 +1,4 @@
-package com.ipartek.formacion.javaee.libro.controladores;
+package com.ipartek.formacion.libroelectronico.controladores;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,18 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ipartek.formacion.javaee.libro.logica.LogicaNegocio;
+import com.ipartek.formacion.libroelectronico.logica.LogicaNegocio;
 
-@WebServlet("/principal")
-public class PrincipalServlet extends HttpServlet {
+@WebServlet("/buscarPalabra")
+public class BuscarPalabraServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("paginas", LogicaNegocio.obtenerPaginas());
-		request.getRequestDispatcher("principal.jsp").forward(request, response);
+		String palabra = request.getParameter("palabra");
 		
+		if(palabra != null) {
+			request.setAttribute("resultadosBusqueda", LogicaNegocio.buscarTexto(palabra));
+		}
 		
-		
+		request.getRequestDispatcher("index").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
