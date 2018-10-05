@@ -10,8 +10,8 @@
 <form action="login" method="post">
 	<p>
 		<label for="nombre">Nombre</label>
-		<input type="text" name="nombre" id="nombre" value="${user.nombre}" />
-		<span class="error">${user.errorNombre}</span>
+		<input type="text" name="nombre" id="nombre"  />
+		
 	</p>
 	<p>
 		<label for="password">Contraseña</label>
@@ -19,7 +19,7 @@
 	</p>
 	<p>
 		<button>Login</button>
-		<span class="error">${errores}</span>
+		
 	</p>
 	
 </form>

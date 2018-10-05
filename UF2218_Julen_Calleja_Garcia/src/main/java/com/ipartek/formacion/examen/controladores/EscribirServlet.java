@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.examen.logica.LogicaLibro;
-import com.ipartek.formacion.examen.pojo.Libro;
+import com.ipartek.formacion.examen.pojo.Pagina;
+import com.ipartek.formacion.examen.pojo.Usuario;
 
 
 @WebServlet("/escritura")
@@ -18,21 +19,31 @@ public class EscribirServlet extends HttpServlet {
        
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.getRequestDispatcher("edicion.jsp").forward(request, response);
 		
 
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-		String texto = request.getParameter("texto");
+		request.setCharacterEncoding("UTF-8");
 		
-		Libro lb = new Libro(2,texto);
+		String contenido = request.getParameter("texto");
 		
-		LogicaLibro.agregarPagina(lb);
+		int numero = LogicaLibro.obtenerNumeroPaginas() + 1;
+		String autor = ((Usuario)request.getSession().getAttribute("usuario")).getNombre();
 		
-		request.getRequestDispatcher("index").forward(request, response);
+		Pagina pagina = new Pagina(numero, autor, contenido);
 		
+		boolean correcto = LogicaLibro.agregarPagina(pagina);
+		
+		if(correcto) {
+			response.sendRedirect("index?pagina=" + numero);
+		} else {
+			request.setAttribute("texto", contenido);
+			request.setAttribute("error", "Se deben rellenar 25 palabras mínimo");
+			request.getRequestDispatcher("edicion.jsp").forward(request, response);
+		}
 	}
 
 }

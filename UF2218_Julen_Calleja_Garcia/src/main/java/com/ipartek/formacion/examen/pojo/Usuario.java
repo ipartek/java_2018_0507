@@ -1,6 +1,6 @@
 package com.ipartek.formacion.examen.pojo;
 
-public class Usuario implements Identificable {
+public class Usuario {
 	private long id;
 	private String nombre = "";
 	private String password = "";

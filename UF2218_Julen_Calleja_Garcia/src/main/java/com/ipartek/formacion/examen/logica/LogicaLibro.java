@@ -1,48 +1,54 @@
 package com.ipartek.formacion.examen.logica;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
+import java.util.TreeMap;
 
-import com.ipartek.formacion.examen.accesodatos.MapDAO;
-import com.ipartek.formacion.examen.pojo.Libro;
-import com.ipartek.formacion.examen.pojo.Usuario;
-
+import com.ipartek.formacion.examen.pojo.Pagina;
 
 
 public class LogicaLibro {
-	private static MapDAO<Usuario> usuarios = new MapDAO<Usuario>(); //USAR TREEMAP NO PUTO MAP 
-	private static MapDAO<Libro> paginas = new MapDAO<Libro>();
-
+	private static TreeMap<Integer, Pagina> libro = new TreeMap<>();
+	
 	static {
-		usuarios.insert(new Usuario(1, "William", "Shakespeare"));
-		usuarios.insert(new Usuario(2, "cervantes", "saavedra"));
-		usuarios.insert(new Usuario(3, "pablo", "neruda"));
-		usuarios.insert(new Usuario(4, "paulo", "cohelo"));
-
-		paginas.insert(new Libro(1, "Erase una vez"));
-
+		libro.put(new Integer(1), new Pagina(1, "YO", "Erase una vez..."));
 	}
 
-	public static boolean validarUsuario(Usuario usuario) {
-		for (Usuario u : usuarios.getAll()) {
-			if (u.getNombre().equals(usuario.getNombre())) {
-				return u.getPassword().equals(usuario.getPassword());
-			}
+	public static Pagina obtenerPagina(int numeroPagina) {
+		if(numeroPagina < 1) {
+			numeroPagina = 1;
 		}
-		return false;
-
+		
+		if(numeroPagina > libro.size()) {
+			numeroPagina  = libro.size();
+		}
+		
+		return libro.get(numeroPagina);
 	}
 
-	public static List<Libro> obtenerPagina() {
-		return paginas.getAll();
+	public static int obtenerNumeroPaginas() {
+		return libro.size();
+	}
+
+	public static boolean agregarPagina(Pagina pagina) {
+		if(new StringTokenizer(pagina.getContenido()).countTokens() >= 25) {
+			libro.put(pagina.getNumero(), pagina);
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
-	public static Libro obtenerPaginaPorId(long id) {
-		return paginas.getById(id);
-	}
-
-	public static void agregarPagina(Libro pagina) {
-		if (!paginas.insert(pagina)) { 
-			//throw new LogicaLibroException("No se ha podido insertar la pagina");
+	public static List<Integer> buscarTexto(String texto) {
+		ArrayList<Integer> numerosPagina = new ArrayList<>();
+		
+		for(Pagina pagina: libro.values()) {
+			if(pagina.getContenido().contains(texto)) {
+				numerosPagina.add(pagina.getNumero());
+			}
 		}
+		
+		return numerosPagina;
 	}
 }
