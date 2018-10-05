@@ -45,7 +45,9 @@
 
 	</form>
 	<a href="registrar.jsp">Registrar Usuario</a>
-
+	<p>
+	<a href="listado">Ir a Listado de Usuarios registrados</a>
+	</p>
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">

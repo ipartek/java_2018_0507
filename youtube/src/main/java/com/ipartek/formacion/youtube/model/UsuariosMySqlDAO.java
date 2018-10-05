@@ -66,7 +66,7 @@ public class UsuariosMySqlDAO implements CrudAble<Usuarios> {
 
 				try (ResultSet rs = pst.executeQuery()) {
 					while (rs.next()) {
-						users.add(new Usuarios(rs.getString("email"), rs.getString("password")));
+						users.add(new Usuarios(rs.getLong("id"),rs.getString("email"), rs.getString("password")));
 					}
 				} catch (Exception e) {
 					throw new AccesoDatosException(e.getMessage(), e);
