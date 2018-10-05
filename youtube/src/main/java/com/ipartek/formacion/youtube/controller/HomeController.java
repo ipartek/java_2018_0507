@@ -12,25 +12,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.youtube.Video;
-import com.ipartek.formacion.youtube.model.VideoArrayListDAO;
+import com.ipartek.formacion.youtube.model.VideoMySqlDAO;
 
-/**
- * Servlet implementation class HomeController
- */
 @WebServlet("/inicio")
 public class HomeController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private static VideoArrayListDAO dao;
+	private static VideoMySqlDAO dao;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		try {
+<<<<<<< HEAD
 			
 			System.out.println("DOGET");
 			Class.forName("com.mysql.jdbc.Driver");
@@ -39,11 +33,16 @@ public class HomeController extends HttpServlet {
 			
 			if ( idvideo != null ) {
 				dao.delete(idvideo);
+=======
+			String id = request.getParameter("id");
+			if (id != null) {
+				dao.delete(id);
+>>>>>>> refs/remotes/origin/master
 			}
-			
-			
-			dao = VideoArrayListDAO.getInstance();
+
+			dao = VideoMySqlDAO.getInstance();
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
+<<<<<<< HEAD
 			System.out.println("HOMECONTROLER !");
 		
 		/*	VideoArrayListDAO vald = null;
@@ -55,6 +54,10 @@ public class HomeController extends HttpServlet {
 				System.out.println(video.getId()+"--"+video.getNombre()+"--"+video.getL());
 				
 			}*/
+=======
+			
+			System.out.println("VIDEOS: " + videos);
+>>>>>>> refs/remotes/origin/master
 			
 			request.setAttribute("videos", videos);
 			//System.out.println("HomeController saliendo");
@@ -66,12 +69,9 @@ public class HomeController extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		
 		doGet(request,response);
 		
@@ -79,7 +79,15 @@ public class HomeController extends HttpServlet {
 			System.out.println("DOPOST");
 			//recoger parametros
 			String id=request.getParameter("id");
+=======
+		try {
+			dao = VideoMySqlDAO.getInstance();
+
+			// recoger parametros
+			String idVideo = request.getParameter("id");
+>>>>>>> refs/remotes/origin/master
 			String nombre = request.getParameter("nombre");
+<<<<<<< HEAD
 			
 			
 			//insertar
@@ -88,6 +96,14 @@ public class HomeController extends HttpServlet {
 			
 			//pedir listado
 			dao = VideoArrayListDAO.getInstance();
+=======
+
+			// insertar
+			Video v = new Video(idVideo, nombre);
+			dao.insert(v);
+
+			// pedir listado
+>>>>>>> refs/remotes/origin/master
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
 			request.setAttribute("videos", videos);
 
@@ -97,5 +113,4 @@ public class HomeController extends HttpServlet {
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 		}*/
 	}
-
 }

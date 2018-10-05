@@ -110,6 +110,7 @@
           
           	<%
           	
+<<<<<<< HEAD
           	
           	ArrayList<Video> videoslink = (ArrayList<Video>) request.getAttribute("videos");
           
@@ -132,6 +133,22 @@
            	<%
          	} //end for
            	%>
+=======
+          		Video videoInicio = new Video();
+          		if ( !videos.isEmpty() ){
+          			videoInicio = videos.get(0);
+          		}	
+    			
+          		for( Video v : videos ){
+          	%>
+                   
+          	  <a href="#" onclick="reproducir('<%=v.getIdVideo()%>')" class="list-group-item"><%=v.getNombre()%></a>
+          	  <a href="?id=<%=v.getId()%>"><i style="color:red;" class="float-right fas fa-trash-alt"></i></a>
+            
+            <%
+          		} //end for
+            %>
+>>>>>>> refs/remotes/origin/master
             
             
           </div>
@@ -142,7 +159,11 @@
 
           <div class="card mt-4">
           
+<<<<<<< HEAD
             <iframe id="iframe" width="823" height="415" src="https://www.youtube.com/embed/<%//=videoInicio.getId()%>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+=======
+            <iframe id="iframe" width="823" height="415" src="https://www.youtube.com/embed/<%=videoInicio.getIdVideo()%>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+>>>>>>> refs/remotes/origin/master
             
             <div class="card-body">
               <h3 class="card-title"><%//=videoInicio.getNombre()%></h3>              
