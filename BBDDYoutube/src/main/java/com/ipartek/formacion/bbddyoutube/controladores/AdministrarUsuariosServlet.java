@@ -91,8 +91,6 @@ public class AdministrarUsuariosServlet extends HttpServlet {
 				daoV.deleteByUser(idL);
 				mensaje = "Borrado correcto del usuario con id " + idL;
 				
-				/*usuario = dao.getById(idL);
-				request.setAttribute("usuario", usuario);*/
 				break;
 				
 			default:

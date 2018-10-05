@@ -16,7 +16,7 @@ import com.ipartek.formacion.bbddyoutube.pojos.Usuario;
 import com.ipartek.formacion.bbddyoutube.pojos.Video;
 
 /**
- * Servlet implementation class AdministrarVideosServlet
+ * Servlet implementation class AdministrarvideosServlet
  */
 @WebServlet("/videos")
 public class AdministrarVideosServlet extends HttpServlet {
@@ -53,7 +53,7 @@ public class AdministrarVideosServlet extends HttpServlet {
 		
 		request.setAttribute("usuarios", usuarios);
 		request.setAttribute("accion", accion);
-		request.getRequestDispatcher("/WEB-INF/admin/operacionesVideo.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/admin/operacionesvideo.jsp").forward(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -65,7 +65,6 @@ public class AdministrarVideosServlet extends HttpServlet {
 			throw new ControladorException("No se admite una peticion que no tenga accion");
 		}
 		
-		UsuarioMySqlDAO dao = UsuarioMySqlDAO.getInstance();
 		VideoMySqlDAO daoV = VideoMySqlDAO.getInstance();
 		
 		String idYoutube = request.getParameter("idYoutube");
