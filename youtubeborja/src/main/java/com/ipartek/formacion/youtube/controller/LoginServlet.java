@@ -54,29 +54,28 @@ for (int i = 0; i < usuarios.size(); i++) {
 		System.out.println(usuarios.get(i).getNombre());
 		System.out.println(usuarios.get(i).getPassword());
 		
-		Usuario us=new Usuario(nombre,password2,email);
+	Usuario us=new Usuario(nombre,password2,email);
+	request.getSession().setAttribute("user", us);
+		System.out.println("voy");
 		
-		request.getSession().setAttribute("user", us);
-		request.getRequestDispatcher("register.jsp").forward(request, response);
 	}
 	
 	
-	
+
 	
 }	
 
-response.sendRedirect("home.jsp");
+//response.sendRedirect("inicio");
+//request.getRequestDispatcher("inicio?aaaa").forward(request, response);
 
 		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
-		System.out.println("es login");
 		
 		
 		
-		System.out.println();
 	}
 		
 	
@@ -123,7 +122,10 @@ response.sendRedirect("home.jsp");		}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+
+		request.getRequestDispatcher("home.jsp").forward(request, response);
+
+	
 	}
 
 }

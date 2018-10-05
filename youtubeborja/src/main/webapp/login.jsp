@@ -1,7 +1,14 @@
-<!DOCTYPE html>
+<%@page import="com.ipartek.formacion.youtube.Video"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.ipartek.formacion.youtube.Usuario"%>
 
+
+<!DOCTYPE html>
 <html lang="en">
-<head>
+
+  <head>
+
+	<base href="<%=request.getContextPath()%>/">
  <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -24,11 +31,10 @@
 <label>nombre<input type="text" name="nombre"></label>
 <label>password<input type="password" name="password"></label>
 <label>email<input type="email" name="email"></label>
-<label>enviar<button value="login" name="login"></label>
+<label><button value="login" name="login">AAAA</button></label>
 
 
 </form>
-
 
 
 </body>
