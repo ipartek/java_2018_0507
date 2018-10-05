@@ -53,7 +53,7 @@ public class AdministrarVideosServlet extends HttpServlet {
 		
 		request.setAttribute("usuarios", usuarios);
 		request.setAttribute("accion", accion);
-		request.getRequestDispatcher("/WEB-INF/admin/operacionesvideo.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/admin/operacionesVideo.jsp").forward(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
