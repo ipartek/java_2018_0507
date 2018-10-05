@@ -27,7 +27,6 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 	@SuppressWarnings("finally")
 	@Override
 	public boolean insert(Usuario pojo) {
-		// INSERTAR EN LA TABLA
 		String sql = "INSERT INTO usuarios (nombre,password) VALUES (?,?)";	
 		boolean result = false;
 		Connection conn = UtilsDAO.getConnection();
@@ -179,16 +178,18 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 	}
 	
 	@SuppressWarnings("finally")
-	public List<Video> getAllUserVideos(long idVideo) {
-		String sql = "SELECT v.idYoutube, v.nombre FROM videos v "
+	public List<Video> getAllUserVideos(long idUsuario) {
+		/*String sql = "SELECT v.idYoutube, v.nombre FROM videos v "
 				+ "INNER JOIN usuariosvideos uv ON v.idVideo = uv.idVideo "
-				+ "WHERE uv.idUsuario = ?";
+				+ "WHERE uv.idUsuario = ?";*/
+		
+		String sql = "SELECT idYoutube, nombre FROM videos WHERE idUsuario= ?";
 				
 		ArrayList<Video> videos = new ArrayList<Video>();
 		Connection conn = UtilsDAO.getConnection();
 		
 		try (PreparedStatement pst = conn.prepareStatement(sql)) {
-			pst.setLong(1, idVideo);
+			pst.setLong(1, idUsuario);
 			try(ResultSet rs = pst.executeQuery()){
 				while (rs.next()) {
 					videos.add(new Video(rs.getString("idYoutube"), rs.getString("nombre")));

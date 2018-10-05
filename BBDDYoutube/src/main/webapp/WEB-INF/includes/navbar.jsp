@@ -24,15 +24,7 @@
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li>
-						<form action="anadirContenido" method="post" class="navbar-form navbar-left">
-				            <input name="idVideo" class="form-control" type="text" placeholder="ID 11 caracteres" title="11 caracteres" required pattern=".{11,11}">
-				            <input name="nombreVideo" class="form-control" type="text" placeholder="Nombre minimo 2 letras" required pattern=".{2,125}">
-				            <button class="btn btn-success navbar-btn" type="submit">Añadir</button>
-				         </form>
-					</li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<c:if test="${sessionScope != null}">
+						<c:if test="${sessionScope != null}">
 						<li>
 							<a href="administrar?accion=users" class="btn btn-success navbar-btn">Administrar usuarios</a>
 						</li>
@@ -40,6 +32,9 @@
 							<a href="administrar?accion=videos" class="btn btn-success navbar-btn">Administrar videos</a>
 						</li>
 					</c:if>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
 					<li><p class="navbar-text">
 							<span class="glyphicon glyphicon-user" aria-hidden="true">
 								Bienvenido ${sessionScope.user.nombre}</span>

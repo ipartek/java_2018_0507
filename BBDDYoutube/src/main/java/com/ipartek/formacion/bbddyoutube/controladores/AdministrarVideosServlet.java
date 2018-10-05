@@ -1,6 +1,7 @@
 package com.ipartek.formacion.bbddyoutube.controladores;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,12 +13,13 @@ import com.ipartek.formacion.bbddyoutube.accesodatos.CrudAble;
 import com.ipartek.formacion.bbddyoutube.accesodatos.UsuarioMySqlDAO;
 import com.ipartek.formacion.bbddyoutube.accesodatos.VideoMySqlDAO;
 import com.ipartek.formacion.bbddyoutube.pojos.Usuario;
+import com.ipartek.formacion.bbddyoutube.pojos.Video;
 
 /**
- * Servlet implementation class AdministrarUsuariosServlet
+ * Servlet implementation class AdministrarVideosServlet
  */
-@WebServlet("/usuarios")
-public class AdministrarUsuariosServlet extends HttpServlet {
+@WebServlet("/videos")
+public class AdministrarVideosServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   
     @Override
@@ -29,11 +31,11 @@ public class AdministrarUsuariosServlet extends HttpServlet {
 			throw new ControladorException("No se admite una peticion que no tenga accion");
 		}
 		
-		CrudAble<Usuario> dao = UsuarioMySqlDAO.getInstance();
-		//UsuarioMySqlDAO<Usuario> dao = UsuarioMySqlDAO.getInstance();
+		CrudAble<Video> dao = VideoMySqlDAO.getInstance();
+		ArrayList<Usuario> usuarios = (ArrayList<Usuario>) UsuarioMySqlDAO.getInstance().getAll();
 		
 		Long idL;
-		Usuario usuario = null;
+		Video video = null;
 		
 		switch (accion) {
 			case "insertar":
@@ -41,15 +43,17 @@ public class AdministrarUsuariosServlet extends HttpServlet {
 			case "editar":
 			case "borrar":
 				idL = extraerId(id);
-				usuario = dao.getById(idL);
-				request.setAttribute("usuario", usuario);
+				video = dao.getById(idL);
+				request.setAttribute("video", video);
+				request.setAttribute("selectedUsuarioId", video.getIdUsuario());
 				break;
 			default:
 				throw new ControladorException("No se admite una peticion que no sea insertar, editar o borrar");
 		}
 		
+		request.setAttribute("usuarios", usuarios);
 		request.setAttribute("accion", accion);
-		request.getRequestDispatcher("/WEB-INF/admin/operacionesUsuario.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/admin/operacionesVideo.jsp").forward(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -64,35 +68,35 @@ public class AdministrarUsuariosServlet extends HttpServlet {
 		UsuarioMySqlDAO dao = UsuarioMySqlDAO.getInstance();
 		VideoMySqlDAO daoV = VideoMySqlDAO.getInstance();
 		
-		Long idL;
+		String idYoutube = request.getParameter("idYoutube");
 		String nombre = request.getParameter("nombre");
-		String password = request.getParameter("password");
+		String idUsuario = request.getParameter("idUsuario");
+		Long idUsuarioL;
+		Long idL;
 
-		Usuario usuario;
+		Video video;
 		String mensaje = "";
 		
 		switch (accion) {
 			case "insertar":
-				usuario = new Usuario(nombre, password);
-				dao.insert(usuario);
-				mensaje = "Inserción correcta del usuario " + usuario.getNombre();
+				idUsuarioL = extraerId(idUsuario);
+				video = new Video(idYoutube, nombre, idUsuarioL);
+				daoV.insert(video);
+				mensaje = "Inserción correcta del video " + video.getNombre();
 				break;
 				
 			case "editar":
 				idL = extraerId(id);
-				usuario = new Usuario(idL, nombre, password);
-				dao.update(usuario);
-				mensaje = "Actualización correcta del usuario " + usuario.getNombre();
+				idUsuarioL = extraerId(idUsuario);
+				video = new Video(idL, idYoutube, nombre, idUsuarioL);
+				daoV.update(video);
+				mensaje = "Actualización correcta del video " + video.getNombre();
 				break;
 				
 			case "borrar":
 				idL = extraerId(id);
-				dao.delete(idL);
-				daoV.deleteByUser(idL);
-				mensaje = "Borrado correcto del usuario con id " + idL;
-				
-				/*usuario = dao.getById(idL);
-				request.setAttribute("usuario", usuario);*/
+				daoV.delete(idL);
+				mensaje = "Borrado correcto del video con id " + idL;
 				break;
 				
 			default:
@@ -100,7 +104,7 @@ public class AdministrarUsuariosServlet extends HttpServlet {
 		}
 		
 		request.setAttribute("mensaje", mensaje);
-		request.getRequestDispatcher("administrar?accion=users").forward(request, response);
+		request.getRequestDispatcher("administrar?accion=videos").forward(request, response);
 	}
 	
 	private long extraerId(String id) {

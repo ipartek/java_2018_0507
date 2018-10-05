@@ -30,8 +30,9 @@ public class AdministrarServlet extends HttpServlet {
 			request.setAttribute("usuarios", usuarios);
 			request.getRequestDispatcher("/WEB-INF/admin/administrarUsers.jsp").forward(request, response);
 			break;
+			
 		case "videos":
-			ArrayList<Video> videos = (ArrayList<Video>) VideoMySqlDAO.getInstance().getAll();
+			ArrayList<Video> videos = (ArrayList<Video>) VideoMySqlDAO.getInstance().getAllAndUsers();
 			request.setAttribute("videos", videos);
 			request.getRequestDispatcher("/WEB-INF/admin/administrarVideos.jsp").forward(request, response);
 			break;

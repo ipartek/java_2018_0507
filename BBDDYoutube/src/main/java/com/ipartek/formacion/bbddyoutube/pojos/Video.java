@@ -7,6 +7,8 @@ public class Video {
 	private Long id;
 	private String idVideo;
 	private String nombre;
+	private Long idUsuario;
+	private String nombreUsuario;
 	
 	// DEFAULT VIDEO
 	public Video() {
@@ -19,6 +21,26 @@ public class Video {
 		this.setId(id);
 		this.setIdVideo(idVideo);
 		this.setNombre(nombre);
+	}
+	
+	public Video(Long id, String idVideo, String nombre, Long idUsuario) {
+		this.setId(id);
+		this.setIdVideo(idVideo);
+		this.setNombre(nombre);
+		this.setIdUsuario(idUsuario);
+	}
+
+	public Video(Long id, String idVideo, String nombre, String nombreUsuario) {
+		this.setId(id);
+		this.setIdVideo(idVideo);
+		this.setNombre(nombre);
+		this.setNombreUsuario(nombreUsuario);
+	}
+	
+	public Video(String idVideo, String nombre, Long idUsuario) {
+		this.setIdVideo(idVideo);
+		this.setNombre(nombre);
+		this.setIdUsuario(idUsuario);
 	}
 	
 	public Video(String idVideo, String nombre ) {
@@ -50,5 +72,21 @@ public class Video {
 			throw new RuntimeException("El ID debe ser exactamente de " + ID_LONGITUD + " caracteres");
 		}	
 		this.idVideo = idVideo;
+	}
+
+	public Long getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+	public String getNombreUsuario() {
+		return nombreUsuario;
+	}
+
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
 	}
 }

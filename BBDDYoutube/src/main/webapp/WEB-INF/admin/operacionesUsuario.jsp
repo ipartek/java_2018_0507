@@ -15,14 +15,14 @@
 		</h2>
 		<div class="well bs-component">
 			<form class="form-horizontal" action="usuarios?accion=${accion}" method="post">
-			<input type="hidden" name="id" value="${usuario.id}" />
-			<input type="hidden" name="accion" value="${accion}" />
+				<input type="hidden" name="id" value="${usuario.id}" />
+				<input type="hidden" name="accion" value="${accion}" />
 				<div class="form-group">
 					<label for="nombre" class="col-sm-2 control-label">Nick</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="nombre" name="nombre"
 							placeholder="Nombre" value="${usuario.nombre}"
-							<c:if test="${accion=='borrar'}">disabled="disabled"</c:if>>
+							<c:if test="${accion == 'borrar'}">disabled="disabled"</c:if>>
 					</div>
 				</div>
 				<div class="form-group">
