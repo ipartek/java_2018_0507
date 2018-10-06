@@ -12,7 +12,7 @@ import com.ipartek.formacion.ejemplos.crud.accesodatos.CrudAble;
 import com.ipartek.formacion.ejemplos.crud.accesodatos.UsuarioTreeMapDAO;
 import com.ipartek.formacion.ejemplos.crud.modelos.Usuario;
 
-@WebServlet("/admin/usuarios")
+@WebServlet("/usuarios")
 public class AdminUsuariosServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -50,7 +50,7 @@ public class AdminUsuariosServlet extends HttpServlet {
 		}
 
 		request.setAttribute("accion", accion);
-		request.getRequestDispatcher("/WEB-INF/admin/usuario.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/usuario.jsp").forward(request, response);
 	}
 
 	@Override
@@ -100,7 +100,7 @@ public class AdminUsuariosServlet extends HttpServlet {
 		}
 
 		request.setAttribute("mensaje", mensaje);
-		request.getRequestDispatcher("/admin/index").forward(request, response);
+		request.getRequestDispatcher("index").forward(request, response);
 	}
 
 	private long extraerId(String id) {
