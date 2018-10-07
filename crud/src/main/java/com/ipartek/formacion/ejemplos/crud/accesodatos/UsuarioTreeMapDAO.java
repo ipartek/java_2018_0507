@@ -8,7 +8,7 @@ import com.ipartek.formacion.ejemplos.crud.modelos.Usuario;
 
 public class UsuarioTreeMapDAO implements CrudAble<Usuario> {
 
-	//PRINCIPIO SINGLETON   ESTO HACE QUE LA LISTA SOLO SE GENERE UNA VEZ, ASI NO HABRA EQUIVOCACIONES DE CREAR VARIAS LISTAS
+	//PRINCIPIO SINGLETON
 	private static final UsuarioTreeMapDAO dao = new UsuarioTreeMapDAO();
 	
 	private UsuarioTreeMapDAO() {}
@@ -16,9 +16,9 @@ public class UsuarioTreeMapDAO implements CrudAble<Usuario> {
 	public static UsuarioTreeMapDAO getInstance() { return dao; }
 	//FIN SINGLETON
 	
-	//CONSTRUCTOR ESTÃ�TICO
+	//CONSTRUCTOR ESTÁTICO
 	static {
-		//CREAR UN CONJUNTO DE USUARIOS DE PRUEBA QUE SERÃ�N
+		//CREAR UN CONJUNTO DE USUARIOS DE PRUEBA QUE SERÁN
 		//1, email1@email.com, contra1
 		//2, email2@email.com, contra2
 		//...

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.ipartek.formacion.ejemplos.crud.accesodatos.UsuarioTreeMapDAO;
 import com.ipartek.formacion.ejemplos.crud.modelos.Usuario;
 
-@WebServlet("/index")
+@WebServlet("/admin/index")
 public class AdminIndexServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -23,7 +23,7 @@ public class AdminIndexServlet extends HttpServlet {
 		
 		request.setAttribute("usuarios", usuarios);
 		
-		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/admin/index.jsp").forward(request, response);
 	}
 
 	@Override

@@ -12,7 +12,7 @@ import com.ipartek.formacion.ejemplos.crud.accesodatos.CrudAble;
 import com.ipartek.formacion.ejemplos.crud.accesodatos.UsuarioTreeMapDAO;
 import com.ipartek.formacion.ejemplos.crud.modelos.Usuario;
 
-@WebServlet("/usuarios")
+@WebServlet("/admin/usuarios")
 public class AdminUsuariosServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -50,7 +50,7 @@ public class AdminUsuariosServlet extends HttpServlet {
 		}
 
 		request.setAttribute("accion", accion);
-		request.getRequestDispatcher("/WEB-INF/usuario.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/admin/usuario.jsp").forward(request, response);
 	}
 
 	@Override
@@ -73,24 +73,19 @@ public class AdminUsuariosServlet extends HttpServlet {
 		
 		Usuario usuario;
 		
-		String mensaje = "";
-		
 		switch (accion) {
 		case "insert":
 			usuario = new Usuario(email, password);
 			dao.insert(usuario);
-			mensaje = "Inserción correcta del usuario " + usuario.getEmail();
 			break;
 		case "update":
 			longId = extraerId(id);
 			usuario = new Usuario(longId, email, password);
 			dao.update(usuario);
-			mensaje = "Actualización correcta del usuario " + usuario.getEmail();
 			break;
 		case "delete":
 			longId = extraerId(id);
 			dao.delete(longId);
-			mensaje = "Borrado correcto del usuario id " + longId;
 			
 			usuario = dao.getById(longId);
 			request.setAttribute("usuario", usuario);
@@ -99,8 +94,7 @@ public class AdminUsuariosServlet extends HttpServlet {
 			throw new ControladorException("No se admite una petición que no sea insert, update o delete");
 		}
 
-		request.setAttribute("mensaje", mensaje);
-		request.getRequestDispatcher("index").forward(request, response);
+		request.getRequestDispatcher("/admin/index").forward(request, response);
 	}
 
 	private long extraerId(String id) {
