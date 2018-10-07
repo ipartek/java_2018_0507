@@ -74,13 +74,11 @@ public class LogicaNegocio {
 		
 	}
 	 public static void devolverTamanoLibro(HttpServletRequest request) {
-		 request.getSession().setAttribute("tamanoLibro",  LibroElecDao.getInstance().getAll().size()-1);
+		 request.setAttribute("tamanoLibro",  LibroElecDao.getInstance().getAll().size()-1);
 	 }
-	public static List<HojaLibro> obtenerHojas(HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		List<HojaLibro> hojas = LibroElecDao.getInstance().getAll();
-		// System.out.println("tam"+articulos.size());
+	public static List<HojaLibro> obtenerHojas() {
 		return LibroElecDao.getInstance().getAll();
 	}
+	
 
 }

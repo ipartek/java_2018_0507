@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.formacion.ipartek.accesoaDatos.LibroElecDao;
 import com.formacion.ipartek.accesoaDatos.UsuarioArrayDao;
@@ -39,12 +40,13 @@ public class InicioServlet extends HttpServlet {
 		
 		// TODO Auto-generated method stub
 		ServletContext context=getServletConfig().getServletContext();
-		for(int i=0;i<1;i++){
-			  LibroElecDao.getInstance().insert(new HojaLibro(i,"erase una vez...","auto"));
+		HttpSession re=request.getSession();
+		for(int i=0;i<10;i++){
+			  LibroElecDao.getInstance().insert(new HojaLibro(i,"erase una vez..."+i,"auto"));
 		  } 
 		UsuarioArrayDao.getInstance().insert(new Usuario(1,"inaki@a","aaa","usuario"));
 		UsuarioArrayDao.getInstance().insert(new Usuario(2,"a@a","aaa","admin"));
-		context.setAttribute("pagina", pagina);
+		re.setAttribute("pagina", pagina);
 		 context.setAttribute("libro", LibroElecDao.getInstance().getAll());
 		 context.setAttribute("daoUsuarios", UsuarioArrayDao.getInstance().getAll());
 		 request.getRequestDispatcher("login.jsp").forward(request, response);
