@@ -15,6 +15,7 @@ import com.ipartek.formacion.ejemplos.crud.modelos.Usuario;
 @WebServlet("/admin/usuarios")
 public class AdminUsuariosServlet extends HttpServlet {
 
+	private static final String ADMIN_USUARIO_JSP = "/WEB-INF/admin/usuario.jsp";
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -50,7 +51,7 @@ public class AdminUsuariosServlet extends HttpServlet {
 		}
 
 		request.setAttribute("accion", accion);
-		request.getRequestDispatcher("/WEB-INF/admin/usuario.jsp").forward(request, response);
+		request.getRequestDispatcher(ADMIN_USUARIO_JSP).forward(request, response);
 	}
 
 	@Override
@@ -73,19 +74,36 @@ public class AdminUsuariosServlet extends HttpServlet {
 		
 		Usuario usuario;
 		
+		String mensaje = "";
+		
 		switch (accion) {
 		case "insert":
 			usuario = new Usuario(email, password);
+			if(!usuario.isCorrecto()) {
+				request.setAttribute("usuario", usuario);
+				request.setAttribute("accion", accion);
+				request.getRequestDispatcher(ADMIN_USUARIO_JSP).forward(request, response);
+				return;
+			}
 			dao.insert(usuario);
+			mensaje = "Inserción correcta del usuario " + usuario.getEmail();
 			break;
 		case "update":
 			longId = extraerId(id);
 			usuario = new Usuario(longId, email, password);
+			if(!usuario.isCorrecto()) {
+				request.setAttribute("usuario", usuario);
+				request.setAttribute("accion", accion);
+				request.getRequestDispatcher(ADMIN_USUARIO_JSP).forward(request, response);
+				return;
+			}
 			dao.update(usuario);
+			mensaje = "Actualización correcta del usuario " + usuario.getEmail();
 			break;
 		case "delete":
 			longId = extraerId(id);
 			dao.delete(longId);
+			mensaje = "Borrado correcto del usuario id " + longId;
 			
 			usuario = dao.getById(longId);
 			request.setAttribute("usuario", usuario);
@@ -94,6 +112,7 @@ public class AdminUsuariosServlet extends HttpServlet {
 			throw new ControladorException("No se admite una petición que no sea insert, update o delete");
 		}
 
+		request.setAttribute("mensaje", mensaje);
 		request.getRequestDispatcher("/admin/index").forward(request, response);
 	}
 

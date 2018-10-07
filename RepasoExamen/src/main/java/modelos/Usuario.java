@@ -1,4 +1,4 @@
-package com.ipartek.formacion.ejemplos.crud.modelos;
+package modelos;
 
 public class Usuario {
 	private Long id = -1L;
@@ -45,12 +45,6 @@ public class Usuario {
 	public void setPassword(String password) {
 		if(password == null) {
 			setErrorPassword("No se admite un password nulo");
-			setCorrecto(false);
-			return;
-		}
-		
-		if(password.trim().length() < 8) {
-			setErrorPassword("No se admite un password menor de 8 caracteres");
 			setCorrecto(false);
 			return;
 		}
