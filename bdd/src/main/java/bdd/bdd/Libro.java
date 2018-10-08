@@ -4,7 +4,7 @@ public class Libro {
 
 	private String idLibro;
 	private String nombre;
-
+	
 	public Libro() {
 		
 	}

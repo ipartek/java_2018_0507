@@ -8,15 +8,11 @@
 </header>
 
 <div id="container-fluid">
-	<form action="PaginacionServlet?${paginaF}" method="post" align="center">
+	<form action="PaginacionServlet" method="post" align="center">
 		<br>
 		<br>Introduce Numero de pagina<input type="number" name="numero" />
 		<input type="submit">
 
-	</form>
-		<form action="PaginacionServlet?${paginaF+1}" method="post" align="center">
-				<input type="submit" value="sigiente">
-		
 	</form>
 	<br>
 	<br>
@@ -43,7 +39,7 @@
 
 					</dl>
 				</div>
-	<button>anterior</button>
+
 			</c:forEach>
 
 
@@ -67,16 +63,18 @@
 
 					</dl>
 				</div>
-<a href="principal?paginaF=${paginaF+1}"><button>sigiente</button></a>
-	<button>anterior</button>
+
 			</c:forEach>
 		</c:if>
-	
+
 	</div>
 
 
 </div>
 
+<form action="PaginacionServlet" method="post">
+	<input type="submit" value="next" name="siguiente" align="center">sigiente</input>
 
 
+</form>
 <%@ include file="/WEB-INF/includes/pie.jsp"%>
