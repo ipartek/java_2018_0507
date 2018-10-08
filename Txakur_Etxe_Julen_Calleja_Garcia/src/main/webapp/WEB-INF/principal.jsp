@@ -3,11 +3,8 @@
 
 <%@ include file="/WEB-INF/includes/cabezapagina.jsp"%>
 
-
-
 <form action="login" method="post">
 
-		
 		<c:choose>
 		<c:when test="${sessionScope.usuario == null}">
 		<p>
@@ -33,7 +30,6 @@
 			<a class="btn btn-danger" href="desconectar">Desconectar</a>
 		</c:otherwise>
 	</c:choose>
-	
 
 </form>
 

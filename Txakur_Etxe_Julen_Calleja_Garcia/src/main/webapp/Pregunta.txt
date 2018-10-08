@@ -1,0 +1,9 @@
+Como funciona el Modelo Vista Controlador?
+
+La parte de Vista es la unica que ve el cliente. El Modelo es donde nostros creamos los pojos y desde la parte del Servidor
+es donde controlamos todo (controlador). Para hacerlo seguro debemos realizar todas las comprobaciones de datos y cargas desde el Servidor.
+A la hora de funcionar, lo que es la Vista envia los datos al Controlador, los recogemos ahi, trabajamos con ellos y despues los
+devolvemos de la manera que queramos hacia otra servlet o hacia la Vista. Al final todo se desarrolla en el servidor
+
+El request recibe datos y el response los devuelve. Me explayaria mas pero no hay tiempo
+
