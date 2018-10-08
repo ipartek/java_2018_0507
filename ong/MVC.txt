@@ -1,0 +1,5 @@
+MVC es una forma de estructurar una aplicacion, de manera que la parte de modelo que contenga los datos, 
+la vista para mostrar esos datos y el controlador que controla y gestiona todo, así es facil modificar una parte de la aplicacion
+sin afectar al resto.
+
+El navegador hace una peticion request que llega al controlador, y luego este la procesa y envia el response a otra pantalla para que el usuario vea la respuesta.
