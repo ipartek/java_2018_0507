@@ -1,6 +1,6 @@
-package pojo;
+package modelo;
 
-public class Usuario{
+public class Usuario implements Identificable{
 	private long id;
 	private String nombre = "";
 	private String password = "";
@@ -74,7 +74,12 @@ public class Usuario{
 		return nombre;
 	}
 
-	public void setNombre(String email) {
+	public void setNombre(String nombre) {
+		if(nombre == null || nombre.trim().length() == 0) {
+			setErrorNombre("No se admite un nombre vacío");
+		} else if(!nombre.matches("^\\w+@\\w+\\.\\w+$")) {
+			setErrorNombre("El email introducido no es correcto");
+		}
 		
 		this.nombre = nombre;
 	}

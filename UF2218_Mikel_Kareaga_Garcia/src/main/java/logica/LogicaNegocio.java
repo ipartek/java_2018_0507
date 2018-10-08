@@ -1,52 +1,57 @@
 package logica;
+import java.util.ArrayList;
 import java.util.List;
-
-import accesoDatos.MapDAO;
-import pojo.Libro;
+import java.util.StringTokenizer;
+import java.util.TreeMap;
+import pojo.Hoja;
 import pojo.Usuario;
 
 public class LogicaNegocio {
-	private static MapDAO<Usuario> usuarios = new MapDAO<Usuario>();
-	private static MapDAO<Libro> libros = new MapDAO<Libro>();
+	private static TreeMap<Integer, Hoja> libro = new TreeMap<>();
+	static ArrayList<Usuario> usuarios = new ArrayList<>();
+
 	static {
-		usuarios.insert(new Usuario(1, "William", "Shakespeare"));
-		usuarios.insert(new Usuario(3, "cervantes", "saavedra"));
-		usuarios.insert(new Usuario(4, "pablo", "neruda"));
-		usuarios.insert(new Usuario(5, "paulo", "cohelo"));
+		usuarios.add(new Usuario(1,"william", "shakespeare"));
+		libro.put(new Integer(1), new Hoja(1,"YO","Erase una vez..."));
+		libro.put(new Integer(1), new Hoja(2,"YO","Lorem ipsum"));
+		libro.put(new Integer(1), new Hoja(3,"YO","Y comieron perdices"));
+		libro.put(new Integer(1), new Hoja(4,"YO","Ultima pagina"));
 	}
 	
-	public static boolean validarUsuario(Usuario usuario) {
-		for(Usuario u: usuarios.getAll()) {
-			if(u.getEmail().equals(usuario.getEmail())) {
-				return u.getPassword().equals(usuario.getPassword());
-			}
+	//Comprobar si el numero de hoja es la primera
+	public static Hoja obtenerHoja(int numeroHoja) {
+		if(numeroHoja < 1) {
+			numeroHoja = 1;
 		}
-		return false;
+		
+		if(numeroHoja > libro.size()) {
+			numeroHoja = libro.size();
+		}
+		
+		return libro.get(numeroHoja);
 	}
 	
-	public static List<Libro> obtenerLibros() {
-		return libros.getAll();
+	public static int obtenerNumeroHojas() {
+		return libro.size();
 	}
 	
-	public static Libro obtenerLibroPorId(long id) {
-		return libros.getById(id);
+	public static boolean insertarNuevaHoja(Hoja hoja) {
+		if(new StringTokenizer(hoja.getTexto()).countTokens() >=25) {
+			libro.put(hoja.getId(), hoja);
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
-	public static void agregarLibro(Libro libro) {
-		if(!libros.insert(libro)) {
-			throw new LogicaNegocioException("No se ha podido insertar el registro");
+	public static List<Integer> buscarTexto(String texto){
+		ArrayList<Integer> numeroHoja = new ArrayList<>();
+		
+		for(Hoja hoja: libro.values()) {
+		if(hoja.getTexto().contains(texto)) {
+			numeroHoja.add(hoja.getId());
 		}
-	}
-
-	public static void modificarProducto(Libro libro) {
-		if(!libros.update(libro)) {
-			throw new LogicaNegocioException("No se ha podido modificar el registro");
 		}
-	}
-
-	public static void borrarProducto(long id) {
-		if(!libros.delete(id)) {
-			throw new LogicaNegocioException("No se ha podido borrar el registro");
-		}
+		return numeroHoja;
 	}
 }

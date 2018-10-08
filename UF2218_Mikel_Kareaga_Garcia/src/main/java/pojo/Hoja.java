@@ -1,17 +1,15 @@
 package pojo;
 
-public class Libro {
-	private long id;
+public class Hoja {
+	private int id;
 	private String autor;
 	private String texto;
-	
-	
-	
-	
-	public Libro() {
+
+	public Hoja() {
 	}
 	
-	public Libro(String autor, String texto) {
+	public Hoja(int id, String autor, String texto) {
+		this.id = id;
 		this.autor = autor;
 		this.texto = texto;
 	}
@@ -38,7 +36,7 @@ public class Libro {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Libro other = (Libro) obj;
+		Hoja other = (Hoja) obj;
 		if (autor == null) {
 			if (other.autor != null)
 				return false;
@@ -53,10 +51,10 @@ public class Libro {
 			return false;
 		return true;
 	}
-	public long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getAutor() {

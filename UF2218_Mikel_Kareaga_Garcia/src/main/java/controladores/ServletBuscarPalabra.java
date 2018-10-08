@@ -1,37 +1,46 @@
 package controladores;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import pojo.Libro;
+import logica.LogicaNegocio;
 
 /**
- * Servlet implementation class ServletEscribir
+ * Servlet implementation class ServletBuscarPalabra
  */
-@WebServlet("/escribir")
-public class ServletEscribir extends HttpServlet {
+@WebServlet("/palabra")
+public class ServletBuscarPalabra extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-   
-	 
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ServletBuscarPalabra() {
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		  doPost(request,response);
+		String palabra = request.getParameter("palabra");
+		
+		if(palabra != null) {
+			request.setAttribute("palabraEncontrada", LogicaNegocio.buscarTexto(palabra));
+		}
+		
+		request.getRequestDispatcher("index").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String texto = request.getParameter("texto");
-		String autor = request.getParameter("autor");
-		
-		Libro libro = new Libro(autor,texto);
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
