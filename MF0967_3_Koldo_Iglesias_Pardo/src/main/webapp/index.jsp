@@ -6,7 +6,7 @@
 <div class="row">
 	<div class="col-sm-6 col-md-4">
 		<div class="thumbnail">
-			<img src="img/perro1.jpg" alt="Listado de perros">
+			<a href="select"><img src="img/perro1.jpg" alt="Listado de perros"></a>
 			<div class="caption">
 				<h3>Listado de perros</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
@@ -18,12 +18,12 @@
 	</div>
 	<div class="col-sm-6 col-md-4">
 		<div class="thumbnail">
-			<img src="img/perro2.jpg" alt="Listado de perros">
+			<a href="perros"><img src="img/perro2.jpg" alt="Listado de perros"></a>
 			<div class="caption">
 				<h3>Nuevas acogidas</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
 				<p>
-					<a href="perros.jsp" class="btn btn-primary" role="button">Procesar alta</a>
+					<a href="perros" class="btn btn-primary" role="button">Procesar alta</a>
 				</p>
 			</div>
 		</div>

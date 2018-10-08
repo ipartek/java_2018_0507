@@ -16,25 +16,39 @@
 				<th>Apadrinado</th>
 				<th>Nº de chip</th>
 				<th>Última localización</th>
-				<th><a href="#" class="btn btn-default">Añadir...</a></th>
+				<th><a href="perros" class="btn btn-default">Añadir...</a></th>
 			</tr>
-			
+
 			<c:forEach items="${perros}" var="perros">
-			
-			<tr>
-				<td>${perros.id}</td>
-				<td>${perros.nombre}</td>
-				<td>${perros.edad}</td>
-				<td>${perros.raza}</td>
-				<td>${perros.peso}</td>
-				<td>${perros.apadrinado}</td>
-				<td>${perros.chip}</td>
-				<td>${perros.latitud}- ${perros.longitud}</td>
-				<td><a href="#" class="btn btn-default">Editar</a> <a href="#"
-					class="btn btn-danger">Borrar</a></td>
-			</tr>
+
+				<tr>
+					<td>${perros.id}</td>
+					<td>${perros.nombre}</td>
+					<td>${perros.edad} años</td>
+					<c:choose>
+						<c:when test="${perros.raza==''}">
+							<td>Milrazas</td>
+						</c:when>
+						<c:otherwise>
+							<td>${perros.raza}</td>
+						</c:otherwise>
+					</c:choose>
+					<td>${perros.peso}kg</td>
+					<c:choose>
+						<c:when test="${perros.apadrinado=='true'}">
+							<td>Sí</td>
+						</c:when>
+						<c:otherwise>
+							<td>No</td>
+						</c:otherwise>
+					</c:choose>
+
+					<td>${perros.chip}</td>
+					<td>${perros.latitud}-${perros.longitud}</td>
+
+				</tr>
 			</c:forEach>
-			
+
 		</table>
 	</div>
 </div>

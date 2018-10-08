@@ -18,8 +18,8 @@
 			alt=" TXAKURETXE Bizkaia" /></a>
 	</header>
 	<ul class="nav nav-pills nav-justified">
-		<li role="presentation"><a href="#">Inicio</a></li>
+		<li role="presentation"><a href="index.jsp">Inicio</a></li>
 		<li role="presentation"><a href="select">Listado de animales</a></li>
-		<li role="presentation"><a href="perros.jsp">Nuevas acogidas</a></li>
+		<li role="presentation"><a href="perros">Nuevas acogidas</a></li>
 	</ul>
 	<div class="container-fluid">

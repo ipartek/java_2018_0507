@@ -5,7 +5,7 @@
 <br />
 <div>
 	<h1>Alta de animales</h1>
-	<form action="#" method="get" class="form-horizontal">
+	<form action="perros" method="post" class="form-horizontal">
 	  <h4>Datos básicos...</h4>
 	  <input type="hidden" name="id" value="3" required="required">
 	  
