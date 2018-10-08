@@ -8,8 +8,10 @@ public class Chip extends Perro {
 		
 		
 		
-		public Chip (String nombre, double peso, boolean apadrinado, double latitud, double longitud) {
-			super (nombre,peso,apadrinado);
+		public Chip (long id, String raza, long chip, String nombre, double peso, boolean apadrinado, double latitud, double longitud) {
+			
+			super(id,nombre,raza,peso,apadrinado);
+			this.chipIdentificador= chip;
 			this.latitud =latitud;
 			this.longitud=longitud;
 		}

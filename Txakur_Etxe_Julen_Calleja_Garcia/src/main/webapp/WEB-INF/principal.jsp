@@ -18,8 +18,6 @@
 
 </form>
 
-
-
 <table class="table">
 	<thead>
 		<tr>
@@ -35,22 +33,23 @@
 		</tr>
 	</thead>
 	<tbody>
-
+	<c:forEach items="${perros}" var="perro">
 		<tr>
-			<th>Id</th>
-			<th>Nombre</th>
-			<th>Raza</th>
-			<th>Peso</th>
-			<th>Apadrinado</th>
-			<th>Numero Identificacion</th>
-			<th>Latitud</th>
-			<th>Longitud</th>
+			<th>${perro.id}</th>
+			<th>${perro.nombre}</th>
+			<th>${perro.raza}</th>
+			<th>${perro.peso }</th>
+			<th>${perro.apadrinado}</th>
+			<th>${perro.chipIdentificador }</th>
+			<th>${perro.latitud }</th>
+			<th>${perro.longitud}</th>
 			<td><a class="btn btn-primary" href="gestion?accion=update&id=?">Editar</a>
 				<a class="btn btn-danger" href="gestion?accion=delete&id=?">Borrar</a>
 			</td>
 		</tr>
+	</c:forEach>
 	</tbody>
 </table>
 
 
-<%@ include file="/WEB-INF/includes/cabezapagina.jsp"%>
+<%@ include file="/WEB-INF/includes/piepagina.jsp"%>

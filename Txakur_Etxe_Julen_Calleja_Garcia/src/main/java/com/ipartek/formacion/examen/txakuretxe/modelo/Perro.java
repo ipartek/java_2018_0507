@@ -13,7 +13,7 @@ public class Perro {
 	private boolean correcto = true;
 	
 	
-	public Perro(String nombre, double peso, boolean apadrinado) {
+	public Perro(long id, String nombre, String raza, double peso, boolean apadrinado) {
 		
 	}
 	public String getNombre() {
@@ -118,6 +118,7 @@ public class Perro {
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	
 	
 	
