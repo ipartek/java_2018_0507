@@ -8,6 +8,10 @@ public class Usuario {
 	
 	
 	
+	public Usuario(String nombre, String password) {
+		
+	}
+	
 	public long getId() {
 		return id;
 	}

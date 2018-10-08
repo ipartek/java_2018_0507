@@ -3,17 +3,31 @@
 
 <%@ include file="/WEB-INF/includes/cabezapagina.jsp"%>
 
+
+
 <form action="login" method="post">
-	<p>
-		<label for="nombre">Nombre</label> <input type="text" name="text"
-			id="text" />
-	</p>
-	<p>
-		<label for="password">Contraseña</label> <input type="password"
-			name="password" id="password" />
-	</p>
-	<p>
-		<button>Entrar</button>
+
+	<p>${sessionScope.usuario.nombre}</p>
+	
+		<p>
+			<label for="nombre">Nombre</label> <input type="text" name="nombre"
+				id="text" />
+		</p>
+		<p>
+			<label for="password">Contraseña</label> <input type="password"
+				name="password" id="password" />
+		</p>
+		<p>
+
+
+	<c:choose>
+		<c:when test="${sessionScope.usuario == null}">
+			<button>Entrar</button>
+		</c:when>
+		<c:otherwise>
+			<button>Desconectar</button>
+		</c:otherwise>
+	</c:choose>
 	</p>
 
 </form>
@@ -29,25 +43,25 @@
 			<th>Numero Identificacion</th>
 			<th>Latitud</th>
 			<th>Longitud</th>
-			<th><a class="btn btn-primary" href="gestion?accion=insert">Añadir</a></th>
+			<c:if test="${sessionScope.usuario != null}">
+				<th><a class="btn btn-primary" href="/WEB-INF/Editar.jsp">Añadir</a></th>
+			</c:if>
+
 		</tr>
 	</thead>
 	<tbody>
-	<c:forEach items="${perros}" var="perro">
-		<tr>
-			<th>${perro.id}</th>
-			<th>${perro.nombre}</th>
-			<th>${perro.raza}</th>
-			<th>${perro.peso }</th>
-			<th>${perro.apadrinado}</th>
-			<th>${perro.chipIdentificador }</th>
-			<th>${perro.latitud }</th>
-			<th>${perro.longitud}</th>
-			<td><a class="btn btn-primary" href="gestion?accion=update&id=?">Editar</a>
-				<a class="btn btn-danger" href="gestion?accion=delete&id=?">Borrar</a>
-			</td>
-		</tr>
-	</c:forEach>
+		<c:forEach items="${perros}" var="perro">
+			<tr>
+				<th>${perro.id}</th>
+				<th>${perro.nombre}</th>
+				<th>${perro.raza}</th>
+				<th>${perro.peso }</th>
+				<th>${perro.apadrinado}</th>
+				<th>${perro.chipIdentificador }</th>
+				<th>${perro.latitud }</th>
+				<th>${perro.longitud}</th>
+			</tr>
+		</c:forEach>
 	</tbody>
 </table>
 
