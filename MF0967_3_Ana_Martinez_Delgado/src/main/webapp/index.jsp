@@ -3,6 +3,7 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
   <head><link rel="stylesheet" href="css/bootstrap.min.css" /></head>
+  <%@ page import="com.ipartek.formacion.MF0967.pojo.Perro" %>
 <body>
 <%@ include file="contenidos/cab.jsp" %>
  
@@ -10,6 +11,9 @@
 
 <center>
 <%= request.getAttribute("perros") %>
+
+
+
 
 
 	<c:forEach items="${perro}" var="current">
