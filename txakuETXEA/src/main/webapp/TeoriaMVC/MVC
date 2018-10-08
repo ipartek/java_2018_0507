@@ -1,0 +1,7 @@
+Modelo -Vista- Controlador
+
+Se refierre al modelo vista controlador como un patron de arquitectura que se basa en la separacion de la aplicacaion en si,
+se separa en tres partes, en el modelo, la vista y el controlador. Esta arquitectura se utiliza con el fin de reutilizar codigo.
+La vista comprende los archivos que el usuario ve, es decir, la pagina fisica el jsp o el html
+El controlador es el que maneja los servlets que son los que se encargan de recoger la informacion y procesarla.
+El Modelo es el encargado de guardar los modelos de las clases de los cuales pasan por el controladros para establecer los datos.
