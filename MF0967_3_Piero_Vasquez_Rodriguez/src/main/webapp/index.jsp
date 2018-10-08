@@ -4,7 +4,8 @@
 <c:if test="${sessionScope.usuario != null}">
 	<h2>Usuario:  ${sessionScope.usuario.nick}</h2>
 </c:if>
-	
+	<div class="table-responsive">
+	<span class="error">${errores}</span>
 	<table class="table table-striped table-responsive">
 		<thead>
 			<tr>
@@ -35,6 +36,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	</div>
 	</div>
 
 <%@ include file="/WEB-INF/include/pie.jsp" %>

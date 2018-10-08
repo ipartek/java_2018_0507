@@ -31,6 +31,9 @@ public class AgregarServlet extends HttpServlet {
 		String apadrinado = request.getParameter("apadrinado");
 		double latitud = Double.parseDouble(request.getParameter("latitud"));
 		double longitud = Double.parseDouble(request.getParameter("longitud"));
+		if (raza.equals(null) || raza.equals("")) {
+			raza = "milrazas";
+		}
 		try {
 			Chip perro = new Chip(id,nombre,edad,raza,peso,apadrinado,chip,latitud,longitud);
 			LogicaNegocio.AgregarPerro(perro);
