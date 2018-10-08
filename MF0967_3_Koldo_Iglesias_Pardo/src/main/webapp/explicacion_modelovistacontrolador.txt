@@ -1,0 +1,7 @@
+El modelo vista controlador es una forma de organizar la programación (arquitectura de programación) 
+mediante la separación de la lógica que conforma el programa y los datos que se presentan al usuario
+ que utiliza la aplicación.
+ 
+ Así cuando realizamos una petición de datos  (como por ejemplo una petición de datos)
+ la petición se elevará al nivel necesario en la arquitectura de la app y esta no tendrá interacción 
+ con las demás. Una vez se recopilan los parámetros estos serán presentados al usuario en la aplicación (modelo vista)
