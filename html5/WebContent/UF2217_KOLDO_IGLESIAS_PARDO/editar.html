@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ipartek Market</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <!-- Menú principal con logotipo -->
+            <nav class="navbar navbar-default navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html"><img src="img/logo.svg" alt="Ipartek Market"></a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">Panel de administración</a></li>
+                            <li><a href="index.html">Volver a Inicio</a></li>
+
+                        </ul>
+
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </nav>
+
+        </header>
+        <section>
+            <div class="row">
+
+
+                <!--Parte derecha-->
+                <div class="col-xs-12 col-sm-9 col-md-12">
+                    <h1>Panel de administración</h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#">Dashboard</a></li>
+                        <li class="active">Edición de productos</li>
+                    </ol>
+                    <p>Rellene los campos para continuar. Todos los campos son obligatorios.</p>
+                    <form action="adm.html" method="get">
+                        <div class="form-group">
+                            <label for="botonmail"># Producto:</label>
+                            <input type="email" class="form-control" id="botonmail" value="Valor de ejemplo" readonly="readonly">
+                        </div>
+                        <div class="form-group">
+                            <label for="botonproducto">Introduzca la identificación del producto:</label>
+                            <input type="text" class="form-control" name="producto" maxlength="50" id="botonproducto" placeholder="Ej: Detergente ARIEL 2kg" required="required">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="botondescbreve">Introduzca la descripción breve del producto:</label>
+                            <input type="text" class="form-control" name="descbreve" maxlength="20" id="botondescbreve" placeholder="Ej: Kit formato ahorro" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label for="botondescext">Introduzca la descripción extensa del producto:</label>
+                            <input type="text" class="form-control" name="descext" maxlength="100" id="botondescext" placeholder="Limpie su ropa y ahorre con el formato ahorro. ARIEL además guarda el blanco original de sus prendas." required="required">
+                        </div>
+                        <div class="form-group">
+                            <label for="botonprecio">Introduzca el precio del producto:</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" name="precio" placeholder="1.0" step="0.01" min="0" id="botonprecio" required="required">
+                                <div class="input-group-addon">€</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="botondesc">Introduzca descuento aplicado: (vacío no se aplica)</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" name="desc" placeholder="1.0" step="0.01" min="0" max="100" id="botondesc" required="required">
+                                <div class="input-group-addon">%</div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-default">Guardar cambios</button>
+
+                    </form>
+
+
+
+                </div>
+
+            </div>
+    </div>
+    </section>
+    </div>
+    <footer>
+        <div class="container text-center">
+            <hr />
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="col-md-3">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="#">Política de privacidad</a></li>
+                            <li><a href="#">Contacto</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="#">Localización</a></li>
+                            <li><a href="#">Ofertas</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="#">Seguridad</a></li>
+                            <li><a href="#">Compromiso de calidad</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="#">Política de envíos</a></li>
+                            <li><a href="#">Administración</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="nav nav-pills nav-justified">
+                        <li><a href="#">© 2018 Ipartek Market</a></li>
+                        <li><a href="#"><img src="img/rrss/fb.png" alt="Facebook"></a></li>
+                        <li><a href="#"><img src="img/rrss/twitter.jpg" alt="Twitter"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
