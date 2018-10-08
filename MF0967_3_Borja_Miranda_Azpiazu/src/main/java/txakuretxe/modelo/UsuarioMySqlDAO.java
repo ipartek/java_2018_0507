@@ -13,7 +13,7 @@ import txakuretxe.pojo.*;
 
 public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 
-	String url = "jdbc:mysql://localhost:3307/librotek?serverTimezone=UTC&useSSL=false";
+	String url = "jdbc:mysql://localhost:3307/txakuretxe?serverTimezone=UTC&useSSL=false";
 	String user = "root";
 	String password = "admin";
 

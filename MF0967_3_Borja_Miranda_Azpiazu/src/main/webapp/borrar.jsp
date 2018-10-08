@@ -4,10 +4,12 @@
 <%@ include file="/WEB-INF/includes/cabecera.jsp" %>
 
 
-	<h1>Login</h1>
+	
+<div class="col-sm-3"></div>
 
-<div id="row">
-<div id="col-xm-6">
+<div class="col-sm-6">
+<h1>Borrar perro</h1>
+
 <form action="Edicion?id=<%=request.getParameter("id")%>" method="post">
 	
 	<H1>SEGURO???</H1>
@@ -18,5 +20,5 @@
 
 </form>
 </div>
-</div>
+<div class="col-sm-3"></div>
 <%@ include file="/WEB-INF/includes/pie.jsp" %>

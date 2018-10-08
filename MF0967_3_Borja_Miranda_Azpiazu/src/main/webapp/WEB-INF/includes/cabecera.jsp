@@ -7,46 +7,74 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Carrefour</title>
+<title>TXAKURETXE</title>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="css/estilos.css" />
-<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="http://localhost:8080/MF0967_3_Borja_Miranda_Azpiazu/css/estilos.css" />
+<link rel="stylesheet" href="http://localhost:8080/MF0967_3_Borja_Miranda_Azpiazu/css/bootstrap.min.css" />
 
-<script src="js/jquery-1.12.4.min.js"></script>
+<script src="http://localhost:8080/MF0967_3_Borja_Miranda_Azpiazu/js/jquery-1.12.4.min.js"></script>
 
-<script src="js/bootstrap.min.js"></script>
+<script src="http://localhost:8080/MF0967_3_Borja_Miranda_Azpiazu/js/bootstrap.min.js"></script>
 
 <style>
-	.error {
-		color: red;
-		font-weight: bold;
+	#jumb{
+	body-background:red;
+	padding: 0;
+	    margin: 0;
 	}
-	#mini{
-	width:20px;
+	#doge{
+	width:281px;
+	}
+
+	
+	#h1{
+	width:300px;
 	
 	}
-	#minisss{
-	width:100px;
+	#hd{
+	padding-top: 0;
 	}
-	tbody{
+	#nombre{
+	padding-left:20px;
+	}
+	#imgperro{
 	
-	border:1px;}
+	width:100px;}
+	tr{
+	height: 30px;}
+	footer{
+	margin-top:700px;
+	
+	}
 </style>
 
 </head>
 <body>
 
-<header>
-
-<h1 align="center">Libreria</h1>
+<header id="cabecera">
+ <div class="bg">
+    <div class="jumbotron" id="jumb">
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="imgs/logo.png" class="img-rounded" id="doge">
+            </div>
+            <div class="col-lg-8">
+                <div class="page-header" id="hd">
+                    <h1 id="nombre">Txakuretxe</h1>
+                     <h2 id="desc"> <small>La mejor web para adoptar </small> </h2> 
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="container-fluid">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      
-      <a class="navbar-brand" href="principal">LB</a>
+<img src="imgs/boxer-mix-mongrel-from-cdc6-diaporama.jpg" width="80">      
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -55,14 +83,13 @@
         <li class="active"><a href="Principal">Principal <span class="sr-only">(current)</span></a></li>
         <li><c:choose>
 				<c:when test="${sessionScope.user != null}">
-					<li><a href="anadir.jsp">Añadir Libros</a></li>
+					<li><a href="anadir.jsp">Añadir Perros</a></li>
 				</c:when>
 				
 			</c:choose></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li>
         
             
  
@@ -77,12 +104,12 @@
 			            <li><small>${sessionScope.user.nombre}</small></li>
 			
             
-        </li>
+        
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
+</div>
 </header>
 
 

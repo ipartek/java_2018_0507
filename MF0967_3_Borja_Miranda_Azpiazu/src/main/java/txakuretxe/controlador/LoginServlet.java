@@ -62,6 +62,7 @@ String email=request.getParameter("email");
 			ArrayList<Usuario> usuarios = (ArrayList<Usuario>) dao.getAll();
 			
 			for (int i = 0; i < usuarios.size(); i++) {
+				System.out.println(usuarios.get(i).getNombre());
 				if(usuarios.get(i).getNombre().equalsIgnoreCase(nombre)&&
 						usuarios.get(i).getPassword().equalsIgnoreCase(password)) {
 					validado=true;

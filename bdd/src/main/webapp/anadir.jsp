@@ -6,8 +6,8 @@
 
 	<h1>Añadir</h1>
 
-<div id="row">
-<div id="col-xm-6">
+<div class="col-sm-3"></div>
+<div class="col-sm-6" style="padding:50px 0">
 <form action="Edicion" method="post">
 	<p>
 		<label for="text">Nombre</label>
@@ -20,5 +20,6 @@
 	
 </form>
 </div>
-</div>
+<div class="col-sm-3"></div>
+
 <%@ include file="/WEB-INF/includes/pie.jsp" %>

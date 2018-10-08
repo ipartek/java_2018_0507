@@ -4,20 +4,17 @@
 
 <%@ include file="/WEB-INF/includes/cabecera.jsp"%>
 
-<header>
-	<h1>Perros</h1>
-</header>
-
-<div id="container-fluid">
+	<h1 align="center">Perros Disponibles</h1>
 
 
 
 
-
-	<table class="table table-striped">
+<div class="container-fluid">
+<div class="col-md-12" id="centro" style="    height: 400px;">
+  <table class="table table-bordred table-striped" id="tdss">
 
 		<tr>
-			<th>idPerro</th>
+		<th>Imagen</th>
 			<th>nombre</th>
 			<th>edad</th>
 			<th>raza</th>
@@ -26,11 +23,11 @@
 			<th>nidentificacion</th>
 			<th>latitud</th>
 			<th>longitud</th>
+			
 			<c:choose>
 				<c:when test="${sessionScope.user != null}">
 
 
-					<th>editar</th>
 					<th>borrar</th>
 				</c:when>
 
@@ -38,13 +35,18 @@
 		</tr>
 		<c:forEach items="${perros}" var="perro">
 			<tr>
-
-				<td>${perro.idPerro}</td>
+				<td><img src="imgs/${perro.idPerro}.jpg" id="imgperro"></td>
 				<td>${perro.nombre}</td>
 				<td>${perro.edad}</td>
 				<td>${perro.raza}</td>
 				<td>${perro.kg}</td>
-				<td>${perro.apadrinado}</td>
+				<c:choose>
+				<c:when test="${perro.apadrinado==true}">
+				<td>Si</td></c:when>
+				<c:otherwise>
+				<td>no</td>
+				</c:otherwise>
+				</c:choose>
 				<td>${perro.getChip().nidentificacion}</td>
 				<td>${perro.getChip().getLongitud()}</td>
 				<td>${perro.getChip().getLatitud()}</td>
@@ -56,7 +58,6 @@
 				
 				<c:choose>
 				<c:when test="${sessionScope.user != null}">
-				<td><a href="edicion.jsp?id=${perro.idPerro }&nombre=${perro.nombre}"><button>editar</button></a></td>
 				<td><a href="borrar.jsp?id=${perro.idPerro }"><button>borrar</button></a></td>
 			
 				</c:when>
@@ -70,9 +71,8 @@
 
 
 </div>
-
-
 </div>
+
 
 
 

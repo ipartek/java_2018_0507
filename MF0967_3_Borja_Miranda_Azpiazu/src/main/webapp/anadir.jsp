@@ -4,60 +4,61 @@
 <%@ include file="/WEB-INF/includes/cabecera.jsp" %>
 
 
-	<h1>Añadir</h1>
-
-<div id="row">
-<div id="col-xm-6">
-<form action="Edicion" method="post">
-	<p>
-		<label for="text">Nombre</label>
-		<input type="text" name="nombre"   />
-	</p>
-	
-	
-	<p>
-		<label for="text">edad</label>
-		<input type="number" name="edad"   />
-	</p>
-	<p>
-		<label for="text">raza</label>
-		<input type="text" name="raza"   />
-	</p>
-	<p>
-		<label for="text">kg</label>
-		<input type="number" name="kg"   />
-	</p>
-	
-	<p>
-		<label for="text">apadrinado</label>
-		<input type="radio" name="apadrinado" value="true" checked> si<br>
-  <input type="radio" name="apadrinado" value="false"> no<br>
-	</p>
-	<p>
-		<label for="text">nidentificacion</label>
-		<input type="number" name="nidentificacion"   />
-	</p>
-	
-		<p>
-		<label for="text">latitud</label>
-		<input type="number" name="latitud"   />
-	</p>
-	
-		<p>
-		<label for="text">longitud</label>
-		<input type="number" name="longitud"   />
-	</p>
-	
-	
-	
-	
-	
-	
-	
-	<p>
-		<button name="tipo" value="anadir">añadir</button>
-	</p>
-</form>
+<h1 align="center">Añadir Perrete</h1>
+<div class="col-sm-3"></div>
+<div class="col-sm-6" style="padding:50px 0">
+	<div class="logo"></div>
+	<!-- Main Form -->
+	<div class="login-form-1">
+		<form id="login-form" class="text-left" action="Edicion">
+			<div class="login-form-main-message"></div>
+			<div class="main-login-form">
+				<div class="login-group">
+					<div class="form-group"><div align="center">Nombre</div>
+						<label for="lg_username" class="sr-only">nombre</label>
+						<input type="text" class="form-control" id="lg_username" name="nombre" placeholder="nombre" required min="1" max="10">
+					</div>
+					<div class="form-group"><div align="center">Edad</div>
+						<label for="lg_password" class="sr-only">edad</label>
+						<input type="number" class="form-control" id="lg_password" name="edad" placeholder="edad"  min="1" required>
+					</div>
+					<div class="form-group"><div align="center">Raza</div>
+						<label for="lg_password" class="sr-only">raza</label>
+						<input type="text" class="form-control" id="lg_password" name="raza" placeholder="raza" min="1" required>
+					</div>
+					<div class="form-group"><div align="center">Peso</div>
+						<label for="lg_password" class="sr-only">Peso</label>
+						<input type="number" class="form-control" id="lg_password" name="kg" placeholder="kg" min="1" required>
+					</div>
+					
+					<div class="form-group" align="center"><div align="center">Adoptado?</div>
+					<label>si</label>
+						<input type="radio" id="lg_password" name="apadrinado" value="true">
+					</div>
+					<div class="form-group" align="center">
+					<label>no</label>
+						<input type="radio"  id="lg_password" name="apadrinado" value="false"  checked="checked">
+					</div>
+					<div class="form-group"><div align="center">nidentificacion</div>
+						<label for="lg_password" class="sr-only">nidentificacion</label>
+						<input type="number" class="form-control" id="lg_password" name="nidentificacion" placeholder="nidentificacion" min="1"  pattern="{1-9}{2}-[1-9]{4}-[1-9]{4}" required>
+					</div>
+					
+					<div class="form-group"><div align="center">latitud</div>
+						<label for="lg_password" class="sr-only">latitud</label>
+						<input type="number" class="form-control" id="lg_password" name="latitud" placeholder="latitud" min="1" required>
+					</div>
+					<div class="form-group"><div align="center">Longitud</div>
+						<label for="lg_password" class="sr-only">longitud</label>
+						<input type="number" class="form-control" id="lg_password" name="longitud" placeholder="longitud"  min="1" required>
+					</div>
+				</div>
+				<button type="submit" name="tipo" value="anadir" >añadir</button>
+			</div>
+			<div class="col-sm-3"></div>
+			
+		</form>
+	</div>
+	<!-- end:Main Form -->
 </div>
-</div>
-<%@ include file="/WEB-INF/includes/pie.jsp" %>
+<%@ include file="/WEB-INF/includes/pie.jsp" %> 

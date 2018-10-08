@@ -33,6 +33,10 @@
 	tbody{
 	
 	border:1px;}
+	
+	pie{
+	margin-top:400px;
+	}
 </style>
 
 </head>
@@ -77,7 +81,6 @@
 			            <li><small>${sessionScope.user.nombre}</small></li>
 			
             
-        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
