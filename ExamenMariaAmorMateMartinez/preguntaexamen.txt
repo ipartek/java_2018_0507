@@ -1,0 +1,22 @@
+Describe con tus palabras ( no vale copiar y pegar de internet ) 
+como funciona el patrón Modelo Vista Controlador. 
+Además de explicar el funcionamiento con un ejemplo de un proceso de petición( request ) y respuesta ( response )
+en una App Web.
+
+
+El MVC es una arquitectura que separa los datos de la logica de negocio. 
+Es decir, separa estos tres puntos: el lado que ve el usuario, lo que sería la vista (la zona gráfica )
+de la base de datos (modelo) y del controlador que serían los servlets que sirven a las jsp.
+
+Las jsp envian parametros al servlet y el servlet los recoge. Este a su vez envía atributos a las jsp. 
+
+Existen procesos de petición request y respuesta response.
+
+Un ejemplo de request puede ser :  String nombre = request.getParameter("nombre");
+que consigue un parametro de la jsp en este caso el nombre
+
+Un ejemplo de response puede ser : response.sendRedirect("pagina.jsp");  
+que redirige a la pagina.jsp
+
+
+ 
