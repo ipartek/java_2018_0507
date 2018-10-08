@@ -1,0 +1,5 @@
+cuando un usuario esta por ejemplo en una pagina de login los datos que el ha metido pasan del html mediante el action
+a una servlet en dste caso la servlet procesa la request mediante la obtencion de los parametros y ejecuta las operaciones 
+correspondientes como la validacion de usuarios, esta a su vez la haria en la logica de negocio que llama a los daos
+para realizar accions de insert..etc y los resultados devueltos podemos trabajar con ellos desde jstl
+ una vez validado podemos meter un usuario en session o poemos mandarnos un set parameter en la devolucion de la peticion 
