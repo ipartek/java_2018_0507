@@ -14,12 +14,12 @@
 </head>
 <body class="container">
 	<header class="jumbotron">
-		<a href="#"><img src="img/logo_txakur.svg"
+		<a href="index.jsp"><img src="img/logo_txakur.svg"
 			alt=" TXAKURETXE Bizkaia" /></a>
 	</header>
 	<ul class="nav nav-pills nav-justified">
 		<li role="presentation"><a href="#">Inicio</a></li>
-		<li role="presentation"><a href="#">Listado de animales</a></li>
+		<li role="presentation"><a href="perros.jsp">Listado de animales</a></li>
 		<li role="presentation"><a href="#">Nuevas acogidas</a></li>
 	</ul>
 	<div class="container-fluid">
