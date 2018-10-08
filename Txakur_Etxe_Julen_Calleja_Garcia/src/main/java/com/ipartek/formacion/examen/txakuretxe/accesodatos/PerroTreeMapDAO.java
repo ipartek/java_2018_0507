@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.TreeMap;
 
 import com.ipartek.formacion.examen.txakuretxe.modelo.Chip;
-import com.ipartek.formacion.examen.txakuretxe.modelo.Perro;
 
 public class PerroTreeMapDAO implements CrudAble<Chip> {
 
@@ -17,8 +16,8 @@ private static final PerroTreeMapDAO dao = new PerroTreeMapDAO();
 	
 	static {
 		
-		for(long i = 1; i <= 10; i++) {
-			dao.insert(new Chip(0, "pastor aleman",i,"Toby", i, true, i, i));
+		for(long i = 1; i <= 6; i++) {
+			dao.insert(new Chip(0 , "Toby","PastorAleman",34, true,12, 123, 123));
 		}
 		
 	}

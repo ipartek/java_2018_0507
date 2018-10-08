@@ -7,7 +7,12 @@
 	<fieldset>
 		<legend> Añadir nuevo Perro </legend>
 
-
+		<div class="form-group">
+			<label for="identificador" class="col-sm-2 control-label">Identificador</label>
+			<div class="col-sm-10">
+				<input type="number" class="form-control" id="identificador" name="identificador">
+			</div>
+		</div>
 		<div class="form-group">
 			<label for="nombre" class="col-sm-2 control-label">Nombre</label>
 			<div class="col-sm-10">

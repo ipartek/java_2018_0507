@@ -7,8 +7,9 @@
 
 <form action="login" method="post">
 
-	<p>${sessionScope.usuario.nombre}</p>
-	
+		
+		<c:choose>
+		<c:when test="${sessionScope.usuario == null}">
 		<p>
 			<label for="nombre">Nombre</label> <input type="text" name="nombre"
 				id="text" />
@@ -18,17 +19,21 @@
 				name="password" id="password" />
 		</p>
 		<p>
-
+		</c:when>
+		<c:otherwise>
+			${sessionScope.usuario.nombre}
+		</c:otherwise>
+	</c:choose>
 
 	<c:choose>
 		<c:when test="${sessionScope.usuario == null}">
 			<button>Entrar</button>
 		</c:when>
 		<c:otherwise>
-			<button>Desconectar</button>
+			<a class="btn btn-danger" href="desconectar">Desconectar</a>
 		</c:otherwise>
 	</c:choose>
-	</p>
+	
 
 </form>
 
@@ -44,7 +49,7 @@
 			<th>Latitud</th>
 			<th>Longitud</th>
 			<c:if test="${sessionScope.usuario != null}">
-				<th><a class="btn btn-primary" href="/WEB-INF/Editar.jsp">Añadir</a></th>
+				<th><a class="btn btn-primary" href="anadir">Añadir</a></th>
 			</c:if>
 
 		</tr>
@@ -55,7 +60,7 @@
 				<th>${perro.id}</th>
 				<th>${perro.nombre}</th>
 				<th>${perro.raza}</th>
-				<th>${perro.peso }</th>
+				<th>${perro.peso}</th>
 				<th>${perro.apadrinado}</th>
 				<th>${perro.chipIdentificador }</th>
 				<th>${perro.latitud }</th>
