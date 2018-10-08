@@ -96,7 +96,7 @@ public class Perro {
 	}
 
 	public void setRaza(String raza) {
-		if (raza == "" || raza == null)
+		if (raza.equalsIgnoreCase("") || raza == null)
 			raza = "milRazas";
 		else
 			this.raza = raza;

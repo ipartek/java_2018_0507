@@ -31,6 +31,7 @@
  
                     <c:if test="${sessionScope.usuario==null}">
                         <li><a href="login.jsp">Login<span class="sr-only">(current)</span></a></li>
+                          <li><a href="inicio">inicio<span class="sr-only">(current)</span></a></li>
                      </c:if>
                      <c:if test="${sessionScope.usuario!=null}">
                         <li><a href="edicionPerros.jsp">añade perro<span class="sr-only">(current)</span></a></li>

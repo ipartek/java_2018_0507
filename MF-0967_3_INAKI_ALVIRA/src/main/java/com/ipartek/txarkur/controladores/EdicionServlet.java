@@ -30,12 +30,18 @@ public class EdicionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nombre,raza,peso,edad,codigoChip;
+		Perro p;
 		nombre=request.getParameter("nombre");
 		raza=request.getParameter("raza");
 		peso=request.getParameter("peso");
 		edad=request.getParameter("edad");
 		codigoChip=request.getParameter("codigo");
-		Perro p=new Perro(-1L, nombre, edad, raza, peso);
+		if (request.getParameter("raza").equals("") || request.getParameter("raza")==null) {
+		p=new Perro(-1L, nombre, edad, "mil razas", peso);
+		}else {
+		p=new Perro(-1L, nombre, edad, raza, peso);
+		}
+		
 		p.setMiChip(new Chip(codigoChip, -1l, -1l));
 		if(request.getParameter("apadri")!=null)
 			p.setApadrinado(true);
