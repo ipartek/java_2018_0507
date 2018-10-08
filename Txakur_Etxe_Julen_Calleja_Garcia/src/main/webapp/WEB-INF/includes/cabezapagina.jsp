@@ -12,7 +12,8 @@
 
 
 </head>
-<body>
-	<h1 class="jumbotron"> TXAKUR-ETXE</h1>
+<body class="container">
+
+	<header class="jumbotron"> TXAKUR-ETXE</header>
 
 
