@@ -36,6 +36,9 @@ public class InsertServlet extends HttpServlet {
 			int apadrinado = Integer.parseInt(request.getParameter("apadrinado"));
 			String nombre = request.getParameter("nombre");
 			String raza = request.getParameter("raza");
+			if(raza.equals("")||raza==null) {
+				raza="milrazas";
+			}
 			String chip = request.getParameter("chip");	
 			Double latitud = Double.parseDouble(request.getParameter("latitud"));
 			Double longitud = Double.parseDouble(request.getParameter("longitud"));

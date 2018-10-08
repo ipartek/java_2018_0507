@@ -79,7 +79,7 @@ public class Dog {
 	}
 	public void setRaza(String raza) {
 		if(raza.equals("")||raza.equals(null)) {
-			
+			raza = "milrazas";
 		}
 		this.raza = raza;
 	}
