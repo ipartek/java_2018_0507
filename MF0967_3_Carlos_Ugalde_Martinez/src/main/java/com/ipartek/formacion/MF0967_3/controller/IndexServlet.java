@@ -19,9 +19,16 @@ public class IndexServlet extends HttpServlet {
 	 *Es una forma de trabajo que separa los datos y los procesos del programa en capas,
 	 *diferenciando entre la representacion y la gestion de eventos y comunicaciones.
 	 * 
-	 *Usando modelo (objetos), la vista y el controlador (servlets de control de eventos)
+	 *Usando modelo (objetos), la vista (pagina-interfaz usuario) y el controlador (servlets de control de eventos)
 	 *representa la informacion poruna parte y por otra define los objetos con los que trabaja
 	 *usando el control para procesarlo. Teoricamente esto se usa para aprovechar codigo y evitar redundancia de codigo
+	 *  
+	 *       Por ejemplo en este login lanzamos desde el navegador una peticion
+	 *       al servidor que llega al controlador -LoginServlet- que le pregunta
+	 *       al USuarioMySQLDAO si puede hacer el login, este recoge los datos de
+	 *       la vista y procesa los datos de la vista
+	 *       y luego nos devuelve desde el servidor la informacion.
+	 *       
 	 *       
 	 */
 	private static final long serialVersionUID = -8060185148338669345L;
