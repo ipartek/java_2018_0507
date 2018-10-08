@@ -1,4 +1,4 @@
-package com.ipartek.formacion.ejemplos.crud.accesodatos;
+package com.ipartek.formacion.examen.crud.accesodatos;
 
 import java.util.List;
 

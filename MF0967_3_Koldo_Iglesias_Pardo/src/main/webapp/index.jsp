@@ -11,7 +11,7 @@
 				<h3>Listado de perros</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
 				<p>
-					<a href="perros.jsp" class="btn btn-primary" role="button">Consultar</a>
+					<a href="select" class="btn btn-primary" role="button">Consultar</a>
 				</p>
 			</div>
 		</div>
@@ -23,7 +23,7 @@
 				<h3>Nuevas acogidas</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
 				<p>
-					<a href="alta.jsp" class="btn btn-primary" role="button">Procesar alta</a>
+					<a href="perros.jsp" class="btn btn-primary" role="button">Procesar alta</a>
 				</p>
 			</div>
 		</div>
