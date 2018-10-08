@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ include file="includes/cabecera.jsp"%>
+<%@ include file="/WEB-INF/Include/cabecera.jsp"%>
 
-<form action="usuarios" method="post" class="form-horizontal">
+<form action="edicion" method="post" class="form-horizontal">
 	<fieldset>
 		<legend>
 			<c:choose>
@@ -12,10 +12,10 @@
 				<c:when test="${accion=='delete'}">Borrado de usuario</c:when>
 			</c:choose>
 		</legend>
-		
+
 		<input type="hidden" name="id" value="${usuario.id}" />
 		<input type="hidden" name="accion" value="${accion}" />
-		
+
 		<div class="form-group">
 			<label for="email" class="col-sm-2 control-label">Email</label>
 			<div class="col-sm-10">
@@ -49,4 +49,5 @@
 	</fieldset>
 </form>
 
-<%@ include file="includes/pie.jsp"%>
+
+<%@ include file="/WEB-INF/Include/pie.jsp"%>
