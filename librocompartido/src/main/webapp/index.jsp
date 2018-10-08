@@ -1,15 +1,17 @@
 <%@ include file="/WEB-INF/includes/cabecera.jsp" %>
 
+
 <header>
+
 	<h1>Libro compartido</h1>
 </header>
 
 <main>
 	<c:if test="${sessionScope.usuario != null}">
-		<a href="edicion">Escribir página</a>
+		<a href="index" class="btn btn-primary">Escribir página</a>
 	</c:if>
-	<form action="index">
-		Ir a página <input type="number" name="pagina" />
+	<form action="edicion">
+		Ir a página <input type="number" name="pagina" /><a href="edicion?numPagina=3" class="btn btn-primary">Ir</a>
 	</form>
 	
 	<%@ include file="/WEB-INF/includes/paginacion.jsp" %>

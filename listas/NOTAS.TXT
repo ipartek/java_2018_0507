@@ -1,0 +1,3 @@
+Aumentado el valor del campo en la bd a 255.
+
+CAmbiado en el edicion.jsp el textarea maxlength="254"

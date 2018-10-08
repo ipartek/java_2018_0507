@@ -3,6 +3,13 @@
 
 <%@ include file="includes/cabecera.jsp"%>
 
+<form action="videos" method="post" class="form-horizontal">
+
+				<button type="submit" class="btn btn-primary">
+					Videos
+				</button>
+			
+</form>
 <form action="usuarios" method="post" class="form-horizontal">
 	<fieldset>
 		<legend>

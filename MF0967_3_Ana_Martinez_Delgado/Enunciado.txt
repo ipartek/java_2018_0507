@@ -1,0 +1,22 @@
+MF0967_3 - Creación y gestión de repositorios de contenidos
+PREGUNTA ABIERTA
+
+Describe con tus palabras ( no vale copiar y pegar de internet ) como funciona el patrón Modelo Vista Controlador. Además de explicar el funcionamiento con un ejemplo de un proceso de petición( request ) y respuesta ( response ) en una App Web.
+
+ENUNCIADO PRACTICO
+
+Crear un CMS para gestionar una ONG de apadrinamiento de perros. La ONG TXAKUR-ETXE necesita una pagina web donde los posibles padrin@s de los perros vean sus características, esta pagina web debe ser publica y adaptada para móviles. Ademas se debe poder entrar con un usuario [scobby,galletas] para poder dar de alta nuevos perros.
+
+Un perro debe contener las siguientes características:  nombre, edad, raza (en caso de no saber 'milrazas'), peso (kg), si esta apadrinado o no. Ademas todos tiene un chip con numero de identificación con el siguiente formato DD-DDDD-AAAA ( D: numero del 0 al 9, AAAA año del chip ), en el chip también se guarda la ultima localización del perro ( latitud y longitud ).
+
+PUNTUACIÓN
+
+ . Creación de Objetos necesarios en Java (POJO)   1 puntos  ( UF2216 )
+
+· Maquetación Pagina Web                                        4 puntos  ( UF2217 )
+
+· Funcionamiento correcto del CMS                           4 puntos  ( UF2218 )
+
+· EXTRA: Buscador de perros por nombre y nº chip  1 puntos  ( UF2218 )
+
+Última modificación: lunes, 8 de octubre de 2018, 08:40

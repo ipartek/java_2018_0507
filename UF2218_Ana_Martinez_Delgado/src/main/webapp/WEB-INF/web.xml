@@ -1,27 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
-  <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-  	<servlet-name>LogoutServlet</servlet-name>
-  	<servlet-class>servlets.LogoutServlet</servlet-class>
-  </servlet>
-  
-  <servlet>
-  	<servlet-name>AniadirPag</servlet-name>
-  	<servlet-class>servlets.AniadirPag</servlet-class>
-  </servlet> 
-  <servlet>
-  	<servlet-name>VerPaginas</servlet-name>
-  	<servlet-class>servlets.VerPaginas</servlet-class>
-  </servlet>
- 
-  <servlet-mapping>
-  	<servlet-name>LogoutServlet</servlet-name>
-  	<url-pattern>/LogoutServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>VerPaginas</servlet-name>
-  	<url-pattern>/verpaginas</url-pattern>
-  </servlet-mapping>
- 
+  <welcome-file-list>
+    <welcome-file>login</welcome-file>
+  </welcome-file-list>
 </web-app>

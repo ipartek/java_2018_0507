@@ -1,53 +1,36 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-  <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-  
+<%@ include file="/WEB-INF/includes/cabecera.jsp" %>
 
 
-<html>
-<head>
-  <link rel="stylesheet" type="text/css" href="css/estilos.css">
- </head>
-<body>
-<center>
+<header>
 
+	<h1>Libro compartido</h1>
+</header>
 
-<div id="menu">
-
-	<form action="loginServlet" method="post">
-			<label for="usuario">Usuario</label>
-			<input type="usuario" name="user" id="user"/>
-			<label for="pass">Contrase√±a</label>
-			<input type="password" name="pass" id="pass" />
-			<button>Login</button>
-	</form>
-	<form action="cerrarSession" method="post">
-			<button>Logout</button>
+<main>
+	<c:if test="${sessionScope.usuario != null}">
+		<a href="index" class="btn btn-primary">Escribir p·gina</a>
+	</c:if>
+	<form action="edicion">
+		Ir a p·gina <input type="number" name="pagina" /><a href="edicion?numPagina=3" class="btn btn-primary">Ir</a>
 	</form>
 	
+	<%@ include file="/WEB-INF/includes/paginacion.jsp" %>
+	
+	<p>P·gina ${pagina.numero} / ${numeroPaginas}</p>
+	<p>${pagina.contenido}</p>
+	<p>${pagina.autor}</p>
+	
+	<%@ include file="/WEB-INF/includes/paginacion.jsp" %>
+	
+	<form action="buscarPalabra" method="post">
+		Buscar palabra <input type="search" name="palabra" />
+	</form>
+	
+	<ul>
+	<c:forEach items="${resultadosBusqueda}" var="paginaResultado">
+		<li><a href="index?pagina=${paginaResultado}">${paginaResultado}</a>
+	</c:forEach>
+	</ul>
+</main>
 
-	<a href="cerrarSession">Cerrar Session</a>
-	<a href="verPaginas">VerPaginas</a>
-	<br><br>Hola <%=request.getSession().getAttribute("user") %>
-</div>
-
-<div id="contenido">
-
-	<a href="">Anterior</a> - <a href="">Siguiente</a><br><br><br>
-	<div id="libro">
-		<div id="pagina" style="width:500px;height=500px">
-				<form action="aniadirPag" method="post">
-					Autor : <input type="text" name="autor"><br><br><br>
-					<textarea name="escritonuevo" width="400px" height="400px"></textarea>
-					<br><button>Enviar</button>
-			</form>
-		</div>
-	</div>
-</div>
-
-</center>
-
-</body>
-<footer>Libros compartidos</footer>
-
-</html>
+<%@ include file="/WEB-INF/includes/pie.jsp" %>
