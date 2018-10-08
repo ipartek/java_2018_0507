@@ -20,10 +20,9 @@ public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		ArrayList<Perro> perros = (ArrayList<Perro>) PerroMySqlDAO.getInstance().getAll();
 		request.setAttribute("perros", perros);
-		
+
 		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 	}
 

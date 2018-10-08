@@ -3,14 +3,16 @@ package com.ipartek.formacion.mf0967_3_mikel_gil_arrondo.modelos;
 public class Perro {
 
 	private long id;
-	private String nombre;
-	private int edad;
-	private String raza;
-	private int peso;
-	private int apadrinado;  // 1 = si, 0 = no
+	private String nombre = "";
+	private int edad = 0;
+	private String raza = "";
+	private int peso = 0;
+	private int apadrinado = 0;  // 1 = si, 0 = no
+	private Chip chip;
 	
 	private String errorNombre = "";
 	private String errorEdad = "";
+	private String errorRaza = "";
 	private String errorPeso = "";
 	
 	private boolean correcto = true;
@@ -18,15 +20,24 @@ public class Perro {
 	public Perro() {
 	}
 	
-	public Perro(long id, String nombre, int edad, String raza, int peso, int apadrinado, String chip, String latitud,
-			String longitud) {
+	public Perro(long id, String nombre, int edad, String raza, int peso, int apadrinado, Chip chip) {
 		this.id = id;
 		setNombre(nombre);
 		setEdad(edad);
 		setRaza(raza);
 		setPeso(peso);
 		setApadrinado(apadrinado);
-		new Chip(chip, latitud, longitud);
+		setChip(chip);
+	}
+	
+
+	public Perro(String nombre, int edad, String raza, int peso, int apadrinado, Chip chip) {
+		setNombre(nombre);
+		setEdad(edad);
+		setRaza(raza);
+		setPeso(peso);
+		setApadrinado(apadrinado);
+		setChip(chip);
 	}
 
 	public long getId() {
@@ -101,11 +112,28 @@ public class Perro {
 		this.errorPeso = errorPeso;
 	}
 	
+	public String getErrorRaza() {
+		return errorRaza;
+	}
+
+	public void setErrorRaza(String errorRaza) {
+		this.errorRaza = errorRaza;
+	}
+
 	public boolean isCorrecto() {
 		return correcto;
 	}
 
 	public void setCorrecto(boolean correcto) {
 		this.correcto = correcto;
+	}
+
+	
+	public Chip getChip() {
+		return chip;
+	}
+
+	public void setChip(Chip chip) {
+		this.chip = chip;
 	}
 }

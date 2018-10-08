@@ -6,6 +6,8 @@ public class Chip{
 	private String longitud;
 	
 	private String errorChip = "";
+	private String errorLatitud = "";
+	private String errorLongitud = "";
 	
 	public Chip() {
 	}
@@ -52,6 +54,22 @@ public class Chip{
 
 	public void setErrorChip(String errorChip) {
 		this.errorChip = errorChip;
+	}
+
+	public String getErrorLatitud() {
+		return errorLatitud;
+	}
+
+	public void setErrorLatitud(String errorLatitud) {
+		this.errorLatitud = errorLatitud;
+	}
+
+	public String getErrorLongitud() {
+		return errorLongitud;
+	}
+
+	public void setErrorLongitud(String errorLongitud) {
+		this.errorLongitud = errorLongitud;
 	}
 
 	@Override

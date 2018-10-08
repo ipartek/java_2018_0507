@@ -21,7 +21,7 @@
 					<label for="nombre" class="col-sm-2 control-label">Nombre</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="nombre"
-							name="nombre" placeholder="Nombre" value="${perro.nombre}"
+							name="nombre" placeholder="Nombre" value="${perro.nombre}" required
 							<c:if test="${accion == 'borrar'}">disabled="disabled"</c:if>>
 					</div>
 				</div>
@@ -29,7 +29,7 @@
 					<label for="edad" class="col-sm-2 control-label">Edad</label>
 					<div class="col-sm-10">
 						<input type="number" class="form-control" id="edad"
-							name="edad" placeholder="Edad" value="${perro.edad}"
+							name="edad" placeholder="Edad" value="${perro.edad}" required
 							<c:if test="${accion == 'borrar'}">disabled="disabled"</c:if>>
 					</div>
 				</div>
@@ -37,7 +37,7 @@
 					<label for="raza" class="col-sm-2 control-label">Raza</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="raza"
-							name="raza" placeholder="Raza" value="${perro.raza}"
+							name="raza" placeholder="Raza" value="${perro.raza}" required
 							<c:if test="${accion == 'borrar'}">disabled="disabled"</c:if>>
 					</div>
 				</div>
@@ -45,23 +45,39 @@
 					<label for="peso" class="col-sm-2 control-label">Peso</label>
 					<div class="col-sm-10">
 						<input type="number" class="form-control" id="peso"
-							name="peso" placeholder="Peso" value="${perro.peso}"
+							name="peso" placeholder="Peso" value="${perro.peso}" required
 							<c:if test="${accion == 'borrar'}">disabled="disabled"</c:if>>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="apadrinado" class="col-sm-2 control-label">Apadrinado</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="apadrinado"
-							name="apadrinado" placeholder="Apadrinado" value="${perro.apadrinado}"
+						<select class="form-control" name='apadrinado' 
 							<c:if test="${accion == 'borrar'}">disabled="disabled"</c:if>>
+							<c:choose>
+								<c:when test="${perro.apadrinado == 0 }">
+									<option value="0" selected>NO apadrinado</option>
+								</c:when>
+								<c:otherwise>
+									<option value="0">NO apadrinado</option>
+								</c:otherwise>
+							</c:choose>
+							<c:choose>
+								<c:when test="${perro.apadrinado == 1 }">
+									<option value="1" selected>Apadrinado</option>
+								</c:when>
+								<c:otherwise>
+									<option value="1">Apadrinado</option>
+								</c:otherwise>
+							</c:choose>
+						</select>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="chip" class="col-sm-2 control-label">Chip</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="chip"
-							name="chip" placeholder="Chip" value="${chip.chip}"
+						<input type="text" class="form-control" id="chip" pattern="[0-9]{2}-[0-9]{4}-[0-9]{4}"
+							name="chip" placeholder="Chip" value="${perro.getChip().getChip()}" required
 							<c:if test="${accion == 'borrar'}">disabled="disabled"</c:if>>
 					</div>
 				</div>
@@ -69,7 +85,7 @@
 					<label for="latitud" class="col-sm-2 control-label">Latitud</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="latitud"
-							name="latitud" placeholder="Latitud" value="${chip.latitud}"
+							name="latitud" placeholder="Latitud" value="${perro.getChip().getLatitud()}" required
 							<c:if test="${accion == 'borrar'}">disabled="disabled"</c:if>>
 					</div>
 				</div>
@@ -77,7 +93,7 @@
 					<label for="longitud" class="col-sm-2 control-label">Longitud</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="longitud"
-							name="longitud" placeholder="Longitud" value="${chip.longitud}"
+							name="longitud" placeholder="Longitud" value="${perro.getChip().getLongitud()}" required
 							<c:if test="${accion == 'borrar'}">disabled="disabled"</c:if>>
 					</div>
 				</div>
