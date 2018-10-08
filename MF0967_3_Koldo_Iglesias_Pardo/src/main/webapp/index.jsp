@@ -35,7 +35,7 @@
 				<h3>Usuarios registrados</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
 				<p>
-					<a href="login.jsp" class="btn btn-primary" role="button">Iniciar sesión</a>
+					<a href="#" class="btn btn-primary" role="button">Iniciar sesión</a>
 				</p>
 			</div>
 		</div>

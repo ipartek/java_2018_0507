@@ -51,11 +51,11 @@
  <div class="form-group">
     <label for="latitud" class="col-sm-2 control-label">Latitud*</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control" min="100000" max="999999" name="latitud" id="latitud" placeholder="454567547489498" required="required">
+      <input type="number" class="form-control" min="100000" max="999999" name="latitud" id="latitud" placeholder="454565" required="required">
     </div>
      <label for="longitud" class="col-sm-2 control-label">Longitud*</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control"  min="100000" max="999999" name="longitud" id="longitud" placeholder="4757456105" required="required">
+      <input type="number" class="form-control"  min="100000" max="999999" name="longitud" id="longitud" placeholder="875136" required="required">
     </div>
   </div>
 
@@ -64,6 +64,7 @@
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-default">Continuar</button>
+      <a href="select" alt="Volver al listado" class="btn btn-danger">Cancelar</a>
     </div>
   </div>
 </form>
