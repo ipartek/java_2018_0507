@@ -1,7 +1,6 @@
 package com.ipartek.formacion.mf0967_3_mikel_gil_arrondo.controladores;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
