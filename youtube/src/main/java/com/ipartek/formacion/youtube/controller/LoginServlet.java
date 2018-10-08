@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
 		} else {
 			//TODO: Errores
 			request.getRequestDispatcher("login.jsp").forward(request, response);
-}
+		}
 			
 	}
 	public static boolean validarUsuario(Usuario usuario) {
