@@ -29,7 +29,7 @@
 				<input type="email" class="form-control" id="email" name="email"
 					placeholder="Email" value="${usuario.email}"
 					<c:if test="${accion=='delete'}">disabled="disabled"</c:if>>
-				<span class="text-danger">Error en el email</span>
+				<span class="text-danger">${usuario.errorEmail}</span>
 			</div>
 		</div>
 		<div class="form-group">
@@ -38,7 +38,7 @@
 				<input type="password" class="form-control" id="password"
 					name="password" placeholder="Password" value="${usuario.password}"
 					<c:if test="${accion=='delete'}">disabled="disabled"</c:if>>
-				<span class="text-danger">Error en la password</span>
+				<span class="text-danger">${usuario.errorPassword}</span>
 			</div>
 		</div>
 		<div class="form-group">

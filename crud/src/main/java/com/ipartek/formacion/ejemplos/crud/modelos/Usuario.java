@@ -3,11 +3,14 @@ package com.ipartek.formacion.ejemplos.crud.modelos;
 public class Usuario {
 	private Long id = -1L;
 	private String email = "", password = "";
+	private String errorEmail = "", errorPassword = "";
+	private boolean correcto = true;
+	
 	public Usuario(long id, String email, String password) {
 		super();
 		this.id = id;
-		this.email = email;
-		this.password = password;
+		setEmail(email);
+		setPassword(password);
 	}
 	public Usuario(String email, String password) {
 		this(-1L, email, password);
@@ -22,13 +25,50 @@ public class Usuario {
 		return email;
 	}
 	public void setEmail(String email) {
+		if(email == null) {
+			setErrorEmail("Email nulo");
+			setCorrecto(false);
+			return;
+		}
+		
+		if(!email.matches("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]+)$")) {
+			setErrorEmail("No coincide con el formato de email");
+			setCorrecto(false);
+			return;
+		}
+		
 		this.email = email;
 	}
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
+		if(password == null) {
+			setErrorPassword("No se admite un password nulo");
+			setCorrecto(false);
+			return;
+		}
+		
+		if(password.trim().length() < 8) {
+			setErrorPassword("No se admite un password menor de 8 caracteres");
+			setCorrecto(false);
+			return;
+		}
+		
 		this.password = password;
+	}
+	
+	public String getErrorEmail() {
+		return errorEmail;
+	}
+	public void setErrorEmail(String errorEmail) {
+		this.errorEmail = errorEmail;
+	}
+	public String getErrorPassword() {
+		return errorPassword;
+	}
+	public void setErrorPassword(String errorPassword) {
+		this.errorPassword = errorPassword;
 	}
 	@Override
 	public int hashCode() {
@@ -65,6 +105,12 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", email=" + email + ", password=" + password + "]";
+	}
+	public boolean isCorrecto() {
+		return correcto;
+	}
+	private void setCorrecto(boolean correcto) {
+		this.correcto = correcto;
 	}
 	
 	
