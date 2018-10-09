@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
 		}
 		
 		request.getSession().setAttribute("usuario", usuario);
-		request.getRequestDispatcher("/WEB-INF/admin/").forward(request, response);
+		response.sendRedirect("admin/");
 	}
 
 }

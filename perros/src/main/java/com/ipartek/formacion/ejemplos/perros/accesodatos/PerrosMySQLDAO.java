@@ -65,8 +65,39 @@ public class PerrosMySQLDAO implements CrudAble<Perro> {
 	}
 
 	@Override
-	public int insert(Perro tipo) {
-		throw new AccesoDatosException("NO IMPLEMENTADO");
+	public int insert(Perro perro) {
+		int numFilas;
+		
+		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+
+			String sql = "INSERT INTO perros "
+					+ "(nombre, edad, peso, raza, apadrinado, chip_identificacion, chip_latitud, chip_longitud) VALUES "
+					+ "(?, ?, ?, ?, ?, ?, ?, ?)";
+
+			try (PreparedStatement pst = conn.prepareStatement(sql)) {
+				pst.setString(1, perro.getNombre());
+				pst.setInt(2, perro.getEdad());
+				pst.setDouble(3, perro.getPeso());
+				pst.setString(4, perro.getRaza());
+				pst.setBoolean(5, perro.isApadrinado());
+				pst.setString(6, perro.getChip().getIdentificacion());
+				pst.setBigDecimal(7, perro.getChip().getLatitud());
+				pst.setBigDecimal(8, perro.getChip().getLongitud());
+				
+				numFilas = pst.executeUpdate();
+				
+				if(numFilas != 1) {
+					throw new AccesoDatosException("Se ha cambiado menos o más de una fila");
+				}
+			} catch (Exception e) {
+				throw new AccesoDatosException("Error en la sentencia", e);
+			} 
+			
+		} catch (Exception e) {
+			throw new AccesoDatosException("Error en la sentencia", e);
+		}
+		
+		return numFilas;
 	}
 
 	@Override
