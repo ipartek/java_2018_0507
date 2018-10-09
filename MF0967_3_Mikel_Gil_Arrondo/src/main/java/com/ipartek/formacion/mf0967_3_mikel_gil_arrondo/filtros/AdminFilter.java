@@ -28,7 +28,7 @@ public class AdminFilter implements Filter {
 		Usuario usuario = (Usuario)((HttpServletRequest)request).getSession().getAttribute("user");
 		
 		if (usuario == null || !"scobby".equals(usuario.getNombre())){
-			((HttpServletResponse)response).sendRedirect("/");
+			((HttpServletResponse)response).sendRedirect(((HttpServletRequest) request).getContextPath() + "/");
 			return;
 		}
 		
