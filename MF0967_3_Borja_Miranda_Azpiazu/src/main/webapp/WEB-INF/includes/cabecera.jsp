@@ -20,7 +20,7 @@
 
 <style>
 	#jumb{
-	body-background:red;
+	body-img
 	padding: 0;
 	    margin: 0;
 	}
