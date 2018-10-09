@@ -7,8 +7,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ipartek.formacion.ejemplos.perros.controladores.Chip;
-import com.ipartek.formacion.ejemplos.perros.controladores.Perro;
+import com.ipartek.formacion.ejemplos.perros.modelos.Chip;
+import com.ipartek.formacion.ejemplos.perros.modelos.Perro;
 
 public class PerrosMySQLDAO implements CrudAble<Perro> {
 	private static final String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false&characterEncoding=UTF-8";
@@ -66,8 +66,17 @@ public class PerrosMySQLDAO implements CrudAble<Perro> {
 
 	@Override
 	public int insert(Perro tipo) {
-		// TODO Auto-generated method stub
-		return 0;
+		throw new AccesoDatosException("NO IMPLEMENTADO");
+	}
+
+	@Override
+	public int update(Perro tipo) {
+		throw new AccesoDatosException("NO IMPLEMENTADO");
+	}
+
+	@Override
+	public int delete(Long id) {
+		throw new AccesoDatosException("NO IMPLEMENTADO");
 	}
 	
 	

@@ -1,4 +1,4 @@
-package com.ipartek.formacion.ejemplos.perros.controladores;
+package com.ipartek.formacion.ejemplos.perros.modelos;
 
 public class Perro {
 	private Long id = -1L;

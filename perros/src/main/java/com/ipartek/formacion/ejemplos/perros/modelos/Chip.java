@@ -1,4 +1,4 @@
-package com.ipartek.formacion.ejemplos.perros.controladores;
+package com.ipartek.formacion.ejemplos.perros.modelos;
 
 import java.math.BigDecimal;
 
