@@ -1,13 +1,20 @@
 package com.ipartek.formacion.ejemplos.perros.modelos;
 
 public class Perro {
+	private static final String RAZA_POR_DEFECTO = "milrazas";
+
 	private Long id = -1L;
 	
 	private String nombre = "Desconocido";
 	private Integer edad = 0;
-	private String raza = "milrazas";
+	private String raza = RAZA_POR_DEFECTO;
 	private Double peso = 0.0;
 	private boolean apadrinado = false;
+	
+	private String errorEdad = "";
+	private String errorPeso = "";
+	
+	private boolean correcto = true;
 	
 	private Chip chip = null;
 
@@ -22,6 +29,34 @@ public class Perro {
 		this.apadrinado = apadrinado;
 	}
 
+	public Perro(String nombre, Integer edad, String raza, Double peso, Chip chip, boolean apadrinado) {
+		this(-1L, nombre, edad, raza, peso, chip, apadrinado);	
+	}
+	
+	public Perro(String nombre, String edad, String raza, String peso, Chip chip, String apadrinado) {
+		setNombre(nombre);
+		setRaza(raza);
+		
+		if(!chip.isCorrecto()) {
+			correcto = false;
+		}
+		setChip(chip);
+		
+		try {
+			setEdad(Integer.parseInt(edad));
+		} catch(Exception e) {
+			setErrorEdad("La edad no es un número");
+		}
+		
+		try {
+			setPeso(Double.parseDouble(peso));
+		} catch(Exception e) {
+			setErrorEdad("El peso no es un número");
+		}
+		
+		setApadrinado(apadrinado != null);
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -35,7 +70,7 @@ public class Perro {
 	}
 
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		this.nombre = nombre.trim();
 	}
 
 	public Integer getEdad() {
@@ -51,7 +86,11 @@ public class Perro {
 	}
 
 	public void setRaza(String raza) {
-		this.raza = raza;
+		if(raza == null || raza.trim().length() == 0) {
+			raza = RAZA_POR_DEFECTO;
+		}
+		
+		this.raza = raza.trim();
 	}
 
 	public Double getPeso() {
@@ -70,6 +109,25 @@ public class Perro {
 		this.chip = chip;
 	}
 
+	public String getErrorEdad() {
+		return errorEdad;
+	}
+
+	public void setErrorEdad(String errorEdad) {
+		correcto = false;
+		this.errorEdad = errorEdad;
+	}
+
+	public String getErrorPeso() {
+		return errorPeso;
+	}
+
+	public void setErrorPeso(String errorPeso) {
+		correcto = false;
+		this.errorPeso = errorPeso;
+	}
+
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -137,6 +195,14 @@ public class Perro {
 
 	public void setApadrinado(boolean apadrinado) {
 		this.apadrinado = apadrinado;
+	}
+
+	public boolean isCorrecto() {
+		return correcto;
+	}
+
+	public void setCorrecto(boolean correcto) {
+		this.correcto = correcto;
 	}
 	
 	

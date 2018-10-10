@@ -9,7 +9,11 @@ public class Chip {
 	private BigDecimal latitud = new BigDecimal("0.0");
 	private BigDecimal longitud = new BigDecimal("0.0");
 	private String errorIdentificacion = "";
-
+	private String errorLatitud = "";
+	private String errorLongitud = "";
+	
+	private boolean correcto = true;
+	
 	public Chip(Long id, String identificacion, BigDecimal latitud, BigDecimal longitud) {
 		setId(id);
 		setIdentificacion(identificacion);
@@ -17,6 +21,27 @@ public class Chip {
 		setLongitud(longitud);
 	}
 
+	public Chip(String identificacion, BigDecimal latitud, BigDecimal longitud) {
+		this(-1L, identificacion, latitud, longitud);
+	}
+	
+	public Chip(String identificacion, String latitud, String longitud) {
+		setIdentificacion(identificacion);
+		
+		try {
+			setLatitud(new BigDecimal(latitud));
+		} catch (Exception e) {
+			setErrorLatitud("El dato '" + latitud + "' no es numérico");
+		}
+		
+		try {
+			setLongitud(new BigDecimal(longitud));
+		} catch (Exception e) {
+			setErrorLatitud("El dato '" + longitud + "' no es numérico");
+		}
+		
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -59,8 +84,28 @@ public class Chip {
 	}
 
 	public void setErrorIdentificacion(String errorIdentificacion) {
+		correcto = false;
 		this.errorIdentificacion = errorIdentificacion;
 	}
+	
+	public String getErrorLatitud() {
+		return errorLatitud;
+	}
+
+	public void setErrorLatitud(String errorLatitud) {
+		correcto = false;
+		this.errorLatitud = errorLatitud;
+	}
+
+	public String getErrorLongitud() {
+		return errorLongitud;
+	}
+
+	public void setErrorLongitud(String errorLongitud) {
+		correcto = false;
+		this.errorLongitud = errorLongitud;
+	}
+
 	
 	@Override
 	public int hashCode() {
@@ -109,6 +154,14 @@ public class Chip {
 	public String toString() {
 		return "Chip [id=" + id + ", identificacion=" + identificacion + ", latitud=" + latitud + ", longitud="
 				+ longitud + "]";
+	}
+
+	public boolean isCorrecto() {
+		return correcto;
+	}
+
+	public void setCorrecto(boolean correcto) {
+		this.correcto = correcto;
 	}
 	
 	
