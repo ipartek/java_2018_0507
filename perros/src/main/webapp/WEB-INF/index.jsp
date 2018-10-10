@@ -25,7 +25,10 @@
 					<div class="chip">
 						<p>Datos del chip</p>
 						<p>${perro.chip.identificacion}</p>
-						<p>${perro.chip.latitud}, ${perro.chip.longitud}</p>
+						<p>
+							<fmt:formatNumber pattern="##0.00000" value="${perro.chip.latitud}"/>, 
+							<fmt:formatNumber pattern="##0.00000" value="${perro.chip.longitud}"/>
+						</p>
 					</div>
 				</div>
 			</div>

@@ -12,8 +12,8 @@ import com.ipartek.formacion.ejemplos.perros.modelos.Perro;
 
 public class PerrosMySQLDAO implements CrudAble<Perro> {
 	private static final String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false&characterEncoding=UTF-8";
-	private static final String usuario = "root";
-	private static final String password = "admin";
+	private static final String usuario = "perros";
+	private static final String password = "perros";
 	
 	//SINGLETON
 	private PerrosMySQLDAO() {}

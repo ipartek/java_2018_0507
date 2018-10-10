@@ -1,11 +1,13 @@
 package com.ipartek.formacion.ejemplos.perros.modelos;
 
 public class Perro {
+	private static final String RAZA_POR_DEFECTO = "milrazas";
+
 	private Long id = -1L;
 	
 	private String nombre = "Desconocido";
 	private Integer edad = 0;
-	private String raza = "milrazas";
+	private String raza = RAZA_POR_DEFECTO;
 	private Double peso = 0.0;
 	private boolean apadrinado = false;
 	
@@ -68,7 +70,7 @@ public class Perro {
 	}
 
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		this.nombre = nombre.trim();
 	}
 
 	public Integer getEdad() {
@@ -84,7 +86,11 @@ public class Perro {
 	}
 
 	public void setRaza(String raza) {
-		this.raza = raza;
+		if(raza == null || raza.trim().length() == 0) {
+			raza = RAZA_POR_DEFECTO;
+		}
+		
+		this.raza = raza.trim();
 	}
 
 	public Double getPeso() {
