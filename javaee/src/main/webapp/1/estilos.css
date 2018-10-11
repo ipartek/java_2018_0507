@@ -1,0 +1,33 @@
+body{
+    font-family: sans-serif;
+}
+label{
+    width:6em;
+    display:inline-block;
+}
+input, button{
+    border:1px solid black;
+}
+button{
+    padding: 5px 10px;
+}
+.errorCuadro{
+     border:2px solid red;
+}
+.errorTexto, .errorCuadro{
+    color:darkred;
+}
+/* # --->Representa el atributo id de la etiqueta*/
+#mensaje{
+    font-variant: small-caps;
+}
+
+/* . -->representa al class(atributo de html)*/
+.destacado{
+    font-weight: bold;
+    color:fuchsia;
+}
+
+input[name=nombre]{
+    font-style: italic;
+}

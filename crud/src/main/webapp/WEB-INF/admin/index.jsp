@@ -12,7 +12,7 @@
 	${mensaje}
 </div>
 </c:if>
-
+<a class="btn btn-primary" href="videos">Añadir Video</a>
 <table class="table">
 	<thead>
 		<tr>

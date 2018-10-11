@@ -1,0 +1,6 @@
+CREATE TABLE `paginas` (
+  `numero` int(11) NOT NULL,
+  `autor` varchar(255) DEFAULT NULL,
+  `contenido` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`numero`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

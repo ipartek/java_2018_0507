@@ -12,6 +12,7 @@
 
 		<div class="col-sm-6 col-md-4 col-lg-3">
 			<div class="thumbnail">
+			
 				<img
 					src="imagenesperros/${perro.id}.jpg"
 					alt="Foto del perro">

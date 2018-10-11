@@ -1,0 +1,12 @@
+PREGUNTA ABIERTA
+
+Describe con tus palabras ( no vale copiar y pegar de internet ) como funciona el patrón Modelo 
+Vista Controlador. Además de explicar el funcionamiento con un ejemplo de un proceso de petición( request ) y
+ respuesta ( response ) en una App Web.
+ 
+ 
+ 
+ 
+ El usuario/Navegador hace una acción en la pagina(pinchar boton por ejemplo o simplemente cargar) y 
+ eso se traduce en peticion request que llega al controlador.  En el controlador(que es el java) 
+ hace sus procesos y envia la response para mostrar al usuario el resultado de la accion.

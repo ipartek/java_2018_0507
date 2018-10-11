@@ -44,12 +44,23 @@
 			<version>${javax.servlet.jstl.version}</version>
 		</dependency>
 
+<<<<<<< HEAD
+		<!-- libreria MySQL -->
+		
+=======
+>>>>>>> refs/remotes/origin/master
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
+<<<<<<< HEAD
+			<version>8.0.12</version>
+=======
 			<version>${mysql.connector.version}</version>
+>>>>>>> refs/remotes/origin/master
 		</dependency>
+
+
 
 		<dependency>
 			<groupId>org.jsoup</groupId>

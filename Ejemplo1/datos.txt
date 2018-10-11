@@ -1,0 +1,56 @@
+Marca: qwe  Memoria: 456  Pulgadas: 123.0  RAM: 123.0
+Marca: qa  Memoria: 123  Pulgadas: 123.0  RAM: 12.0Marca: tr  Memoria: 100  Pulgadas: 5.0  RAM: 4.0Marca: sw  Memoria: 123  Pulgadas: 123.0  RAM: 123.0
+Marca: 1  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Marca: 1  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Androidfalse Marca: a  Memoria: 4  Pulgadas: 3.0  RAM: 2.0
+Android: false Marca: as  Memoria: 12  Pulgadas: 34.0  RAM: 12.0
+Android: true Marca: er  Memoria: 987  Pulgadas: 12.0  RAM: 12.0
+Android: true Marca: as  Memoria: 123  Pulgadas: 123.0  RAM: 123.0
+Android: true Marca: q  Memoria: 4  Pulgadas: 3.0  RAM: 2.0
+Android: true Marca: 123  Memoria: 2  Pulgadas: 1.0  RAM: 234.0
+Android: true Marca: q  Memoria: 12  Pulgadas: 123.0  RAM: 23.0
+Android: true Marca: q  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Android: true Marca: q  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Android: true Marca: a  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Android: true Marca: q  Memoria: 3  Pulgadas: 2.0  RAM: 1.0
+Android: true Marca: 1  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Android: true Marca: q  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Android: true Marca: 1  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Android: true Marca: q  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Android: true Marca: 1  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Android: true Marca: q  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Android: true Marca: 1  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Android: true Marca: 5  Memoria: 5  Pulgadas: 5.0  RAM: 5.0
+Android: true Marca: q  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Android: true Marca: s  Memoria: 11  Pulgadas: 1.0  RAM: 1.0
+Android: true Marca: a  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Android: true Marca: a  Memoria: 2  Pulgadas: 2.0  RAM: 2.0
+Android: true Marca: q  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Android: true Marca: a  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Android: true Marca: 1  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Android: true Marca: a  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Android: true Marca: a  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Android: true Marca: q  Memoria: 3  Pulgadas: 2.0  RAM: 1.0
+Android: true Marca: 2  Memoria: 1  Pulgadas: 1.0  RAM: 3.0
+Android: true Marca: 1  Memoria: 4  Pulgadas: 3.0  RAM: 2.0
+Android: true Marca: 1  Memoria: 4  Pulgadas: 3.0  RAM: 2.0
+Android: true Marca: q  Memoria: 3  Pulgadas: 2.0  RAM: 1.0
+Android: true Marca: 9  Memoria: 6  Pulgadas: 7.0  RAM: 8.0
+Android: true Marca: 1  Memoria: 4  Pulgadas: 3.0  RAM: 2.0
+Android: true Marca: 9  Memoria: 6  Pulgadas: 7.0  RAM: 8.0
+Android: true Marca: 1  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Android: true Marca: 5  Memoria: 5  Pulgadas: 5.0  RAM: 5.0
+Android: true Marca: 1  Memoria: 1  Pulgadas: 1.0  RAM: 1.0
+Android: false Marca: 8  Memoria: 8  Pulgadas: 8.0  RAM: 8.0
+Android: true Marca: 1  Memoria: 4  Pulgadas: 3.0  RAM: 2.0
+Android: true Marca: 1  Memoria: 4  Pulgadas: 3.0  RAM: 2.0
+Android: false Marca: 9  Memoria: 6  Pulgadas: 7.0  RAM: 8.0
+Android: true Marca: s  Memoria: 3  Pulgadas: 2.0  RAM: 1.0
+Android: true Marca: 1  Memoria: 4  Pulgadas: 3.0  RAM: 2.0
+Android: true Marca: 1  Memoria: 4  Pulgadas: 3.0  RAM: 2.0
+Android: true Marca: 3  Memoria: 5  Pulgadas: 5.0  RAM: 4.0
+Android: true Marca: 1  Memoria: 4  Pulgadas: 3.0  RAM: 2.0
+Android: true Marca: r  Memoria: 6  Pulgadas: 5.0  RAM: 4.0
+Android: true Marca: 1  Memoria: 4  Pulgadas: 3.0  RAM: 2.0
+Android: true Marca: 1  Memoria: 4  Pulgadas: 3.0  RAM: 2.0
+Android: true Marca: 1  Memoria: 4  Pulgadas: 3.0  RAM: 2.0

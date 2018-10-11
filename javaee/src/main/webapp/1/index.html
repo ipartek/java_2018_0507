@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+    <link rel=stylesheet href="estilos.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="index.js"></script>
+<body>
+<h1>Login</h1>
+<p id="mensaje">Introduce tus <span class="destacado">credenciales</span> para <span class="destacado"> iniciar sesión</span></p>
+    
+    <form action="http://www.google.es" method="post">
+    
+        <fieldset>
+            <legend>Login</legend>
+            <p>
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre"/>
+                 <!-- con el required te sale error si no rellenas input type="text" name="nombre" id="nombre" required/-->
+            </p>
+             <p>
+
+                <label for="password">Pasword</label>
+                <input type="text" name="password" id="password"/>
+            </p>
+            <button>Login</button>
+
+<i class="fas fa-shopping-cart"></i>
+        </fieldset>
+    
+    </form>
+</body>
