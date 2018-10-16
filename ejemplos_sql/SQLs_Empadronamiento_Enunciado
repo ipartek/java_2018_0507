@@ -1,0 +1,25 @@
+Ejercicio Empadronamiento
+Necesitamos una base de datos para poder llevar el empadronamiento de las personas dentro de municipios.
+
+Cada persona sólo puede habitar en una vivienda y estar empadronada en un municipio, pero puede ser propietaria de varias viviendas.
+
+
+
+Necesitamos saber el DNI de cada persona, nombre y apellidos de la misma.
+
+De la vivienda necesitaremos que tenga un código asociado a la misma y los datos de calle y número.
+
+Los municipios tendrán un código asociado que podrá elegirse a voluntad y el nombre del municipio.
+
+
+Queremos poder consultar las direcciones y números de las viviendas propiedad de una persona según su DNI.
+
+Necesitamos los nombres y apellidos de los propietarios de un municipio determinado.
+
+Queremos poder preguntar quién está empadronado en una vivienda según su dirección y número.
+
+Queremos saber los propietarios de una vivienda según su dirección y número.
+
+
+
+Última modificación: lunes, 15 de octubre de 2018, 10:18

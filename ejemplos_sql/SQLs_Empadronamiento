@@ -1,0 +1,33 @@
+--Queremos poder consultar las direcciones y números de las viviendas propiedad de una persona según su DNI.
+select calle,numero from viviendas v 
+inner join personas_propiedad_viviendas pv on v.idviviendas=pv.viviendas_idviviendas
+inner join personas p on pv.personas_idpersonas=p.idpersonas
+where dni='12345678z'
+
+
+--Queremos poder consultar las direcciones y números de las viviendas propiedad de una persona según su DNI.
+select calle,numero from viviendas v 
+inner join personas_propiedad_viviendas pv on v.idviviendas=pv.viviendas_idviviendas
+inner join personas p on pv.personas_idpersonas=p.idpersonas
+where dni='23456789A'
+
+
+--Necesitamos los nombres y apellidos de los propietarios de un municipio determinado.
+select p.nombre,p.apellido1,p.apellido2 from municipios m 
+inner join viviendas v on m.idmunicipios=v.pertenece_municipio_id
+inner join personas_propiedad_viviendas pv on v.idviviendas=pv.viviendas_idviviendas
+inner join personas p on pv.personas_idpersonas=p.idpersonas
+where m.codigo='bil'
+
+
+--Queremos poder preguntar quién está empadronado en una vivienda según su dirección y número.
+select p.nombre,p.apellido1,p.apellido2 from personas p 
+inner join viviendas v on p.empadronado_en_vivienda_id=v.idviviendas
+where calle='Calle2' and numero=2
+
+
+--Queremos saber los propietarios de una vivienda según su dirección y número.
+select dni,nombre,apellido1,apellido2 from viviendas v
+inner join  personas_propiedad_viviendas pv on v.idviviendas=pv.viviendas_idviviendas
+inner join personas p on pv.personas_idpersonas=p.idpersonas
+where calle='Calle2' and numero=2
