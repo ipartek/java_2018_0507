@@ -1,0 +1,10 @@
+-- Nombre y descripcion de las actividades que se realizan en el alojamiento denominado "La Huerta". 
+
+select * from actividades where idactividades in(
+select actividades_idactividades from alojamientos_has_actividades where alojamientos_id 
+in(select id from alojamientos where nombre like 'La Huerta'))
+
+-- Nombre de los alojamientos que tienen habitaciones dobles y realiza: actividades de senderismo (el nombre de la actividad es senderismo). 
+select nombre from alojamientos where id in(
+select alojamientos_id from alojamientos_has_actividades where actividades_idactividades in (
+select idactividades from actividades where nombre='senderismo'))

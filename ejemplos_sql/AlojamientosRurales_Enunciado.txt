@@ -1,0 +1,40 @@
+Ejercicio Alojamientos Rurales
+ALOJAMIENTOS RURALES 
+
+Se desea guardar información sobre los alojamientos rurales que hay en Euskadi. 
+
+Para ello decide crear una base de datos que cumpla las siguientes consideraciones: 
+
+Un alojamiento rural se identifica por un nombre ("Villa Aurora", "Las Rosas", etc.), tiene una dirección, un teléfono y una persona de contacto que pertenece al personal del alojamiento. 
+
+En cada alojamiento trabajan una serie de personas que se identifican por un código de personal.
+
+Se requiere conocer el nombre completo, la dirección y el NIF. 
+Aunque en un alojamiento trabajen varias personas, una persona solo puede trabajar en un alojamiento.
+
+
+
+
+Los alojamientos se alquilan por habitaciones y se desea conocer cuántas habitaciones componen el alojamiento, 
+de que tipo (individuales, dobles, triples) es cada una de estas habitaciones, si poseen cuarto de baño y el precio. 
+
+En algunos de estos alojamientos se realizan actividades multiaventura organizadas para huéspedes (senderismo, bicicleta de montaña, etc..).
+
+Estas actividades se identifican por un código. 
+
+Es de interés saber el nombre de la actividad, la descripción y el nivel de dificultad de dicha actividad (1 a 10). 
+
+Estas actividades se realizan un día a la semana, por ejemplo: en la casa "Villa Aurora" se practica senderismo los jueves y se desea guardar esta información.
+
+Pero puede haber algún día en el que no se practique ninguna actividad. 
+
+
+
+CONSULTAS
+
+- Nombre y descripcion de las actividades que se realizan en el alojamiento denominado "La Huerta". 
+
+- Nombre de los alojamientos que tienen habitaciones dobles y realiza: actividades de senderismo (el nombre de la actividad es senderismo). 
+
+
+Última modificación: lunes, 15 de octubre de 2018, 10:17
