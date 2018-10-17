@@ -15,6 +15,7 @@ import com.ipartek.formacion.ejemplos.crud.modelos.Usuario;
 @WebServlet("/admin/usuarios")
 public class AdminUsuariosServlet extends HttpServlet {
 
+	private static final String ADMIN_USUARIO_JSP = "/WEB-INF/admin/usuario.jsp";
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -50,7 +51,7 @@ public class AdminUsuariosServlet extends HttpServlet {
 		}
 
 		request.setAttribute("accion", accion);
-		request.getRequestDispatcher("/WEB-INF/admin/usuario.jsp").forward(request, response);
+		request.getRequestDispatcher(ADMIN_USUARIO_JSP).forward(request, response);
 	}
 
 	@Override
@@ -78,12 +79,24 @@ public class AdminUsuariosServlet extends HttpServlet {
 		switch (accion) {
 		case "insert":
 			usuario = new Usuario(email, password);
+			if(!usuario.isCorrecto()) {
+				request.setAttribute("usuario", usuario);
+				request.setAttribute("accion", accion);
+				request.getRequestDispatcher(ADMIN_USUARIO_JSP).forward(request, response);
+				return;
+			}
 			dao.insert(usuario);
 			mensaje = "Inserción correcta del usuario " + usuario.getEmail();
 			break;
 		case "update":
 			longId = extraerId(id);
 			usuario = new Usuario(longId, email, password);
+			if(!usuario.isCorrecto()) {
+				request.setAttribute("usuario", usuario);
+				request.setAttribute("accion", accion);
+				request.getRequestDispatcher(ADMIN_USUARIO_JSP).forward(request, response);
+				return;
+			}
 			dao.update(usuario);
 			mensaje = "Actualización correcta del usuario " + usuario.getEmail();
 			break;
