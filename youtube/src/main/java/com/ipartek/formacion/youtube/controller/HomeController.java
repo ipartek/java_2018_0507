@@ -36,11 +36,11 @@ public class HomeController extends HttpServlet {
 			daoC = ComentariosMySqlDAO.getInstance();
 			
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
-			ArrayList<Comentario> comentarios = (ArrayList<Comentario>) daoC.ObtenerPrimerVideo();
+			ArrayList<Comentario> comentario = (ArrayList<Comentario>) daoC.ObtenerPrimerVideo();
 			
 			
 			request.setAttribute("videos", videos);
-			request.setAttribute("comentario", comentarios);
+			request.setAttribute("comentario", comentario);
 
 		} catch (Exception e) {
 			e.printStackTrace();
