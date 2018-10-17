@@ -15,7 +15,7 @@ import com.ipartek.formacion.youtube.Video;
 
 public class UsuariosMySQLDAO implements CrudAble<Usuario>{
 	private static UsuariosMySQLDAO INSTANCE = null;
-	String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
+	String url = "jdbc:mysql://localhost:3307/videoyoutube?serverTimezone=UTC&useSSL=false";
 	static String usuario = "root";
 	static String password = "admin";
 	

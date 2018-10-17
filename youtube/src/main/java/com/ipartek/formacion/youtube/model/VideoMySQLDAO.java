@@ -13,7 +13,7 @@ import com.ipartek.formacion.youtube.Video;
 public class VideoMySQLDAO implements CrudAble<Video> {
 
 	private static VideoMySQLDAO INSTANCE = null;
-	String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
+	String url = "jdbc:mysql://localhost:3307/videoyoutube?serverTimezone=UTC&useSSL=false";
 	static String usuario = "root";
 	static String password = "admin";
 
@@ -29,14 +29,14 @@ public class VideoMySQLDAO implements CrudAble<Video> {
 	public List<Video> getAll() {
 		ArrayList<Video> videos = new ArrayList<>();
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
-			String sql = "SELECT id, codigo, nombre, idusuario FROM videoyotube";
+			String sql = "SELECT id, codigo, nombre, usuarios_id FROM videos";
 			try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 				try (ResultSet rs = stmt.executeQuery(sql)) {
 					while (rs.next()) {
 						int id = rs.getInt("id");
 						String codigo = rs.getString("codigo");
 						String nombre = rs.getString("nombre");
-						int idUsuarios = rs.getInt("idusuario");
+						int idUsuarios = rs.getInt("usuarios_id");
 						// Video vid = new Video(id, codigo,nombre);
 						videos.add(new Video(id, codigo, nombre, idUsuarios));
 					}
@@ -57,8 +57,8 @@ public class VideoMySQLDAO implements CrudAble<Video> {
 	public boolean insert(Video pojo) {
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
 			// try (Statement stmt = conn.createStatement()) {
-			// TODO Modify insert for adding idUsuario
-			String sql = "INSERt INTO videoYotube (codigo, nombre, idusuario) VALUES (?,?, 1);";
+			// TODO Modify insert for adding usuario_id
+			String sql = "INSERt INTO videos (codigo, nombre, usuarios_id) VALUES (?,?, 1);";
 			try (PreparedStatement prs = conn.prepareStatement(sql)) {
 				prs.setString(1, pojo.getCodigo());
 				prs.setString(2, pojo.getNombre());
@@ -88,7 +88,7 @@ public class VideoMySQLDAO implements CrudAble<Video> {
 	public Video getById(String id) {
 		Video video = new Video();
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
-			String sql = "SELECT id, codigo, nombre, idusuario FROM videoyotube WHERE id = ?";
+			String sql = "SELECT id, codigo, nombre, usuarios_id FROM videos WHERE id = ?";
 			try (PreparedStatement pst = conn.prepareStatement(sql)) {
 				// Mirando que valor entra en el prepared statement
 				pst.setInt(1, Integer.parseInt(id));
@@ -96,7 +96,7 @@ public class VideoMySQLDAO implements CrudAble<Video> {
 				try (ResultSet rs = pst.executeQuery()) {
 					if (rs.next()) {
 						video = new Video(rs.getInt("id"), rs.getString("codigo"), rs.getString("nombre"),
-								rs.getInt("idusuario"));
+								rs.getInt("usuario_id"));
 					} else {
 						return null;
 					}
@@ -119,7 +119,7 @@ public class VideoMySQLDAO implements CrudAble<Video> {
 	public boolean update(Video video) {
 		boolean resul = false;
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
-			String sql = "UPDATE videoyotube SET codigo = ?, nombre = ? WHERE id = ?;";
+			String sql = "UPDATE videos SET codigo = ?, nombre = ? WHERE id = ?;";
 			try (PreparedStatement prs = conn.prepareStatement(sql)) {
 				prs.setString(1, video.getCodigo());
 				prs.setString(2, video.getNombre());
@@ -147,7 +147,7 @@ public class VideoMySQLDAO implements CrudAble<Video> {
 	public boolean delete(String id) {
 		boolean resul = false;
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
-			String sql = "DELETE FROM videoyotube WHERE id = ?";
+			String sql = "DELETE FROM videos WHERE id = ?";
 			try (PreparedStatement prs = conn.prepareStatement(sql)) {
 				prs.setString(1, id);
 				int numFilas = prs.executeUpdate();

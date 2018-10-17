@@ -16,7 +16,7 @@ import com.ipartek.formacion.youtube.model.VideoMySQLDAO;
 public class DeleteServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -1404030432724811577L;
-	static String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
+	static String url = "jdbc:mysql://localhost:3307/videoyoutube?serverTimezone=UTC&useSSL=false";
 	static String usuario = "root";
 	static String password = "admin";
 	Connection conn;

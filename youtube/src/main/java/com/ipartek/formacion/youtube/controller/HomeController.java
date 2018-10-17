@@ -17,7 +17,7 @@ import com.ipartek.formacion.youtube.model.VideoMySQLDAO;
 @WebServlet("/inicio")
 public class HomeController extends HttpServlet {
 
-	static String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
+	static String url = "jdbc:mysql://localhost:3307/videoyoutube?serverTimezone=UTC&useSSL=false";
 	static String usuario = "root";
 	static String password = "admin";
 	Connection conn;
