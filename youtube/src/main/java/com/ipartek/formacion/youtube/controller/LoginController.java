@@ -42,6 +42,7 @@ public class LoginController extends HttpServlet {
 					      //OBTENGO EL NOMBRE DEL USUARIO Y LO GUARDO EN UNA SESION
 					      String NombreUsuario = UsuariosMySqlDAO.getInstance().getNameByEmail(email);
 					      respuesta.setAttribute("email", NombreUsuario);
+					      request.getSession().setAttribute("usuario", NombreUsuario);
 					      
 					  } else {
 					      respuesta.setAttribute("error", "Datos mal metidos");

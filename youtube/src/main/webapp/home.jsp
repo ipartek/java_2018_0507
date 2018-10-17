@@ -1,6 +1,6 @@
 <%@page import="com.ipartek.formacion.youtube.Video"%>
 <%@page import="java.util.ArrayList"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,24 +29,29 @@
 
 <body>
 	<form action="login" method="post">
-		<p>
-			<label for="email">Email</label> <input type="email" name="email"
-				id="email"  /> 
-		</p>
-		${sessionScope.email}
-		<p>
-			<label for="password">Contraseña</label> <input type="password"
-				name="password" id="password" />
-		</p>
-		<p>
-			<button>Login</button>
-			
-		</p>
 
+		<c:choose>
+			<c:when test="${sessionScope.usuario == null}">
+				<p>
+					<label for="email">Email</label> <input type="email" name="email"
+						id="email" />
+				</p>
+				<p>
+					<label for="password">Contraseña</label> <input type="password"
+						name="password" id="password" />
+				</p>
+				<p>
+					<button>Login</button>
+				</p>
+			</c:when>
+			<c:otherwise>
+			${sessionScope.email}
+			</c:otherwise>
+		</c:choose>
 	</form>
 	<a href="registrar.jsp">Registrar Usuario</a>
 	<p>
-	<a href="listado">Ir a Listado de Usuarios registrados</a>
+		<a href="listado">Ir a Listado de Usuarios registrados</a>
 	</p>
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -134,23 +139,14 @@
 				<div class="card card-outline-secondary my-4">
 					<div class="card-header">Comentarios</div>
 					<div class="card-body">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Omnis et enim aperiam inventore, similique necessitatibus neque
-							non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum.
-							Sequi mollitia, necessitatibus quae sint natus.</p>
-						<small class="text-muted">Posted by Anonymous on 3/1/17</small>
-						<hr>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Omnis et enim aperiam inventore, similique necessitatibus neque
-							non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum.
-							Sequi mollitia, necessitatibus quae sint natus.</p>
-						<small class="text-muted">Posted by Anonymous on 3/1/17</small>
-						<hr>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-							Omnis et enim aperiam inventore, similique necessitatibus neque
-							non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum.
-							Sequi mollitia, necessitatibus quae sint natus.</p>
-						<small class="text-muted">Posted by Anonymous on 3/1/17</small>
+
+
+
+						<c:forEach items="${comentario}" var="comentario">
+							<p>${comentario.descripcion}</p>
+							<small class="text-muted">${comentario.fecha}</small>
+							<hr>
+						</c:forEach>
 
 					</div>
 				</div>

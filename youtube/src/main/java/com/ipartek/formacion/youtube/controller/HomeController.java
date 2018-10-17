@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.youtube.Comentario;
 import com.ipartek.formacion.youtube.Video;
+import com.ipartek.formacion.youtube.model.ComentariosMySqlDAO;
 import com.ipartek.formacion.youtube.model.VideoMySqlDAO;
 
 @WebServlet("/inicio")
@@ -17,10 +19,13 @@ public class HomeController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	private static VideoMySqlDAO dao;
+	private static ComentariosMySqlDAO daoC;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		
+		
 		try {
 			String id = request.getParameter("id");
 			if (id != null) {
@@ -28,11 +33,14 @@ public class HomeController extends HttpServlet {
 			}
 
 			dao = VideoMySqlDAO.getInstance();
-			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
+			daoC = ComentariosMySqlDAO.getInstance();
 			
-			System.out.println("VIDEOS: " + videos);
+			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
+			ArrayList<Comentario> comentarios = (ArrayList<Comentario>) daoC.ObtenerPrimerVideo();
+			
 			
 			request.setAttribute("videos", videos);
+			request.setAttribute("comentario", comentarios);
 
 		} catch (Exception e) {
 			e.printStackTrace();
