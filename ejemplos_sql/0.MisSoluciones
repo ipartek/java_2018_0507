@@ -1,0 +1,297 @@
+Mis Soluciones
+1. Obtener los datos completos de los empleados.
+select * from empleados
+
+2. Obtener los datos completos de los departamentos
+select * from departamentos
+
+3.Obtener los datos de los empleados con cargo 'Secretaria'.
+select * from empleados where lower(cargoE)='secretaria'
+
+4.Obtener el nombre y salario de los empleados.
+select nomEmp AS nombre,salEmp AS salario from empleados
+
+5. Obtener los datos de los empleados vendedores, ordenado por nombre.
+select * from empleados where cargoe='Vendedor' order by nomEmp
+
+6.Listar el nombre de los departamentos
+select distinct(nombreDpto) from departamentos
+
+7. Listar el nombre de los departamentos, ordenado por nombre
+select distinct(nombreDpto) from departamentos order by nombreDpto
+
+8.Listar el nombre de los departamentos, ordenado por ciudad
+select distinct(nombreDpto), ciudad from departamentos order by ciudad
+
+9.Listar el nombre de los departamentos, ordenado por ciudad, en orden inverso
+select distinct(nombreDpto), ciudad from departamentos order by ciudad desc
+
+10.Obtener el nombre y cargo de todos los empleados, ordenado por salario
+select nomEmp,cargoE,salEmp from empleados order by salEmp
+
+11.Obtener el nombre y cargo de todos los empleados, ordenado por cargo y por salario
+select nomEmp,cargoE,salEmp from empleados order by cargoE,salEmp
+
+12.Obtener el nombre y cargo de todos los empleados, en orden inverso por cargo
+select nomEmp,cargoE from empleados order by cargoE desc
+
+13.Listar los salarios y comisiones de los empleados del departamento 2000
+
+14.Listar los salarios y comisiones de los empleados del departamento 2000, ordenado por comisión
+select salEmp,comisionE from empleados where codDepto=2000
+select nomEmp,salEmp,comisionE from empleados where codDepto=2000
+
+15. Listar todas las comisiones
+select comisionE from empleados;
+
+16. Listar las comisiones que sean diferentes, ordenada por valor
+select distinct(comisionE) from empleados order by comisionE;
+
+17. Listar los diferentes salarios
+select distinct(salemp) from empleados order by salemp;
+
+18. Obtener el valor total a pagar que resulta de sumar a los empleados del departamento 3000 una
+bonificación de $500.000, en orden alfabético del empleado
+select nomemp, salemp, 'a pagar =', salemp+500000 from empleados
+where coddepto = '3000' order by nomemp;
+
+19.Obtener la lista de los empleados que ganan una comisión superior a su sueldo.
+select nDIEmp, nomEmp, salEmp, comisionE from empleados
+where comisionE > salEmp;
+
+20.Listar los empleados cuya comisión es menor o igual que el 30% de su sueldo.
+select nDIEmp, nomEmp, salEmp, comisionE from empleados where comisionE > salEmp;
+
+21. Elabore un listado donde para cada fila, figure ‘Nombre’ y ‘Cargo’ antes del valor respectivo para cada empleado
+select 'Nombre: ', nomemp, 'Cargo: ', cargoe from empleados;
+
+22.Hallar el salario y la comisión de aquellos empleados cuyo número de documento de identidad es
+superior al '19.709.802'
+select ndiemp,nomemp,salemp,comisione from empleados where ndiemp>'19.709.802'
+
+23. Listar los empleados cuyo salario es menor o igual que el 40% de su comisión
+select nomemp, salemp, comisione from empleados where salemp <= comisionE*0.40
+
+24.Divida los empleados, generando un grupo cuyo nombre inicie por la letra J y termine en la letra Z.
+Liste estos empleados y su cargo por orden alfabético.
+select JZ.nomemp, JZ.cargoe
+from (select * from empleados where nomEmp> 'J' and nomemp <'Z') JZ order by nomemp;
+
+25.Listar el salario, la comisión, el salario total (salario + comisión), documento de identidad del
+empleado y nombre, de aquellos empleados que tienen comisión superior a $1.000.000, ordenar el
+informe por el número del documento de identidad
+select ndiemp, nomemp, salemp, comisione, (salemp+comisione) as total
+from empleados where comisione > 1000000 order by ndiemp;
+
+26.Obtener un listado similar al anterior, pero de aquellos empleados que NO tienen comisión
+select ndiemp, nomemp, salemp, comisione, (salemp+comisione) as total
+from empleados where comisione = 0 order by ndiemp;
+
+27.Hallar el nombre de los empleados que tienen un salario superior a $1.000.000, y tienen como jefe al
+empleado con documento de identidad '31.840.269'
+select nomemp from empleados where salemp > 1000000 and jefeid = '31.840.269';
+
+28.Hallar el conjunto complementario del resultado del ejercicio anterior
+select nomemp from empleados
+where salemp <= 1000000 and jefeID = '31.840.269';
+
+29.Hallar los empleados cuyo nombre no contiene la cadena “MA”
+select nomemp from empleados where nomemp<>'%ma%'
+
+30.Obtener los nombres de los departamentos que no sean “Ventas” ni “Investigación” NI
+‘MANTENIMIENTO’, ordenados por ciudad.
+select nombredpto, ciudad from departamentos
+where lower(nombredpto) not in ('ventas','investigación','mantenimiento')
+order by ciudad;
+
+31. Obtener el nombre y el departamento de los empleados con cargo 'Secretaria' o 'Vendedor', que
+no trabajan en el departamento de “PRODUCCION”, cuyo salario es superior a $1.000.000,
+ordenados por fecha de incorporación.
+select e.nomemp, e. cargoe, d.nombredpto
+from departamentos d, empleados e
+where cargoe not in ('Secretaria','Vendedor') AND salEmp > 1000000 AND E.coddepto = D.coddepto AND E.coddepto NOT IN
+(select f.coddepto from departamentos f where f.nombredpto='PRODUCCI_N');
+
+
+32. Obtener información de los empleados cuyo nombre tiene exactamente 11 caracteres
+select nomemp, char_length(nomemp)
+from empleados
+where char_length(nomemp) = 11;
+
+33. Obtener información de los empleados cuyo nombre tiene al menos 11 caracteres
+delect *
+from empleados
+where char_length(nomemp) > 10;
+
+34. Listar los datos de los empleados cuyo nombre inicia por la letra 'M', su salario es mayor a $800.000
+o reciben comisión y trabajan para el departamento de 'VENTAS'
+select nomemp from empleados
+where nomEmp like 'M%'
+and
+(salEmp > 800000 OR comisionE > 0)
+
+35. Obtener los nombres, salarios y comisiones de los empleados que reciben un salario situado entre la
+mitad de la comisión la propia comisión
+select nomemp, salemp, comisione
+from empleados
+where salemp >= comisione/2 and salemp <comisione
+
+36. Suponga que la empresa va a aplicar un reajuste salarial del 7%. Listar los nombres de los empleados, su
+salario actual y su nuevo salario, indicando para cada uno de ellos si tiene o no comisión
+select nomemp, salemp, (salemp*1.07),
+comisionE from empleados
+
+37. Obtener la información disponible del empleado cuyo número de documento de identidad sea:
+'31.178.144', '16.759.060', '1.751.219', '768.782', '737.689', '19.709.802', '31.174.099', '1.130.782'
+select * from empleados
+where
+ndiemp in ('31.178.144', '16.759.060','1.751.219', '768.782', '737.689', '19.709.802', '31.174.099', '1.130.782');
+
+38. Entregar un listado de todos los empleados ordenado por su departamento, y alfabético dentro del
+departamento.
+SELECT ndiemp, nomemp, coddepto
+FROM empleados ORDER BY coddepto, nomemp;
+
+39. Entregar el salario más alto de la empresa.
+select * from empleados where salemp in(select max(salemp) from empleados)
+
+40. Entregar el total a pagar por comisiones, y el número de empleados que las reciben
+select count(ndiemp),sum(comisione) from empleados where comisione>0;
+
+41. Entregar el nombre del último empleado de la lista por orden alfabético.
+select max(nomemp) from empleados
+
+42. Hallar el salario más alto, el más bajo y la diferencia entre ellos.
+select max(salemp), min(salemp) , (max(salemp)-min(salemp)) from empleados
+
+43. Conocido el resultado anterior, entregar el nombre de los empleados que reciben el salario más alto
+y más bajo. Cuanto suman estos salarios?
+Mia--No completa--select max(salemp), min(salemp), (max(salemp)+min(salemp)) as suma from empleados
+
+
+/* Max y min
+
+select nomemp,salemp from empleados order by salemp desc limit 1;
+
+select nomemp,salemp from empleados order by salemp asc limit 1
+*/
+Entero--select max.nomEmp as 'nommax',max.salemp as 'salmax',min.nomemp as 'nom min',min.salemp as 'salmin',max.salemp+min.salemp as 'suma'
+from
+(select nomemp,salemp from empleados order by salemp desc limit 1) max,(select nomemp, salemp from empleados order by salemp asc limit 1)min
+
+
+O pero sin suma:
+select nomemp,salemp from empleados where salemp=(select min(salemp) from empleados) or salemp=(select max(salemp) from empleados)
+
+
+
+44. Entregar el número de empleados de sexo femenino y de sexo masculino, por departamento
+MIA INCOMPLETA:SELECT codDepto, sexEmp, COUNT(nomEmp) FROM empleados GROUP BY codDepto, sexEmp;
+select d.nombredpto,sum(if(e.sexemp='M',1,0)) as 'hombres',sum(if(e.sexemp='F',1,0)) as 'mujeres',count(*)
+from empleados e, departamentos d 
+where d.coddepto=e.coddepto group by d.nombredpto
+
+select d.nombredpto,sum(case when e.sexemp='M' then 1 else 0 end) as hombres , sum(if(e.sexemp='F',1,0)) as 'mujeres',count(*)
+from empleados e, departamentos d 
+where d.coddepto=e.coddepto group by d.nombredpto
+
+45. Hallar el salario promedio por departamento
+SELECT codDepto, AVG(salEmp) FROM Empleados GROUP BY codDepto;
+JAvi:SELECT d.nombreDpto, AVG(salEmp)
+FROM departamentos d, empleados e
+where e.codDepto=d.codDepto
+ GROUP BY d.nombreDpto;
+JAVI:SELECT d.nombreDpto, AVG(salEmp)
+FROM departamentos d 
+inner join empleados e on e.codDepto=d.codDepto
+GROUP BY d.nombreDpto;
+
+
+46. Hallar el salario promedio por departamento, considerando aquellos empleados cuyo salario supera
+$900.000, y aquellos con salarios inferiores a $575.000. Entregar el código y el nombre del
+departamento.
+select N.codDepto, D.nombreDpto, N.pro from Departamentos D,
+(select codDepto, avg(salEmp) as pro from Empleados
+where salEmp < 900000 or salEmp < 575000 group by codDepto) N
+where N.codDepto = D.codDepto;
+
+JAVI:SELECT d.codDepto,d.nombreDpto, AVG(salEmp)
+
+FROM departamentos d 
+inner join empleados e on e.codDepto=d.codDepto
+where e.salEmp > 900000 or e.salemp < 575000 
+GROUP BY d.codDepto,d.nombreDpto
+
+
+47. Entregar la lista de los empleados cuyo salario es mayor o igual que el promedio de la empresa.
+Ordenarlo por departamento.
+select nomemp,salemp,codDepto from empleados where salemp>(select avg(salemp) from empleados) order by codDepto
+JAVI:select d.nombreDpto,e.nomemp from departamentos d 
+inner join empleados e on e.coddepto=d.coddepto
+where e.salemp>(select avg(salemp) from empleados)
+order by d.nombreDpto
+
+48. Hallar los departamentos que tienen más de tres (3) empleados. Entregar el número de empleados de
+esos departamentos.
+SELECT N.codDepto, D.nombreDpto, N.nro
+FROM departamentos D,
+(SELECT codDepto, COUNT(nDIEmp) AS nro
+FROM empleados
+GROUP BY codDepto
+HAVING COUNT(nDIEmp)>3) N
+WHERE N.codDepto = D.codDepto;
+
+49. Obtener la lista de empleados jefes, que tienen al menos un empleado a su cargo. Ordene el informe
+inversamente por el nombre.
+-------NO FUNCIONA--------
+JAVI:select ndiemp,nomemp from empleados where nDIEmp  in(
+select distinct jefeid from empleados where jefeid is not null)
+order by nomemp desc
+
+50. Hallar los departamentos que no tienen empleados
+
+La mia mejor y mas rapida
+select * from Departamentos where codDepto not in(select codDepto from empleados)
+
+JAVI:select d.codDepto, d.nombredpto,count(ndiemp) as numero from empleados e right join departamentos d on e.coddepto group by d.coddepto having numero=0
+
+
+51. Entregar un reporte con el numero de cargos en cada departamento y cual es el promedio de salario
+de cada uno. Indique el nombre del departamento en el resultado.
+
+select count(*),e.codDepto,d.nombreDpto,d.ciudad,avg(e.salEmp) from empleados e,departamentos d
+where e.codDepto=d.codDepto
+group by codDepto order by codDepto
+
+JAVI:
+select d.nombreDpto, count(e.cargoe) as 'numero de cargos' ,avg(e.salemp) as promedio from departamentos d
+inner join empleados e on d.coddepto=e.coddepto
+group by d.nombredpto
+
+o
+
+select d.nombreDpto, e.cargoe,avg(e.salemp) as 'promedio' from departamentos d
+inner join empleados e on d.coddepto=e.coddepto
+group by d.nombredpto,e.cargoe
+
+
+
+52. Entregar el nombre del departamento cuya suma de salarios sea la más alta, indicando el valor de la
+suma.
+select d.nombreDpto, m.suma 
+from departamentos d,
+	(select e.codDepto, sum(e.salEmp) as suma 
+    from empleados e 
+    group by e.codDepto 
+    order by sum(e.salEmp) 
+    limit 1) m
+where d.codDepto = m.codDepto
+
+53. Entregar un reporte con el código y nombre de cada jefe, junto al número de empleados que dirige.
+Puede haber empleados que no tengan supervisores, para esto se indicará solamente el numero de
+ellos dejando los valores restantes en NULL.
+
+select j.ndiemp,j.nomemp,count(e.ndiemp)
+from empleados j
+right join empleados e on j.ndiemp=e.jefeid
+group by j.ndiemp
