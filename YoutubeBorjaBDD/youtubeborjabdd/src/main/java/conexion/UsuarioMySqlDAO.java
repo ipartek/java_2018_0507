@@ -1,4 +1,4 @@
-package com.ipartek.formacion.youtube.model;
+package conexion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ipartek.formacion.youtube.Usuario;
-import com.ipartek.formacion.youtube.Video;
+import conexion.*;
+import modelo.Usuario;
 
 public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 
@@ -33,7 +33,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 	public boolean insert(Usuario pojo) {
 		// TODO Auto-generated method stub
 		try (Connection con = DriverManager.getConnection(url, user, password)) {
-			String sql = "INSERT INTO Usuarios (nombre,password,email) VALUES (?, ?, ?)";
+			String sql = "INSERT INTO usuarios (nombre,password,email) VALUES (?, ?, ?)";
 
 			try (PreparedStatement pst = con.prepareStatement(sql)) {
 				pst.setString(1,pojo.getNombre());
