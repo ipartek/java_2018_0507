@@ -127,7 +127,6 @@
     			
           		for( Comentario c : comentarios ){
           	 	%>
-          	 	esTAN AL REVES EL USUARIO Y EL COMENTARIO
                    <small class="text-muted">Posted by <%=c.getUsuario()%> on 3/1/17</small>
                   	<p><%=c.getComentario()%>	</p>
                   

@@ -1,6 +1,7 @@
 package com.ipartek.formacion.youtube.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,10 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.youtube.Comentario;
-import com.ipartek.formacion.youtube.Video;
 import com.ipartek.formacion.youtube.model.ComentariosMySqlDAO;
-import com.ipartek.formacion.youtube.model.VideoArrayListDAO;
-import com.ipartek.formacion.youtube.model.VideoMySqlDAO;
 
 /**
  * Servlet implementation class Comentarios
@@ -42,17 +40,19 @@ public class ComentariosServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//Abra que añadirle el usuario que pone el comentarioy esto meter a la bd
-		System.out.println("Comentario recibido en el servlet: "+request.getParameter("inputcomentario"));
+		//System.out.println("Comentario recibido en el servlet: "+request.getParameter("inputcomentario"));
 		
 		//Meter a la bd
-		request.getParameter("inputcomentario");
-		try {
-			ComentariosMySqlDAO.getInstance().insert(new Comentario(request.getParameter("inputcomentario"),"UsuarioTemporal"));
+		//request.getParameter("inputcomentario");
+		//try {
 		
-		} catch (ClassNotFoundException e) {
+		ComentariosMySqlDAO comsqldao=new ComentariosMySqlDAO();
+		comsqldao.insert(new Comentario("ByDefault",request.getParameter("inputcomentario")));
+		
+		//} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		//	e.printStackTrace();
+		//}
 		
 		ComentariosMySqlDAO comentariomysqldao=new ComentariosMySqlDAO();
 		comentariomysqldao.getAll();

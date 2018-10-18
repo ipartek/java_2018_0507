@@ -20,7 +20,7 @@ public class ComentariosMySqlDAO{
 
 	public static synchronized ComentariosMySqlDAO getInstance() throws ClassNotFoundException {
 		if (INSTANCE == null) {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			//Class.forName("com.mysql.cj.jdbc.Driver");
 			INSTANCE = new ComentariosMySqlDAO();
 		}
 
@@ -28,13 +28,15 @@ public class ComentariosMySqlDAO{
 	}
 
 
-	public boolean insert(Comentario pojo) {
+	public boolean insert(Comentario pojo)  {
 		try (Connection con = DriverManager.getConnection(url, usuario, password)) {
-			String sql = "INSERT INTO videos_comentarios (comentario) VALUES (?)";
+			String sql = "INSERT INTO videos_comentarios (usuario,comentario) VALUES (?,?)";
 
 			try (PreparedStatement pst = con.prepareStatement(sql)) {
-				pst.setString(1, pojo.getComentario());
-			System.out.println("En el insert");
+				
+				pst.setString(1,pojo.getUsuario());
+				pst.setString(2, pojo.getComentario());
+			
 
 				int numFilas = pst.executeUpdate();
 
@@ -47,7 +49,7 @@ public class ComentariosMySqlDAO{
 				e.printStackTrace();
 				return false;
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 			return false;
@@ -64,7 +66,7 @@ public static void main (String args[]) {
 
 	public List<Comentario> getAll() {
 		
-		System.out.println("En dao comentario getALL");
+		//System.out.println("En dao comentario getALL");
 		List<Comentario> comentarios = new ArrayList<>();
 
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
@@ -88,11 +90,11 @@ public static void main (String args[]) {
 		}
 
 		
-		for(Comentario str : comentarios)
+		/*for(Comentario str : comentarios)
 		{
 		   
 		    System.out.println( "REcojido de bd" + str.getUsuario() +" " +str.getComentario());
-		}
+		}*/
 		return comentarios;
 
 	}

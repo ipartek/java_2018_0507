@@ -19,7 +19,7 @@ public class Comentario {
 		this.setUsuario(usuario);
 		this.setComentario(comentario);
 	}
-	private void setUsuario(String usuario) {
+	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 		
 	}

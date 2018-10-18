@@ -30,23 +30,23 @@ public class HomeController extends HttpServlet {
 			if (id != null) {
 				dao.delete(id);
 			}
-			System.out.println("COMENTARIOS1");
+			
 			dao = VideoMySqlDAO.getInstance();
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
-			System.out.println("COMENTARIOS2");
+		
 			
 			daocomentario = ComentariosMySqlDAO.getInstance();
 			List<Comentario> comentarios =(List<Comentario>) daocomentario.getAll();
 			
-			for(Comentario str : comentarios)
+		/*	for(Comentario str : comentarios)
 			{
 			   
 			    System.out.println("Pinto el el homeControler"+ str.getUsuario() +" " +str.getComentario());
 			}
+			 */
 			 
-			 
-			System.out.println("COMENTARIOS3");
-			System.out.println("VIDEOS: " + videos.toString());
+			//System.out.println("COMENTARIOS3");
+			//System.out.println("VIDEOS: " + videos.toString());
 			//System.out.println("COMENTARIOS" + comentarios.toString());
 
 			request.setAttribute("videos", videos);
@@ -68,6 +68,7 @@ public class HomeController extends HttpServlet {
 			throws ServletException, IOException {
 		try {
 			dao = VideoMySqlDAO.getInstance();
+			daocomentario = ComentariosMySqlDAO.getInstance();
 
 			// recoger parametros
 			String idVideo = request.getParameter("id");
@@ -80,6 +81,8 @@ public class HomeController extends HttpServlet {
 			// pedir listado
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
 			request.setAttribute("videos", videos);
+			ArrayList<Comentario> comentarios = (ArrayList<Comentario>) daocomentario.getAll();
+			request.setAttribute("comentarios", comentarios);
 
 		} catch (Exception e) {
 			e.printStackTrace();
