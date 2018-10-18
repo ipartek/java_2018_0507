@@ -5,13 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.ipartek.formacion.youtube.Valoracion;
-import com.ipartek.formacion.youtube.Video;
-
-
 
 public class ValoracionesMySQLDAO implements CrudAble<Valoracion> {
 
@@ -30,8 +26,28 @@ public class ValoracionesMySQLDAO implements CrudAble<Valoracion> {
 
 	@Override
 	public boolean insert(Valoracion pojo) {
-		// TODO Auto-generated method stub
-		return false;
+		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+			String sql = "INSERt INTO valoraciones (puntos, videoyoutube_id, usuario_id) VALUES (?,?, 1);";
+			try (PreparedStatement prs = conn.prepareStatement(sql)) {
+				prs.setInt(1, pojo.getPuntos());
+				prs.setInt(2, pojo.getVideoyoutube_id());
+				prs.setInt(3,pojo.getUsuario_id());
+				int numFilas = prs.executeUpdate();
+				if (numFilas != 1) {
+					return false;
+				}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+				return false;
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+
+		return true;
 	}
 
 	@Override
@@ -74,13 +90,11 @@ public class ValoracionesMySQLDAO implements CrudAble<Valoracion> {
 
 	@Override
 	public boolean update(Valoracion pojo) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean delete(String id) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

@@ -10,9 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.youtube.Usuario;
-import com.ipartek.formacion.youtube.Video;
 import com.ipartek.formacion.youtube.model.UsuariosMySQLDAO;
-import com.ipartek.formacion.youtube.model.VideoMySQLDAO;
 
 /**
  * Servlet implementation class LoginServlet
@@ -45,18 +43,13 @@ public class LoginServlet extends HttpServlet {
 			
 	}
 	public static boolean validarUsuario(Usuario usuario) {
-		//ArrayList<Usuario> usuarios = (ArrayList<Usuario>) dao.getAll();
 		try {
 			dao = UsuariosMySQLDAO.getInstance();
 			ArrayList<Usuario> usuarios = (ArrayList<Usuario>) dao.getAll();
 			for(Usuario u: usuarios) {
 				if(u.getEmail().equals(usuario.getEmail())&&u.getPassword().equals(usuario.getPassword())){
-						//&&u.getPassword().equals(usuario.getPassword()))){
 					return true;
 				}
-//				if(u.getEmail().equals(usuario.getEmail())) {
-//					return u.getPassword().equals(usuario.getPassword());
-//				}
 			}
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

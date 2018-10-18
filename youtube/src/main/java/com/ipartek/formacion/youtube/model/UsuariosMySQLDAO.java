@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ipartek.formacion.youtube.Usuario;
-import com.ipartek.formacion.youtube.Video;
 
 
 public class UsuariosMySQLDAO implements CrudAble<Usuario>{

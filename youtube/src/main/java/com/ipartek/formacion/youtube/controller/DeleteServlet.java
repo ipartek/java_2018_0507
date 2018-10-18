@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ipartek.formacion.youtube.Video;
 import com.ipartek.formacion.youtube.model.VideoMySQLDAO;
 
 @WebServlet("/delete")
@@ -25,8 +24,9 @@ public class DeleteServlet extends HttpServlet {
 	private static VideoMySQLDAO dao;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	
 		try {
+			dao = VideoMySQLDAO.getInstance();
 			String id = request.getParameter("id");
 			dao.delete(id);
 			} catch (Exception e) {

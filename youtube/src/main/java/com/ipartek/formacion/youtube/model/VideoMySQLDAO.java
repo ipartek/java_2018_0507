@@ -56,8 +56,6 @@ public class VideoMySQLDAO implements CrudAble<Video> {
 	@Override
 	public boolean insert(Video pojo) {
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
-			// try (Statement stmt = conn.createStatement()) {
-			// TODO Modify insert for adding usuario_id
 			String sql = "INSERt INTO videos (codigo, nombre, usuarios_id) VALUES (?,?, 1);";
 			try (PreparedStatement prs = conn.prepareStatement(sql)) {
 				prs.setString(1, pojo.getCodigo());
@@ -72,9 +70,6 @@ public class VideoMySQLDAO implements CrudAble<Video> {
 				e.printStackTrace();
 				return false;
 			}
-			// } catch (Exception e) {
-			// System.out.println("ERROR AL CREAR LA SENTENCIA");
-			// }
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
@@ -147,6 +142,7 @@ public class VideoMySQLDAO implements CrudAble<Video> {
 	public boolean delete(String id) {
 		boolean resul = false;
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+			conn.setAutoCommit(false);
 			String sql = "DELETE FROM videos WHERE id = ?";
 			try (PreparedStatement prs = conn.prepareStatement(sql)) {
 				prs.setString(1, id);
@@ -154,7 +150,10 @@ public class VideoMySQLDAO implements CrudAble<Video> {
 				if (numFilas != 1) {
 					return false;
 				}
+				conn.commit();
 			} catch (SQLException e) {
+				conn.rollback();
+				System.out.println(e.getMessage());
 				System.out.println("ERROR DE CONEXION");
 			}
 		} catch (SQLException e) {
