@@ -10,122 +10,112 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ipartek.formacion.youtube.Usuario;
 import com.ipartek.formacion.youtube.Video;
-import com.ipartek.formacion.youtube.model.UsuarioMySqlDAO;
-import com.ipartek.formacion.youtube.model.VideoMySqlDAO;
+import com.ipartek.formacion.youtube.connection.UsuarioMySqlDAO;
+import com.ipartek.formacion.youtube.connection.VideoMySqlDAO;
 
 /**
  * Servlet implementation class LoginServlet
  */
-
+@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static UsuarioMySqlDAO dao;
 
-
+ 
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+System.out.println("entra en el login");
 		
-		
-		
-	String login=request.getParameter("login");
+String nombre=request.getParameter("nombre");
+String password=request.getParameter("password");
+String email=request.getParameter("email");
 
-	if(login.equalsIgnoreCase("login")){
-	
-		String email = request.getParameter("email");
-		String nombre = request.getParameter("nombre");
-		String password2=request.getParameter("password");
-		
-		try {
-			dao = UsuarioMySqlDAO.getInstance();
-		
-		ArrayList<Usuario> usuarios= (ArrayList<Usuario>) dao.getAll();
-
-		
-		
-for (int i = 0; i < usuarios.size(); i++) {
-	if((usuarios.get(i).getNombre().equalsIgnoreCase(nombre)) &&(usuarios.get(i).getPassword().equalsIgnoreCase(password2))){
-		System.out.println("entrando en if");
-		System.out.println(usuarios.get(i).getNombre());
-		System.out.println(usuarios.get(i).getPassword());
-		
-	Usuario us=new Usuario(nombre,password2,email);
-	request.getSession().setAttribute("user", us);
-		System.out.println("voy");
-		
-	}
-	
-	
-
-	
-}	
-
-//response.sendRedirect("inicio");
-//request.getRequestDispatcher("inicio?aaaa").forward(request, response);
-
-		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+	HttpSession sesion=request.getSession();
+	if(validarUsuario(nombre, password)) {
+		System.out.println("suuu");
+		long id=cogerIdUsuario(nombre, password);
+		Usuario u=new Usuario(id,nombre,password,email);
+		System.out.println(id);
+		sesion.setAttribute("user", u);
+		response.sendRedirect("inicio");
 		
 		
 		
 		
 	}
+	else {
 		
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	if(login.equalsIgnoreCase("register")) {
-		try {
-			dao = UsuarioMySqlDAO.getInstance();
-
-			// recoger parametros
-			String email = request.getParameter("email");
-			String nombre = request.getParameter("nombre");
-			String password2=request.getParameter("password");
-			// insertar
-			Usuario v = new Usuario(nombre, password2,email);
-			dao.insert(v);
-
-			// pedir listado
-			//ArrayList<Usuario> usuarios = (ArrayList<Usuario>) dao.getAll();
-			//request.setAttribute("Usuarios", usuarios);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-response.sendRedirect("home.jsp");		}
-		
-		
+		response.sendRedirect("login.jsp");
 	}
 	
 	
 	
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-		request.getRequestDispatcher("home.jsp").forward(request, response);
-
-	
+		doGet(request, response);
 	}
 
+	
+	public boolean validarUsuario(String nombre,String password) {
+		boolean validado=false;
+		
+		try {
+			dao=UsuarioMySqlDAO.getInstance();
+			ArrayList<Usuario> usuarios = (ArrayList<Usuario>) dao.getAll();
+			
+			for (int i = 0; i < usuarios.size(); i++) {
+				System.out.println(usuarios.get(i).getNombre());
+				if(usuarios.get(i).getNombre().equalsIgnoreCase(nombre)&&
+						usuarios.get(i).getPassword().equalsIgnoreCase(password)) {
+					validado=true;
+				}
+			}
+		
+		
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return validado;
+		}
+		
+	return validado;	
+	}
+	
+	
+	public int cogerIdUsuario(String nombre,String password){
+		int id=0;
+		try {
+			dao=UsuarioMySqlDAO.getInstance();
+			ArrayList<Usuario> usuarios = (ArrayList<Usuario>) dao.getAll();
+			for (int i = 0; i < usuarios.size(); i++) {
+				System.out.println(usuarios.get(i).getNombre());
+				if(usuarios.get(i).getNombre().equalsIgnoreCase(nombre)&&
+						usuarios.get(i).getPassword().equalsIgnoreCase(password)) {
+				 id=(int) usuarios.get(i).getId();
+				
+				}
+			}
+		
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return id;
+	}
+	
+	
+	
+	
 }

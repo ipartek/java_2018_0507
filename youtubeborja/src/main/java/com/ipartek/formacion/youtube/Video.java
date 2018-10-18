@@ -7,21 +7,31 @@ public class Video {
 	private Long id;
 	private String idVideo;
 	private String nombre;
+	private long idUsuario;
 	
+	public long getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(long idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
 	public Video() {
 		super();
 		this.idVideo = "YlUKcNNmywk";
 		this.nombre = "Red Hot Chili Peppers - Californication";		
 	}
 	
-	public Video(Long id, String idVideo, String nombre) {
+	public Video(Long id, String idVideo, String nombre,long idUsuario) {
 		this.setId(id);
 		this.setIdVideo(idVideo);
 		this.setNombre(nombre);
+		this.setIdUsuario(idUsuario);
 	}
 	
-	public Video(String idVideo, String nombre ) {
-		this(-1L, idVideo, nombre);
+	public Video(String idVideo, String nombre,long idUsuario ) {
+		this(-1L, idVideo, nombre,idUsuario);
 	}
 
 	public Long getId() {

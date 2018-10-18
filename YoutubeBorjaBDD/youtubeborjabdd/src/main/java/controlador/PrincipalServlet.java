@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+
 import controlador.*;
 import modelo.*;
 import conexion.*;
@@ -27,21 +28,24 @@ public class PrincipalServlet extends HttpServlet {
 		System.out.println("entra");
 		System.out.println("claro que si");
 		try {
-			dao=VideoMySqlDAO.getInstance();
-			
-		ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
-		System.out.println(videos.get(0).getNombre());	
-		
-			request.setAttribute("videos", videos);
-			
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+			String id = request.getParameter("id");
+			if (id != null) {
+				dao.delete(id);
 			}
 
+			dao = VideoMySqlDAO.getInstance();
+			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
+			
+			System.out.println("VIDEOS: " + videos);
+			
+			request.setAttribute("videos", videos);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
+	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

@@ -1,4 +1,4 @@
-package com.ipartek.formacion.youtube.model;
+package com.ipartek.formacion.youtube.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,7 +14,7 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 	String url = "jdbc:mysql://localhost:3307/youtube?serverTimezone=UTC&useSSL=false";
 	String usuario = "root";
 	String password = "admin";
-
+	
 	private static VideoMySqlDAO INSTANCE = null;
 
 	public static synchronized VideoMySqlDAO getInstance() throws ClassNotFoundException {
@@ -29,11 +29,14 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 	@Override
 	public boolean insert(Video pojo) {
 		try (Connection con = DriverManager.getConnection(url, usuario, password)) {
-			String sql = "INSERT INTO videos (idvideo, nombre) VALUES (?, ?)";
+			System.out.println(pojo.getIdVideo());
+			System.out.println(pojo.getNombre());
+			String sql = "INSERT INTO videos (idvideo, nombre,usuarios_id) VALUES (?, ?, ?)";
 
 			try (PreparedStatement pst = con.prepareStatement(sql)) {
 				pst.setString(1, pojo.getIdVideo());
 				pst.setString(2, pojo.getNombre());
+				pst.setLong(3, pojo.getIdUsuario());
 
 				int numFilas = pst.executeUpdate();
 
@@ -60,13 +63,13 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 		ArrayList<Video> videos = new ArrayList<>();
 
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
-			String sql = "SELECT id, idvideo, nombre FROM videos";
+			String sql = "SELECT id, idvideo, nombre,usuarios_id FROM videos";
 
 			try (PreparedStatement pst = conn.prepareStatement(sql)) {
 
 				try (ResultSet rs = pst.executeQuery()) {
 					while (rs.next()) {
-						videos.add(new Video(rs.getLong("id"), rs.getString("idvideo"), rs.getString("nombre")));
+						videos.add(new Video(rs.getLong("id"), rs.getString("idvideo"), rs.getString("nombre"),rs.getInt("usuarios_id")));
 					}
 				} catch (Exception e) {
 					throw new AccesoDatosException(e.getMessage(), e);
@@ -97,7 +100,7 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 
 				try (ResultSet rs = pst.executeQuery()) {
 					if (rs.next()) {
-						video = new Video(rs.getLong("id"), rs.getString("idvideo"), rs.getString("nombre"));
+						video = new Video(rs.getLong("id"), rs.getString("idvideo"), rs.getString("nombre"),rs.getInt("idUsuario"));
 					} else {
 						return null;
 					}

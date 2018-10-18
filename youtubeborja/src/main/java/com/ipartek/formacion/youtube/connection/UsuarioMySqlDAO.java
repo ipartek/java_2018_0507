@@ -1,4 +1,4 @@
-package com.ipartek.formacion.youtube.model;
+package com.ipartek.formacion.youtube.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -33,7 +33,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 	public boolean insert(Usuario pojo) {
 		// TODO Auto-generated method stub
 		try (Connection con = DriverManager.getConnection(url, user, password)) {
-			String sql = "INSERT INTO Usuarios (nombre,password,email) VALUES (?, ?, ?)";
+			String sql = "INSERT INTO usuarios (nombre,password,email) VALUES (?, ?, ?)";
 
 			try (PreparedStatement pst = con.prepareStatement(sql)) {
 				pst.setString(1,pojo.getNombre());
@@ -72,7 +72,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 
 				try (ResultSet rs = pst.executeQuery()) {
 					while (rs.next()) {
-						usuarios.add(new Usuario( rs.getString("nombre"), rs.getString("password"),rs.getString("email")));
+						usuarios.add(new Usuario( rs.getLong("id"),rs.getString("nombre"), rs.getString("password"),rs.getString("email")));
 					}
 				} catch (Exception e) {
 					throw new AccesoDatosException(e.getMessage(), e);
@@ -96,7 +96,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 
 		try (Connection conn = DriverManager.getConnection(url, user, password)) {
 
-			String sql = "SELECT id, nombre, password,email FROM videos WHERE id = ?";
+			String sql = "SELECT id, nombre, password,email FROM usuarios WHERE id = ?";
 
 			try (PreparedStatement pst = conn.prepareStatement(sql)) {
 

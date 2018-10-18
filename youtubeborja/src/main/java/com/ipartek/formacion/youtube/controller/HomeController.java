@@ -9,18 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.youtube.Usuario;
 import com.ipartek.formacion.youtube.Video;
-import com.ipartek.formacion.youtube.model.VideoMySqlDAO;
+import com.ipartek.formacion.youtube.connection.VideoMySqlDAO;
 
 @WebServlet("/inicio")
 public class HomeController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	private static VideoMySqlDAO dao;
-
+	private int idUsuario = 1;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		try {
 			String id = request.getParameter("id");
 			if (id != null) {
@@ -29,9 +30,9 @@ public class HomeController extends HttpServlet {
 
 			dao = VideoMySqlDAO.getInstance();
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
-			
+
 			System.out.println("VIDEOS: " + videos);
-			
+
 			request.setAttribute("videos", videos);
 
 		} catch (Exception e) {
@@ -43,16 +44,24 @@ public class HomeController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		try {
 			dao = VideoMySqlDAO.getInstance();
 
 			// recoger parametros
 			String idVideo = request.getParameter("id");
 			String nombre = request.getParameter("nombre");
-
+			
 			// insertar
-			Video v = new Video(idVideo, nombre);
-			dao.insert(v);
+
+			if (request.getParameter("anadir").equalsIgnoreCase("si")) {
+				System.out.println(request.getAttribute("la id usuario es "+"idusuario"));
+				Usuario u=(Usuario) request.getSession().getAttribute("user");
+				System.out.println("EL ID DE USUARIO ES "+u.getId());
+				
+				Video v = new Video(idVideo, nombre, u.getId());
+				dao.insert(v);
+			}
 
 			// pedir listado
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
