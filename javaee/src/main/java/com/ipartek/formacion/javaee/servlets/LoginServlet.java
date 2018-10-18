@@ -16,25 +16,27 @@ public class LoginServlet extends HttpServlet {
 
 	private static final String USUARIO_POR_DEFECTO = "javierniño";
 	private static final String PASSWORD_POR_DEFECTO = "contra";
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		request.setCharacterEncoding("UTF-8");
-		
-		//Recogida de datos
+
+		// Recogida de datos
 		String nombre = request.getParameter("nombre");
 		String password = request.getParameter("password");
-		
+
 		System.out.println(nombre);
-		
-		//Empaquetado en Modelo
+
+		// Empaquetado en Modelo
 		LoginForm login = new LoginForm();
-		
+
 		try {
 			login.setNombre(nombre);
 		} catch (LoginFormException e) {
 			login.setErrorNombre("*");
 		}
-			
+
 		try {
 			login.setPassword(password);
 		} catch (LoginFormException e) {
@@ -55,8 +57,10 @@ public class LoginServlet extends HttpServlet {
 			request.getSession().setAttribute("usuario", login);
 			request.getRequestDispatcher("principal.jsp").forward(request, response);
 		} else {
-			//Redirecci�n a vista
+
+			// Redirecci�n a vista
 			login.setMensajeError(login.getMensajeError() + " El usuario o contrase�a no son correctos");
+
 			request.setAttribute("login", login);
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}

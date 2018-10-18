@@ -1,0 +1,8 @@
+El patrón Modelo Vista Controlador.
+
+El controlador se encarga de recibir las solicitudes del usuario y pide al modelo los datos necesarios, ya sea acceder a un archivo, datos de una base de datos, etc. El modelo
+como hemos dicho, se encarga de ejecutar ciertas acciones en la base de datos, ya sea actualizaciones, borrar datos, pedir ciertos datos que tiene, etc. Por ultimo, la vista
+es lo que se muestra al usuario final.
+
+Si un usuario envia a traves de un formulario a un servlet, este servlet recogera los datos a traves del request.getParameter(). En cambio si este servlet quiere enviar una respuesta,
+lo enviara a traves del response.

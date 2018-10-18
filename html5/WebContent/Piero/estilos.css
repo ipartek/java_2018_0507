@@ -1,0 +1,58 @@
+#idiomas {
+	width:2%;
+	display: inline-block;
+	position: absolute;
+}
+
+#idiomas a{
+	color: black;
+	margin-bottom: 10px;
+	padding: 5px;
+}
+#idiomas a:hover{
+	background-color: #AEAE2D;
+}
+#menu {
+	background-color: #7C7C1D;
+	padding : 15px;
+	align: center;
+	text-decoration: none; 
+	width: 80%;
+}
+#menu2 {
+	float: right;
+	background-color: #7C7C1D;
+	padding : 15px;
+	text-decoration: none;
+	width:19%;
+}
+
+a{
+	color: white;
+	margin: 5px;
+	padding: 10px;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+#menu a:hover{
+	background-color: #AEAE2D;
+}
+
+#izq {
+	width: 200px;
+	display: inline-block;
+	text-align: top;
+	margin: auto;
+	float: left;
+	margin-top: 15px;
+	margin-left: 15px;
+}
+
+#der {
+	
+	width: 20%;
+	display: inline-block;
+}
