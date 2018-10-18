@@ -14,10 +14,26 @@ body {
 	background-color: #6f8296;
 }
 
+.panel-body-mine{
+	background-color: #768290;
+	padding-right:0;
+	padding-left:0;
+	padding-top:8px;
+}
+.panel-body-comment{
+	background-color: #768290;
+	padding-top:8px;
+}
+
 .card {
 	padding: 0;
 	margin: 15px;
 }
+
+.list-group{
+	margin-bottom:0;
+}
+
 .list-group-mine .list-group-item {
   background-color: #5CB85C;
 }
@@ -33,4 +49,6 @@ body {
 @-moz-document url-prefix() {
   fieldset { display: table-cell; }
 }
+
+
 

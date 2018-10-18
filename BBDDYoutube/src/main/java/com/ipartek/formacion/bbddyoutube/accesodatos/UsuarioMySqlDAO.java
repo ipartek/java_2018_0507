@@ -45,7 +45,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 			System.out.println("ERROR AL CREAR LA SENTENCIA DE INSERT USUARIO");
 			result = false;
 		}finally {
-			UtilsDAO.closeConnection(conn);
+			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return result;
 		}
 	}
@@ -69,7 +69,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 		} catch (SQLException e) {
 			System.out.println("ERROR AL CREAR LA SENTENCIA DE GET ALL");
 		}finally {
-			UtilsDAO.closeConnection(conn);
+			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return usuarios;
 		}
 	}
@@ -95,7 +95,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 		} catch (SQLException e) {
 			System.out.println("ERROR AL CREAR LA SENTENCIA DE GET BY ID");
 		}finally {
-			UtilsDAO.closeConnection(conn);
+			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return usuario;
 		}
 	}
@@ -122,7 +122,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 			System.out.println("ERROR AL CREAR LA SENTENCIA DE UPDATE");
 			result = false;
 		}finally {
-			UtilsDAO.closeConnection(conn);
+			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return result;
 		}
 	}
@@ -146,7 +146,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 			System.out.println("ERROR AL CREAR LA SENTENCIA DE DELETE");
 			result = false;
 		}finally {
-			UtilsDAO.closeConnection(conn);
+			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return result;
 		}
 	}
@@ -172,37 +172,8 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 		}catch (SQLException e) {
 			System.out.println("ERROR AL CREAR LA SENTENCIA DE GET USER ID");
 		}finally {
-			UtilsDAO.closeConnection(conn);
+			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return userId;
-		}
-	}
-	
-	@SuppressWarnings("finally")
-	public List<Video> getAllUserVideos(long idUsuario) {
-		/*String sql = "SELECT v.idYoutube, v.nombre FROM videos v "
-				+ "INNER JOIN usuariosvideos uv ON v.idVideo = uv.idVideo "
-				+ "WHERE uv.idUsuario = ?";*/
-		
-		String sql = "SELECT idYoutube, nombre FROM videos WHERE idUsuario= ?";
-				
-		ArrayList<Video> videos = new ArrayList<Video>();
-		Connection conn = UtilsDAO.getConnection();
-		
-		try (PreparedStatement pst = conn.prepareStatement(sql)) {
-			pst.setLong(1, idUsuario);
-			try(ResultSet rs = pst.executeQuery()){
-				while (rs.next()) {
-					videos.add(new Video(rs.getString("idYoutube"), rs.getString("nombre")));
-				}
-			}catch (Exception e) {
-				System.out.println("ERROR AL CREAR EL RESULTSET DE GET ALL BY USER: " + e.getMessage());
-				e.printStackTrace();
-			}
-		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE GET ALL BY USER");
-		}finally {
-			UtilsDAO.closeConnection(conn);
-			return videos;
 		}
 	}
 }

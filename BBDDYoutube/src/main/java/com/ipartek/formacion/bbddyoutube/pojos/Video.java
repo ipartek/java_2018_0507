@@ -7,6 +7,7 @@ public class Video {
 	private Long id;
 	private String idVideo;
 	private String nombre;
+	private String descripcion;
 	private Long idUsuario;
 	private String nombreUsuario;
 	
@@ -14,37 +15,42 @@ public class Video {
 	public Video() {
 		super();
 		this.idVideo = "YlUKcNNmywk";
-		this.nombre = "Red Hot Chili Peppers - Californication";		
+		this.nombre = "Red Hot Chili Peppers - Californication";	
+		this.descripcion = "Descripcion del video de Red Hot Chilli Peppers";
 	}
 	
-	public Video(Long id, String idVideo, String nombre) {
+	public Video(Long id, String idVideo, String nombre, String descripcion) {
 		this.setId(id);
 		this.setIdVideo(idVideo);
 		this.setNombre(nombre);
+		this.setDescripcion(descripcion);
 	}
 	
-	public Video(Long id, String idVideo, String nombre, Long idUsuario) {
+	public Video(Long id, String idVideo, String nombre, String descripcion, Long idUsuario) {
 		this.setId(id);
 		this.setIdVideo(idVideo);
 		this.setNombre(nombre);
+		this.setDescripcion(descripcion);
 		this.setIdUsuario(idUsuario);
 	}
 
-	public Video(Long id, String idVideo, String nombre, String nombreUsuario) {
+	public Video(Long id, String idVideo, String nombre, String descripcion, String nombreUsuario) {
 		this.setId(id);
 		this.setIdVideo(idVideo);
 		this.setNombre(nombre);
+		this.setDescripcion(descripcion);
 		this.setNombreUsuario(nombreUsuario);
 	}
 	
-	public Video(String idVideo, String nombre, Long idUsuario) {
+	public Video(String idVideo, String nombre, String descripcion, Long idUsuario) {
 		this.setIdVideo(idVideo);
 		this.setNombre(nombre);
+		this.setDescripcion(descripcion);
 		this.setIdUsuario(idUsuario);
 	}
 	
-	public Video(String idVideo, String nombre ) {
-		this(-1L, idVideo, nombre);
+	public Video(String idVideo, String nombre, String descripcion) {
+		this(-1L, idVideo, nombre, descripcion);
 	}
 
 	public Long getId() {
@@ -59,6 +65,14 @@ public class Video {
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 	public String getIdVideo() {

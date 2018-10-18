@@ -69,6 +69,7 @@ public class AdministrarVideosServlet extends HttpServlet {
 		
 		String idYoutube = request.getParameter("idYoutube");
 		String nombre = request.getParameter("nombre");
+		String descripcion = request.getParameter("descripcion");
 		String idUsuario = request.getParameter("idUsuario");
 		Long idUsuarioL;
 		Long idL;
@@ -79,7 +80,7 @@ public class AdministrarVideosServlet extends HttpServlet {
 		switch (accion) {
 			case "insertar":
 				idUsuarioL = extraerId(idUsuario);
-				video = new Video(idYoutube, nombre, idUsuarioL);
+				video = new Video(idYoutube, nombre, descripcion, idUsuarioL);
 				daoV.insert(video);
 				mensaje = "Inserción correcta del video " + video.getNombre();
 				break;
@@ -87,7 +88,7 @@ public class AdministrarVideosServlet extends HttpServlet {
 			case "editar":
 				idL = extraerId(id);
 				idUsuarioL = extraerId(idUsuario);
-				video = new Video(idL, idYoutube, nombre, idUsuarioL);
+				video = new Video(idL, idYoutube, nombre, descripcion, idUsuarioL);
 				daoV.update(video);
 				mensaje = "Actualización correcta del video " + video.getNombre();
 				break;

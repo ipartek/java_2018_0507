@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class UtilsDAO {
-	private static String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
+	private static String url = "jdbc:mysql://localhost:3307/youtube?serverTimezone=UTC&useSSL=false";
 	private static String usuario = "root";
 	private static String password = "admin";
 	
