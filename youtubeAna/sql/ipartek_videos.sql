@@ -16,29 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `usuarios`
+-- Table structure for table `videos`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
+DROP TABLE IF EXISTS `videos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `usuarios` (
+CREATE TABLE `videos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
+  `idvideo` char(11) NOT NULL,
+  `nombre` varchar(45) NOT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `FK_USUARIOS_idx` (`id_usuario`),
+  KEY `ID_VIDEOS_idx` (`idvideo`),
+  CONSTRAINT `FK_USUARIOS` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuarios`
+-- Dumping data for table `videos`
 --
 
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'javier@email.com','yepa'),(2,'admin@email.com','nuevapassword');
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+LOCK TABLES `videos` WRITE;
+/*!40000 ALTER TABLE `videos` DISABLE KEYS */;
+INSERT INTO `videos` VALUES (1,'FavUpD_IjVY','Vacas, vacas vacas',2),(2,'whOO7Jnalfk','SVV',2);
+/*!40000 ALTER TABLE `videos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,8 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-<<<<<<< HEAD
 -- Dump completed on 2018-10-02 10:11:37
-=======
--- Dump completed on 2018-10-02 10:11:37
->>>>>>> refs/remotes/origin/master

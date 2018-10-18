@@ -1,7 +1,6 @@
 package com.ipartek.formacion.youtube.controller;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.youtube.Comentario;
 import com.ipartek.formacion.youtube.Video;
+import com.ipartek.formacion.youtube.model.ComentariosMySqlDAO;
 import com.ipartek.formacion.youtube.model.VideoMySqlDAO;
 
 @WebServlet("/inicio")
@@ -19,51 +20,45 @@ public class HomeController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	private static VideoMySqlDAO dao;
+	private static ComentariosMySqlDAO daocomentario;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		try {
-<<<<<<< HEAD
-			
-			System.out.println("DOGET");
-			Class.forName("com.mysql.jdbc.Driver");
-			
-			String idvideo = request.getParameter("id");
-			
-			if ( idvideo != null ) {
-				dao.delete(idvideo);
-=======
 			String id = request.getParameter("id");
 			if (id != null) {
 				dao.delete(id);
->>>>>>> refs/remotes/origin/master
 			}
-
+			System.out.println("COMENTARIOS1");
 			dao = VideoMySqlDAO.getInstance();
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
-<<<<<<< HEAD
-			System.out.println("HOMECONTROLER !");
-		
-		/*	VideoArrayListDAO vald = null;
-			vald.getAll();*/
-			//List lista=VideoArrayListDAO.getListBD();
+			System.out.println("COMENTARIOS2");
 			
-			/*for(Video video:videos){
-				System.out.println("FOR");
-				System.out.println(video.getId()+"--"+video.getNombre()+"--"+video.getL());
-				
-			}*/
-=======
+			daocomentario = ComentariosMySqlDAO.getInstance();
+			List<Comentario> comentarios =(List<Comentario>) daocomentario.getAll();
 			
-			System.out.println("VIDEOS: " + videos);
->>>>>>> refs/remotes/origin/master
-			
+			for(Comentario str : comentarios)
+			{
+			   
+			    System.out.println("Pinto el el homeControler"+ str.getUsuario() +" " +str.getComentario());
+			}
+			 
+			 
+			System.out.println("COMENTARIOS3");
+			System.out.println("VIDEOS: " + videos.toString());
+			//System.out.println("COMENTARIOS" + comentarios.toString());
+
 			request.setAttribute("videos", videos);
-			//System.out.println("HomeController saliendo");
+			request.setAttribute("comentarios", comentarios);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			try {
+				throw e;
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		} finally {
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 		}
@@ -71,39 +66,18 @@ public class HomeController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-<<<<<<< HEAD
-		
-		doGet(request,response);
-		
-		/*try {
-			System.out.println("DOPOST");
-			//recoger parametros
-			String id=request.getParameter("id");
-=======
 		try {
 			dao = VideoMySqlDAO.getInstance();
 
 			// recoger parametros
 			String idVideo = request.getParameter("id");
->>>>>>> refs/remotes/origin/master
 			String nombre = request.getParameter("nombre");
-<<<<<<< HEAD
-			
-			
-			//insertar
-			//Video v = new Video(Long.parseLong("1") ,id, nombre);
-			//dao.insert(v);
-			
-			//pedir listado
-			dao = VideoArrayListDAO.getInstance();
-=======
 
 			// insertar
 			Video v = new Video(idVideo, nombre);
 			dao.insert(v);
 
 			// pedir listado
->>>>>>> refs/remotes/origin/master
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
 			request.setAttribute("videos", videos);
 
@@ -111,6 +85,6 @@ public class HomeController extends HttpServlet {
 			e.printStackTrace();
 		} finally {
 			request.getRequestDispatcher("home.jsp").forward(request, response);
-		}*/
+		}
 	}
 }

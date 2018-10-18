@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.ipartek.formacion</groupId>
-	<artifactId>youtube</artifactId>
+	<artifactId>youtubeana</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>youtube</name>
+	<name>youtubeana</name>
 	<url>http://localhost:8080/youtube/</url>
 
 	<!-- variables comunes para todo el POM -->
@@ -44,23 +44,12 @@
 			<version>${javax.servlet.jstl.version}</version>
 		</dependency>
 
-<<<<<<< HEAD
-		<!-- libreria MySQL -->
-		
-=======
->>>>>>> refs/remotes/origin/master
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-<<<<<<< HEAD
-			<version>8.0.12</version>
-=======
 			<version>${mysql.connector.version}</version>
->>>>>>> refs/remotes/origin/master
 		</dependency>
-
-
 
 		<dependency>
 			<groupId>org.jsoup</groupId>
@@ -147,6 +136,6 @@
 		</plugins>
 
 
-		<finalName>youtube</finalName>
+		<finalName>youtubeana</finalName>
 	</build>
 </project>

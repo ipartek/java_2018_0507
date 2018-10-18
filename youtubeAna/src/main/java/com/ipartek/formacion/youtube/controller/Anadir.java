@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.youtube.Video;
 import com.ipartek.formacion.youtube.model.VideoArrayListDAO;
+import com.ipartek.formacion.youtube.model.VideoMySqlDAO;
 
 /**
  * Servlet implementation class Anadir
@@ -48,12 +49,10 @@ public class Anadir extends HttpServlet {
 			VideoArrayListDAO.getInstance().insert(new Video((long) 1,id,nombre));
 		
 			
-			VideoArrayListDAO.getListBD();
-			request.setAttribute("video", VideoArrayListDAO.getInstance().getAll());
+			VideoMySqlDAO videomysqldao=new VideoMySqlDAO();
+			videomysqldao.getAll();
+			request.setAttribute("videos", videomysqldao.getAll());
 		
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
