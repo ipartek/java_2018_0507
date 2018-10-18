@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ipartek.formacion.youtube.Comentario;
 import com.ipartek.formacion.youtube.Usuarios;
 
 public class UsuariosMySqlDAO implements CrudAble<Usuarios> {
@@ -177,5 +178,32 @@ public class UsuariosMySqlDAO implements CrudAble<Usuarios> {
 
 		return null;
 	}
+	
+	public List<Usuarios> ObtenerEmailComentarios() {
+	
+	ArrayList<Usuarios> emailsComentarios = new ArrayList<>();
+	
+	try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+		String sql = "select u.email, c.descripcion, c.fecha from usuarios u inner join comentarios c on c.usuario_id = u.id";
 
+		try (PreparedStatement pst = conn.prepareStatement(sql)) {
+				Comentario com;
+			try (ResultSet rs = pst.executeQuery()) {
+				while (rs.next()) {
+					com = new Comentario(rs.getString("descripcion"), rs.getDate("fecha"));
+					emailsComentarios.add(new Usuarios(rs.getString("email"), com));
+				}
+			} catch (Exception e) {
+				throw new AccesoDatosException(e.getMessage(), e);
+			}
+		} catch (SQLException e) {
+			throw new AccesoDatosException(e.getMessage(), e);
+		}
+
+	} catch (SQLException e) {
+		throw new AccesoDatosException(e.getMessage(), e);
+	}
+
+	return emailsComentarios;
+	}
 }
