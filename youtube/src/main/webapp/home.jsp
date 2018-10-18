@@ -71,7 +71,8 @@
           		for( Video v : videos ){
           	%>
                    
-          	  <a href="#" onclick="reproducir('<%=v.getIdVideo()%>')" class="list-group-item"><%=v.getNombre()%></a>
+          	  <!-- <a href="#" onclick="reproducir('<%=v.getIdVideo()%>'); return false;" class="list-group-item"><%=v.getNombre()%></a> -->
+          	  <a href="javascript:reproducir('<%=v.getIdVideo()%>')" class="list-group-item"><%=v.getNombre()%></a>
           	  <a href="?id=<%=v.getId()%>"><i style="color:red;" class="float-right fas fa-trash-alt"></i></a>
             
             <%

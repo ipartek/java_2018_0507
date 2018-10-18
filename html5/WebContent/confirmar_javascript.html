@@ -9,10 +9,23 @@
             return confirm('¿Estás seguro?');
         }
     </script>
+    
 </head>
 <body>
+    <c:if test="${mensajeerror != null}">
+        <div class="alert alert-danger alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          ${mensajeerror}
+        </div>
+    </c:if>
+   
     <a href="http://www.google.es" onclick="return confirm('¿Estás seguro?');">Google</a>
     <a href="http://www.google.es" onclick="return confirmar();">Google</a>
     
+    <c:if test="${mensaje != null}">
+        <script>
+            alert(${mensaje});
+        </script>
+    </c:if>
 </body>
 </html>
