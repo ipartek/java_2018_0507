@@ -75,7 +75,7 @@
 				<div class="list-group">
 
 					<c:forEach items="${videos}" var="v">
-						<a href="javascript:reproducir('${v.idVideo}')"
+						<a href="?idver=${v.id}"
 							class="list-group-item">${v.nombre}</a>
 						<a href="gestionvideos?id=${v.id}&accion=delete"> <i
 							style="color: red;" class="float-right fas fa-trash-alt"></i>
@@ -153,17 +153,6 @@
 		src="https://blackrockdigital.github.io/startbootstrap-shop-item/vendor/jquery/jquery.min.js"></script>
 	<script
 		src="https://blackrockdigital.github.io/startbootstrap-shop-item/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-	<script>
-		function reproducir(id) {
-
-			console.info('reproducir video ' + id);
-			var iframe = document.getElementById('iframe');
-			iframe.src = "https://www.youtube.com/embed/" + id;
-
-		}
-	</script>
 
 </body>
 
