@@ -5,17 +5,6 @@
 		<div class="well well-success">
 			<h2 class="text-center">Listado videos</h2>
 			<br />
-			<%-- <div class="list-group list-group-mine">
-				<c:forEach items="${videos}" var="video">
-					<a href="#" onclick="reproducir('${video.idVideo}')"
-						class="list-group-item"> ${video.nombre} <span>
-							(${video.nombreUsuario}) </span> <span
-						class="glyphicon glyphicon-play badge"> </span>
-					</a>
-					<a href="?id=${video.idVideo}"><i style="color: red;"
-						class="float-right fas fa-trash-alt"></i></a>
-				</c:forEach>
-			</div> --%>
 			<div class="panel-group" id="accordion" role="tablist"
 				aria-multiselectable="true">
 				<c:forEach items="${usuarios}" var="usuario">
