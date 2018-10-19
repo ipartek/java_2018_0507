@@ -1,4 +1,4 @@
-package com.ipartek.formacion.youtube;
+package com.ipartek.formacion.youtube.model;
 
 public class Video {
 

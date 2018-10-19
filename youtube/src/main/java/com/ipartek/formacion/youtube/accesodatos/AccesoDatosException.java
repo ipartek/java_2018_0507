@@ -1,4 +1,4 @@
-package com.ipartek.formacion.youtube.model;
+package com.ipartek.formacion.youtube.accesodatos;
 
 public class AccesoDatosException extends RuntimeException {
 
