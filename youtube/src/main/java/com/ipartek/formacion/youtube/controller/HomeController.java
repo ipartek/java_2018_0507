@@ -21,12 +21,20 @@ public class HomeController extends HttpServlet {
 			throws ServletException, IOException {
 
 		try {
+			String id = request.getParameter("idver");
+			
 			ArrayList<Video> videos = (ArrayList<Video>) VideoMySqlDAO.getInstance().getAll();
 			
-			Video videoInicio = new Video();
-      		
-			if ( !videos.isEmpty() ){
-      			videoInicio = videos.get(0);
+			Video videoInicio = null;
+			
+			if(id != null) {
+				videoInicio = VideoMySqlDAO.getInstance().getById(id);
+			} else {
+				videoInicio = new Video();
+	      		
+				if ( !videos.isEmpty() ){
+	      			videoInicio = videos.get(0);
+				}
 			}
 			
 			request.setAttribute("videoInicio", videoInicio);

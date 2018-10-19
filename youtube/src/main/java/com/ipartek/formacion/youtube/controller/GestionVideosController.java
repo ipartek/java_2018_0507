@@ -29,6 +29,8 @@ public class GestionVideosController extends HttpServlet {
 				// insertar
 				Video v = new Video(idVideo, nombre);
 				VideoMySqlDAO.getInstance().insert(v);
+				
+				request.getRequestDispatcher("/").forward(request, response);
 				break;
 			case "delete":
 				String id = request.getParameter("id");
@@ -37,12 +39,14 @@ public class GestionVideosController extends HttpServlet {
 					VideoMySqlDAO.getInstance().delete(id);
 				}
 
+				request.getRequestDispatcher("/").forward(request, response);
+				
 				break;
 			default:
 				throw new ControladorException("No se conoce la acción " + accion);
 			}
 			
-			request.getRequestDispatcher("/").forward(request, response);
+			
 		} catch (Exception e) {
 			throw new ControladorException(e.getMessage(), e);
 		}
