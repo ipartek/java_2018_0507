@@ -50,7 +50,7 @@
 							class="form-inline mt-2 mt-md-0">
 							<input type="hidden" name="accion" value="insert" /> <input
 								name="idvideo" class="form-control mr-sm-2" type="text"
-								placeholder="ID 11 caracerteres" title="11 caracteres" required
+								placeholder="ID 11 caracteres" title="11 caracteres" required
 								pattern=".{11,11}"> <input name="nombre"
 								class="form-control mr-sm-2" type="text"
 								placeholder="Nombre minimo 2 letras" required pattern=".{2,125}">
@@ -96,10 +96,7 @@
 
 					<div class="card-body">
 						<h3 class="card-title">${videoInicio.nombre}</h3>
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-							adipisicing elit. Sapiente dicta fugit fugiat hic aliquam itaque
-							facere, soluta. Totam id dolores, sint aperiam sequi pariatur
-							praesentium animi perspiciatis molestias iure, ducimus!</p>
+						
 						<span class="text-warning">&#9733; &#9733; &#9733; &#9733;
 							&#9734;</span> 4.0 stars
 					</div>
