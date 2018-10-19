@@ -1,0 +1,21 @@
+UF2213 - Practico - Modelos de datos y visión conceptual de una base de datos
+Taller Mecánico
+Necesitamos un modelo de datos para poder gestionar la información de un taller mecánico.
+
+En el taller queremos tener guardada la información de nuestros clientes (DNI, nombre, apellidos, teléfono ).
+
+También el Vehículo que tienen, sabiendo que un cliente puede tener varios vehículos. De cada vehículo es necesario saber el número bastidor, modelo, matrícula y si es diésel o gasolina. El Gerente del taller desea conocer las reparaciones que se realizan a los vehículos y necesita la siguiente información: fecha, precio y observaciones para poder detallar la reparación realizada.
+
+En el taller hay varias trabajadores divididos de la siguiente manera: 1 jefe de taller, 1 contable, 3 mecánicos y 1 aprendiz. Tenemos que poder guardar su nombre, apellidos, DNI y teléfono.
+
+El jefe de taller necesita saber quién es el mecánico o aprendiz que realiza las reparaciones del vehículo.
+
+
+
+1. Diseñar modelo de datos ( guardar .png y .mwb )
+
+2. Crear dos usuarios para poder acceder al modelo de datos ( guardar pantallazo .png )
+
+    2.1 Usuario Administrador con permisos totales [gerente,12345Taller#2018]
+
+    2.1 Usuario Empleado con permisos solo lectura [paco,paco#2018]
