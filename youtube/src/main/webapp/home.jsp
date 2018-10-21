@@ -102,7 +102,7 @@
 						for (Video v : videos) {
 					%>
 
-					<a href="#" onclick="reproducir('<%=v.getIdVideo()%>')"
+					<a href="#" onclick="reproducir('<%=v.getIdVideo()%>');return false;"
 						class="list-group-item"><%=v.getNombre()%></a> <a
 						href="?id=<%=v.getId()%>"><i style="color: red;"
 						class="float-right fas fa-trash-alt"></i></a>
@@ -142,12 +142,13 @@
 
 
 
-						<c:forEach items="${comentario}" var="comentario">
-							<p>${comentario.descripcion}</p>
-							<small class="text-muted">${comentario.fecha}</small>
+						
+						<c:forEach items="${emails}" var="email">
+							<p>${email.coment.descripcion}</p>
+							<small class="text-muted">${email.email} ${email.coment.fecha}</small>
 							<hr>
 						</c:forEach>
-
+						
 					</div>
 				</div>
 				<!-- /.card -->

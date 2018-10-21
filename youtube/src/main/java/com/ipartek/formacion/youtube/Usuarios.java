@@ -1,12 +1,21 @@
 package com.ipartek.formacion.youtube;
 
+import java.sql.Date;
+
 public class Usuarios {
 	
 	private long id;
 	private String email;
 	private String password;
+	private Comentario coment = null;
 	
 	
+	public Usuarios(long id, String email, Comentario coment) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.coment = coment;
+	}
 	public Usuarios(long id, String email, String password) {
 		super();
 		this.id = id;
@@ -17,6 +26,11 @@ public class Usuarios {
 		super();
 		this.email = email;
 		this.password = password;
+	}
+
+	public Usuarios(String email, Comentario com) {
+		this.email = email;
+		this.coment = com;
 	}
 	public long getId() {
 		return id;
@@ -67,6 +81,12 @@ public class Usuarios {
 		} else if (!password.equals(other.password))
 			return false;
 		return true;
+	}
+	public Comentario getComent() {
+		return coment;
+	}
+	public void setComent(Comentario coment) {
+		this.coment = coment;
 	}
 	
 	
