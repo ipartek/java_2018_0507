@@ -25,7 +25,6 @@ public class HomeController extends HttpServlet {
 			throws ServletException, IOException {
 
 		
-		
 		try {
 			String id = request.getParameter("id");
 			if (id != null) {
