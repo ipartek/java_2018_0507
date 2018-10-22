@@ -1,10 +1,9 @@
-package com.ipartek.formacion.youtube.model;
+package com.ipartek.formacion.youtube.accesodatos;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.ipartek.formacion.youtube.Video;
-import com.ipartek.formacion.youtube.accesodatos.CrudAble;
 
 public class VideoArrayListDAO implements CrudAble<Video> {
 
@@ -41,7 +40,6 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 		return videos;
 	}
 
-	@SuppressWarnings("unlikely-arg-type")
 	@Override
 	public Video getById(String id) {
 		Video resul = null;
@@ -57,10 +55,10 @@ public class VideoArrayListDAO implements CrudAble<Video> {
 
 	@Override
 	public boolean update(Video pojo) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@SuppressWarnings("unlikely-arg-type")
 	@Override
 	public boolean delete(String id) {
 		boolean resul = false;

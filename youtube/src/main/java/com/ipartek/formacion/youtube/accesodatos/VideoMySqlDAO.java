@@ -1,4 +1,4 @@
-package com.ipartek.formacion.youtube.model;
+package com.ipartek.formacion.youtube.accesodatos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,13 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
+import com.ipartek.formacion.biblioteca.Utils;
 import com.ipartek.formacion.youtube.Video;
 
 public class VideoMySqlDAO implements CrudAble<Video> {
-	String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
-	String usuario = "root";
-	String password = "admin";
+	private String url;
+	private String usuario;
+	private String password;
 
 	private static VideoMySqlDAO INSTANCE = null;
 
@@ -23,6 +25,12 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 			INSTANCE = new VideoMySqlDAO();
 		}
 
+		Properties prop = Utils.leerPropiedades("youtube.properties");
+		
+		INSTANCE.url = prop.getProperty("url");
+		INSTANCE.usuario = prop.getProperty("usuario");
+		INSTANCE.password = prop.getProperty("password");
+		
 		return INSTANCE;
 	}
 
@@ -42,14 +50,10 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 				}
 
 			} catch (SQLException e) {
-				System.out.println(e.getMessage());
-				e.printStackTrace();
-				return false;
+				throw new AccesoDatosException(e.getMessage(), e);
 			}
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-			return false;
+			throw new AccesoDatosException(e.getMessage(), e);
 		}
 
 		return true;

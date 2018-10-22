@@ -10,58 +10,46 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.youtube.Video;
-import com.ipartek.formacion.youtube.model.VideoMySqlDAO;
+import com.ipartek.formacion.youtube.accesodatos.VideoMySqlDAO;
 
 @WebServlet("/inicio")
 public class HomeController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private static VideoMySqlDAO dao;
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		try {
-			String id = request.getParameter("id");
-			if (id != null) {
-				dao.delete(id);
+			String id = request.getParameter("idver");
+			
+			ArrayList<Video> videos = (ArrayList<Video>) VideoMySqlDAO.getInstance().getAll();
+			
+			Video videoInicio = null;
+			
+			if(id != null) {
+				videoInicio = VideoMySqlDAO.getInstance().getById(id);
+			} else {
+				videoInicio = new Video();
+	      		
+				if ( !videos.isEmpty() ){
+	      			videoInicio = videos.get(0);
+				}
 			}
-
-			dao = VideoMySqlDAO.getInstance();
-			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
 			
-			System.out.println("VIDEOS: " + videos);
-			
+			request.setAttribute("videoInicio", videoInicio);
 			request.setAttribute("videos", videos);
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
 			request.getRequestDispatcher("home.jsp").forward(request, response);
-		}
+			
+		} catch (Exception e) {
+			throw new ControladorException(e.getMessage(), e);
+		} 
+		
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		try {
-			dao = VideoMySqlDAO.getInstance();
-
-			// recoger parametros
-			String idVideo = request.getParameter("id");
-			String nombre = request.getParameter("nombre");
-
-			// insertar
-			Video v = new Video(idVideo, nombre);
-			dao.insert(v);
-
-			// pedir listado
-			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
-			request.setAttribute("videos", videos);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			request.getRequestDispatcher("home.jsp").forward(request, response);
-		}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException{
+		doGet(request, response);
 	}
 }
