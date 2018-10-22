@@ -24,14 +24,15 @@ public class Video {
 		this.nombre = "Red Hot Chili Peppers - Californication";		
 	}
 	
-	public Video(Long id, String idVideo, String nombre) {
+	public Video(Long id, String idVideo, String nombre, Usuario usuario) {
 		this.setId(id);
 		this.setIdVideo(idVideo);
 		this.setNombre(nombre);
+		this.setUsuario(usuario);
 	}
 	
-	public Video(String idVideo, String nombre ) {
-		this(-1L, idVideo, nombre);
+	public Video(String idVideo, String nombre, Usuario usuario ) {
+		this(-1L, idVideo, nombre, usuario);
 	}
 
 	public Long getId() {
