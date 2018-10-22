@@ -1,18 +1,20 @@
 package com.ipartek.formacion.bbddyoutube.accesodatos;
 
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
+import java.io.IOException;
 
 public class UtilsDAO {
-	private static String url = "jdbc:mysql://localhost:3307/youtube?serverTimezone=UTC&useSSL=false";
-	private static String usuario = "root";
-	private static String password = "admin";
-	
+
 	public static Connection getConnection() {
 		Connection con = null;
 		try {
-			con = DriverManager.getConnection(url, usuario, password);
+			Properties prop = leerPropiedades("youtube.properties");
+
+			con = DriverManager.getConnection( prop.getProperty("url"), prop.getProperty("usuario"), prop.getProperty("password"));
 		} catch (SQLException e) {
 			System.out.println("ERROR AL CONECTARSE A LA BBDD");
 			e.printStackTrace();
@@ -26,6 +28,26 @@ public class UtilsDAO {
 		} catch (SQLException e) {
 			System.out.println("ERROR AL CERRAR LA CONEXION A LA BBDD");
 			e.printStackTrace();
+		}
+	}
+	
+	public static Properties leerPropiedades(String filename) {
+		try {
+			
+			InputStream input = UtilsDAO.class.getClassLoader().getResourceAsStream(filename);
+			
+			if(input==null){
+				throw new BibliotecaException("No se ha podido leer el fichero " + filename);
+			}
+
+			//load a properties file from class path, inside static method
+			Properties prop = new Properties();
+			
+			prop.load(input);
+
+			return prop;
+		} catch (IOException e) {
+			throw new BibliotecaException("No se ha podido leer el fichero", e);
 		}
 	}
 }
