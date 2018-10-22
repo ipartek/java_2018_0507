@@ -66,6 +66,7 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 
 				try (ResultSet rs = pst.executeQuery()) {
 					while (rs.next()) {
+						System.out.println(rs.getLong("id")+"-"+rs.getString("idvideo")+"-"+rs.getString("nombre")+"-");
 						videos.add(new Video(rs.getLong("id"), rs.getString("idvideo"), rs.getString("nombre")));
 					}
 				} catch (Exception e) {

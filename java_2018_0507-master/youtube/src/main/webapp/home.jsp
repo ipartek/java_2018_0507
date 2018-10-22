@@ -58,10 +58,8 @@
 						</form>
 					</li>
 				</ul>
-
-
-
 			</div>
+		
 		</div>
 	</nav>
 

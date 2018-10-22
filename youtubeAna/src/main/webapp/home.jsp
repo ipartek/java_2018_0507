@@ -23,7 +23,9 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
+      <!--  link href="css/bootstrap.min.css" rel="stylesheet"-->
     <link href="css/shop-item.css" rel="stylesheet">
+   
 
   </head>
 
@@ -39,16 +41,29 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <form action="" method="post" class="form-inline mt-2 mt-md-0">
-	            <input name="id" class="form-control mr-sm-2" type="text" placeholder="ID 11 caracerteres" title="11 caracteres" required pattern=".{11,11}">
+              <form action="anadir" method="post" class="form-inline mt-2 mt-md-0">
+	            <input name="id" class="form-control mr-sm-2" type="text" placeholder="ID 11 caracerteres" title="11 caracteres" required pattern=".{11}">
 	            <input name="nombre" class="form-control mr-sm-2" type="text" placeholder="Nombre minimo 2 letras" required pattern=".{2,125}">
 	            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Añadir</button>
+	            <!--  a class="btn btn-outline-info my-2 my-sm-0" href="?&action=insert">Insertar</a-->
 	          </form>
-            </li>            
+			        
+		     </li>  
+		     <li class="nav-item active">
+		     
+		     
+		        <form class="form-inline" action="login" method="post">
+		         <input name="email" id="email" class="form-control mr-sm-2" type="text" placeholder="email" >
+	             <input name="pass" id="pass" class="form-control mr-sm-2" type="text" placeholder="contrasena" >
+	          
+				  <button type="submit" class="btn btn-default">Login</button>
+				</form>
+		     
+		     </li>          
           </ul>
           
-          
-          
+         
+		          
         </div>
       </div>
     </nav>
@@ -73,7 +88,9 @@
           	%>
                    
           	  <a href="#" onclick="reproducir('<%=v.getIdVideo()%>');return false;" class="list-group-item"><%=v.getNombre()%></a>
-          	  <a href="?id=<%=v.getId()%>"><i style="color:red;" class="float-right fas fa-trash-alt"></i></a>
+          	     <form action="" method="post" class="form-inline mt-2 mt-md-0">
+          	  		<a href="?id=<%=v.getId()%>&action=delete"><span class="glyphicon glyphicon-remove">Borrar</span></a>	
+          	  	</form>
             
             <%
           		} //end for

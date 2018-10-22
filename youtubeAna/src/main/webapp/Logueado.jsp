@@ -5,10 +5,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<base href="${pageContext.request.contextPath}/">
 </head>
 <body>
 logueado
-<%=request.getAttribute("user") %>
-<%=request.getAttribute("pass") %>
+
+<%=session.getAttribute("email") %>
+<%=session.getAttribute("pass") %>
+
+<form action="logout" method="post"><button>Logout</button></form>
 </body>
 </html>

@@ -25,30 +25,39 @@ public class HomeController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		System.out.println("homeController doGET");
+		String idVideo = request.getParameter("id");
+		String nombre = request.getParameter("nombre");
+		System.out.println(request.getParameter("action"));
+		System.out.println(request.getParameter("id"));
 		try {
-			String id = request.getParameter("id");
-			if (id != null) {
-				dao.delete(id);
+			String accion=request.getParameter("action");
+			if(accion!=null && request.getParameter("id")!=null) {
+				System.out.println("ACCION" + accion);
+				String id = request.getParameter("id");
+				 switch (accion) {
+		            case "anadir":
+		            	dao.insert(new Video(idVideo,nombre));
+		                     break;
+		            case "delete":
+		            	System.out.println("Borrar de la bd el video con id="+ id);
+						dao.delete(id);
+	                    break;
+	                default:break;
+				
+				 }
 			}
-			
-			dao = VideoMySqlDAO.getInstance();
-			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
 		
 			
+			dao = VideoMySqlDAO.getInstance();
+			
+			System.out.println("AKI");
+			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
+		
+			System.out.println("AKI2");
 			daocomentario = ComentariosMySqlDAO.getInstance();
 			List<Comentario> comentarios =(List<Comentario>) daocomentario.getAll();
-			
-		/*	for(Comentario str : comentarios)
-			{
-			   
-			    System.out.println("Pinto el el homeControler"+ str.getUsuario() +" " +str.getComentario());
-			}
-			 */
-			 
-			//System.out.println("COMENTARIOS3");
-			//System.out.println("VIDEOS: " + videos.toString());
-			//System.out.println("COMENTARIOS" + comentarios.toString());
-
+			System.out.println("AKI3");
 			request.setAttribute("videos", videos);
 			request.setAttribute("comentarios", comentarios);
 
@@ -66,6 +75,7 @@ public class HomeController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("homeController doPOST");
 		try {
 			dao = VideoMySqlDAO.getInstance();
 			daocomentario = ComentariosMySqlDAO.getInstance();
