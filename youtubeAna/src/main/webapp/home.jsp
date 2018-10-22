@@ -50,9 +50,13 @@
 			        
 		     </li>  
 		     <li class="nav-item active">
-		     
-		     
-		        <form class="form-inline" action="login" method="post">
+		     <font color="white">
+			     <form class="form-inline" action="logout" method="post">
+	  					 Bienvenido usuario <%=session.getAttribute("email") %>
+	  					  <button type="submit" class="btn btn-default">Logout</button>
+	  			 </form>
+  			</font>
+			 <form class="form-inline" action="login" method="post">
 		         <input name="email" id="email" class="form-control mr-sm-2" type="text" placeholder="email" >
 	             <input name="pass" id="pass" class="form-control mr-sm-2" type="text" placeholder="contrasena" >
 	          
@@ -72,6 +76,8 @@
     <div class="container">
 
       <div class="row">
+
+
 
         <div class="col-lg-3">        	
           <h1 class="my-4">Lista Reproduccion</h1>

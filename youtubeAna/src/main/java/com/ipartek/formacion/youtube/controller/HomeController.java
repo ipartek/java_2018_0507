@@ -76,6 +76,8 @@ public class HomeController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("homeController doPOST");
+		
+		doGet(request,response);/*
 		try {
 			dao = VideoMySqlDAO.getInstance();
 			daocomentario = ComentariosMySqlDAO.getInstance();
@@ -98,6 +100,6 @@ public class HomeController extends HttpServlet {
 			e.printStackTrace();
 		} finally {
 			request.getRequestDispatcher("home.jsp").forward(request, response);
-		}
+		}*/
 	}
 }

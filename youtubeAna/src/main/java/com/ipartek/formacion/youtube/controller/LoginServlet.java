@@ -56,7 +56,8 @@ public class LoginServlet extends HttpServlet {
 		request.getSession().setAttribute("email",email);
 		request.getSession().setAttribute("pass",pass);
 		
-		request.getRequestDispatcher("Logueado.jsp").forward(request, response);
+		//request.getRequestDispatcher("Logueado.jsp").forward(request, response);
+		request.getRequestDispatcher("/inicio").forward(request, response);
 		
 		
 		//Va sin barra
