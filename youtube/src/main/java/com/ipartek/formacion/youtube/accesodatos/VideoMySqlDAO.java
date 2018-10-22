@@ -34,6 +34,35 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 		return INSTANCE;
 	}
 
+	public List<Video> getAllByIdUsuario(Long id) {
+		ArrayList<Video> videos = new ArrayList<>();
+
+		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+			String sql = "SELECT id, idvideo, nombre FROM videos WHERE id_usuario = ?";
+
+			try (PreparedStatement pst = conn.prepareStatement(sql)) {
+				
+				pst.setLong(1, id);
+				
+				try (ResultSet rs = pst.executeQuery()) {
+					while (rs.next()) {
+						videos.add(new Video(rs.getLong("id"), rs.getString("idvideo"), rs.getString("nombre")));
+					}
+				} catch (Exception e) {
+					throw new AccesoDatosException(e.getMessage(), e);
+				}
+			} catch (SQLException e) {
+				throw new AccesoDatosException(e.getMessage(), e);
+			}
+
+		} catch (SQLException e) {
+			throw new AccesoDatosException(e.getMessage(), e);
+		}
+
+		return videos;
+
+	}
+	
 	@Override
 	public boolean insert(Video pojo) {
 		try (Connection con = DriverManager.getConnection(url, usuario, password)) {

@@ -1,9 +1,13 @@
 package com.ipartek.formacion.youtube.model;
 
+import java.util.List;
+
 public class Usuario {
 	private Long id;
 	private String email;
 	private String password;
+	
+	private List<Video> videos;
 	
 	public Usuario(Long id, String email, String password) {
 		super();
@@ -76,6 +80,14 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", email=" + email + ", password=" + password + "]";
+	}
+
+	public List<Video> getVideos() {
+		return videos;
+	}
+
+	public void setVideos(List<Video> videos) {
+		this.videos = videos;
 	}
 	
 	

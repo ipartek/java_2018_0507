@@ -9,13 +9,36 @@
 		<h1 class="my-4">Lista Reproduccion</h1>
 		<div class="list-group">
 
-			<c:forEach items="${videos}" var="v">
-				<a href="?idver=${v.id}" class="list-group-item">${v.nombre}</a>
-				<a href="gestionvideos?id=${v.id}&accion=delete"> <i
-					style="color: red;" class="float-right fas fa-trash-alt"></i>
-				</a>
-			</c:forEach>
+			<div class="accordion" id="listavideos">
+				
+				<c:forEach items="${usuarios}" var="usuario">
+				
+					<div class="card">
+						<div class="card-header" id="headingOne">
+							<h5 class="mb-0">
+								<button class="btn btn-link" type="button"
+									data-toggle="collapse" data-target="#usuario${usuario.id}"
+									aria-expanded="true" aria-controls="collapseOne">${usuario.email}</button>
+							</h5>
+						</div>
 
+						<div id="usuario${usuario.id}" class="collapse" aria-labelledby="headingOne"
+							data-parent="#listavideos">
+							<div class="card-body">
+								<c:forEach items="${usuario.videos}" var="v">
+									<a href="?idver=${v.id}" class="list-group-item">${v.nombre}</a>
+									<a href="gestionvideos?id=${v.id}&accion=delete"> <i
+										style="color: red;" class="float-right fas fa-trash-alt"></i>
+									</a>
+								</c:forEach>
+							</div>
+						</div>
+					</div>
+
+				</c:forEach>
+
+
+			</div>
 		</div>
 	</div>
 	<!-- /.col-lg-3 -->

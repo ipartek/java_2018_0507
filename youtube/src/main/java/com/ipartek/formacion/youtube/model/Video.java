@@ -8,6 +8,16 @@ public class Video {
 	private String idVideo;
 	private String nombre;
 	
+	private Usuario usuario;
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	public Video() {
 		super();
 		this.idVideo = "YlUKcNNmywk";
