@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.youtube.Comentario;
 import com.ipartek.formacion.youtube.Video;
+import com.ipartek.formacion.youtube.model.ComentariosMySQLDAO;
 import com.ipartek.formacion.youtube.model.VideoMySQLDAO;
 
 @WebServlet("/inicio")
@@ -23,7 +25,7 @@ public class HomeController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	private static VideoMySQLDAO dao;
-	
+	private static ComentariosMySQLDAO daoComentarios;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		//TODO descomentar el doGet. Ahora lo ejecuto desde el post
@@ -57,9 +59,13 @@ public class HomeController extends HttpServlet {
 			}
 
 			dao = VideoMySQLDAO.getInstance();
+			
 			ArrayList<Video> videos = (ArrayList<Video>) dao.getAll();
 			request.setAttribute("videos", videos);
-
+			//Para poder mostrar los comentatios debe alterarse el codigo de home.jsp, eliminar los comentarios y reemplazarlos por el codigo de youtube
+			daoComentarios = ComentariosMySQLDAO.getInstance();
+			ArrayList<Comentario> comentarios = (ArrayList<Comentario>)  daoComentarios.getAll();
+			request.setAttribute("comentarios", comentarios);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

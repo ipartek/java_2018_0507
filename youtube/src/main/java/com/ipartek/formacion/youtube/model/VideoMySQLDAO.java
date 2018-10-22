@@ -83,6 +83,7 @@ public class VideoMySQLDAO implements CrudAble<Video> {
 	public Video getById(String id) {
 		Video video = new Video();
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
+			System.out.println(id);
 			String sql = "SELECT id, codigo, nombre, usuarios_id FROM videos WHERE id = ?";
 			try (PreparedStatement pst = conn.prepareStatement(sql)) {
 				// Mirando que valor entra en el prepared statement
@@ -96,7 +97,7 @@ public class VideoMySQLDAO implements CrudAble<Video> {
 						return null;
 					}
 				} catch (SQLException e) {
-					
+
 					throw new AccesoDatosException(e.getMessage(), e);
 				}
 			} catch (Exception e) {
@@ -104,7 +105,7 @@ public class VideoMySQLDAO implements CrudAble<Video> {
 			}
 
 		} catch (SQLException e) {
-			// throw new AccesoDatosException(e.getMessage(), e);
+			 throw new AccesoDatosException(e.getMessage(), e);
 		}
 
 		return video;
@@ -118,47 +119,57 @@ public class VideoMySQLDAO implements CrudAble<Video> {
 			try (PreparedStatement prs = conn.prepareStatement(sql)) {
 				prs.setString(1, video.getCodigo());
 				prs.setString(2, video.getNombre());
-				prs.setInt(3,  video.getId());
+				prs.setInt(3, video.getId());
 				int numFilas = prs.executeUpdate();
 				if (numFilas != 1) {
 					return false;
 				}
-				
-			}catch(SQLException e) {
-				System.out.println(e.getMessage());
-				e.printStackTrace();
-				//System.out.println("Error en el preparedStatement");
-				return false;
+			} catch (SQLException e) {
+				throw new AccesoDatosException(e.getMessage(), e);	
+				//return false;
 			}
-		}catch (SQLException e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-			return false;
+		} catch (SQLException e) {
+			throw new AccesoDatosException(e.getMessage(), e);	
+			//return false;
 		}
 		return resul;
 	}
 
 	@Override
-	public boolean delete(String id) {
+	public boolean delete(String id){
 		boolean resul = false;
 		try (Connection conn = DriverManager.getConnection(url, usuario, password)) {
 			conn.setAutoCommit(false);
-			String sql = "DELETE FROM videos WHERE id = ?";
-			try (PreparedStatement prs = conn.prepareStatement(sql)) {
-				prs.setString(1, id);
-				int numFilas = prs.executeUpdate();
-				if (numFilas != 1) {
-					return false;
+			String sqlVideos = "DELETE FROM videos WHERE id = ?";
+			String sqlComentarios = "delete from comentarios where videoyoutube_id = ?";
+			String sqlValoraciones = "delete from valoraciones where videoyoutube_id = ?";
+			try (PreparedStatement prsV = conn.prepareStatement(sqlValoraciones)) {
+				prsV.setString(1, id);
+				prsV.executeUpdate();
+				try (PreparedStatement prsC = conn.prepareStatement(sqlComentarios)){
+					prsC.setString(1, id);
+					prsC.executeUpdate();
+					try (PreparedStatement prsVid = conn.prepareStatement(sqlVideos)){
+						prsVid.setString(1, id);
+						int numFilasVid = prsVid.executeUpdate();
+						if (numFilasVid != 1) {
+							return false;
+						}
+					}catch (SQLException e) {
+						conn.rollback();
+						throw new AccesoDatosException(e.getMessage(), e);	
+					}
+				}catch (SQLException e) {
+					conn.rollback();
+					throw new AccesoDatosException(e.getMessage(), e);		
 				}
-				conn.commit();
 			} catch (SQLException e) {
 				conn.rollback();
-				System.out.println(e.getMessage());
-				System.out.println("ERROR DE CONEXION");
+				throw new AccesoDatosException(e.getMessage(), e);
 			}
+			conn.commit();
 		} catch (SQLException e) {
-			System.out.println("ERROR DE CONEXION");
-			System.out.println(e.getMessage());
+			throw new AccesoDatosException(e.getMessage(), e);
 		}
 		return resul;
 	}
