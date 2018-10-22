@@ -16,8 +16,7 @@ public class UtilsDAO {
 
 			con = DriverManager.getConnection( prop.getProperty("url"), prop.getProperty("usuario"), prop.getProperty("password"));
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CONECTARSE A LA BBDD");
-			e.printStackTrace();
+			throw new AccesoDatosException(e.getMessage(), e);
 		}
 		return con;
 	}
@@ -26,8 +25,7 @@ public class UtilsDAO {
 		try {
 			con.close();
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CERRAR LA CONEXION A LA BBDD");
-			e.printStackTrace();
+			throw new AccesoDatosException(e.getMessage(), e);
 		}
 	}
 	

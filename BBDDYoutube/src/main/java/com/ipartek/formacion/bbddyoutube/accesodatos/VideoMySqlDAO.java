@@ -18,8 +18,7 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 			} catch (ClassNotFoundException e) {
-				System.out.println("ERROR AL CARGAR EL DRIVER DE JDBC");
-				e.printStackTrace();
+				throw new AccesoDatosException(e.getMessage(), e);
 			}
 		}
 		
@@ -39,11 +38,10 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 					videos.add(new Video(rs.getLong("idVideo"), rs.getString("idYoutube"), rs.getString("nombre"), rs.getString("descripcion"), rs.getLong("idUsuario")));
 				}
 			}catch (Exception e) {
-				System.out.println("ERROR AL CREAR EL RESULTSET DE GET ALL: " + e.getMessage());
-				e.printStackTrace();
+				throw new AccesoDatosException(e.getMessage(), e);
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE GET ALL");
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return videos;
@@ -64,11 +62,10 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 					videos.add(new Video(rs.getLong(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
 				}
 			}catch (Exception e) {
-				System.out.println("ERROR AL CREAR EL RESULTSET DE GET ALL: " + e.getMessage());
-				e.printStackTrace();
+				throw new AccesoDatosException(e.getMessage(), e);
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE GET ALL");
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return videos;
@@ -89,11 +86,10 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 					videos.add(new Video(rs.getString("idYoutube"), rs.getString("nombre"), rs.getString("descripcion")));
 				}
 			}catch (Exception e) {
-				System.out.println("ERROR AL CREAR EL RESULTSET DE GET ALL BY USER: " + e.getMessage());
-				e.printStackTrace();
+				throw new AccesoDatosException(e.getMessage(), e);
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE GET ALL BY USER");
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return videos;
@@ -116,10 +112,10 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 					return null;
 				}
 			}catch (Exception e) {
-				System.out.println("ERROR AL CREAR EL RESULTSET DE GET BY ID");
+				throw new AccesoDatosException(e.getMessage(), e);
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE GET BY ID");
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return video;
@@ -146,8 +142,8 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 				result = true;
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE INSERT VIDEO");
 			result = false;
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return result;
@@ -175,8 +171,8 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 				result = true;
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE UPDATE");
 			result = false;
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return result;
@@ -200,8 +196,8 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 				result = true;
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE DELETE");
 			result = false;
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return result;
@@ -224,8 +220,8 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 				result = true;
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE DELETE BY USER");
 			result = false;
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return result;
@@ -245,11 +241,10 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 					id = rs.getLong("idVideo");
 				}
 			}catch (Exception e) {
-				System.out.println("ERROR AL CREAR EL RESULTSET DE GET VIDEO ID: " + e.getMessage());
-				e.printStackTrace();
+				throw new AccesoDatosException(e.getMessage(), e);
 			}
 		}catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE GET VIDEO ID");
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return id;
@@ -271,10 +266,10 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 					return null;
 				}
 			}catch (Exception e) {
-				System.out.println("ERROR AL CREAR EL RESULTSET DE GET FIRST VIDEO");
+				throw new AccesoDatosException(e.getMessage(), e);
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE GET FIRST VIDEO");
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return video;

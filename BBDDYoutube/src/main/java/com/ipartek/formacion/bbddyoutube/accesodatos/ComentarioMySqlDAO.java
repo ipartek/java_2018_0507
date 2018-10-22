@@ -19,8 +19,7 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 			} catch (ClassNotFoundException e) {
-				System.out.println("ERROR AL CARGAR EL DRIVER DE JDBC");
-				e.printStackTrace();
+				throw new AccesoDatosException(e.getMessage(), e);
 			}
 		}
 		return INSTANCE;
@@ -47,11 +46,10 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 					comentarios.add(new Comentario(rs.getLong("id"), rs.getString("videos_IdVideo"), rs.getLong("usuarios_IdUsuario"), rs.getString("comentario"), rs.getDate("fecha"), rs.getString("nombre")));
 				}
 			}catch (Exception e) {
-				System.out.println("ERROR AL CREAR EL RESULTSET DE GET ALL FROM VIDEO: " + e.getMessage());
-				e.printStackTrace();
+				throw new AccesoDatosException(e.getMessage(), e);
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE GET ALL FROM VIDEO");
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return comentarios;
@@ -74,10 +72,10 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 					return null;
 				}
 			}catch (Exception e) {
-				System.out.println("ERROR AL CREAR EL RESULTSET DE GET BY ID");
+				throw new AccesoDatosException(e.getMessage(), e);
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE GET BY ID");
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return comentario;
@@ -104,8 +102,8 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 				result = true;
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE INSERT COMENTARIO");
 			result = false;
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return result;
@@ -133,8 +131,8 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 				result = true;
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE UPDATE");
 			result = false;
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return result;
@@ -158,8 +156,8 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 				result = true;
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE DELETE");
 			result = false;
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return result;

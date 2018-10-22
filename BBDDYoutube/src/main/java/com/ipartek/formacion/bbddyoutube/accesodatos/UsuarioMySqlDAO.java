@@ -5,7 +5,6 @@ import java.util.List;
 
 import java.sql.*;
 import com.ipartek.formacion.bbddyoutube.pojos.Usuario;
-import com.ipartek.formacion.bbddyoutube.pojos.Video;
 
 public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 
@@ -17,8 +16,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 			} catch (ClassNotFoundException e) {
-				System.out.println("ERROR AL CARGAR EL DRIVER DE JDBC");
-				e.printStackTrace();
+				throw new AccesoDatosException(e.getMessage(), e);
 			}
 		}
 		return INSTANCE;
@@ -42,8 +40,8 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 				result = true;
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE INSERT USUARIO");
 			result = false;
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return result;
@@ -63,11 +61,10 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 					usuarios.add(new Usuario(rs.getLong("idUsuario"), rs.getString("nombre"), rs.getString("password")));
 				}
 			}catch (Exception e) {
-				System.out.println("ERROR AL CREAR EL RESULTSET DE GET ALL: " + e.getMessage());
-				e.printStackTrace();
+				throw new AccesoDatosException(e.getMessage(), e);
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE GET ALL");
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return usuarios;
@@ -90,10 +87,10 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 					return null;
 				}
 			}catch (Exception e) {
-				System.out.println("ERROR AL CREAR EL RESULTSET DE GET BY ID");
+				throw new AccesoDatosException(e.getMessage(), e);
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE GET BY ID");
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return usuario;
@@ -119,8 +116,8 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 				result = true;
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE UPDATE");
 			result = false;
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return result;
@@ -143,8 +140,8 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 				result = true;
 			}
 		} catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE DELETE");
 			result = false;
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return result;
@@ -166,11 +163,10 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 					userId = rs.getLong("idUsuario");
 				}
 			}catch (Exception e) {
-				System.out.println("ERROR AL CREAR EL RESULTSET DE GET USER ID: " + e.getMessage());
-				e.printStackTrace();
+				throw new AccesoDatosException(e.getMessage(), e);
 			}
 		}catch (SQLException e) {
-			System.out.println("ERROR AL CREAR LA SENTENCIA DE GET USER ID");
+			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
 			return userId;
