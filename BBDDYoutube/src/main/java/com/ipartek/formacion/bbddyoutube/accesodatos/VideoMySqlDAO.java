@@ -12,12 +12,17 @@ import com.ipartek.formacion.bbddyoutube.pojos.Video;
 public class VideoMySqlDAO implements CrudAble<Video>{
 	private static VideoMySqlDAO INSTANCE = null;
 	
-	public static synchronized VideoMySqlDAO getInstance() throws ClassNotFoundException {
+	public static synchronized VideoMySqlDAO getInstance() {
 		if (INSTANCE == null) {
-			Class.forName("com.mysql.cj.jdbc.Driver");
 			INSTANCE = new VideoMySqlDAO();
+			try {
+				Class.forName("com.mysql.cj.jdbc.Driver");
+			} catch (ClassNotFoundException e) {
+				System.out.println("ERROR AL CARGAR EL DRIVER DE JDBC");
+				e.printStackTrace();
+			}
 		}
-
+		
 		return INSTANCE;
 	}
 
