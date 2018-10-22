@@ -31,7 +31,7 @@ public class HomeController extends HttpServlet {
 				List<Video> videos = VideoMySqlDAO.getInstance().getAllByUsuario(usuario);
 				usuario.setVideos(videos);
 			}
-						
+			
 			Video videoInicio = null;
 			
 			if(idver != null) {
