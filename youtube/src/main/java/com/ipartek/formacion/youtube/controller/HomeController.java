@@ -40,7 +40,7 @@ public class HomeController extends HttpServlet {
 			request.setAttribute("videoInicio", videoInicio);
 			request.setAttribute("videos", videos);
 
-			request.getRequestDispatcher("home.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/vistas/home.jsp").forward(request, response);
 			
 		} catch (Exception e) {
 			throw new ControladorException(e.getMessage(), e);
