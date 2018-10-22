@@ -35,7 +35,7 @@ public class ComentariosMySqlDAO{
 			try (PreparedStatement pst = con.prepareStatement(sql)) {
 				
 				pst.setString(1,pojo.getUsuario());
-				pst.setString(2, pojo.getComentario());
+				pst.setString(2, pojo.getTexto());
 			
 
 				int numFilas = pst.executeUpdate();

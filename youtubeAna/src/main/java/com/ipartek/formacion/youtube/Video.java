@@ -14,6 +14,48 @@ public class Video {
 		this.nombre = "Red Hot Chili Peppers - Californication";		
 	}
 	
+	@Override
+	public String toString() {
+		return "Video [id=" + id + ", idVideo=" + idVideo + ", nombre=" + nombre + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((idVideo == null) ? 0 : idVideo.hashCode());
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Video other = (Video) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (idVideo == null) {
+			if (other.idVideo != null)
+				return false;
+		} else if (!idVideo.equals(other.idVideo))
+			return false;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		return true;
+	}
+
 	public Video(Long id, String idVideo, String nombre) {
 		this.setId(id);
 		this.setIdVideo(idVideo);

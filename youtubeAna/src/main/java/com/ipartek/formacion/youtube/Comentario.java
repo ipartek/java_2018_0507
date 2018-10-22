@@ -1,23 +1,43 @@
 package com.ipartek.formacion.youtube;
 
+import java.util.Date;
+
 public class Comentario {
 
 	public static final int ID_LONGITUD = 11;
 	
 	private String usuario;
-	private String comentario;
+	private String texto;
+	public long id;
+	public Date fecha;
 	
 	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
 	public Comentario() {
 		super();
 		this.usuario = "ByDefault";		
-		this.comentario = "ByDefault";
+		this.texto = "ByDefault";
 		
 	}
 	
-	public Comentario(String usuario,String comentario) {
+	public Comentario(String usuario,String texto) {
 		this.setUsuario(usuario);
-		this.setComentario(comentario);
+		this.setTexto(texto);
 	}
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
@@ -26,11 +46,11 @@ public class Comentario {
 	public String getUsuario() {
 		return usuario;
 	}
-	public void setComentario(String comentario) {
-		this.comentario = comentario;
+	public void setTexto(String texto) {
+		this.texto = texto;
 	}
-	public String getComentario() {
-		return comentario;
+	public String getTexto() {
+		return texto;
 	}
 
 }

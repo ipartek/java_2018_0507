@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ipartek.formacion.youtube.Comentario;
-import com.ipartek.formacion.youtube.Video;
 
 public class ComentarioArrayListDAO implements CrudAble<Comentario> {
 
@@ -46,7 +45,7 @@ public class ComentarioArrayListDAO implements CrudAble<Comentario> {
 		Comentario resul = null;
 		if (id != null) {
 			for (Comentario c : comentarios) {
-				if (id.equals(c.getComentario())) {
+				if (id.equals(c.getTexto())) {
 					resul = c;
 				}
 			}
@@ -67,7 +66,7 @@ public class ComentarioArrayListDAO implements CrudAble<Comentario> {
 		if ( id != null ) { 
 			for (int i = 0; i < comentarios.size(); i++) {
 				c = comentarios.get(i); 
-				if (id.equals(c.getComentario()) ) { 
+				if (id.equals(c.getTexto()) ) { 
 					resul = comentarios.remove(c);
 					break;
 				}

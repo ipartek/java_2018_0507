@@ -151,7 +151,7 @@
           		for( Comentario c : comentarios ){
           	 	%>
                    <small class="text-muted">Posted by <%=c.getUsuario()%> on 3/1/17</small>
-                  	<p><%=c.getComentario()%>	</p>
+                  	<p><%=c.getTexto()%>	</p>
                   
           		
           			  <hr>
