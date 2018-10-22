@@ -49,16 +49,24 @@
 							video</a></li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active">
-						<form action="login" method="post"
-							class="form-inline mt-2 mt-md-0">
-							<input name="email" class="form-control mr-sm-2" type="email"
-								placeholder="Email" title="Email" required /> <input
-								name="password" class="form-control mr-sm-2" type="password"
-								placeholder="Password" title="Password" required />
-							<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Login</button>
-						</form>
-					</li>
+					<li class="nav-item active"><c:choose>
+						<c:when test="${usuario == null}">
+							<form action="login" method="post"
+								class="form-inline mt-2 mt-md-0">
+								<input name="email" class="form-control mr-sm-2" type="email"
+									placeholder="Email" title="Email" required /> <input
+									name="password" class="form-control mr-sm-2" type="password"
+									placeholder="Password" title="Password" required />
+								<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Login</button>
+							</form>
+							</c:when>
+							<c:otherwise>
+								<span class="navbar-text">${usuario.email}</span>
+								<a class="btn btn-outline-info my-2 my-sm-0" href="logout">
+									Logout
+								</a>
+							</c:otherwise>
+						</c:choose></li>
 				</ul>
 
 
