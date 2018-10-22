@@ -27,7 +27,7 @@
 
 	<div class="form-group row">
 		<div class="offset-sm-3 col-sm-9">
-			<button class="btn btn-outline-info my-2 my-sm-0" type="submit">AÃ±adir</button>
+			<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Añadir</button>
 		</div>
 	</div>
 
