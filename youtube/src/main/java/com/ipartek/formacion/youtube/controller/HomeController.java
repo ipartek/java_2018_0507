@@ -28,8 +28,7 @@ public class HomeController extends HttpServlet {
 			List<Usuario> usuarios = UsuarioMySqlDAO.getInstance().getAll();
 			
 			for(Usuario usuario: usuarios) {
-				Long id = usuario.getId();
-				List<Video> videos = VideoMySqlDAO.getInstance().getAllByIdUsuario(id);
+				List<Video> videos = VideoMySqlDAO.getInstance().getAllByUsuario(usuario);
 				usuario.setVideos(videos);
 			}
 						
