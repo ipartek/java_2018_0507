@@ -1,11 +1,9 @@
 package com.ipartek.formacion.bbddyoutube.accesodatos;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,11 +31,11 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 		return null;
 	}
 	
-	@SuppressWarnings("finally")
 	public List<Comentario> getAllFromVideo(Video video){
 		String sql = "SELECT c.*, u.nombre FROM comentarios c" +
 		" JOIN usuarios u ON c.usuarios_idUsuario = u.idUsuario" +
-		" WHERE videos_IdVideo = ?";
+		" WHERE videos_IdVideo = ?" + 
+		" ORDER BY id DESC";
 		ArrayList<Comentario> comentarios = new ArrayList<Comentario>();
 		Connection conn = UtilsDAO.getConnection();
 		
@@ -54,11 +52,10 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return comentarios;
 		}
+		return comentarios;
 	}
 
-	@SuppressWarnings("finally")
 	@Override
 	public Comentario getById(long id) {
 		String sql = "SELECT videos_IdVideo, usuarios_IdUsuario, comentario, fecha FROM comentarios WHERE id = ?";
@@ -80,8 +77,8 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return comentario;
 		}
+		return comentario;
 	}
 
 	@Override
@@ -112,7 +109,6 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 		return result;
 	}
 
-	@SuppressWarnings("finally")
 	@Override
 	public boolean update(Comentario pojo) {
 		String sql = "UPDATE comentarios SET videos_IdVideo = ?, usuarios_IdUsuario = ?, comentario = ?, fecha = ? WHERE id = ?";	
@@ -137,11 +133,10 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return result;
 		}
+		return result;
 	}
 
-	@SuppressWarnings("finally")
 	@Override
 	public boolean delete(long id) {
 		String sql = "DELETE FROM comentarios WHERE id= ?";	
@@ -162,8 +157,8 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return result;
 		}
+		return result;
 	}
 
 }

@@ -25,7 +25,6 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 		return INSTANCE;
 	}
 
-	@SuppressWarnings("finally")
 	@Override
 	public List<Video> getAll() {
 		String sql = "SELECT * FROM videos";	
@@ -44,11 +43,10 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return videos;
 		}
+		return videos;
 	}
 	
-	@SuppressWarnings("finally")
 	public List<Video> getAllVideosAndUser() {
 		String sql = "SELECT v.idVideo, v.idYoutube, v.nombre, v.descripcion, u.nombre FROM videos v " + 
 				"JOIN usuarios u ON u.idUsuario = v.idUsuario " + 
@@ -68,11 +66,10 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return videos;
 		}
+		return videos;
 	}
 	
-	@SuppressWarnings("finally")
 	public List<Video> getAllUserVideos(long idUsuario) {
 		String sql = "SELECT idYoutube, nombre, descripcion FROM videos WHERE idUsuario= ?";
 				
@@ -92,11 +89,10 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return videos;
 		}
+		return videos;
 	}
 
-	@SuppressWarnings("finally")
 	@Override
 	public Video getById(long idVideo) {
 		String sql = "SELECT idVideo, idYoutube, nombre, descripcion, idUsuario FROM videos WHERE idVideo = ?";
@@ -118,11 +114,10 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return video;
 		}
+		return video;
 	}
 
-	@SuppressWarnings("finally")
 	@Override
 	public boolean insert(Video pojo) {
 		String sql = "INSERT INTO videos (idYoutube,nombre,descripcion, idUsuario) VALUES (?,?,?,?)";	
@@ -146,11 +141,10 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return result;
 		}
+		return result;
 	}
 
-	@SuppressWarnings("finally")
 	@Override
 	public boolean update(Video pojo) {
 		String sql = "UPDATE videos SET idYoutube = ?, nombre = ?, descripcion = ?, idUsuario = ? WHERE idVideo = ?";	
@@ -175,11 +169,10 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return result;
 		}
+		return result;
 	}
 
-	@SuppressWarnings("finally")
 	@Override
 	public boolean delete(long id) {
 		String sql = "DELETE FROM videos WHERE idVideo= ?";	
@@ -200,11 +193,10 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return result;
 		}
+		return result;
 	}
 	
-	@SuppressWarnings("finally")
 	public boolean deleteByUser(long id) {
 		String sql = "DELETE FROM videos WHERE idUsuario = ?";	
 		boolean result = false;
@@ -224,11 +216,10 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return result;
 		}
+		return result;
 	}
 	
-	@SuppressWarnings("finally")
 	public Long getVideoId(String idVideo) {
 		String sql = "SELECT idVideo FROM videos WHERE idYoutube = ?";
 		Long id = null;
@@ -247,11 +238,10 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return id;
 		}
+		return id;
 	}
 
-	@SuppressWarnings("finally")
 	public Video getFirstVideo(Long idUser) {
 		String sql = "SELECT idVideo, idYoutube, nombre, descripcion FROM videos WHERE idUsuario= ? LIMIT 1";
 		Video video = null;
@@ -272,7 +262,7 @@ public class VideoMySqlDAO implements CrudAble<Video>{
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return video;
 		}
+		return video;
 	}
 }

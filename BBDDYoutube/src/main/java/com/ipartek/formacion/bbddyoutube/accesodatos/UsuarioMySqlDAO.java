@@ -1,9 +1,12 @@
 package com.ipartek.formacion.bbddyoutube.accesodatos;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import java.sql.*;
 import com.ipartek.formacion.bbddyoutube.pojos.Usuario;
 
 public class UsuarioMySqlDAO implements CrudAble<Usuario> {
@@ -22,7 +25,6 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 		return INSTANCE;
 	}
 	
-	@SuppressWarnings("finally")
 	@Override
 	public boolean insert(Usuario pojo) {
 		String sql = "INSERT INTO usuarios (nombre,password) VALUES (?,?)";	
@@ -44,11 +46,10 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return result;
 		}
+		return result;
 	}
 
-	@SuppressWarnings({ "finally" })
 	@Override
 	public List<Usuario> getAll() {
 		String sql = "SELECT * FROM usuarios";	
@@ -67,11 +68,10 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return usuarios;
 		}
+		return usuarios;
 	}
 
-	@SuppressWarnings({ "finally" })
 	@Override
 	public Usuario getById(long idUsuario) {
 		String sql = "SELECT idUsuario, nombre, password FROM usuarios WHERE idUsuario = ?";	
@@ -93,11 +93,10 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return usuario;
 		}
+		return usuario;
 	}
 
-	@SuppressWarnings("finally")
 	@Override
 	public boolean update(Usuario pojo) {
 		String sql = "UPDATE usuarios SET nombre = ?, password = ? WHERE idUsuario = ?";	
@@ -120,11 +119,10 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return result;
 		}
+		return result;
 	}
 
-	@SuppressWarnings("finally")
 	public boolean delete(long idUsuario) {
 		String sql = "DELETE FROM usuarios WHERE idUsuario = ?";	
 		boolean result = false;
@@ -144,11 +142,10 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return result;
 		}
+		return result;
 	}
 	
-	@SuppressWarnings("finally")
 	public long getUserId(Usuario user) {
 		String sql = "SELECT idUsuario FROM usuarios "
 				+ "WHERE nombre = ? AND password = ?";
@@ -169,7 +166,7 @@ public class UsuarioMySqlDAO implements CrudAble<Usuario> {
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return userId;
 		}
+		return userId;
 	}
 }

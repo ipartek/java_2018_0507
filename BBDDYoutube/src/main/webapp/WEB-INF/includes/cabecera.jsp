@@ -10,6 +10,7 @@
 	
 	<link rel="stylesheet" href="css/bootstrap-superhero-theme.min.css" />
     <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="css/estrellas.css" />
     <link rel="shortcut icon" href="#" />
     
     <script src="js/jquery-1.12.4.min.js"></script>

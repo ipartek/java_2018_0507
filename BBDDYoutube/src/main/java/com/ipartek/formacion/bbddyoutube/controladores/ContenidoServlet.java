@@ -13,6 +13,7 @@ import com.ipartek.formacion.bbddyoutube.pojos.Comentario;
 import com.ipartek.formacion.bbddyoutube.pojos.Usuario;
 import com.ipartek.formacion.bbddyoutube.pojos.Video;
 import com.ipartek.formacion.bbddyoutube.accesodatos.ComentarioMySqlDAO;
+import com.ipartek.formacion.bbddyoutube.accesodatos.PuntuacionMySqlDAO;
 import com.ipartek.formacion.bbddyoutube.accesodatos.UsuarioMySqlDAO;
 import com.ipartek.formacion.bbddyoutube.accesodatos.VideoMySqlDAO;
 
@@ -34,16 +35,20 @@ public class ContenidoServlet extends HttpServlet {
 		List<Video> videos = daov.getAll();
 		List<Usuario> usuarios = dao.getAll();
 		List<Comentario> comentarios = null;
+		int puntos = 0;
 
 		if(id != null) {
 			Long idL = Long.parseLong(id);
 			video = daov.getById(idL);
 			comentarios = daoc.getAllFromVideo(video);
+			puntos = PuntuacionMySqlDAO.getInstance().getPuntosById(idL);
 		} else {
 			video= daov.getFirstVideo(idUser);
 			comentarios = daoc.getAllFromVideo(video);
+			puntos = PuntuacionMySqlDAO.getInstance().getPuntosById(video.getId());
 		}
 		
+		request.setAttribute("puntos", puntos);
 		request.setAttribute("videos", videos);
 		request.setAttribute("comentarios", comentarios);
 		request.setAttribute("usuarios", usuarios);
