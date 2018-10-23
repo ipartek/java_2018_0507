@@ -10,9 +10,9 @@
 		<div class="list-group">
 
 			<div class="accordion" id="listavideos">
-				
+
 				<c:forEach items="${usuarios}" var="usuario">
-				
+
 					<div class="card">
 						<div class="card-header" id="headingOne">
 							<h5 class="mb-0">
@@ -22,8 +22,8 @@
 							</h5>
 						</div>
 
-						<div id="usuario${usuario.id}" class="collapse" aria-labelledby="headingOne"
-							data-parent="#listavideos">
+						<div id="usuario${usuario.id}" class="collapse"
+							aria-labelledby="headingOne" data-parent="#listavideos">
 							<div class="card-body">
 								<c:forEach items="${usuario.videos}" var="v">
 									<a href="?idver=${v.id}" class="list-group-item">${v.nombre}</a>
@@ -63,24 +63,41 @@
 		<div class="card card-outline-secondary my-4">
 			<div class="card-header">Comentarios</div>
 			<div class="card-body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Omnis et enim aperiam inventore, similique necessitatibus neque
-					non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum.
-					Sequi mollitia, necessitatibus quae sint natus.</p>
-				<small class="text-muted">Posted by Anonymous on 3/1/17</small>
-				<hr>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Omnis et enim aperiam inventore, similique necessitatibus neque
-					non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum.
-					Sequi mollitia, necessitatibus quae sint natus.</p>
-				<small class="text-muted">Posted by Anonymous on 3/1/17</small>
-				<hr>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Omnis et enim aperiam inventore, similique necessitatibus neque
-					non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum.
-					Sequi mollitia, necessitatibus quae sint natus.</p>
-				<small class="text-muted">Posted by Anonymous on 3/1/17</small>
+				<c:if test="${usuario != null}">
+					<form action="enviarcomentario" method="post">
+						<input type="hidden" name="id" value="${videoInicio.id}" />
 
+						<div class="form-group row">
+							<label for="texto" class="col-sm-2 col-form-label">Comentario</label>
+							<div class="col-sm-10">
+								<textarea class="form-control" id="texto" name="texto"
+									placeholder="Texto del comentario"></textarea>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="offset-sm-2 col-sm-10">
+								<button type="submit" class="btn btn-primary">Enviar
+									comentario</button>
+							</div>
+						</div>
+					</form>
+
+					<jsp:useBean id="hoy" class="java.util.Date" scope="page" />
+
+					<small class="text-muted">Escrito por ${usuario.email} el <fmt:formatDate
+							value="${hoy}" pattern="yyyy-MM-dd HH:mm:ss" />
+					</small>
+					<hr>
+
+				</c:if>
+				<c:forEach items="${videoInicio.comentarios}" var="comentario">
+					<p>${comentario.texto}</p>
+					<small class="text-muted">Escrito por
+						${comentario.usuario.email} el <fmt:formatDate
+							value="${comentario.fecha}" pattern="yyyy-MM-dd HH:mm:ss" />
+					</small>
+					<hr>
+				</c:forEach>
 			</div>
 		</div>
 		<!-- /.card -->

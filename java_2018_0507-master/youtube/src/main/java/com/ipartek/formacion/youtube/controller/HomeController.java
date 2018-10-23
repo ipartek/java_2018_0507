@@ -31,7 +31,7 @@ public class HomeController extends HttpServlet {
 				List<Video> videos = VideoMySqlDAO.getInstance().getAllByUsuario(usuario);
 				usuario.setVideos(videos);
 			}
-						
+			
 			Video videoInicio = null;
 			
 			if(idver != null) {
@@ -47,11 +47,16 @@ public class HomeController extends HttpServlet {
 			request.setAttribute("videoInicio", videoInicio);
 			request.setAttribute("usuarios", usuarios);
 
-			request.getRequestDispatcher("/WEB-INF/vistas/home.jsp").forward(request, response);
-			
 		} catch (Exception e) {
-			throw new ControladorException(e.getMessage(), e);
-		} 
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			//throw new ControladorException(e.getMessage(), e);
+			
+			request.setAttribute("alertatipo", "danger");
+			request.setAttribute("alertatexto", "ERROR NO ESPERADO");
+		} finally {
+			request.getRequestDispatcher("/WEB-INF/vistas/home.jsp").forward(request, response);
+		}
 		
 	}
 	
