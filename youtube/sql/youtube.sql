@@ -24,15 +24,16 @@ DROP TABLE IF EXISTS `comentarios`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `comentarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `texto` text NOT NULL,
+  `fecha` datetime NOT NULL,
   `id_videos` int(11) NOT NULL,
   `id_usuarios` int(11) NOT NULL,
+  `texto` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_comentarios_videos1_idx` (`id_videos`),
   KEY `fk_comentarios_usuarios1_idx` (`id_usuarios`),
   CONSTRAINT `fk_comentarios_usuarios1` FOREIGN KEY (`id_usuarios`) REFERENCES `usuarios` (`id`),
   CONSTRAINT `fk_comentarios_videos1` FOREIGN KEY (`id_videos`) REFERENCES `videos` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +42,7 @@ CREATE TABLE `comentarios` (
 
 LOCK TABLES `comentarios` WRITE;
 /*!40000 ALTER TABLE `comentarios` DISABLE KEYS */;
+INSERT INTO `comentarios` VALUES (1,'2018-10-23 08:00:00',11,2,'Este video está de p*** madre'),(2,'2018-10-23 08:01:00',11,1,'Qué dices, es más malo que la peste'),(3,'2018-10-22 00:00:00',12,1,'No entiendo como nadie ha comentado esta maravilla de video'),(4,'2018-10-23 08:15:00',11,1,'Y una m****. Mola un montón y tú eres un p*** g******** de m******'),(5,'2018-10-23 08:50:41',11,1,'Admin es tonto... JAJAJAJAJAJA'),(6,'2018-10-23 08:52:55',11,1,'Admin es tonto... JAJAJAJAJAJA');
 /*!40000 ALTER TABLE `comentarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,7 +88,7 @@ CREATE TABLE `videos` (
   KEY `FK_USUARIOS_idx` (`id_usuario`),
   KEY `ID_VIDEOS_idx` (`idvideo`),
   CONSTRAINT `FK_USUARIOS` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +97,7 @@ CREATE TABLE `videos` (
 
 LOCK TABLES `videos` WRITE;
 /*!40000 ALTER TABLE `videos` DISABLE KEYS */;
-INSERT INTO `videos` VALUES (11,'-J4RP7JjqPI','Keith Emerson Band Marche Train',2),(12,'30U5Uyg2Wp8','Keith Emerson Band Nutcracker',1),(14,'vpIduDaggVA','YES Owner of a Lonely Heart',1);
+INSERT INTO `videos` VALUES (11,'-J4RP7JjqPI','Keith Emerson Band Marche Train',2),(12,'30U5Uyg2Wp8','Keith Emerson Band Nutcracker',1),(14,'vpIduDaggVA','YES Owner of a Lonely Heart',1),(15,'zKjpsDbZrtQ','Arizona Sunshine doblaje',1);
 /*!40000 ALTER TABLE `videos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -108,4 +110,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-22 14:32:06
+-- Dump completed on 2018-10-23 11:47:16
