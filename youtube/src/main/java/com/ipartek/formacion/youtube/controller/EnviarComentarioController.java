@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.youtube.accesodatos.ComentarioMySqlDAO;
 import com.ipartek.formacion.youtube.accesodatos.VideoMySqlDAO;
 import com.ipartek.formacion.youtube.model.Comentario;
 import com.ipartek.formacion.youtube.model.Usuario;
@@ -21,6 +22,8 @@ public class EnviarComentarioController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
+			request.setCharacterEncoding("UTF-8");
+			
 			String id = request.getParameter("id");
 
 			String texto = request.getParameter("texto");
@@ -31,7 +34,9 @@ public class EnviarComentarioController extends HttpServlet {
 			
 			Comentario comentario = new Comentario(null, texto, usuario, hoy, video);
 			
-			System.out.println(comentario);
+			if(!ComentarioMySqlDAO.getInstance().insert(comentario)) {
+				throw new ControladorException("No se ha podido insertar el comentario");
+			}
 			
 			request.getRequestDispatcher("/?idver=" + id).forward(request, response);
 			

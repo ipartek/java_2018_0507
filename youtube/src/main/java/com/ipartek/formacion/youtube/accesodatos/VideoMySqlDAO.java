@@ -139,7 +139,9 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 					+ "c.id, c.fecha, c.texto \n"
 					+ "FROM videos v\n" + "INNER JOIN comentarios c ON v.id = c.id_videos\n"
 					+ "INNER JOIN usuarios u ON u.id = c.id_usuarios\n"
-					+ "INNER JOIN usuarios up ON v.id_usuario = up.id\n" + "WHERE v.id = ?";
+					+ "INNER JOIN usuarios up ON v.id_usuario = up.id\n"
+					+ "WHERE v.id = ?\n"
+					+ "ORDER BY c.fecha DESC\n";
 
 			try (PreparedStatement pst = conn.prepareStatement(sql)) {
 
@@ -159,7 +161,7 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 
 						usuarioComentario = new Usuario(rs.getLong("u.id"), rs.getString("u.email"), rs.getString("u.password"));
 						comentario = new Comentario(rs.getLong("c.id"), rs.getString("texto"), usuarioComentario,
-								rs.getDate("fecha"), video);
+								rs.getTimestamp("fecha"), video);
 						
 						video.getComentarios().add(comentario);
 

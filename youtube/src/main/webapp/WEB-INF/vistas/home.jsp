@@ -65,7 +65,7 @@
 			<div class="card-body">
 				<form action="enviarcomentario" method="post">
 					<input type="hidden" name="id" value="${videoInicio.id}" />
-					
+
 					<div class="form-group row">
 						<label for="texto" class="col-sm-2 col-form-label">Comentario</label>
 						<div class="col-sm-10">
@@ -75,20 +75,24 @@
 					</div>
 					<div class="form-group row">
 						<div class="offset-sm-2 col-sm-10">
-							<button type="submit" class="btn btn-primary">Enviar comentario</button>
+							<button type="submit" class="btn btn-primary">Enviar
+								comentario</button>
 						</div>
 					</div>
 				</form>
 
 				<jsp:useBean id="hoy" class="java.util.Date" scope="page" />
-				
-				<small class="text-muted">Escrito por
-					${usuario.email} el <fmt:formatDate value="${hoy}" pattern="yyyy-MM-dd" /></small>
+
+				<small class="text-muted">Escrito por ${usuario.email} el <fmt:formatDate
+						value="${hoy}" pattern="yyyy-MM-dd HH:mm:ss" />
+				</small>
 				<hr>
 				<c:forEach items="${videoInicio.comentarios}" var="comentario">
 					<p>${comentario.texto}</p>
 					<small class="text-muted">Escrito por
-						${comentario.usuario.email} el ${comentario.fecha}</small>
+						${comentario.usuario.email} el <fmt:formatDate
+							value="${comentario.fecha}" pattern="yyyy-MM-dd HH:mm:ss" />
+					</small>
 					<hr>
 				</c:forEach>
 			</div>
