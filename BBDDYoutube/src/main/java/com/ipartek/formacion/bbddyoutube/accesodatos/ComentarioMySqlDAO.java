@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +45,7 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 			pst.setLong(1, video.getId());
 			try(ResultSet rs = pst.executeQuery()){
 				while (rs.next()) {
-					comentarios.add(new Comentario(rs.getLong("id"), rs.getLong("videos_IdVideo"), rs.getLong("usuarios_IdUsuario"), rs.getString("comentario"), rs.getDate("fecha"), rs.getString("nombre")));
+					comentarios.add(new Comentario(rs.getLong("id"), rs.getLong("videos_IdVideo"), rs.getLong("usuarios_IdUsuario"), rs.getString("comentario"), rs.getTimestamp("fecha"), rs.getString("nombre")));
 				}
 			}catch (Exception e) {
 				throw new AccesoDatosException(e.getMessage(), e);
@@ -68,7 +69,7 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 			pst.setLong(1, id);
 			try(ResultSet rs = pst.executeQuery()){
 				if(rs.next()) {
-					comentario = new Comentario(id, rs.getLong("videos_IdVideo"), rs.getLong("usuarios_IdUsuario"), rs.getString("comentario"), rs.getDate("fecha"));
+					comentario = new Comentario(id, rs.getLong("videos_IdVideo"), rs.getLong("usuarios_IdUsuario"), rs.getString("comentario"), rs.getTimestamp("fecha"));
 				}else {
 					return null;
 				}
@@ -83,7 +84,6 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 		}
 	}
 
-	@SuppressWarnings("finally")
 	@Override
 	public boolean insert(Comentario pojo) {
 		String sql = "INSERT INTO comentarios (videos_IdVideo, usuarios_IdUsuario, comentario, fecha) VALUES (?,?,?,?)";	
@@ -93,7 +93,7 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 			pst.setLong(1, pojo.getIdVideo());
 			pst.setLong(2, pojo.getIdUsuario());
 			pst.setString(3, pojo.getTexto());
-			pst.setDate(4, (Date) pojo.getFecha());
+			pst.setTimestamp(4, new java.sql.Timestamp(pojo.getFecha().getTime()));
 			
 			int numFilas = pst.executeUpdate();
 			
@@ -107,8 +107,9 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 			throw new AccesoDatosException(e.getMessage(), e);
 		}finally {
 			if (conn!=null) UtilsDAO.closeConnection(conn);
-			return result;
 		}
+		
+		return result;
 	}
 
 	@SuppressWarnings("finally")
@@ -121,7 +122,7 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 			pst.setLong(1, pojo.getIdVideo());
 			pst.setLong(2, pojo.getIdUsuario());
 			pst.setString(3, pojo.getTexto());
-			pst.setDate(4, (java.sql.Date) pojo.getFecha());
+			pst.setTimestamp(4, new java.sql.Timestamp(pojo.getFecha().getTime()));
 			pst.setLong(5, pojo.getId());
 			
 			int numFilas = pst.executeUpdate();

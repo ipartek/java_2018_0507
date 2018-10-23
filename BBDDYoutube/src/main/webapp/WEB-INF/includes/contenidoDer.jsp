@@ -14,18 +14,22 @@
 		<h3 class="text-center">Comentarios</h3>
 		<form class="form-horizontal" action="anadirComentario" method="post">
 			<div class="form-group">
-				<input type="hidden" name="idVideo" value="${video.id}">
-				<label for="comentario">Comentario:</label>
+				<input type="hidden" name="idVideo" value="${video.id}"> <label
+					for="comentario">Comentario:</label>
 				<textarea class="form-control" rows="4" name="textoComentario"></textarea>
 			</div>
-			<button type="submit" class="btn btn-default">Enviar comentario</button>
+			<button type="submit" class="btn btn-success">Enviar
+				comentario</button>
 		</form>
 		<br />
 		<c:forEach items="${comentarios}" var="comentario">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<p class="text-left">
-						${comentario.nombre} <span style="float: right;">${comentario.fecha}</span>
+						${comentario.nombre} <span style="float: right;"> <fmt:formatDate
+								value="${comentario.fecha}" pattern="yyyy-MM-dd HH:mm:ss" />
+						</span>
+
 					</p>
 				</div>
 				<div class="panel-body panel-body-comment">

@@ -34,8 +34,13 @@ public class ComentarioServlet extends HttpServlet {
 		Date hoy = new Date();
 		
 		ComentarioMySqlDAO dao = ComentarioMySqlDAO.getInstance();
-		Comentario comentario = new Comentario(idL,idUser,texto,hoy);
-		dao.insert(comentario);
+		Comentario comentario = new Comentario(null,idL,idUser,texto,hoy);
+		try {
+			dao.insert(comentario);
+		} catch (Exception e) {
+			System.out.println("Error en la insercion de comentario");
+			e.printStackTrace();
+		}
 		
 		request.getRequestDispatcher("contenido?id="+id).forward(request, response);
 	}

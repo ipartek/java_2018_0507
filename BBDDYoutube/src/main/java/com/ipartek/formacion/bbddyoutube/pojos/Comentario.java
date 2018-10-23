@@ -12,14 +12,6 @@ public class Comentario {
 	
 	public Comentario() {
 	}
-
-
-	public Comentario(Long idVideo, Long idUsuario, String texto, Date fecha) {
-		setIdVideo(idVideo);
-		setIdUsuario(idUsuario);
-		setTexto(texto);
-		setFecha(fecha);
-	}
 	
 	public Comentario(Long id, Long idVideo, Long idUsuario, String texto, Date fecha) {
 		setId(id);
