@@ -2,18 +2,18 @@ package com.ipartek.formacion.bbddyoutube.pojos;
 
 public class Puntuacion {
 	private int puntos;
-	private Usuario usuario;
-	private Video video;
+	private Long idUsuario;
+	private Long idVideo;
 	
-	public Puntuacion(int puntos, Usuario usuario, Video video) {
+	public Puntuacion(int puntos, Long idUsuario, Long idVideo) {
 		setPuntos(puntos);
-		setUsuario(usuario);
-		setVideo(video);
+		setIdUsuario(idUsuario);
+		setIdVideo(idVideo);
 	}
 
 	@Override
 	public String toString() {
-		return "Puntuacion [puntos=" + puntos + ", usuario=" + usuario + ", video=" + video + "]";
+		return "Puntuacion [puntos=" + puntos + ", idUsuario=" + idUsuario + ", idVideo=" + idVideo + "]";
 	}
 	
 	public int getPuntos() {
@@ -22,17 +22,17 @@ public class Puntuacion {
 	public void setPuntos(int puntos) {
 		this.puntos = puntos;
 	}
-	public Usuario getUsuario() {
-		return usuario;
+	public Long getIdUsuario() {
+		return idUsuario;
 	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setIdUsuario(long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
-	public Video getVideo() {
-		return video;
+	public Long getIdVideo() {
+		return idVideo;
 	}
-	public void setVideo(Video video) {
-		this.video = video;
+	public void setIdVideo(long idVideo) {
+		this.idVideo = idVideo;
 	}
 	
 	@Override
@@ -40,8 +40,8 @@ public class Puntuacion {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + puntos;
-		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
-		result = prime * result + ((video == null) ? 0 : video.hashCode());
+		result = prime * result + ((idUsuario == null) ? 0 : idUsuario.hashCode());
+		result = prime * result + ((idVideo == null) ? 0 : idVideo.hashCode());
 		return result;
 	}
 	
@@ -56,15 +56,15 @@ public class Puntuacion {
 		Puntuacion other = (Puntuacion) obj;
 		if (puntos != other.puntos)
 			return false;
-		if (usuario == null) {
-			if (other.usuario != null)
+		if (idUsuario == null) {
+			if (other.idUsuario != null)
 				return false;
-		} else if (!usuario.equals(other.usuario))
+		} else if (!idUsuario.equals(other.idUsuario))
 			return false;
-		if (video == null) {
-			if (other.video != null)
+		if (idVideo == null) {
+			if (other.idVideo != null)
 				return false;
-		} else if (!video.equals(other.video))
+		} else if (!idVideo.equals(other.idVideo))
 			return false;
 		return true;
 	}

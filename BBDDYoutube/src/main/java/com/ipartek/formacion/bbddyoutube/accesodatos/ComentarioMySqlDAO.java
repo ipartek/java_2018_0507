@@ -27,8 +27,7 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 
 	@Override
 	public List<Comentario> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		throw new AccesoDatosException("TO BE IMPLEMENTED");
 	}
 	
 	public List<Comentario> getAllFromVideo(Video video){

@@ -22,39 +22,44 @@ public class ContenidoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Usuario user = (Usuario) request.getSession().getAttribute("user");
-		String id = request.getParameter("id");
-		
-		UsuarioMySqlDAO dao = UsuarioMySqlDAO.getInstance();
-		VideoMySqlDAO daov = VideoMySqlDAO.getInstance();
-		ComentarioMySqlDAO daoc = ComentarioMySqlDAO.getInstance();
-		
-		Long idUser = dao.getUserId(user);
-		Video video = null;
-		
-		List<Video> videos = daov.getAll();
-		List<Usuario> usuarios = dao.getAll();
-		List<Comentario> comentarios = null;
-		int puntos = 0;
-
-		if(id != null) {
-			Long idL = Long.parseLong(id);
-			video = daov.getById(idL);
-			comentarios = daoc.getAllFromVideo(video);
-			puntos = PuntuacionMySqlDAO.getInstance().getPuntosById(idL);
-		} else {
-			video= daov.getFirstVideo(idUser);
-			comentarios = daoc.getAllFromVideo(video);
-			puntos = PuntuacionMySqlDAO.getInstance().getPuntosById(video.getId());
+		try{
+			Usuario user = (Usuario) request.getSession().getAttribute("user");
+			String id = request.getParameter("id");
+			
+			UsuarioMySqlDAO dao = UsuarioMySqlDAO.getInstance();
+			VideoMySqlDAO daov = VideoMySqlDAO.getInstance();
+			ComentarioMySqlDAO daoc = ComentarioMySqlDAO.getInstance();
+			
+			Long idUser = dao.getUserId(user);
+			Video video = null;
+			
+			List<Video> videos = daov.getAll();
+			List<Usuario> usuarios = dao.getAll();
+			List<Comentario> comentarios = null;
+			int puntos = 0;
+	
+			if(id != null) {
+				Long idL = Long.parseLong(id);
+				video = daov.getById(idL);
+				comentarios = daoc.getAllFromVideo(video);
+				puntos = PuntuacionMySqlDAO.getInstance().getPuntosById(idL);
+			} else {
+				video= daov.getFirstVideo(idUser);
+				comentarios = daoc.getAllFromVideo(video);
+				puntos = PuntuacionMySqlDAO.getInstance().getPuntosById(video.getId());
+			}
+			
+			request.setAttribute("puntos", puntos);
+			request.setAttribute("videos", videos);
+			request.setAttribute("comentarios", comentarios);
+			request.setAttribute("usuarios", usuarios);
+			request.setAttribute("video", video);
+	
+			request.getRequestDispatcher("/WEB-INF/contenido.jsp").forward(request, response);
 		}
-		
-		request.setAttribute("puntos", puntos);
-		request.setAttribute("videos", videos);
-		request.setAttribute("comentarios", comentarios);
-		request.setAttribute("usuarios", usuarios);
-		request.setAttribute("video", video);
-
-		request.getRequestDispatcher("/WEB-INF/contenido.jsp").forward(request, response);
+		catch(Exception e) {
+			throw new ControladorException("Error al cargar el contenido de la web", e);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

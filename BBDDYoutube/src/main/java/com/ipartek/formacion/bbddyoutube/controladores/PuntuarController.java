@@ -10,44 +10,42 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.bbddyoutube.accesodatos.ComentarioMySqlDAO;
+import com.ipartek.formacion.bbddyoutube.accesodatos.PuntuacionMySqlDAO;
 import com.ipartek.formacion.bbddyoutube.accesodatos.UsuarioMySqlDAO;
 import com.ipartek.formacion.bbddyoutube.pojos.Comentario;
+import com.ipartek.formacion.bbddyoutube.pojos.Puntuacion;
 import com.ipartek.formacion.bbddyoutube.pojos.Usuario;
 
-@WebServlet("/anadirComentario")
-public class ComentarioServlet extends HttpServlet {
-
+/**
+ * Servlet implementation class PuntuarController
+ */
+@WebServlet("/puntuar")
+public class PuntuarController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			String id = request.getParameter("idVideo");
-			String texto = request.getParameter("textoComentario");
+			String id = request.getParameter("id");
+			String puntos = request.getParameter("rating");
 			Long idL = Long.parseLong(id);
+			int puntosI = Integer.parseInt(puntos);
 			
 			Usuario usuario = (Usuario) request.getSession().getAttribute("user");
 			Long idUser = UsuarioMySqlDAO.getInstance().getUserId(usuario);
 			
-			Date hoy = new Date();
+			PuntuacionMySqlDAO dao = PuntuacionMySqlDAO.getInstance();
+			Puntuacion puntuacion = new Puntuacion (puntosI, idUser,idL);
 			
-			ComentarioMySqlDAO dao = ComentarioMySqlDAO.getInstance();
-			Comentario comentario = new Comentario(null,idL,idUser,texto,hoy);
-			try {
-				dao.insert(comentario);
-			} catch (Exception e) {
-				System.out.println("Error en la insercion de comentario");
-				e.printStackTrace();
-			}
+			dao.insert(puntuacion);
 			
 			request.getRequestDispatcher("contenido?id="+id).forward(request, response);
-		}			
-		catch(Exception e) {
-			throw new ControladorException("Error al guardar el comentario", e);
+			
+		}catch(Exception e) {
+			throw new ControladorException("Error al guardar la puntuacion", e);
 		}
 	}
-
 }

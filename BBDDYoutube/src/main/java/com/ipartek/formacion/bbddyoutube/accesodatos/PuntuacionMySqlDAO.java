@@ -6,9 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.ipartek.formacion.bbddyoutube.pojos.Comentario;
 import com.ipartek.formacion.bbddyoutube.pojos.Puntuacion;
-import com.ipartek.formacion.bbddyoutube.pojos.Video;
 
 public class PuntuacionMySqlDAO implements CrudAble<Puntuacion>{
 	private static PuntuacionMySqlDAO INSTANCE = null;
@@ -59,7 +57,29 @@ public class PuntuacionMySqlDAO implements CrudAble<Puntuacion>{
 
 	@Override
 	public boolean insert(Puntuacion pojo) {
-		throw new AccesoDatosException("TO BE IMPLEMENTED");
+		String sql = "INSERT INTO puntuaciones (usuarios_idUsuario, videos_IdVideo, puntuacion) VALUES (?,?,?)";	
+		boolean result = false;
+		Connection conn = UtilsDAO.getConnection();
+		try (PreparedStatement pst = conn.prepareStatement(sql)){
+			pst.setLong(1, pojo.getIdUsuario());
+			pst.setLong(2, pojo.getIdVideo());
+			pst.setInt(3, pojo.getPuntos());
+			
+			int numFilas = pst.executeUpdate();
+			
+			if (numFilas != 1) {
+				result = false;
+			}else {
+				result = true;
+			}
+		} catch (SQLException e) {
+			result = false;
+			throw new AccesoDatosException(e.getMessage(), e);
+		}finally {
+			if (conn!=null) UtilsDAO.closeConnection(conn);
+		}
+		
+		return result;
 	}
 
 	@Override
