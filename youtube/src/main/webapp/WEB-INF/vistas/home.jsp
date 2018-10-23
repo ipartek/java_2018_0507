@@ -69,8 +69,10 @@
 							title="Para tirar a la basura - 1 estrella"></label>
 					</fieldset>
 				</form>
-				<span class="text-warning">Media de &#9733; &#9733; &#9733;
-					&#9733; &#9734;</span> ${videoInicio.puntos} stars
+				<span class="text-warning">
+					<c:forEach begin="1" end="${videoInicio.puntos}">&#9733; </c:forEach>
+					<c:forEach begin="${videoInicio.puntos + 1}" end="5">&#9734; </c:forEach>
+				</span> ${videoInicio.puntos} stars
 			</div>
 		</div>
 		<!-- /.card -->
