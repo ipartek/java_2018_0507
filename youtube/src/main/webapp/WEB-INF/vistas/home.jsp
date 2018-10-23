@@ -63,30 +63,33 @@
 		<div class="card card-outline-secondary my-4">
 			<div class="card-header">Comentarios</div>
 			<div class="card-body">
-				<form action="enviarcomentario" method="post">
-					<input type="hidden" name="id" value="${videoInicio.id}" />
+				<c:if test="${usuario != null}">
+					<form action="enviarcomentario" method="post">
+						<input type="hidden" name="id" value="${videoInicio.id}" />
 
-					<div class="form-group row">
-						<label for="texto" class="col-sm-2 col-form-label">Comentario</label>
-						<div class="col-sm-10">
-							<textarea class="form-control" id="texto" name="texto"
-								placeholder="Texto del comentario"></textarea>
+						<div class="form-group row">
+							<label for="texto" class="col-sm-2 col-form-label">Comentario</label>
+							<div class="col-sm-10">
+								<textarea class="form-control" id="texto" name="texto"
+									placeholder="Texto del comentario"></textarea>
+							</div>
 						</div>
-					</div>
-					<div class="form-group row">
-						<div class="offset-sm-2 col-sm-10">
-							<button type="submit" class="btn btn-primary">Enviar
-								comentario</button>
+						<div class="form-group row">
+							<div class="offset-sm-2 col-sm-10">
+								<button type="submit" class="btn btn-primary">Enviar
+									comentario</button>
+							</div>
 						</div>
-					</div>
-				</form>
+					</form>
 
-				<jsp:useBean id="hoy" class="java.util.Date" scope="page" />
+					<jsp:useBean id="hoy" class="java.util.Date" scope="page" />
 
-				<small class="text-muted">Escrito por ${usuario.email} el <fmt:formatDate
-						value="${hoy}" pattern="yyyy-MM-dd HH:mm:ss" />
-				</small>
-				<hr>
+					<small class="text-muted">Escrito por ${usuario.email} el <fmt:formatDate
+							value="${hoy}" pattern="yyyy-MM-dd HH:mm:ss" />
+					</small>
+					<hr>
+
+				</c:if>
 				<c:forEach items="${videoInicio.comentarios}" var="comentario">
 					<p>${comentario.texto}</p>
 					<small class="text-muted">Escrito por
