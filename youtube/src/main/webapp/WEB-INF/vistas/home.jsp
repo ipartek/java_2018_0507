@@ -54,8 +54,23 @@
 			<div class="card-body">
 				<h3 class="card-title">${videoInicio.nombre}</h3>
 
-				<span class="text-warning">&#9733; &#9733; &#9733; &#9733;
-					&#9734;</span> 4.0 stars
+				<form action="puntuar" method="post">
+					<fieldset class="rating">
+						<input type="radio" id="star5" name="rating" value="5" /><label
+							class="full" for="star5" title="QTCPLPA - 5 estrellas"></label> <input
+							type="radio" id="star4" name="rating" value="4" /><label
+							class="full" for="star4" title="Bueno - 4 estrellas"></label> <input
+							type="radio" id="star3" name="rating" value="3" /><label
+							class="full" for="star3" title="Psá - 3 estrellas"></label> <input
+							type="radio" id="star2" name="rating" value="2" /><label
+							class="full" for="star2" title="Malillo - 2 estrellas"></label> <input
+							type="radio" id="star1" name="rating" value="1" /><label
+							class="full" for="star1"
+							title="Para tirar a la basura - 1 estrella"></label>
+					</fieldset>
+				</form>
+				<span class="text-warning">Media de &#9733; &#9733; &#9733;
+					&#9733; &#9734;</span> 4.0 stars
 			</div>
 		</div>
 		<!-- /.card -->
