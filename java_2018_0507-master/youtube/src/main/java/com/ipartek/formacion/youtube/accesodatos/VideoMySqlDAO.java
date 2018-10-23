@@ -137,8 +137,9 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 					+ "v.id, v.idvideo, v.nombre, "
 					+ "u.id, u.email, u.password, "
 					+ "c.id, c.fecha, c.texto \n"
-					+ "FROM videos v\n" + "INNER JOIN comentarios c ON v.id = c.id_videos\n"
-					+ "INNER JOIN usuarios u ON u.id = c.id_usuarios\n"
+					+ "FROM videos v\n" 
+					+ "LEFT JOIN comentarios c ON v.id = c.id_videos\n"
+					+ "LEFT JOIN usuarios u ON u.id = c.id_usuarios\n"
 					+ "INNER JOIN usuarios up ON v.id_usuario = up.id\n"
 					+ "WHERE v.id = ?\n"
 					+ "ORDER BY c.fecha DESC\n";
@@ -159,11 +160,13 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 									usuario);
 						}
 
-						usuarioComentario = new Usuario(rs.getLong("u.id"), rs.getString("u.email"), rs.getString("u.password"));
-						comentario = new Comentario(rs.getLong("c.id"), rs.getString("texto"), usuarioComentario,
-								rs.getTimestamp("fecha"), video);
-						
-						video.getComentarios().add(comentario);
+						if(rs.getLong("c.id") != 0) {
+							usuarioComentario = new Usuario(rs.getLong("u.id"), rs.getString("u.email"), rs.getString("u.password"));
+							comentario = new Comentario(rs.getLong("c.id"), rs.getString("texto"), usuarioComentario,
+									rs.getTimestamp("fecha"), video);
+							
+							video.getComentarios().add(comentario);
+						}
 
 					}
 				} catch (SQLException e) {
@@ -236,6 +239,35 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 		}
 
 		return true;
+	}
+	
+	public int getPuntosById(Long id) {
+		int media = 0;
+
+		try (Connection conn = DriverManager.getConnection(urlBD, usuarioBD, passwordBD)) {
+			String sql = "SELECT AVG(puntuacion) FROM youtube.usuarios_puntua_videos WHERE videos_id = ?";
+
+			try (PreparedStatement pst = conn.prepareStatement(sql)) {
+
+				pst.setLong(1, id);
+
+				try (ResultSet rs = pst.executeQuery()) {
+
+					if (rs.next()) {
+						media = rs.getInt(1);
+					}
+				} catch (Exception e) {
+					throw new AccesoDatosException(e.getMessage(), e);
+				}
+			} catch (SQLException e) {
+				throw new AccesoDatosException(e.getMessage(), e);
+			}
+
+		} catch (SQLException e) {
+			throw new AccesoDatosException(e.getMessage(), e);
+		}
+
+		return media;		
 	}
 
 }

@@ -36,6 +36,8 @@ public class HomeController extends HttpServlet {
 			
 			if(idver != null) {
 				videoInicio = VideoMySqlDAO.getInstance().getById(idver);
+				videoInicio.setPuntos(VideoMySqlDAO.getInstance().getPuntosById(videoInicio.getId()));
+				
 			} else {
 				videoInicio = new Video();
 	      		
