@@ -1,5 +1,6 @@
 package com.ipartek.formacion.youtube.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Usuario {
@@ -7,7 +8,8 @@ public class Usuario {
 	private String email;
 	private String password;
 	
-	private List<Video> videos;
+	private List<Video> videos = new ArrayList<>();
+	private List<Puntuacion> puntuaciones = new ArrayList<>();
 	
 	public Usuario(Long id, String email, String password) {
 		super();
@@ -88,6 +90,14 @@ public class Usuario {
 
 	public void setVideos(List<Video> videos) {
 		this.videos = videos;
+	}
+
+	public List<Puntuacion> getPuntuaciones() {
+		return puntuaciones;
+	}
+
+	public void setPuntuaciones(List<Puntuacion> puntuaciones) {
+		this.puntuaciones = puntuaciones;
 	}
 	
 	

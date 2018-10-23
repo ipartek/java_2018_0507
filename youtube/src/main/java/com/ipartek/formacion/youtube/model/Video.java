@@ -13,6 +13,7 @@ public class Video {
 	
 	private Usuario usuario;
 	private List<Comentario> comentarios = new ArrayList<Comentario>();
+	private List<Puntuacion> puntuaciones = new ArrayList<Puntuacion>();
 	
 	public Video() {
 		super();
@@ -72,6 +73,14 @@ public class Video {
 			throw new RuntimeException("El ID debe ser exactamente de " + ID_LONGITUD + " caracteres");
 		}	
 		this.idVideo = idVideo;
+	}
+
+	public List<Puntuacion> getPuntuaciones() {
+		return puntuaciones;
+	}
+
+	public void setPuntuaciones(List<Puntuacion> puntuaciones) {
+		this.puntuaciones = puntuaciones;
 	}
 
 	@Override
