@@ -30,7 +30,7 @@
 								<div class="list-group list-group-mine">
 									<c:forEach items="${videos}" var="video">
 										<c:if test="${video.idUsuario eq usuario.id}">
-											<a href="#" onclick="reproducir('${video.idVideo}'); return false;"
+											<a href="contenido?id=${video.id}"
 												class="list-group-item"> ${video.nombre}<span
 												class="glyphicon glyphicon-play badge"> </span>
 											</a>

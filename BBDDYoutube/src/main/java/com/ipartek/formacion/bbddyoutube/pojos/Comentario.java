@@ -1,10 +1,10 @@
 package com.ipartek.formacion.bbddyoutube.pojos;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Comentario {
 	private Long id;
-	private String idVideo;
+	private Long idVideo;
 	private Long idUsuario;
 	private String texto;
 	private Date fecha;
@@ -14,7 +14,14 @@ public class Comentario {
 	}
 
 
-	public Comentario(Long id, String idVideo, Long idUsuario, String texto, Date fecha) {
+	public Comentario(Long idVideo, Long idUsuario, String texto, Date fecha) {
+		setIdVideo(idVideo);
+		setIdUsuario(idUsuario);
+		setTexto(texto);
+		setFecha(fecha);
+	}
+	
+	public Comentario(Long id, Long idVideo, Long idUsuario, String texto, Date fecha) {
 		setId(id);
 		setIdVideo(idVideo);
 		setIdUsuario(idUsuario);
@@ -22,7 +29,7 @@ public class Comentario {
 		setFecha(fecha);
 	}
 
-	public Comentario(Long id, String idVideo, Long idUsuario, String texto, Date fecha, String nombre) {
+	public Comentario(Long id, Long idVideo, Long idUsuario, String texto, Date fecha, String nombre) {
 		setId(id);
 		setIdVideo(idVideo);
 		setIdUsuario(idUsuario);
@@ -53,12 +60,12 @@ public class Comentario {
 		this.id = id;
 	}
 
-	public String getIdVideo() {
+	public Long getIdVideo() {
 		return idVideo;
 	}
 
 
-	public void setIdVideo(String idVideo) {
+	public void setIdVideo(Long idVideo) {
 		this.idVideo = idVideo;
 	}
 

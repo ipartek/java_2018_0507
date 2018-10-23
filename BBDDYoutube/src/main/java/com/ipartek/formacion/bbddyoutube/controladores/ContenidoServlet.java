@@ -1,7 +1,7 @@
 package com.ipartek.formacion.bbddyoutube.controladores;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,34 +16,44 @@ import com.ipartek.formacion.bbddyoutube.accesodatos.ComentarioMySqlDAO;
 import com.ipartek.formacion.bbddyoutube.accesodatos.UsuarioMySqlDAO;
 import com.ipartek.formacion.bbddyoutube.accesodatos.VideoMySqlDAO;
 
-
 @WebServlet("/contenido")
 public class ContenidoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Usuario user = (Usuario) request.getSession().getAttribute("user");
-
+		String id = request.getParameter("id");
+		
 		UsuarioMySqlDAO dao = UsuarioMySqlDAO.getInstance();
 		VideoMySqlDAO daov = VideoMySqlDAO.getInstance();
 		ComentarioMySqlDAO daoc = ComentarioMySqlDAO.getInstance();
 		
 		Long idUser = dao.getUserId(user);
+		Video video = null;
 		
-		ArrayList<Video> videos = (ArrayList<Video>) daov.getAll();
-		Video firstVideo = daov.getFirstVideo(idUser);
-		ArrayList<Usuario> usuarios = (ArrayList<Usuario>) dao.getAll();
-		ArrayList<Comentario> comentarios = (ArrayList<Comentario>) daoc.getAllFromVideo(firstVideo);
+		List<Video> videos = daov.getAll();
+		List<Usuario> usuarios = dao.getAll();
+		List<Comentario> comentarios = null;
+
+		if(id != null) {
+			Long idL = Long.parseLong(id);
+			video = daov.getById(idL);
+			comentarios = daoc.getAllFromVideo(video);
+		} else {
+			video= daov.getFirstVideo(idUser);
+			comentarios = daoc.getAllFromVideo(video);
+		}
 		
-		request.setAttribute("comentarios", comentarios);
-		request.setAttribute("firstVideo", firstVideo);
-		request.setAttribute("usuarios", usuarios);
 		request.setAttribute("videos", videos);
+		request.setAttribute("comentarios", comentarios);
+		request.setAttribute("usuarios", usuarios);
+		request.setAttribute("video", video);
+
 		request.getRequestDispatcher("/WEB-INF/contenido.jsp").forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 	}
 
 }

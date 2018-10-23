@@ -1,6 +1,7 @@
 package com.ipartek.formacion.bbddyoutube.accesodatos;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -43,7 +44,7 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 			pst.setLong(1, video.getId());
 			try(ResultSet rs = pst.executeQuery()){
 				while (rs.next()) {
-					comentarios.add(new Comentario(rs.getLong("id"), rs.getString("videos_IdVideo"), rs.getLong("usuarios_IdUsuario"), rs.getString("comentario"), rs.getDate("fecha"), rs.getString("nombre")));
+					comentarios.add(new Comentario(rs.getLong("id"), rs.getLong("videos_IdVideo"), rs.getLong("usuarios_IdUsuario"), rs.getString("comentario"), rs.getDate("fecha"), rs.getString("nombre")));
 				}
 			}catch (Exception e) {
 				throw new AccesoDatosException(e.getMessage(), e);
@@ -67,7 +68,7 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 			pst.setLong(1, id);
 			try(ResultSet rs = pst.executeQuery()){
 				if(rs.next()) {
-					comentario = new Comentario(id, rs.getString("videos_IdVideo"), rs.getLong("usuarios_IdUsuario"), rs.getString("comentario"), rs.getDate("fecha"));
+					comentario = new Comentario(id, rs.getLong("videos_IdVideo"), rs.getLong("usuarios_IdUsuario"), rs.getString("comentario"), rs.getDate("fecha"));
 				}else {
 					return null;
 				}
@@ -89,10 +90,10 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 		boolean result = false;
 		Connection conn = UtilsDAO.getConnection();
 		try (PreparedStatement pst = conn.prepareStatement(sql)){
-			pst.setString(1, pojo.getIdVideo());
+			pst.setLong(1, pojo.getIdVideo());
 			pst.setLong(2, pojo.getIdUsuario());
 			pst.setString(3, pojo.getTexto());
-			pst.setDate(4, (java.sql.Date) pojo.getFecha());
+			pst.setDate(4, (Date) pojo.getFecha());
 			
 			int numFilas = pst.executeUpdate();
 			
@@ -117,7 +118,7 @@ public class ComentarioMySqlDAO implements CrudAble<Comentario> {
 		boolean result = false;
 		Connection conn = UtilsDAO.getConnection();
 		try (PreparedStatement pst = conn.prepareStatement(sql)){
-			pst.setString(1, pojo.getIdVideo());
+			pst.setLong(1, pojo.getIdVideo());
 			pst.setLong(2, pojo.getIdUsuario());
 			pst.setString(3, pojo.getTexto());
 			pst.setDate(4, (java.sql.Date) pojo.getFecha());
