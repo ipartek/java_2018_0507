@@ -1,5 +1,6 @@
 package com.ipartek.formacion.youtube.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Video {
@@ -11,7 +12,7 @@ public class Video {
 	private String nombre;
 	
 	private Usuario usuario;
-	private List<Comentario> comentarios;
+	private List<Comentario> comentarios = new ArrayList<Comentario>();
 	
 	public Video() {
 		super();
