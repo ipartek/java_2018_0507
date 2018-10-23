@@ -238,5 +238,34 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 
 		return true;
 	}
+	
+	public int getPuntosById(Long id) {
+		int media = 0;
+
+		try (Connection conn = DriverManager.getConnection(urlBD, usuarioBD, passwordBD)) {
+			String sql = "SELECT AVG(puntuacion) FROM youtube.usuarios_puntua_videos WHERE videos_id = ?";
+
+			try (PreparedStatement pst = conn.prepareStatement(sql)) {
+
+				pst.setLong(1, id);
+
+				try (ResultSet rs = pst.executeQuery()) {
+
+					if (rs.next()) {
+						media = rs.getInt(1);
+					}
+				} catch (Exception e) {
+					throw new AccesoDatosException(e.getMessage(), e);
+				}
+			} catch (SQLException e) {
+				throw new AccesoDatosException(e.getMessage(), e);
+			}
+
+		} catch (SQLException e) {
+			throw new AccesoDatosException(e.getMessage(), e);
+		}
+
+		return media;		
+	}
 
 }

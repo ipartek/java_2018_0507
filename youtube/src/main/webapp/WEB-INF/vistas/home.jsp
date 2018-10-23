@@ -70,7 +70,7 @@
 					</fieldset>
 				</form>
 				<span class="text-warning">Media de &#9733; &#9733; &#9733;
-					&#9733; &#9734;</span> 4.0 stars
+					&#9733; &#9734;</span> ${videoInicio.puntos} stars
 			</div>
 		</div>
 		<!-- /.card -->

@@ -13,7 +13,7 @@ public class Video {
 	
 	private Usuario usuario;
 	private List<Comentario> comentarios = new ArrayList<Comentario>();
-	private List<Puntuacion> puntuaciones = new ArrayList<Puntuacion>();
+	private int puntos = 0;
 	
 	public Video() {
 		super();
@@ -75,12 +75,12 @@ public class Video {
 		this.idVideo = idVideo;
 	}
 
-	public List<Puntuacion> getPuntuaciones() {
-		return puntuaciones;
+	public int getPuntos() {
+		return puntos;
 	}
 
-	public void setPuntuaciones(List<Puntuacion> puntuaciones) {
-		this.puntuaciones = puntuaciones;
+	public void setPuntos(int puntos) {
+		this.puntos = puntos;
 	}
 
 	@Override
