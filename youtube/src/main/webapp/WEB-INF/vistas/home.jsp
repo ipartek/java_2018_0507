@@ -55,16 +55,19 @@
 				<h3 class="card-title">${videoInicio.nombre}</h3>
 
 				<form action="puntuar" method="post">
+					<input type="hidden" name="id" value="${videoInicio.id}" />
 					<fieldset class="rating">
-						<input type="radio" id="star5" name="rating" value="5" /><label
+						<input type="radio" id="star5" name="rating" value="5" 
+						onclick="submit()"/><label
 							class="full" for="star5" title="QTCPLPA - 5 estrellas"></label> <input
-							type="radio" id="star4" name="rating" value="4" /><label
+							type="radio" id="star4" name="rating" value="4" 
+							onclick="submit()"/><label
 							class="full" for="star4" title="Bueno - 4 estrellas"></label> <input
-							type="radio" id="star3" name="rating" value="3" /><label
+							type="radio" id="star3" name="rating" value="3" onclick="submit()"/><label
 							class="full" for="star3" title="Psá - 3 estrellas"></label> <input
-							type="radio" id="star2" name="rating" value="2" /><label
+							type="radio" id="star2" name="rating" value="2" onclick="submit()"/><label
 							class="full" for="star2" title="Malillo - 2 estrellas"></label> <input
-							type="radio" id="star1" name="rating" value="1" /><label
+							type="radio" id="star1" name="rating" value="1" onclick="submit()"/><label
 							class="full" for="star1"
 							title="Para tirar a la basura - 1 estrella"></label>
 					</fieldset>
