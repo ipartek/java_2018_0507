@@ -269,5 +269,30 @@ public class VideoMySqlDAO implements CrudAble<Video> {
 
 		return media;		
 	}
+	
+	public boolean insertPuntuacion(Usuario usuario, Long idVideo, int puntos) {
+		try (Connection con = DriverManager.getConnection(urlBD, usuarioBD, passwordBD)) {
+			String sql = "INSERT INTO usuarios_puntua_videos (usuarios_id, videos_id, puntuacion) VALUES (?, ?, ?)";
+
+			try (PreparedStatement pst = con.prepareStatement(sql)) {
+				pst.setLong(1, usuario.getId());
+				pst.setLong(2, idVideo);
+				pst.setInt(3, puntos);
+
+				int numFilas = pst.executeUpdate();
+
+				if (numFilas != 1) {
+					return false;
+				}
+
+			} catch (SQLException e) {
+				throw new AccesoDatosException(e.getMessage(), e);
+			}
+		} catch (SQLException e) {
+			throw new AccesoDatosException(e.getMessage(), e);
+		}
+
+		return true;
+	}
 
 }
