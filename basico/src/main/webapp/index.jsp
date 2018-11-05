@@ -3,33 +3,16 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"
 	integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
 	crossorigin="anonymous"></script>
-<script>
-function refrescarHora() {
-	
-	$.getJSON('hora', function(objeto) {
-		$('#hora').text(objeto.hora);
-	});
-
-	setTimeout(refrescarHora, 500);
-}
-
-function cargarLibros() {
-	$.getJSON('libros', function(libros){
-		$(libros).each(function() {
-			$('#libros').append('<li>' + this.id + ", " + this.nombre  + '</li>');
-		});
-	});
-}
-
-$(function() {
-	refrescarHora();
-	
-	cargarLibros();
-});
-</script>
+<script src="js/index.js"></script>
 </head>
 <body>
-	<h2 id="hora">Hello World!</h2>
+	<h2 id="hora">Cargando el reloj</h2>
+	
+	<form action="libros" method="post" id="altalibros">
+		<input type="number" id="id" name="id" placeholder="id" />
+		<input type="text" id="nombre" name="nombre" placeholder="nombre" />
+		<button>Enviar</button>
+	</form>
 	
 	<ul id="libros">
 	</ul>

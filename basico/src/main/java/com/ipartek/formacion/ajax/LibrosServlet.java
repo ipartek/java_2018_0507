@@ -14,22 +14,34 @@ import com.google.gson.Gson;
 public class LibrosServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Libro> libros = new ArrayList<Libro>();
-		
+	private static List<Libro> libros = new ArrayList<Libro>();
+	
+	static {
 		libros.add(new Libro(1L, "Libro1"));
 		libros.add(new Libro(2L, "Libro2"));
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("application/json");
 		
 		Gson gson = new Gson();
 		
 		response.getWriter().append(gson.toJson(libros));
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String json = request.getParameter("libro");
+		
+		Gson gson = new Gson();
+		
+		System.out.println(json);
+		
+		Libro libro = gson.fromJson(json, Libro.class);
+		
+		System.out.println(libro);
+		
+		libros.add(libro);
+		
 		doGet(request, response);
 	}
 
