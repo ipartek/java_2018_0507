@@ -109,3 +109,66 @@ for(let dato of nombres) {
 	console.log(dato);
 }
 
+const lineacsv = 'Javier,Lete,Profesor,941231234,,,612312344';
+
+let datoscsv = lineacsv.split(',');
+
+console.log(datoscsv);
+
+let exportcsv = nombres.join(',');
+
+console.log(exportcsv);
+
+let div = 0/0;
+
+console.log(div); //NaN
+console.log(div == NaN); //false?????
+console.log(NaN == NaN); //false??????????????????
+console.log(isNaN(div)); //true
+
+div = 1/0;
+
+console.log(div); //Infinity
+console.log(div == Infinity); //true
+
+div = -1/0;
+
+console.log(div); //-Infinity
+console.log(div == -Infinity); //true
+
+let precio = 123.12345;
+
+console.log(precio.toFixed(2));
+
+//let preciogracioso = 0123; //Número octal 0123 que equivale al 83 decimal. Use strict no lo permite
+
+//console.log(preciogracioso); //83
+
+function saludar() {
+	alert('Hola a todos');
+}
+
+saludar();
+
+(function() {
+	let variable = 'automatica'
+	alert('Hola desde ' + variable);
+}());
+
+//console.log(variable); //No encuentra la variable
+
+function sumar(a, b) {
+	if(esNumero(a) && esNumero(b)){
+		return a + b;
+	} else {
+		return NaN;
+	}
+}
+
+console.log(sumar(5,7));
+
+console.log(sumar('Pepe', ' Perez'));
+
+function esNumero(texto) {
+	return +texto + '' == texto;
+}
