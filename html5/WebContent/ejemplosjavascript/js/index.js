@@ -26,3 +26,43 @@ console.log($);
 var _ = 'Soy un guión bajo';
 
 console.log(_);
+
+const nombres = [ 'Javier', 'Pepe', 'Juan' ];
+
+console.log(nombres[0]);
+
+console.log(nombres);
+
+nombres[3] = 'Pedro';
+
+nombres[10] = 'Yepa';
+
+nombres[7] = 10;
+
+nombres.push('Al final');
+
+nombres['profe'] = 'Javier Lete';
+
+console.log(nombres);
+console.log(nombres.length);
+
+const datos = [];
+
+datos.push(12);
+datos.push(15);
+datos.push(3);
+
+console.log(datos);
+console.log(datos.length);
+
+const diccionario = [];
+
+diccionario['casa'] = 'home';
+diccionario['coche'] = 'car';
+
+console.log(diccionario);
+
+console.log(diccionario['coche']);
+console.log(diccionario.casa);
+
+console.log(Object.keys(diccionario).length);
