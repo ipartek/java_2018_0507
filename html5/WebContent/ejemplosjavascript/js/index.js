@@ -99,3 +99,13 @@ console.log('Javier' < 'Pepe');
 
 console.log('Javier' == 'Javier');
 
+//Saca todos los índices existentes
+for(let indice in nombres) {
+	console.log(indice + ": " + nombres[indice]);
+}
+
+//Trata al array como índices numéricos y sólo salen los elementos cuyos índices sean numéricos
+for(let dato of nombres) {
+	console.log(dato);
+}
+
