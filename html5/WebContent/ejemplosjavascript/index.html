@@ -4,12 +4,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<script>
-	alert('hola');
-</script>
+<script src="js/index.js"></script>
 
 </head>
 <body>
+<h1>Prueba</h1>
+
+<noscript>No jodas que no tienes JavaScript...</noscript>
+
+<button onclick="alert('Saludos, desconocido')">Saludar</button>
+
+<form action="http://www.google.es/search" onsubmit="return confirm('¿Estás seguro?')">
+	<input type="text" name="q" />
+</form>
 
 </body>
 </html>
