@@ -25,6 +25,7 @@ console.log($);
 
 var _ = 'Soy un guión bajo';
 
+<<<<<<< HEAD
 console.log(_);
 
 const nombres = [ 'Javier', 'Pepe', 'Juan' ];
@@ -172,3 +173,6 @@ console.log(sumar('Pepe', ' Perez'));
 function esNumero(texto) {
 	return +texto + '' == texto;
 }
+=======
+console.log(_);
+>>>>>>> branch 'Julen' of https://github.com/ipartek/java_2018_0507.git

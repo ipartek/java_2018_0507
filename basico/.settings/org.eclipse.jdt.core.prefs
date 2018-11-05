@@ -5,5 +5,8 @@ org.eclipse.jdt.core.compiler.compliance=1.5
 org.eclipse.jdt.core.compiler.problem.assertIdentifier=error
 org.eclipse.jdt.core.compiler.problem.enumIdentifier=error
 org.eclipse.jdt.core.compiler.problem.forbiddenReference=warning
+<<<<<<< HEAD
 org.eclipse.jdt.core.compiler.release=disabled
+=======
+>>>>>>> branch 'Julen' of https://github.com/ipartek/java_2018_0507.git
 org.eclipse.jdt.core.compiler.source=1.5
