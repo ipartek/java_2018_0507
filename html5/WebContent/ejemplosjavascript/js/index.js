@@ -66,3 +66,36 @@ console.log(diccionario['coche']);
 console.log(diccionario.casa);
 
 console.log(Object.keys(diccionario).length);
+
+//BOOLEANOS
+
+console.log(!!true); //true
+
+console.log(!!0); //false
+
+console.log(!!5); //true
+
+console.log(!!''); //false
+
+console.log(!!'rellenado'); //true
+
+var x = 5, y = 7;
+
+console.log(!!(x == y)); //CORRECTO
+
+console.log(!!(x = y)); //INCORRECTO por usar operador = en lugar de ==. NO FALLA EN JAVASCRIPT
+
+var a = '5', b = 5;
+
+console.log(a == b); //true (tolera comparaciones entre valores de diferentes tipos)
+//complementario !=
+
+console.log(a === b); //false (estrictamente igual: no tolera comparaciones entre diferentes tipos)
+//complementario !==
+
+console.log('Pepe' > 'pepe');
+
+console.log('Javier' < 'Pepe');
+
+console.log('Javier' == 'Javier');
+
