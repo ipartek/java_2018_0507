@@ -13,6 +13,8 @@ public class HoraServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		response.setContentType("application/json");
+		
 		response.getWriter()
 				.append("{ \"hora\": \"" + new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + " - " + new Date().getTimezoneOffset() + "\" }");
 	}
