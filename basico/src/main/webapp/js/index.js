@@ -39,11 +39,11 @@ function interceptarFormulario() {
 		const vid = $('#id').val();
 		const vnombre = $('#nombre').val();
 		
-		const libro = { id: vid, nombre: vnombre };
+		const vlibro = JSON.stringify({ id: vid, nombre: vnombre });
 		
-		console.log(libro);
+		console.log(vlibro);
 		
-		$.post('libros', libro, function(libros) {
+		$.post('libros', { libro: vlibro }, function(libros) {
 			console.log(libros);
 			
 			recibirLibros(libros);

@@ -30,6 +30,18 @@ public class LibrosServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String json = request.getParameter("libro");
+		
+		Gson gson = new Gson();
+		
+		System.out.println(json);
+		
+		Libro libro = gson.fromJson(json, Libro.class);
+		
+		System.out.println(libro);
+		
+		libros.add(libro);
+		
 		doGet(request, response);
 	}
 
