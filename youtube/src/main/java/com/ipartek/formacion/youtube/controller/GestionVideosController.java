@@ -1,6 +1,7 @@
 package com.ipartek.formacion.youtube.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.ipartek.formacion.youtube.Video;
 import com.ipartek.formacion.youtube.accesodatos.VideoArrayListDAO;
 import com.ipartek.formacion.youtube.accesodatos.VideoMySqlDAO;
+import com.ipartek.formacion.youtube.model.Usuario;
+
 
 @WebServlet("/gestionvideos")
 public class GestionVideosController extends HttpServlet {
@@ -18,6 +21,8 @@ public class GestionVideosController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
+			Usuario usuario = (Usuario)request.getSession().getAttribute("usuario");
+			
 			String accion = request.getParameter("accion");
 
 			switch (accion) {
@@ -27,7 +32,7 @@ public class GestionVideosController extends HttpServlet {
 				String nombre = request.getParameter("nombre");
 
 				// insertar
-				Video v = new Video(idVideo, nombre);
+				Video v = new Video(idVideo, nombre, usuario);
 				VideoMySqlDAO.getInstance().insert(v);
 				
 				request.getRequestDispatcher("/").forward(request, response);
