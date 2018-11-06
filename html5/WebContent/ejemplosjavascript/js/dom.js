@@ -24,3 +24,9 @@ function leerFormulario() {
 	
 	return false; //Cancelar el envío del formulario al action
 }
+
+function accederPorId() {
+	var importante = document.getElementById('elmasimportante');
+	
+	alert(importante.innerText);
+}
