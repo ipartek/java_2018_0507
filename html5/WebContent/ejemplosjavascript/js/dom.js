@@ -10,4 +10,9 @@ function modificarParrafos() {
 	for(var i = 0; i < parrafos.length; i++) {
 		parrafos[i].innerText = 'Párrafo modificado ' + i;
 	}
+	
+	var indice = 1;
+	for(var parrafo of parrafos) {
+		parrafo.innerText = 'Párrafo MUY modificado ' + indice++;
+	}
 }
