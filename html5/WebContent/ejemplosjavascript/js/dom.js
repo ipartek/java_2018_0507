@@ -38,3 +38,15 @@ function destacar() {
 		destacado.innerText = '****' + destacado.innerText + '****';
 	}
 }
+
+function rellenarTabla() {
+	var tr = document.createElement('tr');
+	
+	tr.innerHTML = '<th>1</th><td>Javier</td>';
+	
+	var tbody = document.getElementsByTagName('tbody')[0];
+	
+	tbody.appendChild(tr);
+	
+	console.log(tr);
+}
