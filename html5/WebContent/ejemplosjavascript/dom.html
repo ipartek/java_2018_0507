@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script SRC="js/dom.js"></script>
+<style>
+	.error{
+		border:2px solid red;
+		
+	}
+</style>
+</head>
+<body>
+
+	<h2>Cambiar titulo</h2>
+	<h1>Titulo a cambiar</h1>
+
+	<button onclick='cambiarTitulo()'>Cambiar titulo</button>
+
+	<br />
+	<br /><h2>Cambiar parrafo</h2>
+	<br />
+	
+	<p>
+		Parrafo 1<span class='destacado'>destacadodel1</span>
+	</p>
+	<p id="elmasimportante">
+		Parrafo 2<span class='destacado'>destacado2</span>
+	</p>
+
+	<button onclick='modificarParrafos()'>ModificarParrafos</button>
+	<button onclick='accederPorId()'>Acceder por id</button>
+	<button onclick='destacar()'>Destacar</button>
+
+
+	<form onsubmit='return leerFormulario()'>zxfdgdg
+		<input type="text" name="nombre"/>
+		<button>Enviar Datos</button>
+	</form>
+
+
+
+	<br />
+	<br /><h2> CrearElementos desde js</h2>
+	<br />
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nombre</th>
+			</tr>
+		</thead>
+		<tbody>
+
+		</tbody>
+	</table>
+	<button onclick='rellenarTabla()'>rellenarTabla()</button>
+
+
+	<br />
+	<br />Borrar Parrafo
+	<br />
+	<p id="parrafoaborrar">
+		parrafoaborrarparrafoaborrarparrafoaborrar parrafoaborrar 2
+	</p>
+	<button onclick='borrarParrafo()'>borrarParrafo()</button>
+
+
+
+	<br />
+	<br />Otro
+	<br />
+
+
+
+
+
+
+	<br />
+	<br />
+
+</body>
+
+<footer>
+	<font size="3">NOTAS:<br/>DOM(Documento html) proporciona dos métodos
+		alternativos para acceder a un nodo(etiqueta) específico: acceso a
+		través de sus nodos padre y acceso directo.</font>
+</footer>
+</html>
