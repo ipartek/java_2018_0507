@@ -25,6 +25,7 @@ console.log($);
 
 var _ = 'Soy un guión bajo';
 
+
 console.log(_);
 
 const nombres = [ 'Javier', 'Pepe', 'Juan' ];
@@ -172,3 +173,4 @@ console.log(sumar('Pepe', ' Perez'));
 function esNumero(texto) {
 	return +texto + '' == texto;
 }
+
