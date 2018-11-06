@@ -9,8 +9,8 @@
 
 	<h1>Título que va a cambiar</h1>
 
-	<p>Párrafo 1</p>
-	<p id="elmasimportante">Párrafo 2</p>
+	<p>Párrafo 1 <span class='destacado'>destacadísimo</span></p>
+	<p id="elmasimportante">Párrafo 2 <span class='destacado'>destacado</span></p>
 	
 	<form onsubmit='return leerFormulario()'>
 		<input type="text" name="nombre" />
@@ -20,5 +20,6 @@
 	<button onclick='cambiarTitulo()'>Cambiar título</button>
 	<button onclick='modificarParrafos()'>Modificar Párrafos</button>
 	<button onclick='accederPorId()'>Acceder por ID</button>
+	<button onclick='destacar()'>Destacar</button>
 </body>
 </html>

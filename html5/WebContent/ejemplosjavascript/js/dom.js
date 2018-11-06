@@ -30,3 +30,11 @@ function accederPorId() {
 	
 	alert(importante.innerText);
 }
+
+function destacar() {
+	var destacados = document.getElementsByClassName('destacado');
+	
+	for(let destacado of destacados) {
+		destacado.innerText = '****' + destacado.innerText + '****';
+	}
+}
