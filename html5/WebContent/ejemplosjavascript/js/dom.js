@@ -11,10 +11,12 @@ function modificarParrafos() {
 		parrafos[i].innerText = 'Párrafo modificado ' + i;
 	}
 	
+	/*
 	var indice = 1;
 	for(var parrafo of parrafos) {
 		parrafo.innerText = 'Párrafo MUY modificado ' + indice++;
 	}
+	*/
 }
 
 function leerFormulario() {
@@ -34,8 +36,14 @@ function accederPorId() {
 function destacar() {
 	var destacados = document.getElementsByClassName('destacado');
 	
+	/*
 	for(let destacado of destacados) {
 		destacado.innerText = '****' + destacado.innerText + '****';
+	}
+	*/
+	
+	for(var i = 0; i < destacados.length; i++) {
+		destacados[i].innerText = '****' + destacados[i].innerText + '****';
 	}
 }
 
@@ -49,4 +57,12 @@ function rellenarTabla() {
 	tbody.appendChild(tr);
 	
 	console.log(tr);
+}
+
+function borrarImportante() {
+	var importante = document.getElementById('elmasimportante');
+	
+	importante.parentNode.removeChild(importante);
+	
+	//importante.remove();
 }
