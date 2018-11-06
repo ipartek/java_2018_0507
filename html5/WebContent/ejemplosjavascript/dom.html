@@ -11,21 +11,28 @@
 
 	<table>
 		<thead>
-			<tr><th>Id</th><th>Nombre</th></tr>
+			<tr>
+				<th>Id</th>
+				<th>Nombre</th>
+			</tr>
 		</thead>
 		<tbody>
 		</tbody>
 	</table>
 	<button onclick='rellenarTabla()'>Rellenar tabla</button>
-	
-	<p>Párrafo 1 <span class='destacado'>destacadísimo</span></p>
-	<p id="elmasimportante">Párrafo 2 <span class='destacado'>destacado</span></p>
-	
+
+	<p>
+		Párrafo 1 <span class='destacado'>destacadísimo</span>
+	</p>
+	<p id="elmasimportante">
+		Párrafo 2 <span class='destacado'>destacado</span>
+	</p>
+
 	<form onsubmit='return leerFormulario()'>
 		<input type="text" name="nombre" />
 		<button>Enviar datos</button>
 	</form>
-	
+
 	<button onclick='cambiarTitulo()'>Cambiar título</button>
 	<button onclick='modificarParrafos()'>Modificar Párrafos</button>
 	<button onclick='accederPorId()'>Acceder por ID</button>
