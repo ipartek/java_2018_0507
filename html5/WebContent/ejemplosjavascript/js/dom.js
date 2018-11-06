@@ -16,3 +16,11 @@ function modificarParrafos() {
 		parrafo.innerText = 'Párrafo MUY modificado ' + indice++;
 	}
 }
+
+function leerFormulario() {
+	var nombre = document.getElementsByName('nombre')[0].value;
+	
+	alert(nombre);
+	
+	return false; //Cancelar el envío del formulario al action
+}
