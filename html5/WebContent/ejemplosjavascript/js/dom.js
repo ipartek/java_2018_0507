@@ -20,7 +20,13 @@ function modificarParrafos() {
 }
 
 function leerFormulario() {
-	var nombre = document.getElementsByName('nombre')[0].value;
+	var input = document.getElementsByName('nombre')[0];
+	var nombre = input.value;
+	
+	//input.style = 'border: 1px solid red';
+	if(input.className.indexOf('error') == -1){ //-1 significa que NO ha encontrado el texto 'error'
+		input.className = input.className + ' error';
+	}
 	
 	alert(nombre);
 	
