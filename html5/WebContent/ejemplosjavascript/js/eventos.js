@@ -1,4 +1,10 @@
 window.onload = function () {
+	var borrar = document.forms[0].getElementsByTagName('button')[0];
+	
+	borrar.onclick = function() {
+		return confirm('¿Estás segurísimo de que quieres borrar?');
+	};
+	
 	var enlace = document.getElementById('enlace');
 	
 	enlace.onclick = function (evento) {
