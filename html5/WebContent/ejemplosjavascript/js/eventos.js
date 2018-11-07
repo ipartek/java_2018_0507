@@ -1,4 +1,14 @@
 window.onload = function () {
+	var enlace = document.getElementById('enlace');
+	
+	enlace.onclick = function (evento) {
+		evento.preventDefault();
+		
+		alert('No vayas a Google!!!!, SON UN MONOPOLIO!!!!!!!!! VAMOS A MORIRRRRRRRR!!!!!');
+		
+		//return false;
+	};
+	
 	var botonera = document.getElementById('botonera');
 	
 	while (botonera.firstChild) {
