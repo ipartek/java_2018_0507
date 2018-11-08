@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Mejorar el ejemplo anterior indicando en todo momento al usuario el número de caracteres que aún puede escribir. 
+    Además, se debe permitir pulsar las teclas Backspace, Supr. y las flechas horizontales cuando se haya llegado al 
+    máximo número de caracteres.-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ejercicio 17 - Limitar número de caracteres en textarea</title>
+
+    <script type="text/javascript">
+        function limita(event, maximoCaracteres) {
+            var elemento = document.getElementById("texto");
+            var caracter = event.which || event.keyCode;
+            /*Teclas horizontales y Borrar backspace, supr*/
+            if (caracter == 37 || caracter == 39 || caracter == 8 || caracter == 46) {
+                return true;
+            } else if (elemento.value.length >= maximoCaracteres) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function calcularCaracteres(maxCaracteres) {
+            var elemento = document.getElementById("texto");
+            var info = document.getElementById("caracteres");
+            var caracteresRestantes = maxCaracteres - elemento.value.length;;
+
+            info.innerHTML = caracteresRestantes + " caracteres";
+        }
+    </script>
+</head>
+
+<body>
+    <div id="caracteres">100 caracteres</div>
+    <textarea id="texto" onkeypress="return limita(event, 100);" onkeyup="return calcularCaracteres(100)" rows="6" cols="30"></textarea>
+</body>
+
+</html>

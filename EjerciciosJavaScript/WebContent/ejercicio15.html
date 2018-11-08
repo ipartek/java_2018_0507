@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Ejercicio 15 - Información sobre eventos</title>
+
+	<style type="text/css">
+		body {
+			font-family: arial, helvetica;
+		}
+
+		#info {
+			width: 160px;
+			border: thin solid silver;
+			padding: .5em;
+			position: fixed;
+		}
+
+		#info h1 {
+			margin: 0;
+		}
+	</style>
+
+	<script type="text/javascript">
+		window.onload = function () {
+			document.onmousemove = gestionEvento;
+			document.onkeypress = gestionEvento;
+			document.onclick = gestionEvento;
+		}
+
+		function gestionEvento(e) {
+			var divInfo = document.getElementById("info");
+
+			switch (e.type) {
+				case 'mousemove':
+					var coordenadaXNavegador;
+					var coordenadaYNavegador;
+					var coordenadaXPagina;
+					var coordenadaYPagina;
+
+					var ie = navigator.userAgent.toLowerCase().indexOf('msie') != -1;
+					if (ie) {
+						coordenadaXPagina = e.clientX + document.body.scrollLeft;
+						coordenadaYPagina = e.clientY + document.body.scrollTop;
+					} else {
+						coordenadaXPagina = e.pageX;
+						coordenadaYPagina = e.pageY;
+					}
+
+					coordenadaXNavegador = e.screenX;
+					coordenadaYNavegador = e.screenY;
+
+					muestraInformacion(['Ratón',
+						'Navegador [' + coordenadaXNavegador + ', ' + coordenadaYNavegador + ']',
+						'Pagina [' + coordenadaXPagina + ', ' + coordenadaYPagina + ']'
+					]);
+
+					info.style.backgroundColor = '#FFFFFF';
+					break;
+
+				case 'keypress':
+					var caracter = e.charCode || e.keyCode;
+					var letra = String.fromCharCode(caracter);
+					var codigo = letra.charCodeAt(0);
+					muestraInformacion(['Teclado',
+						'Carácter [' + letra + ']',
+						'Código [' + codigo + ']'
+					]);
+
+					info.style.backgroundColor = '#CCE6FF';
+					break;
+
+				case 'click':
+					info.style.backgroundColor = '#FFFFCC';
+					break;
+			}
+		}
+
+		function muestraInformacion(mensaje) {
+			document.getElementById("info").innerHTML = '<h1>' + mensaje[0] + '</h1>';
+			for (var i = 1; i < mensaje.length; i++) {
+				document.getElementById("info").innerHTML += '<p>' + mensaje[i] + '</p>';
+			}
+		}
+	</script>
+</head>
+
+<body>
+
+	<div id="info"></div>
+
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+</body>
+
+</html>

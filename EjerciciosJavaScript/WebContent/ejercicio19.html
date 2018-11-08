@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ejercicio 19 - Tooltips</title>
+    <script type="text/javascript" src="js/overlib.js"></script> <!-- overLIB (c) Erik Bosrup -->
+    <script type="text/javascript">
+        //overlib_pagedefaults(CENTER, WIDTH, 120);
+        //overlib_pagedefaults(WIDTH,150,FGCOLOR,'#ffffcc',BGCOLOR,'#666666',TEXTFONT,"Arial, Helvetica, Verdana",TEXTSIZE,".8em");
+        overlib_pagedefaults(WIDTH, 150, FGCOLOR, '#ffffcc', BGCOLOR, '#666666', TEXTFONT, "Arial, Helvetica, Verdana",
+            TEXTSIZE, ".8em", DELAY, 250, OFFSETX, 15, ABOVE);
+    </script>
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit amet,
+        <a href="#" onmouseover="return overlib('Prueba de un tooltip básico y muy sencillo.');" onmouseout="return nd();">consectetuer
+            adipiscing elit</a>.
+        Etiam eget metus. Proin varius auctor tortor.
+        Cras augue neque, porta vitae, vestibulum nec, pulvinar id, nibh. Fusce in arcu. Duis vehicula nonummy orci.</p>
+</body>
+
+</html>

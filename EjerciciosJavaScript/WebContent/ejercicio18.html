@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ejercicio 18 - Calendario</title>
+
+    <link rel="stylesheet" type="text/css" href="jscalendar-1.0/calendar-blue.css" />
+    <script type="text/javascript" src="jscalendar-1.0/calendar.js"></script>
+    <script type="text/javascript" src="jscalendar-1.0/lang/calendar-es.js"></script>
+    <script type="text/javascript" src="jscalendar-1.0/calendar-setup.js"></script>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            Calendar.setup({
+                inputField: "fechaUsuario",
+                displayArea: "fechaOculta",
+                ifFormat: "%A, %d de %B de %Y",
+                button: "selector",
+                weekNumbers: false
+            });
+        }
+    </script>
+
+</head>
+
+<body>
+    <p>Introduce la fecha pulsando sobre la imagen del calendario</p>
+    <input type="hidden" name="fechaOculta" id="fechaOculta" />
+    <input type="text" name="fechaUsuario" id="fechaUsuario" readonly="readonly" size="35"/>
+    <img src="jscalendar-1.0/img.gif" id="selector" />
+</body>
+
+</html>

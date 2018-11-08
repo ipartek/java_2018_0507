@@ -42,7 +42,7 @@
 								<c:when test="${accion == 'borrar'}">Borrar</c:when>
 							</c:choose>
 						</button>
-						<a class="btn btn-danger" href="administrar?accion=users">Cancelar</a>
+						<a class="btn btn-danger" href="administrar?accion=alumnos">Cancelar</a>
 					</div>
 				</div>
 			</form>
