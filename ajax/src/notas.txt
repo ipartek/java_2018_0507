@@ -1,1 +1,11 @@
-Extenision de Chrome -- JSONView
+Extension de Chrome -- JSONView
+
+
+http://localhost:8080/ajax/index.jsp
+
+
+localhost:8080/ajax/libros
+localhost:8080/ajax/libros/1
+localhost:8080/ajax/libros/2
+
+https://www.getpostman.com/
