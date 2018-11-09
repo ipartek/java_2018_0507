@@ -8,4 +8,4 @@ localhost:8080/ajax/libros
 localhost:8080/ajax/libros/1
 localhost:8080/ajax/libros/2
 
-https://www.getpostman.com/
+https://www.getpostman.com/ Para enviar peticiones post get....
