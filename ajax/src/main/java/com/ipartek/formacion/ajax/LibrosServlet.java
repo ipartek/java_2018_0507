@@ -33,7 +33,7 @@ public class LibrosServlet extends HttpServlet {
 		Gson gson = new Gson();
 		
 		if(id == null) {
-			response.getWriter().append(gson.toJson(libros));
+			response.getWriter().append(gson.toJson(libros.values()));
 		} else {
 			response.getWriter().append(gson.toJson(libros.get(id)));
 		}
