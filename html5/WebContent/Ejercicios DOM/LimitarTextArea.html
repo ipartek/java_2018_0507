@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Ejercicio 13 - DOM b�sico y atributos XHTML</title>
+
+<script type="text/javascript">
+function limita(maximoCaracteres) {
+	  var textarea = document.getElementById("texto");
+
+	  
+	  if(elemento.value.length >= maximoCaracteres ) {
+	    return false;
+	  }
+	  else {
+		  
+	    return true;
+	  }
+	}
+function actualizaInfo(maximoCaracteres) {
+	  var elemento = document.getElementById("texto");
+	  var caracteres = document.getElementById("caracteres");
+	 
+	  if(elemento.value.length >= maximoCaracteres ) {
+		  caracteres.value = "No se admiten mas caracteres";
+		  elemento.disabled=true;
+		  
+	  }
+	  else {
+		  caracteres.value = "Se aceptan "+(maximoCaracteres-elemento.value.length)+"caracteres mas";  
+		 
+	  }
+	}
+</script>
+</head>
+
+<body>
+
+<textarea id="texto" onkeypress="return limita(event,100);" onkeyup="actualizaInfo(100)"></textarea>
+
+<input type="text" id="caracteres" />
+</body>
+</html>

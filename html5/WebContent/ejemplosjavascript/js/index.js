@@ -174,5 +174,4 @@ function esNumero(texto) {
 	return +texto + '' == texto;
 }
 
-console.log(_);
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Ejercicio 13 - DOM b�sico y atributos XHTML</title>
+
+<script type="text/javascript">
+function anade() {
+	var fila = document.createElement('li');
+	
+	fila.innerHTML = '<li>Sale bien</li>'
+	
+	var ul = document.getElementsByTagName('ul')[0];
+	ul.appendChild(fila);
+}
+</script>
+</head>
+
+<body>
+
+<ul id="lista">
+	<li>Lorem ipsum dolor sit amet</li>
+	<li>Consectetuer adipiscing elit</li>
+	<li>Sed mattis enim vitae orci</li>
+	<li>Phasellus libero</li>
+	<li>Maecenas nisl arcu</li>
+</ul>
+
+<input type="button" value="AnadirElemento" onclick="anade();">
+
+</body>
+</html>
