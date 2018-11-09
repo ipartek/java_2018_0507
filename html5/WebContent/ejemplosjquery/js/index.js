@@ -1,3 +1,7 @@
+//https://code.jquery.com/jquery/#jquery-all-1.x
+//https://api.jquery.com/
+//https://api.jquery.com/val/
+
 $(function(){
 	$('button:contains(2),button:contains(3)').click(function(){
 		alert(this.innerHTML);
@@ -18,8 +22,7 @@ $(function(){
 		//Sacar el value del input que se llama nombre con jquery
 		console.log($('input[name=nombre]').val());
 		console.log($('input[name=nombre]').attr('type'));
-		console.log();
-		console.log();
+	
 		//Sacar en javascript el primer value del input que se llama nombre
 		console.log($('input[name=nombre]')[0].value);
 		console.log($('input[name=nombre]')[0].type);
