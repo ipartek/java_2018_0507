@@ -57,13 +57,13 @@ public class LibrosServlet extends HttpServlet {
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String json = request.getParameter("libro");
 		
-		Gson gson = new Gson();
+		System.out.println("JSON: " + json);
 		
-		System.out.println(json);
+		Gson gson = new Gson();
 		
 		Libro libro = gson.fromJson(json, Libro.class);
 		
-		System.out.println(libro);
+		System.out.println("Objeto: " + libro);
 		
 		libros.put(libro.getId(), libro);
 	}
