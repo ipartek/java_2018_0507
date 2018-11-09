@@ -9,7 +9,7 @@
     <title>Ejercicio 17 - Limitar número de caracteres en textarea</title>
 
     <script type="text/javascript">
-        function limita(event, maximoCaracteres) {
+        function limita(maximoCaracteres) {
             var elemento = document.getElementById("texto");
             var caracter = event.which || event.keyCode;
             /*Teclas horizontales y Borrar backspace, supr*/
@@ -34,7 +34,7 @@
 
 <body>
     <div id="caracteres">100 caracteres</div>
-    <textarea id="texto" onkeypress="return limita(event, 100);" onkeyup="return calcularCaracteres(100)" rows="6" cols="30"></textarea>
+    <textarea id="texto" onkeypress="return limita(100);" onkeyup="return calcularCaracteres(100)" rows="6" cols="30"></textarea>
 </body>
 
 </html>

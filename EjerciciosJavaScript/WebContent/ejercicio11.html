@@ -4,8 +4,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Ejercicio 11 - DOM básico</title>
-
-	<script type="text/javascript">
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<!-- <script type="text/javascript">
 		window.onload = function () {
 			var info = document.getElementById("informacion");
 
@@ -34,6 +34,22 @@
 			var enlacesTercerParrafo = parrafos[2].getElementsByTagName("a");
 			info.innerHTML = info.innerHTML + "<br />Numero de enlaces del tercer párrafo: " + enlacesTercerParrafo.length;
 		}
+	</script> -->
+
+	<script>
+		$(function(){
+			// Numero de enlaces
+			$("#informacion").text("Numero de enlaces " +  $("a").length);
+
+			// Direccion del penultimo enlace
+			$("#informacion").append("<br />" + $("a:last").prev().attr("href"));
+
+			// Numero de enlaces que apuntan a http://prueba
+			$("#informacion").append("<br />Enlaces con http://prueba: " + $('a[href*="http://prueba"]').length);
+
+			// Numero de enlaces del tercer párrafo
+			$("#informacion").append("<br />Numero de enlaces del tercer parrafo: " + $("p:eq(2) > a").length);
+		});
 	</script>
 </head>
 
