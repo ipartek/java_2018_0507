@@ -50,7 +50,7 @@ public class LibrosServlet extends HttpServlet {
 
 	}
 
-	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { //Update
 		Libro libro = gson.fromJson(request.getReader(), Libro.class);
 		
 		libros.put(libro.getId(), libro);
