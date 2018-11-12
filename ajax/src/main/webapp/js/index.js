@@ -1,6 +1,20 @@
 $(function() {
-	$('#formulariolibros').hide().submit(enviarFormulario);
-
+	ocultarFormulario();
+	
+	$('#formulariolibros').submit(enviarFormulario);
+	
+	$('#botoncancelar').click(function(e) {
+		e.preventDefault();
+		
+		ocultarFormulario();
+	});
+	
+	$('#enlaceNuevoLibro').click(function(e) {
+		e.preventDefault();
+		
+		mostrarFormulario();
+	});
+	
 	pedirLibros();
 });
 
@@ -47,7 +61,7 @@ function mostrarLibro(id) {
 }
 
 function rellenarFormulario(libro) {
-	$('#formulariolibros').show();
+	mostrarFormulario();
 
 	$('#id').val(libro.id);
 	$('#nombre').val(libro.nombre);
@@ -57,18 +71,18 @@ function enviarFormulario(e) {
 	e.preventDefault();
 
 	var vlibro = {
-		id : $('#id').val(),
+		id : parseInt($('#id').val()),
 		nombre : $('#nombre').val()
 	};
 
 	console.log(vlibro);
 
 	$.ajax({
-		method : 'PUT',
-		url : 'libros',
+		method : (vlibro.id ? 'PUT' : 'POST'), //Si id == 0 se hace POST y si no PUT
+		url : 'libros' + (vlibro.id ? '/' + vlibro.id : ''), //Si id != 0 se agrega /id
 		data : JSON.stringify(vlibro)
 	}).done(function() {
-		$('#formulariolibros').hide();
+		ocultarFormulario();
 		pedirLibros();
 	}).fail(function() {
 		alert("error");
@@ -78,7 +92,7 @@ function enviarFormulario(e) {
 }
 
 function borrarLibro(id) {
-	if (confirm('Â¿EstÃ¡s seguro de que quieres borrar el libro cuyo id es ' + id
+	if (confirm('¿Estás seguro de que quieres borrar el libro cuyo id es ' + id
 			+ '?')) {
 
 		$.ajax({
@@ -92,6 +106,18 @@ function borrarLibro(id) {
 			console.log("complete");
 		});
 	} else {
-		alert('No se borrarÃ¡ el libro');
+		alert('No se borrará el libro');
 	}
+}
+
+function mostrarFormulario() {
+	$('#enlaceNuevoLibro').hide();
+	$('#formulariolibros').show();
+}
+
+function ocultarFormulario() {
+	$('#enlaceNuevoLibro').show();
+	$('#formulariolibros').hide();
+	$('#formulariolibros').trigger('reset');
+	$('#id').val(0);
 }
