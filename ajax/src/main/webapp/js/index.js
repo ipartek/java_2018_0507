@@ -20,7 +20,8 @@ function rellenarTabla(libros) {
 	
 	$(libros).each(function() {
 		$('<tr><th>' + this.id + '</th><td>' + this.nombre + '</td>' +
-				'<td><a href="javascript:mostrarLibro('+ this.id + ')">Editar</a></td></tr>')
+				'<td><a href="javascript:mostrarLibro('+ this.id + ')">Editar</a> '+
+				'<a href="javascript:borrarLibro(' + this.id + ')">Borrar</td></tr>')
 		.appendTo($tablalibrosbody);
 		
 		/*
