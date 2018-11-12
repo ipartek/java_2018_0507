@@ -28,7 +28,8 @@ public class LibrosServlet extends HttpServlet {
 		
 		String path = request.getPathInfo();
 		
-		Long id = path == null ? null : Long.parseLong(path.replace("/", ""));
+		Long id = path == null ? null : Long.parseLong(path.replace("/", ""));//Si llega sin Id lo pone en null, sino añade a 
+		//la barra del navegador el ID y lo pasa. Es decir si paso un 5 pondra "http:.....libros/5
 		
 		Gson gson = new Gson();
 		
@@ -40,6 +41,8 @@ public class LibrosServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		String json = request.getParameter("libro");
 		
 		Gson gson = new Gson();
@@ -50,9 +53,8 @@ public class LibrosServlet extends HttpServlet {
 		
 		System.out.println(libro);
 		
-		libros.put(0L, libro);
+		libros.put(libro.getId(), libro);
 		
-		doGet(request, response);
 	}
 
 }
