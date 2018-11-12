@@ -1,6 +1,6 @@
 Extension de Chrome -- JSONView
 
-
+http://localhost:8080/ajax/
 http://localhost:8080/ajax/index.jsp
 
 
@@ -9,3 +9,25 @@ localhost:8080/ajax/libros/1
 localhost:8080/ajax/libros/2
 
 https://www.getpostman.com/ Para enviar peticiones post get....
+
+
+Esto es rest
+
+Long id = getIdFromUrl(request);
+Cojer el id que viene en la url para mostrar solo eso
+localhost:8080/ajax/libros/1
+
+
+
+El standar de rest es enviar por url el id
+ Un conjunto de operaciones bien definidas que se aplican a todos los recursos de información: 
+ HTTP en sí define un conjunto pequeño de operaciones, las más importantes son POST, GET, PUT y 
+ DELETE. Con frecuencia estas operaciones se equiparan a las operaciones CRUD en bases de datos
+ 
+do post -- insert
+do put -- modify
+do get -- select
+do delete -- delete
+
+se prueba con postman las anteriores operaciones
+
