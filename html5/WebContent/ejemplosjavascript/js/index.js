@@ -174,3 +174,4 @@ function esNumero(texto) {
 	return +texto + '' == texto;
 }
 
+
