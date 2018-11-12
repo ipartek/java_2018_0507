@@ -1,0 +1,52 @@
+
+-- 1 Listado de todas las casas de Howards      
+
+select * from casa
+       
+	   
+-- 2 Tres primeros Alumnos con mejor nota en el año 2017        
+
+SELECT *
+FROM alumno al 
+INNER JOIN alumno_has_asignatura alasig ON al.id = alasig.alumno_id
+where alasig.anio='2017'
+order by alasig.nota desc limit 3;
+
+                       
+-- 3 Listado de profesores y materias impartidas ordenado por materias alfabéticamente para un año concreto
+
+select * from profesor_has_asignatura pha
+inner join asignatura asig
+where pha.asignatura_id=asig.id
+and anio=2017
+order by asig.nombre
+
+
+-- 4 Listado de habitaciones y alumnos que hay en cada una
+
+select al.nombre,h.ubicacion 
+from habitacion h,alumno al,alumno_has_habitacion a_h
+where a_h.alumno_id=al.id and
+h.id=a_h.habitacion_id
+
+
+-- 5 Listado Partidos jugados año 2017 ordenados por fecha
+
+select * from partido_quidditch 
+where year(fecha)=2017
+order by year(fecha)
+
+
+-- 6 Nota media de los alumnos para una materia y un año
+
+select avg(a_a.nota),asig.nombre,a_a.anio from alumno al,alumno_has_asignatura a_a, asignatura asig
+where a_a.alumno_id=al.id and
+a_a.asignatura_id=asig.id and a_a.anio=2016 and asig.nombre='Transformaciones'
+
+
+-- 7 Nota media de los alumnos de cada una de las casas por materia
+select avg(a_a.nota),asig.nombre,a_a.anio,c.nombre from alumno a,alumno_has_asignatura a_a, asignatura asig,casa c
+where a_a.alumno_id=a.id and
+a.casa_id=c.id and
+a_a.asignatura_id=asig.id and asig.nombre='Transformaciones' group by c.id
+
