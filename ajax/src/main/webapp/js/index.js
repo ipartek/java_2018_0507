@@ -14,12 +14,14 @@ function pedirLibros() {
 function rellenarTabla(libros) {
 	console.log("success");
 	
-	$('#tablalibros > tbody').empty();
+	var $tablalibrosbody = $('#tablalibros > tbody');
+	
+	$tablalibrosbody.empty();
 	
 	$(libros).each(function() {
 		$('<tr><th>' + this.id + '</th><td>' + this.nombre + '</td>' +
 				'<td><a href="javascript:mostrarLibro('+ this.id + ')">Editar</a></td></tr>')
-		.appendTo($('#tablalibros > tbody'));
+		.appendTo($tablalibrosbody);
 		
 		/*
 		$(`
@@ -56,9 +58,7 @@ function enviarFormulario(e) {
 	
 	var jqxhr = $.ajax({
 		method: 'PUT',
-		url: 'libros', //?libro=' + encodeURI(JSON.stringify(vlibro)), //Esto se enlaza con lo request.getParameter("libro")
-		//dataType: 'json',
-		//contentType: 'application/json',
+		url: 'libros',
 		data: JSON.stringify(vlibro)
 	})
 	.done(function() { $('#formulariolibros').hide(); pedirLibros(); })
