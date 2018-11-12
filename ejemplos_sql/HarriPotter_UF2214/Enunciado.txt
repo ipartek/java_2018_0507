@@ -1,0 +1,20 @@
+UF2214 - Practico - Implementación y uso de una BD Cuestionario
+Se quiere realizar uso de una base de datos ya existente para la prestigiosa escuela de magia Howards, con el fin de gestionar la información sobre ciertos aspectos de la escuela.
+
+La base de datos ya esta implementada y es necesario importarla en nuestro servidor. Para lo cual nos han enviado un script ( vease ANEXO UF2214 )
+
+
+
+Ejercicio a entregar
+
+
+Importar base de datos a nuestro servidor                                                           -  1,5 punto
+Generar diseño relacional de la base de datos con Workbench ( entregar jpg)   - 1,5 punto
+realizar las siguientes consultas SQL ( entregar fichero texto )
+Listado de todas las casas de Howards                                                       - 1 punto
+Tres primeros Alumnos con mejor nota en el año 2017                               - 1 punto
+Listado de profesores y materias impartidas ordenado por materias alfabéticamente para un año concreto - 1 punto
+Listado de habitaciones y alumnos que hay en cada una - 1 punto
+Listado Partidos jugados año 2017 ordenados por fecha - 1 punto
+Nota media de los alumnos para una materia y un año - 1 punto
+Nota media de los alumnos de cada una de las casas por materia 1 punto
