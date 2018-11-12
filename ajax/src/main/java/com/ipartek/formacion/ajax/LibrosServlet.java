@@ -1,7 +1,6 @@
 package com.ipartek.formacion.ajax;
 
 import java.io.IOException;
-import java.util.Map;
 import java.util.TreeMap;
 
 import javax.servlet.ServletException;
@@ -16,22 +15,21 @@ import com.google.gson.Gson;
 public class LibrosServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private static Map<Long, Libro> libros = new TreeMap<Long, Libro>();
+	private static TreeMap<Long, Libro> libros = new TreeMap<Long, Libro>();
 	
 	static {
 		libros.put(1L, new Libro(1L, "Libro1"));
 		libros.put(2L, new Libro(2L, "Libro2"));
 	}
 	
+	private static Gson gson = new Gson();
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json");
 		
-		String path = request.getPathInfo();
-		
-		Long id = path == null ? null : Long.parseLong(path.replace("/", ""));//Si llega sin Id lo pone en null, sino añade a 
-		//la barra del navegador el ID y lo pasa. Es decir si paso un 5 pondra "http:.....libros/5
-		
-		Gson gson = new Gson();
+
+		Long id = getIdFromUrl(request);
+
 		
 		if(id == null) {
 			response.getWriter().append(gson.toJson(libros.values()));
@@ -41,20 +39,34 @@ public class LibrosServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		Libro libro = gson.fromJson(request.getReader(), Libro.class);
+
 		
+		libro.setId(libros.lastKey() + 1);
 		
-		String json = request.getParameter("libro");
-		
-		Gson gson = new Gson();
-		
-		System.out.println(json);
-		
-		Libro libro = gson.fromJson(json, Libro.class);
-		
-		System.out.println(libro);
-		
+
 		libros.put(libro.getId(), libro);
-		
+
 	}
 
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Libro libro = gson.fromJson(request.getReader(), Libro.class);
+		
+		libros.put(libro.getId(), libro);
+	}
+	
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Long id = getIdFromUrl(request);
+		
+		libros.remove(id);
+	}
+	
+	private Long getIdFromUrl(HttpServletRequest request) {
+		if(request.getPathInfo() == null || request.getPathInfo().equals("/")) { //Esto pregunta que si hay algo detras de la ruta
+			return null; //entera de la servlet a parte de una barra que devuelva el long, sino null
+		}
+		
+		return Long.parseLong(request.getPathInfo().split("/")[1]);
+	}
 }
