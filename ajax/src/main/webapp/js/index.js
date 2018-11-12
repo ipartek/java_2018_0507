@@ -56,10 +56,10 @@ function enviarFormulario(e) {
 	
 	var jqxhr = $.ajax({
 		method: 'PUT',
-		url: 'libros?libro=' + encodeURI(JSON.stringify(vlibro)), //Esto se enlaza con lo request.getParameter("libro")
+		url: 'libros', //?libro=' + encodeURI(JSON.stringify(vlibro)), //Esto se enlaza con lo request.getParameter("libro")
 		//dataType: 'json',
 		//contentType: 'application/json',
-		//data: { libro: JSON.stringify(vlibro) }
+		data: JSON.stringify(vlibro)
 	})
 	.done(function() { $('#formulariolibros').hide(); pedirLibros(); })
 	.fail(function() { alert("error"); })

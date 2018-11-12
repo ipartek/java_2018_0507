@@ -22,14 +22,12 @@ public class LibrosServlet extends HttpServlet {
 		libros.put(2L, new Libro(2L, "Libro2"));
 	}
 	
+	private static Gson gson = new Gson();
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json");
 		
-		String path = request.getPathInfo();
-		
-		Long id = path == null ? null : Long.parseLong(path.replace("/", ""));
-		
-		Gson gson = new Gson();
+		Long id = getIdFromUrl(request);
 		
 		if(id == null) {
 			response.getWriter().append(gson.toJson(libros.values()));
@@ -39,40 +37,30 @@ public class LibrosServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String json = request.getParameter("libro");
-		
-		Gson gson = new Gson();
-		
-		System.out.println(json);
-		
-		Libro libro = gson.fromJson(json, Libro.class);
+		Libro libro = gson.fromJson(request.getReader(), Libro.class);
 		
 		libro.setId(libros.lastKey() + 1);
-		
-		System.out.println(libro);
 		
 		libros.put(libro.getId(), libro);
 	}
 
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String json = request.getParameter("libro");
-		
-		System.out.println("JSON: " + json);
-		
-		Gson gson = new Gson();
-		
-		Libro libro = gson.fromJson(json, Libro.class);
-		
-		System.out.println("Objeto: " + libro);
+		Libro libro = gson.fromJson(request.getReader(), Libro.class);
 		
 		libros.put(libro.getId(), libro);
 	}
 	
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = request.getPathInfo();
-		
-		Long id = path == null ? null : Long.parseLong(path.replace("/", ""));
+		Long id = getIdFromUrl(request);
 		
 		libros.remove(id);
+	}
+	
+	private Long getIdFromUrl(HttpServletRequest request) {
+		if(request.getPathInfo() == null || request.getPathInfo().equals("/")) {
+			return null;
+		}
+		
+		return Long.parseLong(request.getPathInfo().split("/")[1]);
 	}
 }
