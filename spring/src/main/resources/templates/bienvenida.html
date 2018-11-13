@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <p th:text="'¡Hola, ' + ${nombre} + '!'" />
+    <p th:text="'¡Qué tal, ' + ${nombre} + ' ' + ${apellido} + '!'" />
+    <p>¡Qué tal, <span th:text="${nombre}"/> <span th:text="${apellido}"/>!</p>
 </body>
 </html>
