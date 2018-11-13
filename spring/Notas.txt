@@ -1,0 +1,35 @@
+
+
+http://spring.io/guides/gs/serving-web-content/
+
+
+
+
+Si pones esta dependencia Automaticamente le estas diciendo que es un html
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-thymeleaf</artifactId>
+</dependency>
+		
+//Con este codigo se puede arrancar la aplicacion de spring sin tener tomcat
+//Run as maven install
+//En la carpeta target te genera el jar
+  public static void main(String[] args) {
+        SpringApplication.run(App.class, args);
+    }
+
+//no necesitas instalar el tomcat
+
+//http://localhost:8080/saludo
+http://localhost:8080/saludo?nombre=yo
+
+//http://localhost:8080/saludo
+Sin el parametro nombre te saca el por defecto del @GrettingController
+	@RequestParam(name="nombre",required=false,defaultValue="Mundo")String nombre, Model modelo) {
+
+
+		
+Como se prueba:
+http://localhost:8080/saludo el saludo es el @GetMapping("/saludo")	
+		
+		
