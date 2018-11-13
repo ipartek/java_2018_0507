@@ -10,12 +10,18 @@ public class GreetingController {
 	
 	@GetMapping("/saludo")
 	public String saludar(
-			@RequestParam(name="nombre",required=false,defaultValue="Mundo")String nombre, Model modelo) {
+			@RequestParam(name="nombre",required=false,defaultValue="Desconocido") String nombre,
+			@RequestParam(name="apellido",required=false,defaultValue="Desconocidez")String apellido,
+			Model modelo) {
+			
+		
 		//RequestParam es el Request.getParameter
 		//Si no lo recibo me pone World
 		
 		//Añadir la pantalla el atributo Requst.setattributte
-		modelo.addAttribute("name",nombre);
+		modelo.addAttribute("nombre","Hola :   "+nombre );
+		modelo.addAttribute("apellido", "   "+apellido);
+	
 		return "bienvenida";  //Se llama asi la vista(el html o otra cosa)
 	}
 }

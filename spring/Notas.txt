@@ -1,9 +1,13 @@
 
+Extension live reload en chrome hace que al cambiar codigo java se 
+actualiza sin tener que reiniciar el servidor, si hace falta reinicia 
+el servidor de spring el solo
+
 
 http://spring.io/guides/gs/serving-web-content/
 
-
-
+Extension
+https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei/related
 
 Si pones esta dependencia Automaticamente le estas diciendo que es un html
 <dependency>
@@ -20,8 +24,15 @@ Si pones esta dependencia Automaticamente le estas diciendo que es un html
 
 //no necesitas instalar el tomcat
 
+
+http://localhost:8080/index.html
+
+
+
 //http://localhost:8080/saludo
 http://localhost:8080/saludo?nombre=yo
+
+
 
 //http://localhost:8080/saludo
 Sin el parametro nombre te saca el por defecto del @GrettingController
@@ -31,5 +42,14 @@ Sin el parametro nombre te saca el por defecto del @GrettingController
 		
 Como se prueba:
 http://localhost:8080/saludo el saludo es el @GetMapping("/saludo")	
+
+
+localhost:8080/saludo?nombre=juan&apellido=perez
+
+************
+Mirar esta guia
+http://spring.io/guides
+buscando form en el cuadro de texto
+
 		
 		
