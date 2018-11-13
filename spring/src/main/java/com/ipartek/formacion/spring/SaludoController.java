@@ -10,10 +10,13 @@ public class SaludoController {
 
 	@GetMapping("/saludo")
 	public String saludar(
-			@RequestParam(name="nombre", required=false, defaultValue="Mundo") String nombre, 
+			@RequestParam(name="nombre", required=false, defaultValue="Desconocido") String nombre, 
+			@RequestParam(name="apellidos", required=false, defaultValue="Desconocidez") String apellido, 
 			Model modelo) {
 		
 		modelo.addAttribute("nombre", nombre);
+		modelo.addAttribute("apellido", apellido);
+		
 		return "bienvenida";
 	}
 }
