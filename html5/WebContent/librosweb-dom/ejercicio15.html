@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Ejercicio 15 - Información sobre eventos</title>
+ 
+<style type="text/css">
+body {font-family: arial, helvetica;}
+#info {width:160px; border:thin solid silver; padding:.5em; position:fixed;}
+#info h1 {margin: 0;}
+</style>
+ 
+<script type="text/javascript">
+function informacion(elEvento) {
+  var evento = elEvento || window.event;
+  switch(evento.type) {
+    case 'mousemove':
+      document.getElementById('info').style.backgroundColor = '#FFFFFF';
+      var ie = navigator.userAgent.toLowerCase().indexOf('msie')!=-1;
+      var coordenadaXrelativa, coordenadaYrelativa, coordenadaXabsoluta, coordenadaYabsoluta;
+      if(ie) {
+        if(document.documentElement && document.documentElement.scrollTop){ 
+          coordenadaXabsoluta = evento.clientX + document.documentElement.scrollLeft;
+          coordenadaYabsoluta = evento.clientY + document.documentElement.scrollTop;
+        }
+        else { 
+          coordenadaXabsoluta = evento.clientX + document.body.scrollLeft;
+          coordenadaYabsoluta = evento.clientY + document.body.scrollTop;
+        }
+      }
+      else {
+        coordenadaXabsoluta = evento.pageX;
+        coordenadaYabsoluta = evento.pageY;
+      }
+      coordenadaXrelativa = evento.clientX;
+      coordenadaYrelativa = evento.clientY;
+      muestraInformacion(['Ratón', 'Navegador ['+coordenadaXrelativa+', '+coordenadaYrelativa+']', 'Pagina ['+coordenadaXabsoluta+', '+coordenadaYabsoluta+']']);
+      break;
+    case 'keypress':
+      document.getElementById('info').style.backgroundColor = '#CCE6FF';
+      var caracter = evento.charCode || evento.keyCode;
+      var letra = String.fromCharCode(caracter);
+      var codigo = letra.charCodeAt(0);
+      muestraInformacion(['Teclado', 'Carácter ['+letra+']', 'Código ['+codigo+']']);
+      break;
+    case 'click':
+      document.getElementById('info').style.backgroundColor = '#FFFFCC';
+      break;
+  }
+}
+ 
+function muestraInformacion(mensaje) {
+  document.getElementById("info").innerHTML = '<h1>'+mensaje[0]+'</h1>';
+  for(var i=1; i<mensaje.length; i++) {
+    document.getElementById("info").innerHTML += '<p>'+mensaje[i]+'</p>';
+  }
+}
+ 
+document.onmousemove = informacion;
+document.onkeypress = informacion;
+ 
+document.onclick = informacion;
+ 
+</script>
+</head>
+ 
+<body>
+ 
+<div id="info"></div>
+ 
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+ 
+</body>
+</html>
