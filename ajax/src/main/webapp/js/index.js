@@ -1,20 +1,20 @@
 $(function() {
 	ocultarFormulario();
-	
+
 	$('#formulariolibros').submit(enviarFormulario);
-	
+
 	$('#botoncancelar').click(function(e) {
 		e.preventDefault();
-		
+
 		ocultarFormulario();
 	});
-	
+
 	$('#enlaceNuevoLibro').click(function(e) {
 		e.preventDefault();
-		
+
 		mostrarFormulario();
 	});
-	
+
 	pedirLibros();
 });
 
@@ -36,12 +36,9 @@ function rellenarTabla(libros) {
 	$(libros).each(
 			function() {
 				$(
-						'<tr><th>' + this.id + '</th><td>' + this.nombre
-								+ '</td>'
-								+ '<td><a href="javascript:mostrarLibro('
-								+ this.id + ')">Editar</a> '
-								+ '<a href="javascript:borrarLibro(' + this.id
-								+ ')">Borrar</td></tr>').appendTo(
+						'<tr><th>' + this.id + '</th><td>' + this.nombre + '</td>'
+								+ '<td><a href="javascript:mostrarLibro(' + this.id + ')">Editar</a> '
+								+ '<a href="javascript:borrarLibro(' + this.id + ')">Borrar</td></tr>').appendTo(
 						$tablalibrosbody);
 
 				/*
@@ -78,8 +75,10 @@ function enviarFormulario(e) {
 	console.log(vlibro);
 
 	$.ajax({
-		method : (vlibro.id ? 'PUT' : 'POST'), //Si id == 0 se hace POST y si no PUT
-		url : 'libros' + (vlibro.id ? '/' + vlibro.id : ''), //Si id != 0 se agrega /id
+		method : (vlibro.id ? 'PUT' : 'POST'), // Si id == 0 se hace POST y si
+												// no PUT
+		url : 'libros' + (vlibro.id ? '/' + vlibro.id : ''), // Si id != 0 se
+																// agrega /id
 		data : JSON.stringify(vlibro)
 	}).done(function() {
 		ocultarFormulario();
@@ -92,8 +91,7 @@ function enviarFormulario(e) {
 }
 
 function borrarLibro(id) {
-	if (confirm('¿Estás seguro de que quieres borrar el libro cuyo id es ' + id
-			+ '?')) {
+	if (confirm('¿Estás seguro de que quieres borrar el libro cuyo id es ' + id + '?')) {
 
 		$.ajax({
 			method : 'DELETE',
