@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.ipartek.formacion.prestamolibrosspring.model.Editorial;
-import com.ipartek.formacion.prestamolibrosspring.repositories.EditorialMapRepository;
+import com.ipartek.formacion.prestamolibrosspring.repositories.CrudAble;
 
 @Controller
 public class EditorialController {
 	@Autowired
-	private final EditorialMapRepository repositorio = null;
+	private final CrudAble<Editorial> repositorio = null;
 	
 	@GetMapping("/editoriales")
 	public String getAll(Model modelo) {
