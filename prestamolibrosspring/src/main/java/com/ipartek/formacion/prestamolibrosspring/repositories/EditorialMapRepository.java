@@ -4,10 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
+import org.springframework.stereotype.Component;
+
 import com.ipartek.formacion.prestamolibrosspring.model.Editorial;
 
+@Component
 public class EditorialMapRepository implements CrudAble<Editorial>{
 	private TreeMap<Long, Editorial> editoriales = new TreeMap<>(); 
+	
+	public EditorialMapRepository() {
+		editoriales.put(1L, new Editorial(1L, "Anaya"));
+		editoriales.put(2L, new Editorial(2L, "McGraw Hill"));
+	}
 	
 	@Override
 	public List<Editorial> getAll() {
