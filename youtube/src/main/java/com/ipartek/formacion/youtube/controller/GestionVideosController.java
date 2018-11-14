@@ -8,9 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.youtube.Video;
+import com.ipartek.formacion.youtube.accesodatos.VideoArrayListDAO;
 import com.ipartek.formacion.youtube.accesodatos.VideoMySqlDAO;
 import com.ipartek.formacion.youtube.model.Usuario;
-import com.ipartek.formacion.youtube.model.Video;
+
 
 @WebServlet("/gestionvideos")
 public class GestionVideosController extends HttpServlet {

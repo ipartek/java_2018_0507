@@ -3,7 +3,7 @@ package com.ipartek.formacion.youtube.accesodatos;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ipartek.formacion.youtube.model.Video;
+import com.ipartek.formacion.youtube.Video;
 
 public class VideoArrayListDAO implements CrudAble<Video> {
 

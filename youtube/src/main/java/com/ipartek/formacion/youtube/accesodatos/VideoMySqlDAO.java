@@ -10,9 +10,12 @@ import java.util.List;
 import java.util.Properties;
 
 import com.ipartek.formacion.biblioteca.Utils;
+<<<<<<< HEAD
 import com.ipartek.formacion.youtube.model.Comentario;
+=======
+import com.ipartek.formacion.youtube.Video;
+>>>>>>> branch 'Piero' of https://github.com/ipartek/java_2018_0507.git
 import com.ipartek.formacion.youtube.model.Usuario;
-import com.ipartek.formacion.youtube.model.Video;
 
 public class VideoMySqlDAO implements CrudAble<Video> {
 	private String urlBD;

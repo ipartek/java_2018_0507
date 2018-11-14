@@ -4,7 +4,7 @@
 
 		<aside class="col-md-2">
 			<header>
-				<h2>Anuncios</h2>
+				<h3>Prueba</h3>
 			</header>
 		</aside>
 	</div>

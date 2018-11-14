@@ -9,10 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
+import com.ipartek.formacion.youtube.Video;
+=======
 import com.ipartek.formacion.youtube.accesodatos.UsuarioMySqlDAO;
+>>>>>>> branch 'master' of https://github.com/ipartek/java_2018_0507.git
 import com.ipartek.formacion.youtube.accesodatos.VideoMySqlDAO;
+<<<<<<< HEAD
+=======
 import com.ipartek.formacion.youtube.model.Usuario;
 import com.ipartek.formacion.youtube.model.Video;
+>>>>>>> branch 'master' of https://github.com/ipartek/java_2018_0507.git
 
 @WebServlet("/inicio")
 public class HomeController extends HttpServlet {

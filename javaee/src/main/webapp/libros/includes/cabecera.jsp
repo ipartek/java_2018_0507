@@ -2,19 +2,24 @@
 	pageEncoding="UTF-8"%>
 
 <jsp:useBean id="cabecera" scope="request" class="com.ipartek.formacion.javaee.libros.modelos.Cabecera" />
+<jsp:useBean id="prueba" scope="request" class="com.ipartek.formacion.javaee.libros.modelos.Prueba"/>
 
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
 <title>
-<%--<% if(cabecera.getTitulo() != null) { 
+<% if(cabecera.getTitulo() != null) { 
 //out.println(cabecera.getTitulo());
---%>
+%>
 <jsp:getProperty property="titulo" name="cabecera"/>
-<%--<% } 
-Préstamo de libros
---%>
+<% } %>
+
+<% if(prueba.getAnuncio() != null) {
+%>
+<jsp:getProperty property="anuncio" name="prueba"/>
+<% } %>
+
 </title>
 
 <meta charset="UTF-8">

@@ -1,0 +1,80 @@
+#menu p { 
+	color: #0000FF; 
+}
+
+.productos{
+	display: inline-block;
+	margin: 2%;
+}
+
+.producto{
+	display: block;
+	background-color: #FFF;
+    height: auto;
+    color: #2F3A44;
+    opacity: 1;
+    text-decoration: none;
+    position: relative;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,.15);
+}
+
+
+.producto a:hover{
+	text-decoration: none;
+}
+
+.producto img {
+	display: inline;
+}
+
+.producto img .especial {
+	border-bottom: 0;
+    display: block;
+    min-height: 1.25rem;
+    position: relative;
+}
+
+.texto{
+	display: block;
+    height: 115px;
+    padding: 1.25rem .625rem 0 .625rem;
+    position: relative;
+}
+.light{
+	color: #A0A0A0;
+}
+
+.carro {
+	display: block;
+    height: 3%;
+    padding: 2rem .700rem 0 .700rem;
+    position: relative;
+	background-color: #88CC88;
+	text-transform: uppercase;
+	color: #ECFFEC;
+}
+
+.footer{
+	margin-top: 20%;
+}
+
+.contacto{
+	margin-bottom: 5%;
+	margin-top: 5%;
+}
+
+#top {
+	display: none;
+}
+.aligncenter{
+	margin-left: 15%;
+}
+@media screen and (max-width: 576px) {
+	#top {
+		display: inline;
+		z-index: 1;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+	}
+}
