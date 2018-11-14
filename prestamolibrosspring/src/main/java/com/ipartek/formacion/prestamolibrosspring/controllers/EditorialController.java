@@ -2,7 +2,8 @@ package com.ipartek.formacion.prestamolibrosspring.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.ipartek.formacion.prestamolibrosspring.model.Editorial;
 import com.ipartek.formacion.prestamolibrosspring.repositories.EditorialMapRepository;
@@ -17,9 +18,27 @@ public class EditorialController {
 		repositorio.insert(new Editorial(2L, "McGraw Hill"));
 	}
 	
-	@RequestMapping("/editoriales")
+	@GetMapping("/editoriales")
 	public String getAll(Model modelo) {
 		modelo.addAttribute("editoriales", repositorio.getAll());
 		return "editoriales";
 	}
+	
+	@GetMapping("/editoriales/crear") 
+	public String mostrarPantallaCrear() {
+		return "editorial";
+	}
+
+	@GetMapping("/editoriales/{accion}/{id}") 
+	public String mostrarPantallaEditar(
+			@PathVariable(value="id") Long id, @PathVariable(value="accion") String accion, Model modelo) {
+		
+		modelo.addAttribute("id", id);
+		modelo.addAttribute("accion", accion);
+		
+		modelo.addAttribute("editorial", repositorio.getById(id));
+		
+		return "editorial";
+	}
+
 }
