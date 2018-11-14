@@ -10,9 +10,9 @@
 		<div class="list-group">
 
 			<div class="accordion" id="listavideos">
-				
+
 				<c:forEach items="${usuarios}" var="usuario">
-				
+
 					<div class="card">
 						<div class="card-header" id="headingOne">
 							<h5 class="mb-0">
@@ -22,8 +22,8 @@
 							</h5>
 						</div>
 
-						<div id="usuario${usuario.id}" class="collapse" aria-labelledby="headingOne"
-							data-parent="#listavideos">
+						<div id="usuario${usuario.id}" class="collapse"
+							aria-labelledby="headingOne" data-parent="#listavideos">
 							<div class="card-body">
 								<c:forEach items="${usuario.videos}" var="v">
 									<a href="?idver=${v.id}" class="list-group-item">${v.nombre}</a>
@@ -54,8 +54,28 @@
 			<div class="card-body">
 				<h3 class="card-title">${videoInicio.nombre}</h3>
 
-				<span class="text-warning">&#9733; &#9733; &#9733; &#9733;
-					&#9734;</span> 4.0 stars
+				<form action="puntuar" method="post">
+					<input type="hidden" name="id" value="${videoInicio.id}" />
+					<fieldset class="rating">
+						<input type="radio" id="star5" name="rating" value="5" 
+						onclick="submit()"/><label
+							class="full" for="star5" title="QTCPLPA - 5 estrellas"></label> <input
+							type="radio" id="star4" name="rating" value="4" 
+							onclick="submit()"/><label
+							class="full" for="star4" title="Bueno - 4 estrellas"></label> <input
+							type="radio" id="star3" name="rating" value="3" onclick="submit()"/><label
+							class="full" for="star3" title="Psá - 3 estrellas"></label> <input
+							type="radio" id="star2" name="rating" value="2" onclick="submit()"/><label
+							class="full" for="star2" title="Malillo - 2 estrellas"></label> <input
+							type="radio" id="star1" name="rating" value="1" onclick="submit()"/><label
+							class="full" for="star1"
+							title="Para tirar a la basura - 1 estrella"></label>
+					</fieldset>
+				</form>
+				<span class="text-warning">
+					<c:forEach begin="1" end="${videoInicio.puntos}">&#9733; </c:forEach>
+					<c:forEach begin="${videoInicio.puntos + 1}" end="5">&#9734; </c:forEach>
+				</span> ${videoInicio.puntos} stars
 			</div>
 		</div>
 		<!-- /.card -->
@@ -63,24 +83,41 @@
 		<div class="card card-outline-secondary my-4">
 			<div class="card-header">Comentarios</div>
 			<div class="card-body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Omnis et enim aperiam inventore, similique necessitatibus neque
-					non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum.
-					Sequi mollitia, necessitatibus quae sint natus.</p>
-				<small class="text-muted">Posted by Anonymous on 3/1/17</small>
-				<hr>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Omnis et enim aperiam inventore, similique necessitatibus neque
-					non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum.
-					Sequi mollitia, necessitatibus quae sint natus.</p>
-				<small class="text-muted">Posted by Anonymous on 3/1/17</small>
-				<hr>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Omnis et enim aperiam inventore, similique necessitatibus neque
-					non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum.
-					Sequi mollitia, necessitatibus quae sint natus.</p>
-				<small class="text-muted">Posted by Anonymous on 3/1/17</small>
+				<c:if test="${usuario != null}">
+					<form action="enviarcomentario" method="post">
+						<input type="hidden" name="id" value="${videoInicio.id}" />
 
+						<div class="form-group row">
+							<label for="texto" class="col-sm-2 col-form-label">Comentario</label>
+							<div class="col-sm-10">
+								<textarea class="form-control" id="texto" name="texto"
+									placeholder="Texto del comentario"></textarea>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="offset-sm-2 col-sm-10">
+								<button type="submit" class="btn btn-primary">Enviar
+									comentario</button>
+							</div>
+						</div>
+					</form>
+
+					<jsp:useBean id="hoy" class="java.util.Date" scope="page" />
+
+					<small class="text-muted">Escrito por ${usuario.email} el <fmt:formatDate
+							value="${hoy}" pattern="yyyy-MM-dd HH:mm:ss" />
+					</small>
+					<hr>
+
+				</c:if>
+				<c:forEach items="${videoInicio.comentarios}" var="comentario">
+					<p>${comentario.texto}</p>
+					<small class="text-muted">Escrito por
+						${comentario.usuario.email} el <fmt:formatDate
+							value="${comentario.fecha}" pattern="yyyy-MM-dd HH:mm:ss" />
+					</small>
+					<hr>
+				</c:forEach>
 			</div>
 		</div>
 		<!-- /.card -->

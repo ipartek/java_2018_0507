@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 				DispatcherType.REQUEST, 
 				DispatcherType.FORWARD
 		}
-					, urlPatterns = { "/video", "/gestionvideos" })
+					, urlPatterns = { "/video", "/gestionvideos", "/enviarcomentario", "/puntuar" })
 //TODO: Mejorar con servlets en lugar de patterns de URL
 public class LogueadoFilter implements Filter {
 
