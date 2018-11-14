@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0071)https://librosweb.es/ejercicios/javascript/ejercicio15/ejercicio15.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Ejercicio 15 - Informaci�n sobre eventos</title>
+
+<style type="text/css">
+body {font-family: arial, helvetica;}
+#info {width:160px; border:thin solid silver; padding:.5em; position: fixed}
+    #infotec {width:160px; border:thin solid silver; margin-top:100px; position:fixed;}
+
+#info h1 {margin: 0;}
+</style>
+
+<script type="text/javascript">
+function muestraInformacion(event) {
+    var x=event.clientX;
+    var y=event.clientY;
+    var tecla=String.fromCharCode(event.keyCode);
+
+    
+    
+        document.getElementById("x").value=x;
+
+    document.getElementById("y").value=y;
+    document.getElementById("tecla").value=tecla;
+    
+   
+    
+    
+}
+    
+    function cambiocolor(event){
+        if (event.button==2)
+		alert("El botón del ratón pulsado fue el derecho");
+	if(event.button==1)
+		alert("El botón del ratón pulsado fue el izquierdo");
+    }
+</script>
+</head>
+
+<body onmousemove="muestraInformacion(event)" onkeypress="muestraInformacion(event)" onclick="cambiocolor(event)">
+<div>
+<div id="info" >
+   RATon<br>
+    Y<input type="text" id="y">
+    X<input type="text" id="x">
+
+</div><br><br>
+
+<div id="infotec" >
+   Teclado
+   <br>
+    Tecla:  <input type="text" id="tecla">
+</div></div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+</body></html>
