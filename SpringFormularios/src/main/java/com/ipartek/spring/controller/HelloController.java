@@ -21,8 +21,7 @@ public class HelloController implements WebMvcConfigurer {
 	    }
 
 	    @PostMapping("/prueba")
-	    public String PruebaForm(@Valid Prueba ValidarPrueba,@ModelAttribute Prueba prueba,BindingResult bindingResult) {
-	    	
+	    public String PruebaForm(@Valid Prueba prueba, BindingResult bindingResult) {
 	    	
 	    	  if (bindingResult.hasErrors()) {
 	              return "Prueba";
@@ -31,7 +30,7 @@ public class HelloController implements WebMvcConfigurer {
 	    }
 	    
 	    @Override
-	    public void addViewControllers(ViewControllerRegistry registry) {
-	        registry.addViewController("/prueba").setViewName("Prueba");
+	    public void addViewControllers(ViewControllerRegistry registry) { //Esto solo vale para redirreccionar de pagina a pagina
+	        registry.addViewController("/prueba").setViewName("Prueba"); //desde la url a un html
 	    }
 }
