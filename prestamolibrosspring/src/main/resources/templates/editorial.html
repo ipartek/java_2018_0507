@@ -8,17 +8,19 @@
 
 	<h2>Editorial</h2>
 
-	<h3>
-		<span th:text="${id} + ' ' + ${accion}"></span>
-	</h3>
-
 	<form action="#" th:action="@{/editoriales/{accion}(accion=${accion})}"
 		th:object="${editorial}" method="post">
-		<p><label for="nombre">Nombre</label> <input type="text"
-			th:field="*{nombre}" /> <span th:if="${#fields.hasErrors('nombre')}"
-			th:errors="*{nombre}">Error nombre</span></p>
+		<p>
+			<label for="nombre">Nombre</label> <input type="text"
+				th:field="*{nombre}"
+				th:attr="disabled=${accion == 'borrar'}" /> <span
+				th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error
+				nombre</span>
+		</p>
 		<input type="hidden" th:field="*{id}" />
-		<p><button type="submit">Aceptar</button></p>
+		<p>
+			<button type="submit">Aceptar</button>
+		</p>
 	</form>
 </body>
 </html>
