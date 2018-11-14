@@ -31,6 +31,6 @@ public class HelloController implements WebMvcConfigurer {
 	    
 	    @Override
 	    public void addViewControllers(ViewControllerRegistry registry) { //Esto solo vale para redirreccionar de pagina a pagina
-	        registry.addViewController("/prueba").setViewName("Prueba"); //desde la url a un html
+	        registry.addViewController("/prueba").setViewName("Prueba"); //desde la url a un html. No es necesario
 	    }
 }

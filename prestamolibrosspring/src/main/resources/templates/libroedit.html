@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Bienvenido a Libros</title>
+</head>
+<body>
+
+	<h2>Edicion o Insertado de Libros</h2>
+
+	<form action="#" th:action="@{/libros/{accion}(accion=${accion})}"
+		th:object="${libro}" method="post">
+		<p>
+			<label for="titulo">Titulo</label> <input type="text"
+				th:field="*{titulo}"
+				th:attr="disabled=${accion == 'borrar'}" /> <span
+				th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}">Error
+				titulo</span>
+		</p>
+		<input type="hidden" th:field="*{id}" />
+		<p>
+			<button type="submit">Aceptar</button>
+		</p>
+	</form>
+</body>
+</html>
