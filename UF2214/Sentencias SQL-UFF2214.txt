@@ -45,14 +45,8 @@ a_a.asignatura_id=asig.id and a_a.anio=2016 and asig.nombre='Transformaciones'
 
 
 -- 7 Nota media de los alumnos de cada una de las casas por materia
-/*select avg(a_a.nota),asig.nombre,a_a.anio,c.nombre from alumno a,alumno_has_asignatura a_a, asignatura asig,casa c
+select avg(a_a.nota),asig.nombre,a_a.anio,c.nombre from alumno a,alumno_has_asignatura a_a, asignatura asig,casa c
 where a_a.alumno_id=a.id and
 a.casa_id=c.id and
 a_a.asignatura_id=asig.id and asig.nombre='Transformaciones' group by c.id
-*/
--- 7 Nota media de los alumnos de cada una de las casas por materia
-select avg(a_a.nota),asig.nombre,a_a.anio,c.nombre from alumno a,alumno_has_asignatura a_a, asignatura asig,casa c 
 
-where a_a.alumno_id=a.id and
-a.casa_id=c.id and
-a_a.asignatura_id=asig.id group by c.id

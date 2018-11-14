@@ -1,11 +1,21 @@
 <html>
     <body>
+       Al poner el *{name} esta llamando al
+                     @NotNull
+   						 @Size(min=2, max=30)
+    					private String name; de la clase PersonForm 
         <form action="#" th:action="@{/}" th:object="${personForm}" method="post">
+       
+  
             <table>
                 <tr>
                     <td>Name:</td>
                     <td><input type="text" th:field="*{name}" /></td>
-                    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+                   
+    					
+                    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error
+                    
+                    </td>
                 </tr>
                 <tr>
                     <td>Age:</td>
