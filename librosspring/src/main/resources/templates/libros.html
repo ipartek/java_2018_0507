@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: common_header(~{::title},~{})">
+	<title>Libros</title>
+</head>
+<body>
+	<div class="container">
+		<div th:include="fragments/listaLibros :: contenidoListaLibros"></div>
+		<div th:include="fragments/footer :: copy"></div>
+	</div>
+</body>
+</html>

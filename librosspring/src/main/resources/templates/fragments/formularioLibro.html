@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	 <div th:fragment="contenidoFormularioLibro">
+	 	<h2>Libro</h2>
+
+		<div class="card col-sm-4">
+			<div class="card-body">
+				<form action="#"
+					th:action="@{/libros/{accion}(accion=${accion})}"
+					th:object="${libro}" method="post">
+					<div class="form-group">
+						<label for="titulo">Título</label> <input type="text"
+							class="form-control" placeholder="Título" th:field="*{titulo}"
+							th:attr="disabled=${accion == 'borrar'}" /> <span
+							th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}">Error
+							título</span>
+					</div>
+					<div class="form-group">
+						<label for="isbn">ISBN</label> <input type="text"
+							class="form-control" placeholder="ISBN" th:field="*{isbn}"
+							th:attr="disabled=${accion == 'borrar'}" /> <span
+							th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}">Error
+							ISBN</span>
+					</div>
+
+					<input type="hidden" th:field="*{id}" />
+
+					<button type="submit" class="btn btn-primary">Aceptar</button>
+				</form>
+			</div>
+		</div>
+	 </div>
+</body>
+</html>

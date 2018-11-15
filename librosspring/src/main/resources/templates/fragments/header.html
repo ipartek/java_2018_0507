@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+	<head th:fragment="common_header(title,links)">
+		<meta charset="UTF-8">
+		<title th:replace="${title}">Libros</title>
+		
+		<!-- CSS -->
+		<!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="/css/bootstrap-litera-theme.min.css"
+			th:href="@{/css/bootstrap-litera-theme.min.css}" />
+		
+		<!-- Icons -->
+		<link rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+			integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+			crossorigin="anonymous">
+		
+		<!-- SCRIPTS -->
+		<!-- Optional JavaScript -->
+		<!-- JQuery first, then Popper.js, then Bootstrap JS -->
+		<script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+		
+		<!--/* Per-page placeholder for additional links */-->
+		<th:block th:replace="${links}" />
+	</head>
+</body>
+</html>
