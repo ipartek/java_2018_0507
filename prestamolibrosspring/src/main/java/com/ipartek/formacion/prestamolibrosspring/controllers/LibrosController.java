@@ -1,5 +1,7 @@
 package com.ipartek.formacion.prestamolibrosspring.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -10,67 +12,68 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.ipartek.formacion.prestamolibrosspring.model.Editorial;
-import com.ipartek.formacion.prestamolibrosspring.repositories.EditorialMapRepository;
+import com.ipartek.formacion.prestamolibrosspring.model.Libro;
+import com.ipartek.formacion.prestamolibrosspring.repositories.LibroMapRepository;
 
 @Controller
-public class EditorialController {
-
-	static final EditorialMapRepository repositorio = new EditorialMapRepository();
+public class LibrosController {
+	private static final LibroMapRepository repositoriolib = new LibroMapRepository();
 	
 	static {
-		repositorio.insert(new Editorial(1L, "Anaya"));
-		repositorio.insert(new Editorial(2L, "McGraw Hill"));
+		repositoriolib.insert(new Libro("Titulo1","Editorial1",1L,1));
+		repositoriolib.insert(new Libro("Titulo2","Editorial1",1L,2));
 	}
 	
-	@GetMapping("/editoriales")
+	@GetMapping("/libros")
 	public String getAll(Model modelo) {
-		modelo.addAttribute("editoriales", repositorio.getAll());
-		return "editoriales";
+		modelo.addAttribute("libros", repositoriolib.getAll());
+		return "libros";
 	}
 	
-	
-	
-	@GetMapping("/editoriales/{accion}/{id}") 
+	@GetMapping("/libros/{accion}/{id}") 
 	public String mostrarPantalla(
 			@PathVariable("id") Long id, @PathVariable("accion") String accion, Model modelo) {
 		
 		modelo.addAttribute("id", id);
 		modelo.addAttribute("accion", accion);
 		
-		Editorial editorial;
+		Libro libro;
 		
 		if(id != null && id != 0L) {
-			editorial = repositorio.getById(id);
+			libro = repositoriolib.getById(id);
 		} else {
-			editorial = new Editorial(0L, "");
+			libro = new Libro("","",0L,0);
 		}
 		
-		modelo.addAttribute("editorial", editorial);
+			List<Editorial> listaeditoriales=EditorialController.repositorio.getAll();
+			
+		modelo.addAttribute("libro", libro);
+		modelo.addAttribute("editoriales",listaeditoriales);
 		
-		return "editorial";
+		return "libro";
 	}
 	
-	@PostMapping("/editoriales/{accion}")
+	@PostMapping("/libros/{accion}")
 	public String procesarPantalla(
 			@PathVariable(value="accion") String accion, 
-			@Valid Editorial editorial, BindingResult bindingResult) {
+			@Valid Libro libro, BindingResult bindingResult) {
 		
 		if (!accion.equals("borrar") && bindingResult.hasErrors()) {
-            return "editorial";
+            return "libro";
         }
-
+	
 		switch(accion) {
 		case "crear": 
-			repositorio.insert(editorial);
+			repositoriolib.insert(libro);
 			break;
 		case "editar":
-			repositorio.update(editorial);
+			repositoriolib.update(libro);
 			break;
 		case "borrar":
-			repositorio.delete(editorial.getId());
+			repositoriolib.delete((long) libro.getId());
 			break;
 		}
 		
-        return "redirect:/editoriales";
+        return "redirect:/libros";
 	}
 }

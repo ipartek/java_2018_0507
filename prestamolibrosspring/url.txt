@@ -1,1 +1,2 @@
 http://localhost:8080/editoriales/
+http://localhost:8080/libros/

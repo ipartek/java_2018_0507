@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Bienvenido a Libros</title>
+</head>
+<body>
+
+	<h2>Libro</h2>
+
+	<form action="#" th:action="@{/libros/{accion}(accion=${accion})}"
+		th:object="${libro}" method="post">
+		<p>
+			<label for="titulo">Titulo</label> 
+			<input type="text"
+				th:field="*{titulo}"
+				th:attr="disabled=${accion == 'borrar'}" /> <span
+				th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}">Error
+				nombre</span>
+			<label for="isbn">ISBN</label> 
+			<input type="text"
+				th:field="*{isbn}"
+				th:attr="disabled=${accion == 'borrar'}" /> <span
+				th:if="${#fields.hasErrors('isbn')}" th:errors="*{titulo}">Error
+				isbn</span>
+			<input type="hidden"
+				th:field="*{id}"
+				th:attr="disabled=${accion == 'borrar'}" /> <span
+				th:if="${#fields.hasErrors('id')}" th:errors="*{id}">Error
+				id</span>
+			
+			
+			<br><label for="editorial">Seleccionar editorial</label>
+		
+			<select th:field="*{editorial}" th:attr="disabled=${accion == 'borrar'}">
+				<th:block th:each="editorial : ${editoriales}">
+					<option th:value="${editorial.nombre}" th:text="${editorial.nombre}"/></option>
+				</th:block>
+   			</select>
+   		
+				
+		</p>
+		<input type="hidden" th:field="*{id}" />
+		<p>
+			<button type="submit">Aceptar</button>
+		</p>
+	</form>
+</body>
+</html>
