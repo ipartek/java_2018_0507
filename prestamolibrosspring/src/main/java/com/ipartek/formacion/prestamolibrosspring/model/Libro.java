@@ -12,11 +12,14 @@ public class Libro {
 		@Size (min=1, max=30)
 		private String titulo;
 		
+		private String txaber;
+		
 
-		public Libro(@NotNull Long id, @NotNull @Size(min = 1, max = 30) String titulo) {
+		public Libro(@NotNull Long id, @NotNull @Size(min = 1, max = 30) String titulo, String txaber) {
 			super();
 			this.id = id;
 			this.titulo = titulo;
+			this.txaber = txaber;
 		}
 
 		public Long getId() {
@@ -69,6 +72,14 @@ public class Libro {
 		@Override
 		public String toString() {
 			return "Libro [id=" + id + ", titulo=" + titulo + "]";
+		}
+
+		public String getTxaber() {
+			return txaber;
+		}
+
+		public void setTxaber(String txaber) {
+			this.txaber = txaber;
 		}
 		
 		

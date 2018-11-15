@@ -4,36 +4,39 @@
 
 <meta charset="UTF-8">
 
-<link rel="stylesheet" href="css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/estilos.css" type="text/css">
+<link rel="stylesheet" href="../../css/bootstrap.min.css" />
 
-<script src="js/bootsrap.min.js"></script>
-<script src="js/jquery-1.12.4.min.js"></script>
+<script src="../../js/bootsrap.min.js"></script>
+<script src="../../js/jquery-1.12.4.min.js"></script>
 <title>Bienvenido a Libros</title>
 </head>
 <body>
 
-	<h2>Libros</h2>
 	
+	
+	<div class="container">
+	<h2>Libros</h2>
 	<div class="table-responsive">
 	<table class="table">
 		<thead>
 			<tr>
 				<th>ID</th>
 				<th>Titulo</th>
+				<th>Variable Txaber </th>
 				<th><a th:href="@{/libros/crear/0}">Nueva</a></th>
 			</tr>
 		</thead>
 		<tbody>
 			<th:block th:each="libro : ${libros}">
 				<tr>
-					<th th:text="${libro.id}"/><td th:text="${libro.titulo}"/>
+					<th th:text="${libro.id}"/><td th:text="${libro.titulo}"/> <td th:text="${libro.txaber}"/>
 					<td><a th:href="@{/libros/editar/{id}(id=${libro.id})}">Editar</a></td>
 					<td><a th:href="@{/libros/borrar/{id}(id=${libro.id})}">Borrar</a></td>
 				</tr>
 			</th:block>
 		</tbody>
 	</table>
+	</div>
 	</div>
 </body>
 </html>

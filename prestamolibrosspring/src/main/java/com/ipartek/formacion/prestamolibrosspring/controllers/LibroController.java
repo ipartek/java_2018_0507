@@ -18,8 +18,8 @@ public class LibroController {
 	public static final LibroMapRepository repositorioLibro = new LibroMapRepository();
 
 	static {
-		repositorioLibro.insert(new Libro(1L, "El nombre del viento"));
-		repositorioLibro.insert(new Libro(2L, "La Espada de Fuego"));
+		repositorioLibro.insert(new Libro(1L, "El nombre del viento", "Es un gay"));
+		repositorioLibro.insert(new Libro(2L, "La Espada de Fuego", "Cuan gay puede ser?"));
 	}
 
 	@GetMapping("/libros")
@@ -39,7 +39,7 @@ public class LibroController {
 		if (id != null && id != 0) {
 			lib = repositorioLibro.getById(id);
 		} else {
-			lib = new Libro(0L, "");
+			lib = new Libro(0L, "", "");
 		}
 
 		modelo.addAttribute("libro", lib);
