@@ -3,31 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <title>Bienvenido a libros</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<script th:href="@{/jquery/jquery.js}"></script>
+<script th:href="@{/js/bootstrap.js}"></script>
+  
 </head>
 <body>
 
-	<h2>Libros</h2>
-<a th:href="@{/editoriales}">Editoriales</a>
-	<table>
-		<thead>
+	<div class="text-center">
+ 		<h1>Libros</h1>
+ 	</div>
+	
+	
+	
+	<a th:href="@{/editoriales}">Editoriales</a>
+
+
+<div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+    
+    
+    <!-- Contenidos -->
+    
+    <div class="table-responsive">
+  	<table class="table table-striped">
+ 		<thead>
 			<tr>
 				<th>ID</th>
 				<th>Nombre</th>
 				<th>Editorial</th>
 				<th>ISBN</th>
-				<th colspan=2><a th:href="@{/libros/crear/0}">Libro Nuevo</a></th>
+				<th colspan=2><div class="text-center"><a th:href="@{/libros/crear/0}" class="btn btn-info">Libro Nuevo</a></div></th>
 			</tr>
 		</thead>
 		<tbody>
 			<th:block th:each="libro : ${libros}">
 				<tr>
 					<th th:text="${libro.id}"/><td th:text="${libro.titulo}"/><td th:text="${libro.editorial}"/><td th:text="${libro.isbn}"/>
-					<td><a th:href="@{/libros/editar/{id}(id=${libro.id})}">Editar</a></td>
-					<td><a th:href="@{/libros/borrar/{id}(id=${libro.id})}">Borrar</a></td>
+					<td><div class="text-center"><a th:href="@{/libros/editar/{id}(id=${libro.id})}" class="btn btn-success">Editar</a></div></td>
+					<td><div class="text-center"><a th:href="@{/libros/borrar/{id}(id=${libro.id})}" class="btn btn-danger">Borrar</a></div></td>
 				</tr>
 			</th:block>
 		</tbody>
-	</table>
+	  </table>
+	</div>
+    
+    <!-- End Contenidos -->
+    
+    </div>
+     <div class="col-sm-2">
+     
+    </div>
+  </div>
+
+
+
+
 
 </body>
 </html>

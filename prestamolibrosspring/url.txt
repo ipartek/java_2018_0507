@@ -1,2 +1,10 @@
 http://localhost:8080/editoriales/
 http://localhost:8080/libros/
+
+Estilos
+
+*Menu libro, editoriales
+
+*Prestamos
+
+*Menu prestamos
