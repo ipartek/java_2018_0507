@@ -1,0 +1,9 @@
+El resultado : http://localhost:8080/
+El objeto JSON: http://localhost:8080/datos
+
+
+http://localhost:8080/saludo
+http://localhost:8080/saludo?nombre=javier
+
+
+e.preventDefault(); en los formularios de javascript para cancelar el envio por defecto y ejecutar lo que tu quieres
