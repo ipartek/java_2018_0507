@@ -28,8 +28,9 @@ public class HomeController extends HttpServlet {
 	private static ComentariosMySQLDAO daoComentarios;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		//TODO descomentar el doGet. Ahora lo ejecuto desde el post
-	/*	try {
+		try {
 			String id = request.getParameter("id");
 			if (id != null) {
 				dao.delete(id);
@@ -43,13 +44,9 @@ public class HomeController extends HttpServlet {
 			e.printStackTrace();
 		} finally {
 			request.getRequestDispatcher("home.jsp").forward(request, response);
-		}*/
+		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
@@ -71,10 +68,6 @@ public class HomeController extends HttpServlet {
 		} finally {
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 		}
-		//Switch para poder elegir que quieres hacer
-		String accion = request.getParameter("accion");
-		
-		
 		
 		//TODO Descomentar el insert
 		/*try {

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/dom.js"></script>
+<style>
+.error{
+border: 2px solid red;
+color:red;
+}</style>
+</head>
+<body>
+	<h1>Titulo que va a cambiar</h1>
+	
+	<table>
+		<thead>
+		<tr><th>Id</th><th>Nombre</th></tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+	<button onclick='rellenarTabla()'>Rellenar Tabla</button>
+	
+	<p>Parrafo 1<span class='destacado'>destacadisimo</span></p>
+	<p id='elmasimportante'>Parrafo 2<span class='destacado'>destacado</span></p>
+	
+	<form onsubmit='return leerFormulario()'>
+	<input type="text" name="nombre"/>
+	<button>Enviar datos</button>
+	</form>
+	<button onclick='eliminarParrafo()'>Eliminar parrafo</button>
+	<button onclick='cambiarTitulo()'>CambiarTitulo</button>
+	<button onclick='modificarParrafos()'>CambiarParrafo</button>
+	<button onclick='accederPorId()'>Acceder por ID</button>
+	<button onclick='destacar()'>Destacar</button>
+</body>
+</html>
