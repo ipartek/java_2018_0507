@@ -18,13 +18,13 @@ public class SaludoController {
     private final AtomicLong counter = new AtomicLong();
 
     @GetMapping("/saludo")
-    public Saludo saludar(@RequestParam(value="nombre", defaultValue="Mundo") String nombre) {
-        return new Saludo(counter.incrementAndGet(),
+    public Saludo saludar(@RequestParam(value="nombre", defaultValue="Mundo") String nombre) {//recibo varibale nombre en el navegador
+        return new Saludo(counter.incrementAndGet(),  //sino pongo nada recibe Mundo por defecto
                             String.format(plantilla, nombre));
     }
     
     @PostMapping("/saludo")
-    public void recibirSaludo(@RequestBody Saludo saludo) {
+    public void recibirSaludo(@RequestBody Saludo saludo) { //envio objeto en formato JSON
     	System.out.println(saludo);
     }
     
