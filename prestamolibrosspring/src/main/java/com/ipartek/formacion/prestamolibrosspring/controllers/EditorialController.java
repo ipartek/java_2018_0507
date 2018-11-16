@@ -2,6 +2,7 @@ package com.ipartek.formacion.prestamolibrosspring.controllers;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,17 +11,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.ipartek.formacion.prestamolibrosspring.model.Editorial;
-import com.ipartek.formacion.prestamolibrosspring.repositories.EditorialMapRepository;
+import com.ipartek.formacion.prestamolibrosspring.repositories.CrudAble;
 
 @Controller
 public class EditorialController {
-	//TODO: Hacerlo por inyección de dependencia (Spring)
-	private static final EditorialMapRepository repositorio = new EditorialMapRepository();
-	
-	static {
-		repositorio.insert(new Editorial(1L, "Anaya"));
-		repositorio.insert(new Editorial(2L, "McGraw Hill"));
-	}
+	@Autowired
+	private final CrudAble<Editorial> repositorio = null;
 	
 	@GetMapping("/editoriales")
 	public String getAll(Model modelo) {
