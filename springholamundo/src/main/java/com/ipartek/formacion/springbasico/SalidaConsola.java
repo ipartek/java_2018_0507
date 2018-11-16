@@ -1,12 +1,15 @@
 package com.ipartek.formacion.springbasico;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 //@Component
 public class SalidaConsola implements Salida {
     private String mensaje;
 
     public SalidaConsola() {}
     
-    //@Autowired
+    @Autowired
     public SalidaConsola(Entrada entrada) {
         mensaje = entrada.recibirMensaje();
     }

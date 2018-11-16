@@ -1,6 +1,8 @@
 package com.ipartek.formacion.springbasico;
 
-//@Component
+import org.springframework.stereotype.Component;
+
+@Component
 public class EntradaConstante implements Entrada {
 
     @Override
