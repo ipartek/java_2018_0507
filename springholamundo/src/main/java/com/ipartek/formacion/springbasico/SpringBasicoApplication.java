@@ -3,22 +3,19 @@ package com.ipartek.formacion.springbasico;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
-//@SpringBootApplication
-@Configuration
-@ComponentScan
+@SpringBootApplication
 public class SpringBasicoApplication {
 
 	@Autowired
 	private Salida salida;
 	
 	public static void main(String[] args) throws IOException {
-		//ConfigurableApplicationContext context = SpringApplication.run(SpringBasicoApplication.class, args);
+		ConfigurableApplicationContext context = SpringApplication.run(SpringBasicoApplication.class, args);
 		
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringBasicoApplication.class);
 		SpringBasicoApplication app = context.getBean(SpringBasicoApplication.class);
 		
 		app.probarSalida();
