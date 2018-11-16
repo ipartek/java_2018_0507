@@ -17,4 +17,9 @@ public class Saludo {
 		return contenido;
 	}
 
+	@Override
+	public String toString() {
+		return "Saludo [id=" + id + ", contenido=" + contenido + "]";
+	}
+
 }
