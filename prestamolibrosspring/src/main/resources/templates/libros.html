@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<title>Bienvenido a Libros</title>
+</head>
+<body>
+<div class="container">
+	<h2>Libros</h2>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">ID</th>
+				<th scope="col">Nombre</th>
+				<th scope="col"><a th:href="@{/libros/crear/0}">Nuevo libro</a></th>
+			</tr>
+		</thead>
+		<tbody>
+			<th:block th:each="libro : ${libros}">
+				<tr>
+					<th scope="row" th:text="${libro.id}"/><td th:text="${libro.titulo}" />
+					<td><a th:href="@{/libros/editar/{id}(id=${libro.id})}">Editar</a></td>
+					<td><a th:href="@{/libros/borrar/{id}(id=${libro.id})}">Borrar</a></td>
+				</tr>
+			</th:block>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
