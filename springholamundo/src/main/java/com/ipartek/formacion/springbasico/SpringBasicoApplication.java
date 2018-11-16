@@ -2,6 +2,8 @@ package com.ipartek.formacion.springbasico;
 
 import java.io.IOException;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 //@SpringBootApplication
 //@Configuration
 //@ComponentScan
@@ -12,24 +14,28 @@ public class SpringBasicoApplication {
 	
 	public static void main(String[] args) throws IOException {
 		SpringBasicoApplication app = new SpringBasicoApplication();
-		
-		//ClassPathXmlApplicationContext context = 
-		//	new ClassPathXmlApplicationContext("configuracion.xml");
-		//Salida salida = context.getBean(Salida.class);
-		
+				
 		//ConfigurableApplicationContext context = SpringApplication.run(SpringBasicoApplication.class, args);
 		
 		//AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringBasicoApplication.class);
 		//SpringBasicoApplication app = context.getBean(SpringBasicoApplication.class);
 		
 		app.probarSalida();
-
-		//context.close();
 	}
 	
 	private void probarSalida() throws IOException {
-		Fabrica fabrica = new Fabrica("configuracion.properties");
-		salida = fabrica.getSalida();
+		//Fabrica fabrica = new Fabrica("configuracion.properties");
+		//salida = fabrica.getSalida();
+		ClassPathXmlApplicationContext context = 
+				new ClassPathXmlApplicationContext("configuracion.xml");
+		
+		salida = context.getBean(Salida.class);
+		Entrada entrada = context.getBean(Entrada.class);
+		
+		System.out.println(entrada.recibirMensaje());
+		
 		salida.mostrarMensaje();
+		
+		context.close();
 	}
 }

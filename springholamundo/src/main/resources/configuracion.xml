@@ -8,7 +8,7 @@
         class="com.ipartek.formacion.springbasico.EntradaConstante"/>
     
     <bean id="salida"
-        class="com.ipartek.formacion.springbasico.SalidaConsolaBonita">
+        class="com.ipartek.formacion.springbasico.SalidaConsola">
         <constructor-arg ref = "entrada"/>
     </bean>
 </beans>
