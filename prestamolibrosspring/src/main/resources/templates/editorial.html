@@ -3,24 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <title>Bienvenido a editoriales</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<script th:href="@{/jquery/jquery.js}"></script>
+<script th:href="@{/js/bootstrap.js}"></script>
 </head>
 <body>
-
+<div class="text-center">
 	<h2>Editorial</h2>
-
-	<form action="#" th:action="@{/editoriales/{accion}(accion=${accion})}"
+</div>
+<div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+    
+   
+	<form class="form-inline text-center" action="#" th:action="@{/editoriales/{accion}(accion=${accion})}"
 		th:object="${editorial}" method="post">
 		<p>
-			<label for="nombre">Nombre</label> <input type="text"
+			<label for="nombre">Nombre</label> 
+			<input type="text"  class="form-control mb-2 mr-sm-2 mb-sm-0"
 				th:field="*{nombre}"
 				th:attr="disabled=${accion == 'borrar'}" /> <span
 				th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error
 				nombre</span>
 		</p>
 		<input type="hidden" th:field="*{id}" />
+		
 		<p>
-			<button type="submit">Aceptar</button>
+			<button type="submit" class="btn btn-success">Aceptar</button>
+			<div class="text-center"><a th:href="@{/editoriales/}" class="btn btn-danger">Volver</a></div>
 		</p>
 	</form>
+	
+	 
+    </div>
+     <div class="col-sm-2">
+     
+    </div>
+  </div>
+	
 </body>
 </html>

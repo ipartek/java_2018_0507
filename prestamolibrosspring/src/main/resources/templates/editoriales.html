@@ -3,29 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <title>Bienvenido a editoriales</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<script th:href="@{/jquery/jquery.js}"></script>
+<script th:href="@{/js/bootstrap.js}"></script>
 </head>
 <body>
-
+<div class="text-center">
 	<h2>Editoriales</h2>
-<a th:href="@{/libros}">Libros</a>
-	<table>
-		<thead>
+	</div>
+
+	<div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+    
+   
+    <!-- Contenidos -->
+    
+    <div class="table-responsive">
+  	<table class="table table-striped">
+	<thead>
 			<tr>
 				<th>ID</th>
 				<th>Nombre</th>
-				<th><a th:href="@{/editoriales/crear/0}">Nueva</a></th>
+				<th><div class="text-center"><a th:href="@{/editoriales/crear/0}" class="btn btn-info">Editorial Nueva</a>
+				 <a th:href="@{/libros}" class="btn btn-info">Libros</a></div></th>
+				
 			</tr>
 		</thead>
 		<tbody>
 			<th:block th:each="editorial : ${editoriales}">
 				<tr>
 					<th th:text="${editorial.id}"/><td th:text="${editorial.nombre}"/>
-					<td><a th:href="@{/editoriales/editar/{id}(id=${editorial.id})}">Editar</a></td>
-					<td><a th:href="@{/editoriales/borrar/{id}(id=${editorial.id})}">Borrar</a></td>
+										
+					<td><div class="text-center"><a th:href="@{/editoriales/editar/{id}(id=${editorial.id})}" class="btn btn-success">Editar</a>
+						<a th:href="@{/editoriales/borrar/{id}(id=${editorial.id})}" class="btn btn-danger">Borrar</a></div></td>
+				
+					
+					
 				</tr>
 			</th:block>
 		</tbody>
-	</table>
-
+		</table>
+	</div>
+    
+    <!-- End Contenidos -->
+    
+    </div>
+     <div class="col-sm-2">
+     
+    </div>
+  </div>
 </body>
 </html>
