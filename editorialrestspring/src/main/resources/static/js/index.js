@@ -12,11 +12,11 @@ $(function() {
 		buscarPorId();
 	});
 	
-	$('#crearEditorial').click(crearEditorial());
+	$('#crearEditorial').click(crearEditorial);
 	
-	$('#modificarEditorial').click(modificarEditorial());
+	$('#modificarEditorial').click(modificarEditorial);
 	
-	$('#borrarEditorial').click(borrarEditorial());
+	$('#borrarEditorial').click(borrarEditorial);
 });
 
 function buscarPorId(){
