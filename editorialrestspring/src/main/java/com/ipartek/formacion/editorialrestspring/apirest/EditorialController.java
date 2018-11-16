@@ -34,7 +34,7 @@ public class EditorialController {
 		return repositorio.insert(editorial);
 	}
 	
-	@PutMapping("/api/editoriales/{id}")
+	@PutMapping("/api/editoriales")
 	public void modificarEditorial(@RequestBody Editorial editorial) {
 		repositorio.update(editorial);
 	}
