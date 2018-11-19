@@ -1,92 +1,63 @@
 $(function() {
-	$.getJSON('/api/editoriales', function(datos) {
-		$(datos).each(function() {
-			console.log(this);
-			$('tbody').append('<tr><th>' + this.id + '</th><td>' + this.nombre + '</td></tr>');
-		});
-	});
+	cargarEditoriales();
 	
-	$('#fEditorial').submit(function(e) {
+	$('form').submit(function(e) {
 		e.preventDefault();
-		
-		buscarPorId();
+
+		enviarForm();
 	});
-	
-	$('#crearEditorial').click(crearEditorial);
-	
-	$('#modificarEditorial').click(modificarEditorial);
-	
-	$('#borrarEditorial').click(borrarEditorial);
 });
 
-function buscarPorId(){
-	var idEditorial = $('#idEditorial').val();
-	
-	$.getJSON('/api/editoriales/' + idEditorial, respuestarest)
-}
-
-function respuestarest(respuesta) {
-	$('#respuestaId').html('Id: ' + respuesta.id + ' nombre: ' + respuesta.nombre);
-}
-
-function crearEditorial(){
-	var vEditorial = {
-			id : parseInt($('#id').val()),
-			nombre : $('#nombre').val()
-		};
-
-	$.ajax{
-		url: "/api/editoriales",
-		method: "POST",
-		data : JSON.stringify(vEditorial)
-	}).done(function() {
-		// ocultarFormulario();
-		// pedirLibros();
-		alert("CORRECTO");
-	}).fail(function() {
-		alert("error");
-	}).always(function() {
-		console.log("complete");
+function cargarEditoriales() {
+	$.getJSON('/api/editoriales', function(editoriales) {
+		console.log(editoriales);
+		mostrarEditoriales(editoriales);
 	});
 }
 
-function modificarEditorial(){
-	var vEditorial = {
-			id : parseInt($('#id').val()),
-			nombre : $('#nombre').val()
-		};
-	
-	$.ajax{
-		url: "/api/editoriales",
-		method: "PUT",
-		data : JSON.stringify(vEditorial)
-	}).done(function() {
-		// ocultarFormulario();
-		// pedirLibros();
-		alert("CORRECTO");
-	}).fail(function() {
-		alert("error");
-	}).always(function() {
-		console.log("complete");
+function mostrarEditoriales(editoriales) {
+	$('tbody').empty();
+	$(editoriales).each(function() {
+		$('tbody').append(
+				'<tr><th>' + this.id + "</th><td>" + this.nombre + '</td>' +
+				'<td>' + 
+				'<a href="javascript:editar(' + this.id + ')">Editar</a> ' +
+				'<a href="javascript:borrar(' + this.id + ')">Borrar</a>' +
+				'</tr>' );
 	});
 }
 
-function borrarEditorial(){
-	if (confirm('¿Estás seguro de que quieres borrar el libro cuyo id es ' + id + '?')) {
-		var idBorrar = $('#id').val();
-		
-		$.ajax{
-			url: "/api/editoriales/"+idBorrar,
-			method: "DELETE"
-		}).done(function() {
-			// pedirLibros();
-			alert("CORRECTO");
-		}).fail(function() {
-			alert("error");
-		}).always(function() {
-			console.log("complete");
+function enviarForm(){
+	var editorialid = $('#id').val();
+	var editorialnombre = $('#nombre').val();
+	var metodo = editorialid == 0 ? 'POST' : 'PUT';
+	
+	$.ajax({
+		url: '/api/editoriales',
+		method: metodo,
+		data: JSON.stringify({ id: editorialid, nombre: editorialnombre }),
+		contentType: 'application/json; charset=UTF-8'
+	}).success(function() {
+		cargarEditoriales();
+		$('#nombre').val('');
+		$('#id').val(0);
+	});
+}
+
+function editar(id) {
+	$.getJSON('/api/editoriales/' + id, function(editorial) {
+		$('#id').val(editorial.id);
+		$('#nombre').val(editorial.nombre);
+	});
+}
+
+function borrar(id) {
+	if(confirm('¿Estás seguro de borrar la editorial ' + id)) {
+		$.ajax({
+			url: '/api/editoriales/' + id,
+			method: 'DELETE',
+		}).success(function() {
+			cargarEditoriales();
 		});
-	}else{
-		alert('No se borrará el libro');
 	}
 }

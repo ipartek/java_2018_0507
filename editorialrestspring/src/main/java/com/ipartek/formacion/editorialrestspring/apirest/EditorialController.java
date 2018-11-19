@@ -17,7 +17,7 @@ import com.ipartek.formacion.editorialrestspring.repositories.CrudAble;
 @RestController
 public class EditorialController {
 	@Autowired
-	private CrudAble<Editorial> repositorio;
+	private final CrudAble<Editorial> repositorio = null;
 	
 	@GetMapping("/api/editoriales")
 	public List<Editorial> obtenerEditoriales() {

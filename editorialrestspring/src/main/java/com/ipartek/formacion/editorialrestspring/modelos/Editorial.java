@@ -1,21 +1,22 @@
 package com.ipartek.formacion.editorialrestspring.modelos;
 
 public class Editorial {
-	private long id;
+	private Long id;
     private String nombre;
     
-	public Editorial(long id, String nombre) {
-		super();
+	public Editorial(Long id, String nombre) {
 		setId(id);
 		setNombre(nombre);
 	}
 
+	public Editorial() {}
+	
 	@Override
 	public String toString() {
 		return "Editorial [id=" + id + ", nombre=" + nombre + "]";
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 	
