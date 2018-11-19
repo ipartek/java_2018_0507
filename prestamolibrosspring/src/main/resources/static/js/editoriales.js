@@ -10,8 +10,9 @@ $(function() {
 			data: JSON.stringify({ id: $('#id').val(), nombre: $('#nombre').val() }),
 			contentType: 'application/json; charset=UTF-8'
 		}).success(function() {
-			alert('Todo correcto');
 			cargarEditoriales();
+			$('#nombre').val('');
+			$('#id').val(0);
 		});
 	});
 });
@@ -29,7 +30,9 @@ function mostrarEditoriales(editoriales) {
 	$(editoriales).each(function() {
 		$('tbody').append(
 				'<tr><th>' + this.id + "</th><td>" + this.nombre + '</td>' +
-				'<td><a href="javascript:editar(' + this.id + ')">Editar</a>' +
+				'<td>' + 
+				'<a href="javascript:editar(' + this.id + ')">Editar</a> ' +
+				'<a href="javascript:borrar(' + this.id + ')">Borrar</a>' +
 				'</tr>' );
 	});
 }
@@ -39,4 +42,15 @@ function editar(id) {
 		$('#id').val(editorial.id);
 		$('#nombre').val(editorial.nombre);
 	});
+}
+
+function borrar(id) {
+	if(confirm('¿Estás seguro de borrar la editorial ' + id)) {
+		$.ajax({
+			url: '/api/editoriales/' + id,
+			method: 'DELETE',
+		}).success(function() {
+			cargarEditoriales();
+		});
+	}
 }
