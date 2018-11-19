@@ -4,10 +4,14 @@ $(function() {
 	$('form').submit(function(e) {
 		e.preventDefault();
 		
+		var editorialid = $('#id').val();
+		var editorialnombre = $('#nombre').val();
+		var metodo = editorialid == 0 ? 'POST' : 'PUT';
+		
 		$.ajax({
 			url: '/api/editoriales',
-			method: 'PUT',
-			data: JSON.stringify({ id: $('#id').val(), nombre: $('#nombre').val() }),
+			method: metodo,
+			data: JSON.stringify({ id: editorialid, nombre: editorialnombre }),
 			contentType: 'application/json; charset=UTF-8'
 		}).success(function() {
 			cargarEditoriales();
