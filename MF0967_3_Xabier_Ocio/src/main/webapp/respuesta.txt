@@ -1,0 +1,15 @@
+1-Él MVC es un patrón de trabajo que separa en 3 capas diferentes el programa.
+2-Él modelo es la estructura de las clases y funciones que utilizaremos en nuestro programa.
+la vista es el apartado en el que el usuario de nuestro programa interactuara con este,
+introduciendo y recogiendo datos de interés.
+3-Él controlador es el la sección en la que trabajaremos con los datos, los recogeremos
+y enviaremos a la base de datos o al cliente y es el intermediario entre estos dos.
+
+el MVC es un patrón de trabajo practico seguro y organizado.
+
+Funcionamiento:
+
+ Request y response son las herramientas de las que hacemos uso para poder
+recoger los atributos de una pagina a otra.
+El usuario ara una petición desde la vista y nosotros lo recibiremos en el controlador,
+tramitaremos la petición y mediante un response le devolveremos la respuesta.

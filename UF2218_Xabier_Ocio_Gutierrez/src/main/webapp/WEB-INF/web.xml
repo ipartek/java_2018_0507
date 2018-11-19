@@ -1,0 +1,47 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>Administrar</servlet-name>
+  	<display-name>Administrar</display-name>
+  	<description></description>
+  	<servlet-class>servlet.Administrar</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LogOut</servlet-name>
+  	<display-name>LogOut</display-name>
+  	<description></description>
+  	<servlet-class>servlet.LogOut</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Guardar</servlet-name>
+  	<display-name>Guardar</display-name>
+  	<description></description>
+  	<servlet-class>servlet.Guardar</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>mostrar</servlet-name>
+  	<display-name>mostrar</display-name>
+  	<description></description>
+  	<servlet-class>servlet.mostrar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Administrar</servlet-name>
+  	<url-pattern>/Administrar</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LogOut</servlet-name>
+  	<url-pattern>/LogOut</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Guardar</servlet-name>
+  	<url-pattern>/Guardar</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>mostrar</servlet-name>
+  	<url-pattern>/mostrar</url-pattern>
+  </servlet-mapping>
+</web-app>

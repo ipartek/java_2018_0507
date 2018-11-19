@@ -44,15 +44,20 @@ Préstamo de libros
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.jsp">Préstamo de libros</a>
+				<a class="navbar-brand" href="listado.jsp">listado</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
+<<<<<<< HEAD
 					<li class="active"><a href="seccion?id=1">Informática<span class="sr-only">(current)</span></a></li>
 					<li><a href="seccion?id=2">Empresa</a></li>
+=======
+					<li class="active"><a href="index.jsp">inicio <span class="sr-only">(current)</span></a></li>
+					<li><a href="login.jsp">login</a></li>
+>>>>>>> branch 'txaber' of https://github.com/ipartek/java_2018_0507.git
 				</ul>
 				<form class="navbar-form navbar-right">
 					<div class="form-group">

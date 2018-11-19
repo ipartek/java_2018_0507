@@ -3,6 +3,7 @@ http://flukeout.github.io/
 https://flexboxfroggy.com/#es
 http://cssgridgarden.com/#es
 */
+<<<<<<< HEAD
 :root {
     --color-fondo-oscuro: #FEFEFE;
     --color-texto-clarito: #010101;
@@ -87,5 +88,73 @@ header .alarma {
 
 p .alarma {
     color: var(--color-tinta-alerta);
+=======
+body {
+    font-family: sans-serif;
+}
+
+body > header,
+body > footer {
+    color: white;
+    background: black;
+
+    font-size: 200%;
+}
+
+article h2 {
+    font-size: 200%;
+    margin-bottom: 0;
+}
+
+article h3 {
+    font-size: 100%;
+}
+
+#menuprincipal {
+    background-color: black;
+    color: white;
+}
+
+#menuprincipal ul {
+    list-style: none;
+}
+
+#menuprincipal ul > li {
+    display: inline;
+}
+
+#menuprincipal > ul {
+    border: 2px solid gray;
+    padding: 0;
+}
+
+#menuprincipal li > ul > li {
+    display: block;
+}
+
+#menuprincipal a {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    padding: 0.5em 1em;
+}
+
+#menuprincipal a:hover {
+    color: black;
+    background-color: white;
+}
+
+header .alarma {
+    color: red;
+    font-size: 
+}
+
+.barcos {
+    text-decoration: underline;
+}
+
+p .alarma {
+    color: red;
+>>>>>>> branch 'txaber' of https://github.com/ipartek/java_2018_0507.git
     font-size: 2em;
 }

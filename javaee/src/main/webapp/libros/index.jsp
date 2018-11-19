@@ -4,7 +4,7 @@
 
 <div class="jumbotron">
   <h1>Bienvenido a Préstamo de libros</h1>
-  <p><a class="btn btn-primary btn-lg" href="login" role="button">Login</a></p>
+  <p><a class="btn btn-primary btn-lg" href="PruebaServlet" role="button">prueba</a></p>
 </div>
 
 <%@ include file="includes/pie.jsp" %>
