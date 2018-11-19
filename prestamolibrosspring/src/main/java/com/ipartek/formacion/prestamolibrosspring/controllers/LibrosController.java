@@ -45,7 +45,7 @@ public class LibrosController {
 			libro = new Libro("","",0L,0);
 		}
 		
-			List<Editorial> listaeditoriales=EditorialController.repositorio.getAll();
+			List<Libro> listaeditoriales=repositoriolib.getAll();
 			
 		modelo.addAttribute("libro", libro);
 		modelo.addAttribute("editoriales",listaeditoriales);
