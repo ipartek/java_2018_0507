@@ -2,67 +2,25 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Bienvenido a Libros</title>
-<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
-<script th:href="@{/jquery/jquery.js}"></script>
-<script th:href="@{/js/bootstrap.js}"></script>
+<title>Bienvenido a libross</title>
 </head>
 <body>
-	<div class="text-center">
- 		<h1>Creación de libros</h1>
- 	</div>
 
-<div class="row">
-    <div class="col-sm-2">
-    </div>
-    <div class="col-sm-8">
-    
-    
+	<h2>Libro</h2>
 
-	<form class="form-inline text-center" action="#" th:action="@{/libros/{accion}(accion=${accion})}"
+	<form action="#" th:action="@{/libros/{accion}(accion=${accion})}"
 		th:object="${libro}" method="post">
 		<p>
-			<label for="titulo">Titulo</label> 
-			<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0"
+			<label for="titulo">Nombre</label> <input type="text"
 				th:field="*{titulo}"
 				th:attr="disabled=${accion == 'borrar'}" /> <span
 				th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}">Error
 				nombre</span>
-			<label for="isbn">ISBN</label> 
-			<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0"
-				th:field="*{isbn}"
-				th:attr="disabled=${accion == 'borrar'}" /> <span
-				th:if="${#fields.hasErrors('isbn')}" th:errors="*{titulo}">Error
-				isbn</span>
-			<input type="hidden"
-				th:field="*{id}"
-				th:attr="disabled=${accion == 'borrar'}" /> <span
-				th:if="${#fields.hasErrors('id')}" th:errors="*{id}">Error
-				id</span>
-			
-			
-			<br><label for="editorial">Seleccionar editorial</label>
-		
-			<select th:field="*{editorial}" th:attr="disabled=${accion == 'borrar'}" class="form-control mb-2 mr-sm-2 mb-sm-0">
-				<th:block th:each="editorial : ${editoriales}">
-					<option th:value="${editorial.nombre}" th:text="${editorial.nombre}"/></option>
-				</th:block>
-   			</select>
-   		
-				
 		</p>
-		<input type="hidden" th:field="*{id}" />
+		<input type="hidden" th:field="*{idlibro}" />
 		<p>
-			<button type="submit" class="btn btn-success">Aceptar</button>
-			<div class="text-center"><a th:href="@{/libros/}" class="btn btn-danger">Volver</a></div>
+			<button type="submit">Aceptar</button>
 		</p>
 	</form>
-	
-    
-    </div>
-     <div class="col-sm-2">
-     
-    </div>
-  </div>
 </body>
 </html>

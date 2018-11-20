@@ -4,10 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
+import org.springframework.stereotype.Repository;
+
+import com.ipartek.formacion.prestamolibrosspring.model.Editorial;
 import com.ipartek.formacion.prestamolibrosspring.model.Libro;
 
+@Repository
 public class LibroMapRepository implements CrudAble<Libro>{
 	private TreeMap<Long, Libro> libros = new TreeMap<>(); 
+	
+	public LibroMapRepository() {
+		libros.put(1L, new Libro("Titulo1", "Anaya",1L,1));
+		libros.put(2L, new Libro("Titulo2", "planeta",2L,2));
+	}
+	
 	
 	@Override
 	public List<Libro> getAll() {

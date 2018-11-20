@@ -21,7 +21,7 @@
     
     
     <!-- Contenidos -->
-    
+    <a class="btn btn-info" href="/editoriales/">Editoriales</a>
     <div class="table-responsive">
   	<table class="table table-striped">
  		<thead>
@@ -30,16 +30,15 @@
 				<th>Nombre</th>
 				<th>Editorial</th>
 				<th>ISBN</th>
-				<th><div class="text-center"><a th:href="@{/libros/crear/0}" class="btn btn-info">Libro Nuevo</a>
-				 <a th:href="@{/editoriales}" class="btn btn-info">Editoriales</a></div></th>
+				<th><div class="text-center"><a th:href="@{/libros/crear/0}" class="btn btn-info">Libro Nuevo</a></div></th>
 			</tr>
 		</thead>
 		<tbody>
 			<th:block th:each="libro : ${libros}">
 				<tr>
-					<th th:text="${libro.id}"/><td th:text="${libro.titulo}"/><td th:text="${libro.editorial}"/><td th:text="${libro.isbn}"/>
-					<td><div class="text-center"><a th:href="@{/libros/editar/{id}(id=${libro.id})}" class="btn btn-success">Editar</a>
-													<a th:href="@{/libros/borrar/{id}(id=${libro.id})}" class="btn btn-danger">Borrar</a></div></td>
+					<th th:text="${libro.idlibro}"/><td th:text="${libro.titulo}"/><td th:text="${libro.editorial}"/><td th:text="${libro.isbn}"/>
+					<td><div class="text-center"><a th:href="@{/libros/editar/{id}(id=${libro.idlibro})}" class="btn btn-success">Editar</a>
+													<a th:href="@{/libros/borrar/{id}(id=${libro.idlibro})}" class="btn btn-danger">Borrar</a></div></td>
 					
 				</tr>
 			</th:block>
