@@ -3,23 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <title>Bienvenido a editoriales</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<script th:href="@{/jquery/jquery.js}"></script>
+<script th:href="@{/js/bootstrap.js}"></script>
+  
 </head>
 <body>
-
-	<h2>Editorial</h2>
-
-	<form action="#" th:action="@{/editoriales/{accion}(accion=${accion})}"
+	<div class="text-center">
+ 		<h2>Editorial</h2>
+ 	</div>
+ 	
+<div class="row">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+    <br><br>
+    
+    
+	<form class="form-group" action="#" th:action="@{/editoriales/{accion}(accion=${accion})}"
 		th:object="${editorial}" method="post">
 		<p>
-			<label for="nombre">Nombre</label> <input type="text"
+			<label class="sr-only" for="nombre">Nombre</label> 
+			<input type="text"
 				th:field="*{nombre}"
-				th:attr="disabled=${accion == 'borrar'}" /> <span
+				th:attr="disabled=${accion == 'borrar'}" class="form-control mb-2 mr-sm-2 mb-sm-0"/>
+				 <span
 				th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error
 				nombre</span>
 		</p>
 		<input type="hidden" th:field="*{id}" />
 		<p>
-			<button type="submit">Aceptar</button>
+			<button type="submit" class="btn btn-primary">Aceptar</button>
 		</p>
 	</form>
 </body>

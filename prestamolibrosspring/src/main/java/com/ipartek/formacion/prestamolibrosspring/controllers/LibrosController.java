@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,17 +14,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.ipartek.formacion.prestamolibrosspring.model.Editorial;
 import com.ipartek.formacion.prestamolibrosspring.model.Libro;
+import com.ipartek.formacion.prestamolibrosspring.repositories.EditorialMapRepository;
 import com.ipartek.formacion.prestamolibrosspring.repositories.LibroMapRepository;
 
 @Controller
 public class LibrosController {
-	private static final LibroMapRepository repositoriolib = new LibroMapRepository();
+	private LibroMapRepository repositoriolib = new LibroMapRepository();
 	
-	static {
-		repositoriolib.insert(new Libro("Titulo1","Editorial1",1L,1));
-		repositoriolib.insert(new Libro("Titulo2","Editorial1",1L,2));
-	}
 	
+	//Como lleva el @Repository la clase EditorialMaoRepository se autorellena
+	@Autowired
+	private EditorialMapRepository repositorioedit=null;
+	
+		
 	@GetMapping("/libros")
 	public String getAll(Model modelo) {
 		modelo.addAttribute("libros", repositoriolib.getAll());
@@ -45,10 +48,15 @@ public class LibrosController {
 			libro = new Libro("","",0L,0);
 		}
 		
-			List<Libro> listaeditoriales=repositoriolib.getAll();
+			List<Editorial> editoriales=repositorioedit.getAll();
+			
+			for (Editorial string : editoriales) {
+		        System.out.println(string);
+		    }
 			
 		modelo.addAttribute("libro", libro);
-		modelo.addAttribute("editoriales",listaeditoriales);
+		modelo.addAttribute("editoriales",editoriales);
+		
 		
 		return "libro";
 	}
@@ -57,6 +65,7 @@ public class LibrosController {
 	public String procesarPantalla(
 			@PathVariable(value="accion") String accion, 
 			@Valid Libro libro, BindingResult bindingResult) {
+	
 		
 		if (!accion.equals("borrar") && bindingResult.hasErrors()) {
             return "libro";

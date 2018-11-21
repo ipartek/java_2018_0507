@@ -55,6 +55,7 @@ public class EditorialController {
 
 		switch(accion) {
 		case "crear": 
+			System.out.println("CREAR: " + editorial.getNombre());
 			repositorio.insert(editorial);
 			break;
 		case "editar":

@@ -3,24 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <title>Bienvenido a libross</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<script th:href="@{/jquery/jquery.js}"></script>
+<script th:href="@{/js/bootstrap.js}"></script>
+  
 </head>
 <body>
 
-	<h2>Libro</h2>
+	<div class="text-center">
+ 		<h2>Libro</h2>
+ 	</div>
+	
+<div class="row">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+    <br><br>
 
-	<form action="#" th:action="@{/libros/{accion}(accion=${accion})}"
-		th:object="${libro}" method="post">
-		<p>
-			<label for="titulo">Nombre</label> <input type="text"
-				th:field="*{titulo}"
-				th:attr="disabled=${accion == 'borrar'}" /> <span
-				th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}">Error
-				nombre</span>
-		</p>
-		<input type="hidden" th:field="*{idlibro}" />
-		<p>
-			<button type="submit">Aceptar</button>
-		</p>
-	</form>
+
+			<form class="form-group" action="#"
+				th:action="@{/libros/{accion}(accion=${accion})}"
+				th:object="${libro}" method="post">
+				<label class="sr-only" for="titulo"></label> 
+				Titulo:  
+				<input
+					type="text" th:field="*{titulo}"
+					th:attr="disabled=${accion == 'borrar'}"
+					class="form-control mb-2 mr-sm-2 mb-sm-0"/> 
+				<span
+					th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}">Error
+					nombre</span> 
+					
+					
+				<input type="hidden" th:field="*{idlibro}" /> <br>
+				<label class="sr-only" for="editorial"></label>
+				Editorial:  
+				<!-- input type="text" th:field="*{editorial}" th:attr="disabled=${accion == 'borrar'}" 
+				class="form-control mb-2 mr-sm-2 mb-sm-0"/--> <br>
+				
+				
+				
+				<select th:field="*{editorial}"  th:attr="disabled=${accion == 'borrar'}"
+				class="form-control mb-2 mr-sm-2 mb-sm-0">
+					<option th:each="editorial : ${editoriales}" 
+						th:value="${editorial.nombre}"
+						th:utext="${editorial.nombre}"/>
+				</select>
+				
+				<label class="sr-only" for="isbn"></label>
+				Isbn: 
+				<input type="text" th:field="*{isbn}" th:attr="disabled=${accion == 'borrar'}"
+				class="form-control mb-2 mr-sm-2 mb-sm-0"/>
+
+				<button type="submit" class="btn btn-primary">Aceptar</button>
+			</form>
+		</div>
+     <div class="col-sm-4">
+     
+    </div>
+  </div>
 </body>
 </html>

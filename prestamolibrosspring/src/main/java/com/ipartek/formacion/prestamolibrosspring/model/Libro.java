@@ -51,7 +51,7 @@ public class Libro {
 	public void setEditorial(String editorial) {
 		this.editorial = editorial;
 	}
-	public long getIsbn() {
+	public Long getIsbn() {
 		return isbn;
 	}
 	public void setIsbn(Long isbn) {
