@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
-import org.springframework.stereotype.Repository;
 
 import com.ipartek.formacion.editorialrestspring.modelos.Editorial;
 
-@Repository
+//@Repository
 public class EditorialMapRepository implements CrudAble<Editorial>{
 	private TreeMap<Long, Editorial> editoriales = new TreeMap<>(); 
 	
@@ -44,12 +43,14 @@ public class EditorialMapRepository implements CrudAble<Editorial>{
 	}
 
 	@Override
-	public void update(Editorial e) {
+	public boolean update(Editorial e) {
 		editoriales.put(e.getId(), e); //Si ya existe el id sustituye el objeto en lugar de crear uno nuevo
+		return true;
 	}
 
 	@Override
-	public void delete(Long id) {
+	public boolean delete(Long id) {
 		editoriales.remove(id);
+		return true;
 	}
 }
