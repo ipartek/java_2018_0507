@@ -4,19 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
-<<<<<<< HEAD
-import org.springframework.stereotype.Component;
 
-import com.ipartek.formacion.prestamolibrosspring.model.Editorial;
-
-@Component
-=======
 import org.springframework.stereotype.Repository;
 
 import com.ipartek.formacion.prestamolibrosspring.model.Editorial;
 
 @Repository
->>>>>>> branch 'master' of https://github.com/ipartek/java_2018_0507.git
 public class EditorialMapRepository implements CrudAble<Editorial>{
 	private TreeMap<Long, Editorial> editoriales = new TreeMap<>(); 
 	
