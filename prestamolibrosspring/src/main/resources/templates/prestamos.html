@@ -11,7 +11,7 @@
 <body>
 
 	<div class="text-center">
- 		<h1>Libros</h1>
+ 		<h1>Prestamos</h1>
  	</div>
 	
 <div class="row">
@@ -21,25 +21,35 @@
     
     
     <!-- Contenidos -->
+    <a class="btn btn-info" href="/libros/">Libros</a>
     <a class="btn btn-info" href="/editoriales/">Editoriales</a>
-     <a class="btn btn-info" href="/prestamos/">Prestamos</a>
+    
     <div class="table-responsive">
   	<table class="table table-striped">
  		<thead>
 			<tr>
 				<th>ID</th>
-				<th>Nombre</th>
-				<th>Editorial</th>
-				<th>ISBN</th>
-				<th><div class="text-center"><a th:href="@{/libros/crear/0}" class="btn btn-info">Libro Nuevo</a></div></th>
+				<th>Titulo</th>
+				<th>Usuario</th>
+				<th>Fecha Prestamo</th>
+				<th>Fecha Devolucion</th>
+				<th><div class="text-center"><a th:href="@{/prestamos/crear/0}" class="btn btn-info">Prestamo Nuevo</a></div></th>
 			</tr>
 		</thead>
 		<tbody>
-			<th:block th:each="libro : ${libros}">
+			<th:block th:each="prestamo : ${prestamos}">
 				<tr>
-					<th th:text="${libro.idlibro}"/><td th:text="${libro.titulo}"/><td th:text="${libro.editorial}"/><td th:text="${libro.isbn}"/>
-					<td><div class="text-center"><a th:href="@{/libros/editar/{id}(id=${libro.idlibro})}" class="btn btn-success">Editar</a>
-													<a th:href="@{/libros/borrar/{id}(id=${libro.idlibro})}" class="btn btn-danger">Borrar</a></div></td>
+					<th th:text="${prestamo.id}"/>
+					<td th:text="${prestamo.titulo}"/>
+					<td th:text="${prestamo.usuario}"/>
+		
+					<td th:text="${#dates.format(prestamo.fechaprestamo, 'dd-MMM-yyyy')}"></td> 
+					
+					<td th:text="${prestamo.fechdevol}"/>
+					
+					
+					<td><div class="text-center"><a th:href="@{/prestamos/editar/{id}(id=${prestamo.id})}" class="btn btn-success">Editar</a>
+													<a th:href="@{/prestamos/borrar/{id}(id=${prestamo.id})}" class="btn btn-danger">Borrar</a></div></td>
 					
 				</tr>
 			</th:block>
