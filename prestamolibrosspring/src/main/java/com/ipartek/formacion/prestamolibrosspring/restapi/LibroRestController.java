@@ -30,17 +30,17 @@ public class LibroRestController {
 	}
 	
 	@PostMapping("/api/libros")
-	public Long crearNuevaEditorial(@RequestBody Libro libro) {
+	public Long crearNuevoLibro(@RequestBody Libro libro) {
 		return repositorio.insert(libro);
 	}
 	
 	@PutMapping("/api/libros")
-	public void cambiarEditorial(@RequestBody Libro libro) {
+	public void cambiarLibro(@RequestBody Libro libro) {
 		repositorio.update(libro);
 	}
 	
 	@DeleteMapping("/api/libros/{id}")
-	public void borrarEditorial(@PathVariable("id") Long id) {
+	public void borrarLibro(@PathVariable("id") Long id) {
 		repositorio.delete(id);
 	}
 }
