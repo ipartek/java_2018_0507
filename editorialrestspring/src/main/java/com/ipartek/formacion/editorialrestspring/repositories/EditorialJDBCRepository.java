@@ -1,13 +1,17 @@
 package com.ipartek.formacion.editorialrestspring.repositories;
 
+import java.sql.Types;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import com.ipartek.formacion.editorialrestspring.modelos.Editorial;
@@ -48,21 +52,31 @@ public class EditorialJDBCRepository implements CrudAble<Editorial>{
 	}
 
 	@Override
-	public Long insert(Editorial t) {
-		// TODO Auto-generated method stub
-		return null;
+	public Number insert(Editorial t) {		
+		SimpleJdbcInsert simpleJdbcInsert = new SimpleJdbcInsert(jdbcTemplate)
+				.withTableName("editoriales")
+				.usingGeneratedKeyColumns("id");
+
+		Map<String, Object> inParamMap = new HashMap<String, Object>();
+		inParamMap.put("editorial", t.getNombre());
+		
+	    return simpleJdbcInsert.executeAndReturnKey(inParamMap);
 	}
 
 	@Override
 	public boolean update(Editorial t) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
 	@Override
-	public boolean delete(Long id) {
-		// TODO Auto-generated method stub
-		return false;
+	public void delete(Long id) {
+		SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+			    .withProcedureName("editoriales_DeleteById");
+		
+		SqlParameterSource in = new MapSqlParameterSource().addValue("param_ID", id);
+			
+		simpleJdbcCall.execute(in);		
 	}
 	
 }

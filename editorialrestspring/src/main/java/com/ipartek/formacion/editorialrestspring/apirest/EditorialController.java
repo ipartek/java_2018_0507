@@ -30,7 +30,7 @@ public class EditorialController {
     }
 	
 	@PostMapping("/api/editoriales")
-	public Long crearNuevaEditorial(@RequestBody Editorial editorial) {
+	public Number crearNuevaEditorial(@RequestBody Editorial editorial) {
 		return repositorio.insert(editorial);
 	}
 	
