@@ -20,12 +20,12 @@ public class LibroRestController {
 	private CrudAble<Libro> repositorio;
 	
 	@GetMapping("/api/libros")
-	public List<Libro> obtenerEditoriales() {
+	public List<Libro> obtenerLibros() {
 		return repositorio.getAll();
 	}
 	
 	@GetMapping("/api/libros/{idrecibido}")
-	public Libro obtenerEditorialPorId(@PathVariable("idrecibido") Long id) {
+	public Libro obtenerLibroPorId(@PathVariable("idrecibido") Long id) {
 		return repositorio.getById(id);
 	}
 	
