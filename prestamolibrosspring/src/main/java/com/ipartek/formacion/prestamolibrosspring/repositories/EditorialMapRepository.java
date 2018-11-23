@@ -8,7 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import com.ipartek.formacion.prestamolibrosspring.model.Editorial;
 
-@Repository //con esto voy a poder conectarme con el autowired en el RestController sin hacer un Instance
+
+//@Repository //con esto voy a poder conectarme con el autowired en el RestController sin hacer un Instance
+			//solo puedo haber un @repository por CrudAble
 public class EditorialMapRepository implements CrudAble<Editorial>{
 	private TreeMap<Long, Editorial> editoriales = new TreeMap<>(); 
 	

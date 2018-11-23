@@ -22,12 +22,6 @@
 					th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}">Error
 					titulo</span>
 			</p>
-			<p>
-				<label for="txaber">Desfasa a txaber</label> <input type="text"
-					th:field="*{txaber}" th:attr="disabled=${accion == 'borrar'}" /> <span
-					th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}">Error
-					titulo</span>
-			</p>
 			<input type="hidden" th:field="*{id}" />
 			<p>
 				<button type="submit">Aceptar</button>

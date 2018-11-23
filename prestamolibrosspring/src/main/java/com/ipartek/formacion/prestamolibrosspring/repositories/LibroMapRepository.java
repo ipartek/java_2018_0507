@@ -4,14 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
+
+import org.springframework.stereotype.Repository;
+
+import com.ipartek.formacion.prestamolibrosspring.model.Editorial;
 import com.ipartek.formacion.prestamolibrosspring.model.Libro;
-import com.ipartek.formacion.prestamolirbosspring.exceptions.RepositoryException;
 
-public class LibroMapRepository implements CrudAble <Libro> {
-	
-	private TreeMap <Long,Libro> libros = new TreeMap<>();
-	
+//@Repository
+public class LibroMapRepository implements CrudAble<Libro> {
 
+	private TreeMap<Long, Libro> libros = new TreeMap<>();
+	
+	public LibroMapRepository() {
+		insert(new Libro(1L, "Titulo1", "123456789", new Editorial(1L, "Editorial1")));
+		insert(new Libro(2L, "Titulo2", "223456789", new Editorial(2L, "Editorial2")));
+	}
+	
 	@Override
 	public List<Libro> getAll() {
 		return new ArrayList<Libro>(libros.values());
@@ -20,43 +28,41 @@ public class LibroMapRepository implements CrudAble <Libro> {
 	@Override
 	public Libro getById(Long id) {
 		return libros.get(id);
-		
 	}
 
 	@Override
-	public Long insert(Libro l) {
-		
+	public Long insert(Libro libro) {
 		Long idAnterior;
 		
-		if(libros.size() == 0) {
+		if(libros.size() == 0)
 			idAnterior = 0L;
-		}else {
-			idAnterior=libros.lastKey();
-		}
-	l.setId(idAnterior+1);
-	
-	libros.put(l.getId(), l);
-	return l.getId();
+		else
+			idAnterior = libros.lastKey(); 
 		
+		libro.setId(idAnterior + 1);
+		
+		libros.put(libro.getId(), libro);
+		
+		return libro.getId();
 	}
 
 	@Override
-	public void update(Libro l) {
-		
-		if(libros.containsKey(l.getId())) {
-			
-			throw new RepositoryException("El libro no existe, asique no se puede editar");
+	public void update(Libro libro) {
+		if(!libros.containsKey(libro.getId())) {
+			throw new RepositoryException("El libro no existe, por lo que no se puede modificar"); 
 		}
 		
-		libros.put(l.getId(), l);
-		
+		libros.put(libro.getId(), libro);
 	}
 
 	@Override
 	public void delete(Long id) {
-	    libros.remove(id);
+		if(!libros.containsKey(id)) {
+			throw new RepositoryException("El libro no existe, por lo que no se puede modificar"); 
+		}
 		
+		libros.remove(id);
 	}
 
-	
+
 }

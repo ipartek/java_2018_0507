@@ -1,4 +1,4 @@
-package com.ipartek.formacion.prestamolibrosspring.controllers;
+package com.ipartek.formacion.prestamolibrosspring.restapi;
 
 import java.util.List;
 

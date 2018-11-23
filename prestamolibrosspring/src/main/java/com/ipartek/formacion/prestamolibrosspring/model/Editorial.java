@@ -11,9 +11,8 @@ public class Editorial {
 	private String nombre;
 
 	public Editorial(Long id, String nombre) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
+		setId(id);
+		setNombre(nombre);
 	}
 
 	public Long getId() {

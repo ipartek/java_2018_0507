@@ -22,14 +22,13 @@
 			<tr>
 				<th>ID</th>
 				<th>Titulo</th>
-				<th>Variable Txaber </th>
 				<th><a th:href="@{/libros/crear/0}">Nueva</a></th>
 			</tr>
 		</thead>
 		<tbody>
 			<th:block th:each="libro : ${libros}">
 				<tr>
-					<th th:text="${libro.id}"/><td th:text="${libro.titulo}"/> <td th:text="${libro.txaber}"/>
+					<th th:text="${libro.id}"/><td th:text="${libro.titulo}"/>
 					<td><a th:href="@{/libros/editar/{id}(id=${libro.id})}">Editar</a></td>
 					<td><a th:href="@{/libros/borrar/{id}(id=${libro.id})}">Borrar</a></td>
 				</tr>

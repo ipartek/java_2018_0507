@@ -1,11 +1,11 @@
-package com.ipartek.formacion.prestamolirbosspring.exceptions;
+package com.ipartek.formacion.prestamolibrosspring.repositories;
 
 public class RepositoryException extends RuntimeException {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 478205235619062329L;
 
 	public RepositoryException() {
 		// TODO Auto-generated constructor stub
