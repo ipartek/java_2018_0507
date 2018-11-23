@@ -17,39 +17,33 @@ import com.ipartek.formacion.prestamolibrosspring.repositories.CrudAble;
 @RestController
 public class EditorialRestController {
 	
-	@Autowired
-	private CrudAble<Editorial>repositorio;
-
+	@Autowired	// con el autowired es como si hiciera un new del repositorio. Si lo pongo no me
+	// hace falta
+	
+	private CrudAble<Editorial> repositorio; // No pongo el DAO porque solo hay un Crudable<Editorial>
+	
 	@GetMapping("/api/editoriales")
-	public List<Editorial> obtenerEditoriales(){
-		
-		return repositorio.getAll();	
+	public List<Editorial> obtenerEditoriales() {
+		return repositorio.getAll();
 	}
 	
 	@GetMapping("/api/editoriales/{idrecibido}")
-	public Editorial obtenerEditorialPorId(@PathVariable ("idrecibido")Long id) {
-		//Editorial editorial = repositorio.getById(id);
-		//return editorial;
-		
-		return repositorio.getById(id);
-		
+	public Editorial obtenerEditorialPorId(@PathVariable("idrecibido") Long id) {
+		return repositorio.getById(id); // devolviendo objeto editorial con ID
 	}
 	
-	
 	@PostMapping("/api/editoriales")
-	public Long crearNuevaEditorial(Editorial editorial) {
+	public Long crearNuevaEditorial(@RequestBody Editorial editorial) {
 		return repositorio.insert(editorial);
 	}
 	
-	
-	@PutMapping("/api/editoriales/{id}")
-	public void cambiarEditorial(@PathVariable("id") Long id, @RequestBody Editorial editorial) {
+	@PutMapping("/api/editoriales")
+	public void cambiarEditorial(@RequestBody Editorial editorial) {
 		repositorio.update(editorial);
-		
 	}
 	
 	@DeleteMapping("/api/editoriales/{id}")
-	public void eleiminarEditorial(@PathVariable("idrecibido") Long id) {
+	public void borrarEditorial(@PathVariable("id") Long id) {
 		repositorio.delete(id);
 	}
 }
