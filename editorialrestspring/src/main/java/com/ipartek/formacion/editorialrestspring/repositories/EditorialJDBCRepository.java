@@ -1,11 +1,14 @@
 package com.ipartek.formacion.editorialrestspring.repositories;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
@@ -13,7 +16,6 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import com.ipartek.formacion.editorialrestspring.modelos.Editorial;
-import com.ipartek.formacion.editorialrestspring.modelos.EditorialRowMapper;
 
 //@Repository
 public class EditorialJDBCRepository implements CrudAble<Editorial>{
@@ -75,6 +77,15 @@ public class EditorialJDBCRepository implements CrudAble<Editorial>{
 		SqlParameterSource in = new MapSqlParameterSource().addValue("param_ID", id);
 			
 		simpleJdbcCall.execute(in);		
+	}
+	
+	public static final class EditorialRowMapper implements RowMapper<Editorial>{
+		public Editorial mapRow(ResultSet rs, int rowNum) throws SQLException {
+			Editorial editorial = new Editorial();
+			editorial.setId(rs.getLong("id"));
+			editorial.setNombre(rs.getString("editorial"));
+			return editorial;
+		}
 	}
 	
 }
