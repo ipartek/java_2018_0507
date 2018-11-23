@@ -84,5 +84,4 @@ public class EditorialJDBCRepository implements CrudAble<Editorial>{
 			return new Editorial(rs.getLong("id"), (rs.getString("editorial")));
 		}
 	}
-	
 }
