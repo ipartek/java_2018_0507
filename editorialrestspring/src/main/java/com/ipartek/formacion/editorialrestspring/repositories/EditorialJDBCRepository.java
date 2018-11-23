@@ -81,10 +81,7 @@ public class EditorialJDBCRepository implements CrudAble<Editorial>{
 	
 	public static final class EditorialRowMapper implements RowMapper<Editorial>{
 		public Editorial mapRow(ResultSet rs, int rowNum) throws SQLException {
-			Editorial editorial = new Editorial();
-			editorial.setId(rs.getLong("id"));
-			editorial.setNombre(rs.getString("editorial"));
-			return editorial;
+			return new Editorial(rs.getLong("id"), (rs.getString("editorial")));
 		}
 	}
 	
