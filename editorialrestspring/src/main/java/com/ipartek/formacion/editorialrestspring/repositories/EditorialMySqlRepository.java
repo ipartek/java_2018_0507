@@ -14,7 +14,7 @@ import com.ipartek.formacion.editorialrestspring.biblioteca.Utils;
 import com.ipartek.formacion.editorialrestspring.modelos.Editorial;
 import com.mysql.cj.jdbc.CallableStatement;
 
-//@Repository
+@Repository
 public class EditorialMySqlRepository implements CrudAble<Editorial> {
 
 	private String urlBD;
@@ -113,7 +113,7 @@ public class EditorialMySqlRepository implements CrudAble<Editorial> {
 	}
 
 	@Override
-	public boolean update(Editorial pojo) {
+	public void update(Editorial pojo) {
 		try (Connection con = DriverManager.getConnection(urlBD, usuarioBD, passwordBD)) {
 			String sql = "{call editoriales_update(?, ?)}";
 
@@ -121,20 +121,13 @@ public class EditorialMySqlRepository implements CrudAble<Editorial> {
 				cst.setLong(1, pojo.getId());
 				cst.setString(2, pojo.getNombre());
 				
-				int numFilas = cst.executeUpdate();
-
-				if (numFilas != 1) {
-					return false;
-				}
-
+				cst.executeUpdate();
 			} catch (SQLException e) {
 				throw new AccesoDatosException(e.getMessage(), e);
 			}
 		} catch (SQLException e) {
 			throw new AccesoDatosException(e.getMessage(), e);
 		}
-
-		return true;
 	}
 
 	@Override

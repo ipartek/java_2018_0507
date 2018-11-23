@@ -11,41 +11,42 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ipartek.formacion.editorialrestspring.modelos.Editorial;
+import com.ipartek.formacion.editorialrestspring.modelos.Libro;
 import com.ipartek.formacion.editorialrestspring.repositories.CrudAble;
 
 @RestController
-public class EditorialController implements RestAble<Editorial>{
+public class LibroRestController implements RestAble<Libro>{
+
 	@Autowired
-	private final CrudAble<Editorial> repositorio = null;
+	private CrudAble<Libro> repositorio;
 	
 	@Override
-	@GetMapping("/api/editoriales")
-	public List<Editorial> obtenerTodos() {
+	@GetMapping("/api/libros")
+	public List<Libro> obtenerTodos() {
 		return repositorio.getAll();
 	}
-	
+
 	@Override
-	@GetMapping("/api/editoriales/{id}")
-    public Editorial obtenerPorId(@PathVariable("id") Long id) {
-    	return repositorio.getById(id);
-    }
-	
-	@Override
-	@PostMapping("/api/editoriales")
-	public Long crear(@RequestBody Editorial editorial) {
-		return (Long) repositorio.insert(editorial);
+	@GetMapping("/api/libros/{id}")
+	public Libro obtenerPorId(@PathVariable("id") Long id) {
+		return repositorio.getById(id);
 	}
-	
+
 	@Override
-	@PutMapping("/api/editoriales")
-	public void modificar(@RequestBody Editorial editorial) {
-		repositorio.update(editorial);
+	@PostMapping("/api/libros")
+	public Long crear(@RequestBody Libro libro) {
+		return (Long) repositorio.insert(libro);
 	}
-	
+
 	@Override
-	@DeleteMapping("/api/editoriales/{id}")
-	public void borrar(@PathVariable("id") Long id) {
+	@PutMapping("/api/libros")
+	public void modificar(@RequestBody Libro libro) {
+		repositorio.update(libro);
+	}
+
+	@Override
+	@DeleteMapping("/api/libros/{id}")
+	public void borrar(Long id) {
 		repositorio.delete(id);
 	}
 }

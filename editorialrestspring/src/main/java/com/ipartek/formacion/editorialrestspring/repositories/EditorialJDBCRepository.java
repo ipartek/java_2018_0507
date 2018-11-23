@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import com.ipartek.formacion.editorialrestspring.modelos.Editorial;
 import com.ipartek.formacion.editorialrestspring.modelos.EditorialRowMapper;
 
-@Repository
+//@Repository
 public class EditorialJDBCRepository implements CrudAble<Editorial>{
 
 	@Autowired

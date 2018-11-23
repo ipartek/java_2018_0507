@@ -5,7 +5,7 @@ import java.util.List;
 public interface CrudAble<T> {
 	public List<T> getAll();
 	public T getById(Long id);
-	public Number insert(T t); //Devolver el id insertado
-	public boolean update(T t);
-	public void delete(Long id);	
+	public Long insert(T t); //Devolver el id insertado
+	public void update(T t);
+	public boolean delete(Long id);	
 }

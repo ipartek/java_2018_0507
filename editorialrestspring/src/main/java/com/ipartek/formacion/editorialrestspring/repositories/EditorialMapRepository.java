@@ -43,9 +43,8 @@ public class EditorialMapRepository implements CrudAble<Editorial>{
 	}
 
 	@Override
-	public boolean update(Editorial e) {
+	public void update(Editorial e) {
 		editoriales.put(e.getId(), e); //Si ya existe el id sustituye el objeto en lugar de crear uno nuevo
-		return true;
 	}
 
 	@Override
