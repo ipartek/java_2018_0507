@@ -12,16 +12,18 @@ import org.springframework.stereotype.Repository;
 
 import com.ipartek.formacion.editorialrestspring.biblioteca.Utils;
 import com.ipartek.formacion.editorialrestspring.modelos.Editorial;
+import com.ipartek.formacion.editorialrestspring.modelos.Libro;
+import com.ipartek.formacion.editorialrestspring.repositories.AccesoDatosException;
 import com.mysql.cj.jdbc.CallableStatement;
 
 @Repository
-public class EditorialMySqlRepository implements CrudAble<Editorial> {
+public class LibroMySqlRepository implements CrudAble<Libro> {
 
 	private String urlBD;
 	private String usuarioBD;
 	private String passwordBD;
 	
-	public EditorialMySqlRepository() {
+	public LibroMySqlRepository() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
@@ -35,40 +37,44 @@ public class EditorialMySqlRepository implements CrudAble<Editorial> {
 	}
 	
 	@Override
-	public Long insert(Editorial pojo) {
+	public Long insert(Libro pojo) {
 		long numFilas =  0;
 		try (Connection con = DriverManager.getConnection(urlBD, usuarioBD, passwordBD)) {
-			String sql = "{call editoriales_insert(?)}";
+			String sql = "{call libros_insert(?, ?, ?)}";
 			try (CallableStatement cst = (CallableStatement) con.prepareCall(sql)) {
-				cst.setString(1, pojo.getNombre());
+				cst.setString(1, pojo.getTitulo());
+				cst.setString(2, pojo.getIsbn());
+				cst.setLong(3, pojo.getEditorial().getId());
 
-				numFilas = (long) cst.executeUpdate();
-
+				 numFilas = (long) cst.executeUpdate();
 			} catch (SQLException e) {
 				throw new AccesoDatosException(e.getMessage(), e);
 			}
 		} catch (SQLException e) {
 			throw new AccesoDatosException(e.getMessage(), e);
 		}
-
 		return numFilas;
 	}
 
 	@Override
-	public List<Editorial> getAll() {
+	public List<Libro> getAll() {
 		Editorial editorial = null;
-		ArrayList<Editorial> editoriales = new ArrayList<>();
+		ArrayList<Libro> libros = new ArrayList<>();
 
 		try (Connection con = DriverManager.getConnection(urlBD, usuarioBD, passwordBD)) {
-			String sql = "{call editoriales_getAll()}";
+			String sql = "{call libros_getAll()}";
 			try (CallableStatement cst = (CallableStatement) con.prepareCall(sql)) {
 
 				try (ResultSet rs = cst.executeQuery()) {
 					while (rs.next()) {
-						editorial = new Editorial(rs.getLong("id"),
-												rs.getString("editorial"));
+						editorial = new Editorial(rs.getLong("e.id"),
+												rs.getString("e.editorial"));
+						Libro libro = new Libro(rs.getLong("l.id"), 
+								rs.getString("l.titulo"),
+								rs.getString("l.ISBN"),
+								editorial);
 								
-						editoriales.add(editorial);
+						libros.add(libro);
 					}
 				} catch (Exception e) {
 					throw new AccesoDatosException(e.getMessage(), e);
@@ -81,20 +87,25 @@ public class EditorialMySqlRepository implements CrudAble<Editorial> {
 			throw new AccesoDatosException(e.getMessage(), e);
 		}
 
-		return editoriales;
+		return libros;
 	}
 
 	@Override
-	public Editorial getById(Long id) {
+	public Libro getById(Long id) {
 		Editorial editorial = null;
-		
+		Libro libro = null;
+
 		try (Connection con = DriverManager.getConnection(urlBD, usuarioBD, passwordBD)) {
-			String sql = "{call editoriales_getById(?)}";
+			String sql = "{call libros_getById(?)}";
 			try (CallableStatement cst = (CallableStatement) con.prepareCall(sql)) {
 				cst.setLong(1, id);
 				try (ResultSet rs = cst.executeQuery()) {
 					if (rs.next()) {
-						editorial = new Editorial(rs.getLong("id"), rs.getString("editorial"));
+						editorial = new Editorial(rs.getLong("e.id"), rs.getString("e.editorial"));
+						libro = new Libro(rs.getLong("l.id"), 
+										rs.getString("l.titulo"),
+										rs.getString("l.ISBN"),
+										editorial);
 					}else {
 						return null;
 					}
@@ -109,19 +120,22 @@ public class EditorialMySqlRepository implements CrudAble<Editorial> {
 			throw new AccesoDatosException(e.getMessage(), e);
 		}
 
-		return editorial;
+		return libro;
 	}
 
 	@Override
-	public void update(Editorial pojo) {
+	public void update(Libro pojo) {
 		try (Connection con = DriverManager.getConnection(urlBD, usuarioBD, passwordBD)) {
-			String sql = "{call editoriales_update(?, ?)}";
+			String sql = "{call libros_update(?, ?, ?, ?)}";
 
 			try (CallableStatement cst = (CallableStatement) con.prepareCall(sql)) {
 				cst.setLong(1, pojo.getId());
-				cst.setString(2, pojo.getNombre());
-				
+				cst.setString(2, pojo.getTitulo());
+				cst.setString(3, pojo.getIsbn());
+				cst.setLong(4, pojo.getEditorial().getId());
+
 				cst.executeUpdate();
+
 			} catch (SQLException e) {
 				throw new AccesoDatosException(e.getMessage(), e);
 			}
@@ -134,7 +148,7 @@ public class EditorialMySqlRepository implements CrudAble<Editorial> {
 	public boolean delete(Long id) {
 		try (Connection con = DriverManager.getConnection(urlBD, usuarioBD, passwordBD)) {
 			
-			String sql = "{call editoriales_DeleteById(?)}";
+			String sql = "{call libros_DeleteById(?)}";
 			try (CallableStatement cst = (CallableStatement) con.prepareCall(sql)) {
 				cst.setLong(1, id);
 

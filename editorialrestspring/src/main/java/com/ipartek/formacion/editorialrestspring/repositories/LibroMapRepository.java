@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.ipartek.formacion.editorialrestspring.modelos.Editorial;
 import com.ipartek.formacion.editorialrestspring.modelos.Libro;
 
-@Repository
+//@Repository
 public class LibroMapRepository implements CrudAble<Libro> {
 
 	private TreeMap<Long, Libro> libros = new TreeMap<>();
