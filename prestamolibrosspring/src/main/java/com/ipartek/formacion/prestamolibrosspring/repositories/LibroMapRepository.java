@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.TreeMap;
 
 import com.ipartek.formacion.prestamolibrosspring.model.Libro;
+import com.ipartek.formacion.prestamolirbosspring.exceptions.RepositoryException;
 
 public class LibroMapRepository implements CrudAble <Libro> {
 	
@@ -41,6 +42,12 @@ public class LibroMapRepository implements CrudAble <Libro> {
 
 	@Override
 	public void update(Libro l) {
+		
+		if(libros.containsKey(l.getId())) {
+			
+			throw new RepositoryException("El libro no existe, asique no se puede editar");
+		}
+		
 		libros.put(l.getId(), l);
 		
 	}
