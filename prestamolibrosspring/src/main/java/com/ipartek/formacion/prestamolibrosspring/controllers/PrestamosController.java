@@ -1,5 +1,7 @@
 package com.ipartek.formacion.prestamolibrosspring.controllers;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -51,6 +53,24 @@ public class PrestamosController {
 		        System.out.println(string);
 		    }
 			
+			
+			
+			Date fechaactual=new Date();
+			System.out.println("LocalDateTime.now()" +
+			
+					LocalDateTime.now().getYear()
+					
+					+LocalDateTime.now().getMonthValue()
+					+LocalDateTime.now().getDayOfMonth());
+			prestamo.setFechdevol(
+					new Date(LocalDateTime.now().getYear()-1900,
+							LocalDateTime.now().getMonthValue()-1,
+							LocalDateTime.now().getDayOfMonth()));
+			
+			System.out.println("FECHAdevol:"+accion+ prestamo.getFechdevol());
+			System.out.println("FECHAmostrar:"+accion+ prestamo.getFechaprestamo());
+
+		
 		modelo.addAttribute("prestamo", prestamo);
 		modelo.addAttribute("libros",repositorilibros.getAll());
 		
@@ -78,7 +98,7 @@ public class PrestamosController {
 //		
 //		
 
-		System.out.println("FECHA:"+ prestamo.getFechaprestamo().getYear() +prestamo.getFechaprestamo().getMonth() + prestamo.getFechaprestamo().getDay() );
+		System.out.println("FECHA:"+ prestamo.getFechaprestamo()+prestamo.getFechaprestamo()+ prestamo.getFechaprestamo());
 
 
 
@@ -87,8 +107,17 @@ public class PrestamosController {
 			System.out.println("CREAR: " + prestamo.getTitulo() + "  " + prestamo.getFechaprestamo());
 			repositoriop.insert(prestamo);
 			break;
-		case "editar":
-			repositoriop.update(prestamo);
+		//case "editar":
+		//repositoriop.update(prestamo);
+		case "devolver":
+			//Devolver el libro es y ponerle la fecha de hoy
+			
+					
+					System.out.println("devolver");
+					
+					
+					
+			
 			break;
 		case "borrar":
 			repositoriop.delete((long) prestamo.getId());

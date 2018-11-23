@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Prestamo {
 	
 	@NotNull
@@ -14,6 +16,7 @@ public class Prestamo {
 	String titulo;
 	String usuario;
 
+	@DateTimeFormat (pattern="YYYY-MM-DD")
 	Date fechaprestamo;
 
 	Date fechdevol;

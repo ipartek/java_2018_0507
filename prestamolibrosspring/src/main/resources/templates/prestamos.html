@@ -44,17 +44,20 @@
 					<td th:text="${prestamo.usuario}"/>
 		
 					<td th:text="${#dates.format(prestamo.fechaprestamo, 'dd-MMM-yyyy')}"></td> 
+					<td th:text="${#dates.format(prestamo.fechdevol, 'dd-MMM-yyyy')}"></td> 
 					
-					<td th:text="${prestamo.fechdevol}"/>
 					
 					
-					<td><div class="text-center"><a th:href="@{/prestamos/editar/{id}(id=${prestamo.id})}" class="btn btn-success">Editar</a>
-													<a th:href="@{/prestamos/borrar/{id}(id=${prestamo.id})}" class="btn btn-danger">Borrar</a></div></td>
-					
+					<td><div class="text-center">
+						<a th:href="@{/prestamos/devolver/{id}(id=${prestamo.id})}" class="btn btn-success">Devolver</a>
+						<a th:href="@{/prestamos/borrar/{id}(id=${prestamo.id})}" class="btn btn-danger">Borrar</a></div></td>
+
+				
 				</tr>
 			</th:block>
 		</tbody>
 	  </table>
+	  //Los prestamos se edita?? creo que no
 	</div>
     
     <!-- End Contenidos -->
