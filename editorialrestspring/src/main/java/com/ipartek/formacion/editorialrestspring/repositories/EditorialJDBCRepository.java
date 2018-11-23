@@ -50,7 +50,7 @@ public class EditorialJDBCRepository implements CrudAble<Editorial>{
 	}
 
 	@Override
-	public Number insert(Editorial t) {		
+	public Long insert(Editorial t) {		
 		SimpleJdbcInsert simpleJdbcInsert = new SimpleJdbcInsert(jdbcTemplate)
 				.withTableName("editoriales")
 				.usingGeneratedKeyColumns("id");
