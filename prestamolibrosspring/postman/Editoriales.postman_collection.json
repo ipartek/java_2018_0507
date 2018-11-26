@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "910c7990-a0f8-4d38-b63e-0129211df19a",
+		"name": "Editoriales",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "obtenerEditoriales",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/editoriales",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"editoriales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenerEditorialPorId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/editoriales/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"editoriales",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crearNuevaEditorial",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"nombre\" : \"Ipartek\" }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/editoriales",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"editoriales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cambiarEditorial",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"id\": 3, \"nombre\" : \"Javier Lete & asociados\" }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/editoriales",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"editoriales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "borrarEditorial",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/editoriales/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"editoriales",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
