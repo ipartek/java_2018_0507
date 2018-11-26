@@ -1,21 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Bienvenido a libros</title>
-
-
-</head>
-<body>
-
-
-
-
-	
-
-</body>
-</html>
-
+<title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"
 	integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
 	crossorigin="anonymous"></script>
@@ -23,29 +10,29 @@
 </head>
 <body>
 
-	<h2>libros</h2>
+<h1>Libros Modificado</h1>
 
-	<table>
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Nombre</th>
-				<th>editorial</th>
-				<th>autor</th>
-			</tr>
-		</thead>
-		<tbody>
-		</tbody>
-	</table>
-	
-	<form>
-		<input type="hidden" id="id" value="0"/>
-		<input name="nombre" id="nombre"/>
-		<input name="editorial" id="editorial"/>
-		<input name="autor" id=""autor""/>
-		<input type="submit">
-	
-	</form>
+<form id="flibros">
+<table id="tlibros">
+	<thead>
+		<tr>
+			<th>ID</th><td>Titulo</td><td>ISBN</td><td>Editorial</td><th>Opciones</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td></td>
+			<td><input id="titulo" /></td>
+			<td><input id="isbn" /></td>
+			<td><select id="editorial"><option value="0">NO DEFINIDA</option></select></td>
+			<td><button>Aceptar</button></td>
+		</tr>
+	</tfoot>
+</table>
+</form>
+
 
 </body>
 </html>

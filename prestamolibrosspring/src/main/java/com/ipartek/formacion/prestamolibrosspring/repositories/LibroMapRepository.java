@@ -4,21 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
+import org.springframework.stereotype.Repository;
 
-
-import org.springframework.stereotype.Component;
-
+import com.ipartek.formacion.prestamolibrosspring.model.Editorial;
 import com.ipartek.formacion.prestamolibrosspring.model.Libro;
 
-@Component
-public class LibroMapRepository implements CrudAble<Libro>{
-	private TreeMap<Long, Libro> libros = new TreeMap<>(); 
-	
-	public LibroMapRepository() {
-		libros.put(1L, new Libro(1L, "La hija del clerigo","julen","hacker"));
-		libros.put(2L, new Libro(2L, "Que no muera la aspidistra","hacker","julen"));
-		libros.put(3L, new Libro(3L, "los dias de birmania","Anaya","Geor Orwell"));
-	}
+@Repository
+public class LibroMapRepository implements CrudAble<Libro> {
+
+	private TreeMap<Long, Libro> libros = new TreeMap<>();
 	
 	@Override
 	public List<Libro> getAll() {
@@ -31,7 +25,7 @@ public class LibroMapRepository implements CrudAble<Libro>{
 	}
 
 	@Override
-	public Long insert(Libro e) {
+	public Long insert(Libro libro) {
 		Long idAnterior;
 		
 		if(libros.size() == 0)
@@ -39,20 +33,28 @@ public class LibroMapRepository implements CrudAble<Libro>{
 		else
 			idAnterior = libros.lastKey(); 
 		
-		e.setId(idAnterior + 1);
+		libro.setId(idAnterior + 1);
 		
-		libros.put(e.getId(), e);
+		libros.put(libro.getId(), libro);
 		
-		return e.getId();
+		return libro.getId();
 	}
 
 	@Override
-	public void update(Libro e) {
-		libros.put(e.getId(), e); //Si ya existe el id sustituye el objeto en lugar de crear uno nuevo
+	public void update(Libro libro) {
+		if(!libros.containsKey(libro.getId())) {
+			throw new RepositoryException("El libro no existe, por lo que no se puede modificar"); 
+		}
+		
+		libros.put(libro.getId(), libro);
 	}
 
 	@Override
 	public void delete(Long id) {
+		if(!libros.containsKey(id)) {
+			throw new RepositoryException("El libro no existe, por lo que no se puede modificar"); 
+		}
+		
 		libros.remove(id);
 	}
 

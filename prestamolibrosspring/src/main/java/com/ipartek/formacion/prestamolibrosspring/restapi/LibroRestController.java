@@ -15,32 +15,37 @@ import com.ipartek.formacion.prestamolibrosspring.model.Libro;
 import com.ipartek.formacion.prestamolibrosspring.repositories.CrudAble;
 
 @RestController
-public class LibroRestController {
+public class LibroRestController implements RestAble<Libro> {
 	@Autowired
 	private CrudAble<Libro> repositorio;
 	
+	@Override
 	@GetMapping("/api/libros")
-	public List<Libro> obtenerLibros() {
+	public List<Libro> obtenerTodos() {
 		return repositorio.getAll();
 	}
-	
-	@GetMapping("/api/libros/{idrecibido}")
-	public Libro obtenerLibroPorId(@PathVariable("idrecibido") Long id) {
+
+	@Override
+	@GetMapping("/api/libros/{id}")
+	public Libro obtenerPorId(@PathVariable("id") Long id) {
 		return repositorio.getById(id);
 	}
-	
+
+	@Override
 	@PostMapping("/api/libros")
-	public Long crearNuevoLibro(@RequestBody Libro libro) {
+	public Long crear(@RequestBody Libro libro) {
 		return repositorio.insert(libro);
 	}
-	
+
+	@Override
 	@PutMapping("/api/libros")
-	public void cambiarLibro(@RequestBody Libro libro) {
+	public void modificar(@RequestBody Libro libro) {
 		repositorio.update(libro);
 	}
-	
+
+	@Override
 	@DeleteMapping("/api/libros/{id}")
-	public void borrarLibro(@PathVariable("id") Long id) {
+	public void borrar(@PathVariable("id") Long id) {
 		repositorio.delete(id);
 	}
 }

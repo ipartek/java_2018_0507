@@ -1,48 +1,17 @@
 package com.ipartek.formacion.prestamolibrosspring.model;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 public class Libro {
 	private Long id;
+	private String titulo, isbn;
+	private Editorial editorial;
 	
-	@NotNull
-    @Size(min=2, max=30)
-	private String nombre;
-
-	@NotNull
-    @Size(min=2, max=30)
-	private String editorial;
-	
-	@NotNull
-    @Size(min=2, max=30)
-	private String autor;
-	
-	public Libro(Long id,String nombre,String editorial,String autor) {
+	public Libro(Long id, String titulo, String isbn, Editorial editorial) {
 		super();
 		this.id = id;
-		this.nombre = nombre;
-		this.editorial = editorial;
-		this.autor = autor;
-	}
-
-	public String getEditorial() {
-		return editorial;
-	}
-
-	public void setEditorial(String editorial) {
+		this.titulo = titulo;
+		this.isbn = isbn;
 		this.editorial = editorial;
 	}
-
-	public String getAutor() {
-		return autor;
-	}
-
-	public void setAutor(String autor) {
-		this.autor = autor;
-	}
-
-
 
 	public Long getId() {
 		return id;
@@ -52,22 +21,38 @@ public class Libro {
 		this.id = id;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+
+	public Editorial getEditorial() {
+		return editorial;
+	}
+
+	public void setEditorial(Editorial editorial) {
+		this.editorial = editorial;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((autor == null) ? 0 : autor.hashCode());
 		result = prime * result + ((editorial == null) ? 0 : editorial.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		result = prime * result + ((isbn == null) ? 0 : isbn.hashCode());
+		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
 		return result;
 	}
 
@@ -80,11 +65,6 @@ public class Libro {
 		if (getClass() != obj.getClass())
 			return false;
 		Libro other = (Libro) obj;
-		if (autor == null) {
-			if (other.autor != null)
-				return false;
-		} else if (!autor.equals(other.autor))
-			return false;
 		if (editorial == null) {
 			if (other.editorial != null)
 				return false;
@@ -95,18 +75,23 @@ public class Libro {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (nombre == null) {
-			if (other.nombre != null)
+		if (isbn == null) {
+			if (other.isbn != null)
 				return false;
-		} else if (!nombre.equals(other.nombre))
+		} else if (!isbn.equals(other.isbn))
+			return false;
+		if (titulo == null) {
+			if (other.titulo != null)
+				return false;
+		} else if (!titulo.equals(other.titulo))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Libro [id=" + id + ", nombre=" + nombre + ", editorial=" + editorial + ", autor=" + autor + "]";
+		return "Libro [id=" + id + ", titulo=" + titulo + ", isbn=" + isbn + ", editorial=" + editorial + "]";
 	}
-
-
+	
+	
 }

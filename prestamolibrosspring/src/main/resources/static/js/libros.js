@@ -1,63 +1,96 @@
+var editarid = 0;
+
 $(function() {
-	cargarLibros();
-	
-	$('form').submit(function(e) {
+	$('#flibros').submit(function(e) {
 		e.preventDefault();
-		
-		var libroid = $('#id').val();
-		var libronombre = $('#nombre').val();
-		var libroeditorial = $('#editorial').val();
-		var libroautor = $('#autor').val();
-		var metodo = libroid == 0 ? 'POST' : 'PUT';
-		
+
+		var libro = {
+			id : editarid,
+			titulo : $('#titulo').val(),
+			isbn : $('#isbn').val(),
+			editorial : {
+				id : $('#editorial').val(),
+				nombre : $('#editorial option:selected').text()
+			}
+		}
+
+		// $('#editorial')[0].selectedText
+
 		$.ajax({
-			url: '/api/libros',
-			method: metodo,
-			data: JSON.stringify({ id: libroid, nombre: libronombre, editorial:libroeditorial, autor:libroautor }),
-			contentType: 'application/json; charset=UTF-8'
-		}).success(function() {
-			cargarLibros();
-			$('#nombre').val('');
-			$('#id').val(0);
-			$('#editorial').val(0);
+			url : '/api/libros',
+			method : editarid == 0 ? 'POST': 'PUT',
+			data : JSON.stringify(libro),
+			contentType : 'application/json; charset=UTF-8'
+		}).done(function(id) {
+			if(editarid == 0) {
+				libro.id = id;
+				addFila(libro);
+			} else {
+				$('#libro_' + id).html(filaSinTrLibro(libro));
+			}
+		});
+	});
+
+	$.getJSON('/api/editoriales', function(editoriales) {
+		$(editoriales).each(function() {
+			$('#editorial').append('<option value="' + this.id + '">' + this.nombre + '</option>');
+		});
+	});
+
+	$.getJSON('/api/libros', function(libros) {
+		$(libros).each(function() {
+			console.log(this);
+
+			// var $tr = $('<tr>');
+			//			
+			// $('<th>').text(this.id).appendTo($tr);
+			// $('<td>').text(this.titulo).appendTo($tr);
+			// $('<td>').text(this.isbn).appendTo($tr);
+			// $('<td>').text(this.editorial.nombre).appendTo($tr);
+			// $editar = $('<a>').attr('href', 'javascript:editar(' +
+			// this.id + ')').text('Editar');
+			// $borrar = $('<a>').attr('href', 'javascript:borrar(' +
+			// this.id + ')').text('Borrar');
+			// $('<td>').append($editar).append('
+			// ').append($borrar).appendTo($tr);
+			//			
+			// $('#tlibros > tbody').append($tr);
+			//			
+			addFila(this);
 		});
 	});
 });
 
-function cargarLibros() {
-	$.getJSON('/api/libros', function(libros) {
-		console.log(libros);
-		
-		mostrarlibros(libros);
-	});
-}
-
-function mostrarlibros(libros) {
-	$('tbody').empty();
-	$(libros).each(function() {
-		$('tbody').append(
-				'<tr><th>' + this.id + "</th><td>" + this.nombre + '</td><td>' + this.editorial +'</td><td>'+this.autor+'</td><td>'
-				+'<a href="javascript:editar(' + this.id + ')">Editar</a> ' +
-				'<a href="javascript:borrar(' + this.id + ')">Borrar</a>' +
-				'</tr>' );
+function borrar(id) {
+	$.ajax({
+		url : '/api/libros/' + id,
+		method : 'DELETE'
+	}).done(function() {
+		$('#libro_' + id).html(filaLi);
 	});
 }
 
 function editar(id) {
 	$.getJSON('/api/libros/' + id, function(libro) {
-		$('#id').val(libro.id);
-		$('#nombre').val(libro.nombre);
+		console.log(libro);
 		
+		$('#titulo').val(libro.titulo);
+		$('#isbn').val(libro.isbn);
+		$('#editorial').val(libro.editorial.id);
+		
+		editarid = libro.id;
 	});
 }
 
-function borrar(id) {
-	if(confirm('¿Estás seguro de borrar lel libro ' + id)) {
-		$.ajax({
-			url: '/api/libros/' + id,
-			method: 'DELETE',
-		}).success(function() {
-			cargarLibros();
-		});
-	}
+function addFila(libro) {
+	$('#tlibros > tbody').append(filaLibro(libro));
+}
+function filaLibro(libro) {
+	return '<tr id="libro_' + libro.id + '">'+filaSinTrLibro(libro)+'</tr>'
+}
+
+function filaSinTrLibro(libro){
+	return '<th>' + libro.id + '</th><td>' + libro.titulo + '</td><td>' + libro.isbn
+	+ '</td><td>' + libro.editorial.nombre + '</td><td><a href="javascript:editar(' + libro.id
+	+ ')">Editar</a> <a href="javascript:borrar(' + libro.id + ')">Borrar</a></td>';
 }

@@ -3,9 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Bienvenido a editoriales</title>
-<<<<<<< HEAD
-<script src="js/jquery-1.12.4.min.js"></script>
-<script src="js/hello.js"></script>
 </head>
 <body>
 
@@ -29,32 +26,6 @@
 			</th:block>
 		</tbody>
 	</table>
-	
-=======
-</head>
-<body>
-
-	<h2>Editoriales</h2>
-
-	<table>
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Nombre</th>
-				<th><a th:href="@{/editoriales/crear/0}">Nueva</a></th>
-			</tr>
-		</thead>
-		<tbody>
-			<th:block th:each="editorial : ${editoriales}">
-				<tr>
-					<th th:text="${editorial.id}"/><td th:text="${editorial.nombre}"/>
-					<td><a th:href="@{/editoriales/editar/{id}(id=${editorial.id})}">Editar</a></td>
-					<td><a th:href="@{/editoriales/borrar/{id}(id=${editorial.id})}">Borrar</a></td>
-				</tr>
-			</th:block>
-		</tbody>
-	</table>
->>>>>>> branch 'master' of https://github.com/ipartek/java_2018_0507.git
 
 </body>
 </html>
