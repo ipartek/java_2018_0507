@@ -20,11 +20,10 @@
     <div class="col-sm-4">
     <br><br>
     
-	<a class="btn btn-info" href="/libros/">Libros</a>
-	<a class="btn btn-info" href="/editoriales/">Editoriales</a>
-     
-     
-     
+	<a class="btn btn-primary" href="/libros/">Libros</a>
+	<a class="btn btn-primary" href="/editoriales/">Editoriales</a>
+	<a class="btn btn-primary" href="/prestamos/">Prestamos</a>
+     <br><br>
 			<form class="form-group" action="#"
 				th:action="@{/prestamos/{accion}(accion=${accion})}"
 				th:object="${prestamo}" method="post">
@@ -49,9 +48,7 @@
 					
 				<input type="hidden" th:value="${prestamo.id}" th:field="${prestamo.id}"/> 
 				
-				
 				<!-- El th:field es el que enlaza con el java BindingResult bindingResult -->
-			
 				
 				<button type="submit" class="btn btn-primary">Aceptar</button>
 			</form>

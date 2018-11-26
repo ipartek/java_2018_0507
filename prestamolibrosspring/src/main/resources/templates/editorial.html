@@ -18,8 +18,10 @@
     </div>
     <div class="col-sm-4">
     <br><br>
-    
-    
+    <a class="btn btn-primary" href="/libros/">Libros</a>
+     <a class="btn btn-primary" href="/prestamos/">Prestamos</a>
+      <a class="btn btn-primary" href="/editoriales/">Prestamos</a>
+    <br><br>
 	<form class="form-group" action="#" th:action="@{/editoriales/{accion}(accion=${accion})}"
 		th:object="${editorial}" method="post">
 		<p>
