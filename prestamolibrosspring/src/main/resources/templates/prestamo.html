@@ -19,8 +19,12 @@
     </div>
     <div class="col-sm-4">
     <br><br>
-
-
+    
+	<a class="btn btn-info" href="/libros/">Libros</a>
+	<a class="btn btn-info" href="/editoriales/">Editoriales</a>
+     
+     
+     
 			<form class="form-group" action="#"
 				th:action="@{/prestamos/{accion}(accion=${accion})}"
 				th:object="${prestamo}" method="post">

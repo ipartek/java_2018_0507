@@ -19,10 +19,11 @@ import com.ipartek.formacion.prestamolibrosspring.repositories.LibroMapRepositor
 
 @Controller
 public class LibrosController {
-	private LibroMapRepository repositoriolib = new LibroMapRepository();
 	
+	//Como lleva el @Autowired la clase EditorialMaoRepository se autorellena
+	@Autowired
+	private LibroMapRepository repositoriolib=null;// = new LibroMapRepository();
 	
-	//Como lleva el @Repository la clase EditorialMaoRepository se autorellena
 	@Autowired
 	private EditorialMapRepository repositorioedit=null;
 	
@@ -70,9 +71,12 @@ public class LibrosController {
 		if (!accion.equals("borrar") && bindingResult.hasErrors()) {
             return "libro";
         }
+		
+		System.out.println("Libro a insertar" + libro.getTitulo());
 	
 		switch(accion) {
 		case "crear": 
+			System.out.println("ainsertar");
 			repositoriolib.insert(libro);
 			break;
 		case "editar":

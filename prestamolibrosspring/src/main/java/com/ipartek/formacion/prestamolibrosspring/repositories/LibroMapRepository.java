@@ -43,6 +43,7 @@ public class LibroMapRepository implements CrudAble<Libro>{
 		
 		libros.put((long) l.getId(), l);
 		
+		System.out.println("INSERTADO libro: " +l.getId() + " --- " + l.getTitulo());
 		return (long) l.getId();
 	}
 

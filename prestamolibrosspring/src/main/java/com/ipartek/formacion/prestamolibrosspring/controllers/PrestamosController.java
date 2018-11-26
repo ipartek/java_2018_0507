@@ -56,22 +56,23 @@ public class PrestamosController {
 			
 			
 			Date fechaactual=new Date();
-			System.out.println("LocalDateTime.now()" +
+			//System.out.println("LocalDateTime.now()" +
 			
-					LocalDateTime.now().getYear()
+				//	LocalDateTime.now().getYear()
 					
-					+LocalDateTime.now().getMonthValue()
-					+LocalDateTime.now().getDayOfMonth());
+				//	+LocalDateTime.now().getMonthValue()
+				//	+LocalDateTime.now().getDayOfMonth());
 			prestamo.setFechdevol(
 					new Date(LocalDateTime.now().getYear()-1900,
 							LocalDateTime.now().getMonthValue()-1,
 							LocalDateTime.now().getDayOfMonth()));
 			
-			System.out.println("FECHAdevol:"+accion+ prestamo.getFechdevol());
-			System.out.println("FECHAmostrar:"+accion+ prestamo.getFechaprestamo());
+			//System.out.println("FECHAdevol:"+accion+ prestamo.getFechdevol());
+			//System.out.println("FECHAmostrar:"+accion+ prestamo.getFechaprestamo());
 
 		
 		modelo.addAttribute("prestamo", prestamo);
+		System.out.println(repositorilibros.getAll());
 		modelo.addAttribute("libros",repositorilibros.getAll());
 		
 		
