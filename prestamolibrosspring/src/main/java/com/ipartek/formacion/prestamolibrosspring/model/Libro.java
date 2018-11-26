@@ -1,6 +1,5 @@
 package com.ipartek.formacion.prestamolibrosspring.model;
 
-
 public class Libro {
 	private Long id;
 	private String titulo, isbn;
@@ -12,11 +11,6 @@ public class Libro {
 		this.titulo = titulo;
 		this.isbn = isbn;
 		this.editorial = editorial;
-	}
-
-	public Libro(long id, String titulo) {
-		this.id = id;
-		this.titulo=titulo;
 	}
 
 	public Long getId() {
@@ -100,5 +94,4 @@ public class Libro {
 	}
 	
 	
-
 }

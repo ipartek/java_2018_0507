@@ -16,11 +16,8 @@ import com.ipartek.formacion.prestamolibrosspring.repositories.CrudAble;
 
 @RestController
 public class EditorialRestController {
-	
-	@Autowired	// con el autowired es como si hiciera un new del repositorio. Si lo pongo no me
-	// hace falta
-	
-	private CrudAble<Editorial> repositorio; // No pongo el DAO porque solo hay un Crudable<Editorial>
+	@Autowired
+	private CrudAble<Editorial> repositorio;
 	
 	@GetMapping("/api/editoriales")
 	public List<Editorial> obtenerEditoriales() {
@@ -29,7 +26,7 @@ public class EditorialRestController {
 	
 	@GetMapping("/api/editoriales/{idrecibido}")
 	public Editorial obtenerEditorialPorId(@PathVariable("idrecibido") Long id) {
-		return repositorio.getById(id); // devolviendo objeto editorial con ID
+		return repositorio.getById(id);
 	}
 	
 	@PostMapping("/api/editoriales")
