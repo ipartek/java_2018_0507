@@ -16,7 +16,7 @@ public class Prestamo {
 	String titulo;
 	String usuario;
 
-	@DateTimeFormat (pattern="YYYY-MM-DD")
+	@DateTimeFormat (pattern="YYYY-MM-dd")
 	Date fechaprestamo;
 
 	Date fechdevol;

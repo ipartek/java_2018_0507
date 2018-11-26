@@ -40,7 +40,7 @@
 					<option value="Usuario2">Usuario2</option>
 				</select>
 				<input type="text" required name="fechaprestamo" th:attr="disabled=${(accion == 'borrar') || (accion=='devolver')}" id="fechaprestamo" 
-				class="form-control mb-2 mr-sm-2 mb-sm-0"  th:value="${#dates.format(prestamo.fechaprestamo, 'yyyy-MM-dd')}" th:field="${prestamo.fechaprestamo}" 
+				class="form-control mb-2 mr-sm-2 mb-sm-0" th:field="${prestamo.fechaprestamo}" 
 				placeholder="aaaa/mm/dd" title="Formato aaaa/mm/dd" pattern="[0-9]{4}/[0-9]{2}/[0-9]{2}"/>
 					
 				<input type="hidden" th:value="${prestamo.id}" th:field="${prestamo.id}"/> 
