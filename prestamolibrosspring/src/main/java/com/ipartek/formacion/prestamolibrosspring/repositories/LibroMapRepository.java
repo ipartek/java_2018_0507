@@ -14,11 +14,6 @@ public class LibroMapRepository implements CrudAble<Libro> {
 
 	private TreeMap<Long, Libro> libros = new TreeMap<>();
 	
-	public LibroMapRepository() {
-		insert(new Libro(1L, "Titulo1", "123456789", new Editorial(1L, "Editorial1")));
-		insert(new Libro(2L, "Titulo2", "223456789", new Editorial(2L, "Editorial2")));
-	}
-	
 	@Override
 	public List<Libro> getAll() {
 		return new ArrayList<Libro>(libros.values());
