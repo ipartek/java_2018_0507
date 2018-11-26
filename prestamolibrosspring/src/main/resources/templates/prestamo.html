@@ -27,7 +27,7 @@
 				<label class="sr-only" for="titulo"></label> 
 				
 					
-				<select th:field="*{titulo}" th:attr="disabled=${accion == 'borrar'}"
+				<select th:field="*{titulo}" th:attr="disabled=${accion == 'borrar' || (accion=='devolver')}"
 				class="form-control mb-2 mr-sm-2 mb-sm-0">
 					<option th:each="libro : ${libros}" 
 						th:value="${libro.titulo}"
@@ -35,11 +35,11 @@
 				</select>
 				
 				<!-- Usuarios harcodeados el *{usuario} es el campo que va a asociar el binding result-->
-				<select th:field="*{usuario}" th:attr="disabled=${accion == 'borrar'}" class="form-control mb-2 mr-sm-2 mb-sm-0">
+				<select th:field="*{usuario}" th:attr="disabled=${accion == 'borrar' || (accion=='devolver')}" class="form-control mb-2 mr-sm-2 mb-sm-0">
 					<option value="Usuario1">Usuario1</option>
 					<option value="Usuario2">Usuario2</option>
 				</select>
-				<input type="text" required name="fechaprestamo" th:attr="disabled=${accion == 'borrar'}" id="fechaprestamo" 
+				<input type="text" required name="fechaprestamo" th:attr="disabled=${(accion == 'borrar') || (accion=='devolver')}" id="fechaprestamo" 
 				class="form-control mb-2 mr-sm-2 mb-sm-0"  th:value="${#dates.format(prestamo.fechaprestamo, 'yyyy-MM-dd')}" th:field="${prestamo.fechaprestamo}" 
 				placeholder="aaaa/mm/dd" title="Formato aaaa/mm/dd" pattern="[0-9]{4}/[0-9]{2}/[0-9]{2}"/>
 					

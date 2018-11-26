@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ipartek.formacion.prestamolibrosspring.model.Editorial;
 
-@Repository
+//@Repository
 public class EditorialMySqlJdbcTemplateRepository implements CrudAble<Editorial> {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
