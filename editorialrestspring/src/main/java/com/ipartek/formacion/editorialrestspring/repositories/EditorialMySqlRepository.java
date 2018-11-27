@@ -14,7 +14,7 @@ import com.ipartek.formacion.editorialrestspring.biblioteca.Utils;
 import com.ipartek.formacion.editorialrestspring.modelos.Editorial;
 import com.mysql.cj.jdbc.CallableStatement;
 
-@Repository
+//@Repository
 public class EditorialMySqlRepository implements CrudAble<Editorial> {
 
 	private String urlBD;

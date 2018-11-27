@@ -7,5 +7,5 @@ public interface CrudAble<T> {
 	public T getById(Long id);
 	public Long insert(T t); //Devolver el id insertado
 	public void update(T t);
-	public boolean delete(Long id);	
+	public void delete(Long id);	
 }
