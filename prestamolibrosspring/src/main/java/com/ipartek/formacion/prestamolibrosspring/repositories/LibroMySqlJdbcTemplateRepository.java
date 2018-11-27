@@ -21,31 +21,27 @@ public class LibroMySqlJdbcTemplateRepository implements RestAble<Libro>{
 
 	@Override
 	public List<Libro> obtenerTodos() {
-		return jbdccTemplate.query("call getlibros()", new LibrolMapper());
+		return jbdccTemplate.query("call getLibros()", new LibrolMapper());
 	}
 
 	@Override
 	public Libro obtenerPorId(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return jbdccTemplate.queryForObject("call getLibrosId(?)", new Object[] {id}, new LibrolMapper());
 	}
 
 	@Override
-	public Long crear(Libro t) {
-		// TODO Auto-generated method stub
-		return null;
+	public Long crear(Libro libro) {
+		jbdccTemplate.queryForObject("call insertarL", new Oject[] {libro.getTitulo(),libro.getIsbn(), 
 	}
 
 	@Override
-	public void modificar(Libro t) {
-		// TODO Auto-generated method stub
-		
+	public void modificar(Libro libro) {
+		jbdccTemplate.update("Call modificarL(?,?,?)", new Object[] {libro.getId(), libro.getTitulo(), libro.getIsbn()});
 	}
 
 	@Override
 	public void borrar(Long id) {
-		// TODO Auto-generated method stub
-		
+		jbdccTemplate.update("Call borrarL(?)", new Object[] {id});
 	}
 	
 	private static final class LibrolMapper implements RowMapper<Libro> {
