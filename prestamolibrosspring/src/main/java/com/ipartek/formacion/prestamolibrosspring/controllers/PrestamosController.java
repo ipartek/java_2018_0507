@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.ipartek.formacion.prestamolibrosspring.model.Libro;
 import com.ipartek.formacion.prestamolibrosspring.model.Prestamo;
 import com.ipartek.formacion.prestamolibrosspring.repositories.CrudAble;
 import com.ipartek.formacion.prestamolibrosspring.repositories.LibroMapRepository;
@@ -23,7 +24,8 @@ public class PrestamosController {
 	@Autowired
 	private final CrudAble<Prestamo> repositoriop = null;
 	@Autowired
-	private LibroMapRepository repositorilibros=null;
+	private final CrudAble<Libro> repositorilibros = null;
+	//private LibroMapRepository repositorilibros=null;
 	
 	@GetMapping("/prestamos")
 	public String getAll(Model modelo) {

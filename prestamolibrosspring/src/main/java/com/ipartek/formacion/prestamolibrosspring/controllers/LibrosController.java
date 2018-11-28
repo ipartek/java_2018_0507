@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.ipartek.formacion.prestamolibrosspring.model.Editorial;
 import com.ipartek.formacion.prestamolibrosspring.model.Libro;
+import com.ipartek.formacion.prestamolibrosspring.repositories.CrudAble;
 import com.ipartek.formacion.prestamolibrosspring.repositories.EditorialMapRepository;
 import com.ipartek.formacion.prestamolibrosspring.repositories.LibroMapRepository;
 
@@ -22,10 +23,13 @@ public class LibrosController {
 	
 	//Como lleva el @Autowired la clase EditorialMaoRepository se autorellena
 	@Autowired
-	private LibroMapRepository repositoriolib=null;// = new LibroMapRepository();
-	
+	//private LibroMapRepository repositoriolib=null;// = new LibroMapRepository();
+	private CrudAble<Libro> repositoriolib=null;
 	@Autowired
-	private EditorialMapRepository repositorioedit=null;
+	//private EditorialMapRepository repositorioedit=null;  
+	//PARA QUE SE RELLENE CON LO DE LA BD SE PONE LA LINEA DE ABAJO-- Este llama al crudable y es el que maneja
+	//la conexion con la bd que esta en el properties
+	private CrudAble<Editorial> repositorioedit=null;
 	
 		
 	@GetMapping("/libros")

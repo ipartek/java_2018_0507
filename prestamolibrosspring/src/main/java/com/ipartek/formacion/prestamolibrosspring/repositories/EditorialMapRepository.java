@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ipartek.formacion.prestamolibrosspring.model.Editorial;
 
-@Repository
+//@Repository
 public class EditorialMapRepository implements CrudAble<Editorial>{
 	private TreeMap<Long, Editorial> editoriales = new TreeMap<>(); 
 	
