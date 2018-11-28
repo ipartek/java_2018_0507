@@ -26,8 +26,14 @@ $(function() {
 				libro.id = id;
 				addFila(libro);
 			} else {
-				$('#libro_' + id).html(filaSinTrLibro(libro));
+				$('#libro_' + editarid).html(filaSinTrLibro(libro));
+				
+				editarid = 0;
 			}
+			
+			$('#titulo').val("");
+			$('#isbn').val("");
+			$('#editorial').val(0);
 		});
 	});
 
@@ -66,7 +72,7 @@ function borrar(id) {
 		url : '/api/libros/' + id,
 		method : 'DELETE'
 	}).done(function() {
-		$('#libro_' + id).html(filaLi);
+		$('#libro_' + id).remove();
 	});
 }
 
