@@ -16,7 +16,7 @@ import com.ipartek.formacion.editorialrestspring.modelos.Libro;
 import com.ipartek.formacion.editorialrestspring.repositories.AccesoDatosException;
 import com.mysql.cj.jdbc.CallableStatement;
 
-@Repository
+//@Repository
 public class LibroMySqlRepository implements CrudAble<Libro> {
 
 	private String urlBD;

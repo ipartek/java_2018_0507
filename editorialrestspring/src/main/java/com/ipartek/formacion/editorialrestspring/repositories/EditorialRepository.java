@@ -46,7 +46,7 @@ public class EditorialRepository implements CrudAble<Editorial> {
 
 	private static final class EditorialMapper implements RowMapper<Editorial> {
 		public Editorial mapRow(ResultSet rs, int rowNum) throws SQLException {
-			return new Editorial(rs.getLong("id"), rs.getString("nombre"));
+			return new Editorial(rs.getLong("id"), rs.getString("editorial"));
 		}
 	}
 }
