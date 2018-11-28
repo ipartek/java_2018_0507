@@ -1,12 +1,40 @@
 $(function() {
 	cargarDatos();
+	cambiarMenu();
 	
+	$(".nav-link").click(function(){
+		cambiarMenu(this.id);
+	});
+
 	$('form').submit(function(e) {
 		e.preventDefault();
-
 		enviarForm();
 	});
 });
+
+function ocultarMenus(){
+	$("#sectionAlumnos").hide();
+	$("#sectionEditoriales").hide();
+	$("#sectionLibros").hide();
+}
+
+function cambiarMenu(idLink){
+	ocultarMenus();
+	
+	switch(idLink) {
+	    case "librosLink":
+	    	$("#sectionLibros").show();
+	        break;
+	    case "editorialesLink":
+	    	$("#sectionEditoriales").show();
+	        break;
+	    case "alumnosLink":
+	    	$("#sectionAlumnos").show();
+	    	break;
+	    default:
+	    	$("#sectionLibros").show();
+	}
+}
 
 function cargarDatos(){
 	cargarLibros();
@@ -37,7 +65,7 @@ function mostrarLibros(libros) {
 						'<a href="gestionPrestamo?operacion=prestamo&id=' + this.id +'" class="btn btn-primary">' +
 						'<i class="fab fa-leanpub"></i>&nbsp;Prestar</a>' +
 						'<a href="gestionPrestamo?operacion=devolver&id=' + this.id +'" class="btn btn-danger">' +
-						'<i class="fab fa-undo"></i>&nbsp;Devolver</a>' +
+						'<i class="fas fa-undo"></i>&nbsp;Devolver</a>' +
 						'<a href="gestionPrestamo?operacion=ampliar&id=' + this.id +'" class="btn btn-success">+7</a>' +
 						'<a href="javascript:editar(' + this.id + ')"><i class="far fa-edit fa-lg"></i></a> ' +
 						'<a href="javascript:borrar(' + this.id + ')"><i class="far fa-trash-alt fa-lg"></i></a>' +
