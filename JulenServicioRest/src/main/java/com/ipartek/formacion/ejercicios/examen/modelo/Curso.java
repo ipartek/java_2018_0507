@@ -15,6 +15,7 @@ public class Curso {
 		@NotNull
 		private Integer nHoras;
 		private Profesor profesor;
+		private Alumno alumno;
 
 		public Curso(){
 			
@@ -38,6 +39,23 @@ public class Curso {
 			this.identificador = identificador;
 			this.nHoras = nHoras;
 			this.setProfesor(profesor);
+		}
+		
+
+		public Curso(Long id, String nombre, String identificador, Integer nHoras,
+				Profesor profesor, Alumno alumno) {
+			super();
+			this.id = id;
+			this.nombre = nombre;
+			this.identificador = identificador;
+			this.nHoras = nHoras;
+			this.profesor = profesor;
+			this.alumno = alumno;
+		}
+
+
+		public void setAlumno(Alumno alumno) {
+			this.alumno = alumno;
 		}
 
 
@@ -84,10 +102,16 @@ public class Curso {
 		}
 
 
+		public Alumno getAlumno() {
+			return alumno;
+		}
+
+
 		@Override
 		public int hashCode() {
 			final int prime = 31;
 			int result = 1;
+			result = prime * result + ((alumno == null) ? 0 : alumno.hashCode());
 			result = prime * result + ((id == null) ? 0 : id.hashCode());
 			result = prime * result + ((identificador == null) ? 0 : identificador.hashCode());
 			result = prime * result + ((nHoras == null) ? 0 : nHoras.hashCode());
@@ -106,6 +130,11 @@ public class Curso {
 			if (getClass() != obj.getClass())
 				return false;
 			Curso other = (Curso) obj;
+			if (alumno == null) {
+				if (other.alumno != null)
+					return false;
+			} else if (!alumno.equals(other.alumno))
+				return false;
 			if (id == null) {
 				if (other.id != null)
 					return false;
@@ -138,11 +167,9 @@ public class Curso {
 		@Override
 		public String toString() {
 			return "Curso [id=" + id + ", nombre=" + nombre + ", identificador=" + identificador + ", nHoras=" + nHoras
-					+ ", profesor=" + profesor + "]";
+					+ ", profesor=" + profesor + ", alumno=" + alumno + "]";
 		}
 
-
-		
 		
 		
 }

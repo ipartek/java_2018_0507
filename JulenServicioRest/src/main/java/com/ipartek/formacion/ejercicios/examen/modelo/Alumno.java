@@ -7,11 +7,16 @@ public class Alumno {
 		private String apellidos;
 
 		
-		public Alumno(String nombre, String apellidos) {
+		
+		public Alumno(Long id, String nombre, String apellidos) {
 			super();
+			this.id = id;
 			this.nombre = nombre;
 			this.apellidos = apellidos;
 		}
+
+	
+
 		public Long getId() {
 			return id;
 		}

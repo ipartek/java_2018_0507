@@ -31,4 +31,9 @@ public class CursoRestController{
 	public List<Curso> CurPro(){	
 		return repositorio.CurPro();
 	}
+	
+	@GetMapping("api/alumnos")
+	public List<Curso> CuProAl(){
+		return repositorio.CuProAl();
+	}
 }
