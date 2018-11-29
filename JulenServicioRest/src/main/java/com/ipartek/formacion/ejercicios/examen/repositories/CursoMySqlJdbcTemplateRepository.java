@@ -19,10 +19,11 @@ public class CursoMySqlJdbcTemplateRepository{
 
 	
 	@Autowired
-	private JdbcTemplate jdbcTemplate;
+	private JdbcTemplate jdbcTemplate; //Hacemos que solo se cree una vez el JdbcTemplater
 	
 
 	public List<Curso> GetAll() {
+		System.out.println("Acceso a la Lista de Cursos");
 		String sql = "SELECT codigo, nombre, identificador, nHoras FROM curso ";
 		return jdbcTemplate.query(sql, new CursoMapper());
 	}
@@ -33,6 +34,7 @@ public class CursoMySqlJdbcTemplateRepository{
 	}
 	
 	public List<Curso> CurPro(){
+		System.out.println("Acceso a la Lista de Profesores");
 		String sql = "SELECT c.codigo, c.nombre, c.identificador, c.nHoras, p.codigo, p.nombre, p.apellidos\r\n" + 
 				"from curso c\r\n" + 
 				"inner join profesor p on c.profesor_codigo = p.codigo";
@@ -41,6 +43,7 @@ public class CursoMySqlJdbcTemplateRepository{
 	}
 	
 	public List<Curso> CuProAl(){
+		System.out.println("Acceso a la Lista de todos");
 		String sql ="select p.codigo, p.nombre, p.apellidos, c.codigo, c.nombre, c.identificador, c.nHoras, a.codigo,a.nombre, a.apellidos\r\n" + 
 				"from profesor p\r\n" + 
 				"inner join curso c on p.codigo = c.profesor_codigo\r\n" + 
@@ -50,7 +53,8 @@ public class CursoMySqlJdbcTemplateRepository{
 		return jdbcTemplate.query(sql, new AlumnoMapper());
 	}
 	
-	
+	//Creamos un Mapper para cada sentencia porque en algunos casos vamos a pedir mas o menos datos, y sino
+	//nos iba a fallar dandonos datos de menos
 	private static final class AlumnoMapper implements RowMapper<Curso> {
 		public Curso mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Profesor pro;
