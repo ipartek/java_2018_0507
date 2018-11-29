@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+	integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+	crossorigin="anonymous"></script>
+	<link href="css/bootstrap4.min.css" rel="stylesheet">
+<script src="js/bootstrap4.min.js"></script>
+<script src="js/index.js"></script>
+</head>
+<body>
+	<table class="table-responsive-md table table-bordered" border="0">
+		<thead>
+			<tr>
+				<th class="text-center">T&#237;tulo</th>
+				<th class="text-center">Isbn</th>
+				<th class="text-center">Editorial</th>
+				<th class="text-center">Autor</th>
+				<th class="text-center">Accion</th>
+			</tr>
+		</thead>
+
+		<tbody>
+
+
+		</tbody>
+		<tfoot>
+
+		</tfoot>
+
+	</table>
+	<button type="button" class="btn btn-primary" data-toggle="modal"
+		data-target="#exampleModal">Launch demo modal</button>
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="container">
+						<div class="row centered-form">
+							<div
+								class="col-xs-12 col-sm-8 col-md-10 col-sm-offset-2 col-md-offset-2">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h3 class="panel-title">Registre un Libro Nuevo</h3>
+									</div>
+									<div class="panel-body">
+										<form role="form" id="formRegLibro">
+											<div class="row">
+												<div class="col-xs-6 col-sm-6 col-md-6">
+													<div class="form-group">
+														<input type="text" name="titulo" id="titulo"
+															class="form-control input-sm" placeholder="titulo"
+															value="">
+													</div>
+												</div>
+												<div class="col-xs-6 col-sm-6 col-md-6">
+													<div class="form-group">
+														<input type="number" name="isbn" id="isbn"
+															class="form-control input-sm" placeholder="isbn">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-xs-6 col-sm-6 col-md-6">
+													<div class="form-group">
+														<select class="form-control" name="editorial" id="editorial">
+															<option value="anaya">anaya</option>
+															<option value="macgrought">macgrought</option>
+
+														</select>
+
+													</div>
+												</div>
+												<div class="col-xs-6 col-sm-6 col-md-6">
+													<div class="form-group">
+														<input type="text" name="autor" id="autor"
+															class="form-control input-sm" placeholder="autor">
+													</div>
+												</div>
+											</div>
+											<input type="hidden" value="0" id="id">
+											<input type="submit" value="registrar"
+												class="btn btn-info btn-block">
+
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
