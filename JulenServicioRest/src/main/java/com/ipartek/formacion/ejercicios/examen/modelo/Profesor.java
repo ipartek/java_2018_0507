@@ -7,12 +7,15 @@ public class Profesor {
 	private String nombre;
 	private String apellidos;
 	
-	
-	public Profesor(String nombre, String apellidos) {
+
+	public Profesor(Long id, String nombre, String apellidos) {
 		super();
+		this.id = id;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 	}
+	
+	
 	public Long getId() {
 		return id;
 	}
