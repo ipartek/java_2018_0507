@@ -20,6 +20,7 @@
 				<th>Email</th>
 				<th>Dni</th>
 				<th>Puesto</th>
+				
 
 			</tr>
 		</thead>
@@ -33,12 +34,20 @@
 					<td>${gente.email}</td>
 					<td>${gente.dni}</td>
 					<td>${gente.puesto}</td>
+					<td>
+					<form>
+					<input type="hidden" value="${gente.id}"/>
+					<button>Editar</button>
+					</form>
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 	
-	<button></button>
+	
+	<a href="modificar">Insertar nueva persona</a>
+	
 
 </body>
 </html>

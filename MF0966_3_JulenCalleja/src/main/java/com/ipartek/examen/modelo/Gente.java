@@ -25,6 +25,22 @@ public class Gente {
 		this.puesto = puesto;
 	}
 	
+	
+	
+	public Gente(String nombre, String apellido, String direccion, int nPortal, String email, String dni,
+			String puesto) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.direccion = direccion;
+		this.nPortal = nPortal;
+		this.email = email;
+		this.dni = dni;
+		this.puesto = puesto;
+	}
+
+
+
 	public long getId() {
 		return id;
 	}

@@ -61,11 +61,18 @@ public class GenteDAO implements CrudAble<Gente> {
 	@Override
 	public void insert(Gente pojo) {
 		try (Connection con = DriverManager.getConnection(url, usuario, password)) {
-			String sql = "INSERT INTO gente (nombre,apellido 1, direccion, portal, email, dni, puesto)"
+			String sql = "INSERT INTO gente (nombre,apellido1, direccion, portal, email, dni, puesto)"
 					+ "VALUES (?,?,?,?,?,?,?)";
 
 			try (PreparedStatement pst = con.prepareStatement(sql)) {
 				pst.setString(1, pojo.getNombre());
+				pst.setString(2, pojo.getApellido());
+				pst.setString(3, pojo.getDireccion());
+				pst.setInt(4, pojo.getnPortal());
+				pst.setString(5, pojo.getEmail());
+				pst.setString(6, pojo.getDni());
+				pst.setString(7, pojo.getPuesto());
+			
 
 				int numFilas = pst.executeUpdate();
 
