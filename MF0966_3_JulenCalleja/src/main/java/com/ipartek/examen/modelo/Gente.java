@@ -1,4 +1,4 @@
-package com.ipartek.formacion.examen.modelo;
+package com.ipartek.examen.modelo;
 
 public class Gente {
 

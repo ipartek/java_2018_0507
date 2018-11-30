@@ -31,7 +31,7 @@ public class LibroMySqlJdbcTemplateRepository implements RestAble<Libro>{
 
 	@Override
 	public Long crear(Libro libro) {
-		jbdccTemplate.queryForObject("call insertarL", new Oject[] {libro.getTitulo(),libro.getIsbn(), 
+		jbdccTemplate.queryForObject("call insertarL", new Object[] {libro.getTitulo(),libro.getIsbn()}, Long.class);
 	}
 
 	@Override
