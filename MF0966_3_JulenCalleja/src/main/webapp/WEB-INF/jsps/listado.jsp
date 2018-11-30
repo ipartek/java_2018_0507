@@ -35,8 +35,8 @@
 					<td>${gente.dni}</td>
 					<td>${gente.puesto}</td>
 					<td>
-					<form>
-					<input type="hidden" value="${gente.id}"/>
+					<form action="modificar" method="get">
+					<input type="hidden" value="${gente.id}" name="id"/>
 					<button>Editar</button>
 					</form>
 					</td>

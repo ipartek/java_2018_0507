@@ -118,4 +118,31 @@ public class GenteDAO implements CrudAble<Gente> {
 		
 	}
 
+	@Override
+	public Gente getById(int id) {
+		Gente persona = null;
+		try (Connection con = DriverManager.getConnection(url, usuario, password)) {
+			String sql = "SELECT id, nombre,apellido1, direccion, portal, email, dni, puesto FROM gente where id = ?";
+
+			try (PreparedStatement pst = con.prepareStatement(sql)) {
+
+					pst.setInt(1, id);
+					try (ResultSet rs = pst.executeQuery()) {
+					while (rs.next()) {
+						persona = new Gente(rs.getLong("id"),rs.getString("nombre"), rs.getString("apellido1"),rs.getString("direccion"),
+								rs.getInt("portal"),rs.getString("email"),rs.getString("dni"),rs.getString("puesto"));
+					}
+				
+				} catch (Exception e) {
+					throw new AccesoDatosException(e.getMessage(), e);
+				}
+			} catch (SQLException e) {
+				throw new AccesoDatosException(e.getMessage(), e);
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException("Fallo en la inserccion de datos");
+		}
+		return persona;
+	}
+
 }
