@@ -46,13 +46,13 @@ public class NuevosDatos {
 					Puesto = tokens[6];
 					
 					PreparedStatement pst = con.prepareStatement(sql);
-					pst.setString(0, Nombre);
-					pst.setString(1, Apellido);
-					pst.setString(2, Direccion);
-					pst.setLong(3, NumeroD);
-					pst.setString(4, Email);
-					pst.setString(5, Dni);
-					pst.setString(6, Puesto);
+					pst.setString(1, Nombre);
+					pst.setString(2, Apellido);
+					pst.setString(3, Direccion);
+					pst.setLong(4, NumeroD);
+					pst.setString(5, Email);
+					pst.setString(6, Dni);
+					pst.setString(7, Puesto);
 					
 					pst.executeUpdate();
 				}
@@ -62,7 +62,7 @@ public class NuevosDatos {
 			buffer.close();
 
 		} catch (Exception e) {
-			throw new RuntimeException("Erros insertando datos");
+			e.printStackTrace();
 		}
 
 	}
