@@ -6,10 +6,16 @@ public class Usuario {
 	private long id;
 	
 	private String email, password,equipo;
-
+	public Usuario() {};
 	public Usuario(long id, String email, String password, String equipo) {
 		super();
 		this.id = id;
+		this.email = email;
+		this.password = password;
+		this.equipo = equipo;
+	}
+	public Usuario(String email, String password, String equipo) {
+		super();
 		this.email = email;
 		this.password = password;
 		this.equipo = equipo;

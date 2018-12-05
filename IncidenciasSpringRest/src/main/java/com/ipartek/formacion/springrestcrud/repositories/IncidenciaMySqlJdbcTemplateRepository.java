@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.ipartek.formacion.springrestcrud.entidades.Incidencia;
 
 @Repository
-public class IncidenciasMySqlJdbcTemplateRepository implements CrudAble<Incidencia> {
+public class IncidenciaMySqlJdbcTemplateRepository implements CrudAble<Incidencia> {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
@@ -38,12 +38,14 @@ public class IncidenciasMySqlJdbcTemplateRepository implements CrudAble<Incidenc
 	}
 
 	@Override
-	public Long insert(Incidencia incidencia) {
-		//CREAR PROCEDURES
-			return jdbcTemplate.queryForObject("call insertar(?)",
-					new Object[] { incidencia.getFecha(),incidencia.getUsuario_creador() , 
+	public void insert(Incidencia incidencia) {
+		jdbcTemplate.update("insert into incidencia (fecha,usuario_creador,titulo,descripcion"
+				+ ",equipo,usuario_asignado) values (?,?,?,?,?,?)",
+				new Object[] { 
+							incidencia.getFecha(),incidencia.getUsuario_creador() , 
 							incidencia.getTitulo(),incidencia.getDescripcion(),incidencia.getEquipo(),
-							incidencia.getUsuario_asignado(), }, Long.class);
+							incidencia.getUsuario_asignado(), 
+						});
 
 	}
 

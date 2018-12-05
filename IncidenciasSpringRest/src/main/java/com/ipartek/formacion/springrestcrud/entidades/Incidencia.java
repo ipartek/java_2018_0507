@@ -3,9 +3,12 @@ package com.ipartek.formacion.springrestcrud.entidades;
 public class Incidencia {
 
 	
-	private long id;
+	private Long id;
+	private String fecha, usuario_creador,titulo,descripcion,usuario_asignado,equipo;
 	
-	public Incidencia(long id, String fecha, String usuario_creador, String titulo, String descripcion,
+	public Incidencia() {};
+	
+	public Incidencia(Long id, String fecha, String usuario_creador, String titulo, String descripcion,
 			String usuario_asignado, String equipo) {
 		super();
 		this.id = id;
@@ -14,6 +17,73 @@ public class Incidencia {
 		this.titulo = titulo;
 		this.descripcion = descripcion;
 		this.usuario_asignado = usuario_asignado;
+		this.equipo = equipo;
+	}
+	
+	public Incidencia(String fecha, String usuario_creador, String titulo, String descripcion,
+			String usuario_asignado, String equipo) {
+		super();
+		this.fecha = fecha;
+		this.usuario_creador = usuario_creador;
+		this.titulo = titulo;
+		this.descripcion = descripcion;
+		this.usuario_asignado = usuario_asignado;
+		this.equipo = equipo;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
+
+	public String getUsuario_creador() {
+		return usuario_creador;
+	}
+
+	public void setUsuario_creador(String usuario_creador) {
+		this.usuario_creador = usuario_creador;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public String getUsuario_asignado() {
+		return usuario_asignado;
+	}
+
+	public void setUsuario_asignado(String usuario_asignado) {
+		this.usuario_asignado = usuario_asignado;
+	}
+
+	public String getEquipo() {
+		return equipo;
+	}
+
+	public void setEquipo(String equipo) {
 		this.equipo = equipo;
 	}
 
@@ -82,62 +152,5 @@ public class Incidencia {
 		return true;
 	}
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getFecha() {
-		return fecha;
-	}
-
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
-	}
-
-	public String getUsuario_creador() {
-		return usuario_creador;
-	}
-
-	public void setUsuario_creador(String usuario_creador) {
-		this.usuario_creador = usuario_creador;
-	}
-
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-
-	public String getUsuario_asignado() {
-		return usuario_asignado;
-	}
-
-	public void setUsuario_asignado(String usuario_asignado) {
-		this.usuario_asignado = usuario_asignado;
-	}
-
-	public String getEquipo() {
-		return equipo;
-	}
-
-	public void setEquipo(String equipo) {
-		this.equipo = equipo;
-	}
-
-	private String fecha, usuario_creador,titulo,descripcion,usuario_asignado,equipo;
-
+	
 }
