@@ -6,9 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.java.Log;
 
-
 public @Log @Data @AllArgsConstructor class Persona {
-	//private final static Logger log = Logger.getLogger(Persona.class.getName());
+	//private final static Logger log = Logger.getLogger(Persona.class.getName()); //JDK1.4
 	
 	private Long id;
 	private String nombre, apellidos;
