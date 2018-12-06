@@ -19,7 +19,8 @@ $(function() {
 });
 
 function pedirLibros() {
-	$.ajax("libros").done(rellenarTabla).fail(function() {
+	$.ajax("libros").done(rellenarTabla)
+	.fail(function() {
 		alert("error");
 	}).always(function() {
 		console.log("complete");
