@@ -71,7 +71,6 @@ public class Usuario {
 	}
 
 	public Usuario() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public static boolean checkUsuarioenBD(String nick, String password) {

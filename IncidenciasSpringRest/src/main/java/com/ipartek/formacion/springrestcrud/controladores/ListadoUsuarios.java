@@ -44,18 +44,15 @@ public class ListadoUsuarios {
 	public String modifIncidencia(Usuario usuario,Model modelo) {
 	
 		
-		System.out.println("en /modifUsuario");
+		//System.out.println("en /modifUsuario");
 
 		//Update
-	
 		repositorio_u.update(usuario);
-		
 		//EndUpdate
 		
 		List<Usuario> lista = repositorio_u.getAll();
 		
 		modelo.addAttribute("listausuarios",lista);
-		
 		
 		//el nombre del jsp
 		return "verusuarios";

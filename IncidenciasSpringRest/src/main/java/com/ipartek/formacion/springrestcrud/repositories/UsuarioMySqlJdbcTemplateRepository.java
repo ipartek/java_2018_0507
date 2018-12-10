@@ -47,15 +47,9 @@ public class UsuarioMySqlJdbcTemplateRepository implements CrudAble<Usuario> {
 
 	@Override
 	public void update(Usuario usuario) {
-		
-		//TODO:Hacer??
-		
-		
-jdbcTemplate.update("update usuario set email=?,password=?,equipo=? where id=?",
-				
+		jdbcTemplate.update("update usuario set email=?,password=?,equipo=? where id=?",
 				new Object[] { 
 						usuario.getEmail(),usuario.getPassword(),usuario.getEquipo(),usuario.getId() });
-		
 	}
 
 	@Override
