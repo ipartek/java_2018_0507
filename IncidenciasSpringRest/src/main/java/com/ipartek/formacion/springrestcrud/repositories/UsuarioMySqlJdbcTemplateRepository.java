@@ -23,7 +23,7 @@ public class UsuarioMySqlJdbcTemplateRepository implements CrudAble<Usuario> {
 
 	private static final class UsuarioMapper implements RowMapper<Usuario> {
 		public Usuario mapRow(ResultSet rs, int rowNum) throws SQLException {
-			return new Usuario( rs.getString("email"),rs.getString("password"),
+			return new Usuario(rs.getLong("id"),rs.getString("email"),rs.getString("password"),
 					 rs.getString("equipo")
 					);
 		}

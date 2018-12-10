@@ -25,8 +25,8 @@ public class IncidenciaMySqlJdbcTemplateRepository implements CrudAble<Incidenci
 	private static final class IncidenciaMapper implements RowMapper<Incidencia> {
 		public Incidencia mapRow(ResultSet rs, int rowNum) throws SQLException {
 			return new Incidencia(rs.getLong("id"), rs.getString("fecha"),rs.getString("usuario_creador"),
-					 rs.getString("titulo"), rs.getString("descripcion"), rs.getString("equipo"), 
-					 rs.getString("usuario_asignado")
+					 rs.getString("titulo"), rs.getString("descripcion"),
+					 rs.getString("usuario_asignado"), rs.getString("equipo")
 					);
 		}
 	}
@@ -51,8 +51,19 @@ public class IncidenciaMySqlJdbcTemplateRepository implements CrudAble<Incidenci
 
 	@Override
 	public void update(Incidencia incidencia) {
-		jdbcTemplate.update("call modificar(?,?)",
-				new Object[] { incidencia.getTitulo(), incidencia.getId() });
+		jdbcTemplate.update("update incidencia set usuario_creador=?,titulo=?,descripcion=?,equipo=?,usuario_asignado=? where id=?",
+				
+				new Object[] { 
+						incidencia.getUsuario_creador(),incidencia.getTitulo(), incidencia.getDescripcion() 
+						, incidencia.getEquipo(),incidencia.getUsuario_asignado(), incidencia.getId(), 
+					});
+			
+		
+		//incidencia.getId()
+		System.out.println(incidencia);
+	
+		//jdbcTemplate.update("call modificar(?,?)",
+			//	new Object[] { incidencia.getTitulo(), incidencia.getId() });
 		
 	}
 
