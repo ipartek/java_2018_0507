@@ -5,17 +5,17 @@ import java.util.Date;
 public class Incidencia {
 	private Long id;
 	private Date fecha;
-	private Usuario usuarioCreador;
+	private Long usuarioCreador;
 	private String titulo;
 	private String descripcion;
-	private Usuario usuarioAsignado;
+	private Long usuarioAsignado;
 	
 	public Incidencia() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Incidencia(Long id, Date fecha, Usuario usuarioCreador, String titulo, String descripcion,
-			Usuario usuarioAsignado) {
+	public Incidencia(Long id, Date fecha, Long usuarioCreador, String titulo, String descripcion,
+			Long usuarioAsignado) {
 		super();
 		this.id = id;
 		this.fecha = fecha;
@@ -41,11 +41,11 @@ public class Incidencia {
 		this.fecha = fecha;
 	}
 
-	public Usuario getUsuarioCreador() {
+	public Long getUsuarioCreador() {
 		return usuarioCreador;
 	}
 
-	public void setUsuarioCreador(Usuario usuarioCreador) {
+	public void setUsuarioCreador(Long usuarioCreador) {
 		this.usuarioCreador = usuarioCreador;
 	}
 
@@ -65,11 +65,11 @@ public class Incidencia {
 		this.descripcion = descripcion;
 	}
 
-	public Usuario getUsuarioAsignado() {
+	public Long getUsuarioAsignado() {
 		return usuarioAsignado;
 	}
 
-	public void setUsuarioAsignado(Usuario usuarioAsignado) {
+	public void setUsuarioAsignado(Long usuarioAsignado) {
 		this.usuarioAsignado = usuarioAsignado;
 	}
 
@@ -130,7 +130,10 @@ public class Incidencia {
 
 	@Override
 	public String toString() {
-		return "Incidencia [id=" + id + ", fecha=" + fecha + ", usuarioCreador=" + usuarioCreador + ", titulo=" + titulo
-				+ ", descripcion=" + descripcion + ", usuarioAsignado=" + usuarioAsignado + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Incidencia [id=").append(id).append(", fecha=").append(fecha).append(", usuarioCreador=")
+				.append(usuarioCreador).append(", titulo=").append(titulo).append(", descripcion=").append(descripcion)
+				.append(", usuarioAsignado=").append(usuarioAsignado).append("]");
+		return builder.toString();
 	}
 }

@@ -2,6 +2,7 @@ package com.ipartek.formacion.GestionIncidencias.repositorios;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,14 +30,14 @@ public class IncidenciaRepository implements CrudAble<Incidencia> {
 
 	@Override
 	public Long insert(Incidencia incidencia) {
-		return jdbcTemplate.queryForObject("call incidencias_insert(?,?,?)",
-				new Object[] { incidencia.getTitulo(), incidencia.getDescripcion() }, Long.class);
+		return jdbcTemplate.queryForObject("call incidencias_insert(?,?,?,?,?)",
+				new Object[] { incidencia.getUsuarioCreador(), incidencia.getUsuarioAsignado(), incidencia.getFecha(), incidencia.getTitulo(), incidencia.getDescripcion() }, Long.class);
 	}
 
 	@Override
 	public void update(Incidencia incidencia) {
-		jdbcTemplate.update("call incidencias_update(?,?,?,)",
-				new Object[] { incidencia.getId(), incidencia.getTitulo(), incidencia.getDescripcion()});
+		jdbcTemplate.update("call incidencias_update(?,?,?,?,?,?)",
+				new Object[] { incidencia.getId(), incidencia.getUsuarioCreador(), incidencia.getUsuarioAsignado(), incidencia.getFecha(), incidencia.getTitulo(), incidencia.getDescripcion()});
 	}
 
 	@Override
@@ -46,10 +47,7 @@ public class IncidenciaRepository implements CrudAble<Incidencia> {
 
 	private static final class IncidenciaMapper implements RowMapper<Incidencia> {
 		public Incidencia mapRow(ResultSet rs, int rowNum) throws SQLException {
-			Incidencia incidencia = new Incidencia(rs.getLong("id"), rs.getDate("fecha"), null, rs.getString("titulo"), rs.getString("descripcion"),null);
-			
-			
-			return incidencia;
+			return  new Incidencia(rs.getLong("id"), rs.getDate("fecha"), rs.getLong("usuarioCreador"), rs.getString("titulo"), rs.getString("descripcion"),rs.getLong("usuarioAsignado"));
 		}
 	}
 }
