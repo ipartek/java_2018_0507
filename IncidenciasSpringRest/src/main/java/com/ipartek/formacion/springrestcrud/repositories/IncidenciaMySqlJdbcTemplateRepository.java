@@ -46,7 +46,6 @@ public class IncidenciaMySqlJdbcTemplateRepository implements CrudAble<Incidenci
 							incidencia.getTitulo(),incidencia.getDescripcion(),incidencia.getEquipo(),
 							incidencia.getUsuario_asignado(), 
 						});
-
 	}
 
 	@Override
@@ -57,18 +56,11 @@ public class IncidenciaMySqlJdbcTemplateRepository implements CrudAble<Incidenci
 						incidencia.getUsuario_creador(),incidencia.getTitulo(), incidencia.getDescripcion() 
 						, incidencia.getEquipo(),incidencia.getUsuario_asignado(), incidencia.getId(), 
 					});
-			
-		
-		//incidencia.getId()
-		System.out.println(incidencia);
-	
-		//jdbcTemplate.update("call modificar(?,?)",
-			//	new Object[] { incidencia.getTitulo(), incidencia.getId() });
-		
 	}
 
 	@Override
 	public void delete(Long id) {
+		//TODO:Hacer
 		jdbcTemplate.update("call borrar(?)", new Object[] { id });
 		
 	}	

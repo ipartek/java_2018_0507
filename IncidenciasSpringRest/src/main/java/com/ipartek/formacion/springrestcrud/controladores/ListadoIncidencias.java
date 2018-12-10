@@ -41,10 +41,6 @@ public class ListadoIncidencias {
 	@RequestMapping("/modifIncidencia")
 	public String modifIncidencia(Incidencia incidencia,Model modelo) {
 		System.out.println("en modifIncidencia");
-
-//		System.out.println(incidencia.getUsuario_creador() +" \n"+incidencia.getTitulo()+" \n"+ incidencia.getDescripcion() 
-//		+" \n"+ incidencia.getEquipo() +" \n"+incidencia.getUsuario_asignado());
-//	
 		
 //		//Update
 	

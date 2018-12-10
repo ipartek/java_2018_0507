@@ -26,11 +26,14 @@
 		<tbody>
 			<c:forEach items="${listausuarios}" var="usuario">
 				<tr>
-					<td><input type="text" name="id" value="${usuario.id}" disabled class="form-control" /></td>
-					<td><input type="text" name="text" value="${usuario.email}" disabled class="form-control" /></td>
-					<td><input name="password" type="text" value="${usuario.password}" disabled class="form-control"></td>
-					<td><input name="equipo" type="text" value="${usuario.equipo}" disabled class="form-control"></td>
-					</tr>
+					<form action="/modifUsuario">
+					<td><input type="text" name="id" value="${usuario.id}" readonly class="form-control" /></td>
+					<td><input type="text" name="email" value="${usuario.email}" class="form-control" /></td>
+					<td><input name="password" type="text" value="${usuario.password}"  class="form-control"></td>
+					<td><input name="equipo" type="text" value="${usuario.equipo}" class="form-control"></td>
+					<td><button class="btn btn-default">Guardar</button></td>
+					</form>
+				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
