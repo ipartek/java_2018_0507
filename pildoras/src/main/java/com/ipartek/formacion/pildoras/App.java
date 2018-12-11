@@ -33,8 +33,8 @@ public class App
         log.log(Level.WARNING, "mensaje warning");
         log.log(Level.INFO, "mensaje información");
         log.log(Level.CONFIG, "mensaje configuración");
-        log.log(Level.FINE, "mensaje detallado");
-        log.log(Level.FINER, "mensaje muy detallado");
+        log.log(Level.FINE, "mensaje detallado"); //DEBUG
+        log.log(Level.FINER, "mensaje muy detallado"); //TRACE
         log.log(Level.FINEST, "mensaje super detallado");
     }
 }
