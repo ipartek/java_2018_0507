@@ -1,0 +1,16 @@
+
+
+
+
+
+localhost:8080/usuarios/all
+
+localhost:8080/usuarios/add?email=pepe@pepe.com&password=pass
+
+localhost:8080/usuarios/add?email=nuevo@pepe.com&password=contra
+
+localhost:8080/usuarios/update?id=2&email=nusdao@pepe.com&password=condasdasa
+
+localhost:8080/usuarios/delete?id=5
+
+
