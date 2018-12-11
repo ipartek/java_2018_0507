@@ -114,7 +114,7 @@ function crearUsuario(){
 
 }
 
-function enviarFormularioNuevoUsuario(){
+function enviarFormularioNuevoUsuario(e){
     e.preventDefault();
 
 	var vUsuario = {
