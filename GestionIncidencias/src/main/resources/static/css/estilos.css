@@ -16,3 +16,10 @@
 body{
 	background-color: #e3f3f4;
 }
+
+.nav-link{
+	cursor:pointer;
+}
+a{
+	cursor: pointer;
+}

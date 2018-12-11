@@ -4,23 +4,23 @@ $(function() {
 
     /* Botones admin */
     /* Incidencias */
-    $("#btnAdminIncidencias").click(function(){
+    $("#btnAdminIncidencias").click(function(e){
         e.preventDefault();
         mostrarTodasLasIncidencias();
     });
     /* Historico */
-    $("#btnAdminHistorico").click(function(){
+    $("#btnAdminHistorico").click(function(e){
         e.preventDefault();
         mostrarHistorico();
     });
     /* Usuarios */
-    $("#btnAdminUsuarios").click(function(){
+    $("#btnAdminUsuarios").click(function(e){
         e.preventDefault();
         mostrarUsuarios();
     });
    
     //javascript:crearUsuario()
-    $("#formularioNuevoUsuario").submit(enviarFormularioUsuario);
+    //$("#formularioNuevoUsuario").submit(enviarFormularioUsuario);
     //javascript:modificarUsuario()
     $('.btn_save').click(function(){
         enviarFormularioModificarUsuario();
@@ -31,14 +31,14 @@ $(function() {
 
 function ocultarTodo(){
     //Ocultar todas las secciones
-
+	$("#seccionMisIncidencias").hide();
+	
+	
 }
 
 function mostrarSeccionMisIncidencias(){
     ocultarTodo();
-
-    //mostrar seccion mis incidencias
-
+    $("#seccionMisIncidencias").show();
 }
 
 /*Mis incidencias*/
@@ -46,7 +46,7 @@ function mostrarSeccionMisIncidencias(){
 // Crear una nueva
 function nuevaIncidencia(){
     //Ocultar tabla mis incidencias
-
+	$("#seccionMisIncidencias").hide();
     //Mostrar formulario crear incidencia
 
 }
