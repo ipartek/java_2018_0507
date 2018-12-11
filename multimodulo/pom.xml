@@ -14,7 +14,9 @@
 	<modules>
 		<module>multimodulo_modelo</module>
     <module>multimodulo_repositorio</module>
-  </modules>
+    <module>multimodulo_consola</module>
+    <module>multimodulo_web</module>
+	</modules>
 
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>

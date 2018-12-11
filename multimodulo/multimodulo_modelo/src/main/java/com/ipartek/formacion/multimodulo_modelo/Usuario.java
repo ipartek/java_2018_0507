@@ -8,12 +8,14 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 
 @Entity //Para habilitar JPA
-@Table(name="usuarios")
+@Table(name="tablausuarios")
 public class Usuario {
 	@Id //Para JPA: clave primaria
     @GeneratedValue(strategy=GenerationType.AUTO) //autogenerada
