@@ -16,6 +16,7 @@
     <module>multimodulo_repositorio</module>
     <module>multimodulo_consola</module>
     <module>multimodulo_web</module>
+    <module>multimodulo_repositoriorest</module>
 	</modules>
 
 	<properties>

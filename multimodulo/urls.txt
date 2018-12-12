@@ -14,3 +14,5 @@ localhost:8080/usuarios/update?id=2&email=nusdao@pepe.com&password=condasdasa
 localhost:8080/usuarios/delete?id=5
 
 
+localhost:8080/usuarios/usuarios?page=1&size=2
+
