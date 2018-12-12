@@ -18,6 +18,7 @@
 <script src="../js/bootstrap.min.js"></script>
 </head>
 <body>
+<%@ include file="/jsp/index.jsp" %>
 	<h2>Agregar Incidencia</h2>
 
 	<br>
@@ -28,19 +29,19 @@
 			<div class="col-lg-4" id="userFormColumn1">
 				<div class="form-group">
 					<label for="fecha">Fecha: </label> 
-					<input name="fecha" id="fecha" class="form-control input-normal">
+					<input name="fecha" id="fecha" class="form-control input-normal" required placeholder="YYYY-MM-DD" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])">
 				</div>
 			</div>
 			<div class="col-lg-4" id="userFormColumn2">
 				<div class="form-group">
 					<label for="usuario_creador">Usuario Creador:</label> 
-					<input name="usuario_creador" id="usuario_creador" class="form-control input-normal">
+					<input name="usuario_creador" id="usuario_creador" class="form-control input-normal" required>
 				</div>
 			</div>
 			<div class="col-lg-4" id="userFormColumn2">
 				<div class="form-group">
 					<label for="titulo">Titulo</label> 
-					<input name="titulo" id="titulo" class="form-control input-normal">
+					<input name="titulo" id="titulo" class="form-control input-normal" maxlength="45" required>
 				</div>
 			</div>
 		</div>
@@ -49,23 +50,31 @@
 			<div class="col-lg-4" id="userFormColumn1">
 				<div class="form-group">
 					<label for="descripcion">Descripcion</label> 
-					<input name="descripcion" id="descripcion" class="form-control input-normal">
+					<input name="descripcion" id="descripcion"  maxlength="45" required class="form-control input-normal">
 				</div>
 			</div>
 			<div class="col-lg-4" id="userFormColumn2">
 				<div class="form-group">
 					<label for="equipo">Equipo</label> 
-					<input name="equipo" id="mobile" class="form-control input-normal">
+					<select name="equipo" id="equipo" class="form-control input-normal">
+					 <c:forEach var = "equipo" items="${listaequipos}">
+        				 <option value="${equipo.nombre}">${equipo.nombre}</option>
+     				 </c:forEach>
+     				 </select>
 				</div>
 			</div>
 			<div class="col-lg-4" id="userFormColumn2">
 				<div class="form-group">
 					<label for="usuario_asignado">Usuario Asignado</label> 
-					<select name="usuario_asignado" id="level" class="form-control input-normal">
-						<option value="1">Cargar</option>
-						<option value="2">Cargar</option>
-					</select>
-					cargar desde db los usuarios
+					<select name="usuario_asignado" id="usuario_asignado" class="form-control input-normal">
+				
+				 <c:forEach var = "usuario" items="${listausuarios}">
+        				 <option value="${usuario.email}">${usuario.email}</option>
+     				 </c:forEach>
+				
+				
+				
+     				 </select>
 				</div>
 			</div>
 			<center>

@@ -19,31 +19,18 @@
 </head>
 <body>
 <%@ include file="/jsp/index.jsp" %>
-	<h2>Agregar Usuario</h2>
+	<h2>Agregar Equipo</h2>
 
 	<br>
 
-	<form action="/addUsuario">
+	<form action="/addEquipo">
 		<div class="container-fluid">
 			<div class="col-lg-4" id="userFormColumn1">
 				<div class="form-group">
-					<label for="email">Email: </label> 
-					<input name="email" id="email" class="form-control input-normal">
+					<label for="nombre">Nombre: </label> 
+					<input name="nombre" id="nombre" class="form-control input-normal">
 				</div>
 			</div>
-			<div class="col-lg-4" id="userFormColumn2">
-				<div class="form-group">
-					<label for="password">Password:</label> 
-					<input name="password" id="password" class="form-control input-normal">
-				</div>
-			</div>
-			<div class="col-lg-4" id="userFormColumn2">
-				<div class="form-group">
-					<label for="equipo">Equipo:</label> 
-					<input name="equipo" id="equipo" class="form-control input-normal">
-				</div>
-			</div>
-		</div>
 			<center>
 				<button class="btn btn-secondary">Guardar</button>
 			</center>

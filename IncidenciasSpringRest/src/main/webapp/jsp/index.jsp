@@ -12,10 +12,14 @@
 <h2>Gestion de Incidencias y Usuarios</h2>
 
 <div class="btn-toolbar" role="toolbar">
-  <div class="btn-group" role="group"><a class="btn btn-default" href="jsp/agregarincidencia.jsp">Agregar incidencia</a></div>
-  <div class="btn-group" role="group"><a class="btn btn-default" href="jsp/agregarusuario.jsp">Agregar usuario</a></div>
-  <div class="btn-group" role="group"><a class="btn btn-default" href="ListadoIncidencias">VerHistoricoIncidencias</a></div>
-  <div class="btn-group" role="group"><a class="btn btn-default" href="ListadoUsuarios">VerHistoricoUsuarios</a></div>
+  <div class="btn-group" role="group"><a class="btn btn-default" href="AgregarIncidencia">Agregar incidencia</a></div>
+  <div class="btn-group" role="group"><a class="btn btn-default" href="AgregarUsuario">Agregar usuario</a></div>
+  <div class="btn-group" role="group"><a class="btn btn-default" href="AgregarEquipo">Agregar Equipo</a></div>
+ 
+  <div class="btn-group" role="group"><a class="btn btn-default" href="ListadoIncidencias">Ver Historico Incidencias</a></div>
+  <div class="btn-group" role="group"><a class="btn btn-default" href="ListadoUsuarios">Ver Historico Usuarios</a></div>
+ <div class="btn-group" role="group"><a class="btn btn-default" href="ListadoEquipos">Ver Historico Equipos</a></div>
+
 </div>
 
 </body>

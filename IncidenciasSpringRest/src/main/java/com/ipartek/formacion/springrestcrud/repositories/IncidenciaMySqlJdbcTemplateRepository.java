@@ -25,8 +25,8 @@ public class IncidenciaMySqlJdbcTemplateRepository implements CrudAble<Incidenci
 	private static final class IncidenciaMapper implements RowMapper<Incidencia> {
 		public Incidencia mapRow(ResultSet rs, int rowNum) throws SQLException {
 			return new Incidencia(rs.getLong("id"), rs.getString("fecha"),rs.getString("usuario_creador"),
-					 rs.getString("titulo"), rs.getString("descripcion"),
-					 rs.getString("usuario_asignado"), rs.getString("equipo")
+					 rs.getString("titulo"), rs.getString("descripcion"), rs.getString("equipo"),
+					 rs.getString("usuario_asignado")
 					);
 		}
 	}

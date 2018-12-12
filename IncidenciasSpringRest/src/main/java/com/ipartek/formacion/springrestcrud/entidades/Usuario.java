@@ -1,5 +1,6 @@
 package com.ipartek.formacion.springrestcrud.entidades;
 
+
 public class Usuario {
 
 	
