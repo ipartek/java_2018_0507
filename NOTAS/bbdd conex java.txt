@@ -1,0 +1,42 @@
+		String url = "jdbc:mysql://localhost:3307/ipartek?serverTimezone=UTC&useSSL=false";
+		
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+			
+		
+			String usuario = "root";
+			String password = "admin";
+		
+
+			try(Connection con = DriverManager.getConnection(url, usuario, password)) {
+							
+				String sql = "INSERT INTO perrosenbd (NOMBRE,EDAD,RAZA,PESO,APADRINADO,CHIP) VALUES (?,?,?,?,?,?)";
+				
+				try(PreparedStatement pst = con.prepareStatement(sql)) {
+					pst.setString(1, perro.getNombreperro());
+					pst.setInt(2, perro.getEdadperro());
+					pst.setString(3, perro.getRazaperro());
+					pst.setLong(4, (long) perro.getPeso());
+					pst.setString(5,perro.isApadrinado());
+					pst.setString(6, perro.getChip());
+					
+					int numFilas = pst.executeUpdate();
+					
+					if(numFilas > 0) {
+						System.out.println("El numero de filas modificado ha sido " + numFilas);
+					}
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			

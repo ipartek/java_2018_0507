@@ -1,0 +1,24 @@
+http://getbootstrap.com/docs/3.3/getting-started/
+
+bootstrap es para web
+necesario jquery para algunas cosas
+
+se ponen mediante <link> o <script>
+
+el unico que usaria el seria el min.css
+
+https://jquery.com/
+https://code.jquery.com/jquery/#jquery-all-1.x
+
+https://getbootstrap.com/docs/3.3/css/
+
+
+http://getbootstrap.com/docs/3.3/components/#nav-pills
+
+
+<%@ include file="includes/pie.jsp" %>
+
+font awesome --> iconos para descargar
+
+
+
