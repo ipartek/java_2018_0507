@@ -29,19 +29,89 @@ $(function() {
     //javascript:borrarUsuario()
 });
 
+/*******************
+ * 	  Globales	   *
+ *******************/
 function ocultarTodo(){
     //Ocultar todas las secciones
 	$("#seccionMisIncidencias").hide();
-	
-	
 }
 
+/*******************
+ * Mis incidencias *
+ *******************/
 function mostrarSeccionMisIncidencias(){
     ocultarTodo();
-    $("#seccionMisIncidencias").show();
+    
+    //var id = $("#idUsuario").val();
+    var id = 1;
+	
+    $.getJSON('/api/incidencias/open/'+ id, function(incidencias) {
+		console.log(incidencias);
+		mostrarMisIncidencias(incidencias);
+	});
 }
 
-/*Mis incidencias*/
+function mostrarMisIncidencias(incidencias){
+	$('#tbodyMisIncidencias').empty();
+	$(incidencias).each(function() {
+		$('#tbodyMisIncidencias').append(
+						'<tr class="rowMiInicidencia">' + 
+							'<td>'+ 
+								'<a href="javascript:mostrarIncidenciaCompleta('+ this.id +')" class="btn btn-success btn-sm">' + 
+									'<i class="fas fa-plus"></i>' +
+								'</a>' +
+							'</td>'+ 
+							'<td>'+ this.fecha + '</td>'+ 
+							'<td>'+ this.usuarioCreador.nombre + '</td>'+ 
+							'<td>'+ this.titulo + '</td>'	+ 
+							'<td>'+ this.descripcion + '</td>'+ 
+							'<td>'+ this.usuarioAsignado.nombre + '</td>'+ 
+							'<td>'+ 
+								'<a href="javascript:modificarIncidencia('+ this.id +')"><i class="far fa-edit fa-lg"></i></a> '+
+								'<a href="javascript:borrarIncidencia('+ this.id +')"><i class="far fa-trash-alt fa-lg"></i></a>'+ 
+							'</td>' + 
+						'</tr>');
+	});
+	
+	$("#seccionMisIncidencias").show();
+}
+
+//Ampliar / Comprimir fila de cartas con incidencia completa
+function mostrarIncidenciaCompleta(id){
+    // Pedir historico de incidencia por ajax
+    
+    //Mostrar datos de incidencia
+		$.getJSON('/api/historicos/open/' + id, function(historicos){
+			console.log(historicos);
+			mostrarHistoricoIncidencia(historicos);
+		});
+}
+
+function mostrarHistoricoIncidencia(historicos){
+	alert("probando +");
+	var tbl_row = $(this).closest('tr').attr("class");
+	console.log(tbl_row);
+	//tbl_row.empty();
+	$(historicos).each(function() {
+		tbl_row.after(
+				'<tr>' +
+				'<td colspan="7">' +
+					'<div class="card">' +
+						'<div class="card-header">'+ this.incidencia.id +' / '+ this.estado +' / '+ this.usuario.nombre +'</div>' +
+						'<div class="card-body">' +
+							'<h5 class="card-title">'+ this.incidencia.titulo +'</h5>' +
+							'<p class="card-text">'+ this.comentario +'</p>' +
+						'</div>' +
+						'<div class="card-footer">'+ this.fecha +'</div>' +
+					'</div>' +
+				'</td>' +
+				'</tr>');
+	});
+	
+	console.log("acabando de mostrar");
+	tbl_row.toggle();
+}
 
 // Crear una nueva
 function nuevaIncidencia(){
@@ -68,18 +138,14 @@ function borrarIncidencia(){
 
 }
 
-// Ampliar / Comprimir fila de cartas con incidencia completa
-function mostrarIncidenciaCompleta(){
-    // Pedir historico de incidencia por ajax
-    
-    //Mostrar datos de incidencia
 
-}
+/*******************
+ * 		ADMIN 	   *
+ *******************/
 
-
-/*** ADMIN ***/
-
-/* INCIDENCIAS*/
+/*******************
+ * 	 Incidencias   *
+ *******************/
 function mostrarTodasLasIncidencias(){
     ocultarTodo();
 
@@ -98,7 +164,9 @@ function mostrarHistorico(){
     //Mostrar tabla historico
 }
 
-/* USUARIOS */
+/*******************
+ * 	  Usuarios 	   *
+ *******************/
 function mostrarUsuarios(){
     ocultarTodo();
 

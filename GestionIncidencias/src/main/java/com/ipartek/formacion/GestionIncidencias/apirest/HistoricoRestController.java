@@ -13,12 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ipartek.formacion.GestionIncidencias.modelos.Historico;
 import com.ipartek.formacion.GestionIncidencias.repositorios.CrudAble;
+import com.ipartek.formacion.GestionIncidencias.repositorios.HistoricoRepository;
 
 @RestController
 public class HistoricoRestController implements RestAble<Historico>{
 
 	@Autowired
 	private CrudAble<Historico> repositorio;
+	
+	@Autowired
+	private HistoricoRepository repositorio2;
 	
 	@Override
 	@GetMapping("/api/historicos")
@@ -48,5 +52,10 @@ public class HistoricoRestController implements RestAble<Historico>{
 	@DeleteMapping("/api/historicos/{id}")
 	public void borrar(Long id) {
 		repositorio.delete(id);
+	}
+	
+	@GetMapping("/api/historicos/open/{id}")
+	public List<Historico> obtenerHistoricoByIncidenciaId(@PathVariable("id") Long id){
+		return repositorio2.getHistoricoByIncidenciaId(id);
 	}
 }

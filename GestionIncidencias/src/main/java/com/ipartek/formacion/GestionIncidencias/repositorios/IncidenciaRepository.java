@@ -2,7 +2,6 @@ package com.ipartek.formacion.GestionIncidencias.repositorios;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.ipartek.formacion.GestionIncidencias.modelos.Incidencia;
+import com.ipartek.formacion.GestionIncidencias.modelos.Usuario;
 
 @Repository
 public class IncidenciaRepository implements CrudAble<Incidencia> {
@@ -44,10 +44,23 @@ public class IncidenciaRepository implements CrudAble<Incidencia> {
 	public void delete(Long id) {
 		jdbcTemplate.update("call incidencias_delete(?)", new Object[] { id });
 	}
+	
+	public List<Incidencia>  getByIdUsuario(Long id) {
+		return jdbcTemplate.query("call incidencias_getByUserId(?)", new Object[] { id },
+				new IncidenciaMapper());
+	} 
 
 	private static final class IncidenciaMapper implements RowMapper<Incidencia> {
 		public Incidencia mapRow(ResultSet rs, int rowNum) throws SQLException {
-			return  new Incidencia(rs.getLong("id"), rs.getDate("fecha"), rs.getLong("usuarioCreador"), rs.getString("titulo"), rs.getString("descripcion"),rs.getLong("usuarioAsignado"));
+			Usuario usuarioCreador = new Usuario(rs.getLong("i.usuarioCreador"), rs.getString("u.nombre"), rs.getString("u.email"),rs.getString("u.password"));
+			Usuario usuarioAsignado = new Usuario(rs.getLong("i.usuarioAsignado"), rs.getString("v.nombre"), rs.getString("v.email"),rs.getString("v.password"));
+			
+			return new Incidencia(rs.getLong("i.id"), 
+									rs.getDate("i.fecha"), 
+									usuarioCreador, 
+									rs.getString("titulo"), 
+									rs.getString("descripcion"),
+									usuarioAsignado);
 		}
 	}
 }
