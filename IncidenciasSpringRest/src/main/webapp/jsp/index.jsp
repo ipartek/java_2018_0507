@@ -9,16 +9,22 @@
     <script src="../js/bootstrap.min.js"></script>
 </head>
 <body>
-<h2>Gestion de Incidencias y Usuarios</h2>
+
+	<div class="jumbotron text-center">
+    	<h1>Gestión de incidencias</h1> 
+   </div>
+
 
 <div class="btn-toolbar" role="toolbar">
   <div class="btn-group" role="group"><a class="btn btn-default" href="AgregarIncidencia">Agregar incidencia</a></div>
   <div class="btn-group" role="group"><a class="btn btn-default" href="AgregarUsuario">Agregar usuario</a></div>
   <div class="btn-group" role="group"><a class="btn btn-default" href="AgregarEquipo">Agregar Equipo</a></div>
+   <div class="btn-group" role="group"><a class="btn btn-default" href="AgregarEstado">Agregar Estado</a></div>
  
-  <div class="btn-group" role="group"><a class="btn btn-default" href="ListadoIncidencias">Ver Historico Incidencias</a></div>
-  <div class="btn-group" role="group"><a class="btn btn-default" href="ListadoUsuarios">Ver Historico Usuarios</a></div>
- <div class="btn-group" role="group"><a class="btn btn-default" href="ListadoEquipos">Ver Historico Equipos</a></div>
+  <div class="btn-group" role="group"><a class="btn btn-default" href="ListadoIncidencias">Ver Incidencias</a></div>
+  <div class="btn-group" role="group"><a class="btn btn-default" href="ListadoUsuarios">Ver Usuarios</a></div>
+ <div class="btn-group" role="group"><a class="btn btn-default" href="ListadoEquipos">Ver Equipos</a></div>
+<div class="btn-group" role="group"><a class="btn btn-default" href="ListadoEstados">Ver Estados</a></div>
 
 </div>
 

@@ -72,14 +72,44 @@
         				 <option value="${usuario.email}">${usuario.email}</option>
      				 </c:forEach>
 				
-				
-				
      				 </select>
 				</div>
 			</div>
-			<center>
+			
+			<div class="container-fluid">
+			<!-- Row 3 -->
+			<div class="col-lg-4" id="userFormColumn1">
+				<div class="form-group">
+				
+				</div>
+			</div>
+			<div class="col-lg-4" id="userFormColumn2">
+				<div class="form-group">
+						<label for="estado">Estado</label> 
+					<select name="estado" id="estado" class="form-control input-normal">
+					 <c:forEach var = "estado" items="${listaestados}">
+        				 <option value="${estado.estado}">${estado.estado}</option>
+     				 </c:forEach>
+     				 </select>
+				
+		
+				</div>
+			</div>
+			<div class="col-lg-4" id="userFormColumn2">
+				<div class="form-group">
+				<br>
 				<button class="btn btn-secondary">Guardar</button>
-			</center>
+				
+				</div>
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
 		</div>
 	</form>
 </body>

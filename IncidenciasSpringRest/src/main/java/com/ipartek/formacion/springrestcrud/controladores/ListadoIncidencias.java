@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ipartek.formacion.springrestcrud.entidades.Equipo;
+import com.ipartek.formacion.springrestcrud.entidades.Estado;
 import com.ipartek.formacion.springrestcrud.entidades.Incidencia;
 import com.ipartek.formacion.springrestcrud.entidades.Usuario;
 import com.ipartek.formacion.springrestcrud.repositories.CrudAble;
@@ -23,8 +24,19 @@ public class ListadoIncidencias {
 	
 	@Autowired
 	private final CrudAble<Equipo> repositorio_e=null;
+	@Autowired
+	private final CrudAble<Estado> repositorio_estad=null;
 		
 	
+	
+	@RequestMapping("/")
+	public String inicio(Model modelo) {
+		List<Incidencia> lista = repositorio_i.getAll();
+		
+		modelo.addAttribute("listaincidencia",lista);
+		
+		return "home";
+	}
 	
 	
 	@GetMapping("/AgregarIncidencia")
@@ -32,6 +44,7 @@ public class ListadoIncidencias {
 		
 		modelo.addAttribute("listausuarios",repositorio_u.getAll());
 		modelo.addAttribute("listaequipos",repositorio_e.getAll());
+		modelo.addAttribute("listaestados",repositorio_estad.getAll());
 		
 		
 		return "agregarincidencia";
@@ -43,8 +56,9 @@ public class ListadoIncidencias {
 		List<Incidencia> lista = repositorio_i.getAll();
 		
 		modelo.addAttribute("listaincidencia",lista);
+		modelo.addAttribute("listaestados",repositorio_estad.getAll());
 		
-		return "verhistorico";
+		return "verincidencias";
 	}
 	
 
@@ -60,6 +74,7 @@ public class ListadoIncidencias {
 		
 		modelo.addAttribute("listausuarios",lista);
 		modelo.addAttribute("listaequipos",lista_equipo);
+		modelo.addAttribute("listaestados",repositorio_estad.getAll());
 		
 		return "agregarincidencia";
 	}
@@ -71,7 +86,8 @@ public class ListadoIncidencias {
 		repositorio_i.insert(incidencia);
 		List<Incidencia> lista = repositorio_i.getAll();
 		modelo.addAttribute("listaincidencia",lista);
-		return "verhistorico";
+		modelo.addAttribute("listaestados",repositorio_estad.getAll());
+		return "verincidencias";
 	}
 	
 	@RequestMapping("/modifIncidencia")
@@ -79,11 +95,12 @@ public class ListadoIncidencias {
 		System.out.println("en modifIncidencia");
 	
 		repositorio_i.update(incidencia);
-				
+			System.out.println(	"Al modificar incidencia.getEstado() " + incidencia.getEstado());
 		List<Incidencia> lista = repositorio_i.getAll();
 		
 		modelo.addAttribute("listaincidencia",lista);
+		modelo.addAttribute("listaestados",repositorio_estad.getAll());
 		
-		return "verhistorico";
+		return "verincidencias";
 	}
 }

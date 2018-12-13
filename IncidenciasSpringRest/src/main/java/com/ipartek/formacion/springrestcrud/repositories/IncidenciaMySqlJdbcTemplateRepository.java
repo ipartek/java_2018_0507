@@ -26,7 +26,7 @@ public class IncidenciaMySqlJdbcTemplateRepository implements CrudAble<Incidenci
 		public Incidencia mapRow(ResultSet rs, int rowNum) throws SQLException {
 			return new Incidencia(rs.getLong("id"), rs.getString("fecha"),rs.getString("usuario_creador"),
 					 rs.getString("titulo"), rs.getString("descripcion"), rs.getString("equipo"),
-					 rs.getString("usuario_asignado")
+					 rs.getString("usuario_asignado"), rs.getString("estado")
 					);
 		}
 	}
@@ -40,21 +40,21 @@ public class IncidenciaMySqlJdbcTemplateRepository implements CrudAble<Incidenci
 	@Override
 	public void insert(Incidencia incidencia) {
 		jdbcTemplate.update("insert into incidencia (fecha,usuario_creador,titulo,descripcion"
-				+ ",equipo,usuario_asignado) values (?,?,?,?,?,?)",
+				+ ",equipo,usuario_asignado,estado) values (?,?,?,?,?,?,?)",
 				new Object[] { 
 							incidencia.getFecha(),incidencia.getUsuario_creador() , 
 							incidencia.getTitulo(),incidencia.getDescripcion(),incidencia.getEquipo(),
-							incidencia.getUsuario_asignado(), 
+							incidencia.getUsuario_asignado(), incidencia.getEstado(),
 						});
 	}
 
 	@Override
 	public void update(Incidencia incidencia) {
-		jdbcTemplate.update("update incidencia set usuario_creador=?,titulo=?,descripcion=?,equipo=?,usuario_asignado=? where id=?",
+		jdbcTemplate.update("update incidencia set usuario_creador=?,titulo=?,descripcion=?,equipo=?,usuario_asignado=?,estado=? where id=?",
 				
 				new Object[] { 
 						incidencia.getUsuario_creador(),incidencia.getTitulo(), incidencia.getDescripcion() 
-						, incidencia.getEquipo(),incidencia.getUsuario_asignado(), incidencia.getId(), 
+						, incidencia.getEquipo(),incidencia.getUsuario_asignado(),incidencia.getEstado(), incidencia.getId(), 
 					});
 	}
 

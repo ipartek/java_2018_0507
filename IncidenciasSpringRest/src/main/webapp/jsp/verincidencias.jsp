@@ -24,6 +24,7 @@
 				<th scope="col">Descripcion</th>
 				<th scope="col">Equipo</th>
 				<th scope="col">Usuario Asignado</th>
+				<th scope="col">Estado</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -38,6 +39,27 @@
 					<td><input name="descripcion" type=text value="${incidencia.descripcion}" class="form-control"></td>
 					<td><input name="equipo" type=text value="${incidencia.equipo}" class="form-control"></td>
 					<td><input name="usuario_asignado" type=text value="${incidencia.usuario_asignado}" class="form-control"></td>
+					<td>
+					
+					
+					<select name="estado" id="estado" class="form-control input-normal">
+					 <c:forEach var = "estado" items="${listaestados}">
+        				 <option  <c:if test="${estado.estado == incidencia.estado}">
+	        				 			selected
+	        				 		</c:if>
+	        				 		value="${estado.estado}">${estado.estado}
+        				 </option>
+     				 </c:forEach>
+     				 </select>
+					
+					<!-- OK:Original
+						<input name="estado" type=text value="${incidencia.estado}" class="form-control">
+					OK:Original -->
+					
+					
+						
+					</td>
+					
 					<td><button class="btn btn-default">Guardar</button></td>
 				</form>
 				</tr>
