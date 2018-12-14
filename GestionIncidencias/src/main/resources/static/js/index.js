@@ -126,7 +126,7 @@ function nuevaIncidencia(){
 }
 
 // Añadir comentario
-function modificarIncidencia(){
+function modificarIncidencia(id){
     //Cargar datos "principales" de la incidencia por ajax
 
     //Ampliar fila de tabla y mostrar formulario nuevo para comentario
@@ -135,11 +135,18 @@ function modificarIncidencia(){
 }
 
 // Cerrar la incidencia / darla por arreglada
-function borrarIncidencia(){
+function borrarIncidencia(id){
     //Cargar datos "principales de la incidencia" por ajax
-
-    //Amplicar fila de tabla y mostrar formulario para comentario y boton "cerrar incidencia"
-
+	if (confirm('¿Estás seguro desea dar por solucionada la incidencia ' + id)) {
+		$.ajax({
+			url : '/api/incidencias/' + id,
+			method : 'DELETE',
+		}).done(function() {
+			mostrarSeccionMisIncidencias();
+		}).fail(function(){
+			alert("ERROR AL BORRAR");
+		});
+	}
 }
 
 

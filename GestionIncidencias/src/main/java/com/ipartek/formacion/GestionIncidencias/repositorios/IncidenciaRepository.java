@@ -42,7 +42,9 @@ public class IncidenciaRepository implements CrudAble<Incidencia> {
 
 	@Override
 	public void delete(Long id) {
-		jdbcTemplate.update("call incidencias_delete(?)", new Object[] { id });
+		Incidencia incidencia = getById(id);
+		
+		jdbcTemplate.update("call incidencias_delete(?,?)", new Object[] { incidencia.getId(), incidencia.getUsuarioCreador().getId() });
 	}
 	
 	public List<Incidencia>  getByIdUsuario(Long id) {

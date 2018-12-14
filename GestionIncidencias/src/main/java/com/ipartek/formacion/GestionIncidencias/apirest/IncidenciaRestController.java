@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ipartek.formacion.GestionIncidencias.modelos.Incidencia;
+import com.ipartek.formacion.GestionIncidencias.repositorios.AccesoDatosException;
 import com.ipartek.formacion.GestionIncidencias.repositorios.CrudAble;
 import com.ipartek.formacion.GestionIncidencias.repositorios.IncidenciaRepository;
 
@@ -50,7 +51,7 @@ public class IncidenciaRestController implements RestAble<Incidencia>{
 
 	@Override
 	@DeleteMapping("/api/incidencias/{id}")
-	public void borrar(Long id) {
+	public void borrar(@PathVariable("id") Long id) {
 		repositorio.delete(id);
 	}
 	
@@ -58,4 +59,6 @@ public class IncidenciaRestController implements RestAble<Incidencia>{
 	public List<Incidencia> obtenerMisIncidenciasPorId(@PathVariable("id") Long id) {
 		return repositorio2.getByIdUsuario(id);
 	}
+
+	
 }

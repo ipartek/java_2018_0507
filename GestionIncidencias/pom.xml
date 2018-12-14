@@ -55,10 +55,10 @@
         </dependency>
         
         <!-- tag::security[] -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+<!--         <dependency> -->
+<!--             <groupId>org.springframework.boot</groupId> -->
+<!--             <artifactId>spring-boot-starter-security</artifactId> -->
+<!--         </dependency> -->
         <!-- end::security[] -->
 	</dependencies>
 
