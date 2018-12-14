@@ -38,8 +38,21 @@
 					<td><input name="titulo" type=text value="${incidencia.titulo}" class="form-control"></td>
 					<td><input name="descripcion" type=text value="${incidencia.descripcion}" class="form-control"></td>
 					<td><input name="equipo" type=text value="${incidencia.equipo}" class="form-control"></td>
-					<td><input name="usuario_asignado" type=text value="${incidencia.usuario_asignado}" class="form-control"></td>
 					<td>
+						<select name="usuario_asignado" id="usuario_asignado" class="form-control input-normal">
+						 <c:forEach var = "usuario" items="${listausuarios}">
+	        				 <option  
+	        				 	<c:if test="${usuario.email == incidencia.usuario_asignado}">
+		        					selected
+		        				</c:if>
+		        				value="${usuario.email}">${usuario.email}
+	        				 </option>
+	     				 </c:forEach>
+	     				 </select>
+	     
+	     			</td>
+	     			
+	     			<td> 
 						<select name="estado" id="estado" class="form-control input-normal">
 						 <c:forEach var = "estado" items="${listaestados}">
 	        				 <option  

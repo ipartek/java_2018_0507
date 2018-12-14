@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ipartek.formacion.springrestcrud.entidades.Equipo;
 import com.ipartek.formacion.springrestcrud.entidades.Usuario;
 import com.ipartek.formacion.springrestcrud.repositories.CrudAble;
 
@@ -20,13 +21,15 @@ import com.ipartek.formacion.springrestcrud.repositories.CrudAble;
 public class ListadoUsuarios {
 	@Autowired
 	private final CrudAble<Usuario> repositorio_u = null;
+	@Autowired
+	private final CrudAble<Equipo> repositorio_e=null;
 	
 	
 	@GetMapping("/AgregarUsuario")
 	public String AgregarUsuario(Model modelo) {
-		
+		List<Equipo> lista_equipo=repositorio_e.getAll();
 		//añadir el listado de equipos modelo.addAttribute("listaincidencia",lista);
-		
+		modelo.addAttribute("listaquipos",lista_equipo);
 		return "agregarusuario";
 	}
 	

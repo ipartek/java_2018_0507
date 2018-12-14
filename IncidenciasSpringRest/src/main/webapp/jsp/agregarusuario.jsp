@@ -19,6 +19,7 @@
 </head>
 <body>
 <%@ include file="/jsp/index.jsp" %>
+<div class="d-flex justify-content-center align-items-center container ">  
 	<h2>Agregar Usuario</h2>
 
 	<br>
@@ -39,8 +40,15 @@
 			</div>
 			<div class="col-lg-4" id="userFormColumn2">
 				<div class="form-group">
-					<label for="equipo">Equipo:</label> 
-					<input name="equipo" id="equipo" class="form-control input-normal">
+					<div class="form-group">
+					<label for="equipo">Equipo</label> 
+					<select name="equipo" id="equipo" class="form-control input-normal">
+					 <c:forEach var = "equipo" items="${listaquipos}">
+        				 <option value="${equipo.nombre}">${equipo.nombre}</option>
+     				 </c:forEach>
+     				 </select>
+				</div>
+				
 				</div>
 			</div>
 		</div>
@@ -49,5 +57,7 @@
 			</center>
 		</div>
 	</form>
+	
+	</div>
 </body>
 </html>

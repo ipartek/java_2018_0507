@@ -19,7 +19,9 @@
 </head>
 <body>
 <%@ include file="/jsp/index.jsp" %>
-	<h2>Agregar Equipo</h2>
+
+<div class="d-flex justify-content-center align-items-center container ">  
+<h2>Agregar Equipo</h2>
 
 	<br>
 
@@ -30,11 +32,13 @@
 					<label for="nombre">Nombre: </label> 
 					<input name="nombre" id="nombre" class="form-control input-normal">
 				</div>
+				<div><button class="btn btn-secondary">Guardar</button></div>
 			</div>
-			<center>
-				<button class="btn btn-secondary">Guardar</button>
-			</center>
+		
+				
+		
 		</div>
 	</form>
+	</div>		
 </body>
 </html>

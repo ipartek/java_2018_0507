@@ -15,7 +15,7 @@
 <%@ include file="/jsp/index.jsp" %>
 
 
-Bienvenido a la gestión de incidencias
+		Bienvenido a la gestión de incidencias
 
 </body>
 </html>

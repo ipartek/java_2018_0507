@@ -94,11 +94,12 @@
 				
 		
 				</div>
+				<button class="btn btn-secondary">Guardar</button>
 			</div>
 			<div class="col-lg-4" id="userFormColumn2">
 				<div class="form-group">
 				<br>
-				<button class="btn btn-secondary">Guardar</button>
+				
 				
 				</div>
 			</div>

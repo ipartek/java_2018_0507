@@ -54,7 +54,7 @@ public class ListadoEquipos {
 	
 	@RequestMapping("/modifEquip")
 	public String modifEquipo(Equipo equipo,Model modelo) {
-		System.out.println("En modif equipo");
+		//System.out.println("En modif equipo");
 		//Update
 		repositorio_e.update(equipo);
 		//EndUpdate

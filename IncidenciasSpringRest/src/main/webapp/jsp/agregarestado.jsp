@@ -19,22 +19,25 @@
 </head>
 <body>
 <%@ include file="/jsp/index.jsp" %>
+<div class="d-flex justify-content-center align-items-center container ">  
 	<h2>Agregar Estado</h2>
 
 	<br>
 
 	<form action="/addEstado">
+	
 		<div class="container-fluid">
 			<div class="col-lg-4" id="userFormColumn1">
 				<div class="form-group">
 					<label for="estado">Nombre Estado: </label> 
 					<input name="estado" id="estado" class="form-control input-normal">
 				</div>
+				<div><button class="btn btn-secondary">Guardar</button></div>
 			</div>
-			<center>
-				<button class="btn btn-secondary">Guardar</button>
-			</center>
 		</div>
 	</form>
+	
+	</div>
+		
 </body>
 </html>
