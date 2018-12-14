@@ -52,8 +52,8 @@ public class IncidenciaRepository implements CrudAble<Incidencia> {
 
 	private static final class IncidenciaMapper implements RowMapper<Incidencia> {
 		public Incidencia mapRow(ResultSet rs, int rowNum) throws SQLException {
-			Usuario usuarioCreador = new Usuario(rs.getLong("i.usuarioCreador"), rs.getString("u.nombre"), rs.getString("u.email"),rs.getString("u.password"));
-			Usuario usuarioAsignado = new Usuario(rs.getLong("i.usuarioAsignado"), rs.getString("v.nombre"), rs.getString("v.email"),rs.getString("v.password"));
+			Usuario usuarioCreador = new Usuario(rs.getLong("i.usuarioCreador"), rs.getString("u.nombre"), rs.getString("u.email"),rs.getString("u.password"), rs.getString("u.rol"));
+			Usuario usuarioAsignado = new Usuario(rs.getLong("i.usuarioAsignado"), rs.getString("v.nombre"), rs.getString("v.email"),rs.getString("v.password"), rs.getString("v.rol"));
 			
 			return new Incidencia(rs.getLong("i.id"), 
 									rs.getDate("i.fecha"), 

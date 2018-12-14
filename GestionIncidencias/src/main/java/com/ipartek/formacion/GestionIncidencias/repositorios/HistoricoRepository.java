@@ -54,7 +54,7 @@ public class HistoricoRepository implements CrudAble<Historico> {
 
 	private static final class HistoricoMapper implements RowMapper<Historico> {
 		public Historico mapRow(ResultSet rs, int rowNum) throws SQLException {
-			Usuario usuario = new Usuario(rs.getLong("u.id"), rs.getString("u.nombre"), rs.getString("u.email"), rs.getString("u.password"));
+			Usuario usuario = new Usuario(rs.getLong("u.id"), rs.getString("u.nombre"), rs.getString("u.email"), rs.getString("u.password"), rs.getString("u.rol"));
 		
 			return new Historico(rs.getLong("h.id"), null, usuario, rs.getDate("h.fecha"), rs.getString("h.comentario"), rs.getString("h.estado"));
 		}
@@ -65,7 +65,8 @@ public class HistoricoRepository implements CrudAble<Historico> {
 			Usuario usuario = new Usuario(rs.getLong("h.usuario"), 
 										rs.getString("u.nombre"), 
 										rs.getString("u.email"), 
-										rs.getString("u.password"));
+										rs.getString("u.password"),
+										rs.getString("u.rol"));
 			Incidencia incidencia = new Incidencia(rs.getLong("h.incidencia"),
 													rs.getDate("i.fecha"),
 													rs.getString("i.titulo"),

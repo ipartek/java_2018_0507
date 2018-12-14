@@ -35,6 +35,8 @@ $(function() {
 function ocultarTodo(){
     //Ocultar todas las secciones
 	$("#seccionMisIncidencias").hide();
+	$("#seccionUsuarios").hide();
+	$("#seccionHistoricos").hide();
 }
 
 /*******************
@@ -56,7 +58,7 @@ function mostrarMisIncidencias(incidencias){
 	$('#tbodyMisIncidencias').empty();
 	$(incidencias).each(function() {
 		$('#tbodyMisIncidencias').append(
-						'<tr class="rowMiInicidencia">' + 
+						'<tr class="i'+this.id+'">' + 
 							'<td>'+ 
 								'<a href="javascript:mostrarIncidenciaCompleta('+ this.id +')" class="btn btn-success btn-sm">' + 
 									'<i class="fas fa-plus"></i>' +
@@ -72,6 +74,9 @@ function mostrarMisIncidencias(incidencias){
 								'<a href="javascript:borrarIncidencia('+ this.id +')"><i class="far fa-trash-alt fa-lg"></i></a>'+ 
 							'</td>' + 
 						'</tr>');
+		$('#tbodyMisIncidencias').append(
+				'<tr class="d'+this.id+'">' +
+				'</tr>');
 	});
 	
 	$("#seccionMisIncidencias").show();
@@ -80,37 +85,36 @@ function mostrarMisIncidencias(incidencias){
 //Ampliar / Comprimir fila de cartas con incidencia completa
 function mostrarIncidenciaCompleta(id){
     // Pedir historico de incidencia por ajax
-    
-    //Mostrar datos de incidencia
-		$.getJSON('/api/historicos/open/' + id, function(historicos){
-			console.log(historicos);
-			mostrarHistoricoIncidencia(historicos);
-		});
+	$.getJSON('/api/historicos/open/' + id, function(historicos){
+		console.log(historicos);
+		mostrarHistoricoIncidencia(historicos);
+	});
 }
 
 function mostrarHistoricoIncidencia(historicos){
-	alert("probando +");
-	var tbl_row = $(this).closest('tr').attr("class");
-	console.log(tbl_row);
-	//tbl_row.empty();
-	$(historicos).each(function() {
-		tbl_row.after(
-				'<tr>' +
-				'<td colspan="7">' +
-					'<div class="card">' +
-						'<div class="card-header">'+ this.incidencia.id +' / '+ this.estado +' / '+ this.usuario.nombre +'</div>' +
-						'<div class="card-body">' +
-							'<h5 class="card-title">'+ this.incidencia.titulo +'</h5>' +
-							'<p class="card-text">'+ this.comentario +'</p>' +
-						'</div>' +
-						'<div class="card-footer">'+ this.fecha +'</div>' +
-					'</div>' +
-				'</td>' +
-				'</tr>');
-	});
+	//Obtener id fila
+	var idFila = historicos[0].incidencia.id;
 	
-	console.log("acabando de mostrar");
-	tbl_row.toggle();
+	$(".d"+idFila).empty();
+	
+	console.log("idFila: " + idFila);
+	
+	var tablaAppend = '<table class="table">';
+	$(historicos).each(function(){
+		tablaAppend += '<tr>' +
+							'<td>' +
+							'<div class="card">' +
+								'<div class="card-header">'+ this.incidencia.id +' / '+ this.usuario.nombre +' / '+ this.estado +'</div>' +
+								'<div class="card-body">' +
+									'<h5 class="card-title">'+ this.incidencia.titulo +'</h5>' +
+									'<p class="card-text">'+ this.comentario +'</p>' +
+								'</div>' +
+								'<div class="card-footer">'+ this.fecha +'</div>' +
+							'</div>' +
+						'</td>' +
+						'</tr>';
+	});
+	$(tablaAppend).appendTo(".d"+idFila).slideDown("slow");
 }
 
 // Crear una nueva
@@ -155,24 +159,75 @@ function mostrarTodasLasIncidencias(){
 
 }
 
-/* HISTORICO */
+/*******************
+ * 	  Historico    *
+ *******************/
 function mostrarHistorico(){
-    ocultarTodo();
-
-    //Llamada ajax todas las incidencias con historico
+ocultarTodo();
     
-    //Mostrar tabla historico
+    $.getJSON('/api/historicos/', function(historicos) {
+		console.log(historicos);
+		mostrarDatosHistoricos(historicos);
+	});
+}
+
+function mostrarDatosHistoricos(historicos){
+	$('#tbodyHistoricos').empty();
+	$(historicos).each(function() {
+		$('#tbodyHistoricos').append(
+						'<tr>' + 
+							'<th>'+ this.id + '</th>' + 
+							'<td>'+ this.nombre + '</td>'+ 
+							'<td>'+ this.email + '</td>'+ 
+							'<td>'+ this.password + '</td>'	+ 
+							'<td>'+ 
+								'<a href="javascript:modificarHistorico('+ this.id +')"><i class="far fa-edit fa-lg"></i></a> '+
+								'<a href="javascript:borrarHistorico('+ this.id +')"><i class="far fa-trash-alt fa-lg"></i></a>'+ 
+							'</td>' + 
+						'</tr>');
+	});
+	
+	$("#seccionHistoricos").show();
+}
+
+function modificarHistorico(id){
+	
+}
+
+function borrarHistorico(id){
+	
 }
 
 /*******************
  * 	  Usuarios 	   *
  *******************/
 function mostrarUsuarios(){
-    ocultarTodo();
+	ocultarTodo();
+    
+    $.getJSON('/api/usuarios/', function(usuarios) {
+		console.log(usuarios);
+		mostrarDatosUsuarios(usuarios);
+	});
+}
 
-    //Llamada ajax mostrar todos los usuarios
-
-    //Mostrar Tabla usuarios
+function mostrarDatosUsuarios(usuarios){
+	$('#tbodyUsuarios').empty();
+	$(usuarios).each(function() {
+		$('#tbodyUsuarios').append(
+						'<tr>' + 
+							'<th>'+ this.id + '</th>' + 
+							'<td>'+ this.nombre + '</td>'+ 
+							'<td>'+ this.email + '</td>'+ 
+							'<td>'+ this.password + '</td>'	+ 
+							'<td>'+ this.rol + '</td>'	+ 
+							'<td>'+ 
+								'<a href="javascript:modificarUsuario('+ this.id +')"><i class="far fa-edit fa-lg"></i></a> '+
+								'<a href="javascript:borrarUsuario('+ this.id +')"><i class="far fa-trash-alt fa-lg"></i></a>'+ 
+							'</td>' + 
+						'</tr>');
+	});
+	
+	$("#seccionUsuarios").show();
 }
 
 function crearUsuario(){
@@ -205,7 +260,7 @@ function enviarFormularioNuevoUsuario(e){
 	});
 }
 
-function modificarUsuario(){
+function modificarUsuario(id){
     event.preventDefault();
     var tbl_row = $(this).closest('tr');
 
@@ -319,7 +374,7 @@ function enviarFormularioModificarUsuario(){
     </tbody>
 </table>*/
 
-function borrarUsuario(){
+function borrarUsuario(id){
     //Modal con llamada ajax para borrar usuario
 
     mostrarUsuarios();

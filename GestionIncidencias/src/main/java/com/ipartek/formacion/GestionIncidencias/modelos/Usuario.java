@@ -6,17 +6,19 @@ public class Usuario {
 	private String nombre;
 	private String email;
 	private String password;
+	private String rol;
 	
 	public Usuario() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Usuario(Long id, String nombre, String email, String password) {
+	public Usuario(Long id, String nombre, String email, String password, String rol) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.email = email;
 		this.password = password;
+		this.rol = rol;
 	}
 
 	public Long getId() {
@@ -50,6 +52,14 @@ public class Usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public String getRol() {
+		return rol;
+	}
+	
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
 
 	@Override
 	public int hashCode() {
@@ -59,6 +69,7 @@ public class Usuario {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((rol == null) ? 0 : rol.hashCode());
 		return result;
 	}
 
@@ -91,11 +102,21 @@ public class Usuario {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
+		if (rol == null) {
+			if (other.rol != null)
+				return false;
+		} else if (!rol.equals(other.rol))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", email=" + email + ", password=" + password + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Usuario [id=").append(id).append(", nombre=").append(nombre).append(", email=").append(email)
+				.append(", password=").append(password).append(", rol=").append(rol).append("]");
+		return builder.toString();
 	}
+
+	
 }

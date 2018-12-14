@@ -30,24 +30,30 @@ public class UsuarioRepository implements CrudAble<Usuario> {
 
 	@Override
 	public Long insert(Usuario usuario) {
-		return jdbcTemplate.queryForObject("call usuarios_insert(?,?,?)",
-				new Object[] { usuario.getNombre(), usuario.getEmail(), usuario.getPassword() }, Long.class);
+		return jdbcTemplate.queryForObject("call usuarios_insert(?,?,?,?)",
+				new Object[] { usuario.getNombre(), usuario.getEmail(), usuario.getPassword(), usuario.getRol() }, Long.class);
 	}
 
 	@Override
 	public void update(Usuario usuario) {
-		jdbcTemplate.update("call usuarios_update(?,?,?,?)",
-				new Object[] { usuario.getId(), usuario.getNombre(), usuario.getEmail(), usuario.getPassword() });
+		jdbcTemplate.update("call usuarios_update(?,?,?,?,?)",
+				new Object[] { usuario.getId(), usuario.getNombre(), usuario.getEmail(), usuario.getPassword(), usuario.getRol() });
 	}
 
 	@Override
 	public void delete(Long id) {
 		jdbcTemplate.update("call usuarios_delete(?)", new Object[] { id });
 	}
+	
+	public Usuario searchUser(Usuario usuario) {
+		return jdbcTemplate.queryForObject("call usuarios_search(?,?)",
+				new Object[] { usuario.getEmail(), usuario.getPassword()},
+				new UsuarioMapper());
+	}
 
 	private static final class UsuarioMapper implements RowMapper<Usuario> {
 		public Usuario mapRow(ResultSet rs, int rowNum) throws SQLException {
-			return new Usuario(rs.getLong("id"), rs.getString("nombre"), rs.getString("email"), rs.getString("password"));
+			return new Usuario(rs.getLong("id"), rs.getString("nombre"), rs.getString("email"), rs.getString("password"), rs.getString("rol"));
 		}
 	}
 }
