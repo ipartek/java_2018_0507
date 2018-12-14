@@ -50,9 +50,8 @@ public class EstadoMySqlJdbcTemplateRepository implements CrudAble<Estado> {
 
 	@Override
 	public void delete(Long id) {
+		// TODO Auto-generated method stub
 		
-		//TODO:Hacer??
-		jdbcTemplate.update("delete from estado where id=?", new Object[] { id });
-		
-	}	
+	}
+
 }

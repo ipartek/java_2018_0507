@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ipartek.formacion.springrestcrud.entidades.Equipo;
-import com.ipartek.formacion.springrestcrud.entidades.Usuario;
 import com.ipartek.formacion.springrestcrud.repositories.CrudAble;
 
 

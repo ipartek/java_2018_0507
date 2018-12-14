@@ -50,9 +50,8 @@ public class EquipoMySqlJdbcTemplateRepository implements CrudAble<Equipo> {
 
 	@Override
 	public void delete(Long id) {
+		// TODO Auto-generated method stub
 		
-		//TODO:Hacer??
-		jdbcTemplate.update("delete from equipo where id=?", new Object[] { id });
-		
-	}	
+	}
+
 }

@@ -19,18 +19,19 @@
 			<div class="panel">
 
 				<div class="btn-group" role="group">
-					<a class="btn btn-default" href="AgregarIncidencia">Agregar
-						incidencia</a>
+					<a class="btn btn-default" href="AgregarIncidencia">Añadir incidencia</a>
 				</div>
 				<div class="btn-group" role="group">
-					<a class="btn btn-default" href="AgregarUsuario">Agregar
-						usuario</a>
+					<a class="btn btn-default" href="AgregarUsuario">Añadir usuario</a>
 				</div>
 				<div class="btn-group" role="group">
-					<a class="btn btn-default" href="AgregarEquipo">Agregar Equipo</a>
+					<a class="btn btn-default" href="AgregarEquipo">Añadir Equipo</a>
 				</div>
 				<div class="btn-group" role="group">
-					<a class="btn btn-default" href="AgregarEstado">Agregar Estado</a>
+					<a class="btn btn-default" href="AgregarEstado">Añadir Estado</a>
+				</div>
+				<div class="btn-group" role="group">
+					<a class="btn btn-default" href="AgregarComentario">Añadir Comentario</a>
 				</div>
 
 			</div>
@@ -48,6 +49,9 @@
 			</div>
 			<div class="btn-group" role="group">
 				<a class="btn btn-default" href="ListadoEstados">Ver Estados</a>
+			</div>
+			<div class="btn-group" role="group">
+				<a class="btn btn-default" href="ListadoComentarios">Ver Comentarios</a>
 			</div>
 		</div>
 

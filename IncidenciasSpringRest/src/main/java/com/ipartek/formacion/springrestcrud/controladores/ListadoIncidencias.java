@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ipartek.formacion.springrestcrud.entidades.Comentario;
 import com.ipartek.formacion.springrestcrud.entidades.Equipo;
 import com.ipartek.formacion.springrestcrud.entidades.Estado;
 import com.ipartek.formacion.springrestcrud.entidades.Incidencia;
@@ -26,6 +27,8 @@ public class ListadoIncidencias {
 	private final CrudAble<Equipo> repositorio_e=null;
 	@Autowired
 	private final CrudAble<Estado> repositorio_estad=null;
+	@Autowired
+	private final CrudAble<Comentario> repositorio_comen=null;
 		
 	
 	
@@ -34,10 +37,12 @@ public class ListadoIncidencias {
 		List<Incidencia> lista = repositorio_i.getAll();
 		List<Equipo> lista_e = repositorio_e.getAll();
 		List<Usuario> lista_u = repositorio_u.getAll();
+		List<Comentario> lista_com = repositorio_comen.getAll();
 		
 		modelo.addAttribute("listaincidencia",lista);
 		modelo.addAttribute("listaequipo",lista_e);
 		modelo.addAttribute("listausuario",lista_u);
+		modelo.addAttribute("listacomentario",lista_com);
 		
 		return "home";
 	}
