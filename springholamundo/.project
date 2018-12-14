@@ -26,7 +26,11 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+<<<<<<< HEAD
 			<name>org.springframework.ide.eclipse.core.springbuilder</name>
+=======
+			<name>org.springframework.ide.eclipse.boot.validation.springbootbuilder</name>
+>>>>>>> branch 'master' of https://github.com/ipartek/java_2018_0507.git
 			<arguments>
 			</arguments>
 		</buildCommand>

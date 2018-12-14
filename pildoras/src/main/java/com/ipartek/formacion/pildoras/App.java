@@ -15,7 +15,7 @@ public class App
         Persona p2 = new Persona(1L, "Javier", "Lete", new Date(), "a@b");
         
         if(p1.equals(p2)) {
-        	log.info("Son iguales");
+        	log.info("So ç		çn iguales");
         }
         
         log.info(p1.getEmail());
