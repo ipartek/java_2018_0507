@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.ipartek.formacion.ejercicios.modelo.Incidencia;
-import com.ipartek.formacion.prestamolibrosspring.repositories.EditorialMySqlJdbcTemplateRepository.EditorialMapper;
+
 
 
 
