@@ -22,7 +22,6 @@ public class ListadoIncidencias {
 	private final CrudAble<Incidencia> repositorio_i=null;
 	@Autowired
 	private final CrudAble<Usuario> repositorio_u = null;
-	
 	@Autowired
 	private final CrudAble<Equipo> repositorio_e=null;
 	@Autowired
@@ -33,18 +32,31 @@ public class ListadoIncidencias {
 	
 	
 	@RequestMapping("/")
-	public String inicio(Model modelo) {
-		List<Incidencia> lista = repositorio_i.getAll();
-		List<Equipo> lista_e = repositorio_e.getAll();
-		List<Usuario> lista_u = repositorio_u.getAll();
-		List<Comentario> lista_com = repositorio_comen.getAll();
+	public String inicio(Usuario usuario, Model modelo) {
 		
-		modelo.addAttribute("listaincidencia",lista);
-		modelo.addAttribute("listaequipo",lista_e);
-		modelo.addAttribute("listausuario",lista_u);
-		modelo.addAttribute("listacomentario",lista_com);
+		System.out.println("Usuario recibido " + usuario.getEmail() + " -  "+usuario.getPassword());
 		
-		return "home";
+		
+		//TODO:Comprobar contra usuario en la bd
+		System.out.println("repositioriou getusuariologin" + repositorio_u.getUsuarioLogin(usuario));
+		
+		//Este if no funciona
+		if(repositorio_u.getUsuarioLogin(usuario).isEmpty()) {
+			System.out.println("Usuario Erroneo");
+			return "login";
+		}else {
+			List<Incidencia> lista = repositorio_i.getAll();
+			List<Equipo> lista_e = repositorio_e.getAll();
+			List<Usuario> lista_u = repositorio_u.getAll();
+			List<Comentario> lista_com = repositorio_comen.getAll();
+			
+			modelo.addAttribute("listaincidencia",lista);
+			modelo.addAttribute("listaequipo",lista_e);
+			modelo.addAttribute("listausuario",lista_u);
+			modelo.addAttribute("listacomentario",lista_com);
+			
+			return "home";
+		}
 	}
 	
 	
@@ -70,6 +82,32 @@ public class ListadoIncidencias {
 		modelo.addAttribute("listaestados",repositorio_estad.getAll());
 		
 		return "verincidencias";
+	}
+	
+	
+	@GetMapping("/buscarIncidencia")
+	public String buscarIncidencia(Long id_buscar,Model modelo) {
+
+		System.out.println("ID recibido:" + id_buscar);
+		Incidencia incidencia = repositorio_i.getById(id_buscar);
+		System.out.println("Incidencia encontrada: " + incidencia);
+		if(incidencia!=null) {
+			
+			modelo.addAttribute("incidencia",incidencia);
+			modelo.addAttribute("listausuarios",repositorio_u.getAll());
+			modelo.addAttribute("listaequipos",repositorio_e.getAll());
+			modelo.addAttribute("listaestados",repositorio_estad.getAll());
+			
+			return "verincidencia";
+		}else {
+			
+			modelo.addAttribute("incidencia",repositorio_i.getAll());
+			modelo.addAttribute("listausuarios",repositorio_u.getAll());
+			modelo.addAttribute("listaequipos",repositorio_e.getAll());
+			modelo.addAttribute("listaestados",repositorio_estad.getAll());
+			return "verincidencias";
+		}
+		
 	}
 	
 

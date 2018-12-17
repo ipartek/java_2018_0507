@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.ipartek.formacion.springrestcrud.entidades.Incidencia;
+import com.ipartek.formacion.springrestcrud.entidades.Usuario;
 
 @Repository
 public class IncidenciaMySqlJdbcTemplateRepository implements CrudAble<Incidencia> {
@@ -24,17 +25,28 @@ public class IncidenciaMySqlJdbcTemplateRepository implements CrudAble<Incidenci
 
 	private static final class IncidenciaMapper implements RowMapper<Incidencia> {
 		public Incidencia mapRow(ResultSet rs, int rowNum) throws SQLException {
+			if (rowNum==-1) {
+				return null;
+			}else {
 			return new Incidencia(rs.getLong("id"), rs.getString("fecha"),rs.getString("usuario_creador"),
 					 rs.getString("titulo"), rs.getString("descripcion"), rs.getString("equipo"),
 					 rs.getString("usuario_asignado"), rs.getString("estado")
 					);
+			}
 		}
 	}
 
 	@Override
-	public Incidencia getById(Long id) {
-		return jdbcTemplate.queryForObject("call getById(?)", new Object[] { id },
-				new IncidenciaMapper());
+	public Incidencia getById(Long id_buscar) {
+		
+		System.out.println("ID a buscar" + id_buscar);
+		
+		if(id_buscar!=null) {
+			System.out.println("dentro del if");
+			return (jdbcTemplate.queryForObject("select * from incidencia where id=?", new Object[] { id_buscar },
+				new IncidenciaMapper()));
+			}
+		return null;
 	}
 
 	@Override
@@ -63,5 +75,11 @@ public class IncidenciaMySqlJdbcTemplateRepository implements CrudAble<Incidenci
 		//TODO:Hacer
 		jdbcTemplate.update("call borrar(?)", new Object[] { id });
 		
+	}
+
+	@Override
+	public List<Usuario> getUsuarioLogin(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 }

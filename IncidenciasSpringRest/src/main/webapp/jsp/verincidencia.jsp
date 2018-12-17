@@ -34,7 +34,8 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${listaincidencia}" var="incidencia">
+			
+			
 			
 				<tr>
 				<form action="/modifIncidencia">
@@ -73,7 +74,8 @@
 					<td><button class="btn btn-default">Guardar</button></td>
 				</form>
 				</tr>
-			</c:forEach>
+		
+			
 		</tbody>
 	</table>
 </body>

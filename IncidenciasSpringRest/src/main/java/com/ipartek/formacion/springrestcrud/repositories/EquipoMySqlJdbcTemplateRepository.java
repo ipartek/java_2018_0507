@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.ipartek.formacion.springrestcrud.entidades.Equipo;
+import com.ipartek.formacion.springrestcrud.entidades.Usuario;
 
 
 @Repository
@@ -52,6 +53,12 @@ public class EquipoMySqlJdbcTemplateRepository implements CrudAble<Equipo> {
 	public void delete(Long id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<Usuario> getUsuarioLogin(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

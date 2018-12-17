@@ -20,7 +20,7 @@ public class UsuarioMySqlJdbcTemplateRepository implements CrudAble<Usuario> {
 	public List<Usuario> getAll() {
 		return jdbcTemplate.query("select * from usuario", new UsuarioMapper());
 	}
-
+	
 	private static final class UsuarioMapper implements RowMapper<Usuario> {
 		public Usuario mapRow(ResultSet rs, int rowNum) throws SQLException {
 			return new Usuario(rs.getLong("id"),rs.getString("email"),rs.getString("password"),
@@ -28,7 +28,15 @@ public class UsuarioMySqlJdbcTemplateRepository implements CrudAble<Usuario> {
 					);
 		}
 	}
+	@Override
+	public List<Usuario> getUsuarioLogin(Usuario usuario) {	
+		System.out.println(usuario.getEmail() + " - " +usuario.getPassword());
+		return jdbcTemplate.query("select * from usuario where email=? and password=?",
+				new Object[] { usuario.getEmail(),usuario.getPassword() }
+		, new UsuarioMapper());
+	}
 
+	
 	@Override
 	public Usuario getById(Long id) {
 		return jdbcTemplate.queryForObject("call getById(?)", new Object[] { id },

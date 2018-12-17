@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.ipartek.formacion.springrestcrud.entidades.Comentario;
+import com.ipartek.formacion.springrestcrud.entidades.Usuario;
 
 
 @Repository
@@ -52,5 +53,11 @@ public class ComentarioMySqlJdbcTemplateRepository implements CrudAble<Comentari
 	public void delete(Long id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<Usuario> getUsuarioLogin(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
