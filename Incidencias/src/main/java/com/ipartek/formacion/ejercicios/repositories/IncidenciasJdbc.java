@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.ipartek.formacion.ejercicios.modelo.Incidencia;
+import com.ipartek.formacion.prestamolibrosspring.repositories.EditorialMySqlJdbcTemplateRepository.EditorialMapper;
 
 
 
@@ -32,9 +33,10 @@ public class IncidenciasJdbc implements CrudAble <Incidencia> {
 	}
 
 	@Override
-	public void insert(Incidencia t) {
-		// TODO Auto-generated method stub
-		
+	public void insert(Incidencia incidencia) {
+		String sql="Insert into incidencia (fecha,titulo,descripcion,usuario_id) Values (?,?,?,?)";
+		jdbcTemplate.update(sql, new Object[] { incidencia.getFecha(),incidencia.getTitulo(),
+				incidencia.getDescripcion(), incidencia.getUsu_asignado()});
 	}
 
 	@Override
