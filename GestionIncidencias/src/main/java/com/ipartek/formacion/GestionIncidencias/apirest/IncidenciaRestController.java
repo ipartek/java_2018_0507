@@ -1,5 +1,6 @@
 package com.ipartek.formacion.GestionIncidencias.apirest;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +12,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ipartek.formacion.GestionIncidencias.modelos.Historico;
 import com.ipartek.formacion.GestionIncidencias.modelos.Incidencia;
-import com.ipartek.formacion.GestionIncidencias.repositorios.AccesoDatosException;
+import com.ipartek.formacion.GestionIncidencias.modelos.Usuario;
 import com.ipartek.formacion.GestionIncidencias.repositorios.CrudAble;
+import com.ipartek.formacion.GestionIncidencias.repositorios.HistoricoRepository;
 import com.ipartek.formacion.GestionIncidencias.repositorios.IncidenciaRepository;
 
 @RestController
@@ -21,6 +24,8 @@ public class IncidenciaRestController implements RestAble<Incidencia>{
 
 	@Autowired
 	private CrudAble<Incidencia> repositorio;
+	
+	private HistoricoRepository repositorioHistorico;
 	
 	@Autowired
 	private IncidenciaRepository repositorio2;
@@ -40,7 +45,13 @@ public class IncidenciaRestController implements RestAble<Incidencia>{
 	@Override
 	@PostMapping("/api/incidencias")
 	public Long crear(@RequestBody Incidencia incidencia) {
-		return (Long) repositorio.insert(incidencia);
+		Long incidenciaId = (Long) repositorio.insert(incidencia);
+		
+		incidencia.setId(incidenciaId);
+		
+		Historico historico = new Historico(null, incidencia, incidencia.getUsuarioCreadorId(), incidencia.getFecha(), incidencia.getDescripcion(), "ABIERTA");
+
+		return repositorioHistorico.insert(historico);
 	}
 
 	@Override

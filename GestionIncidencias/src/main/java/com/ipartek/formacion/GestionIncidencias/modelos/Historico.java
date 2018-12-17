@@ -11,6 +11,8 @@ public class Historico {
 	private String comentario;
 	private String estado;
 	
+	private Long usuarioId;
+	
 	public Historico() {
 		// TODO Auto-generated constructor stub
 	}
@@ -20,6 +22,16 @@ public class Historico {
 		this.id = id;
 		this.incidencia = incidencia;
 		this.usuario = usuario;
+		this.fecha = fecha;
+		this.comentario = comentario;
+		this.estado = estado;
+	}
+	
+	public Historico (Long id, Incidencia incidencia, Long usuarioId, Date fecha, String comentario, String estado) {
+		super();
+		this.id = id;
+		this.incidencia = incidencia;
+		this.usuarioId = usuarioId;
 		this.fecha = fecha;
 		this.comentario = comentario;
 		this.estado = estado;
@@ -73,6 +85,14 @@ public class Historico {
 		this.estado = estado;
 	}
 	
+	public Long getUsuarioId() {
+		return usuarioId;
+	}
+
+	public void setUsuarioId(Long usuarioId) {
+		this.usuarioId = usuarioId;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

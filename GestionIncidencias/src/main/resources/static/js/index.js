@@ -8,6 +8,7 @@ $(function() {
         e.preventDefault();
         mostrarTodasLasIncidencias();
     });
+    $("#formNuevaIncidencia").submit(enviarFormularioIncidencia);
     /* Historico */
     $("#btnAdminHistorico").click(function(e){
         e.preventDefault();
@@ -35,6 +36,7 @@ $(function() {
 function ocultarTodo(){
     //Ocultar todas las secciones
 	$("#seccionMisIncidencias").hide();
+	$("#formNuevaIncidencia").hide();
 	$("#seccionUsuarios").hide();
 	$("#seccionHistoricos").hide();
 }
@@ -117,12 +119,49 @@ function mostrarHistoricoIncidencia(historicos){
 	$(tablaAppend).appendTo(".d"+idFila).slideDown("slow");
 }
 
-// Crear una nueva
+// Mostrar crear nueva incidencia
 function nuevaIncidencia(){
     //Ocultar tabla mis incidencias
-	$("#seccionMisIncidencias").hide();
-    //Mostrar formulario crear incidencia
+	$("#tablaMisIncidencias").hide();
+  
+	$.getJSON('/api/usuarios/admin', function(usuarios) {
+		console.log(usuarios);
+		$('#inputUsuarioAsignado').empty();
+		$('#inputUsuarioAsignado').append('<option value="0">Usuario Asignado</option');
+		$(usuarios).each(function() {
+			$('#inputUsuarioAsignado').append('<option value="'+this.id+'">'+this.nombre+'</option>');
+		});
+	});
+	
+	//Mostrar formulario crear incidencia
+	$("#formNuevaIncidencia").show();
+}
 
+// Crear nueva incidencia
+function enviarFormularioIncidencia(e){
+	e.preventDefault();
+	
+	var incidencia = {
+			id : 1,
+			fecha : "2018-12-17",
+			titulo : $('#inputTitulo').val(),
+			descripcion: $('#inputDescripcion').val(),
+			usuarioCreadorId : 1,
+			usuarioAsignadoId : $('#inputUsuarioAsignado').val()
+		};
+
+		console.log(incidencia);
+
+		$.ajax({
+			method : 'POST',
+			url : 'incidencias', 
+			data : JSON.stringify(incidencia)
+		}).done(function() {
+			console.log("TODO OK");
+			//mostrarSeccionMisIncidencias();
+		}).fail(function() {
+			alert("Error al intentar crear una incidencia");
+		});
 }
 
 // Añadir comentario

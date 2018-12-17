@@ -31,7 +31,7 @@ public class IncidenciaRepository implements CrudAble<Incidencia> {
 	@Override
 	public Long insert(Incidencia incidencia) {
 		return jdbcTemplate.queryForObject("call incidencias_insert(?,?,?,?,?)",
-				new Object[] { incidencia.getUsuarioCreador(), incidencia.getUsuarioAsignado(), incidencia.getFecha(), incidencia.getTitulo(), incidencia.getDescripcion() }, Long.class);
+				new Object[] { incidencia.getUsuarioCreadorId(), incidencia.getUsuarioAsignadoId(), incidencia.getFecha(), incidencia.getTitulo(), incidencia.getDescripcion() }, Long.class);
 	}
 
 	@Override

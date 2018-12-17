@@ -45,6 +45,10 @@ public class UsuarioRepository implements CrudAble<Usuario> {
 		jdbcTemplate.update("call usuarios_delete(?)", new Object[] { id });
 	}
 	
+	public List<Usuario> getAllAdmins() {
+		return jdbcTemplate.query("call usuarios_getAllAdmins()", new UsuarioMapper());
+	}
+	
 	public Usuario searchUser(Usuario usuario) {
 		return jdbcTemplate.queryForObject("call usuarios_search(?,?)",
 				new Object[] { usuario.getEmail(), usuario.getPassword()},

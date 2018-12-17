@@ -13,12 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ipartek.formacion.GestionIncidencias.modelos.Usuario;
 import com.ipartek.formacion.GestionIncidencias.repositorios.CrudAble;
+import com.ipartek.formacion.GestionIncidencias.repositorios.UsuarioRepository;
 
 @RestController
 public class UsuarioRestController implements RestAble<Usuario>{
 
 	@Autowired
 	private CrudAble<Usuario> repositorio;
+	
+	@Autowired
+	private UsuarioRepository repositorio2;
 	
 	@Override
 	@GetMapping("/api/usuarios")
@@ -48,5 +52,10 @@ public class UsuarioRestController implements RestAble<Usuario>{
 	@DeleteMapping("/api/usuarios/{id}")
 	public void borrar(Long id) {
 		repositorio.delete(id);
+	}
+	
+	@GetMapping("/api/usuarios/admin")
+	public List<Usuario> obtenerAdmins(){
+		return repositorio2.getAllAdmins();
 	}
 }
