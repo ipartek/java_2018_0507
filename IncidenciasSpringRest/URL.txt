@@ -1,1 +1,4 @@
 http://localhost:8080/
+
+user:user2@email.com
+pass:pass2

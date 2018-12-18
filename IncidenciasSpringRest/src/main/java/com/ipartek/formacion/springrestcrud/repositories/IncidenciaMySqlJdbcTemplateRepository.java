@@ -4,12 +4,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.springframework.jdbc.core.RowMapper;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.ipartek.formacion.springrestcrud.entidades.Comentario;
 import com.ipartek.formacion.springrestcrud.entidades.Incidencia;
 import com.ipartek.formacion.springrestcrud.entidades.Usuario;
 
@@ -17,15 +17,48 @@ import com.ipartek.formacion.springrestcrud.entidades.Usuario;
 public class IncidenciaMySqlJdbcTemplateRepository implements CrudAble<Incidencia> {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-
+	
 	@Override
 	public List<Incidencia> getAll() {
 		return jdbcTemplate.query("select * from incidencia", new IncidenciaMapper());
 	}
-
+	
+	
+	@Override
+	public List<Incidencia> getByEquipo(String equipo) {
+		if(equipo!=null) {
+			return (jdbcTemplate.query("select * from incidencia where equipo=?", new Object[] { equipo }, 
+											new IncidenciaMapper()));
+		}else {
+			return jdbcTemplate.query("select * from incidencia", new IncidenciaMapper());		
+		}
+	}
+	
+	@Override
+	public List<Incidencia> getByUsuario(String usuario) {
+		if(usuario!=null) {
+			return (jdbcTemplate.query("select * from incidencia where usuario_asignado=?", new Object[] { usuario }, 
+											new IncidenciaMapper()));
+		}else {
+			return jdbcTemplate.query("select * from incidencia", new IncidenciaMapper());		
+		}
+	}
+	
+	@Override
+	public List<Incidencia> getByEstado(String estado) {
+		//System.out.println("Estado recibido" + estado);
+		if(estado!=null) {
+			return (jdbcTemplate.query("select * from incidencia where estado=?", new Object[] { estado }, 
+											new IncidenciaMapper()));
+		}else {
+			return jdbcTemplate.query("select * from incidencia", new IncidenciaMapper());		
+		}
+	}
+	
 	private static final class IncidenciaMapper implements RowMapper<Incidencia> {
 		public Incidencia mapRow(ResultSet rs, int rowNum) throws SQLException {
 			if (rowNum==-1) {
+				System.out.println("no encontrada");
 				return null;
 			}else {
 			return new Incidencia(rs.getLong("id"), rs.getString("fecha"),rs.getString("usuario_creador"),
@@ -45,8 +78,11 @@ public class IncidenciaMySqlJdbcTemplateRepository implements CrudAble<Incidenci
 			System.out.println("dentro del if");
 			return (jdbcTemplate.queryForObject("select * from incidencia where id=?", new Object[] { id_buscar },
 				new IncidenciaMapper()));
+			}else {
+				return jdbcTemplate.queryForObject("select * from incidencia", new IncidenciaMapper());
+						
 			}
-		return null;
+		
 	}
 
 	@Override
@@ -71,15 +107,19 @@ public class IncidenciaMySqlJdbcTemplateRepository implements CrudAble<Incidenci
 	}
 
 	@Override
-	public void delete(Long id) {
-		//TODO:Hacer
-		jdbcTemplate.update("call borrar(?)", new Object[] { id });
-		
-	}
-
-	@Override
-	public List<Usuario> getUsuarioLogin(Usuario usuario) {
+	public List<Incidencia> getUsuarioLogin(Usuario usuario) {
 		// TODO Auto-generated method stub
 		return null;
-	}	
+	}
+
+
+	@Override
+	public List<Comentario> getByIdIncidencia(String incidencia_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+
 }

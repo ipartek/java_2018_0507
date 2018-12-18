@@ -110,6 +110,61 @@ public class ListadoIncidencias {
 		
 	}
 	
+	
+	
+	@GetMapping("/buscarIncidenciaxEquipo")
+	public String buscarIncidenciaxEquipo(String equipo,Model modelo) {
+
+		System.out.println("Equipo recibido:" + equipo);
+		
+		
+		
+		List<Incidencia> lista = repositorio_i.getByEquipo(equipo);
+				
+		modelo.addAttribute("listaincidencia",lista);
+		modelo.addAttribute("listausuarios",repositorio_u.getAll());
+		modelo.addAttribute("listaequipos",repositorio_e.getAll());
+		modelo.addAttribute("listaestados",repositorio_estad.getAll());
+		
+		return "verincidencias";		
+	}
+	@GetMapping("/buscarIncidenciaxEstado")
+	public String buscarIncidenciaxEstado(String estado,Model modelo) {
+
+		//System.out.println("estado recibido:" + estado);
+		
+		List<Incidencia> lista = repositorio_i.getByEstado(estado);
+				
+		modelo.addAttribute("listaincidencia",lista);
+		modelo.addAttribute("listausuarios",repositorio_u.getAll());
+		modelo.addAttribute("listaequipos",repositorio_e.getAll());
+		modelo.addAttribute("listaestados",repositorio_estad.getAll());
+		
+		return "verincidencias";		
+	}
+	
+	@GetMapping("/buscarIncidenciaxUsuario")
+	public String buscarIncidenciaxUsuario(String usuario,Model modelo) {
+
+		System.out.println("Usuario recibido:" + usuario);
+		
+		
+		List<Incidencia> lista = repositorio_i.getByUsuario(usuario);
+		
+		for(Incidencia str : lista)
+		{
+		    //imprimimos el objeto pivote
+		    System.out.println(str);
+		}
+		
+		modelo.addAttribute("listaincidencia",lista);
+		modelo.addAttribute("listausuarios",repositorio_u.getAll());
+		modelo.addAttribute("listaequipos",repositorio_e.getAll());
+		modelo.addAttribute("listaestados",repositorio_estad.getAll());
+		
+		return "verincidencias";		
+	}
+	
 
 	@RequestMapping("/crearIncidencia")
 	public String crearIncidencia(Model modelo) {

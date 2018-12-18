@@ -11,19 +11,21 @@
 
 <meta charset="UTF-8">
 </head>
-<body>
+<body class="container-fluid">
 <%@ include file="/jsp/index.jsp" %>
-	<h2>Listado</h2>
 	
+	<h2>Busquedas</h2>
+	<div class="row">
 	
-	<form action="/buscarIncidencia">
-		Buscar ID incidencia :  <input name="id_buscar" type="number"> <button class="btn btn-default">Buscar</button>
-	</form>
-	
+	<%@ include file="/jsp/busquedas.jsp" %>
+		  
+	  </div>
+	  
+	  <h2>Listado de Incidencias</h2>
 	<table class="table">
 		<thead>
 			<tr>
-				<th scope="col">ID</th>
+				<th scope="col">&nbsp;&nbsp;ID</th>
 				<th scope="col">Fecha Creacion</th>
 				<th scope="col">Usuario Creador</th>
 				<th scope="col">Titulo</th>
@@ -38,12 +40,12 @@
 			
 				<tr>
 				<form action="/modifIncidencia">
-					<td><input name="id" type="text" value="${incidencia.id}" readonly class="form-control  input-sm" /></td>
+					<td class="col-lg-1"><input name="id" type="text" value="${incidencia.id}" readonly class="form-control  input-sm" /></td>
 					<td><input name="fecha" type="text" value="${incidencia.fecha}" readonly class="form-control" /></td>
-					<td><input name="usuario_creador" type=text value="${incidencia.usuario_creador}" class="form-control"></td>
+					<td class="col-lg-1"><input name="usuario_creador" type=text value="${incidencia.usuario_creador}" class="form-control"></td>
 					<td><input name="titulo" type=text value="${incidencia.titulo}" class="form-control"></td>
 					<td><input name="descripcion" type=text value="${incidencia.descripcion}" class="form-control"></td>
-					<td><input name="equipo" type=text value="${incidencia.equipo}" class="form-control"></td>
+					<td class="col-lg-1"><input name="equipo" type=text value="${incidencia.equipo}" class="form-control"></td>
 					<td>
 						<select name="usuario_asignado" id="usuario_asignado" class="form-control input-normal">
 						 <c:forEach var = "usuario" items="${listausuarios}">

@@ -11,7 +11,7 @@
 
 <meta charset="UTF-8">
 </head>
-<body>
+<body class="container-fluid">
 <%@ include file="/jsp/index.jsp" %>
 	<h2>Listado</h2>
 	<table class="table">

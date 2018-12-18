@@ -9,7 +9,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.ipartek.formacion.springrestcrud.entidades.Comentario;
 import com.ipartek.formacion.springrestcrud.entidades.Equipo;
+import com.ipartek.formacion.springrestcrud.entidades.Incidencia;
 import com.ipartek.formacion.springrestcrud.entidades.Usuario;
 
 
@@ -50,13 +52,31 @@ public class EquipoMySqlJdbcTemplateRepository implements CrudAble<Equipo> {
 	}
 
 	@Override
-	public void delete(Long id) {
+	public List<Equipo> getByEquipo(String equipo) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
 	@Override
-	public List<Usuario> getUsuarioLogin(Usuario usuario) {
+	public List<Equipo> getUsuarioLogin(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Incidencia> getByUsuario(String usuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Incidencia> getByEstado(String estado) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Comentario> getByIdIncidencia(String incidencia_id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

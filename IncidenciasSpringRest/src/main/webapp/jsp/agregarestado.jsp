@@ -17,7 +17,7 @@
 <script src="../js/jquery-1.12.4.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="container-fluid">
 <%@ include file="/jsp/index.jsp" %>
 <div class="d-flex justify-content-center align-items-center container ">  
 	<h2>Agregar Estado</h2>

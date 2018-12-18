@@ -10,8 +10,8 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.ipartek.formacion.springrestcrud.entidades.Comentario;
+import com.ipartek.formacion.springrestcrud.entidades.Incidencia;
 import com.ipartek.formacion.springrestcrud.entidades.Usuario;
-
 
 @Repository
 public class ComentarioMySqlJdbcTemplateRepository implements CrudAble<Comentario> {
@@ -36,6 +36,18 @@ public class ComentarioMySqlJdbcTemplateRepository implements CrudAble<Comentari
 	}
 
 	@Override
+	public List<Comentario> getByIdIncidencia(String incidencia_id) {
+		System.out.println("getByIdIncidencia" + incidencia_id);
+		if(incidencia_id!=null) {
+			//ESta select no va
+			return (jdbcTemplate.query("select * from comentario where id_incidencia=?", new Object[] { incidencia_id }, 
+											new ComentarioMapper()));
+		}else {
+			return jdbcTemplate.query("select * from comentario", new ComentarioMapper());		
+		}
+	}
+	
+	@Override
 	public void insert(Comentario comentario) {
 		jdbcTemplate.update("insert into comentario (id_incidencia,usuario,comentario,fecha) values (?,?,?,?)",
 				new Object[] {comentario.getId_incidencia(),comentario.getUsuario(),comentario.getComentario(),comentario.getFecha()});
@@ -50,13 +62,25 @@ public class ComentarioMySqlJdbcTemplateRepository implements CrudAble<Comentari
 	}
 
 	@Override
-	public void delete(Long id) {
+	public List<Comentario> getByEquipo(String equipo) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
 	@Override
-	public List<Usuario> getUsuarioLogin(Usuario usuario) {
+	public List<Comentario> getUsuarioLogin(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Incidencia> getByUsuario(String usuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Incidencia> getByEstado(String estado) {
 		// TODO Auto-generated method stub
 		return null;
 	}

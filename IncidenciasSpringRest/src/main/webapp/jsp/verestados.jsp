@@ -11,9 +11,9 @@
 
 <meta charset="UTF-8">
 </head>
-<body>
+<body class="container-fluid">
 <%@ include file="/jsp/index.jsp" %>
-	<h2>Listado</h2>
+	<h2>Listado de estados</h2>
 	<table class="table">
 		<thead>
 			<tr>
@@ -34,5 +34,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	
+  
 </body>
 </html>

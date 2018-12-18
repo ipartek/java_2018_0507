@@ -75,4 +75,17 @@ public class ListadoComentarios {
 		//el nombre del jsp
 		return "vercomentarios";
 	}
+	
+	@GetMapping("/buscarComentarioxIncidencia")
+	public String buscarComentarioxIncidencia(String incidencia_id,Model modelo) {
+
+		System.out.println("incidencia_id:" + incidencia_id);
+		
+		List<Comentario> lista = repositorio_com.getByIdIncidencia(incidencia_id);
+				
+		modelo.addAttribute("listacomentarios",lista);
+	
+		return "vercomentarios";		
+	}
+	
 }

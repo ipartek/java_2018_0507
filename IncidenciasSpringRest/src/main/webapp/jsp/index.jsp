@@ -8,7 +8,7 @@
 <script src="../js/jquery-1.12.4.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="container-fluid">
 
 	<div class="jumbotron text-center">
 		<h1>Gestión de incidencias</h1>

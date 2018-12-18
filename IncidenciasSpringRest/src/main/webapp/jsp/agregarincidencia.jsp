@@ -17,7 +17,7 @@
 <script src="../js/jquery-1.12.4.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="container-fluid">
 <%@ include file="/jsp/index.jsp" %>
 	<h2>Agregar Incidencia</h2>
 

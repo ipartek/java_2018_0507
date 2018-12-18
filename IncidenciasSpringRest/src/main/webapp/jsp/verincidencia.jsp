@@ -11,19 +11,20 @@
 
 <meta charset="UTF-8">
 </head>
-<body>
+<body class="container-fluid">
 <%@ include file="/jsp/index.jsp" %>
 	<h2>Listado</h2>
 	
+	<div class="row">
 	
-	<form action="/buscarIncidencia">
-		Buscar ID incidencia :  <input name="id_buscar" type="number"> <button class="btn btn-default">Buscar</button>
-	</form>
-	
+	<%@ include file="/jsp/busquedas.jsp" %>
+		  
+	</div>
+	&nbsp;
 	<table class="table">
 		<thead>
 			<tr>
-				<th scope="col">ID</th>
+				<th scope="col">&nbsp;&nbsp;ID</th>
 				<th scope="col">Fecha Creacion</th>
 				<th scope="col">Usuario Creador</th>
 				<th scope="col">Titulo</th>
@@ -35,11 +36,9 @@
 		</thead>
 		<tbody>
 			
-			
-			
 				<tr>
 				<form action="/modifIncidencia">
-					<td><input name="id" type="text" value="${incidencia.id}" readonly class="form-control  input-sm" /></td>
+					<td><input name="id" type="text" value="${incidencia.id}" readonly class="form-control input-sm" /></td>
 					<td><input name="fecha" type="text" value="${incidencia.fecha}" readonly class="form-control" /></td>
 					<td><input name="usuario_creador" type=text value="${incidencia.usuario_creador}" class="form-control"></td>
 					<td><input name="titulo" type=text value="${incidencia.titulo}" class="form-control"></td>

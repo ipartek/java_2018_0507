@@ -14,7 +14,7 @@
 <link href="css/login.css" rel="stylesheet">
 
 </head>
-<body>
+<body class="container-fluid">
 
 	<div id="formWrapper">
 		
