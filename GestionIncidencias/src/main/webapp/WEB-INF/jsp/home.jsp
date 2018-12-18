@@ -1,4 +1,4 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -30,11 +30,11 @@
 <link href="/css/estilos.css" rel="stylesheet">
 
 
-<title>GestiÃ³n de incidencias</title>
+<title>Gestión de incidencias</title>
 </head>
 <body>
 
-
+${user}
 	<!-- SECTION NAVIGATION BAR -->
 	<section id="navigation_bar">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -44,7 +44,7 @@
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<a class="navbar-brand" href="/"> <i class="fas fa-home"></i>
+			<a class="navbar-brand" href="/home"> <i class="fas fa-home"></i>
 			</a>
 			<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -62,13 +62,13 @@
 								class="fas fa-bolt"></i>&nbsp;&nbsp;Incidencias</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" id="btnAdminHistorico"><i
-								class="far fa-chart-bar"></i>&nbsp;&nbsp;HistÃ³ricos</a>
+								class="far fa-chart-bar"></i>&nbsp;&nbsp;Históricos</a>
 						</div></li>
 				</ul>
 
-				<form action="logout" class="form-inline my-2 my-lg-0">
+				<form action="logout" method="post" class="form-inline my-2 my-lg-0">
 					<span class="navbar-text"> <i class="fas fa-user"></i>
-						&nbsp;Bienvenido Antxon&nbsp;
+						&nbsp;Bienvenido ${user.nombre}&nbsp;
 					</span>
 					<button class="btn btn-warning" type="submit">
 						<i class="fas fa-sign-out-alt"></i>&nbsp;Logout
@@ -92,8 +92,8 @@
 									<th scope="col">ID</th>
 									<th scope="col">Fecha</th>
 									<th scope="col">Usuario creado</th>
-									<th scope="col">TÃ­tulo</th>
-									<th scope="col">DescripciÃ³n</th>
+									<th scope="col">Título</th>
+									<th scope="col">Descripción</th>
 									<th scope="col">Usuario Asignado</th>
 									<th scope="col"><a href="javascript:nuevaIncidencia()"
 										class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;Nueva
@@ -108,7 +108,7 @@
 
 				<form id="formNuevaIncidencia" class="col-md-6 offset-md-3">
 					<div class="form-group">
-						<label for="inputTitulo">TÃ­tulo</label> <input type="text"
+						<label for="inputTitulo">Título</label> <input type="text"
 							class="form-control" id="inputTitulo" placeholder="Titulo">
 					</div>
 					<div class="form-group">
@@ -118,7 +118,7 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<label for="inputDescripcion">DescripciÃ³n</label>
+						<label for="inputDescripcion">Descripción</label>
 						<textarea class="form-control" id="inputDescripcion"
 							rows="4"></textarea>
 					</div>
@@ -131,7 +131,7 @@
 		<!-- SECTION ADMIN USUARIOS -->
 		<section id="seccionUsuarios">
 			<div class="row">
-				<h2>GestiÃ³n usuarios</h2>
+				<h2>Gestión usuarios</h2>
 				<div class="col-md-12">
 					<div class="table-responsive">
 						<table id="tablaUsuarios" name="tablaUsuarios"

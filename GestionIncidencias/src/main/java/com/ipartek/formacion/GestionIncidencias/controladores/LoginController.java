@@ -1,7 +1,10 @@
 package com.ipartek.formacion.GestionIncidencias.controladores;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,16 +20,18 @@ public class LoginController{
 	private UsuarioRepository repositorio;
 
 	@PostMapping
-	public String comprobarLogin(Usuario usuario, BindingResult binding) {
+	public String comprobarLogin(Usuario usuario, BindingResult binding, Model model, HttpServletRequest request) {
         if(binding.hasErrors()) {
+        	model.addAttribute("error", "Error en el login");
         	return "index";
         }
 
     	try {
-			@SuppressWarnings("unused")
 			Usuario checkedUser = repositorio.searchUser(usuario);
+			request.getSession().setAttribute("user", checkedUser);
 			return "home";
 		} catch (Exception e) {
+			model.addAttribute("error", "El usuario no existe");
 			return "index";
 		}
 	}

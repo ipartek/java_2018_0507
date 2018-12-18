@@ -37,10 +37,10 @@
 </head>
 <body class="text-center">
 	<form id="loginForm" class="form-signin" action="home" method="post">
-		<c:if test="${alertatexto != null}">
-			<div class="alert alert-${alertatipo} alert-dismissible fade show"
+		<c:if test="${error != null}">
+			<div class="alert alert-danger alert-dismissible fade show"
 				role="alert">
-				${alertatexto}
+				${error}
 				<button type="button" class="close" data-dismiss="alert"
 					aria-label="Close">
 					<span aria-hidden="true">&times;</span>
