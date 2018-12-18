@@ -58,7 +58,7 @@ public class IncidenciaMySqlJdbcTemplateRepository implements CrudAble<Incidenci
 	private static final class IncidenciaMapper implements RowMapper<Incidencia> {
 		public Incidencia mapRow(ResultSet rs, int rowNum) throws SQLException {
 			if (rowNum==-1) {
-				System.out.println("no encontrada");
+				//System.out.println("no encontrada");
 				return null;
 			}else {
 			return new Incidencia(rs.getLong("id"), rs.getString("fecha"),rs.getString("usuario_creador"),
@@ -72,10 +72,10 @@ public class IncidenciaMySqlJdbcTemplateRepository implements CrudAble<Incidenci
 	@Override
 	public Incidencia getById(Long id_buscar) {
 		
-		System.out.println("ID a buscar" + id_buscar);
+		//System.out.println("ID a buscar" + id_buscar);
 		
 		if(id_buscar!=null) {
-			System.out.println("dentro del if");
+			//System.out.println("dentro del if");
 			return (jdbcTemplate.queryForObject("select * from incidencia where id=?", new Object[] { id_buscar },
 				new IncidenciaMapper()));
 			}else {

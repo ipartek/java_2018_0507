@@ -37,9 +37,8 @@ public class ComentarioMySqlJdbcTemplateRepository implements CrudAble<Comentari
 
 	@Override
 	public List<Comentario> getByIdIncidencia(String incidencia_id) {
-		System.out.println("getByIdIncidencia" + incidencia_id);
+		//	System.out.println("getByIdIncidencia" + incidencia_id);
 		if(incidencia_id!=null) {
-			//ESta select no va
 			return (jdbcTemplate.query("select * from comentario where id_incidencia=?", new Object[] { incidencia_id }, 
 											new ComentarioMapper()));
 		}else {

@@ -88,9 +88,9 @@ public class ListadoIncidencias {
 	@GetMapping("/buscarIncidencia")
 	public String buscarIncidencia(Long id_buscar,Model modelo) {
 
-		System.out.println("ID recibido:" + id_buscar);
+		//System.out.println("ID recibido:" + id_buscar);
 		Incidencia incidencia = repositorio_i.getById(id_buscar);
-		System.out.println("Incidencia encontrada: " + incidencia);
+		//System.out.println("Incidencia encontrada: " + incidencia);
 		if(incidencia!=null) {
 			
 			modelo.addAttribute("incidencia",incidencia);
@@ -115,7 +115,7 @@ public class ListadoIncidencias {
 	@GetMapping("/buscarIncidenciaxEquipo")
 	public String buscarIncidenciaxEquipo(String equipo,Model modelo) {
 
-		System.out.println("Equipo recibido:" + equipo);
+		//System.out.println("Equipo recibido:" + equipo);
 		
 		
 		
@@ -146,17 +146,11 @@ public class ListadoIncidencias {
 	@GetMapping("/buscarIncidenciaxUsuario")
 	public String buscarIncidenciaxUsuario(String usuario,Model modelo) {
 
-		System.out.println("Usuario recibido:" + usuario);
+		//System.out.println("Usuario recibido:" + usuario);
 		
 		
 		List<Incidencia> lista = repositorio_i.getByUsuario(usuario);
-		
-		for(Incidencia str : lista)
-		{
-		    //imprimimos el objeto pivote
-		    System.out.println(str);
-		}
-		
+	
 		modelo.addAttribute("listaincidencia",lista);
 		modelo.addAttribute("listausuarios",repositorio_u.getAll());
 		modelo.addAttribute("listaequipos",repositorio_e.getAll());
@@ -171,11 +165,6 @@ public class ListadoIncidencias {
 		List<Usuario> lista = repositorio_u.getAll();
 		List<Equipo> lista_equipo=repositorio_e.getAll();
 	
-	/*	for(Equipo str : lista_equipo)
-		{
-		    System.out.println(str);
-		}
-	*/	
 		modelo.addAttribute("listausuarios",lista);
 		modelo.addAttribute("listaequipos",lista_equipo);
 		modelo.addAttribute("listaestados",repositorio_estad.getAll());

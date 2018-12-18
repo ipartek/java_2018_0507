@@ -45,6 +45,8 @@
 					<td class="col-lg-1"><input name="usuario_creador" type=text value="${incidencia.usuario_creador}" class="form-control"></td>
 					<td><input name="titulo" type=text value="${incidencia.titulo}" class="form-control"></td>
 					<td><input name="descripcion" type=text value="${incidencia.descripcion}" class="form-control"></td>
+					
+					
 					<td class="col-lg-1"><input name="equipo" type=text value="${incidencia.equipo}" class="form-control"></td>
 					<td>
 						<select name="usuario_asignado" id="usuario_asignado" class="form-control input-normal">

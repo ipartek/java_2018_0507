@@ -22,8 +22,6 @@ public class Incidencia {
 		this.estado = estado;
 	}
 	
-	
-
 	public Long getId() {
 		return id;
 	}

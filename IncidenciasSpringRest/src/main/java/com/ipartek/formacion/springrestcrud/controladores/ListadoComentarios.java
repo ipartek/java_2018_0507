@@ -31,7 +31,7 @@ public class ListadoComentarios {
 	
 	@GetMapping("/AgregarComentario")
 	public String AgregarComentario(Model modelo) {
-		System.out.println("en agregar comentario");
+		//System.out.println("en agregar comentario");
 		List<Incidencia> lista_inc = repositorio_inc.getAll();
 		List<Usuario> lista_usu = repositorio_u.getAll();
 		modelo.addAttribute("listaincidencia",lista_inc);
@@ -42,7 +42,7 @@ public class ListadoComentarios {
 	
 	@GetMapping("/ListadoComentarios")
 	public String listadoComentario(Model modelo) {
-		System.out.println("EN listadocomentarios");
+		//System.out.println("EN listadocomentarios");
 		List<Comentario> lista_com = repositorio_com.getAll();
 		
 		modelo.addAttribute("listacomentarios",lista_com);
@@ -63,7 +63,7 @@ public class ListadoComentarios {
 	
 	@RequestMapping("/modifComentario")
 	public String modifEquipo(Comentario comentario,Model modelo) {
-		System.out.println("En modif comentario");
+		//System.out.println("En modif comentario");
 		//Update
 		repositorio_com.update(comentario);
 		//EndUpdate
@@ -79,7 +79,7 @@ public class ListadoComentarios {
 	@GetMapping("/buscarComentarioxIncidencia")
 	public String buscarComentarioxIncidencia(String incidencia_id,Model modelo) {
 
-		System.out.println("incidencia_id:" + incidencia_id);
+		//System.out.println("incidencia_id:" + incidencia_id);
 		
 		List<Comentario> lista = repositorio_com.getByIdIncidencia(incidencia_id);
 				
