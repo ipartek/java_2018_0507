@@ -50,7 +50,7 @@ public class UsuarioRepository implements CrudAble<Usuario> {
 	}
 	
 	public Usuario searchUser(Usuario usuario) {
-		return jdbcTemplate.queryForObject("call usuarios_search(?,?)",
+		return jdbcTemplate.queryForObject("call usuarios_login(?,?)",
 				new Object[] { usuario.getEmail(), usuario.getPassword()},
 				new UsuarioMapper());
 	}

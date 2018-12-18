@@ -1,8 +1,8 @@
-﻿<!-- <%@ page language="java" contentType="text/html; charset=UTF-8" -->
-<!-- 	pageEncoding="UTF-8"%> -->
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+ 	pageEncoding="UTF-8"%>
 
-<!-- <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> -->
-<!-- <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> -->
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> 
 
 <!DOCTYPE html>
 <html>
@@ -34,39 +34,20 @@
 <script src="/js/popper.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 
-<script>
-$(function() {
-
-	/*$("#loginForm").submit(function(e){
-		e.preventDefault();
-		
-		$.ajax({
-			method : 'POST',
-			url : '/api/login.json', 
-			data : $("#loginForm").serialize()
-		}).done(function(data, status) {
-			alert("Login correcto");
-		}).fail(function() {
-			alert("Login incorrecto");
-		});
-	});*/
-});
-
-</script>
 </head>
 <body class="text-center">
-	<form id="loginForm" class="form-signin" method="post">
-<!-- 		<c:if test="${alertatexto != null}"> -->
-<!-- 			<div class="alert alert-${alertatipo} alert-dismissible fade show" -->
-<!-- 				role="alert"> -->
-<!-- 				${alertatexto} -->
-<!-- 				<button type="button" class="close" data-dismiss="alert" -->
-<!-- 					aria-label="Close"> -->
-<!-- 					<span aria-hidden="true">&times;</span> -->
-<!-- 				</button> -->
-<!-- 			</div> -->
-<!-- 		</c:if> -->
-<!-- 		<input type="hidden" name="accion" value="login"> -->
+	<form id="loginForm" class="form-signin" action="home" method="post">
+		<c:if test="${alertatexto != null}">
+			<div class="alert alert-${alertatipo} alert-dismissible fade show"
+				role="alert">
+				${alertatexto}
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		</c:if>
+		<input type="hidden" name="accion" value="login">
 		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 		<label for="email" class="sr-only">Email</label> <input type="text"
 			id="email" name="email" class="form-control" placeholder="Email"
