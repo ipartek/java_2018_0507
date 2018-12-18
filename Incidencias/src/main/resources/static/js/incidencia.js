@@ -18,9 +18,10 @@ $(function() {
 			contentType : 'application/json; charset=UTF-8'
 		}).done(function() {
 			
-			$('#titulo').val("");
-			$('#isbn').val("");
-			$('#editorial').val(0);
+			$('#tituloi').val("");
+			$('#descripcioni').val("");
+			$('#fechai').val("");
+			$('#usuarioAsignadoi').val();
 		});
 	});
 		

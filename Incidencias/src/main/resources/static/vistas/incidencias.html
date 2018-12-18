@@ -11,8 +11,7 @@
 <title>Incidencias</title>
 </head>
 <body>
-<div class="container login-container">
-	<form id="fincidencias">
+	<div class="container login-container">
 		<table id="tincidencias" class="table table-bordered">
 			<thead>
 				<tr>
@@ -29,9 +28,28 @@
 
 			</tfoot>
 		</table>
-		<button  class="btn btn-primary">Crear Incidencia</button>
-	</form>
-</div>
+
+		<h3 style="margin-bottom: 50px">Datos para registrar nueva Incidencia</h3>
+		
+		<form class="form-horizontal col-md-6">
+			<div class="form-group">
+				<label for="inputEmail3" class="col-sm-2  control-label">Titulo</label>
+				<div class="col-sm-10">
+					<input type="email" class="form-control" id="tituloi"
+						placeholder="">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputPassword3" class="col-sm-2 control-label">Descripcion</label>
+				<div class="col-sm-10">
+					<textarea  class="form-control" id="descripcioni"
+						placeholder=""></textarea>
+				</div>
+			</div>
+
+			<button class="btn btn-primary">Crear Incidencia</button>
+		</form>
+	</div>
 
 </body>
 </html>
