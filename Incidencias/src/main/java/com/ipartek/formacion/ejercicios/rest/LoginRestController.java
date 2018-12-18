@@ -1,4 +1,4 @@
-package com.ipartek.formacion.rest;
+package com.ipartek.formacion.ejercicios.rest;
 
 import java.util.List;
 

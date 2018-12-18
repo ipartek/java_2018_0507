@@ -1,4 +1,4 @@
-package com.ipartek.formacion.rest;
+package com.ipartek.formacion.ejercicios.rest;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class IncidenciaRestController implements CrudAble<Incidencia> {
 		return repositorio.getById(id);
 	}
 
-	@PostMapping
+	@PostMapping("/api/incidencias")
 	public void insert(@RequestBody Incidencia inci) {
 		repositorio.insert(inci);
 		

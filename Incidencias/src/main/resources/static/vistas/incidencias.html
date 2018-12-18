@@ -3,39 +3,35 @@
 <head>
 <meta charset="UTF-8">
 
-<script src="js/vistas/bootstrap.min.js"></script>
-<script src="js/vistas/jquery-1.12.4.min.js"></script>
-<script src="js/vistas/incidencia.js"></script>
+
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="/js/incidencia.js"></script>
+<link href="../css/bootstrap.min.css" rel="stylesheet"></link>
 <title>Incidencias</title>
 </head>
 <body>
-
+<div class="container login-container">
 	<form id="fincidencias">
-		<table id="tincidencias">
+		<table id="tincidencias" class="table table-bordered">
 			<thead>
 				<tr>
 					<th>ID</th>
-					<td>Titulo</td>
-					<td>Descripcion</td>
-					<td>Fecha</td>
+					<th>Titulo</th>
+					<th>Descripcion</th>
+					<th>Fecha</th>
 					<th>Usuario Asignado</th>
 				</tr>
 			</thead>
 			<tbody>
 			</tbody>
 			<tfoot>
-				<tr>
-					<td></td>
-					<td><input id="fecha" /></td>
-					<td><input id="titulo" /></td>
-					<td><input id="descripcion"></td>
-					<td><input id="usuarioAsignado"></td>
-					<td><button>Aceptar</button></td>
-				</tr>
+
 			</tfoot>
 		</table>
+		<button  class="btn btn-primary">Crear Incidencia</button>
 	</form>
-
+</div>
 
 </body>
 </html>
