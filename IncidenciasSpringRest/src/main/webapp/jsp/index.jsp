@@ -12,6 +12,9 @@
 
 	<div class="jumbotron text-center">
 		<h1>Gestión de incidencias</h1>
+		<div class="btn-group" role="group">
+				<a class="btn btn-default" href="/">Logout</a>
+			</div>
 	</div>
 
 	<div class="row">
@@ -56,8 +59,5 @@
 		</div>
 
 	</div>
-
-
-
 </body>
 </html>
