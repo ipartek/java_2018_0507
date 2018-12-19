@@ -56,13 +56,6 @@ public class EquipoMySqlJdbcTemplateRepository implements CrudAble<Equipo> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public List<Equipo> getUsuarioLogin(Usuario usuario) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	@Override
 	public List<Incidencia> getByUsuario(String usuario) {
 		// TODO Auto-generated method stub
@@ -81,4 +74,9 @@ public class EquipoMySqlJdbcTemplateRepository implements CrudAble<Equipo> {
 		return null;
 	}
 
+	@Override
+	public List<Usuario> getUsuarioLogin(String usuario, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

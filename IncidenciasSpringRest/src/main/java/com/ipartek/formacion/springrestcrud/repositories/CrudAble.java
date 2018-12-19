@@ -12,10 +12,11 @@ public interface CrudAble<T> {
 	public T getById(Long id);
 	public void insert(T t); //Devolver el id insertado
 	public void update(T t);
-	List<T> getUsuarioLogin(Usuario usuario);
+	public List<Usuario> getUsuarioLogin(String usuario,String password);
 	public List<T> getByEquipo(String equipo);
 	public List<Incidencia> getByUsuario(String usuario);
 	public List<Incidencia> getByEstado(String estado);
 	public List<Comentario> getByIdIncidencia(String incidencia_id);
+	
 
 }

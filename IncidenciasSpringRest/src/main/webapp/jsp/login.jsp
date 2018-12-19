@@ -2,48 +2,37 @@
 	pageEncoding="UTF-8"%>
 <html>
 <head>
-<title>login</title>
-<script src="jquery/jquery.js"></script>
-<script src="js/bootstrap3.7.min.js"></script>
-<script src="js/login.js"></script>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/estilos.css">
 
-
-<!-- Bootstrap core CSS -->
-
-<link href="css/bootstrap4.min.css" rel="stylesheet">
-<link href="css/login.css" rel="stylesheet">
 
 </head>
-<body class="container-fluid">
+<body>
+	<div class="d-flex justify-content-center align-items-center container ">  
+	<h2>Incidencias</h2>
 
-	<div id="formWrapper">
-		
-			<div id="form">
-			<form action="/">
-			
-				<div class="logo">
-					<h1 class="text-center head">Incidencias</h1>
+	<br>
+
+	<form action="/" method="post" id="login">
+		<div class="container-fluid">
+			<div class="col-lg-4" id="userFormColumn1">
+				<div class="form-group">
+					<label for="user">Usuario: </label> 
+					<input name="user" id="user" class="form-control input-normal">
 				</div>
-				<div class="form-item">
-					<p class="formLabel">usuario</p>
-					<input type="text" name="email" id="email" class="form-style"
-						autocomplete="off" />
+			</div>
+			<div class="col-lg-4" id="userFormColumn2">
+				<div class="form-group">
+					<label for="password">Password:</label> 
+					<input name="password" id="password" class="form-control input-normal">
 				</div>
-				<div class="form-item">
-					<p class="formLabel">Password</p>
-					<input type="password" name="password" id="password"
-						class="form-style" />
-					<!-- <div class="pw-view"><i class="fa fa-eye"></i></div> -->
-				</div>
-				<div class="form-item">
-					<p class="pull-left">
-						${error}
-					</p>
-					<button class="btn btn-secondary">Entrar</button>
-					<div class="clear-fix"></div>
-				</div>
-		</form>
-	</div>
+			</div>
+		</div>
+			<center>
+				<button class="btn btn-secondary">LogIn</button>
+			</center>
+	</form>
+	
 	</div>
 </body>
 </html>

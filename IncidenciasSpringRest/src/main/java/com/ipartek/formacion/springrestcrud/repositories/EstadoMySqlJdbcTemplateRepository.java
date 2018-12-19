@@ -56,13 +56,7 @@ public  class EstadoMySqlJdbcTemplateRepository implements CrudAble<Estado> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public List<Estado> getUsuarioLogin(Usuario usuario) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public List<Incidencia> getByUsuario(String usuario) {
 		// TODO Auto-generated method stub
@@ -81,4 +75,9 @@ public  class EstadoMySqlJdbcTemplateRepository implements CrudAble<Estado> {
 		return null;
 	}
 
+	@Override
+	public List<Usuario> getUsuarioLogin(String usuario, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

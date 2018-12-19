@@ -30,33 +30,25 @@ public class ListadoIncidencias {
 	private final CrudAble<Comentario> repositorio_comen=null;
 		
 	
-	
 	@RequestMapping("/")
-	public String inicio(Usuario usuario, Model modelo) {
+	public String inicio(String user,String password,Model modelo) {
 		
-		System.out.println("Usuario recibido " + usuario.getEmail() + " -  "+usuario.getPassword());
-		
-		
-		//TODO:Comprobar contra usuario en la bd
-		System.out.println("repositioriou getusuariologin" + repositorio_u.getUsuarioLogin(usuario));
-		
-		//Este if no funciona
-		if(repositorio_u.getUsuarioLogin(usuario).isEmpty()) {
-			System.out.println("Usuario Erroneo");
+			
+			System.out.println("Usuario recibido " + user + " -  "+password);
+			
+			if(repositorio_u.getUsuarioLogin(user,password).size()!=0){
+				List<Incidencia> lista = repositorio_i.getAll();
+				List<Equipo> lista_e = repositorio_e.getAll();
+				List<Usuario> lista_u = repositorio_u.getAll();
+				List<Comentario> lista_com = repositorio_comen.getAll();
+				
+				modelo.addAttribute("listaincidencia",lista);
+				modelo.addAttribute("listaequipo",lista_e);
+				modelo.addAttribute("listausuario",lista_u);
+				modelo.addAttribute("listacomentario",lista_com);
+				return "home";
+			}
 			return "login";
-		}else {
-			List<Incidencia> lista = repositorio_i.getAll();
-			List<Equipo> lista_e = repositorio_e.getAll();
-			List<Usuario> lista_u = repositorio_u.getAll();
-			List<Comentario> lista_com = repositorio_comen.getAll();
-			
-			modelo.addAttribute("listaincidencia",lista);
-			modelo.addAttribute("listaequipo",lista_e);
-			modelo.addAttribute("listausuario",lista_u);
-			modelo.addAttribute("listacomentario",lista_com);
-			
-			return "home";
-		}
 	}
 	
 	

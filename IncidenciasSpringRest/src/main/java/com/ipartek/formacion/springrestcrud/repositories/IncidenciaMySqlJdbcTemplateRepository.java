@@ -107,19 +107,18 @@ public class IncidenciaMySqlJdbcTemplateRepository implements CrudAble<Incidenci
 	}
 
 	@Override
-	public List<Incidencia> getUsuarioLogin(Usuario usuario) {
+	public List<Comentario> getByIdIncidencia(String incidencia_id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
-	public List<Comentario> getByIdIncidencia(String incidencia_id) {
+	public List<Usuario> getUsuarioLogin(String usuario, String password) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
 
 
 }

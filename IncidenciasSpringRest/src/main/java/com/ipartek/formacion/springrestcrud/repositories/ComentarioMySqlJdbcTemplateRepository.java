@@ -67,12 +67,6 @@ public class ComentarioMySqlJdbcTemplateRepository implements CrudAble<Comentari
 	}
 
 	@Override
-	public List<Comentario> getUsuarioLogin(Usuario usuario) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public List<Incidencia> getByUsuario(String usuario) {
 		// TODO Auto-generated method stub
 		return null;
@@ -80,6 +74,12 @@ public class ComentarioMySqlJdbcTemplateRepository implements CrudAble<Comentari
 
 	@Override
 	public List<Incidencia> getByEstado(String estado) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Usuario> getUsuarioLogin(String usuario, String password) {
 		// TODO Auto-generated method stub
 		return null;
 	}

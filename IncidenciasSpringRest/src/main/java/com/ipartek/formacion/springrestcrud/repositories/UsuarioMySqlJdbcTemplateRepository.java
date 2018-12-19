@@ -31,10 +31,10 @@ public class UsuarioMySqlJdbcTemplateRepository implements CrudAble<Usuario> {
 		}
 	}
 	@Override
-	public List<Usuario> getUsuarioLogin(Usuario usuario) {	
-		//System.out.println(usuario.getEmail() + " - " +usuario.getPassword());
+	public List<Usuario> getUsuarioLogin(String usuario,String password) {	
+		System.out.println(usuario + " - " +password);
 		return jdbcTemplate.query("select * from usuario where email=? and password=?",
-				new Object[] { usuario.getEmail(),usuario.getPassword() }
+				new Object[] { usuario,password }
 		, new UsuarioMapper());
 	}
 
