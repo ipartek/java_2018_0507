@@ -47,7 +47,8 @@ public class IncidenciasJdbc implements CrudAble <Incidencia> {
 
 	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
+		String sql= "Delete from incidencia where id = ?";
+		jdbcTemplate.update(sql, new Object[] {id});
 		
 	}
 	

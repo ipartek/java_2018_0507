@@ -10,7 +10,9 @@ public class Incidencia {
 		private String descripcion;
 		private Long usu_asignado;
 		
-
+		public Incidencia() {
+			
+		}
 		public Incidencia(Long id, Date fecha, String titulo, String descripcion, Long usu_asignado) {
 			super();
 			this.id = id;
@@ -19,6 +21,8 @@ public class Incidencia {
 			this.descripcion = descripcion;
 			this.usu_asignado = usu_asignado;
 		}
+
+
 		public Long getId() {
 			return id;
 		}
