@@ -33,8 +33,7 @@ public class ListadoIncidencias {
 	@RequestMapping("/")
 	public String inicio(String user,String password,Model modelo) {
 		
-			
-			System.out.println("Usuario recibido " + user + " -  "+password);
+			//System.out.println("Usuario recibido " + user + " -  "+password);
 			
 			if(repositorio_u.getUsuarioLogin(user,password).size()!=0){
 				List<Incidencia> lista = repositorio_i.getAll();
@@ -102,15 +101,9 @@ public class ListadoIncidencias {
 		
 	}
 	
-	
-	
 	@GetMapping("/buscarIncidenciaxEquipo")
 	public String buscarIncidenciaxEquipo(String equipo,Model modelo) {
-
-		//System.out.println("Equipo recibido:" + equipo);
-		
-		
-		
+	
 		List<Incidencia> lista = repositorio_i.getByEquipo(equipo);
 				
 		modelo.addAttribute("listaincidencia",lista);
@@ -120,6 +113,7 @@ public class ListadoIncidencias {
 		
 		return "verincidencias";		
 	}
+	
 	@GetMapping("/buscarIncidenciaxEstado")
 	public String buscarIncidenciaxEstado(String estado,Model modelo) {
 
@@ -167,7 +161,6 @@ public class ListadoIncidencias {
 
 	@RequestMapping("/addIncidencia")
 	public String addIncidencia(Incidencia incidencia,Model modelo) {
-	//	System.out.println("en AddIncidencia");
 		repositorio_i.insert(incidencia);
 		List<Incidencia> lista = repositorio_i.getAll();
 		modelo.addAttribute("listaincidencia",lista);
@@ -179,10 +172,8 @@ public class ListadoIncidencias {
 	
 	@RequestMapping("/modifIncidencia")
 	public String modifIncidencia(Incidencia incidencia,Model modelo) {
-	//	System.out.println("en modifIncidencia");
 	
 		repositorio_i.update(incidencia);
-	//		System.out.println(	"Al modificar incidencia.getEstado() " + incidencia.getEstado());
 		List<Incidencia> lista = repositorio_i.getAll();
 	
 		modelo.addAttribute("listaincidencia",lista);
