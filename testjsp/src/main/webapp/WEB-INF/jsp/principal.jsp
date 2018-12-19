@@ -13,5 +13,19 @@
 	<c:forTokens items="Uno,Dos,Tres,Cuatro" delims="," var="dato">
 		<h2>${dato}</h2>
 	</c:forTokens>
+	<form action="/LoginController" class="form-horizontal" method="post" name="sign up for beta form">
+      <div class="header">
+         <p>Login</p>
+      </div>
+      <div class="form-group">
+        <input type="text" class="button form-control" id="email" name="email" placeholder="email">
+       </div>
+       <div class="form-group">
+        <input type="password" class="button form-control" id="pass" name="pass" placeholder="password">
+        </div>
+        <div class="form-group">
+        <input type="submit" class="button" id="submit">
+      	</div>
+    </form>
 </body>
 </html>
