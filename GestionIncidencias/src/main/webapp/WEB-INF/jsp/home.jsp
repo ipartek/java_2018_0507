@@ -1,3 +1,5 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,48 +36,21 @@
 </head>
 <body>
 
-${user}
+	<input type="hidden" id="userID" value="${user.id}">
+	<input type="hidden" id="userNombre" value="${user.nombre}">
+	<input type="hidden" id="userEmail" value="${user.email}">
+	<input type="hidden" id="userRol" value="${user.rol}">
+	
 	<!-- SECTION NAVIGATION BAR -->
 	<section id="navigation_bar">
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarTogglerDemo03"
-				aria-controls="navbarTogglerDemo03" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<a class="navbar-brand" href="/home"> <i class="fas fa-home"></i>
-			</a>
-			<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-					<li class="nav-item active"><a class="nav-link" href="/"><i
-							class="fas fa-bolt"></i>&nbsp;Mis incidencias<span
-							class="sr-only">(current)</span> </a></li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="/" id="navbarDropdown"
-						role="button" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false"><i class="fas fa-cog"></i>&nbsp;&nbsp;Admin</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" id="btnAdminUsuarios"><i
-								class="fas fa-users"></i>&nbsp;&nbsp;Usuarios</a> <a
-								class="dropdown-item" id="btnAdminIncidencias"><i
-								class="fas fa-bolt"></i>&nbsp;&nbsp;Incidencias</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" id="btnAdminHistorico"><i
-								class="far fa-chart-bar"></i>&nbsp;&nbsp;Históricos</a>
-						</div></li>
-				</ul>
-
-				<form action="logout" method="post" class="form-inline my-2 my-lg-0">
-					<span class="navbar-text"> <i class="fas fa-user"></i>
-						&nbsp;Bienvenido ${user.nombre}&nbsp;
-					</span>
-					<button class="btn btn-warning" type="submit">
-						<i class="fas fa-sign-out-alt"></i>&nbsp;Logout
-					</button>
-				</form>
-			</div>
-		</nav>
+		<c:choose>
+			<c:when test="${user.rol == 'ADMINISTRADOR'}">
+      			<%@ include file="/WEB-INF/jsp/includes/navbarAdmin.jsp"%>
+    		</c:when>
+			<c:otherwise>
+        		<%@ include file="/WEB-INF/jsp/includes/navbarUser.jsp"%>
+			</c:otherwise>
+		</c:choose>
 	</section>
 	<!-- END SECTION NAVIGATION BAR -->
 	<div class="container-fluid">
@@ -112,17 +87,17 @@ ${user}
 							class="form-control" id="inputTitulo" placeholder="Titulo">
 					</div>
 					<div class="form-group">
-						<label for="inputUsuarioAsignado">Usuario asignado</label> 
-						<select id="inputUsuarioAsignado" class="form-control">
+						<label for="inputUsuarioAsignado">Usuario asignado</label> <select
+							id="inputUsuarioAsignado" class="form-control">
 							<option value="0" selected>Usuario asignado...</option>
 						</select>
 					</div>
 					<div class="form-group">
 						<label for="inputDescripcion">Descripción</label>
-						<textarea class="form-control" id="inputDescripcion"
-							rows="4"></textarea>
+						<textarea class="form-control" id="inputDescripcion" rows="4"></textarea>
 					</div>
-					<button type="submit" class="btn btn-primary offset-md-5">Crear incidencia</button>
+					<button type="submit" class="btn btn-primary offset-md-5">Crear
+						incidencia</button>
 				</form>
 			</div>
 		</section>
@@ -153,6 +128,31 @@ ${user}
 						</table>
 					</div>
 				</div>
+				
+				<form id="formNuevoUsuario" class="col-md-6 offset-md-3">
+					<div class="form-group">
+						<label for="inputNombre">Nombre</label> <input type="text"
+							class="form-control" id="inputNombre" placeholder="Nombre">
+					</div>
+					<div class="form-group">
+						<label for="inputEmail">Email</label> <input type="email"
+							class="form-control" id="inputEmail" placeholder="Email">
+					</div>
+					<div class="form-group">
+						<label for="inputPassword">Password</label> <input type="password"
+							class="form-control" id="inputPassword" placeholder="Password">
+					</div>
+					<div class="form-group">
+						<label for="inputRol">Rol</label> <select
+							id="inputRol" class="form-control">
+							<option value="USUARIO" selected>Usuario</option>
+							<option value="ADMINISTRADOR">Administrador</option>
+						</select>
+					</div>
+					<button type="submit" class="btn btn-primary offset-md-4">Crear
+						usuario</button>
+					<input id="btnCancelarNuevoUsuario" type="button" class="btn btn-danger" value="Cancelar">
+				</form>
 			</div>
 		</section>
 		<!-- END SECTION ADMIN USUARIOS -->

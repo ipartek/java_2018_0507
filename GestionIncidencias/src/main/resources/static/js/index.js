@@ -1,7 +1,6 @@
 $(function() {
     mostrarSeccionMisIncidencias();
 
-
     /* Botones admin */
     /* Incidencias */
     $("#btnAdminIncidencias").click(function(e){
@@ -18,6 +17,10 @@ $(function() {
     $("#btnAdminUsuarios").click(function(e){
         e.preventDefault();
         mostrarUsuarios();
+    });
+    
+    $("#btnCancelarNuevoUsuario").click(function(){
+    	cancelarCrearUsuario();
     });
    
     //javascript:crearUsuario()
@@ -38,6 +41,7 @@ function ocultarTodo(){
 	$("#seccionMisIncidencias").hide();
 	$("#formNuevaIncidencia").hide();
 	$("#seccionUsuarios").hide();
+	$("#formNuevoUsuario").hide();
 	$("#seccionHistoricos").hide();
 }
 
@@ -47,8 +51,7 @@ function ocultarTodo(){
 function mostrarSeccionMisIncidencias(){
     ocultarTodo();
     
-    //var id = $("#idUsuario").val();
-    var id = 1;
+    var id = $("#userID").val();
 	
     $.getJSON('/api/incidencias/open/'+ id, function(incidencias) {
 		console.log(incidencias);
@@ -142,11 +145,10 @@ function enviarFormularioIncidencia(e){
 	e.preventDefault();
 	
 	var incidencia = {
-			id : 1,
-			fecha : "2018-12-17",
+			fecha : new Date(),
 			titulo : $('#inputTitulo').val(),
 			descripcion: $('#inputDescripcion').val(),
-			usuarioCreadorId : 1,
+			usuarioCreadorId : $("#userID").val(),
 			usuarioAsignadoId : $('#inputUsuarioAsignado').val()
 		};
 
@@ -158,7 +160,7 @@ function enviarFormularioIncidencia(e){
 			data : JSON.stringify(incidencia)
 		}).done(function() {
 			console.log("TODO OK");
-			//mostrarSeccionMisIncidencias();
+			mostrarSeccionMisIncidencias();
 		}).fail(function() {
 			alert("Error al intentar crear una incidencia");
 		});
@@ -209,7 +211,7 @@ function mostrarTodasLasIncidencias(){
  * 	  Historico    *
  *******************/
 function mostrarHistorico(){
-ocultarTodo();
+	ocultarTodo();
     
     $.getJSON('/api/historicos/', function(historicos) {
 		console.log(historicos);
@@ -278,16 +280,22 @@ function mostrarDatosUsuarios(usuarios){
 
 function crearUsuario(){
     //Ocultar tabla Usuarios
+	$("#tablaUsuarios").hide(); 
+	
+	//Mostrar formulario crear usuario
+	$("#formNuevoUsuario").show();
+}
 
-    //Mostrar formulario nuevo usuario
-
+function cancelarCrearUsuario(){
+	$("#formNuevoUsuario").trigger("reset");
+	$("#formNuevoUsuario").hide();
+	$("#tablaUsuarios").show();
 }
 
 function enviarFormularioNuevoUsuario(e){
     e.preventDefault();
 
 	var vUsuario = {
-		id : parseInt($('#id').val()),
         nombre : $('#nombre').val(),
         email : $('#email').val(),
         password: $('#password').val()
@@ -307,7 +315,6 @@ function enviarFormularioNuevoUsuario(e){
 }
 
 function modificarUsuario(id){
-    event.preventDefault();
     var tbl_row = $(this).closest('tr');
 
     var row_id = tbl_row.attr('row_id');
@@ -333,8 +340,6 @@ function modificarUsuario(id){
 }
 
 function cancelarModificarUsuario(){
-    event.preventDefault();
-
 	var tbl_row = $(this).closest('tr');
 
 	var row_id = tbl_row.attr('row_id');
