@@ -1,0 +1,101 @@
+body{
+	
+}
+
+.fototitulo{
+	  margin-left: auto;
+  margin-right: auto;
+	height:40%;
+	width:40%;
+	align:center;
+}
+.titulo{
+	
+	align:center;
+	color:ff8b00;
+	font-family: 'Noto Serif TC', serif;
+	width:100%;
+	text-align:center;
+	font-size: 9vw;
+    margin-top:-4%;
+}
+@media only screen and (max-width: 570px){
+	.fototitulo{
+		width:70%;
+		height:30%;
+	}
+}
+@media only screen and (min-width: 900px){
+	.fototitulo{
+		width:30%;
+		height:40%;
+	}
+}
+form {
+	text-align:center;
+	border-radius: 15px;
+	margin-top:0px;
+	border-color:black;
+	background:#AF9A80;
+ 	width: 450px;
+  	padding:10px;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width:40%;
+}
+@media only screen and (max-width: 900px){
+	form {
+		width:70%;
+		font-size: 10px;
+	}
+}
+.header {
+  font-size: 35px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.description {
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 1.3em;
+  margin: -2px 0 45px;
+}
+.input {
+  display: flex;
+  align-items: center;
+}
+.button {
+  height: 44px;
+  border: none;
+}
+
+#pass{
+	text-indent: 3%;
+}
+#email {
+  
+  background: #FDFCFB;
+  font-family: inherit;
+  color: #737373;
+  letter-spacing: 1px;
+  text-indent: 3%;
+  border-radius: 5px 0 0 5px;
+}
+#submit {
+  width: 25%;
+  height: 46px;
+  background: #ff8b00;
+  font-family: inherit;
+  font-weight: bold;
+  color: inherit;
+  letter-spacing: 1px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background .3s ease-in-out;
+}
+input:focus {
+  outline: none;
+  outline: 2px solid #E86C8D;
+  box-shadow: 0 0 2px #E86C8D;
+}

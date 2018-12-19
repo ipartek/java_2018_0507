@@ -15,32 +15,32 @@ import com.ipartek.formacion.prestamolibrosspring.model.Editorial;
 import com.ipartek.formacion.prestamolibrosspring.repositories.CrudAble;
 
 @RestController
-public class EditorialRestController {
+public class EditorialRestController implements RestAble<Editorial> {
 	@Autowired
 	private CrudAble<Editorial> repositorio;
 	
 	@GetMapping("/api/editoriales")
-	public List<Editorial> obtenerEditoriales() {
+	public List<Editorial> obtenerTodos() {
 		return repositorio.getAll();
 	}
 	
 	@GetMapping("/api/editoriales/{idrecibido}")
-	public Editorial obtenerEditorialPorId(@PathVariable("idrecibido") Long id) {
+	public Editorial obtenerPorId(@PathVariable("idrecibido") Long id) {
 		return repositorio.getById(id);
 	}
 	
 	@PostMapping("/api/editoriales")
-	public Long crearNuevaEditorial(@RequestBody Editorial editorial) {
+	public Long crear(@RequestBody Editorial editorial) {
 		return repositorio.insert(editorial);
 	}
 	
 	@PutMapping("/api/editoriales")
-	public void cambiarEditorial(@RequestBody Editorial editorial) {
+	public void modificar(@RequestBody Editorial editorial) {
 		repositorio.update(editorial);
 	}
 	
 	@DeleteMapping("/api/editoriales/{id}")
-	public void borrarEditorial(@PathVariable("id") Long id) {
+	public void borrar(@PathVariable("id") Long id) {
 		repositorio.delete(id);
 	}
 }
