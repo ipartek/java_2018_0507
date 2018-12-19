@@ -34,9 +34,9 @@ public class IncidenciasJdbc implements CrudAble <Incidencia> {
 
 	@Override
 	public void insert(Incidencia incidencia) {
-		String sql="Insert into incidencia (fecha,titulo,descripcion,usuario_id) Values (?,?,?,?)";
+		String sql="Insert into incidencia (fecha,titulo,descripcion) Values (?,?,?)";
 		jdbcTemplate.update(sql, new Object[] { incidencia.getFecha(),incidencia.getTitulo(),
-				incidencia.getDescripcion(), incidencia.getUsu_asignado()});
+				incidencia.getDescripcion() }); //incidencia.getUsu_asignado()
 	}
 
 	@Override
