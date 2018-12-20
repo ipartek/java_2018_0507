@@ -42,7 +42,7 @@ public class IncidenciaRestController implements CrudAble<Incidencia> {
 		
 	}
 
-	@DeleteMapping ("/api/incidencias/{id}")
+	@DeleteMapping("/api/incidencias/{id}")
 	public void delete(@PathVariable("id") Long id) {
 		repositorio.delete(id);
 		

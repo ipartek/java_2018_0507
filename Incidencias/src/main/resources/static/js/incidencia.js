@@ -19,7 +19,6 @@ $(function() {
 				// Cundo lo haga irme a la insert y meter el campo usuario_id
 				
 		}
-		console.log(inci);
 
 		$.ajax({
 			url : '/api/incidencias',
@@ -36,8 +35,25 @@ $(function() {
 			console.log("No se han insertado bien los datos");
 		});
 	});
+	
 		
-	function lista(){	
+});
+
+function borrar(id){
+	$.ajax({
+		url: '/api/incidencias/'+ id,
+		method : 'DELETE'
+	}).done(function() {
+		console.log("TODO OK");
+		$('#inci_' + id).remove();
+		lista();
+	}).fail(function() {
+		console.log(id + "esta mal metido");
+	});
+		
+}
+
+function lista(){	
 	$.getJSON('/api/incidencias', function(inci) {
 		$('#tincidencias > tbody').empty();
 		$(inci).each(function() {
@@ -49,18 +65,3 @@ $(function() {
 	});
 	}
 	
-	function borrar(id){
-		$.ajax({
-			url: '/api/incidencias/'+ id,
-			method : 'DELETE'
-		}).done(function() {
-			console.log("TODO OK");
-			$('#inci_' + id).remove();
-			lista();
-		}).fail(function() {
-			console.log(id + "esta mal metido");
-		});
-			
-	}
-		
-});
