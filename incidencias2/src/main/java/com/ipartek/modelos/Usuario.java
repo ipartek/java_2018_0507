@@ -1,4 +1,4 @@
-package modelos;
+package com.ipartek.modelos;
 
 import java.sql.Date;
 
