@@ -32,7 +32,7 @@ $(function() {
 			$('#descripcioni').val("");	
 			lista();
 			
-		}).error(function() {
+		}).fail(function() {
 			console.log("No se han insertado bien los datos");
 		});
 	});
@@ -54,8 +54,11 @@ $(function() {
 			url: '/api/incidencias/'+ id,
 			method : 'DELETE'
 		}).done(function() {
+			console.log("TODO OK");
 			$('#inci_' + id).remove();
 			lista();
+		}).fail(function() {
+			console.log(id + "esta mal metido");
 		});
 			
 	}
