@@ -7,11 +7,11 @@
 		aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
-	<a class="navbar-brand" href="/home"> <i class="fas fa-home"></i>
+	<a class="navbar-brand" href="/home.jsp"> <i class="fas fa-home"></i>
 	</a>
 	<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-			<li class="nav-item active"><a class="nav-link" href="/"><i
+			<li class="nav-item active"><a class="nav-link" href="/home.jsp"><i
 					class="fas fa-bolt"></i>&nbsp;Mis incidencias<span class="sr-only">(current)</span>
 			</a></li>
 			<li class="nav-item dropdown"><a

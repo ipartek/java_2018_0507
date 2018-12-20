@@ -51,6 +51,21 @@ public class IncidenciaRepository implements CrudAble<Incidencia> {
 		return jdbcTemplate.query("call incidencias_getByUserId(?)", new Object[] { id },
 				new IncidenciaMapper());
 	} 
+	
+	public List<Incidencia> searchById(Long id){
+		return jdbcTemplate.query("call incidencias_searchById(?)", new Object[] { id },
+				new IncidenciaMapper());
+	}
+	
+	public List<Incidencia> searchByUsuario(String usuario){
+		return jdbcTemplate.query("call incidencias_searchByUsuario(?)", new Object[] { usuario },
+				new IncidenciaMapper());
+	}
+	
+	public List<Incidencia> searchByEstado(String estado){
+		return jdbcTemplate.query("call incidencias_searchByEstado(?)", new Object[] { estado },
+				new IncidenciaMapper());
+	}
 
 	private static final class IncidenciaMapper implements RowMapper<Incidencia> {
 		public Incidencia mapRow(ResultSet rs, int rowNum) throws SQLException {

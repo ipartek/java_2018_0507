@@ -1,5 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> 
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,15 +40,15 @@
 	<input type="hidden" id="userNombre" value="${user.nombre}">
 	<input type="hidden" id="userEmail" value="${user.email}">
 	<input type="hidden" id="userRol" value="${user.rol}">
-	
+
 	<!-- SECTION NAVIGATION BAR -->
 	<section id="navigation_bar">
 		<c:choose>
 			<c:when test="${user.rol == 'ADMINISTRADOR'}">
-      			<%@ include file="/WEB-INF/jsp/includes/navbarAdmin.jsp"%>
-    		</c:when>
+				<%@ include file="/WEB-INF/jsp/includes/navbarAdmin.jsp"%>
+			</c:when>
 			<c:otherwise>
-        		<%@ include file="/WEB-INF/jsp/includes/navbarUser.jsp"%>
+				<%@ include file="/WEB-INF/jsp/includes/navbarUser.jsp"%>
 			</c:otherwise>
 		</c:choose>
 	</section>
@@ -128,7 +128,7 @@
 						</table>
 					</div>
 				</div>
-				
+
 				<form id="formNuevoUsuario" class="col-md-6 offset-md-3">
 					<div class="form-group">
 						<label for="inputNombre">Nombre</label> <input type="text"
@@ -143,20 +143,84 @@
 							class="form-control" id="inputPassword" placeholder="Password">
 					</div>
 					<div class="form-group">
-						<label for="inputRol">Rol</label> <select
-							id="inputRol" class="form-control">
+						<label for="inputRol">Rol</label> <select id="inputRol"
+							class="form-control">
 							<option value="USUARIO" selected>Usuario</option>
 							<option value="ADMINISTRADOR">Administrador</option>
 						</select>
 					</div>
 					<button type="submit" class="btn btn-primary offset-md-4">Crear
 						usuario</button>
-					<input id="btnCancelarNuevoUsuario" type="button" class="btn btn-danger" value="Cancelar">
+					<input id="btnCancelarNuevoUsuario" type="button"
+						class="btn btn-danger" value="Cancelar">
 				</form>
 			</div>
 		</section>
 		<!-- END SECTION ADMIN USUARIOS -->
 
+		<!-- SECTION ADMIN INCIDENCIAS -->
+		<section id="seccionAdminIncidencias">
+			<div class="row">
+				<h2>Todas las Incidencias</h2>
+				<br />
+				<!-- BUSCADORES -->
+				<div class="row col-md-12">
+					<div class="input-group col-md-4">
+						<input type="number" class="form-control" placeholder="ID"
+							aria-label="DNI" id="inputBuscarPorID">
+						<div class="input-group-append">
+							<button class="btn btn-outline-secondary" type="button"
+								id="btnBuscarPorID">Buscar por ID</button>
+						</div>
+					</div>
+					<div class="input-group col-md-4">
+						<select id="inputBuscarPorUsuario" class="form-control"
+							aria-label="Usuario">
+						</select>
+						<div class="input-group-append">
+							<button class="btn btn-outline-secondary" type="button"
+								id="btnBuscarPorUsuario">Buscar por Usuario</button>
+						</div>
+					</div>
+					<div class="input-group col-md-4">
+						<select id="inputBuscarPorEstado" class="form-control"
+							aria-label="Estado">
+							<option value="ABIERTA" selected>Abierta</option>
+							<option value="CERRADA">Cerrada</option>
+						</select>
+						<div class="input-group-append">
+							<button class="btn btn-outline-secondary" type="button"
+								id="btnBuscarPorEstado">Buscar por Estado</button>
+						</div>
+					</div>
+				</div>
+				<!-- END BUSCADORES -->
+				<div class="col-md-12">
+					<div class="table-responsive">
+						<table id="tablaTodasLasIncidencias"
+							name="tablaTodasLasIncidencias"
+							class="table table-sm table-striped table-light table-hover">
+							<thead>
+								<tr class="table-success">
+									<th scope="col">ID</th>
+									<th scope="col">Fecha</th>
+									<th scope="col">Usuario creado</th>
+									<th scope="col">Título</th>
+									<th scope="col">Descripción</th>
+									<th scope="col">Usuario Asignado</th>
+									<th scope="col"><a href="javascript:nuevaIncidencia()"
+										class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;Nueva
+											incidencia</a></th>
+								</tr>
+							</thead>
+							<tbody id="tbodyTodasLasIncidencias">
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- END SECTION ADMIN INCIDENCIAS -->
 		<!-- SECTION FOOTER -->
 		<div class="row">
 			<footer class="footer">

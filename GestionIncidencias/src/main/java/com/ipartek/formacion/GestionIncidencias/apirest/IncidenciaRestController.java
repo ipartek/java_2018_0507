@@ -1,6 +1,5 @@
 package com.ipartek.formacion.GestionIncidencias.apirest;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ipartek.formacion.GestionIncidencias.modelos.Historico;
 import com.ipartek.formacion.GestionIncidencias.modelos.Incidencia;
-import com.ipartek.formacion.GestionIncidencias.modelos.Usuario;
 import com.ipartek.formacion.GestionIncidencias.repositorios.CrudAble;
 import com.ipartek.formacion.GestionIncidencias.repositorios.HistoricoRepository;
 import com.ipartek.formacion.GestionIncidencias.repositorios.IncidenciaRepository;
@@ -70,6 +68,20 @@ public class IncidenciaRestController implements RestAble<Incidencia>{
 	public List<Incidencia> obtenerMisIncidenciasPorId(@PathVariable("id") Long id) {
 		return repositorio2.getByIdUsuario(id);
 	}
-
+	
+	@GetMapping("/api/incidencias/buscador/id/{id}")
+	public List<Incidencia> obtenerIncidenciaPorId(@PathVariable("id") Long id){
+		return repositorio2.searchById(id);
+	}
+	
+	@GetMapping("/api/incidencias/buscador/usuario/{usuario}")
+	public List<Incidencia> obtenerIncidenciaPorUsuario(@PathVariable("usuario") String usuario){
+		return repositorio2.searchByUsuario(usuario);
+	}
+	
+	@GetMapping("/api/incidencias/buscador/estado/{estado}")
+	public List<Incidencia> obtenerIncidenciaPorEstado(@PathVariable("estado") String estado){
+		return repositorio2.searchByEstado(estado);
+	}
 	
 }

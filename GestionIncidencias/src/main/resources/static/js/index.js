@@ -1,5 +1,6 @@
 $(function() {
     mostrarSeccionMisIncidencias();
+    cargarUsuariosBuscador();
 
     /* Botones admin */
     /* Incidencias */
@@ -8,6 +9,19 @@ $(function() {
         mostrarTodasLasIncidencias();
     });
     $("#formNuevaIncidencia").submit(enviarFormularioIncidencia);
+    
+    $("#btnBuscarPorID").click(function() {
+		buscarIncidenciaPorId();
+	});
+    
+    $("#btnBuscarPorUsuario").click(function() {
+		buscarIncidenciaPorUsuario();
+	});
+
+	$("#btnBuscarPorEstado").click(function() {
+		buscarIncidenciaPorEstado();
+	});
+    
     /* Historico */
     $("#btnAdminHistorico").click(function(e){
         e.preventDefault();
@@ -43,6 +57,7 @@ function ocultarTodo(){
 	$("#seccionUsuarios").hide();
 	$("#formNuevoUsuario").hide();
 	$("#seccionHistoricos").hide();
+	$("#seccionAdminIncidencias").hide();
 }
 
 /*******************
@@ -89,6 +104,10 @@ function mostrarMisIncidencias(incidencias){
 
 //Ampliar / Comprimir fila de cartas con incidencia completa
 function mostrarIncidenciaCompleta(id){
+	console.log($(this).closest(".btn").attr("href"));
+	//$(this).empty();
+	//$(this).append('<i class="fas fa-minus"></i>');
+	
     // Pedir historico de incidencia por ajax
 	$.getJSON('/api/historicos/open/' + id, function(historicos){
 		console.log(historicos);
@@ -104,21 +123,19 @@ function mostrarHistoricoIncidencia(historicos){
 	
 	console.log("idFila: " + idFila);
 	
-	var tablaAppend = '<table class="table">';
+	var tablaAppend = '<td colspan="7"><table class="table">';
 	$(historicos).each(function(){
-		tablaAppend += '<tr>' +
-							'<td>' +
-							'<div class="card">' +
+		tablaAppend += '<tr><td><div class="card">' +
 								'<div class="card-header">'+ this.incidencia.id +' / '+ this.usuario.nombre +' / '+ this.estado +'</div>' +
 								'<div class="card-body">' +
 									'<h5 class="card-title">'+ this.incidencia.titulo +'</h5>' +
 									'<p class="card-text">'+ this.comentario +'</p>' +
 								'</div>' +
 								'<div class="card-footer">'+ this.fecha +'</div>' +
-							'</div>' +
-						'</td>' +
-						'</tr>';
+							'</div></td></tr>';
+						
 	});
+	tablaAppend += '</table></td>';
 	$(tablaAppend).appendTo(".d"+idFila).slideDown("slow");
 }
 
@@ -190,7 +207,17 @@ function borrarIncidencia(id){
 	}
 }
 
-
+function cargarUsuariosBuscador(){
+	$("#inputBuscarPorUsuario").empty();
+	
+	$.getJSON('/api/usuarios/', function(usuarios) {
+		console.log(usuarios);
+		$(usuarios).each(function() {
+			$('#inputBuscarPorUsuario').append('<option value="'+this.nombre+'">'+this.nombre+'</option>');
+		});
+	});
+	
+}
 /*******************
  * 		ADMIN 	   *
  *******************/
@@ -199,12 +226,76 @@ function borrarIncidencia(id){
  * 	 Incidencias   *
  *******************/
 function mostrarTodasLasIncidencias(){
-    ocultarTodo();
-
-    //Llamada ajax todas las incidencias abiertas
+	ocultarTodo();
     
-    //Mostrar tabla todas las incidencias abiertas
+    $.getJSON('/api/incidencias', function(incidencias) {
+		console.log(incidencias);
+		mostrarTodasLasIncidencias2(incidencias);
+	});
+}
 
+function mostrarTodasLasIncidencias2(incidencias){
+	$('#tbodyTodasLasIncidencias').empty();
+	$(incidencias).each(function() {
+		$('#tbodyTodasLasIncidencias').append(
+						'<tr class="i'+this.id+'">' + 
+							'<td>'+ 
+								'<a href="javascript:mostrarIncidenciaCompleta('+ this.id +')" class="btn btn-success btn-sm">' + 
+									'<i class="fas fa-plus"></i>' +
+								'</a>' +
+							'</td>'+ 
+							'<td>'+ this.fecha + '</td>'+ 
+							'<td>'+ this.usuarioCreador.nombre + '</td>'+ 
+							'<td>'+ this.titulo + '</td>'	+ 
+							'<td>'+ this.descripcion + '</td>'+ 
+							'<td>'+ this.usuarioAsignado.nombre + '</td>'+ 
+							'<td>'+ 
+								'<a href="javascript:modificarIncidencia('+ this.id +')"><i class="far fa-edit fa-lg"></i></a> '+
+								'<a href="javascript:borrarIncidencia('+ this.id +')"><i class="far fa-trash-alt fa-lg"></i></a>'+ 
+							'</td>' + 
+						'</tr>');
+		$('#tbodyTodasLasIncidencias').append(
+				'<tr class="d'+this.id+'">' +
+				'</tr>');
+	});
+	
+	$("#seccionAdminIncidencias").show();
+}
+
+function buscarIncidenciaPorId(){
+	console.log("Buscando por id...");
+	var id = $("#inputBuscarPorID").val();
+	console.log("id: " + id);
+	if (id != "") {
+		$.getJSON('/api/incidencias/buscador/id/' + id, function(incidencias) {
+			console.log(incidencias);
+			mostrarTodasLasIncidencias2(incidencias);
+		});
+	}
+}
+
+function buscarIncidenciaPorUsuario(){
+	console.log("Buscando por usuario...");
+	var usuario = $("#inputBuscarPorUsuario").val();
+	console.log("usuario: " + usuario);
+	if (usuario != "") {
+		$.getJSON('/api/incidencias/buscador/usuario/' + usuario, function(incidencias) {
+			console.log(incidencias);
+			mostrarTodasLasIncidencias2(incidencias);
+		});
+	}
+}
+
+function buscarIncidenciaPorEstado(){
+	console.log("Buscando por estado...");
+	var estado = $("#inputBuscarPorEstado option:selected").val();
+	console.log("estado: " + estado);
+	if (estado != "") {
+		$.getJSON('/api/incidencias/buscador/estado/' + estado, function(incidencias) {
+			console.log(incidencias);
+			mostrarTodasLasIncidencias2(incidencias);
+		});
+	}
 }
 
 /*******************

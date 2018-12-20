@@ -275,7 +275,8 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `incidencias_getAll`()
 BEGIN
 	SELECT i.id, i.usuarioCreador, u.nombre, u.email, u.password, u.rol, i.usuarioAsignado, v.nombre, v.email, v.password, v.rol, i.fecha, i.titulo, i.descripcion FROM incidencia i
 	JOIN usuario u ON i.usuarioCreador = u.id
-	JOIN usuario v ON i.usuarioAsignado = v.id;
+	JOIN usuario v ON i.usuarioAsignado = v.id
+    GROUP BY i.id;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -342,6 +343,75 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `incidencias_insert`(in usuarioCreador int, usuarioAsignado int, fecha datetime, titulo varchar(100), descripcion varchar(250))
 BEGIN
 	INSERT INTO incidencia(usuarioCreador, usuarioAsignado, fecha, titulo, descripcion) values(usuarioCreador, usuarioAsignado, fecha, titulo, descripcion);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `incidencias_searchByEstado` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `incidencias_searchByEstado`(in param_estado varchar(100))
+BEGIN
+	SELECT i.id, i.usuarioCreador, u.nombre, u.email, u.password, u.rol, i.usuarioAsignado, v.nombre, v.email, v.password, v.rol, i.fecha, i.titulo, i.descripcion FROM incidencia i
+	JOIN usuario u ON i.usuarioCreador = u.id
+	JOIN usuario v ON i.usuarioAsignado = v.id
+    JOIN historico h ON h.incidencia = i.id
+    WHERE h.estado LIKE param_estado
+	GROUP BY i.id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `incidencias_searchById` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `incidencias_searchById`(in param_ID INT)
+BEGIN
+	SELECT i.id, i.usuarioCreador, u.nombre, u.email, u.password, u.rol, i.usuarioAsignado, v.nombre, v.email, v.password, v.rol, i.fecha, i.titulo, i.descripcion FROM incidencia i
+	JOIN usuario u ON i.usuarioCreador = u.id
+	JOIN usuario v ON i.usuarioAsignado = v.id
+    WHERE i.id = param_ID LIMIT 1;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `incidencias_searchByUsuario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `incidencias_searchByUsuario`(in param_usuario varchar(200))
+BEGIN
+	SELECT i.id, i.usuarioCreador, u.nombre, u.email, u.password, u.rol, i.usuarioAsignado, v.nombre, v.email, v.password, v.rol, i.fecha, i.titulo, i.descripcion FROM incidencia i
+	JOIN usuario u ON i.usuarioCreador = u.id
+	JOIN usuario v ON i.usuarioAsignado = v.id
+    WHERE u.nombre LIKE param_usuario
+	GROUP BY i.id;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -444,6 +514,28 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `usuarios_login` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usuarios_login`(IN nemail varchar(200), npassword varchar(200))
+BEGIN
+	SELECT id,nombre,email,password,rol FROM usuario 
+    WHERE email = nemail
+    AND password = npassword 
+    LIMIT 1;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `usuarios_update` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -478,4 +570,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-17 17:57:07
+-- Dump completed on 2018-12-20 17:52:21
