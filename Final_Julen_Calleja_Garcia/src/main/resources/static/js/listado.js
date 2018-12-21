@@ -34,11 +34,11 @@ $(function() {
 
 function borrar(id){
 	$.ajax({
-		url: '/api/incidencias/'+ id,
+		url: '/api/listado/'+ id,
 		method : 'DELETE'
 	}).done(function() {
 		console.log("TODO OK");
-		$('#inci_' + id).remove();
+		$('#prod_' + id).remove();
 		lista();
 	}).fail(function() {
 		console.log(id + "esta mal metido");
@@ -50,11 +50,12 @@ function lista(){
 	$.getJSON('/api/listado', function(prod) {
 		$('#list');
 		$(prod).each(function() {
-			$('#list').append('<p>'+this.id+'</p><p>'+this.nombre+'</p><p>'+this.imagen+
-				'</p><p>'+this.descripcion+'</p><p>'+this.precio+'</p><p><a href="javascript:editar(' + this.id +
-				')">Editar</a></p>');
+			$('#list').append('<div class="col-sm-6 col-md-4 col-lg-3"><div class="thumbnail"><img src= "../IMG/'+this.imagen+'"</p><p>'+this.nombre+'</p><p>'
+					+this.descripcion+'</p><p>'+this.precio+'</p><p><a class="btn btn-primary" href="javascript:editar(' + this.id +
+				')">Editar</a> <a class="btn btn-danger" href="javascript:borrar(' + this.id +
+				')">Borrar</a></p></div></div>');
 			
 		});
 	});
-	}
+}
 	

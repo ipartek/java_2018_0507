@@ -8,7 +8,7 @@ public class Producto {
 	private Long id;
 	private String nombre;
 	private String imagen;
-	private String desripcion;
+	private String descripcion;
 	private Double precio;
 	
 	
@@ -18,12 +18,12 @@ public class Producto {
 	}
 	
 	
-	public Producto(Long id, String nombre, String imagen, String desripcion, Double precio) {
+	public Producto(Long id, String nombre, String imagen, String descripcion, Double precio) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.imagen = imagen;
-		this.desripcion = desripcion;
+		this.descripcion = descripcion;
 		this.precio = precio;
 	}
 
@@ -48,11 +48,11 @@ public class Producto {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
-	public String getDesripcion() {
-		return desripcion;
+	public String getDescripcion() {
+		return descripcion;
 	}
-	public void setDesripcion(String desripcion) {
-		this.desripcion = desripcion;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 	public Double getPrecio() {
 		return precio;
@@ -66,7 +66,7 @@ public class Producto {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((desripcion == null) ? 0 : desripcion.hashCode());
+		result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((imagen == null) ? 0 : imagen.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
@@ -84,10 +84,10 @@ public class Producto {
 		if (getClass() != obj.getClass())
 			return false;
 		Producto other = (Producto) obj;
-		if (desripcion == null) {
-			if (other.desripcion != null)
+		if (descripcion == null) {
+			if (other.descripcion != null)
 				return false;
-		} else if (!desripcion.equals(other.desripcion))
+		} else if (!descripcion.equals(other.descripcion))
 			return false;
 		if (id == null) {
 			if (other.id != null)
@@ -115,7 +115,7 @@ public class Producto {
 
 	@Override
 	public String toString() {
-		return "Producto [id=" + id + ", nombre=" + nombre + ", imagen=" + imagen + ", desripcion=" + desripcion
+		return "Producto [id=" + id + ", nombre=" + nombre + ", imagen=" + imagen + ", descripcion=" + descripcion
 				+ ", precio=" + precio + "]";
 	}
 	

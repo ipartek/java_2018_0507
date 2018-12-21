@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.ipartek.formacion.ejercicios.modelos.Producto;
 import com.ipartek.formacion.ejercicios.repositories.CrudAble;
 
+@RestController
 public class ListadoRest implements CrudAble<Producto> {
 	
 	@Autowired
@@ -21,10 +23,9 @@ public class ListadoRest implements CrudAble<Producto> {
 		return repositorio.getAll();
 	}
 
-	@Override
-	public Producto getById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	@GetMapping("/api/listado/{id}")
+	public Producto getById(@PathVariable("id") Long id) {
+		return repositorio.getById(id);
 	}
 
 	@Override
