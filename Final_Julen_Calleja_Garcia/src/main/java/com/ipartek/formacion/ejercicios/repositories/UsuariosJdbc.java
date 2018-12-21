@@ -34,7 +34,7 @@ public class UsuariosJdbc implements CrudAble<Usuario> {
 	@Override
 	public void insert(Usuario usu) {
 		String sql="Insert into usuarios (nombre,password) VALUES (?,?)";
-		jdbcTemplate.update(sql, new Object[] {usu.getId(),usu.getPassword()});
+		jdbcTemplate.update(sql, new Object[] {usu.getNombre(),usu.getPassword()});
 	}
 
 	@Override
@@ -47,6 +47,12 @@ public class UsuariosJdbc implements CrudAble<Usuario> {
 	public void delete(Long id) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public Usuario Validar(Usuario usu) {
+		String sql ="SELECT id,nombre,password from usuarios where nombre = ? and password = ?";
+		return jdbcTemplate.queryForObject(sql, new Object[] {usu.getId(),usu.getNombre(),usu.getPassword()},new UsuarioMapper());
 	}
 	
 	private static final class UsuarioMapper implements RowMapper<Usuario> {
