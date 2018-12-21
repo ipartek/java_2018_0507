@@ -6,10 +6,10 @@ $(function() {
 		
 		var prod= {
 				
-				titulo : $('#titulo').val(),
+				nombre : $('#nombre').val(),
+				imagen : $('#imagen').val(),
 				descripcion : $('#descripcion').val(),
 				precio : $('#precio').val()
-
 		}
 
 		$.ajax({
@@ -20,6 +20,7 @@ $(function() {
 		}).done(function() {
 			
 			$('#titulo').val("");
+			$('#imagen').val("");
 			$('#descripcion').val("");	
 			$('#precio').val("");
 			lista();
@@ -32,6 +33,21 @@ $(function() {
 		
 });
 
+
+
+function lista(){	
+	$.getJSON('/api/listado', function(prod) {
+		$('#list').empty();
+		$(prod).each(function() {
+			$('#list').append('<div class="col-sm-6 col-md-4 col-lg-3"><div class="thumbnail"><img src= "../IMG/'+this.imagen+'"</p><p>'+this.nombre+'</p><p>'
+					+this.descripcion+'</p><p>'+this.precio+'</p><p><a class="btn btn-primary" href="javascript:editar(' + this.id +
+				')">Editar</a> <a class="btn btn-danger" href="javascript:borrar(' + this.id +
+				')">Borrar</a></p></div></div>');
+			
+		});
+	});
+}
+	
 function borrar(id){
 	$.ajax({
 		url: '/api/listado/'+ id,
@@ -45,17 +61,3 @@ function borrar(id){
 	});
 		
 }
-
-function lista(){	
-	$.getJSON('/api/listado', function(prod) {
-		$('#list');
-		$(prod).each(function() {
-			$('#list').append('<div class="col-sm-6 col-md-4 col-lg-3"><div class="thumbnail"><img src= "../IMG/'+this.imagen+'"</p><p>'+this.nombre+'</p><p>'
-					+this.descripcion+'</p><p>'+this.precio+'</p><p><a class="btn btn-primary" href="javascript:editar(' + this.id +
-				')">Editar</a> <a class="btn btn-danger" href="javascript:borrar(' + this.id +
-				')">Borrar</a></p></div></div>');
-			
-		});
-	});
-}
-	

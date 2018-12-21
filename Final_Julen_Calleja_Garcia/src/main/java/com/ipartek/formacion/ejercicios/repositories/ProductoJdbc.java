@@ -40,7 +40,7 @@ public class ProductoJdbc implements CrudAble<Producto> {
 	@Override
 	public void insert(Producto prod) {
 		String sql="Insert into producto (nombre,imagen,descripcion,precio) VALUES (?,?,?,?)";
-		jdbcTemplate.update(sql, new Object[] {prod.getNombre(),prod.getImagen(),prod.getDesripcion(),prod.getPrecio()});
+		jdbcTemplate.update(sql, new Object[] {prod.getNombre(),prod.getImagen(),prod.getDescripcion(),prod.getPrecio()});
 		
 	}
 
