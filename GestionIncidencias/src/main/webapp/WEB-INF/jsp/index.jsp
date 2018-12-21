@@ -1,8 +1,8 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
- 	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> 
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -57,6 +57,66 @@
 		<button class="btn btn-lg btn-success btn-block" type="submit">Sign
 			in</button>
 		<p class="mt-5 mb-3 text-muted">&copy; 2017-2018 Mikel Gil</p>
+
+		<div class="card">
+			<div class="card-header">Usuarios</div>
+			<div class="card-body text-left">
+				<ul style="font-size: 12px">
+					<li>Email: antxon@aa.com</li>
+					<li>Pass: 123456</li>
+					<li>Rol: Usuario normal</li>
+				</ul>
+				<ul style="font-size: 12px">
+					<li>Email: joxepo@bb.com</li>
+					<li>Pass: 654321</li>
+					<li>Rol: Administrador</li>
+				</ul>
+			</div>
+		</div>
+		<br />
+		<div class="card">
+			<div class="card-header">Usuario normal</div>
+			<div class="card-body text-left">
+				<h5 style="font-size: 14px">Done</h5>
+				<ul style="font-size: 12px">
+					<li>Listar mis incidencias</li>
+					<li>Ver incidencias completas</li>
+					<li>Crear nueva incidencia</li>
+					<li>Cerrar incidencia</li>
+				</ul>
+			</div>
+			<div class="card-footer text-left">
+				<h5 style="font-size: 14px">To do</h5>
+				<ul style="font-size: 12px">
+					<li>Modificar incidencia</li>
+				</ul>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-header">Administrador</div>
+			<div class="card-body text-left">
+				<h5 style="font-size: 14px">Done</h5>
+				<ul style="font-size: 12px">
+					<li>Listar todas las incidencias</li>
+					<li>Ver incidencias completas</li>
+					<li>Cerrar incidencia</li>
+					<li>Buscador incidencia por id</li>
+					<li>Buscador incidencia por estado</li>
+					<li>Buscador incidencia por usuario</li>
+					<li>Listar usuarios</li>
+					<li>Crear usuario</li>
+				</ul>
+			</div>
+			<div class="card-footer text-left">
+				<h5 style="font-size: 14px">To do</h5>
+				<ul style="font-size: 12px">
+					<li>Modificar incidencias</li>
+					<li>Mostrar historicos?</li>
+					<li>Modificar usuarios</li>
+					<li>Borrar usuarios</li>
+				</ul>
+			</div>
+		</div>
 	</form>
 </body>
 </html>
