@@ -23,7 +23,7 @@
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li><a href="#">Pagina Principal <span class="sr-only">(current)</span></a></li>
-					<li><a href="#">Mantenimiento Productos</a></li>
+					<li><a href="mantenimiento.jsp">Mantenimiento Productos</a></li>
 					<li><a href="#">Mantenimiento Productos Remotos</a></li>
 				</ul>
 				

@@ -34,18 +34,7 @@ public class UsuarioMySqlJdbcTemplateRepository implements CrudAble{
 				new ProductoMapper());
 		}
 
-	@Override
-	public Long insert(Object t) {
-		return jdbcTemplate.queryForObject("call insertar(?)",
-				new Object[] { producto.getNombre() }, Long.class);
-	}
-
-	@Override
-	public void update(Producto producto) {
-		jdbcTemplate.update("call modificar(?,?)",
-				new Object[] { producto.getNombre(), producto.getId() });
-		
-	}
+	
 
 	@Override
 	public void delete(Long id) {
@@ -63,6 +52,12 @@ public class UsuarioMySqlJdbcTemplateRepository implements CrudAble{
 	public void update(Object t) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Long insert(Object t) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
