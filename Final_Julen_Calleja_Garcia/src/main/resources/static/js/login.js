@@ -17,7 +17,7 @@ $(function() {
 			data : JSON.stringify(usuario),
 			contentType : 'application/json; charset=UTF-8'
 		}).done(function() {
-			location.href = "listadoproductos.html"
+			location.href = "listado.html"
 			
 		});
 	});
