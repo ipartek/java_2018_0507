@@ -1,60 +1,39 @@
 $(function() {
-	cargarEditoriales();
+	cargarProductos();
 	
 	$('form').submit(function(e) {
 		e.preventDefault();
 		
-		var editorialid = $('#id').val();
-		var editorialnombre = $('#nombre').val();
-		var metodo = editorialid == 0 ? 'POST' : 'PUT';
+		var productoid = $('#id').val();
+		var productonombre = $('#nombre').val();
+		var productoimagen = $('#imagen').val();
+		var productodescripcion = $('#descripcion').val();
+		var productoprecio = $('#precio').val();
+
+		var metodo = productoid == 0 ? 'POST' : 'PUT';
 		
 		$.ajax({
-			url: '/api/editoriales',
+			url: '/api/productos',
 			method: metodo,
-			data: JSON.stringify({ id: editorialid, nombre: editorialnombre }),
+			data: JSON.stringify({ id: productoid, nombre: productonombre, imagen: productoimagen, descripcion: productodescripcion, precio: productoprecio }),
 			contentType: 'application/json; charset=UTF-8'
 		}).success(function() {
 			cargarEditoriales();
 			$('#nombre').val('');
 			$('#id').val(0);
+			$('#imagen').val('');
+			$('descripcion').val('');
+			$('#precio').val('');
 		});
 	});
 });
 
 function cargarEditoriales() {
-	$.getJSON('/api/editoriales', function(editoriales) {
-		console.log(editoriales);
+	$.getJSON('/api/productos', function(productos) {
+		console.log(productos);
 		
-		mostrarEditoriales(editoriales);
+		mostrarProductos(productos);
 	});
 }
 
-function mostrarEditoriales(editoriales) {
-	$('tbody').empty();
-	$(editoriales).each(function() {
-		$('tbody').append(
-				'<tr><th>' + this.id + "</th><td>" + this.nombre + '</td>' +
-				'<td>' + 
-				'<a href="javascript:editar(' + this.id + ')">Editar</a> ' +
-				'<a href="javascript:borrar(' + this.id + ')">Borrar</a>' +
-				'</tr>' );
-	});
-}
-
-function editar(id) {
-	$.getJSON('/api/editoriales/' + id, function(editorial) {
-		$('#id').val(editorial.id);
-		$('#nombre').val(editorial.nombre);
-	});
-}
-
-function borrar(id) {
-	if(confirm('¿Estás seguro de borrar la editorial ' + id)) {
-		$.ajax({
-			url: '/api/editoriales/' + id,
-			method: 'DELETE',
-		}).success(function() {
-			cargarEditoriales();
-		});
-	}
 }

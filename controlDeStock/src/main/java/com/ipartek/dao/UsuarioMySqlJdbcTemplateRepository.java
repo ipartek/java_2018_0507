@@ -1,11 +1,15 @@
 package com.ipartek.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.ipartek.modelos.Producto;
 import com.ipartek.modelos.Usuario;
 
 @Repository
@@ -18,8 +22,6 @@ public class UsuarioMySqlJdbcTemplateRepository implements CrudAble{
 		return new Usuario();
 	}
 
-	
-
 	@Override
 	public List getAll() {
 		// TODO Auto-generated method stub
@@ -28,24 +30,37 @@ public class UsuarioMySqlJdbcTemplateRepository implements CrudAble{
 
 	@Override
 	public Object getById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		return jdbcTemplate.queryForObject("call getById(?)", new Object[] { id },
+				new ProductoMapper());
+		}
 
 	@Override
 	public Long insert(Object t) {
-		// TODO Auto-generated method stub
-		return null;
+		return jdbcTemplate.queryForObject("call insertar(?)",
+				new Object[] { producto.getNombre() }, Long.class);
 	}
 
 	@Override
-	public void update(Object t) {
-		// TODO Auto-generated method stub
+	public void update(Producto producto) {
+		jdbcTemplate.update("call modificar(?,?)",
+				new Object[] { producto.getNombre(), producto.getId() });
 		
 	}
 
 	@Override
 	public void delete(Long id) {
+		jdbcTemplate.update("call borrar(?)", new Object[] { id });
+		
+	}
+	
+	private static final class ProductoMapper implements RowMapper<Producto> {
+		public Producto mapRow(ResultSet rs, int rowNum) throws SQLException {
+			return new Producto(rs.getInt("idproducto"), rs.getString("nombre"), rs.getString("imagen"), rs.getString("descripcion"),  rs.getLong("precio"));
+		}
+	}
+
+	@Override
+	public void update(Object t) {
 		// TODO Auto-generated method stub
 		
 	}
